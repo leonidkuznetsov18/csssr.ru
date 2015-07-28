@@ -1,0 +1,27 @@
+@import 'helpers';
+
+.language {
+	display: block;
+	font-family: "PT Sans Narrow";
+	font-size: 15px;
+	line-height: 25px;
+	text-transform: uppercase;
+	z-index: 2;
+
+	&__link {
+		margin-top: 3px;
+		padding: 0px 5px;
+		margin-left: 3px;
+		display: inline-block;
+		text-decoration: underline;
+		color: var(--color-language);
+
+		&_active {
+			color: var(--color-link);
+			text-decoration: none;
+			background-color: var(--color-language);
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+}

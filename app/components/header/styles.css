@@ -1,0 +1,24 @@
+@import 'helpers';
+
+.header {
+	width: 97%;
+	height: 142px;
+	margin: 0px auto;
+	background-image: url('../../images/background/header.jpg');
+	background-color: var(--color-header);
+	position: relative;
+	z-index: 2;
+	box-shadow: -26px 15px color(var(--color-header-shadow) a(37%));
+	user-select: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2.2% 13px;
+
+	&__logo {
+		min-width: 94px;
+		width: 9.4%;
+		display: inline-block;
+		margin-top: 4px;
+	}
+}

@@ -11,6 +11,7 @@ module.exports = function(options) {
 	var loaders = {
 		'json': 'json',
 		'png|jpg': 'url?limit=5000',
+		'woff|woff2': 'url?limit=0',
 		'svg': 'raw'
 	};
 	var stylesheetLoaders = {
