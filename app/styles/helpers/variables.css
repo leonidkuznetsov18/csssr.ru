@@ -1,0 +1,25 @@
+/* Color definitions
+** Use this service to retrieve color names:
+** http://www.color-blindness.com/color-name-hue
+*/
+
+:root {
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-red-brick: #AA2F23;
+	--color-green-dark: #022231;
+	--color-orange-dark: #FDB00A;
+	--color-brown-maroon: #591200;
+	--color-brown-wheat: #F6E1BA;
+	--color-brown-chocolate: #D5721B;
+	--color-brown-dough: #C4B18F;
+
+	--color-header: var(--color-red-brick);
+	--color-header-shadow: var(--color-green-dark);
+	--color-menu: var(--color-brown-wheat);
+	--color-menu-shadow: var(--color-brown-dough);
+	--color-menu-active: var(--color-orange-dark);
+	--color-menu-active-shadow: var(--color-brown-chocolate);
+	--color-language: var(--color-orange-dark);
+	--color-link: var(--color-brown-maroon);
+}
