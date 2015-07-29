@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import './styles.css';
 
 export default class Icon extends React.Component {
 	static propTypes = {
@@ -9,10 +8,8 @@ export default class Icon extends React.Component {
 
 	render() {
 		const icon = require(`images/icons/${this.props.icon}.svg`);
-		const className = 'icon ' + this.props.className;
 		return (
 			<div {...this.props}
-				className={className}
 				dangerouslySetInnerHTML={{__html: icon}}
 			/>
 		);
