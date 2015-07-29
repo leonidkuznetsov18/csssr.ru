@@ -4,12 +4,15 @@
 .application {
 	padding-top: 35px;
 	background: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px) no-repeat scroll 0% 0% / 100% 2000px, #043351 url('../../images/background/page.jpg') repeat scroll 0% 0%;
-	height: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	&__inner {
 		min-width: 1000px;
 		max-width: 1300px;
 		margin-left: auto;
 		margin-right: auto;
+		flex-grow: 1;
 	}
 }

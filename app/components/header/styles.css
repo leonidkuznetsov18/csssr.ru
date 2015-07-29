@@ -2,6 +2,7 @@
 
 .header {
 	width: 97%;
+	max-width: 1261px;
 	height: 142px;
 	margin: 0px auto;
 	background-image: url('../../images/background/header.jpg');

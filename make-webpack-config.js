@@ -12,7 +12,6 @@ module.exports = function(options) {
 		'json': 'json',
 		'png|jpg': 'url?limit=5000',
 		'woff|woff2': 'url?limit=1',
-		'svg': 'raw'
 	};
 	var stylesheetLoaders = {
 		'css': [
@@ -25,6 +24,13 @@ module.exports = function(options) {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loaders: options.hotComponents ? ['react-hot', 'babel'] : ['babel']
+		}, {
+			test: /\.svg$/,
+			exclude: /icons/,
+			loader: 'url?limit=10000'
+		}, {
+			test: /icons.+\.svg?$/,
+			loader: 'raw'
 		}
 	];
 	var output = {

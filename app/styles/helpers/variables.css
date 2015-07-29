@@ -9,6 +9,7 @@
 	--color-red-brick: #AA2F23;
 	--color-green-dark: #022231;
 	--color-orange-dark: #FDB00A;
+	--color-orange: #FDB00A;
 	--color-brown-maroon: #591200;
 	--color-brown-wheat: #F6E1BA;
 	--color-brown-chocolate: #D5721B;
@@ -22,4 +23,6 @@
 	--color-menu-active-shadow: var(--color-brown-chocolate);
 	--color-language: var(--color-orange-dark);
 	--color-link: var(--color-brown-maroon);
+	--color-footer-text: var(--color-brown-wheat);
+	--color-footer-link: var(--color-orange);
 }

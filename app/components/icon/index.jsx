@@ -8,10 +8,11 @@ export default class Icon extends React.Component {
 	}
 
 	render() {
-		const icon = require(`images/${this.props.icon}.svg`);
+		const icon = require(`images/icons/${this.props.icon}.svg`);
+		const className = 'icon ' + this.props.className;
 		return (
 			<div {...this.props}
-				className='icon'
+				className={className}
 				dangerouslySetInnerHTML={{__html: icon}}
 			/>
 		);

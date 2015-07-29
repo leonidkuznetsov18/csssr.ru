@@ -5,3 +5,11 @@
 	font-style: normal;
 	font-weight: normal;
 }
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url(../../../static/fonts/ptsanswebregular.woff2) format('woff2'),
+	     url(../../../static/fonts/ptsanswebregular.woff) format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
