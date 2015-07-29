@@ -12,7 +12,9 @@ export default class Layout extends React.Component {
 	render() {
 		return (
 			<html>
-				<Head/>
+				<Head>
+					<link rel='stylesheet' href={this.props.style} />
+				</Head>
 				<body>
 					<div id='content' dangerouslySetInnerHTML={{__html: this.props.content}} />
 

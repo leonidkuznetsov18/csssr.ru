@@ -12,7 +12,7 @@ var publicPath = stats.publicPath;
 var ASSETS = path.join(__dirname, '..', 'static');
 var ASSETS_BUILD = path.join(__dirname, '..', 'build', 'public');
 var SCRIPT_URL = publicPath + [].concat(stats.assetsByChunkName.main)[0];
-var STYLE = (app.get('env') === 'production') ? fs.readFileSync(ASSETS_BUILD + '/main.css', 'utf-8') : '';
+var STYLE = '/_assets/main.css';
 app.use(compression());
 
 app.use('/_assets', express.static(ASSETS_BUILD, {
@@ -24,7 +24,6 @@ app.get('/*.*', express.static(ASSETS, {
 }));
 
 app.get('/*', function(request, response) {
-	var route = request.path;
 	var renderApplication;
 	var content;
 	var layout;
@@ -33,7 +32,7 @@ app.get('/*', function(request, response) {
 
 	if (app.get('env') === 'production') {
 		renderApplication = require('../build/prerender/main.js');
-		content = renderApplication(route);
+		content = renderApplication(request);
 		style = STYLE;
 	}
 

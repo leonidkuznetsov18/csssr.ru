@@ -11,7 +11,7 @@ module.exports = function(options) {
 	var loaders = {
 		'json': 'json',
 		'png|jpg': 'url?limit=5000',
-		'woff|woff2': 'url?limit=0',
+		'woff|woff2': 'url?limit=1',
 		'svg': 'raw'
 	};
 	var stylesheetLoaders = {
@@ -24,7 +24,7 @@ module.exports = function(options) {
 		{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
-			loaders: ['react-hot', 'babel']
+			loaders: options.hotComponents ? ['react-hot', 'babel'] : ['babel']
 		}
 	];
 	var output = {
@@ -83,7 +83,9 @@ module.exports = function(options) {
 			loader = loader.join('!');
 		}
 
-		if (options.separateStylesheet) {
+		if (options.prerender) {
+			stylesheetLoaders[ext] = 'null';
+		} else if (options.separateStylesheet) {
 			stylesheetLoaders[ext] = ExtractTextPlugin.extract('style', loader);
 		} else {
 			stylesheetLoaders[ext] = 'style!' + loader;
