@@ -32,7 +32,7 @@ export default class Footer extends React.Component {
 						/>
 						<Link
 							className='footer__link'
-							to=''
+							to='/vacancy.html'
 						>
 							Приглашаем на работу
 						</Link>
@@ -42,7 +42,7 @@ export default class Footer extends React.Component {
 					<div className='footer__links'>
 						<Link
 							className='footer__link'
-							to=''
+							to='http://csssrvice.reformal.ru/'
 						>
 							Отзывы и предложения
 						</Link>
@@ -58,7 +58,7 @@ export default class Footer extends React.Component {
 						© 2011—2015 «
 						<Link
 							className='footer__link'
-							to='http://csssr.ru'
+							to='/'
 						>
 							CSSSR
 						</Link>
