@@ -1,0 +1,72 @@
+@import 'helpers';
+
+.menu-item {
+	font-family: 'PT Sans Narrow';
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 40px;
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+
+	@media (--wide) {
+		font-size: 20px;
+	}
+
+	&::after {
+		position: absolute;
+		top: 40px;
+		left: 6px;
+		width: 102%;
+		height: 6px;
+		transform: skew(45deg);
+		transform-origin: 0px 100% 0px;
+		content: '';
+		background-color: var(--color-menu-shadow);
+	}
+
+	&__arrow {
+		position: absolute;
+		left: 50%;
+		bottom: -15px;
+		border-width: 8px 7px 7px;
+		border-style: solid;
+		border-color: #FDB00A transparent transparent;
+		margin-left: -7px;
+		z-index: 1;
+		box-shadow: 0px -3px #FDB00A;
+		display: none;
+
+		&::before {
+			position: absolute;
+			top: -10px;
+			left: 0px;
+			width: 7px;
+			height: 10px;
+			background-color: #D5721B;
+			border-left: 1px solid #D5721B;
+			transform: rotate(42deg);
+			transform-origin: 0px 100% 0px;
+			content: '';
+		}
+	}
+
+
+	&:hover,
+	&_state_active {
+		background-color: var(--color-menu-active);
+
+		&::after {
+			background-color: var(--color-menu-active-shadow);
+		}
+	}
+
+	&_state_active &__arrow {
+		display: block;
+	}
+}

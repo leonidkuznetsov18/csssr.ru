@@ -1,7 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router';
+import MenuItem from 'components/menu-item';
 
 import './styles.css';
+
+const menu = [
+	{
+		text: 'Компания',
+		href: '/company.html'
+	},
+	{
+		text: 'Вакансии',
+		href: '/vacancy.html'
+	},
+	{
+		text: 'Вёрстка проекта',
+		href: '/order.html'
+	},
+	{
+		text: 'FrontEnd аутсорсинг',
+		href: '/outsource.html'
+	},
+	{
+		text: 'Портфолио',
+		href: '/portfolio.html'
+	},
+	{
+		text: 'Контакты',
+		href: '/offert.html'
+	}
+];
 
 export default class Menu extends React.Component {
 	render() {
@@ -9,36 +36,11 @@ export default class Menu extends React.Component {
 			<nav className='menu'>
 				<ul className='menu__list'>
 					<li className='menu__item menu__item_fix'/>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/company.html'>
-							Компания
-						</Link>
-					</li>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/vacancy.html'>
-							Вакансии
-						</Link>
-					</li>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/order.html'>
-							Вёрстка проекта
-						</Link>
-					</li>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/outsource.html'>
-							FrontEnd аутсорсинг
-						</Link>
-					</li>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/portfolio.html'>
-							Портфолио
-						</Link>
-					</li>
-					<li className='menu__item'>
-						<Link className='menu__link' to='/'>
-							Контакты
-						</Link>
-					</li>
+					{menu.map(item => (
+						<li className='menu__item' key={item.href}>
+							<MenuItem {...item} />
+						</li>
+					))}
 					<li className='menu__item menu__item_fix'/>
 				</ul>
 
