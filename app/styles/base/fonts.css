@@ -13,3 +13,19 @@
 	font-style: normal;
 	font-weight: normal;
 }
+
+@font-face {
+	font-family: 'Roboto';
+	src: url(../../../static/fonts/robotoregular.woff2) format('woff2'),
+	     url(../../../static/fonts/robotoregular.woff) format('woff');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url(../../../static/fonts/robotolight.woff2) format('woff2'),
+	     url(../../../static/fonts/robotolight.woff) format('woff');
+	font-style: normal;
+	font-weight: 300;
+}

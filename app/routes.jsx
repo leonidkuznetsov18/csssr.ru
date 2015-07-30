@@ -16,7 +16,8 @@ export default (
 		<Route path='/vacancy.html' name='vacancy' component={Vacancy} />
 		<Route path='/order.html' name='order' component={Order} />
 		<Route path='/outsource.html' name='outsource' component={Outsource} />
-		<Route path='/offert.html' name='offert' component={Offert} />
 		<Route path='/portfolio.html' name='portfolio' component={Portfolio} />
+		<Route path='/offert.html' name='offert' component={Offert} />
+		<Route path='/confidential.html' name='confidential' component={Offert} />
 	</Route>
 );
