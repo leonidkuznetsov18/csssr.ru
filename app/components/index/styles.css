@@ -1,0 +1,45 @@
+.index {
+	width: 91.538%;
+	max-width: 1190px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+
+	&__header {
+		width: 361px;
+		height: 92px;
+		margin: 0 auto;
+	}
+
+	&__rocket {
+		position: absolute;
+		width: 7.5%;
+		height: 321px;
+		top: 109px;
+		left: 4%;
+		transform: translate3d(0, 0, 0);
+		will-change: transform;
+		backface-visibility: hiddn;
+	}
+
+	&__services {
+		padding-top: 97px;
+		padding-left: 10%;
+		padding-right: 10%;
+		display: flex;
+		position: relative;
+	}
+
+	&__service {
+		padding-left: 70px;
+	}
+
+	&__satellite {
+		position: absolute;
+		top: -7px;
+		width: 33%;
+		right: 210px;
+		pointer-events: none;
+	}
+}

@@ -1,4 +1,28 @@
 @font-face {
+	font-family: 'PT Sans';
+	src: url(../../../static/fonts/ptsanswebregular.woff2) format('woff2'),
+	     url(../../../static/fonts/ptsanswebregular.woff) format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url(../../../static/fonts/ptsanswebbold.woff2) format('woff2'),
+	     url(../../../static/fonts/ptsanswebbold.woff) format('woff');
+	font-style: normal;
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'RodchenkoCTT';
+	src: url(../../../static/fonts/rodchenkoctt.woff2) format('woff2'),
+	     url(../../../static/fonts/rodchenkoctt.woff) format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
 	font-family: 'PT Sans Narrow';
 	src: url(../../../static/fonts/ptsansnarrowwebregular.woff2) format('woff2'),
 	     url(../../../static/fonts/ptsansnarrowwebregular.woff) format('woff');
@@ -7,11 +31,11 @@
 }
 
 @font-face {
-	font-family: 'PT Sans';
-	src: url(../../../static/fonts/ptsanswebregular.woff2) format('woff2'),
-	     url(../../../static/fonts/ptsanswebregular.woff) format('woff');
+	font-family: 'Roboto';
+	src: url(../../../static/fonts/robotolight.woff2) format('woff2'),
+	     url(../../../static/fonts/robotolight.woff) format('woff');
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 300;
 }
 
 @font-face {
@@ -24,8 +48,8 @@
 
 @font-face {
 	font-family: 'Roboto';
-	src: url(../../../static/fonts/robotolight.woff2) format('woff2'),
-	     url(../../../static/fonts/robotolight.woff) format('woff');
+	src: url(../../../static/fonts/robotobold.woff2) format('woff2'),
+	     url(../../../static/fonts/robotobold.woff) format('woff');
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 700;
 }

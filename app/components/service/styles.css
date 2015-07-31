@@ -1,0 +1,30 @@
+.service {
+	color: #F2EBDA;
+
+	&__title {
+		font-family: 'RodchenkoCTT';
+		font-size: 36px;
+		text-transform: uppercase;
+		line-height: 39px;
+		color: #F0E4CC;
+		letter-spacing: 1px;
+	}
+
+	&__subtitle {
+		font-family: 'Roboto';
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 24px;
+		margin-bottom: 25px;
+		margin-top: 12px;
+	}
+
+	&__text {
+		font-family: 'Roboto';
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 25px;
+		margin: 40px 0px 0px;
+		color: #B2BAB7;
+	}
+}
