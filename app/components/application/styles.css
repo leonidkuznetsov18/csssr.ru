@@ -3,7 +3,10 @@
 
 .application {
 	padding-top: 35px;
-	background: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px) no-repeat scroll 0% 0% / 100% 2000px, #043351 url('../../images/background/page.jpg') repeat scroll 0% 0%;
+	background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
+	background-color: #043351;
+	background-size: 100% 2000px, auto;
+	background-repeat: no-repeat, repeat;
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
