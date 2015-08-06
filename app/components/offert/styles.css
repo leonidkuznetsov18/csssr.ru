@@ -51,13 +51,5 @@
 		strong {
 			font-weight: 700;
 		}
-
-		a {
-			color: #056383;
-
-			&:hover {
-				color: #DF0B0B;
-			}
-		}
 	}
 }

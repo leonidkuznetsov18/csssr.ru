@@ -10,3 +10,11 @@ body {
 #content {
 	height: 100%;
 }
+
+a {
+	color: #056383;
+
+	&:hover {
+		color: #DF0B0B;
+	}
+}
