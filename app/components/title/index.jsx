@@ -5,12 +5,12 @@ import './styles.css';
 
 export default class Title extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.node,
+		children: React.PropTypes.string,
 		size: React.PropTypes.string
 	}
 
 	render() {
-		const { size } = this.props;
+		const { size, children } = this.props;
 		const classList = cx({
 			title: true,
 			title_size_medium: size === 'medium',
@@ -18,9 +18,9 @@ export default class Title extends React.Component {
 		});
 
 		return (
-			<h1 className={classList}>
-				{this.props.children}
-			</h1>
+			<h1 className={classList}
+				dangerouslySetInnerHTML={{__html: children}}
+			/>
 		);
 	}
 }

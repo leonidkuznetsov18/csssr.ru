@@ -1,6 +1,5 @@
 import React from 'react';
-import Title from 'components/title';
-import Text from 'components/text';
+import Section from 'components/section';
 
 import './styles.css';
 
@@ -12,14 +11,7 @@ export default class CompanyAbout extends React.Component {
 			<div className='company-about'>
 				{data.map(group => (
 					<div className='company-about__group'>
-						<Title {...group.title.props}>
-							{group.title.text}
-						</Title>
-						{[].concat(group.description).map(paragraph => (
-							<Text {...paragraph.props}>
-								{paragraph.text}
-							</Text>
-						))}
+						<Section {...group} />
 					</div>
 				))};
 			</div>

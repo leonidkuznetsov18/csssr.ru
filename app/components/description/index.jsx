@@ -3,6 +3,7 @@ import Airship from 'components/airship';
 import Icon from 'components/icon';
 import Parallax from 'components/parallax';
 import Workflow from 'components/workflow';
+import Text from 'components/text';
 import './styles.css';
 
 const data = require('data/description.json');
@@ -38,7 +39,9 @@ export default class Description extends React.Component {
 							<h2 className='description__title'
 								dangerouslySetInnerHTML={{__html: item.title}}
 							/>
-							<p className='description__text' dangerouslySetInnerHTML={{__html: item.description}}/>
+							<Text size='small'>
+								{item.description}
+							</Text>
 						</div>
 					))}
 				</div>

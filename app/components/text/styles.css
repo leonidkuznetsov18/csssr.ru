@@ -12,6 +12,11 @@
 	}
 
 	&_size_small {
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	&_size_extrasmall {
 		font-size: 12px;
 		line-height: 19px;
 	}

@@ -21,8 +21,8 @@ export default class Comment extends React.Component {
 					</a>
 					, {company}
 				</div>
-				<Text size='small'>
-					<span dangerouslySetInnerHTML={{__html: text}}/>
+				<Text size='extrasmall'>
+					{text}
 				</Text>
 			</div>
 		);

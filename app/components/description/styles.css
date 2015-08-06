@@ -86,14 +86,6 @@
 		width: 200px;
 	}
 
-	&__text {
-		font-family: 'Roboto';
-		font-weight: 300;
-		font-size: 14px;
-		color: #333;
-		line-height: 22px;
-	}
-
 	&__flow {
 		position: relative;
 		margin-top: 70px;
