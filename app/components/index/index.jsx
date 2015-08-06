@@ -38,11 +38,11 @@ export default class Index extends React.Component {
 						/>
 					</div>
 				</div>
-				<div className='index__content'>
-					<Content hole={true}>
+				<Content hole={true}>
+					<div className='index__content'>
 						<Description/>
-					</Content>
-				</div>
+					</div>
+				</Content>
 			</div>
 		);
 	}

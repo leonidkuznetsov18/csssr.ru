@@ -1,0 +1,23 @@
+.company-info {
+	padding-bottom: 120px;
+
+	&__rocket {
+		width: 692px;
+		height: 706px;
+		margin-top: 53px;
+		margin-right: 30px;
+		background-image: url('../../images/background/rocket.png');
+		background-repeat: no-repeat;
+		margin-bottom: 50px;
+		padding-top: 100px;
+		padding-left: 51%;
+	}
+
+	&__rocket-count {
+		width: 76px;
+		height: 76px;
+		margin-top: -89px;
+		margin-left: -38px;
+		position: absolute;
+	}
+}

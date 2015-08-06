@@ -1,0 +1,18 @@
+.text {
+	font-size: 16px;
+	line-height: 27px;
+	font-family: 'Roboto';
+	font-weight: 300;
+	color: #333333;
+	margin-bottom: 10px;
+
+	&_size_medium {
+		font-size: 15px;
+		line-height: 21px;
+	}
+
+	&_size_small {
+		font-size: 12px;
+		line-height: 19px;
+	}
+}

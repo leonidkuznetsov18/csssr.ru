@@ -1,0 +1,35 @@
+.comments {
+	position: relative;
+	margin-left: -27px;
+	padding-left: 114px;
+	min-height: 80px;
+	background-image: url('../../images/background/horn.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	transition: height .5s ease;
+
+	&__link {
+		font-size: 12px;
+		line-height: 15px;
+		font-family: 'Roboto';
+		font-weight: 300;
+		text-decoration: none;
+		border-bottom: 1px dotted #056383;
+		position: absolute;
+		left: -96px;
+		top: 33px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	&__item {
+		position: absolute;
+		top: 0;
+		opacity: 0;
+		transition: opacity .5s ease;
+
+		&_state_active {
+			opacity: 1;
+		}
+	}
+}

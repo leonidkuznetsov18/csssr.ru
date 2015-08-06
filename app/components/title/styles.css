@@ -1,0 +1,21 @@
+.title {
+	font-size: 35px;
+	line-height: 1;
+	font-family: 'PT Sans Narrow';
+	color: #6A0005;
+	margin-bottom: 20px;
+
+	&_size_medium {
+		font-size: 24px;
+		margin-bottom: 11px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	&_size_small {
+		letter-spacing: 1px;
+		font-size: 15px;
+		margin-bottom: 9px;
+		text-transform: uppercase;
+	}
+}

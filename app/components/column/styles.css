@@ -1,0 +1,21 @@
+.column {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 15px;
+
+	&_size_one-third {
+		width: 33.333%;
+	}
+
+	&_size_two-third {
+		width: 66.666%;
+	}
+
+	&_size_half {
+		width: 50%
+	}
+
+	&_offset_one-third {
+		margin-left: 33.333%;
+	}
+}
