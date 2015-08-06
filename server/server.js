@@ -2,17 +2,22 @@ import React from 'react';
 import fs from 'fs';
 import express from 'express';
 import path from 'path';
-import stats from '../build/stats.json';
 import compression from 'compression';
 import Layout from '../app/components/layout';
 
 var	app = express();
+var isProduction = app.get('env') === 'production';
 var	port = +(process.env.PORT || 3000);
-var publicPath = stats.publicPath;
+var publicPath = isProduction ? '/_assets/' : '//localhost:2992/_assets/';
 var ASSETS = path.join(__dirname, '..', 'static');
 var ASSETS_BUILD = path.join(__dirname, '..', 'build', 'public');
-var SCRIPT_URL = publicPath + [].concat(stats.assetsByChunkName.main)[0];
+var SCRIPT_URL = publicPath + 'main.js';
 var STYLE = '/_assets/main.css';
+var renderApplication;
+
+if (isProduction) {
+	renderApplication = require('../build/prerender/main.js');
+}
 app.use(compression());
 
 app.use('/_assets', express.static(ASSETS_BUILD, {
@@ -24,14 +29,12 @@ app.get('/*.*', express.static(ASSETS, {
 }));
 
 app.get('/*', function(request, response) {
-	var renderApplication;
 	var content;
 	var layout;
 	var application;
 	var style;
 
-	if (app.get('env') === 'production') {
-		renderApplication = require('../build/prerender/main.js');
+	if (isProduction) {
 		content = renderApplication(request);
 		style = STYLE;
 	}

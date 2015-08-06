@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var StatsPlugin = require('stats-webpack-plugin');
 var loadersByExtension = require('./utils/loadersByExtension');
 
 module.exports = function(options) {
@@ -42,35 +41,12 @@ module.exports = function(options) {
 		libraryTarget: options.prerender ? 'commonjs2' : undefined,
 		pathinfo: options.debug || options.prerender
 	};
-	var excludeFromStats = [
-		/node_modules[\\\/]react(-router)?[\\\/]/
-	];
 	var plugins = [
-		function() {
-			if (options.prerender) {
-				return;
-			}
-			this.plugin('done', function(stats) {
-				var jsonStats = stats.toJson({
-					chunkModules: true,
-					exclude: excludeFromStats
-				});
-				jsonStats.publicPath = publicPath;
-				require('fs').writeFileSync(path.join(__dirname, 'build', 'stats.json'), JSON.stringify(jsonStats));
-			});
-		},
 		new webpack.PrefetchPlugin('react'),
 		new webpack.PrefetchPlugin('react/lib/ReactComponentBrowserEnvironment')
 	];
 
 	if (options.prerender) {
-		var statsPath = path.join(__dirname, 'build', 'stats.json');
-
-		plugins.push(new StatsPlugin(statsPath, {
-			chunkModules: true,
-			exclude: excludeFromStats
-		}));
-
 		plugins.push(
 			new webpack.optimize.LimitChunkCountPlugin({
 				maxChunks: 1
@@ -129,9 +105,6 @@ module.exports = function(options) {
 		module: {
 			loaders: loaders
 		},
-		stylus: {
-			use: [require('rupture')()]
-		},
 		devtool: options.devtool,
 		debug: options.debug,
 		resolveLoader: {
@@ -160,11 +133,5 @@ module.exports = function(options) {
 			})
 		],
 		plugins: plugins,
-		devServer: {
-			stats: {
-				cached: false,
-				exclude: excludeFromStats
-			}
-		}
 	};
 };
