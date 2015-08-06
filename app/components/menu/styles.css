@@ -44,7 +44,6 @@
 		text-transform: uppercase;
 		display: flex;
 		align-items: center;
-		color: var(--color-link);
 		position: relative;
 
 		&_fix {

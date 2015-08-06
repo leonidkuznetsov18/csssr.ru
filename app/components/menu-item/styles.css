@@ -12,6 +12,7 @@
 	text-align: center;
 	cursor: pointer;
 	color: inherit;
+	color: var(--color-link);
 	text-decoration: none;
 
 	@media (--wide) {
@@ -59,6 +60,7 @@
 
 	&:hover,
 	&_state_active {
+		color: var(--color-link);
 		background-color: var(--color-menu-active);
 
 		&::after {
