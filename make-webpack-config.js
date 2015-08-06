@@ -10,7 +10,7 @@ module.exports = function(options) {
 	var loaders = {
 		'json': 'json',
 		'png|jpg': 'url?limit=5000',
-		'woff|woff2': 'url?limit=1',
+		'woff|woff2': 'url?limit=1'
 	};
 	var stylesheetLoaders = {
 		'css': [
@@ -18,6 +18,7 @@ module.exports = function(options) {
 			'postcss'
 		]
 	};
+	var entry = [];
 	var additionalLoaders = [
 		{
 			test: /\.jsx?$/,
@@ -42,8 +43,8 @@ module.exports = function(options) {
 		pathinfo: options.debug || options.prerender
 	};
 	var plugins = [
-		new webpack.PrefetchPlugin('react'),
-		new webpack.PrefetchPlugin('react/lib/ReactComponentBrowserEnvironment')
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin()
 	];
 
 	if (options.prerender) {
@@ -96,10 +97,17 @@ module.exports = function(options) {
 		.concat(loadersByExtension(loaders))
 		.concat(loadersByExtension(stylesheetLoaders));
 
+	if (options.hotComponents) {
+		entry.push(
+			'webpack-dev-server/client?http://localhost:2992',
+			'webpack/hot/only-dev-server'
+		);
+	}
+
+	entry.push('./app/' + (options.prerender ? 'prerender' : 'app'));
+
 	return {
-		entry: [
-			'./app/' + (options.prerender ? 'prerender' : 'app')
-		],
+		entry: entry,
 		output: output,
 		target: options.prerender ? 'node' : 'web',
 		module: {
@@ -133,5 +141,13 @@ module.exports = function(options) {
 			})
 		],
 		plugins: plugins,
+		devServer: {
+			headers: {
+				'Access-Control-Allow-Origin': '*'
+			},
+			publicPath: publicPath,
+			port: 2992,
+			hot: true
+		}
 	};
 };
