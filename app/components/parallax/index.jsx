@@ -34,7 +34,6 @@ export default class Parallax extends React.Component {
 		const windowOffset = window.pageYOffset;
 		const { offset, speed } = this.props;
 		let position = (windowOffset - offset) * -1 * speed;
-
 		if (this.props.min !== undefined) {
 			position = Math.max(this.props.min, position);
 		}
@@ -48,7 +47,8 @@ export default class Parallax extends React.Component {
 
 	render() {
 		const style = {
-			transform: `translate3d(0, ${this.state.position}px, 0)`
+			transform: `translate3d(0, ${this.state.position}px, 0)`,
+			WebkitTransform: `translate3d(0, ${this.state.position}px, 0)`
 		};
 
 		return React.cloneElement(this.props.children, { style });
