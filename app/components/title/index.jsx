@@ -5,22 +5,38 @@ import './styles.css';
 
 export default class Title extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.string,
-		size: React.PropTypes.string
+		children: React.PropTypes.oneOfType([
+			React.PropTypes.string,
+			React.PropTypes.element
+		]),
+		size: React.PropTypes.string,
+		component: React.PropTypes.element
+	}
+
+	static defaultProps = {
+		component: 'h1'
 	}
 
 	render() {
-		const { size, children } = this.props;
-		const classList = cx({
+		const { size, children, component } = this.props;
+		const className = cx({
 			title: true,
 			title_size_medium: size === 'medium',
 			title_size_small: size === 'small'
 		});
+		const props = {
+			className
+		};
+		const childrenIsText = typeof children === 'string';
+		if (childrenIsText) {
+			props.dangerouslySetInnerHTML = {
+				__html: children
+			};
+		}
+		const child = childrenIsText ? null : children;
 
 		return (
-			<h1 className={classList}
-				dangerouslySetInnerHTML={{__html: children}}
-			/>
+			React.createElement(component, props, child)
 		);
 	}
 }
