@@ -37,6 +37,7 @@
 
 	&__service {
 		padding-left: 70px;
+		width: 50%;
 	}
 
 	&__satellite {
