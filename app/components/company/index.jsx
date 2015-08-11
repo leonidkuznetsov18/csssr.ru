@@ -16,12 +16,6 @@ export default class Company extends React.Component {
 	render() {
 		return (
 			<div className='company'>
-				<div className='company__inner'>
-					<Icon
-						className='company__header'
-						icon='mission'
-					/>
-				</div>
 				<Content>
 					<div className='company__content'>
 						<Row>
