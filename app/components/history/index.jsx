@@ -13,7 +13,7 @@ export default class History extends React.Component {
 		return (
 			<div className='history'>
 				<Title size='medium'>
-					<Link to='/timeline.html'>
+					<Link to='/timeline'>
 						{data.title}
 					</Link>
 				</Title>

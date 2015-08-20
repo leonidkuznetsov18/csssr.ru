@@ -32,7 +32,7 @@ export default class Footer extends React.Component {
 						/>
 						<Link
 							className='footer__link'
-							to='/vacancy.html'
+							to='/jobs'
 						>
 							Приглашаем на работу
 						</Link>

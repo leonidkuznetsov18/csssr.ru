@@ -6,27 +6,27 @@ import './styles.css';
 const menu = [
 	{
 		text: 'Компания',
-		href: '/company.html'
+		href: '/company'
 	},
 	{
 		text: 'Вакансии',
-		href: '/vacancy.html'
+		href: '/jobs'
 	},
 	{
 		text: 'Вёрстка проекта',
-		href: '/order.html'
+		href: '/order'
 	},
 	{
 		text: 'FrontEnd аутсорсинг',
-		href: '/outsource.html'
+		href: '/outsource'
 	},
 	{
 		text: 'Портфолио',
-		href: '/portfolio.html'
+		href: '/portfolio'
 	},
 	{
 		text: 'Контакты',
-		href: '/offert.html'
+		href: '/offert'
 	}
 ];
 

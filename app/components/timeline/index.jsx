@@ -4,7 +4,7 @@ export default class Vacancy extends React.Component {
 	render() {
 		return (
 			<div>
-				Vacancy
+				Timeline
 			</div>
 		);
 	}
