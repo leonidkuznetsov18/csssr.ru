@@ -1,0 +1,45 @@
+.vk-group {
+	position: relative;
+	width: 270px;
+	height: 402px;
+	background-color: #fff;
+
+	&__loader {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		width: 32px;
+		height: 32px;
+		transition-duration: .25s;
+		transition-property: opacity;
+		will-change: opacity;
+	}
+
+	&_state_active &__loader {
+		opacity: 0;
+	}
+
+	&__widget {
+		position: relative;
+		z-index: 2;
+		border: none;
+		display: block;
+		overflow: hidden;
+		width: 270px;
+		height: 402px;
+		pointer-events: none;
+		opacity: 0;
+		transition-duration: .25s;
+		transition-property: opacity;
+		will-change: opacity;
+	}
+
+	&_state_active &__widget {
+		pointer-events: all;
+		opacity: 1;
+	}
+}

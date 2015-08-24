@@ -1,6 +1,6 @@
 {
   "name": "csssr.ru",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "",
   "main": "app/app.jsx",
   "scripts": {
@@ -13,6 +13,7 @@
     "prod": "npm run webpack && npm run server"
   },
   "author": "Aleksandr Petrov @dzhiriki",
+  "private": true,
   "dependencies": {
     "array.prototype.find": "^1.0.0",
     "autoprefixer": "^5.2.0",

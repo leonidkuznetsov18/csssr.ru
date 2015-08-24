@@ -1,0 +1,27 @@
+.jobs {
+
+	&__header {
+		height: 250px;
+		background-image: url(../../images/background/work-everywhere.png);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+
+	&__container {
+		padding-top: 60px;
+		padding-bottom: 100px;
+		display: flex;
+	}
+
+	&__widget {
+		width: 33%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__content {
+		padding-right: 50px;
+		width: 67%;
+	}
+}

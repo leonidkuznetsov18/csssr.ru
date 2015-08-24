@@ -14,18 +14,20 @@ export default class Section extends React.Component {
 	}
 
 	render() {
-		const { title, description } = this.props;
+		const title = this.props.title;
+		const description = [].concat(this.props.description);
 
 		return (
 			<section className='section'>
 				<Title {...title.props}>
 					{title.text}
 				</Title>
-				{[].concat(description).map(paragraph => (
+				{description[0].text && description.map(paragraph => (
 					<Text {...paragraph.props}>
 						{paragraph.text}
 					</Text>
 				))}
+				{this.props.children}
 			</section>
 		);
 	}

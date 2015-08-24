@@ -1,0 +1,10 @@
+.jobs-staff {
+
+	&__section {
+		margin-top: 15px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}

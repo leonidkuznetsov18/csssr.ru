@@ -1,9 +1,9 @@
 .content {
-	background-image: url('../../images/background/content.jpg');
-	background-color: #ECDCC4;
-	width: 93%;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 150px;
-	position: relative;
+	width: 93%;
+	background-color: #ecdcc4;
+	background-image: url('../../images/background/content.jpg');
 }

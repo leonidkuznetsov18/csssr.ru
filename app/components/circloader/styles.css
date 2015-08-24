@@ -1,0 +1,21 @@
+.circloader {
+	margin-left: auto;
+	margin-right: auto;
+	width: 32px;
+	height: 32px;
+	clear: both;
+	border: 4px solid rgba(107, 0, 0, .25);
+	border-top: 4px solid #6b0000;
+	border-radius: 50%;
+	animation: circloader .6s infinite linear;
+}
+
+@keyframes circloader {
+	from {
+		transform: rotate(0deg)
+	}
+
+	to {
+		transform: rotate(359deg)
+	}
+}

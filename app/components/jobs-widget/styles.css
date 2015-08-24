@@ -1,0 +1,42 @@
+.jobs-widget {
+	position: relative;
+	z-index: 1;
+	width: 280px;
+
+	&__loader {
+		position: absolute;
+		z-index: 1;
+	}
+
+	&__layout {
+		position: relative;
+		z-index: 2;
+		padding: 5px;
+		height: 412px;
+		background-color: #fff;
+	}
+
+	&__hint {
+		position: relative;
+		z-index: 1;
+		padding-top: 33px;
+		padding-left: 25px;
+		height: 44px;
+	}
+
+	&__hint-arrow {
+		position: absolute;
+		top: 15px;
+		left: 0;
+		z-index: 1;
+		width: 18px;
+		height: 26px;
+	}
+
+	&__hint-text {
+		font-family: roboto;
+		font-size: 12px;
+		line-height: 1;
+		font-weight: lighter;
+	}
+}

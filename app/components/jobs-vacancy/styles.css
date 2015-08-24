@@ -1,0 +1,25 @@
+.jobs-vacancy {
+	padding-bottom: 10px;
+
+	&__item {
+		margin-top: 14px;
+
+		&:first {
+			margin-top: 0;
+		}
+	}
+
+	&__name {
+		font-family: 'roboto';
+		font-size: 17px;
+		font-weight: lighter;
+	}
+
+	&__hh {
+		margin-left: 8px;
+		display: inline-block;
+		vertical-align: middle;
+		width: 26px;
+		height: 17px;
+	}
+}

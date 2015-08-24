@@ -1,5 +1,7 @@
 .company-info {
 	padding-bottom: 120px;
+	padding-left: 35px;
+	padding-right: 35px;
 
 	&__rocket {
 		width: 692px;

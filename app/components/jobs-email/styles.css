@@ -1,0 +1,21 @@
+.jobs-email {
+	margin-top: 50px;
+
+	&__caption {
+		display: table;
+		font-family: 'roboto';
+		font-weight: lighter;
+		font-size: 12px;
+		color: #333;
+		line-height: 19px;
+	}
+
+	&__link {
+		display: table;
+		font-family: 'roboto';
+		font-weight: lighter;
+		font-size: 35px;
+		text-decoration: underline;
+		line-height: 26px;
+	}
+}

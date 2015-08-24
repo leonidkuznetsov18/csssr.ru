@@ -1,0 +1,25 @@
+[{
+	"name": "Верстальщик пиксель-перфекционист",
+	"url": "/jobs/pixel-perfectionist"
+}, {
+	"name": "Менеджер-технарь",
+	"url": "/jobs/technical-manager"
+}, {
+	"name": "React-разработчики",
+	"vacancies": [{
+		"name": "рядовой и старший",
+		"url": "//hh.ru/vacancy/14230373",
+		"hh": true
+	}]
+}, {
+	"name": "Angular-разработчики",
+	"vacancies": [{
+		"name": "рядовой и старший",
+		"url": "//hh.ru/vacancy/14230398",
+		"hh": true
+	}]
+}, {
+	"name": "Ассистент менеджера (тестировщик)",
+	"url": "//hh.ru/vacancy/13920660",
+	"hh": true
+}]
