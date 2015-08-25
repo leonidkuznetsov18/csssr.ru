@@ -12,20 +12,15 @@ export default class JobsStaff extends React.Component {
 		return (
 			<div className='jobs-staff'>
 				<Row>
-					<Column size={1 / 2}>
-						{data.slice(0, 3).map(group => (
-							<div className='jobs-staff__section'>
-								<Section { ...group } />
-							</div>
-						))}
-					</Column>
-					<Column size={1 / 2}>
-						{data.slice(3).map(group => (
-							<div className='jobs-staff__section'>
-								<Section { ...group } />
-							</div>
-						))}
-					</Column>
+					{[data.slice(0, 3), data.slice(3)].map(column => (
+						<Column size={1 / 2}>
+							{column.map(group => (
+								<div className='jobs-staff__section'>
+									<Section { ...group } />
+								</div>
+							))}
+						</Column>
+					))}
 				</Row>
 			</div>
 		);
