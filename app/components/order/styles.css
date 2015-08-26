@@ -1,0 +1,75 @@
+.order {
+	width: 100%;
+
+	&__title {
+		margin: 0 auto;
+		margin-top: 50px;
+		height: 106px;
+		width: 418px;
+		text-align: center;
+		background-image: url('../../images/background/verstka.svg');
+		background-repeat: no-repeat;
+		background-position: center -37px;
+	}
+
+	&__main {
+		position: relative;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 93%;
+		background-image: url('../../images/background/content.jpg');
+		background-color: #ecdcc4;
+		/* clearfix() */
+
+		&__short {
+			width: 34%;
+			position: absolute;
+			text-align: center;
+			padding-top: 125px;
+			height: 100%;
+
+			&-block {
+				width: 300px;
+				margin: 0 0 0 55px;
+				position: relative;
+				height: 575px;
+			}
+
+			&.fixed {
+				position: fixed;
+				top: 10px;
+			}
+
+			&__airship {
+				position: absolute;
+				top: 2px;
+				left: -4px;
+				display: block;
+				width: 255px;
+				height: 273px;
+				background-image: url('../../images/background/zeppelin.svg');
+				background-repeat: no-repeat;
+			}
+
+			&__text-block {
+				position: relative;
+				top: 247px;
+				left: 5px;
+				width: 275px;
+				height: 318px;
+				background: url('../../images/background/zeppelin_order_text.svg') no-repeat, url('../../images/background/banner.png');
+				background-position: top 72px left 62px, top center;
+			}
+
+			&__more {
+				position: absolute;
+				bottom: -17px;
+				left: 50%;
+				margin-left: -55px;
+			}
+
+		}
+
+	}
+}
