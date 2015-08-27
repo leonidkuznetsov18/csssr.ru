@@ -2,7 +2,7 @@
 	"options": [
 		{
 			"title": "современные браузеры",
-
+			"type": "checkboxes",
 			"checkboxes": [
 				{
 					"id": "googleChrome",
@@ -43,6 +43,7 @@
 
 		{
 			"title": "устаревшие браузеры",
+			"type": "checkboxes",
 			"checkboxes": [
 				{
 					"id": "internetExplorer11",
@@ -84,7 +85,7 @@
 
 		{
 			"title": "мобильные платформы",
-
+			"type": "checkboxes",
 			"checkboxes": [
 				{
 					"id": "mobileSafariIos",
@@ -114,7 +115,42 @@
 					"checked": false
 				}
 			]
+		},
+
+		{
+			"title": "ширина страниц",
+			"type": "radio",
+			"checkboxes": [
+				{
+					"id": "typeStatic",
+					"value": "static",
+					"text": "Фиксированная (Static)",
+					"checked": true
+				},
+
+				{
+					"id": "typeLiquid",
+					"value": "liquid",
+					"text": "Резиновая (Liquid)",
+					"checked": false
+				},
+
+				{
+					"id": "typeAdaptive",
+					"value": "adaptive",
+					"text": "Адаптивная (Adaptive)",
+					"checked": false
+				},
+
+				{
+					"id": "typeResponsive",
+					"value": "responsive",
+					"text": "Отзывчивая (Responsive)",
+					"checked": false
+				}
+			]
 		}
+
 
 	]
 }
