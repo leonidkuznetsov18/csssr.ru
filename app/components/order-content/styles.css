@@ -37,3 +37,36 @@
 	}
 
 }
+
+
+/* TODO: Вынести общие стили в отдельный файл */
+
+.blue-link {
+	color: #056383;
+
+	&:hover {
+		color: #df0b0b !important;
+	}
+
+	&_dashed {
+		border-bottom: 1px solid #056383;
+
+		&:hover {
+			border-bottom: 1px solid #df0b0b;
+		}
+	}
+}
+
+.big-blue-link {
+	font-family: 'PT Sans';
+	font-weight: bold;
+	font-size: 16px;
+	color: #056383;
+	text-transform: uppercase;
+	border-bottom: 1px dashed #056383;
+	cursor: pointer;
+	display: inline-block;
+	&:hover {
+		border-bottom: 1px dashed #df0b0b;
+	}
+}

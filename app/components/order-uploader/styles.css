@@ -1,0 +1,74 @@
+.order__main__content__upload {
+	width: 728px;
+	margin-bottom: 23px;
+	position: relative;
+
+	/* clearfix() */
+	/* TODO: использовать clear: fix из postcss */
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: '';
+		clear: both;
+		height: 0;
+	}
+
+	&__files-block,
+	&__link {
+		display: none;
+	}
+
+	&__files-block.active,
+	&__link.active {
+		display: block;
+	}
+
+	&__link {
+		padding-bottom: 18px;
+
+		span.title {
+			font-family: Roboto;
+			font-weight: 300;
+			font-size: 12px;
+			line-height: 23px;
+			color: #666666;
+		}
+
+		input {
+			margin-bottom: 10px;
+			display: block;
+			width: 100%;
+			background-color: transparent;
+		}
+
+		span.info {
+			font-family: Roboto;
+			font-weight: 300;
+			font-size: 13px;
+			color: #333;
+			line-height: 20px;
+			display: block;
+		}
+	}
+
+	&__upload {
+		display: inline-block;
+		position: absolute;
+		left: -2px;
+		top: 199px;
+		font-family: 'PT Sans';
+		font-size: 12px;
+		color: #056383;
+		cursor: pointer;
+
+		.blue-link {
+			text-decoration: underline;
+		}
+
+		#fileupload {
+			display: none;
+		}
+
+	}
+}
