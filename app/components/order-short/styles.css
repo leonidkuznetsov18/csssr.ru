@@ -10,11 +10,11 @@
 		margin: 0 0 0 55px;
 		position: relative;
 		height: 575px;
-	}
 
-	&.fixed {
-		position: fixed;
-		top: 10px;
+		&.fixed {
+			position: fixed;
+			top: 10px;
+		}
 	}
 
 	&__airship {

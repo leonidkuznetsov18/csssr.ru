@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderShort from 'components/order-short';
+import OrderContent from 'components/order-content';
 
 import './styles.css';
 
@@ -10,7 +11,7 @@ export default class Order extends React.Component {
 				<div className='order__main'>
 					<div className='order__main-bg' />
 					<OrderShort />
-					<div className='order__main__content'></div>
+					<OrderContent />
 				</div>
 			</div>
 		);
