@@ -26,11 +26,11 @@ export default class OrderForm extends React.Component {
 							data-url=''
 							multiple
 						/>
-
-						<DropPlace />
-						<FilesBlock />
-
 					</div>
+
+					<DropPlace />
+					<FilesBlock />
+
 				</div>
 			</div>
 		);
