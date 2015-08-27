@@ -1,5 +1,6 @@
 import React from 'react';
 import Uploader from 'components/order-uploader'
+import Options from 'components/order-options'
 
 import './styles.css';
 
@@ -20,6 +21,7 @@ export default class OrderForm extends React.Component {
 					value='ru'
 				/>
 				<Uploader />
+				<Options />
 
 			</form>
 		);

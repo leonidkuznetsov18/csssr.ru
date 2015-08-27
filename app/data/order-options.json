@@ -1,0 +1,120 @@
+{
+	"options": [
+		{
+			"title": "современные браузеры",
+
+			"checkboxes": [
+				{
+					"id": "googleChrome",
+					"value": "chrome",
+					"text": "Chrome 44",
+					"checked": true
+				},
+
+				{
+					"id": "mozillaFirefox",
+					"value": "firefox",
+					"text": "Firefox 39",
+					"checked": true
+				},
+
+				{
+					"id": "appleSafari",
+					"value": "safari",
+					"text": "Safari 8",
+					"checked": true
+				},
+
+				{
+					"id": "opera",
+					"value": "opera",
+					"text": "Opera 30",
+					"checked": true
+				},
+
+				{
+					"id": "internetExplorer",
+					"value": "edge",
+					"text": "Edge (Windows 10)",
+					"checked": true
+				}
+			]
+		},
+
+		{
+			"title": "устаревшие браузеры",
+			"checkboxes": [
+				{
+					"id": "internetExplorer11",
+					"value": "ie11",
+					"text": "Internet Explorer 11",
+					"checked": true
+				},
+
+				{
+					"id": "internetExplorer10",
+					"value": "ie10",
+					"text": "Internet Explorer 10",
+					"checked": false
+				},
+
+				{
+					"id": "internetExplorer9",
+					"value": "ie9",
+					"text": "Internet Explorer 9",
+					"checked": false
+				},
+
+				{
+					"id": "internetExplorer8",
+					"value": "ie8",
+					"text": "Internet Explorer 8",
+					"checked": false
+				},
+
+				{
+					"id": "opera12",
+					"value": "opera12",
+					"text": "Opera 12",
+					"checked": false
+				}
+
+			]
+		},
+
+		{
+			"title": "мобильные платформы",
+
+			"checkboxes": [
+				{
+					"id": "mobileSafariIos",
+					"value": "mobilesafari",
+					"text": "Safari 8 (iOS 8)",
+					"checked": true
+				},
+
+				{
+					"id": "mobileChromeIos",
+					"value": "mobilechromeios",
+					"text": "Chrome 44 (iOS 8)",
+					"checked": true
+				},
+
+				{
+					"id": "mobileChromeAndroid",
+					"value": "mobilechromeandroid",
+					"text": "Chrome 44 (Android 5)",
+					"checked": true
+				},
+
+				{
+					"id": "mobileIeWindowsPhone",
+					"value": "mobileiewindowsphone",
+					"text": "IE 11 (Windows Phone 8.1)",
+					"checked": false
+				}
+			]
+		}
+
+	]
+}
