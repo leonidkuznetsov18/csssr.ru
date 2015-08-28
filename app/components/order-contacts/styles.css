@@ -1,0 +1,41 @@
+.order__main__content__contacts {
+	display: block;
+
+	&__extra {
+		margin-bottom: 8px;
+		font-family: 'PT Sans Narrow';
+		font-size: 15px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #6b0000;
+
+		&__checkbox {
+			margin-right: 15px;
+			margin-bottom: 10px;
+			display: inline-block;
+			font-family: Roboto;
+			font-weight: 300;
+			font-size: 13px;
+			color: #333;
+			list-style-type: none;
+		}
+	}
+
+	&__text {
+		position: relative;
+		margin-top: 19px;
+		margin-bottom: 29px;
+
+		.input-text {
+			margin: 4px 0 9px 0;
+			display: block;
+			width: 412px;
+			background-color: transparent;
+		}
+	}
+
+	&__submit {
+		width: 164px;
+	}
+
+}

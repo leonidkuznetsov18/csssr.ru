@@ -151,6 +151,32 @@
 			]
 		}
 
+	],
+	"addition": {
+		"title": "дополнительно",
+		"options": [
+			{
+				"id": "pixelPerfect",
+				"value": "pixel_perfect",
+				"text": "Pixel Perfect",
+				"tip": "По умолчанию мы допускаем погрешность до 5 пикселей в размерах блоков, отступов и плашек. Однако, по вашей просьбе, мы готовы подогнать вёрстку под макет со 100% соответствием.",
+				"checked": false
+			},
 
-	]
+			{
+				"id": "retina",
+				"value": "retian",
+				"text": "Требуется поддержка Retina-дисплеев",
+				"checked": false
+			},
+
+			{
+				"id": "veryUrgentProject",
+				"value": "urgent",
+				"text": "Очень срочный проект",
+				"checked": false
+			}
+
+		]
+	}
 }

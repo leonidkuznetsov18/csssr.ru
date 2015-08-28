@@ -12,7 +12,7 @@ export default class OptionsList extends React.Component {
 		const cbx = props.data.checkboxes;
 		const len = cbx.length;
 		const checkData = {};
-		for (var i = 0; i < len; i++) {
+		for (let i = 0; i < len; i++) {
 			checkData[cbx[i].id] = cbx[i].checked;
 		}
 		this.state = {checkData: checkData};
@@ -24,7 +24,7 @@ export default class OptionsList extends React.Component {
 			const cbx = this.props.data.checkboxes;
 			const len = cbx.length;
 			const checkData = {};
-			for (var i = 0; i < len; i++) {
+			for (let i = 0; i < len; i++) {
 				checkData[cbx[i].id] = false;
 			}
 			checkData[e.target.id] = true;
@@ -58,6 +58,7 @@ export default class OptionsList extends React.Component {
 									_checked={this.state.checkData[opt.id]}
 									type={option.type}
 									text={opt.text}
+									tip={opt.tip}
 									choose={this.choose.bind(this)}
 								/>
 							);
