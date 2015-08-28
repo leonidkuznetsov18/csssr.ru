@@ -9,7 +9,7 @@ export default class OrderOptions extends React.Component {
 	render() {
 
 		const options = data.options.map((option) => {
-			return <OptionsList data={option} />;
+			return <OptionsList key={Math.random()} data={option} />;
 		});
 
 		return (

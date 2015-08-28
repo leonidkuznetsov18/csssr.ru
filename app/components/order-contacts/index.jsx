@@ -1,36 +1,54 @@
 import React from 'react';
-import Tooltip from 'components/tooltip'
-import OptionPoint from 'components/order-option-point'
+import FormGroup from 'components/form-group';
+import AdditionalOptions from 'components/order-additional-options'
+import Brick from 'components/brick'
 
 import './styles.css';
 
 
-const data = require('data/order-options.json').addition;
+var data = {};
+data.contactInfo = require('data/contact-info.json');
 
 export default class OrderFormContacts extends React.Component {
 
-	choose(e, obj) {
-		obj.setState({checked: !obj.state.checked})
+	getFormGroups() {
+		return data.contactInfo.map((group) => {
+			return (
+				<FormGroup
+					key={group.id}
+					_id={group.id}
+					label={group.text}
+				/>
+			)
+		});
 	}
 
+
 	render() {
-		const options = data.options.map((opt) => {
-				return <OptionPoint
-					className='order__main__content__contacts__extra__checkbox'
-					_id={opt.id}
-					_value={opt.value}
-					_checked={opt.checked}
-					type='checkboxes'
-					text={opt.text}
-					tip={opt.tip}
-					choose={this.choose}
-				/>
-		});
+		const formGroups = this.getFormGroups();
 
 		return (
 			<div className='order__main__content__contacts'>
-				<div className='order__main__content__contacts__extra'>{data.title}</div>
-				{options}
+				<AdditionalOptions />
+
+				<div className='order__main__content__contacts__text'>
+					{formGroups}
+					<div className='confirm-rules'>
+						<label className='label checkbox label-last'>
+							<span className='corner-cover'>Принимаю&nbsp;</span>
+						</label>
+						<a
+							className='label-last-link blue-link'
+							href='confidential.html'
+							target='_blank'
+						>положение об обработке персональных данных</a>
+					</div>
+				</div>
+
+				<div className='order__main__content__contacts__submit'>
+					<Brick text='— Поехали!' />
+				</div>
+
 			</div>
 		);
 	}

@@ -1,0 +1,22 @@
+[
+	{
+		"text": "Ваше имя",
+		"id": "contacts-name"
+	},
+
+	{
+		"text": "Электронная почта",
+		"id": "contacts-email"
+	},
+
+	{
+		"text": "Скайп",
+		"id": "contacts-skype"
+	},
+
+	{
+		"text": "Контактный телефон",
+		"id": "contacts-phone"
+	}
+
+]
