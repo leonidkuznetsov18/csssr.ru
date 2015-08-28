@@ -1,0 +1,99 @@
+.order__faq__single {
+	width: 100%;
+	/*clearfix()*/
+	/* TODO: добавить clear:fix из postcss */
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	&__short {
+		float: left;
+		width: 33%;
+		margin-top: 86px;
+		position: relative;
+
+		&-img {
+			position: absolute;
+			top: -83px;
+			left: 5px;
+			height: 86px;
+
+			.blue-link {
+				font-family: 'PT Sans';
+				font-size: 14px;
+				color: #0099cc;
+				position: absolute;
+				bottom: 25px;
+				left: 92px;
+
+				&:hover {
+					color: #fff!important;
+				}
+			}
+		}
+
+		h2 {
+			font-family: 'PT Sans Narrow';
+			font-size: 35px;
+			text-transform: uppercase;
+			color: #f6e1ba;
+			width: 75%;
+			margin-bottom: 7px;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 28px;
+			color: #aabbba;
+			width: 80%;
+		}
+
+	}
+
+	&__full {
+		width: 67%;
+		margin-left: 33%;
+		padding: 40px 0 50px 0;
+		border-top: 1px solid #5d798a;
+		/*clearfix()*/
+		/* TODO: добавить clear:fix */
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+		&-single {
+			width: auto;
+
+			&__column {
+				float: left;
+				width: 43%;
+				margin-right: 9%;
+
+				&:last-child {
+					margin: 0;
+				}
+
+				h3 {
+					font-family: Roboto;
+					font-weight: 600;
+					font-size: 20px;
+					line-height: 23px;
+					color: #e9e2d3;
+					margin-bottom: 10px;
+				}
+
+				p {
+					font-size: 15px;
+					line-height: 22px;
+					color: #aabbba;
+					margin-bottom: 20px;
+				}
+
+			}
+		}
+	}
+}
