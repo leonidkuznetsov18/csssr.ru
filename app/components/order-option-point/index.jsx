@@ -1,6 +1,7 @@
 import React from 'react';
+import Tooltip from 'components/tooltip'
 
-export default class OrderForm extends React.Component {
+export default class OptionPoint extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -10,7 +11,7 @@ export default class OrderForm extends React.Component {
 	}
 
 	onChange(e) {
-		this.props.choose(e);
+		this.props.choose(e, this);
 	}
 
 
@@ -36,7 +37,7 @@ export default class OrderForm extends React.Component {
 		const typeData = this.getTypeData(this.props.type)
 
 		return (
-			<li>
+			<li className={this.props.className}>
 				<input
 					id={this.props._id}
 					className={typeData.inputClassList}
@@ -46,10 +47,14 @@ export default class OrderForm extends React.Component {
 					onChange={this.onChange.bind(this)}
 					checked={this.state.checked}
 				/>
+
 				<label
 					className={typeData.labelClassList}
 					htmlFor={this.props._id}
 				>{this.props.text}</label>
+
+				{ this.props.tip ? <Tooltip text={this.props.tip} /> : '' }
+
 			</li>
 		);
 	}
