@@ -19,7 +19,9 @@ export default class OrderShort extends React.Component {
 					className='order__main__content__text comment'
 					dangerouslySetInnerHTML={{__html: data.text}}
 				/>
+				<div dangerouslySetInnerHTML={{__html: '<!--noindex-->'}} />
 				<OrderForm />
+				<div dangerouslySetInnerHTML={{__html: '<!--/noindex-->'}} />
 			</div>
 		);
 	}
