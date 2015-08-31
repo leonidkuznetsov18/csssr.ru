@@ -1,0 +1,27 @@
+.order__main__content__upload__link {
+	padding-bottom: 18px;
+
+	span.title {
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 23px;
+		color: #666666;
+	}
+
+	input {
+		margin-bottom: 10px;
+		display: block;
+		width: 100%;
+		background-color: transparent;
+	}
+
+	span.info {
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 13px;
+		color: #333;
+		line-height: 20px;
+		display: block;
+	}
+}

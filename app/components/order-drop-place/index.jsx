@@ -2,6 +2,8 @@ import React from 'react';
 
 import './styles.css';
 
+const dropzoneMessage = require('data/order-uploader.json').files.dropzoneMessage
+
 export default class DropPlace extends React.Component {
 	render() {
 		return (
@@ -11,7 +13,7 @@ export default class DropPlace extends React.Component {
 			>
 				<div className='order-drop-place__bg'>
 					<div className='order-drop-place__text'>
-						Перетащите файлы проекта сюда
+						{dropzoneMessage}
 					</div>
 				</div>
 			</div>
