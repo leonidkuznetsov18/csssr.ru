@@ -19,7 +19,7 @@ export default class OptionsList extends React.Component {
 	}
 
 
-	choose(e) {
+	choose(e, obj) {
 		if (this.props.data.type === 'radio') {
 			const cbx = this.props.data.checkboxes;
 			const len = cbx.length;
@@ -29,13 +29,17 @@ export default class OptionsList extends React.Component {
 			}
 			checkData[e.target.id] = true;
 			this.setState({checkData: checkData});
-			return;
+
+		} else if (this.props.data.type === 'checkboxes') {
+			obj.setState({checked: !obj.state.checked});
+
+		} else {
+			var result = {};
+			result[e.target.id] = e.target.checked;
+			this.setState(React.addons.update(this.state, {
+				checkData: {$merge: result}
+			}));
 		}
-		var result = {};
-		result[e.target.id] = e.target.checked;
-		this.setState(React.addons.update(this.state, {
-			checkData: {$merge: result}
-		}));
 	}
 
 
