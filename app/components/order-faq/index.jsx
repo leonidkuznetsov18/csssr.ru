@@ -8,9 +8,9 @@ const data = require('data/faq.json')
 export default class Faq extends React.Component {
 
 	render() {
-		const fhqBlocks = data.map((block) => {
+		const fhqBlocks = data.map((block, i) => {
 			return (
-				<FaqSingle data={block} />
+				<FaqSingle key={i} data={block} />
 			);
 		});
 		return (

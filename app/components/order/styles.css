@@ -1,3 +1,5 @@
+@import 'helpers';
+
 .order {
 	width: 100%;
 
@@ -23,13 +25,15 @@
 		/* clearfix() */
 		/* TODO: использовать clear: fix из postcss */
 		&:after {
-			visibility: hidden;
-			display: block;
-			font-size: 0;
 			content: '';
+			display: table;
 			clear: both;
-			height: 0;
 		}
 
 	}
+
+	@media ((--medium) and (--small)) {
+		.label { font-size: 12px; }
+	}
+
 }
