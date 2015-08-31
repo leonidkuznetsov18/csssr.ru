@@ -131,6 +131,7 @@ module.exports = function(options) {
 				path: [root + '/styles']
 			}),
 			require('postcss-custom-media'),
+			require('postcss-clearfix'),
 			require('postcss-custom-properties'),
 			require('postcss-color-function'),
 			require('postcss-nested'),
