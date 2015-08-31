@@ -3,7 +3,6 @@ import Uploader from 'components/order-uploader'
 import Options from 'components/order-options'
 import Contacts from 'components/order-contacts'
 
-import './styles.css';
 
 export default class OrderForm extends React.Component {
 	render() {

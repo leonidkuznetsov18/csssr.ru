@@ -5,6 +5,7 @@
 	display: inline-block;
 	user-select: none;
 	border: none;
+	background-color: transparent;
 
 	&:before,
 	&:after {
@@ -77,13 +78,11 @@
 		}
 	}
 
-	&:hover,
-	&__text {
+	&:hover &__text {
 		background-color: #ffb820;
 	}
 
-	&:active,
-	&__text {
+	&:active &__text {
 		top: 3px;
 		left: 1px;
 	}
@@ -125,8 +124,7 @@
 		}
 	}
 
-	&:active,
-	&__shadow {
+	&:active &__shadow {
 		top: 11px;
 		left: -5px;
 
