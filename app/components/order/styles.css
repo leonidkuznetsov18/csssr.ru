@@ -22,14 +22,7 @@
 		width: 93%;
 		background-image: url('../../images/background/content.jpg');
 		background-color: #ecdcc4;
-		/* clearfix() */
-		/* TODO: использовать clear: fix из postcss */
-		&:after {
-			content: '';
-			display: table;
-			clear: both;
-		}
-
+		clear: fix;
 	}
 
 	@media ((--medium) and (--small)) {

@@ -1,17 +1,7 @@
 .order__main__content__options {
 	margin-top: 10px;
 	margin-bottom: 22px;
-
-	/* clearfix() */
-	/* TODO: использовать clear: fix из postcss */
-	&:after {
-		visibility: hidden;
-		display: block;
-		font-size: 0;
-		content: '';
-		clear: both;
-		height: 0;
-	}
+	clear: fix;
 
 	&__single {
 		float: left;

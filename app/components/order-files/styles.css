@@ -2,17 +2,7 @@
 	position: relative;
 	margin-bottom: 23px;
 	width: 728px;
-
-	/*clearfix()*/
-	/* TODO: использовать clear: fix из postcss */
-	&:after {
-		visibility: hidden;
-		display: block;
-		font-size: 0;
-		content: '';
-		clear: both;
-		height: 0;
-	}
+	clear: fix;
 
 	&__files {
 		margin-top: 40px;
@@ -50,17 +40,7 @@
 		text-align: justify;
 		margin-left: -22px;
 		padding-bottom: 7px;
-
-		/*clearfix()*/
-		/* TODO: использовать clear: fix из postcss */
-		&:after {
-			visibility: hidden;
-			display: block;
-			font-size: 0;
-			content: '';
-			clear: both;
-			height: 0;
-		}
+		clear: fix;
 
 		.file-place {
 			display: inline-block;
@@ -72,17 +52,7 @@
 			overflow: hidden;
 			opacity: 0;
 			transition: 0.2s ease-in-out;
-
-			/*clearfix()*/
-			/* TODO: использовать clear: fix из postcss */
-			&:after {
-				visibility: hidden;
-				display: block;
-				font-size: 0;
-				content: '';
-				clear: both;
-				height: 0;
-			}
+			clear: fix;
 
 			&-visible {
 				opacity: 1;

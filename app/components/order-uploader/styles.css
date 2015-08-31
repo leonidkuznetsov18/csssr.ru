@@ -2,12 +2,5 @@
 	width: 728px;
 	margin-bottom: 23px;
 	position: relative;
-
-	/* clearfix() */
-	/* TODO: использовать clear: fix из postcss */
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
+	clear: fix;
 }

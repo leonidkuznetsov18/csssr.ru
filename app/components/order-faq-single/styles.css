@@ -1,12 +1,6 @@
 .order__faq__single {
 	width: 100%;
-	/*clearfix()*/
-	/* TODO: добавить clear:fix из postcss */
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
+	clear: fix;
 
 	&__short {
 		float: left;
@@ -57,13 +51,7 @@
 		margin-left: 33%;
 		padding: 40px 0 50px 0;
 		border-top: 1px solid #5d798a;
-		/*clearfix()*/
-		/* TODO: добавить clear:fix из postcss */
-		&:after {
-			content: '';
-			display: table;
-			clear: both;
-		}
+		clear: fix;
 
 		&-single {
 			width: auto;
