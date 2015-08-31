@@ -33,6 +33,14 @@ export default class FaqSingle extends React.Component {
 							width={data.image.width}
 							height={data.image.height}
 						/>
+						{
+							data.link ?
+								<a
+									className='blue-link'
+									href={data.link.href}
+								>{data.link.text}</a>
+							: ''
+						}
 					</div>
 					<h2>{data.title}</h2>
 					<p className='comment'>{data.comment}</p>
