@@ -57,6 +57,7 @@ export default class UploadFilesBlock extends React.Component {
 				<Dropzone
 					id='drop_place'
 					className='order__main__content__upload__drop-place'
+					activeClassName='hover' /* TODO: test this */
 					ref='dropzone'
 					onDrop={this.onDrop}
 				>

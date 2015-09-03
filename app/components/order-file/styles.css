@@ -53,14 +53,14 @@
 			background-color: #d4c5aa;
 			border-top: 1px solid #a8977b;
 			border-right: 1px solid #a8977b;
+		}
 
-			&-line {
-				position: relative;
-				top: -1px;
-				width: 80%;
-				height: 6px;
-				background-color: #990000;
-			}
+		&__progress-line {
+			position: relative;
+			top: -1px;
+			width: 80%;
+			height: 6px;
+			background-color: #990000;
 		}
 
 		&__close {
