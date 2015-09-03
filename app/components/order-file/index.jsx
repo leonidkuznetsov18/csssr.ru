@@ -6,8 +6,8 @@ export default class File extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			progressWidth: 0,
-			progressLineWidth: 0
+			progress: 0,
+			progressBarWidth: 0
 		};
 	}
 
@@ -15,7 +15,7 @@ export default class File extends React.Component {
 	componentDidMount() {
 		this._isMounted = true;
 		this.setState({
-			progressWidth: 190 - this.refs.name.getDOMNode().offsetWidth
+			progressBarWidth: 190 - this.refs.name.getDOMNode().offsetWidth
 		});
 		this.tick(0);
 	}
@@ -38,7 +38,7 @@ export default class File extends React.Component {
 		if (this._isMounted) {
 			this.props.setGlobalProgress(value);
 			this.setState({
-				progressLineWidth: value + '%'
+				progress: value
 			});
 		} else {
 			this.props.setGlobalProgress(0, true);
@@ -54,23 +54,31 @@ export default class File extends React.Component {
 		return (
 			<div className={'file-place ' + random}>
 				<div className='file-place__icon' />
-				<div
-					className='file-place__progress-complieted'
-					ref='complieted'
-				/>
+				{
+					this.state.progress !== 100 ? '' : (
+						<div
+							className='file-place__progress-complieted'
+							style={{width: this.state.progressBarWidth}}
+						/>
+					)
+				}
 				<div
 					className={'file-place__name ' + random}
 					ref='name'
 				>{file.name}</div>
-				<div
-					className={'file-place__progress ' + random}
-					style={{width: this.state.progressWidth}}
-				>
-					<div
-						className={'file-place__progress-line ' + random}
-						style={{width: this.state.progressLineWidth}}
-					/>
-				</div>
+				{
+					this.state.progress === 100 ? '' : (
+						<div
+							className={'file-place__progress ' + random}
+							style={{width: this.state.progressBarWidth}}
+						>
+							<div
+								className={'file-place__progress-line ' + random}
+								style={{width: this.state.progress + '%'}}
+							/>
+						</div>
+					)
+				}
 				<div
 					className='file-place__close'
 					onClick={this.props.delete.bind(null, file.key)}
