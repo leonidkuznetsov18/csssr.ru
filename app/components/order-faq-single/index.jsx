@@ -11,8 +11,8 @@ export default class FaqSingle extends React.Component {
 			var result = [];
 			const len = column.length;
 			for (let i = 0; i < len; i++) {
-				result.push(<h3 key={Math.random()}>{column[i].title}</h3>);
-				result.push(<Text key={Math.random()}>{column[i].text}</Text>);
+				result.push(<h3 key={'title'+i}>{column[i].title}</h3>);
+				result.push(<Text key={'text'+i}>{column[i].text}</Text>);
 			}
 
 			return (

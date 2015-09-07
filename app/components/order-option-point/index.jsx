@@ -3,15 +3,8 @@ import Tooltip from 'components/tooltip'
 
 export default class OptionPoint extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			checked: props._checked
-		}
-	}
-
-	onChange(e) {
-		this.props.choose(e, this);
+	onChange = (e) => {
+		this.props.choose(e);
 	}
 
 
@@ -34,7 +27,7 @@ export default class OptionPoint extends React.Component {
 	}
 
 	render() {
-		const typeData = this.getTypeData(this.props.type)
+		const typeData = this.getTypeData(this.props._type)
 
 		return (
 			<li className={this.props.className}>
@@ -44,8 +37,8 @@ export default class OptionPoint extends React.Component {
 					type={typeData.type}
 					name='options[]'
 					value={this.props._value}
-					onChange={this.onChange.bind(this)}
-					checked={this.state.checked}
+					onChange={this.onChange}
+					checked={this.props._checked}
 				/>
 
 				<label

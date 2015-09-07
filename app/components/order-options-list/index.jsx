@@ -19,7 +19,8 @@ export default class OptionsList extends React.Component {
 	}
 
 
-	choose(e, obj) {
+	choose = (e) => {
+		console.log('choose');
 		if (this.props.data.type === 'radio') {
 			const cbx = this.props.data.checkboxes;
 			const len = cbx.length;
@@ -29,9 +30,6 @@ export default class OptionsList extends React.Component {
 			}
 			checkData[e.target.id] = true;
 			this.setState({checkData: checkData});
-
-		} else if (this.props.data.type === 'checkboxes') {
-			obj.setState({checked: !obj.state.checked});
 
 		} else {
 			var result = {};
@@ -46,7 +44,7 @@ export default class OptionsList extends React.Component {
 	render() {
 		const option = this.props.data;
 		return (
-			<div className='order__main__content__options__single' key={Math.random()}>
+			<div className='order__main__content__options__single'>
 				<div className='order__main__content__options__title'>
 					{option.title}
 				</div>
@@ -56,14 +54,14 @@ export default class OptionsList extends React.Component {
 						option.checkboxes.map((opt, i) => {
 							return (
 								<OptionPoint
-									key={i}
+									key={opt.id}
 									_id={opt.id}
 									_value={opt.value}
 									_checked={this.state.checkData[opt.id]}
-									type={option.type}
+									_type={option.type}
 									text={opt.text}
 									tip={opt.tip}
-									choose={this.choose.bind(this)}
+									choose={this.choose}
 								/>
 							);
 						})

@@ -2,6 +2,7 @@ import React from 'react';
 import FormGroup from 'components/form-group';
 import AdditionalOptions from 'components/order-additional-options'
 import Brick from 'components/brick'
+import FormValidation from 'components/form-validation'
 
 import './styles.css';
 
@@ -18,6 +19,8 @@ export default class OrderFormContacts extends React.Component {
 					key={group.id}
 					_id={group.id}
 					label={group.text}
+					regexp={group.validation}
+					validate={this.props.validate}
 				/>
 			)
 		});
@@ -43,6 +46,10 @@ export default class OrderFormContacts extends React.Component {
 							target='_blank'
 						>положение об обработке персональных данных</a>
 					</div>
+					<FormValidation
+						show={this.props.validate}
+						err='Прикрепите макеты страниц или укажите ссылку для скачивания'
+					/>
 				</div>
 
 				<div className='order__main__content__contacts__submit'>

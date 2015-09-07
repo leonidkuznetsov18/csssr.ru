@@ -8,8 +8,8 @@ const data = require('data/order-options.json');
 export default class OrderOptions extends React.Component {
 	render() {
 
-		const options = data.options.map((option) => {
-			return <OptionsList key={Math.random()} data={option} />;
+		const options = data.options.map((option, i) => {
+			return <OptionsList key={i} data={option} />;
 		});
 
 		return (

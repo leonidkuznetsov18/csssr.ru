@@ -5,15 +5,34 @@ import Contacts from 'components/order-contacts'
 
 
 export default class OrderForm extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			validate: false
+		}
+	}
+
+	onSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.refs.form.getDOMNode().elements);
+		this.setState({
+			validate: true
+		});
+	}
+
+
 	render() {
 		return (
 			<form
 				id='orderForm'
 				name='form'
+				ref='form'
 				action='classes/mailer.php'
 				role='form'
 				autoComplete='off'
 				method='post'
+				onSubmit={this.onSubmit}
 			>
 				<input
 					type='hidden'
@@ -22,7 +41,7 @@ export default class OrderForm extends React.Component {
 				/>
 				<Uploader />
 				<Options />
-				<Contacts />
+				<Contacts validate={this.state.validate} />
 
 			</form>
 		);

@@ -6,7 +6,8 @@
 
 	{
 		"text": "Электронная почта",
-		"id": "contacts-email"
+		"id": "contacts-email",
+		"validation": ".+@.+\\..+"
 	},
 
 	{
@@ -16,7 +17,8 @@
 
 	{
 		"text": "Контактный телефон",
-		"id": "contacts-phone"
+		"id": "contacts-phone",
+		"validation": ".+"
 	}
 
 ]
