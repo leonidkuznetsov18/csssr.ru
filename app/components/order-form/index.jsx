@@ -12,28 +12,33 @@ export default class OrderForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			validate: false
+			validate: false,
+			showErrorWindow: false
 		}
 	}
 
 	onSubmit = (e) => {
-		console.log('--------------');
 		this.setState({
 			validate: true
 		});
 
-		const form = this.refs.form.getDOMNode(),
-			fields = this.refs.contacts.refs;
+		const fields = this.refs.contacts.refs;
 
-		var condition = true;
+		var preventDefault = false;
 		for (var key in fields) {
-			const field = fields[key],
-				right = field.isRight();
-
-			// console.log(field.props._name + ' is ' + right);
-			condition = condition && right;
+			preventDefault = preventDefault || !fields[key].isRight();
 		}
-		if (!condition) e.preventDefault();
+
+
+		// TODO: check that files uploaded
+		if (true) {
+			preventDefault = true;
+			this.setState({
+				showErrorWindow: true
+			})
+		}
+
+		if (preventDefault) e.preventDefault();
 	}
 
 
@@ -42,13 +47,13 @@ export default class OrderForm extends React.Component {
 			<form
 				id='orderForm'
 				name='form'
-				ref='form'
 				action='classes/mailer.php'
 				role='form'
 				autoComplete='off'
 				method='post'
 				onSubmit={this.onSubmit}
 			>
+
 				<input
 					type='hidden'
 					name='lang'
@@ -56,7 +61,11 @@ export default class OrderForm extends React.Component {
 				/>
 				<Uploader />
 				<Options />
-				<Contacts ref='contacts' validate={this.state.validate} />
+				<Contacts
+					ref='contacts'
+					validate={this.state.validate}
+					showErrorWindow={this.state.showErrorWindow}
+				/>
 
 			</form>
 		);

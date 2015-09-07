@@ -49,7 +49,7 @@ export default class OrderFormContacts extends React.Component {
 						>положение об обработке персональных данных</a>
 					</div>
 					<FormValidation
-						show={this.props.validate}
+						show={this.props.showErrorWindow}
 						err='Прикрепите макеты страниц или укажите ссылку для скачивания'
 					/>
 				</div>

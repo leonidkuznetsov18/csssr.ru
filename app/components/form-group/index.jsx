@@ -14,13 +14,8 @@ export default class FormGroup extends React.Component {
 
 	validate = (str) => {
 		const re = new RegExp(this.props.regexp);
-		// console.log('1: ' + !!this.props.validate);
-		// console.log('2: ' + !!this.props.regexp);
 		if (this.props.regexp) {
-			// console.log(this.props._name  + ' re: ' + re.test(str))
-			const r = re.test(str);
-			// console.log('r is ' + r);
-			return r;
+			return re.test(str);
 		} else {
 			return true;
 		}
@@ -28,11 +23,7 @@ export default class FormGroup extends React.Component {
 
 
 	isRight = () => {
-		// console.log(this.props._name + ': ' + this.state.value);
-		// console.log(this.props._name + ': ' + this.validate(this.state.value));
-		const result = this.validate(this.state.value);
-		// console.log('result is ' + result);
-		return result
+		return this.validate(this.state.value);
 	}
 
 
