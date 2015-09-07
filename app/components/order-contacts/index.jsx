@@ -16,8 +16,10 @@ export default class OrderFormContacts extends React.Component {
 		return data.contactInfo.map((group) => {
 			return (
 				<FormGroup
-					key={group.id}
-					_id={group.id}
+					key={group.name}
+					ref={group.name}
+					_id={'contacts-' + group.name}
+					_name={group.name}
 					label={group.text}
 					regexp={group.validation}
 					validate={this.props.validate}

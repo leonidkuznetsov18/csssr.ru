@@ -1,23 +1,23 @@
 [
 	{
 		"text": "Ваше имя",
-		"id": "contacts-name"
+		"name": "name"
 	},
 
 	{
 		"text": "Электронная почта",
-		"id": "contacts-email",
+		"name": "email",
 		"validation": ".+@.+\\..+"
 	},
 
 	{
 		"text": "Скайп",
-		"id": "contacts-skype"
+		"name": "skype"
 	},
 
 	{
 		"text": "Контактный телефон",
-		"id": "contacts-phone",
+		"name": "phone",
 		"validation": ".+"
 	}
 

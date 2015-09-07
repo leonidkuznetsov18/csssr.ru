@@ -7,7 +7,7 @@ import './styles.css';
 const data = require('data/order-content.json');
 
 
-export default class OrderShort extends React.Component {
+export default class OrderContent extends React.Component {
 	render() {
 		return (
 			<div className='order__main__content'>
