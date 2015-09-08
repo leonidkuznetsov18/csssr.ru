@@ -2,7 +2,6 @@ import React from 'react';
 import Uploader from 'components/order-uploader'
 import Options from 'components/order-options'
 import Contacts from 'components/order-contacts'
-import serialize from 'form-serialize'
 
 
 const data = require('data/contact-info.json');
