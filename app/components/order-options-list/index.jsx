@@ -20,7 +20,6 @@ export default class OptionsList extends React.Component {
 
 
 	choose = (e) => {
-		console.log('choose');
 		if (this.props.data.type === 'radio') {
 			const cbx = this.props.data.checkboxes;
 			const len = cbx.length;

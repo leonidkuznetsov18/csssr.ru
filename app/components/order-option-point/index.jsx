@@ -3,6 +3,7 @@ import Tooltip from 'components/tooltip'
 
 export default class OptionPoint extends React.Component {
 
+
 	onChange = (e) => {
 		this.props.choose(e);
 	}
