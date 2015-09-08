@@ -20,4 +20,6 @@ const element = (
 	</Provider>
 );
 
+require('smooth-scroll').init();
+
 React.render(element, document.getElementById('content'));

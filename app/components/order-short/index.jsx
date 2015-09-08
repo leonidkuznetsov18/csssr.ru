@@ -12,6 +12,7 @@ export default class OrderShort extends React.Component {
 					<a
 						href='#faq'
 						className='order__main__short__more blue-link big-blue-link'
+						data-scroll
 					>подробности</a>
 				</div>
 			</div>
