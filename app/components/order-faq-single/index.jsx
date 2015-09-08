@@ -3,6 +3,7 @@ import Text from 'components/text'
 
 import './styles.css';
 
+
 export default class FaqSingle extends React.Component {
 
 	render() {
@@ -22,13 +23,14 @@ export default class FaqSingle extends React.Component {
 			);
 		});
 
+
 		return (
 			<div className='order__faq__single'>
 
 				<div className='order__faq__single__short'>
 					<div className='order__faq__single__short-img'>
 						<img
-							src={data.image.src}
+							src={require(`../../images/order/faq/${this.props.data.image.file}.svg`)}
 							alt={data.image.alt}
 							width={data.image.width}
 							height={data.image.height}

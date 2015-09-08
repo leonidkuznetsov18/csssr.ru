@@ -3,7 +3,7 @@
 		"title": "Быстрый старт",
 		"comment": "Мы привыкли уважать бизнес-интересы своих заказчиков, поэтому со своей стороны мы делаем всё, чтобы экономить ваше время.",
 		"image": {
-			"src": "images/order/faq/rocket.svg",
+			"file": "rocket",
 			"alt": "faq-1",
 			"width": 48,
 			"height": 70
@@ -39,7 +39,7 @@
 		"title": "Гарантия дедлайна",
 		"comment": "Если мы участвуем в вашем проекте, вы можете быть спокойны и уверены хотя бы на счёт сроков окончания вёрстки.",
 		"image": {
-			"src": "images/order/faq/clock.svg",
+			"file": "clock",
 			"alt": "faq-2",
 			"width": 62,
 			"height": 70
@@ -75,7 +75,7 @@
 		"title": "Безналичный расчёт по договору",
 		"comment": "Оплата по безналу производится на основании договор-счета, сканированную копию которого мы вышлем по электронной почте.",
 		"image": {
-			"src": "images/order/faq/rouble.svg",
+			"file": "rouble",
 			"alt": "faq-3",
 			"width": 42,
 			"height": 70
@@ -115,7 +115,7 @@
 		"title": "Современный подход",
 		"comment": "Чтобы превращать PSD в HTML, мы используем следующие технологии: HTML5, CSS3, Gulp, Jade, Stylus, NPM, а также (опционально) PostCSS, Haml, Grunt, Slim, Less, Sass, jQuery, AngularJS, ReactJS.",
 		"image": {
-			"src": "images/order/faq/html5css3.svg",
+			"file": "html5css3",
 			"alt": "faq-4",
 			"width": 112,
 			"height": 70
@@ -155,7 +155,7 @@
 		"title": "Мы используем методологию БЭМ",
 		"comment": "БЭМ — это методология, разработанная компанией Яндекс. Использование этого подхода в вёрстке позволяет упростить последующую поддержку сайта.",
 		"image": {
-			"src": "images/order/faq/bem.svg",
+			"file": "bem",
 			"alt": "faq-5",
 			"width": 82,
 			"height": 70
@@ -195,7 +195,7 @@
 		"title": "Адаптив, респонсив",
 		"comment": "Мы делаем и то и другое. Нам потребуются макеты, которые показывают, как вёрстка сайта будет выглядеть на мобильных устройствах.",
 		"image": {
-			"src": "images/order/faq/adaptive_responsive.svg",
+			"file": "adaptive_responsive",
 			"alt": "faq-6",
 			"width": 80,
 			"height": 80
@@ -227,7 +227,7 @@
 		"title": "Любые исходники",
 		"comment": "Мы верстаем из макетов, созданных в Adobe Phtoshop, Adobe InDesign, Adbobe Illustrator.",
 		"image": {
-			"src": "images/order/faq/sources.svg",
+			"file": "sources",
 			"alt": "faq-7",
 			"width": 102,
 			"height": 71
