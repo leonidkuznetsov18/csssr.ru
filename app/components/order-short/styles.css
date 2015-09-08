@@ -7,8 +7,8 @@
 	padding-top: 125px;
 	height: 100%;
 
-	@media (--large) { width: 20%; }
-	@media (--small) { display: none; }
+	/*@media (--large) { width: 20%; }*/
+	/*@media (--small) { display: none; }*/
 
 
 	&-block {
@@ -17,17 +17,17 @@
 		position: relative;
 		height: 575px;
 
-		@media (--large) {
+		/*@media (--large) {
 			width: 140px;
 			height: 200px;
 			margin: 0 0 0 25px;
-		}
+		}*/
 
 		&.fixed {
 			position: fixed;
 			top: 10px;
 
-			@media (--large) { width: 140px; }
+			/*@media (--large) { width: 140px; }*/
 
 		}
 	}
@@ -42,7 +42,7 @@
 		background-image: url('../../images/background/zeppelin.svg');
 		background-repeat: no-repeat;
 
-		@media (--large) { display: none; }
+		/*@media (--large) { display: none; }*/
 
 	}
 
@@ -55,11 +55,11 @@
 		background: url('../../images/background/zeppelin_order_text.svg') no-repeat, url('../../images/background/banner.png');
 		background-position: top 72px left 62px, top center;
 
-		@media (--large) { display: none; }
+		/*@media (--large) { display: none; }*/
 
 	}
 
-	@media (--large) {
+	/*@media (--large) {
 		&__line {
 			height: 130px;
 			top: 38px;
@@ -76,7 +76,7 @@
 				width: 1px;
 			}
 		}
-	}
+	}*/
 
 	&__more {
 		position: absolute;
@@ -86,7 +86,7 @@
 		/* delete extra underscore */
 		text-decoration: none;
 
-		@media (--large) {
+		/*@media (--large) {
 			bottom: 183px;
 
 			&:before {
@@ -115,7 +115,7 @@
 				margin-left: -5.5px;
 			}
 
-		}
+		}*/
 
 	}
 

@@ -5,16 +5,16 @@
 	padding: 65px 0 132px 0;
 	float: right;
 
-	@media (--medium) {
+	/*@media (--medium) {
 		width: 80%;
-	}
+	}*/
 
-	@media (--small) {
+	/*@media (--small) {
 		float: none;
 		width: 100%;
 		padding-left: 30px;
 		padding-right: 10px;
-	}
+	}*/
 
 	&__title {
 		max-height: 10000em;

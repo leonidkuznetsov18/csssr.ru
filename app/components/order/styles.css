@@ -1,4 +1,5 @@
 @import 'helpers';
+@import 'order-media';
 
 .order {
 	width: 100%;
@@ -25,8 +26,11 @@
 		clear: fix;
 	}
 
-	@media ((--medium) and (--small)) {
+	/*@media (--medium) {
 		.label { font-size: 12px; }
 	}
+	@media (--small) {
+		.label { font-size: 12px; }
+	}*/
 
 }
