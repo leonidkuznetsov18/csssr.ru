@@ -1,4 +1,5 @@
 import React from 'react';
+import PortfolioList from 'components/portfolio-list'
 
 import './styles.css';
 
@@ -17,6 +18,7 @@ export default class Portfolio extends React.Component {
 					<div className='portfolio-desc'>
 						{data.info}
 					</div>
+					<PortfolioList data={data.list} />
 				</div>
 			</div>
 		);

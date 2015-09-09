@@ -21,7 +21,7 @@
 
 	&-slogan {
 		position: absolute;
-		background-image: url('../../images/portfolio/portfolio-slogan.svg');
+		background-image: url('../../images/portfolio/slogan.svg');
 		background-repeat: no-repeat;
 		width: 192px;
 		height: 197px;
@@ -32,7 +32,7 @@
 
 	&-rocket {
 		position: absolute;
-		background: url('../../images/portfolio/portfolio-rocket.png');
+		background: url('../../images/portfolio/rocket.png');
 		width: 225px;
 		height: 251px;
 		top: -270px;

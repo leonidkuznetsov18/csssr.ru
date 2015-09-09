@@ -2326,7 +2326,7 @@
 		"name": "Сайт автомобиля Acura",
 		"date": "17.12.2013",
 		"logo": {
-			"url": "img/portfolio-acura.png",
+			"url": "acura.png",
 			"width": 74,
 			"height": 11
 		},
@@ -2442,7 +2442,7 @@
 		"name": "Сайт водки «Белуга»",
 		"date": "01.11.2013",
 		"logo": {
-			"url": "img/portfolio-beluga.png",
+			"url": "beluga.png",
 			"width": 59,
 			"height": 14
 		},
@@ -2579,7 +2579,7 @@
 		"name": "Сайт Лаборатории Касперского",
 		"date": "29.09.2013",
 		"logo": {
-			"url": "img/portfolio-kaspersky.png",
+			"url": "kaspersky.png",
 			"width": 81,
 			"height": 18
 		},
@@ -2747,7 +2747,7 @@
 		"name": "Интерфейс площадки TINKOFF SSP",
 		"date": "12.07.2013",
 		"logo": {
-			"url": "img/portfolio-tinkoff.png",
+			"url": "tinkoff.png",
 			"width": 87,
 			"height": 8
 		},
@@ -2922,7 +2922,7 @@
 		"name": "Сайт Из Рук в Руки",
 		"date": "10.06.2013",
 		"logo": {
-			"url": "img/portfolio-hands.png",
+			"url": "hands.png",
 			"width": 65,
 			"height": 17
 		},
@@ -2968,7 +2968,7 @@
 		"name": "Почтовая рассылка Greenpeace",
 		"date": "22.04.2013",
 		"logo": {
-			"url": "img/portfolio-greenpeace.png",
+			"url": "greenpeace.png",
 			"width": 81,
 			"height": 13
 		},
@@ -2983,7 +2983,7 @@
 		"name": "Интерфейс мобильного приложения СтоЛото",
 		"date": "09.04.2013",
 		"logo": {
-			"url": "img/portfolio-loto.png",
+			"url": "loto.png",
 			"width": 83,
 			"height": 19
 		},
@@ -3018,7 +3018,7 @@
 		"name": "Интернет-магазин Технопарк",
 		"date": "10.03.2013",
 		"logo": {
-			"url": "img/portfolio-techno.png",
+			"url": "techno.png",
 			"width": 82,
 			"height": 10
 		},
@@ -3140,7 +3140,7 @@
 		"name": "Сайт Snickers Urbania",
 		"date": "13.07.2011",
 		"logo": {
-			"url": "img/portfolio-snickers.png",
+			"url": "snickers.png",
 			"width": 64,
 			"height": 17
 		},
@@ -3243,7 +3243,7 @@
 		"name": "Веб-интерфейс почты Мегафона",
 		"date": "03.05.2011",
 		"logo": {
-			"url": "img/portfolio-megafon.png",
+			"url": "megafon.png",
 			"width": 105,
 			"height": 27
 		},
