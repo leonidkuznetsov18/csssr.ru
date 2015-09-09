@@ -83,8 +83,6 @@
 		bottom: -17px;
 		left: 50%;
 		margin-left: -55px;
-		/* delete extra underscore */
-		text-decoration: none;
 
 		/*@media (--large) {
 			bottom: 183px;

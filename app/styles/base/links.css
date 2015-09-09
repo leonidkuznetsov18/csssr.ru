@@ -7,6 +7,7 @@
 
 	&_dashed {
 		border-bottom: 1px solid #056383;
+		text-decoration: none;
 
 		&:hover {
 			border-bottom: 1px solid #df0b0b;
