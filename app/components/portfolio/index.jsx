@@ -6,6 +6,12 @@ import './styles.css';
 const data = require('data/portfolio.json');
 
 export default class Portfolio extends React.Component {
+
+	componentDidMount() {
+		document.title = data.pageTitle;
+	}
+
+
 	render() {
 		return (
 			<div className='portfolio'>
