@@ -1,4 +1,5 @@
 import React from 'react';
+import Success from 'components/outsource-success'
 
 import './styles.css';
 
@@ -37,6 +38,7 @@ export default class OutsourceContent extends React.Component {
 					</div>
 
 				</div>
+				<Success data={data.success} />
 			</div>
 		);
 	}
