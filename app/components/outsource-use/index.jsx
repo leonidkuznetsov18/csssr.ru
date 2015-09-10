@@ -5,6 +5,9 @@ import './styles.css';
 
 
 export default class OutsourceUse extends React.Component {
+	static PropTypes = {
+		tips: React.PropTypes.array
+	}
 
 	render() {
 		const cloud = require('images/background/cloudx3.svg');
@@ -37,9 +40,9 @@ export default class OutsourceUse extends React.Component {
 						— Ок, сейчас объясним наглядно...
 					</div>
 
-					<UseExamples />
-
 				</div>
+
+				<UseExamples tips={this.props.tips} />
 
 			</div>
 		);

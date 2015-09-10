@@ -25,7 +25,7 @@ export default class Outsource extends React.Component {
 				<Content data={data} />
 				<Power />
 				<Magic />
-				<Use />
+				<Use tips={data.tips} />
 			</div>
 		);
 	}
