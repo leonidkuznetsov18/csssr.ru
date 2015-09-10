@@ -1,6 +1,7 @@
 import React from 'react';
 import Content from 'components/outsource-content'
 import Power from 'components/outsource-power'
+import Magic from 'components/outsource-magic'
 
 import './styles.css';
 
@@ -22,6 +23,7 @@ export default class Outsource extends React.Component {
 				</h1>
 				<Content data={data} />
 				<Power />
+				<Magic />
 			</div>
 		);
 	}

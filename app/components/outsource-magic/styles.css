@@ -1,0 +1,295 @@
+.outsource-magic {
+	position: relative;
+	height: 545px;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		width: 1px;
+		background: #6c0400;
+		display: block;
+		height: 123px;
+		content: '';
+	}
+
+	&::after {
+		position: absolute;
+		top: 281px;
+		width: 1px;
+		background: #6c0400;
+		display: block;
+		height: 265px;
+		content: '';
+	}
+
+	&::after,
+	&::before {
+		margin-left: 426px;
+		left: calc((100% - 918px) * 0.5);
+	}
+
+
+	&__left {
+		left: -40px;
+		margin-left: 60px;
+		width: calc((100% - 918px) * 0.5 + 329px);
+	}
+
+	&__right {
+		right: -40px;
+		max-width: 521px;
+		left: calc((100% - 918px) * 0.5 + 506px);
+
+		&:before {
+			top: 220px;
+			left: 0px;
+			width: 69px;
+			height: 36px;
+			content: '';
+			position: absolute;
+			background-image: url('../../images/outsource/tech-bottom.png');
+			background-repeat: no-repeat;
+			background-size: 69px 36px;
+			background-position: right center;
+		}
+	}
+
+	&__left,
+	&__right {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		font-family: 'Courier New';
+		color: #333;
+		text-transform: uppercase;
+	}
+
+	&__html,
+	&__css,
+	&__js {
+		position: absolute;
+		left: 0;
+		right: 0;
+
+		&-item {
+			position: relative;
+			font-size: 14px;
+			line-height: 28px;
+
+			&_type_main {
+				font-size: 16px;
+			}
+		}
+
+		&-text {
+			position: absolute;
+			font-size: 26px;
+			line-height: 26px;
+			text-align: center;
+			white-space: nowrap;
+		}
+	}
+
+	&__html,
+	&__css {
+
+		&-item {
+			width: 107px;
+			text-align: right;
+
+			&:after {
+				left: auto;
+				right: -23px;
+			}
+		}
+	}
+
+	&__js {
+		&-item {
+			margin-left: auto;
+			text-align: left;
+			width: 163px;
+		}
+	}
+
+	&__html {
+		top: 112px;
+
+		&-text {
+			top: 19px;
+			left: 185px;
+			right: 0;
+		}
+	}
+
+	&__css {
+		top: 213px;
+
+		&-text {
+			top: 42px;
+			left: 171px;
+			right: 0;
+		}
+	}
+
+	&__js {
+		top: 127px;
+		text-align: right;
+
+		&-text {
+			top: -3px;
+			left: 10px;
+			right: 283px;
+			text-transform: initial;
+			letter-spacing: 0.6px;
+		}
+	}
+
+	&__gulp,
+	&__grunt {
+		position: absolute;
+		left: 0;
+		top: 210px;
+		font-family: 'Courier New';
+		color: #333;
+		text-transform: uppercase;
+		font-size: 14px;
+		line-height: 28px;
+		padding-left: 77px;
+	}
+
+	&__gulp {
+		font-size: 16px;
+	}
+
+	&__grunt {
+		top: 238px;
+	}
+
+
+	&__wrapper {
+		position: relative;
+		height: 100%;
+
+		&::after {
+			top: 128px;
+			right: 20px;
+			max-width: 458px;
+			content: '';
+			position: absolute;
+			background-image: url('../../images/outsource/tech-right.png');
+			background-repeat: no-repeat;
+			background-size: 458px 130px;
+			background-position: right center;
+			height: 130px;
+			left: calc((100% - 918px) * 0.5 + 506px);
+		}
+
+		&::before {
+			top: 120px;
+			left: 69px;
+			content: '';
+			position: absolute;
+			background-image: url('../../images/outsource/tech-left.png');
+			background-repeat: no-repeat;
+			background-size: 445px 167px;
+			background-position: left center;
+			height: 167px;
+			width: calc((100% - 918px) * 0.5 + 279px);
+		}
+	}
+
+	&__square {
+		position: absolute;
+		width: 159px;
+		height: 159px;
+		border: 1px solid #6c0400;
+		padding: 13px;
+		top: 123px;
+		margin-left: 348px;
+		left: calc((100% - 918px) * 0.5);
+	}
+
+	&__content {
+		width: 133px;
+		height: 133px;
+		background: #f2ebd9;
+		font-family: RodchenkoCTT;
+		font-size: 24px;
+		color: #333333;
+		padding-left: 35px;
+		padding-right: 35px;
+		padding-top: 22px;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.075em;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 50px;
+			height: 53px;
+			background-image: url('../../images/outsource/magic.png');
+			background-size: contain;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__technology {
+		position: absolute;
+		right: 9.3%;
+		top: 312px;
+		padding: 30px 33px;
+		width: 380px;
+		height: 146px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #333;
+	}
+
+	&__title {
+		font-size: 15px;
+		text-transform: uppercase;
+		color: #6b0000;
+		font-family: 'PT Sans Narrow';
+		letter-spacing: 0.075em;
+	}
+
+	&__use {
+		font-size: 14px;
+		position: relative;
+		font-family: Roboto;
+		font-weight: 300;
+		color: #333;
+		margin-top: 15px;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border: 1px solid #6b0000;
+			border-radius: 50%;
+			margin-right: 24px;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 16px;
+			height: 1px;
+			background: #000;
+			left: 8px;
+			top: 50%;
+			margin-top: 1px;
+		}
+
+		&_fill {
+			&::before {
+				background: #6b0000;
+			}
+		}
+	}
+}
+
