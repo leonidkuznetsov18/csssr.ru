@@ -5,6 +5,11 @@ import './styles.css';
 
 export default class OutsourceContent extends React.Component {
 
+	static propTypes = {
+		data: React.PropTypes.object.isRequired
+	}
+
+
 	render() {
 		const data = this.props.data;
 

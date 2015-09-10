@@ -5,6 +5,11 @@ import './styles.css';
 
 export default class OutsourceSuccess extends React.Component {
 
+	static propTypes = {
+		data: React.PropTypes.object.isRequired
+	}
+
+
 	render() {
 		const data = this.props.data
 		return (
