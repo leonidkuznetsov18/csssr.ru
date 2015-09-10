@@ -252,7 +252,7 @@
 		text-transform: uppercase;
 		color: #6b0000;
 		font-family: 'PT Sans Narrow';
-		letter-spacing: 0.075em;
+		letter-spacing: .075em;
 	}
 
 	&__use {
@@ -262,12 +262,13 @@
 		font-weight: 300;
 		color: #333;
 		margin-top: 15px;
+		white-space: nowrap;
 
 		&::before {
 			content: '';
 			display: inline-block;
-			width: 8px;
-			height: 8px;
+			width: 6px;
+			height: 6px;
 			border: 1px solid #6b0000;
 			border-radius: 50%;
 			margin-right: 24px;
