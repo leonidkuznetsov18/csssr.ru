@@ -144,7 +144,7 @@
 		font-weight: 300;
 		max-width: 380px;
 		width: 38%;
-		margin-left: 440px //82px + 358px;
+		margin-left: 440px;
 		top: 89px;
 		left: calc((100% - 918px) * 0.5);
 	}
