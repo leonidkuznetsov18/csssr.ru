@@ -1,5 +1,5 @@
 @import 'helpers';
-@import 'order-media';
+@import 'media';
 
 .order {
 	width: 100%;
