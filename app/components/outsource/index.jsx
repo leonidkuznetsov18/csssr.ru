@@ -1,5 +1,6 @@
 import React from 'react';
-import OutsourceContent from 'components/outsource-content'
+import Content from 'components/outsource-content'
+import Power from 'components/outsource-power'
 
 import './styles.css';
 
@@ -19,7 +20,8 @@ export default class Outsource extends React.Component {
 					<span className='outsource__title-left'>Frontend</span>
 					<span className='outsource__title-right'>аутсорсинг</span>
 				</h1>
-				<OutsourceContent data={data} />
+				<Content data={data} />
+				<Power />
 			</div>
 		);
 	}
