@@ -1,0 +1,31 @@
+.outsource-use {
+
+	&__tab {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		margin-left: 58px;
+		margin-top: -11px;
+		width: calc(100% - 630px);
+	}
+
+	&__content {
+		position: absolute;
+		padding-top: 262px;
+		margin-top: -262px;
+		top: 0;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .3s ease;
+		z-index: 1;
+
+		&_active {
+			position: relative;
+			pointer-events: initial;
+			z-index: 2;
+			opacity: 1;
+			transition-delay: .3s;
+		}
+	}
+
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import UseExamples from 'components/outsource-use-examples'
 
 import './styles.css';
 
@@ -35,6 +36,8 @@ export default class OutsourceUse extends React.Component {
 						<br />
 						— Ок, сейчас объясним наглядно...
 					</div>
+
+					<UseExamples />
 
 				</div>
 
