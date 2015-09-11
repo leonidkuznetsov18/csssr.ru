@@ -1,0 +1,118 @@
+.outsource-form {
+	border-top: 1px dashed #231f20;
+	margin-left: -24px;
+	margin-right: -24px;
+	position: relative;
+	padding-left: 14.9%;
+	padding-top: 60px;
+	padding-bottom: 101px;
+
+	&::after {
+		background: url('../../images/background/cut.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 30px;
+		height: 26px;
+		position: absolute;
+		top: -13px;
+		left: 64px;
+		transform: rotate(-90deg);
+		content: '';
+		z-index: 2;
+	}
+
+	&__container {
+		width: 55%;
+		max-width: 520px;
+		display: inline-block;
+		vertical-align: top;
+
+		.input-text {
+			margin-top: 4px;
+			margin-bottom: 9px;
+		}
+	}
+
+	&__title {
+		color: #6b0000;
+		font-size: 26px;
+		font-family: 'PT Sans Narrow';
+		text-transform: uppercase;
+		position: relative;
+		overflow: hidden;
+		line-height: 40px;
+		z-index: 2;
+		letter-spacing: 0.075em;
+		margin-left: -5px;
+	}
+
+	&__text {
+		font-size: 16px;
+		line-height: 27px;
+		color: #333;
+		font-family: Roboto;
+		font-weight: 300;
+		margin-top: 6px;
+		margin-bottom: 16px;
+	}
+
+	&__fields {
+		width: 430px;
+	}
+
+	&__submit {
+		margin-top: 30px;
+		width: 164px;
+	}
+
+	&__recruting {
+		position: absolute;
+		right: 13%;
+		top: 60px;
+		display: inline-block;
+		vertical-align: top;
+		width: 230px;
+		padding-left: 20px;
+
+		&::before {
+			width: 110px;
+			height: 110px;
+			content: '';
+			margin-left: -20px;
+			border-radius: 50%;
+			display: block;
+			background-image: url('../../images/outsource/radar.svg'), url('../../images/outsource/circle.png');
+			background-size: 104px, 110px;
+			background-position: center;
+			background-repeat: no-repeat;
+			margin-bottom: 30px;
+		}
+	}
+
+	&__recruting-title {
+		font-size: 15px;
+		color: #6b0000;
+		font-family: 'PT Sans Narrow';
+		text-transform: uppercase;
+		letter-spacing: 0.075em;
+		margin-bottom: 10px;
+	}
+
+	&__recruting-text {
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	&__recruting-link {
+		text-decoration: underline;
+	}
+}
+
+@media screen and (device-aspect-ratio: 40/71) and (max-width: 1024px) {
+	.outsource-form {
+		border-top-width: 2px;
+	}
+}

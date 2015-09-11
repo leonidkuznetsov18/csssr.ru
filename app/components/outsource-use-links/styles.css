@@ -23,6 +23,7 @@
 		transition-duration: .25s;
 		transition-property: color;
 		will-change: color;
+		cursor: pointer;
 
 		&:hover {
 			color: #c72823;

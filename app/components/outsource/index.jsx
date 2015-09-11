@@ -3,6 +3,7 @@ import Content from 'components/outsource-content'
 import Power from 'components/outsource-power'
 import Magic from 'components/outsource-magic'
 import Use from 'components/outsource-use'
+import Form from 'components/outsource-form'
 
 import './styles.css';
 
@@ -26,6 +27,7 @@ export default class Outsource extends React.Component {
 				<Power />
 				<Magic />
 				<Use tips={data.tips} />
+				<Form />
 			</div>
 		);
 	}
