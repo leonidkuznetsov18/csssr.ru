@@ -174,15 +174,18 @@
 		"fields": [
 			{
 				"key": "name",
-				"text": "* Ваше имя"
+				"text": "* Ваше имя",
+				"validation": ".+"
 			},
 			{
 				"key": "email",
-				"text": "* Электронная почта"
+				"text": "* Электронная почта",
+				"validation": ".+@.+\\..+"
 			},
 			{
 				"key": "skype",
-				"text": "* Скайп"
+				"text": "* Скайп",
+				"validation": ".+"
 			},
 			{
 				"key": "phone",

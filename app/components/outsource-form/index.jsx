@@ -1,5 +1,6 @@
 import React from 'react';
 import Brick from 'components/brick'
+import FormGroup from 'components/form-group'
 
 import './styles.css';
 
@@ -11,40 +12,64 @@ export default class OutsourceForm extends React.Component {
 	}
 
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			validate: false
+		}
+	}
+
+
+	onSubmit = (e) => {
+		this.setState({
+			validate: true
+		});
+
+		let fields = [];
+		for (let ref in this.refs) {
+			if (ref.indexOf('formGroups.') === 0) {
+				fields.push(this.refs[ref]);
+			}
+		}
+
+		var preventDefault = false;
+		for (var key in fields) {
+			preventDefault = preventDefault || !fields[key].isRight();
+		}
+
+		if (preventDefault) e.preventDefault();
+	}
+
+
 	render() {
 		const data = this.props.data;
 
 		let fields = []
 
 		for (let field of data.fields) {
-			console.log(field)
-
 			fields.push(
-				<label
-					htmlFor={`outsounce${field.key}`}
-					className="label label-text"
-				>{field.text}</label>
-			);
-
-			fields.push(
-				<input
-					id={`outsounce${field.key}`}
-					className="input-text js-outsource-control"
-					name={`contact[${field.key}]`}
-					type="text"
+				<FormGroup
+					_id={`outsource${field.key}`}
+					_name={field.key}
+					ref={'formGroups.' + field.key}
+					label={field.text}
+					regexp={field.validation}
+					validate={this.state.validate}
 				/>
-			)
+			);
 		}
 
 		return (
 			<form
 				id="outsourceForm"
 				className="outsource-form"
+				ref='smth'
 				name="form"
 				action="classes/mailer-outsource.php"
 				role="form"
 				autoComplete="off"
 				method="post"
+				onSubmit={this.onSubmit}
 			>
 
 				<input type="hidden" name="lang" value="ru" />
