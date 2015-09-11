@@ -19,16 +19,18 @@ export default class Outsource extends React.Component {
 
 	render() {
 		return (
-			<div className='outsource'>
-				<h1 className='outsource__title'>
-					<span className='outsource__title-left'>Frontend</span>
-					<span className='outsource__title-right'>аутсорсинг</span>
-				</h1>
-				<Content data={data} />
-				<Power />
-				<Magic />
-				<Use tips={data.tips} />
-				<Form data={data.form} />
+			<div>
+				<div className='outsource'>
+					<h1 className='outsource__title'>
+						<span className='outsource__title-left'>Frontend</span>
+						<span className='outsource__title-right'>аутсорсинг</span>
+					</h1>
+					<Content data={data} />
+					<Power />
+					<Magic />
+					<Use tips={data.tips} />
+					<Form data={data.form} />
+				</div>
 				<Faq data={data.faq} />
 			</div>
 		);

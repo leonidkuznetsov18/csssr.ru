@@ -58,7 +58,7 @@ export default class OutsourceUseTips extends React.Component {
 
 	render() {
 		let tips = [];
-		for (const tip of this.props.data) {
+		for (let tip of this.props.data) {
 			tips.push(this.getSubtitle(tip.subtitle));
 			tips.push(this.getText(tip.text));
 		}
