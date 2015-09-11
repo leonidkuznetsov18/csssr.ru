@@ -9,7 +9,7 @@ module.exports = function(options) {
 	var publicPath = serverPath + '/_assets/';
 	var loaders = {
 		'json': 'json',
-		'png|jpg': 'url?limit=5000',
+		'png|jpg|cur|gif': 'url?limit=5000',
 		'woff|woff2': 'url?limit=1'
 	};
 	var stylesheetLoaders = {
