@@ -4,6 +4,15 @@ import './styles.css';
 
 export default class FormGroup extends React.Component {
 
+	static PropTypes = {
+		_id: React.PropTypes.string.isRequired,
+		_name: React.PropTypes.string.isRequired,
+		label: React.PropTypes.string.isRequired,
+		regexp: React.PropTypes.string,
+		validate: React.PropTypes.string
+	}
+
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -37,13 +46,17 @@ export default class FormGroup extends React.Component {
 	render() {
 		const err = { border: '1px solid rgb(199, 38, 26)' },
 			withError = this.state.wrongData;
+
+		const label = (!this.props.label) ? '' : (
+			<label
+				className='label label-text'
+				htmlFor={this.props._id}
+			>{this.props.label}</label>
+		)
+
 		return (
 			<div>
-
-				<label
-					className='label label-text'
-					htmlFor={this.props._id}
-				>{this.props.label}</label>
+				{label}
 
 				<input
 					id={this.props._id}

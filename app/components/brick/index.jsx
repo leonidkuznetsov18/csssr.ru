@@ -4,6 +4,10 @@ import './styles.css';
 
 export default class Brick extends React.Component {
 
+	static PropTypes = {
+		text: React.PropTypes.string.isRequired
+	}
+
 	render() {
 		return (
 			<button className='brick' type='submit' >
