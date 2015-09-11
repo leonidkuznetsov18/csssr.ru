@@ -1,5 +1,6 @@
 import React from 'react';
 import PortfolioList from 'components/portfolio-list'
+import Parallax from 'components/parallax'
 
 import './styles.css';
 
@@ -16,8 +17,12 @@ export default class Portfolio extends React.Component {
 		return (
 			<div className='portfolio'>
 				<div className='portfolio-head'>
-					<div className='portfolio-slogan' />
-					<div className='portfolio-rocket' />
+					<Parallax speed={.3}>
+						<div className='portfolio-slogan' />
+					</Parallax>
+					<Parallax speed={.2}>
+						<div className='portfolio-rocket' />
+					</Parallax>
 				</div>
 				<div className='portfolio-main'>
 					<div className='portfolio-title'>{data.title}</div>
