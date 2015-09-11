@@ -43,7 +43,10 @@ export default class OutsourceContent extends React.Component {
 					</div>
 
 				</div>
-				<Success data={data.success} />
+				<Success
+					title={data.success.title}
+					description={data.success.description}
+				/>
 			</div>
 		);
 	}

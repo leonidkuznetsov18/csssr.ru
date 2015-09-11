@@ -13,7 +13,6 @@ export default class OutsourceFaqSingle extends React.Component {
 
 
 	render() {
-		console.log(this.props.columns)
 		const columns = this.props.columns.map((column, j) => {
 			var result = [];
 			const len = column.length;

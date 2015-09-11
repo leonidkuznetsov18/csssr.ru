@@ -1,22 +1,45 @@
 import React from 'react';
 import calcDate from 'helpers/calcDate';
+import Projecter from 'components/projecter'
 
 import './styles.css';
 
 export default class OutsourceSuccess extends React.Component {
 
 	static propTypes = {
-		data: React.PropTypes.object.isRequired
+		title: React.PropTypes.string.isRequired,
+		description: React.PropTypes.string.isRequired
+	}
+
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			project: 'yota'
+		}
+	}
+
+
+	closeProjecter = () => {
+		this.setState({project: false});
 	}
 
 
 	render() {
-		const data = this.props.data
+		const {title, description} = this.props;
+		const project = (!this.state.project) ? '' : (
+			<Projecter
+				project={this.state.project}
+				closeProjecter={this.closeProjecter}
+			/>
+		)
+
 		return (
 			<div className='outsource__success'>
-				<h2 className='outsource__subtitle'>{data.title}</h2>
+				{project}
+				<h2 className='outsource__subtitle'>{title}</h2>
 				<div className='outsource__success-description'>
-					{data.description}
+					{description}
 				</div>
 
 				<div className='outsource__project'>

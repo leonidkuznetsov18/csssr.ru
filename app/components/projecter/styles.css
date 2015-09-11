@@ -1,0 +1,104 @@
+
+.projecter {
+	position: fixed;
+	z-index: -1;
+	top: -1000%;
+	left: -1000%;
+	display: flex;
+	cursor: url('../../images/cursor/close.png') 15 15, url('../../images/cursor/close.cur'), ne-resize;
+	user-select: none;
+	visibility: hidden;
+	background-color: #fff;
+	background-position: 50% 50%;
+	background-size: cover;
+	opacity: 0;
+	transition: z-index 0s .25s, visibility 0s .25s, opacity .25s;
+	will-change: top, left, z-index, visibility, opacity;
+
+	&::selection {
+		background-color: transparent;
+	}
+
+	&_state_active {
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		visibility: visible;
+		opacity: 1;
+		transition: z-index 0s, visibility 0s, opacity .25s;
+	}
+
+	&_project_yota {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-image: url('../../images/outsource/yota.gif');
+	}
+
+	&_project_cpeople {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-image: url('../../images/outsource/cpeople.gif');
+	}
+
+	&_project_life {
+		justify-content: space-between;
+		align-items: center;
+		background-image: url('../../images/outsource/life.gif');
+	}
+
+	&__title {
+		font-family: 'Courier New', Courier, monospace;
+		font-weight: bold;
+		line-height: 1;
+		cursor: default;
+		color: #f2ebda;
+	}
+
+	&__title-link {
+		display: inline-block;
+		line-height: 14px;
+		color: #f2ebda;
+		border-bottom: 1px solid currentColor;
+	}
+
+	&_project_yota &__title,
+	&_project_cpeople &__title {
+		width: 640px;
+		font-size: 22px;
+	}
+
+	&_project_life &__title {
+		margin-left: 80px;
+		width: 320px;
+		font-size: 48px;
+	}
+
+	&__comment {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: bold;
+		cursor: default;
+		color: #f2ebda;
+	}
+
+	&_project_yota &__comment,
+	&_project_cpeople &__comment {
+		margin-top: 22px;
+		width: 640px;
+	}
+
+	&_project_life &__comment {
+		margin-right: 80px;
+		width: 340px;
+	}
+
+	&__selection {
+		display: inline-block;
+		background-color: rgba(#08f, .5);
+	}
+}
