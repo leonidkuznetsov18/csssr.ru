@@ -27,7 +27,7 @@ export default class Outsource extends React.Component {
 				<Power />
 				<Magic />
 				<Use tips={data.tips} />
-				<Form />
+				<Form data={data.form} />
 			</div>
 		);
 	}
