@@ -1,5 +1,6 @@
 import React from 'react';
 import Circloader from 'components/circloader'
+import Parallax from 'components/parallax'
 
 import './styles.css';
 
@@ -33,22 +34,29 @@ export default class OutsourcePower extends React.Component {
 						<p>В CSSSR активно используется принцип разделения труда. Это позволяет нам быстро масштабировать команду под срочные проекты и за минимальное время добиваться большого прогресса.</p>
 					</div>
 
-					<div
-						id="outsourceLikeBox"
-						className="outsource-power__social"
+					<Parallax
+						min={-330}
+						max={0}
+						offset={330}
+						speed={.3}
 					>
-						<div className="outsource-power__loader">
-							<Circloader />
-						</div>
 						<div
-							className="outsource-power__likebox fb-like"
-							data-href='https://www.facebook.com/csssr/'
-							data-layout='box_count'
-							data-action='like'
-							data-show-faces='true'
-							data-share='true'
-						/>
-					</div>
+							id="outsourceLikeBox"
+							className="outsource-power__social"
+						>
+							<div className="outsource-power__loader">
+								<Circloader />
+							</div>
+							<div
+								className="outsource-power__likebox fb-like"
+								data-href='https://www.facebook.com/csssr/'
+								data-layout='box_count'
+								data-action='like'
+								data-show-faces='true'
+								data-share='true'
+							/>
+						</div>
+					</Parallax>
 
 				</div>
 			</div>
