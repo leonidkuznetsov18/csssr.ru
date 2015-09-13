@@ -1,6 +1,6 @@
 import React from 'react';
-import PortfolioList from 'components/portfolio-list'
-import Parallax from 'components/parallax'
+import PortfolioList from 'components/portfolio-list';
+import Parallax from 'components/parallax';
 
 import './styles.css';
 

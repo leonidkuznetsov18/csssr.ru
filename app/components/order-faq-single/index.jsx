@@ -7,7 +7,7 @@ import './styles.css';
 export default class FaqSingle extends React.Component {
 
 	static propTypes = {
-		data: React.props.object
+		data: React.PropTypes.object
 	}
 
 	render() {
