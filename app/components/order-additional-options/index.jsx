@@ -42,7 +42,7 @@ export default class AdditionalOptions extends React.Component {
 					tip={opt.tip}
 					choose={this.choose}
 				/>
-			)
+			);
 		});
 
 		return (

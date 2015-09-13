@@ -3,6 +3,13 @@ import React from 'react';
 import './styles.css';
 
 export default class FormUploadType extends React.Component {
+
+	static propTypes = {
+		active: React.PropTypes.string,
+		setActive: React.PropTypes.function
+	}
+
+
 	render() {
 		return (
 			<div className='order__main__content__upload__type'>

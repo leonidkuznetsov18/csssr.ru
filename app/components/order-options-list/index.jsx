@@ -1,11 +1,14 @@
 import React from 'react/addons';
-import OptionPoint from 'components/order-option-point'
+import OptionPoint from 'components/order-option-point';
 
 import './styles.css';
 
-const data = require('data/order-options.json');
 
 export default class OptionsList extends React.Component {
+
+	static propTypes = {
+		data: React.PropTypes.object
+	}
 
 	constructor(props) {
 		super(props);
@@ -31,7 +34,7 @@ export default class OptionsList extends React.Component {
 			this.setState({checkData: checkData});
 
 		} else {
-			var result = {};
+			let result = {};
 			result[e.target.id] = e.target.checked;
 			this.setState(React.addons.update(this.state, {
 				checkData: {$merge: result}
@@ -50,7 +53,7 @@ export default class OptionsList extends React.Component {
 
 				<ul className='order__main__content__options__checkboxes'>
 					{
-						option.checkboxes.map((opt, i) => {
+						option.checkboxes.map((opt) => {
 							return (
 								<OptionPoint
 									key={opt.id}

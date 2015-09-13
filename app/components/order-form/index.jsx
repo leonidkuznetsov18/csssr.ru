@@ -1,10 +1,8 @@
 import React from 'react';
-import Uploader from 'components/order-uploader'
-import Options from 'components/order-options'
-import Contacts from 'components/order-contacts'
+import Uploader from 'components/order-uploader';
+import Options from 'components/order-options';
+import Contacts from 'components/order-contacts';
 
-
-const data = require('data/contact-info.json');
 
 export default class OrderForm extends React.Component {
 
@@ -13,18 +11,19 @@ export default class OrderForm extends React.Component {
 		this.state = {
 			validate: false,
 			showErrorWindow: false
-		}
+		};
 	}
 
 	onSubmit = (e) => {
+		let preventDefault = false;
+
 		this.setState({
 			validate: true
 		});
 
 		const fields = this.refs.contacts.refs;
 
-		var preventDefault = false;
-		for (var key in fields) {
+		for (let key in fields) {
 			preventDefault = preventDefault || !fields[key].isRight();
 		}
 
@@ -34,7 +33,7 @@ export default class OrderForm extends React.Component {
 			preventDefault = true;
 			this.setState({
 				showErrorWindow: true
-			})
+			});
 		}
 
 		if (preventDefault) e.preventDefault();

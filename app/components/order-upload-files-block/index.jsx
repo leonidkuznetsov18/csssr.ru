@@ -1,10 +1,10 @@
 import React from 'react';
-import Dropzone from 'react-dropzone'
-import FilesBlock from 'components/order-files'
+import Dropzone from 'react-dropzone';
+import FilesBlock from 'components/order-files';
 
-import './styles.css'
+import './styles.css';
 
-const data = require('data/order-uploader.json').files
+const data = require('data/order-uploader.json').files;
 
 export default class UploadFilesBlock extends React.Component {
 

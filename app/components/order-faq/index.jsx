@@ -1,9 +1,9 @@
 import React from 'react';
-import FaqSingle from 'components/order-faq-single'
+import FaqSingle from 'components/order-faq-single';
 
 import './styles.css';
 
-const data = require('data/faq.json')
+const data = require('data/faq.json');
 
 export default class Faq extends React.Component {
 

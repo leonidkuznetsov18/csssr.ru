@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import './styles.css';
 
 export default class File extends React.Component {
+
+	static propTypes = {
+		data: PropTypes.object,
+		setGlobalProgress: PropTypes.function,
+		delete: PropTypes.function
+	}
+
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,7 +21,7 @@ export default class File extends React.Component {
 
 
 	componentDidMount() {
-		this._isMounted = true;
+		this.isMounted = true;
 		this.setState({
 			progressBarWidth: 190 - this.refs.name.getDOMNode().offsetWidth
 		});
@@ -22,7 +30,7 @@ export default class File extends React.Component {
 
 
 	componentWillUnmount() {
-		this._isMounted = false;
+		this.isMounted = false;
 	}
 
 
@@ -30,12 +38,13 @@ export default class File extends React.Component {
 	tick(time) {
 		if (time > 100) return;
 		this.setProgress(time);
-		return setTimeout(this.tick.bind(this, time + 1), 50);
+		setTimeout(this.tick.bind(this, time + 1), 50);
+		return;
 	}
 
 	// TODO: use the function while file uploads
 	setProgress(value) {
-		if (this._isMounted) {
+		if (this.isMounted) {
 			this.props.setGlobalProgress(value);
 			this.setState({
 				progress: value
@@ -48,7 +57,7 @@ export default class File extends React.Component {
 
 	render() {
 		const file = this.props.data;
-		if (!file || !file.name) return <div>Error</div>
+		if (!file || !file.name) return <div>Error</div>;
 		const random = 'file_' + file.key;
 
 		return (

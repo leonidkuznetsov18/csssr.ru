@@ -1,6 +1,6 @@
 import React from 'react';
-import OrderForm from 'components/order-form'
-import Section from 'components/section'
+import OrderForm from 'components/order-form';
+import Section from 'components/section';
 
 import './styles.css';
 

@@ -1,9 +1,14 @@
-import React from 'react';
-import File from 'components/order-file'
+import React, {PropTypes} from 'react';
+import File from 'components/order-file';
 
 import './styles.css';
 
 export default class FilesBlock extends React.Component {
+
+	static propTypes = {
+		files: PropTypes.array.isRequired,
+		deleteFile: PropTypes.function
+	}
 
 	constructor(props) {
 		super(props);
@@ -15,7 +20,7 @@ export default class FilesBlock extends React.Component {
 
 	setProgress(value, force) {
 		if (value < this.lastValue && !force) return false;
-		this.lastValue = value < 100 ? value : 0
+		this.lastValue = value < 100 ? value : 0;
 
 		this.setState({
 			progress: value <= 100 ? value : 0
@@ -36,9 +41,9 @@ export default class FilesBlock extends React.Component {
 			);
 		});
 
-		var p = this.state.progress,
-			paddingTop = (p === 0 || p === 100) ? 0 : 47,
-			paddingBottom = 10;
+		const p = this.state.progress;
+		const paddingTop = (p === 0 || p === 100) ? 0 : 47;
+		const paddingBottom = 10;
 
 		return (
 			<div

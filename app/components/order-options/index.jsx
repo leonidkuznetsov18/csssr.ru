@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsList from 'components/order-options-list'
+import OptionsList from 'components/order-options-list';
 
 import './styles.css';
 

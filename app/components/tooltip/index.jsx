@@ -3,6 +3,13 @@ import React from 'react';
 import './styles.css';
 
 export default class Tooltip extends React.Component {
+
+	static propTypes = {
+		className: React.PropTypes.string,
+		text: React.PropTypes.string,
+	}
+
+
 	render() {
 		return (
 

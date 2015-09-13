@@ -1,7 +1,18 @@
-import React from 'react';
-import Tooltip from 'components/tooltip'
+import React, {PropTypes} from 'react';
+import Tooltip from 'components/tooltip';
 
 export default class OptionPoint extends React.Component {
+
+	static propTypes = {
+		choose: PropTypes.function,
+		_type: PropTypes.string,
+		className: PropTypes.string,
+		_id: PropTypes.string,
+		_value: PropTypes.string,
+		_checked: PropTypes.boolean,
+		text: PropTypes.string,
+		tip: PropTypes.object
+	}
 
 
 	onChange = (e) => {
@@ -16,19 +27,19 @@ export default class OptionPoint extends React.Component {
 					inputClassList: 'input-radio',
 					type: 'radio',
 					labelClassList: 'label radio'
-				}
+				};
 
 			default: // по умолчанию checkboxes
 				return {
 					inputClassList: 'input-checkbox',
 					type: 'checkbox',
 					labelClassList: 'label checkbox'
-				}
+				};
 		}
 	}
 
 	render() {
-		const typeData = this.getTypeData(this.props._type)
+		const typeData = this.getTypeData(this.props._type);
 
 		return (
 			<li className={this.props.className}>

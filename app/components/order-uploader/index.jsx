@@ -1,7 +1,7 @@
 import React from 'react';
-import FormUploadType from 'components/order-upload-type'
-import UploadFilesBlock from 'components/order-upload-files-block'
-import UploadFilesLink from 'components/order-upload-files-link'
+import FormUploadType from 'components/order-upload-type';
+import UploadFilesBlock from 'components/order-upload-files-block';
+import UploadFilesLink from 'components/order-upload-files-link';
 
 import './styles.css';
 
@@ -11,7 +11,7 @@ export default class Uploader extends React.Component {
 		super(props);
 		this.state = {
 			activeBlock: props.initialActiveBlock || 'files'
-		}
+		};
 	}
 
 

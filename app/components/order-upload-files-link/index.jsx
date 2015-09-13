@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles.css'
+import './styles.css';
 
 const data = require('data/order-uploader.json').link;
 
@@ -18,7 +18,7 @@ export default class UploadFilesLink extends React.Component {
 				/>
 				<span className='info'>{data.info}</span>
 			</div>
-		)
+		);
 	}
 
 }

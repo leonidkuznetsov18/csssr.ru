@@ -1,8 +1,8 @@
 import React from 'react';
 import FormGroup from 'components/form-group';
-import AdditionalOptions from 'components/order-additional-options'
-import Brick from 'components/brick'
-import FormValidation from 'components/form-validation'
+import AdditionalOptions from 'components/order-additional-options';
+import Brick from 'components/brick';
+import FormValidation from 'components/form-validation';
 
 import './styles.css';
 
@@ -11,6 +11,11 @@ var data = {};
 data.contactInfo = require('data/contact-info.json');
 
 export default class OrderFormContacts extends React.Component {
+
+	static propTypes = {
+		validate: React.PropTypes.boolean,
+		showErrorWindow: React.PropTypes.function
+	}
 
 	getFormGroups() {
 		return data.contactInfo.map((group) => {
@@ -24,7 +29,7 @@ export default class OrderFormContacts extends React.Component {
 					regexp={group.validation}
 					validate={this.props.validate}
 				/>
-			)
+			);
 		});
 	}
 

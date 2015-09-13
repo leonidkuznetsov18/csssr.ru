@@ -4,7 +4,7 @@ import './styles.css';
 
 export default class Brick extends React.Component {
 
-	static PropTypes = {
+	static propTypes = {
 		text: React.PropTypes.string.isRequired
 	}
 

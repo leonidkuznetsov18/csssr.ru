@@ -4,7 +4,7 @@ import './styles.css';
 
 export default class FormGroup extends React.Component {
 
-	static PropTypes = {
+	static propTypes = {
 		_id: React.PropTypes.string.isRequired,
 		_name: React.PropTypes.string.isRequired,
 		label: React.PropTypes.string.isRequired,

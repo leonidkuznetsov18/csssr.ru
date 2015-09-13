@@ -1,19 +1,23 @@
 import React from 'react';
-import Text from 'components/text'
+import Text from 'components/text';
 
 import './styles.css';
 
 
 export default class FaqSingle extends React.Component {
 
+	static propTypes = {
+		data: React.props.object
+	}
+
 	render() {
-		const data = this.props.data
+		const data = this.props.data;
 		const columns = data.columns.map((column, j) => {
 			var result = [];
 			const len = column.length;
 			for (let i = 0; i < len; i++) {
-				result.push(<h3 key={'title'+i}>{column[i].title}</h3>);
-				result.push(<Text key={'text'+i}>{column[i].text}</Text>);
+				result.push(<h3 key={'title' + j + i}>{column[i].title}</h3>);
+				result.push(<Text key={'text' + j + i}>{column[i].text}</Text>);
 			}
 
 			return (
