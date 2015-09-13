@@ -1,6 +1,6 @@
 import React from 'react';
 import calcDate from 'helpers/calcDate';
-import Projecter from 'components/projecter'
+import Projecter from 'components/projecter';
 
 import './styles.css';
 
@@ -16,7 +16,7 @@ export default class OutsourceSuccess extends React.Component {
 		super(props);
 		this.state = {
 			project: 'yota'
-		}
+		};
 	}
 
 
@@ -32,7 +32,7 @@ export default class OutsourceSuccess extends React.Component {
 				project={this.state.project}
 				closeProjecter={this.closeProjecter}
 			/>
-		)
+		);
 
 		return (
 			<div className='outsource__success'>
@@ -92,6 +92,6 @@ export default class OutsourceSuccess extends React.Component {
 				</div>
 
 			</div>
-		)
+		);
 	}
 }

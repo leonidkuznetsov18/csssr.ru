@@ -1,12 +1,12 @@
 import React from 'react';
-import FaqSingle from 'components/outsource-faq-single'
+import FaqSingle from 'components/outsource-faq-single';
 
 import './styles.css';
 
 
 export default class OutsourceFaq extends React.Component {
 
-	static PropTypes = {
+	static propTypes = {
 		data: React.PropTypes.object
 	}
 
@@ -24,7 +24,8 @@ export default class OutsourceFaq extends React.Component {
 		});
 
 		return (
-			<div id="faq" className="outsource__faq">
+			<div id='faq' className='outsource__faq'>
+
 				{fhqBlocks}
 			</div>
 		);

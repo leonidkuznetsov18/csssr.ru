@@ -1,6 +1,6 @@
 import React from 'react';
-import Circloader from 'components/circloader'
-import Parallax from 'components/parallax'
+import Circloader from 'components/circloader';
+import Parallax from 'components/parallax';
 
 import './styles.css';
 
@@ -16,22 +16,26 @@ export default class OutsourcePower extends React.Component {
 					src={require('images/background/cloudx3.svg')}
 				/>
 
-				<div className="outsource-power__wrapper">
+				<div className='outsource-power__wrapper'>
 
-					<div className="outsource-power__circle">
-						<div className="outsource-power__circle-1">Более чем</div>
-						<div className="outsource-power__circle-2">6500</div>
-						<div className="outsource-power__circle-3">нормочасов / месяц</div>
-						<div className="outsource-power__thunderbolt">Мощность</div>
+					<div className='outsource-power__circle'>
+						<div className='outsource-power__circle-1'>Более чем</div>
+						<div className='outsource-power__circle-2'>6500</div>
+						<div className='outsource-power__circle-3'>нормочасов / месяц</div>
+						<div className='outsource-power__thunderbolt'>Мощность</div>
 						<img
 							className='outsource-power__cloud outsource-power__cloud_middle'
 							src={require('images/background/cloudx3.svg')}
 						/>
 					</div>
 
-					<div className="outsource-power__text">
-						<div className="outsource-power__text-title">Подход</div>
-						<p>В CSSSR активно используется принцип разделения труда. Это позволяет нам быстро масштабировать команду под срочные проекты и за минимальное время добиваться большого прогресса.</p>
+					<div className='outsource-power__text'>
+						<div className='outsource-power__text-title'>Подход</div>
+						<p>
+							В CSSSR активно используется принцип разделения труда.
+							Это позволяет нам быстро масштабировать команду под срочные
+							проекты и за минимальное время добиваться большого прогресса.
+						</p>
 					</div>
 
 					<Parallax
@@ -41,14 +45,14 @@ export default class OutsourcePower extends React.Component {
 						speed={.3}
 					>
 						<div
-							id="outsourceLikeBox"
-							className="outsource-power__social"
+							id='outsourceLikeBox'
+							className='outsource-power__social'
 						>
-							<div className="outsource-power__loader">
+							<div className='outsource-power__loader'>
 								<Circloader />
 							</div>
 							<div
-								className="outsource-power__likebox fb-like"
+								className='outsource-power__likebox fb-like'
 								data-href='https://www.facebook.com/csssr/'
 								data-layout='box_count'
 								data-action='like'

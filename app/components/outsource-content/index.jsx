@@ -1,5 +1,5 @@
 import React from 'react';
-import Success from 'components/outsource-success'
+import Success from 'components/outsource-success';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ export default class OutsourceContent extends React.Component {
 					<h2 className='outsource__cols-title'>{event.title}</h2>
 					<p className='outsource__cols-text'>{event.text}</p>
 				</div>
-			)
+			);
 		});
 
 		return (

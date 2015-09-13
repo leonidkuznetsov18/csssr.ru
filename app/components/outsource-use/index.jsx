@@ -1,20 +1,20 @@
 import React from 'react';
-import UseExamples from 'components/outsource-use-examples'
+import UseExamples from 'components/outsource-use-examples';
 
 import './styles.css';
 
 
 export default class OutsourceUse extends React.Component {
-	static PropTypes = {
+	static propTypes = {
 		tips: React.PropTypes.array
 	}
 
 	render() {
 		const cloud = require('images/background/cloudx3.svg');
 		return (
-			<div className="outsource-use">
-				<h2 className="outsource-use__title">
-					<div className="outsource-use__title-text">Идеи Применения</div>
+			<div className='outsource-use'>
+				<h2 className='outsource-use__title'>
+					<div className='outsource-use__title-text'>Идеи Применения</div>
 				</h2>
 
 				<img
@@ -26,16 +26,16 @@ export default class OutsourceUse extends React.Component {
 					src={cloud}
 				/>
 
-				<div className="outsource-use__how">
-					<h3 className="outsource-use__subtitle">
+				<div className='outsource-use__how'>
+					<h3 className='outsource-use__subtitle'>
 						как применить
 						<br />
 						наш сервис
 						<br />
 						в вашем бизнесе?
 					</h3>
-					<div className="outsource-use__text">
-						— Что такое «Frontend аутсосринг», как это может быть полезно?
+					<div className='outsource-use__text'>
+						{'— Что такое «Frontend аутсосринг», как это может быть полезно?'}
 						<br />
 						— Ок, сейчас объясним наглядно...
 					</div>

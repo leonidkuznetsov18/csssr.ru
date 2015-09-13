@@ -7,19 +7,20 @@ export default class OutsourceUseLinks extends React.Component {
 
 	static propTypes = {
 		links: React.PropTypes.object,
-		activeLink: React.PropTypes.string
+		activeLink: React.PropTypes.string,
+		setActiveLink: React.PropTypes.function
 	}
 
 
 	getClassList = (link) => {
 		return 'outsource-use__link js-outsource-use-link ' +
-			(this.props.activeLink === link ? 'outsource-use__link_active' : '')
+			(this.props.activeLink === link ? 'outsource-use__link_active' : '');
 	}
 
 
 	render() {
 
-		let links = []
+		let links = [];
 
 		for (let linkKey in this.props.links) {
 			const link = this.props.links[linkKey];

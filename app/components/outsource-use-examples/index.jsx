@@ -1,11 +1,11 @@
 import React from 'react';
-import Links from 'components/outsource-use-links'
-import Tips from 'components/outsource-use-tips'
+import Links from 'components/outsource-use-links';
+import Tips from 'components/outsource-use-tips';
 
 
 export default class OutsourceUseExamples extends React.Component {
 
-	static PropTypes = {
+	static propTypes = {
 		tips: React.PropTypes.array
 	}
 
@@ -13,7 +13,7 @@ export default class OutsourceUseExamples extends React.Component {
 		super(props);
 		this.state = {
 			active: 'bank'
-		}
+		};
 	}
 
 
