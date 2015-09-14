@@ -99,6 +99,6 @@
 
 	&__selection {
 		display: inline-block;
-		background-color: rgba(#08f, .5);
+		background-color: rgba(0, 136, 255, .5);
 	}
 }

@@ -1,37 +1,57 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import calcDate from 'helpers/calcDate';
 import Projecter from 'components/projecter';
+import Yota from 'components/projecter-yota';
+import CreativePeople from 'components/projecter-cpeople';
 
 import './styles.css';
 
 export default class OutsourceSuccess extends React.Component {
 
 	static propTypes = {
-		title: React.PropTypes.string.isRequired,
-		description: React.PropTypes.string.isRequired
+		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		projects: PropTypes.object
 	}
 
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			project: 'yota'
+			project: false
 		};
 	}
 
 
+	openProjecter = (project) => {
+		this.setState({
+			project: project
+		});
+	}
+
+
 	closeProjecter = () => {
-		this.setState({project: false});
+		this.setState({
+			project: false
+		});
 	}
 
 
 	render() {
 		const {title, description} = this.props;
+
+		const projects = {
+			'yota': <Yota />,
+			'cpeople': <CreativePeople />
+		};
+
 		const project = (!this.state.project) ? '' : (
 			<Projecter
 				project={this.state.project}
 				closeProjecter={this.closeProjecter}
-			/>
+			>
+				{projects[this.state.project]}
+			</Projecter>
 		);
 
 		return (
@@ -53,6 +73,7 @@ export default class OutsourceSuccess extends React.Component {
 					<div
 						className={'outsource__project-title ' +
 							'outsource__project-title_state_active js-outsource-project'}
+						onClick={this.openProjecter.bind(null, 'yota')}
 						data-id='yota'
 					>Yota</div>
 					<p className='outsource__project-text'>
@@ -85,6 +106,7 @@ export default class OutsourceSuccess extends React.Component {
 						className={'outsource__project-title ' +
 							'outsource__project-title_state_active js-outsource-project'}
 						data-id='cpeople'
+						onClick={this.openProjecter.bind(null, 'cpeople')}
 					>Creative People</div>
 					<p className='outsource__project-text'>
 						{' Выбрали нас ' + calcDate(new Date(2014, 9, 22)) + ' назад.'}
