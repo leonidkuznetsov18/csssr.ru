@@ -8,7 +8,7 @@ export default class OutsourceUseLinks extends React.Component {
 	static propTypes = {
 		links: React.PropTypes.object,
 		activeLink: React.PropTypes.string,
-		setActiveLink: React.PropTypes.function
+		setActiveLink:  React.PropTypes.func
 	}
 
 

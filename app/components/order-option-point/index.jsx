@@ -4,14 +4,14 @@ import Tooltip from 'components/tooltip';
 export default class OptionPoint extends React.Component {
 
 	static propTypes = {
-		choose: PropTypes.function,
+		choose: PropTypes.func,
 		_type: PropTypes.string,
 		className: PropTypes.string,
 		_id: PropTypes.string,
 		_value: PropTypes.string,
-		_checked: PropTypes.boolean,
+		_checked: PropTypes.bool,
 		text: PropTypes.string,
-		tip: PropTypes.object
+		tip: PropTypes.string
 	}
 
 

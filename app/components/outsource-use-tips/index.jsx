@@ -16,6 +16,7 @@ export default class OutsourceUseTips extends React.Component {
 			if (subtitle.size === 'medium') {
 				return (
 					<h4
+						key={Math.random()}
 						className='outsource-use__subtitle outsource-use__subtitle_medium'
 					>{subtitle.text}</h4>
 				);
@@ -23,6 +24,7 @@ export default class OutsourceUseTips extends React.Component {
 			} else { // default size is small
 				return (
 					<h5
+						key={Math.random()}
 						className='outsource-use__subtitle outsource-use__subtitle_small'
 					>{subtitle.text}</h5>
 				);
@@ -38,6 +40,7 @@ export default class OutsourceUseTips extends React.Component {
 				return (
 
 					<h5
+						key={Math.random()}
 						className='outsource-use__text outsource-use__text_big'
 					>{text.text}</h5>
 
@@ -46,6 +49,7 @@ export default class OutsourceUseTips extends React.Component {
 				return (
 
 					<div
+						key={Math.random()}
 						className='outsource-use__text'
 					>{text.text}</div>
 

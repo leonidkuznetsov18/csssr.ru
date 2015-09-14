@@ -28,6 +28,17 @@ export default class FaqSingle extends React.Component {
 		});
 
 
+		let link;
+		if (data.link && data.link.href && data.link.text) {
+			link = (
+				<a
+					className='blue-link'
+					href={data.link.href}
+				>{data.link.text}</a>
+			)
+		}
+
+
 		return (
 			<div className='order__faq__single'>
 
@@ -39,14 +50,7 @@ export default class FaqSingle extends React.Component {
 							width={data.image.width}
 							height={data.image.height}
 						/>
-						{
-							data.link ?
-								<a
-									className='blue-link'
-									href={data.link.href}
-								>{data.link.text}</a>
-							: ''
-						}
+						{link}
 					</div>
 					<h2>{data.title}</h2>
 					<p className='comment'>{data.comment}</p>

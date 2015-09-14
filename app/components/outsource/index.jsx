@@ -1,10 +1,10 @@
 import React from 'react';
-import Content from 'components/outsource-content'
-import Power from 'components/outsource-power'
-import Magic from 'components/outsource-magic'
-import Use from 'components/outsource-use'
-import Form from 'components/outsource-form'
-import Faq from 'components/outsource-faq'
+import Content from 'components/outsource-content';
+import Power from 'components/outsource-power';
+import Magic from 'components/outsource-magic';
+import Use from 'components/outsource-use';
+import Form from 'components/outsource-form';
+import Faq from 'components/outsource-faq';
 
 import './styles.css';
 
@@ -18,6 +18,7 @@ export default class Outsource extends React.Component {
 
 
 	render() {
+
 		return (
 			<div>
 				<div className='outsource'>

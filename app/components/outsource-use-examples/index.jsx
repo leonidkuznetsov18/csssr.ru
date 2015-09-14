@@ -6,7 +6,7 @@ import Tips from 'components/outsource-use-tips';
 export default class OutsourceUseExamples extends React.Component {
 
 	static propTypes = {
-		tips: React.PropTypes.array
+		tips: React.PropTypes.object
 	}
 
 	constructor(props) {

@@ -6,7 +6,7 @@ import './styles.css';
 
 export default class OutsourceUse extends React.Component {
 	static propTypes = {
-		tips: React.PropTypes.array
+		tips: React.PropTypes.object
 	}
 
 	render() {

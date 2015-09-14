@@ -7,7 +7,7 @@ import './styles.css';
 export default class OutsourceFaq extends React.Component {
 
 	static propTypes = {
-		data: React.PropTypes.object
+		data: React.PropTypes.array
 	}
 
 	render() {

@@ -6,8 +6,8 @@ export default class File extends React.Component {
 
 	static propTypes = {
 		data: PropTypes.object,
-		setGlobalProgress: PropTypes.function,
-		delete: PropTypes.function
+		setGlobalProgress: PropTypes.func,
+		delete: PropTypes.func
 	}
 
 

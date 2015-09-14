@@ -13,8 +13,8 @@ data.contactInfo = require('data/contact-info.json');
 export default class OrderFormContacts extends React.Component {
 
 	static propTypes = {
-		validate: React.PropTypes.boolean,
-		showErrorWindow: React.PropTypes.function
+		validate: React.PropTypes.bool,
+		showErrorWindow:  React.PropTypes.bool
 	}
 
 	getFormGroups() {

@@ -7,7 +7,7 @@ export default class Projecter extends React.Component {
 
 	static propTypes = {
 		project: React.PropTypes.string.isRequired,
-		closeProjecter: React.PropTypes.function
+		closeProjecter:  React.PropTypes.func
 	}
 
 

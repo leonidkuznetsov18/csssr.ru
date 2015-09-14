@@ -9,7 +9,7 @@ export default class FormGroup extends React.Component {
 		_name: React.PropTypes.string.isRequired,
 		label: React.PropTypes.string.isRequired,
 		regexp: React.PropTypes.string,
-		validate: React.PropTypes.string
+		validate: React.PropTypes.bool
 	}
 
 

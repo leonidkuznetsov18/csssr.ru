@@ -7,7 +7,7 @@ export default class FilesBlock extends React.Component {
 
 	static propTypes = {
 		files: PropTypes.array.isRequired,
-		deleteFile: PropTypes.function
+		deleteFile: PropTypes.func
 	}
 
 	constructor(props) {
