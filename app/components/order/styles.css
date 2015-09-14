@@ -1,5 +1,4 @@
 @import 'helpers';
-@import './media.css';
 
 .order {
 	width: 100%;
@@ -34,3 +33,5 @@
 	}*/
 
 }
+
+@import './media.css';

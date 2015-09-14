@@ -1,5 +1,3 @@
-@import './media.css';
-
 .outsource-use {
 	position: relative;
 	display: block;
@@ -97,3 +95,5 @@
 		vertical-align: top;
 	}
 }
+
+@import './media.css';

@@ -1,5 +1,3 @@
-@import './media.css';
-
 .outsource-magic {
 	position: relative;
 	height: 545px;
@@ -296,3 +294,4 @@
 	}
 }
 
+@import './media.css';

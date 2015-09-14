@@ -1,5 +1,3 @@
-@import './media.css';
-
 .outsource-power {
 	height: 493px;
 	padding-left: 10%;
@@ -200,3 +198,5 @@
 		height: 32px;
 	}
 }
+
+@import './media.css';
