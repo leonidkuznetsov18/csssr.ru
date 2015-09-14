@@ -49,7 +49,7 @@ export default class VkGroup extends React.Component {
 					width='270'
 					height='402'
 					scrolling='no'
-					frameborder='0'
+					frameBorder='0'
 					src={src}
 					onLoad={this.onLoad.bind(this)}
 					{...this.props}

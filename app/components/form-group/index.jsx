@@ -5,8 +5,8 @@ import './styles.css';
 export default class FormGroup extends React.Component {
 
 	static propTypes = {
-		_id: React.PropTypes.string.isRequired,
-		_name: React.PropTypes.string.isRequired,
+		optId: React.PropTypes.string.isRequired,
+		optName: React.PropTypes.string.isRequired,
 		label: React.PropTypes.string.isRequired,
 		regexp: React.PropTypes.string,
 		validate: React.PropTypes.bool
@@ -49,7 +49,7 @@ export default class FormGroup extends React.Component {
 		const label = (!this.props.label) ? '' : (
 			<label
 				className='label label-text'
-				htmlFor={this.props._id}
+				htmlFor={this.props.optId}
 			>{this.props.label}</label>
 		);
 
@@ -58,10 +58,10 @@ export default class FormGroup extends React.Component {
 				{label}
 
 				<input
-					id={this.props._id}
+					id={this.props.optId}
 					className='input-text'
 					type='text'
-					name={'contact[' + this.props._name + ']'}
+					name={'contact[' + this.props.optName + ']'}
 					style={(!this.props.validate || this.isRight()) ? {} : err}
 					value={this.state.value}
 					onChange={this.onChange}

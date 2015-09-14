@@ -5,11 +5,11 @@ export default class OptionPoint extends React.Component {
 
 	static propTypes = {
 		choose: PropTypes.func,
-		_type: PropTypes.string,
+		optType: PropTypes.string,
 		className: PropTypes.string,
-		_id: PropTypes.string,
-		_value: PropTypes.string,
-		_checked: PropTypes.bool,
+		optId: PropTypes.string,
+		optValue: PropTypes.string,
+		optChecked: PropTypes.bool,
 		text: PropTypes.string,
 		tip: PropTypes.string
 	}
@@ -39,23 +39,23 @@ export default class OptionPoint extends React.Component {
 	}
 
 	render() {
-		const typeData = this.getTypeData(this.props._type);
+		const typeData = this.getTypeData(this.props.optType);
 
 		return (
 			<li className={this.props.className}>
 				<input
-					id={this.props._id}
+					id={this.props.optId}
 					className={typeData.inputClassList}
 					type={typeData.type}
 					name='options[]'
-					value={this.props._value}
+					value={this.props.optValue}
 					onChange={this.onChange}
-					checked={this.props._checked}
+					checked={this.props.optChecked}
 				/>
 
 				<label
 					className={typeData.labelClassList}
-					htmlFor={this.props._id}
+					htmlFor={this.props.optId}
 				>{this.props.text}</label>
 
 				{ this.props.tip ? <Tooltip text={this.props.tip} /> : '' }
