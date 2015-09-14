@@ -5,7 +5,8 @@ import Text from 'components/text';
 export default class Section extends React.Component {
 	static propTypes = {
 		title: React.PropTypes.object.isRequired,
-		description: React.PropTypes.object.isRequired
+		description: React.PropTypes.object.isRequired,
+		children: React.PropTypse.node
 	}
 
 	static defaultProps = {

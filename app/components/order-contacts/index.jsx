@@ -14,7 +14,7 @@ export default class OrderFormContacts extends React.Component {
 
 	static propTypes = {
 		validate: React.PropTypes.bool,
-		showErrorWindow:  React.PropTypes.bool
+		showErrorWindow: React.PropTypes.bool
 	}
 
 	getFormGroups() {

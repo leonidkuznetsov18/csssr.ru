@@ -31,6 +31,6 @@ export default class Language extends React.Component {
 					RU
 				</Link>
 			</div>
-		)
+		);
 	}
 }

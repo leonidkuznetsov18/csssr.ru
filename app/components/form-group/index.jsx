@@ -44,15 +44,14 @@ export default class FormGroup extends React.Component {
 
 
 	render() {
-		const err = { border: '1px solid rgb(199, 38, 26)' },
-			withError = this.state.wrongData;
+		const err = { border: '1px solid rgb(199, 38, 26)' };
 
 		const label = (!this.props.label) ? '' : (
 			<label
 				className='label label-text'
 				htmlFor={this.props._id}
 			>{this.props.label}</label>
-		)
+		);
 
 		return (
 			<div>

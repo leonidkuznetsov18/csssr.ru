@@ -15,6 +15,6 @@ export default class Content extends React.Component {
 				{this.props.hole ? <Hole/> : ''}
 				{this.props.children}
 			</main>
-		)
+		);
 	}
 }

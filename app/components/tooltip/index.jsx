@@ -6,7 +6,7 @@ export default class Tooltip extends React.Component {
 
 	static propTypes = {
 		className: React.PropTypes.string,
-		text: React.PropTypes.string,
+		text: React.PropTypes.string
 	}
 
 

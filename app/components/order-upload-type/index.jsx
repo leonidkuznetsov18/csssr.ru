@@ -6,7 +6,7 @@ export default class FormUploadType extends React.Component {
 
 	static propTypes = {
 		active: React.PropTypes.string,
-		setActive:  React.PropTypes.func
+		setActive: React.PropTypes.func
 	}
 
 

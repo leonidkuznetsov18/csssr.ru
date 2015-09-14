@@ -9,7 +9,7 @@ export default class JobsVacancy extends React.Component {
 		return <span className='jobs-vacancy__name'>{ name }</span>;
 	}
 
-	renderHh(vacancy) {
+	renderHh() {
 		return (
 			<Icon icon='hh' className='jobs-vacancy__hh' />
 		);

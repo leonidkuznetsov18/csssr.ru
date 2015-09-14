@@ -35,7 +35,7 @@ export default class FaqSingle extends React.Component {
 					className='blue-link'
 					href={data.link.href}
 				>{data.link.text}</a>
-			)
+			);
 		}
 
 

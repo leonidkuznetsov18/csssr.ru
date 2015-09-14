@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'components/icon';
 import Content from 'components/content';
 import JobsWidget from 'components/jobs-widget';
 import JobsAbout from 'components/jobs-about';

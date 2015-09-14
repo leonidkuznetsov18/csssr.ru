@@ -13,7 +13,7 @@ const data = require('data/outsource.json');
 export default class Outsource extends React.Component {
 
 	componentDidMount() {
-		document.title = 'CSSSR — фронтенд аутсорсинг. Что угодно с помощью HTML, CSS, JavaScript.'
+		document.title = 'CSSSR — фронтенд аутсорсинг. Что угодно с помощью HTML, CSS, JavaScript.';
 	}
 
 
