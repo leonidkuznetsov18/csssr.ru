@@ -34,7 +34,9 @@ export default class FilesBlock extends React.Component {
 			return (
 				<File
 					key={file.key}
-					data={file}
+					id={file.key}
+					name={file.name}
+					progress={file.progress}
 					delete={this.props.deleteFile}
 					setGlobalProgress={this.setProgress.bind(this)}
 				/>

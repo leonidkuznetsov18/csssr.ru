@@ -5,7 +5,9 @@ import './styles.css';
 export default class File extends React.Component {
 
 	static propTypes = {
-		data: PropTypes.object,
+		name: PropTypes.string.isRequired,
+		id: PropTypes.number.isRequired,
+		progress: PropTypes.number.isRequired,
 		setGlobalProgress: PropTypes.func,
 		delete: PropTypes.func
 	}
@@ -25,7 +27,6 @@ export default class File extends React.Component {
 		this.setState({
 			progressBarWidth: 190 - this.refs.name.getDOMNode().offsetWidth
 		});
-		this.tick(0);
 	}
 
 
@@ -33,14 +34,6 @@ export default class File extends React.Component {
 		this.mounted = false;
 	}
 
-
-	// TODO: delete it. It is test for this.setProgress function
-	tick(time) {
-		if (time > 100) return;
-		this.setProgress(time);
-		setTimeout(this.tick.bind(this, time + 1), 50);
-		return;
-	}
 
 	// TODO: use the function while file uploads
 	setProgress(value) {
@@ -55,10 +48,24 @@ export default class File extends React.Component {
 	}
 
 
+	shouldComponentUpdate(nextProps) {
+		if (this.props.name !== nextProps.name ||
+				this.props.id !== nextProps.id ||
+				this.props.setGlobalProgress !== nextProps.setGlobalProgress ||
+				this.props.delete !== nextProps.delete) {
+			if (this.props.progress !== nextProps.progress) {
+				this.setProgress(nextProps.progress);
+			}
+			return true;
+		}
+		return false;
+	}
+
+
 	render() {
-		const file = this.props.data;
-		if (!file || !file.name) return <div>Error</div>;
-		const random = 'file_' + file.key;
+		const {name, id} = this.props;
+		if (!name) return <span>Error</span>;
+		const random = 'file_' + id;
 
 		return (
 			<div className={'file-place ' + random}>
@@ -74,7 +81,7 @@ export default class File extends React.Component {
 				<div
 					className={'file-place__name ' + random}
 					ref='name'
-				>{file.name}</div>
+				>{name}</div>
 				{
 					this.state.progress === 100 ? '' : (
 						<div
@@ -90,7 +97,7 @@ export default class File extends React.Component {
 				}
 				<div
 					className='file-place__close'
-					onClick={this.props.delete.bind(null, file.key)}
+					onClick={this.props.delete.bind(null, id)}
 				/>
 			</div>
 		);

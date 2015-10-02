@@ -17,30 +17,43 @@ export default class UploadFilesBlock extends React.Component {
 	}
 
 
-	onDrop = (files) => {
-		files = files.map((file) => {
-			file.key = Math.random();
+	progressUpdater = i => ({percent}) => {
+		const updatedFiles = this.state.files.map((file, index) => {
+			if (index === i) {
+				file.progress = percent;
+			}
 			return file;
 		});
+		this.setState(updatedFiles);
+	}
 
 
-		for (let i = 0, l = files.length; i < l; i++) {
+	loadErrorHandler = err => {
+		if (err) {
+			// TODO: delete file from state and show error here
+			console.log(err);
+		}
+	}
+
+	onDrop = (files) => {
+		const newFiles = files.map((file) => {
+			file.key = Math.random();
+			file.progress = 0;
+			return file;
+		}).concat(this.state.files);
+
+		for (let i = 0, l = newFiles.length; i < l; i++) {
 			const formData = new FormData();
-			formData.append('file', files[i]);
+			formData.append('file', newFiles[i]);
 			request
 				.post('/upload')
 				.send(formData)
-				.end((err) => {
-					if (err) {
-						// TODO: delete file from state and show error here
-						console.log(err);
-					}
-				});
+				.on('progress', this.progressUpdater(i))
+				.end(this.loadErrorHandler);
 		}
 
-
 		this.setState({
-			files: this.state.files.concat(files)
+			files: newFiles
 		});
 	}
 
