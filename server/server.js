@@ -1,9 +1,9 @@
 import React from 'react';
-import fs from 'fs';
 import express from 'express';
 import path from 'path';
 import compression from 'compression';
 import Layout from '../app/components/layout';
+import morgan from 'morgan';
 
 var	app = express();
 var isProduction = app.get('env') === 'production';
@@ -15,14 +15,22 @@ var SCRIPT_URL = publicPath + 'main.js';
 var STYLE = '/_assets/main.css';
 var renderApplication;
 
+
 if (isProduction) {
 	renderApplication = require('../build/prerender/main.js');
+} else {
+	app.use(morgan('dev'));
 }
 app.use(compression());
 
 app.use('/_assets', express.static(ASSETS_BUILD, {
 	maxAge: '200d'
 }));
+
+
+import {handler, limitHandler, upload} from './lib/storage';
+app.use(limitHandler);
+app.post('/upload', upload.single('file'), handler);
 
 app.get('/*.*', express.static(ASSETS, {
 	maxAge: '200d'

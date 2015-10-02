@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import FilesBlock from 'components/order-files';
+import request from 'superagent';
 
 import './styles.css';
 
@@ -21,6 +22,22 @@ export default class UploadFilesBlock extends React.Component {
 			file.key = Math.random();
 			return file;
 		});
+
+
+		for (let i = 0, l = files.length; i < l; i++) {
+			const formData = new FormData();
+			formData.append('file', files[i]);
+			request
+				.post('/upload')
+				.send(formData)
+				.end((err) => {
+					if (err) {
+						// TODO: delete file from state and show error here
+						console.log(err);
+					}
+				});
+		}
+
 
 		this.setState({
 			files: this.state.files.concat(files)

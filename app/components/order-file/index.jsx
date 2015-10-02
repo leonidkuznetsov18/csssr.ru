@@ -21,7 +21,7 @@ export default class File extends React.Component {
 
 
 	componentDidMount() {
-		this.isMounted = true;
+		this.mounted = true;
 		this.setState({
 			progressBarWidth: 190 - this.refs.name.getDOMNode().offsetWidth
 		});
@@ -30,7 +30,7 @@ export default class File extends React.Component {
 
 
 	componentWillUnmount() {
-		this.isMounted = false;
+		this.mounted = false;
 	}
 
 
@@ -44,7 +44,7 @@ export default class File extends React.Component {
 
 	// TODO: use the function while file uploads
 	setProgress(value) {
-		if (this.isMounted) {
+		if (this.mounted) {
 			this.props.setGlobalProgress(value);
 			this.setState({
 				progress: value

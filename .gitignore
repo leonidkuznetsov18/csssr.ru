@@ -2,3 +2,4 @@
 /build
 .vagrant
 npm-debug.log
+/uploads
