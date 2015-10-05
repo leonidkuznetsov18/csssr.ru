@@ -4,6 +4,9 @@ import Application from 'components/application';
 import Index from 'components/index';
 import Company from 'components/company';
 import Jobs from 'components/jobs';
+import JobWrapper from 'components/job-wrapper';
+import TechnicalManager from 'components/job-technical-manager';
+import PixelPerfectionist from 'components/job-pixel-perfectionist';
 import Order from 'components/order';
 import Outsource from 'components/outsource';
 import Offert from 'components/offert';
@@ -17,6 +20,10 @@ export default (
 		<Route path='/' name='index' component={Index} />
 		<Route path='/company' name='company' component={Company} />
 		<Route path='/jobs' name='jobs' component={Jobs} />
+		<Route path='/jobs' component={JobWrapper}>
+			<Route path='technical-manager' name='technical-manager' component={TechnicalManager} />
+			<Route path='pixel-perfectionist' name='pixel-perfectionist' component={PixelPerfectionist} />
+		</Route>
 		<Route path='/order' name='order' component={Order} />
 		<Route path='/outsource' name='outsource' component={Outsource} />
 		<Route path='/portfolio' name='portfolio' component={Portfolio} >
