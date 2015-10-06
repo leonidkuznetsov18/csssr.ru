@@ -1,15 +1,19 @@
-import React from 'react';
-
+import React, {PropTypes} from 'react';
+import cx from 'classnames';
 import './styles.css';
 
 export default class FormGroup extends React.Component {
 
 	static propTypes = {
-		optId: React.PropTypes.string.isRequired,
-		optName: React.PropTypes.string.isRequired,
-		label: React.PropTypes.string.isRequired,
-		regexp: React.PropTypes.string,
-		validate: React.PropTypes.bool
+		optId: PropTypes.string.isRequired,
+		optName: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
+		regexp: PropTypes.string,
+		validate: PropTypes.bool,
+		required: PropTypes.bool,
+		className: PropTypes.string,
+		labelClassName: PropTypes.string,
+		inputClassName: PropTypes.string
 	}
 
 
@@ -45,24 +49,36 @@ export default class FormGroup extends React.Component {
 
 	render() {
 		const err = { border: '1px solid rgb(199, 38, 26)' };
+		const {
+			optId,
+			optName,
+			label,
+			validate,
+			required,
+			className,
+			labelClassName,
+			inputClassName
+		} = this.props;
 
-		const label = (!this.props.label) ? '' : (
+		const labelElement = (!label) ? '' : (
 			<label
-				className='label label-text'
-				htmlFor={this.props.optId}
-			>{this.props.label}</label>
+				className={cx('label label-text', labelClassName)}
+				htmlFor={optId}
+			>
+				{`${required ? '* ' : ''}${label}`}
+			</label>
 		);
 
 		return (
-			<div>
-				{label}
+			<div className={className}>
+				{labelElement}
 
 				<input
-					id={this.props.optId}
-					className='input-text'
+					id={optId}
+					className={cx('input-text', inputClassName)}
 					type='text'
-					name={'contact[' + this.props.optName + ']'}
-					style={(!this.props.validate || this.isRight()) ? {} : err}
+					name={'contact[' + optName + ']'}
+					style={(!validate || this.isRight()) ? {} : err}
 					value={this.state.value}
 					onChange={this.onChange}
 				/>
