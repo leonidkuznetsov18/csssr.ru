@@ -13,4 +13,16 @@
 			height: 204px;
 		}
 	}
+
+	&-quest_manager {
+		padding-top: 47px;
+		padding-left: 20%;
+		height: 212px;
+
+		.file {
+			position: absolute;
+			top: 37px;
+			left: 6.6666%;
+		}
+	}
 }
