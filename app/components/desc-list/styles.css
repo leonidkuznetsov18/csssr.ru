@@ -1,0 +1,9 @@
+.desc-list {
+	max-height: 10000em;
+	font-family: Roboto;
+	font-weight: 300;
+	color: #333;
+	font-size: 15px;
+	line-height: 21px;
+	margin-bottom: 18px;
+}

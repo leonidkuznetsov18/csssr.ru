@@ -1,4 +1,4 @@
-.job-wrapper {
+.hr {
 	&-nav {
 		margin: 60px auto 26px;
 		padding-left: 307px;
@@ -22,7 +22,7 @@
 		}
 	}
 
-	&__main {
+	&-main {
 		position: relative;
 		width: 93%;
 		background-image: url(../../images/background/content.jpg);

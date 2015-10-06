@@ -1,0 +1,16 @@
+.hr {
+	&-vacancy {
+		position: relative;
+		padding-top: 34px;
+		padding-left: 305px;
+		padding-right: 50px;
+
+		&__img {
+			position: absolute;
+			top: 34px;
+			left: 49px;
+			width: 183px;
+			height: 204px;
+		}
+	}
+}
