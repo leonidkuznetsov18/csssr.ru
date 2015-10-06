@@ -5,17 +5,8 @@ import './styles.css';
 
 export default class Text extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.oneOfType([
-			React.PropTypes.string,
-			React.PropTypes.element,
-			React.PropTypes.array,
-		]),
-		size: React.PropTypes.string,
-		indent: React.PropTypes.bool
-	}
-
-	static defaultProps = {
-		indent: true
+		children: React.PropTypes.node.isRequired,
+		size: React.PropTypes.string
 	}
 
 	render() {
@@ -29,19 +20,10 @@ export default class Text extends React.Component {
 			text_noindent: indent === false
 		});
 
-		if (typeof children === 'string') {
-			return (
-				<p
-					className={classList}
-					dangerouslySetInnerHTML={{__html: children}}
-				/>
-			);
-		} else {
-			return (
-				<p className={classList}>
-					{children}
-				</p>
-			);
-		}
+		return (
+			<p className={classList}>
+				{children}
+			</p>
+		);
 	}
 }

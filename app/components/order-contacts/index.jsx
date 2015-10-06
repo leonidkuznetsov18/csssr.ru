@@ -45,7 +45,7 @@ export default class OrderFormContacts extends React.Component {
 					{formGroups}
 					<div className='confirm-rules'>
 						<label className='label checkbox label-last'>
-							<span className='corner-cover'>Принимаю&nbsp;</span>
+							<span className='corner-cover'>{'Принимаю '}</span>
 						</label>
 						<a
 							className='label-last-link blue-link'
