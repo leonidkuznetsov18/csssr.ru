@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/app.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start --single-run=true",
     "webpack": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
     "webpack-dev": "webpack-dev-server --config webpack-dev.config.js",
     "server-dev": "NODE_ENV=development NODE_PATH=./node_modules:./app nodemon --watch server/ --exec babel-node server/server",
@@ -61,9 +61,20 @@
   "devDependencies": {
     "babel-eslint": "^3.1.15",
     "chai": "^3.3.0",
+    "chai-things": "^0.2.0",
     "concurrently": "^0.1.1",
     "eslint": "^0.22.1",
     "eslint-plugin-react": "^2.5.0",
-    "mocha": "^2.3.3"
+    "karma": "^0.13.10",
+    "karma-chai": "^0.1.0",
+    "karma-chai-things": "^0.1.4",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.3.3",
+    "phantomjs": "^1.9.18",
+    "phantomjs-polyfill": "0.0.1"
   }
 }
