@@ -23,8 +23,8 @@ export default class OrderFormContacts extends React.Component {
 				<FormGroup
 					key={group.name}
 					ref={group.name}
-					optId={'contacts-' + group.name}
-					optName={group.name}
+					itemId={'contacts-' + group.name}
+					itemName={group.name}
 					label={group.text}
 					regexp={group.validation}
 					validate={this.props.validate}

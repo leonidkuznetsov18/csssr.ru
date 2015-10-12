@@ -57,10 +57,10 @@ export default class OptionsList extends React.Component {
 							return (
 								<OptionPoint
 									key={opt.id}
-									optId={opt.id}
-									optValue={opt.value}
-									optChecked={this.state.checkData[opt.id]}
-									optType={option.type}
+									itemId={opt.id}
+									itemValue={opt.value}
+									itemChecked={this.state.checkData[opt.id]}
+									itemType={option.type}
 									text={opt.text}
 									tip={opt.tip}
 									choose={this.choose}

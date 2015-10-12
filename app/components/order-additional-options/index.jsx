@@ -34,9 +34,9 @@ export default class AdditionalOptions extends React.Component {
 				<OptionPoint
 					className='order__main__content__contacts__extra__checkbox'
 					key={opt.id}
-					optId={opt.id}
-					optValue={opt.value}
-					optChecked={this.state.checkData[opt.id]}
+					itemId={opt.id}
+					itemValue={opt.value}
+					itemChecked={this.state.checkData[opt.id]}
 					type='checkboxes'
 					text={opt.text}
 					tip={opt.tip}

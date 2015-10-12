@@ -53,8 +53,8 @@ export default class OutsourceForm extends React.Component {
 			fields.push(
 				<FormGroup
 					key={field.key}
-					optId={`outsource${field.key}`}
-					optName={field.key}
+					itemId={`outsource${field.key}`}
+					itemName={field.key}
 					ref={'formGroups.' + field.key}
 					label={field.text}
 					regexp={field.validation}

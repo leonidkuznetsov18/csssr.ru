@@ -14,7 +14,7 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: browsers,
     singleRun: false,
-    frameworks: ['mocha', 'chai-things', 'chai'],
+    frameworks: ['mocha', 'chai-react', 'chai-things', 'chai'],
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap'],
     },

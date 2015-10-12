@@ -1,15 +1,15 @@
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 export default function calcDate(date) {
-	const current = new Date();
-	let year = current.getYear() - date.getYear();
-	let month = current.getMonth() - date.getMonth();
-	let day = current.getDate() - date.getDate();
+	const currentDate = new Date();
+	let year = currentDate.getYear() - date.getYear();
+	let month = currentDate.getMonth() - date.getMonth();
+	let day = currentDate.getDate() - date.getDate();
 	let time = [];
 
 	if (day < 0) {
 		month--;
-		day += daysInMonth[(current.getMonth() - 1 + 12) % 12];
+		day += daysInMonth[(currentDate.getMonth() - 1 + 12) % 12];
 	}
 
 	if (month < 0) {
@@ -34,11 +34,11 @@ export default function calcDate(date) {
 		if (index > 0) {
 			prefix = ', ';
 		}
-		if (index == array.length - 1 && index !== 0) {
+		if (index === array.length - 1 && index !== 0) {
 			prefix = ' и ';
 		}
 		return prev + prefix + current;
-	}, '')
+	}, '');
 
 	return string;
 }
