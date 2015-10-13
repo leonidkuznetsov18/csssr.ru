@@ -1,74 +1,96 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import FormGroup from 'components/form-group';
 import FormGroupFile from 'components/form-group-file';
 import Brick from 'components/brick';
 import './styles.css';
 
 
-export default class JobTechnicalManagerForm extends React.Component {
+export default class JobAnswerForm extends React.Component {
+
+	static propTypes = {
+		idPrefix: PropTypes.string.isRequired,
+		fileInitialValue: PropTypes.string,
+		fileAccept: PropTypes.string,
+		fileWarning: PropTypes.string
+	}
+
+
+	static defaultProps = {
+		fileInitialValue: 'Прикрепите решение',
+		fileAccept: '',
+		fileWarning: 'Файл, пожалуйста!'
+	}
+
 
 	render() {
+		const {
+			idPrefix,
+			fileInitialValue,
+			fileAccept,
+			fileWarning
+		} = this.props;
+
 		return (
-			<form className='hr-answer__form'>
+			<form className='answer__form'>
 				<FormGroup
-					itemId='hr_name'
+					itemId={`${idPrefix}_name`}
 					itemName='firstname'
 					label='Имя'
 					required={true}
-					className='hr-answer__inline'
-					inputClassName='hr-answer__input'
+					className='answer__inline'
+					inputClassName='answer__input'
 				/>
 
 				<FormGroup
-					itemId='hr_surname'
+					itemId={`${idPrefix}_surname`}
 					itemName='lastname'
 					label='Фамилия'
 					required={true}
-					className='hr-answer__inline'
-					inputClassName='hr-answer__input'
+					className='answer__inline'
+					inputClassName='answer__input'
 				/>
 
 				<FormGroup
-					itemId='hr_age'
+					itemId={`${idPrefix}_age`}
 					itemName='age'
 					label='Возраст'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_city'
+					itemId={`${idPrefix}_city`}
 					itemName='city'
 					label='Город'
 					required={true}
 				/>
 
 				<FormGroupFile
-					itemId='hr_archive'
+					itemId={`${idPrefix}_archive`}
 					itemName='file'
 					label='Тестовый квест'
 					required={true}
-					initialValue='Прикрепите решение квеста'
-					accept='.docx'
-					warning='DOCX, пожалуйста!'
+					initialValue={fileInitialValue}
+					accept={fileAccept}
+					warning={fileWarning}
 					showWarning={false}
 				/>
 
 				<FormGroup
-					itemId='hr_email'
+					itemId={`${idPrefix}_email`}
 					itemName='email'
 					label='Электронная почта'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_skype'
+					itemId={`${idPrefix}_skype`}
 					itemName='skype'
 					label='Скайп'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_tel'
+					itemId={`${idPrefix}_tel`}
 					itemName='phone'
 					label='Контактный телефон'
 					required={true}
@@ -85,7 +107,7 @@ export default class JobTechnicalManagerForm extends React.Component {
 					>положение об обработке персональных данных</a>
 				</div>
 
-				<div className='hr-answer__submit'>
+				<div className='answer__submit'>
 					<Brick text='— Поехали!' />
 				</div>
 

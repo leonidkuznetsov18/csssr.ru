@@ -5,7 +5,7 @@ import DescriptionList from 'components/desc-list';
 import DescriptionListItem from 'components/desc-list-item';
 import Quest from 'components/quest';
 import File from 'components/file';
-import Form from 'components/job-technical-manager-form';
+import JobAnswerForm from 'components/job-answer-form';
 import './styles.css';
 
 export default class JobTechnicalManager extends React.Component {
@@ -79,7 +79,12 @@ export default class JobTechnicalManager extends React.Component {
 					<Title size='medium'>отклик на вакансию</Title>
 					<Text size='medium'>Хорошо подумали?</Text>
 
-					<Form />
+					<JobAnswerForm
+						idPrefix='hr'
+						fileInitialValue='Прикрепите решение квеста'
+						fileAccept='.docx'
+						fileWarning='DOCX, пожалуйста!'
+					/>
 				</div>
 			</div>
 		);
