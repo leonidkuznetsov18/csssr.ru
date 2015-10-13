@@ -6,6 +6,8 @@ import './styles.css';
 export default class Text extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node.isRequired,
+		weight: React.PropTypes.string,
+		indent: React.PropTypes.bool,
 		size: React.PropTypes.string
 	}
 
@@ -17,6 +19,7 @@ export default class Text extends React.Component {
 			text_size_s: size === 's',
 			text_size_xs: size === 'xs',
 			text_size_xxs: size === 'xxs',
+			text_weight_bold: weight === 'bold',
 			text_noindent: indent === false
 		});
 

@@ -8,7 +8,6 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 
 	static propTypes = {
-		idPrefix: PropTypes.string.isRequired,
 		fileInitialValue: PropTypes.string,
 		fileAccept: PropTypes.string,
 		fileWarning: PropTypes.string
@@ -23,17 +22,12 @@ export default class JobAnswerForm extends React.Component {
 
 
 	render() {
-		const {
-			idPrefix,
-			fileInitialValue,
-			fileAccept,
-			fileWarning
-		} = this.props;
+		const { fileInitialValue, fileAccept, fileWarning } = this.props;
 
 		return (
 			<form className='answer__form'>
 				<FormGroup
-					itemId={`${idPrefix}_name`}
+					itemId='hr_name'
 					itemName='firstname'
 					label='Имя'
 					required={true}
@@ -42,7 +36,7 @@ export default class JobAnswerForm extends React.Component {
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_surname`}
+					itemId='hr_surname'
 					itemName='lastname'
 					label='Фамилия'
 					required={true}
@@ -51,21 +45,21 @@ export default class JobAnswerForm extends React.Component {
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_age`}
+					itemId='hr_age'
 					itemName='age'
 					label='Возраст'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_city`}
+					itemId='hr_city'
 					itemName='city'
 					label='Город'
 					required={true}
 				/>
 
 				<FormGroupFile
-					itemId={`${idPrefix}_archive`}
+					itemId='hr_archive'
 					itemName='file'
 					label='Тестовый квест'
 					required={true}
@@ -76,21 +70,21 @@ export default class JobAnswerForm extends React.Component {
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_email`}
+					itemId='hr_email'
 					itemName='email'
 					label='Электронная почта'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_skype`}
+					itemId='hr_skype'
 					itemName='skype'
 					label='Скайп'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId={`${idPrefix}_tel`}
+					itemId='hr_tel'
 					itemName='phone'
 					label='Контактный телефон'
 					required={true}
