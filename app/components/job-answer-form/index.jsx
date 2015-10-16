@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import FormGroup from 'components/form-group';
+import FormGroup from 'components/form-group-true';
 import FormGroupFile from 'components/form-group-file';
 import Brick from 'components/brick';
 import './styles.css';
@@ -8,6 +8,7 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 
 	static propTypes = {
+		job: PropTypes.string.isRequired,
 		fileInitialValue: PropTypes.string,
 		fileAccept: PropTypes.string,
 		fileWarning: PropTypes.string
@@ -27,40 +28,30 @@ export default class JobAnswerForm extends React.Component {
 		return (
 			<form className='answer__form'>
 				<FormGroup
-					itemId='hr_name'
-					itemName='firstname'
 					label='Имя'
 					required={true}
 					className='answer__inline'
-					inputClassName='answer__input'
+					inputProps={{className: 'answer__input'}}
 				/>
 
 				<FormGroup
-					itemId='hr_surname'
-					itemName='lastname'
 					label='Фамилия'
 					required={true}
 					className='answer__inline'
-					inputClassName='answer__input'
+					inputProps={{className: 'answer__input'}}
 				/>
 
 				<FormGroup
-					itemId='hr_age'
-					itemName='age'
 					label='Возраст'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_city'
-					itemName='city'
 					label='Город'
 					required={true}
 				/>
 
 				<FormGroupFile
-					itemId='hr_archive'
-					itemName='file'
 					label='Тестовый квест'
 					required={true}
 					initialValue={fileInitialValue}
@@ -70,22 +61,16 @@ export default class JobAnswerForm extends React.Component {
 				/>
 
 				<FormGroup
-					itemId='hr_email'
-					itemName='email'
 					label='Электронная почта'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_skype'
-					itemName='skype'
 					label='Скайп'
 					required={true}
 				/>
 
 				<FormGroup
-					itemId='hr_tel'
-					itemName='phone'
 					label='Контактный телефон'
 					required={true}
 				/>

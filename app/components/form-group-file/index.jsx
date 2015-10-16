@@ -46,6 +46,7 @@ export default class FormGroupFile extends React.Component {
 					className={cx('form-group-file', this.props.className)}
 					inputClassName={cx('form-group-file__input', this.props.inputClassName)}
 					initialValue={this.state.filename}
+					hardUpdateInitialValue={true}
 				/>
 				<div className='form-group-file__btn'>{this.props.buttonText}</div>
 				<input

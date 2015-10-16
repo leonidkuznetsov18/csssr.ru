@@ -80,6 +80,7 @@ export default class JobTechnicalManager extends React.Component {
 					<Text size='medium'>Хорошо подумали?</Text>
 
 					<JobAnswerForm
+						job='technical_manager'
 						idPrefix='hr'
 						fileInitialValue='Прикрепите решение квеста'
 						fileAccept='.docx'

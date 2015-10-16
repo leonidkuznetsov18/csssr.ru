@@ -15,7 +15,7 @@ export default class JobPixelPerfectionist extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className='job-pixel-perfectionist'>
 				<div className='hr-vacancy'>
 					<img src={require('images/background/work.svg')} className='hr-vacancy__img' />
 					<Title>Верстальщик пиксель-перфекционист</Title>
@@ -63,12 +63,12 @@ export default class JobPixelPerfectionist extends React.Component {
 						и результат (dist) запакуйте в архив и прикрепите к форме отклика
 						на вакансию. Обратите внимание, что слайдер с навыками JS — это
 						слайдер на JS, постарайтесь сделать его максимально юзабильным.
-						<br />
-						<br />
+					</Text>
+					<Text size='medium'>
 						Анкета должна сразу открываться в браузере, поэтому укажите пути
 						до ресурсов относительно страницы.
-						<br />
-						<br />
+					</Text>
+					<Text size='medium'>
 						Требования к кроссбраузерности: последние версии IE, Safari,
 						Chrome и FF; мобильные Safari (iOS 8) и Chrome (Android 5).
 					</Text>

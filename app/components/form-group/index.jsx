@@ -14,7 +14,13 @@ export default class FormGroup extends React.Component {
 		className: PropTypes.string,
 		labelClassName: PropTypes.string,
 		inputClassName: PropTypes.string,
-		initialValue: PropTypes.string
+		initialValue: PropTypes.string,
+		hardUpdateInitialValue: PropTypes.bool
+	}
+
+
+	static defaultProps = {
+		hardUpdateInitialValue: false
 	}
 
 
@@ -49,9 +55,11 @@ export default class FormGroup extends React.Component {
 
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({
-			value: nextProps.initialValue
-		});
+		if (this.props.hardUpdateInitialValue) {
+			this.setState({
+				value: nextProps.initialValue
+			});
+		}
 	}
 
 

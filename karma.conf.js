@@ -14,7 +14,7 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: browsers,
     singleRun: false,
-    frameworks: ['mocha', 'chai-react', 'chai-things', 'chai'],
+    frameworks: ['mocha', 'chai-things', 'chai'],
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap'],
     },
@@ -22,7 +22,7 @@ module.exports = function(config) {
       'node_modules/phantomjs-polyfill/bind-polyfill.js',
       'tests.webpack.js',
     ],
-    reporters: ['dots'],
+    reporters: ['mocha'],
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true,
