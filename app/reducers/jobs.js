@@ -13,7 +13,7 @@ export default function jobs(state = {}, action) {
 			form: {
 				name: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
 				surname: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
-				age: new FormItem('', value => validate(value).notEmpty().lessThen(3).isInt().end()),
+				age: new FormItem('', value => validate(value).notEmpty().lessThen(4).isInt().end()),
 				city: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
 				filename: new FormItem('Прикрепите файл', value => validate(value).notEmpty().end()),
 				filepath: new FormItem(null, value => validate(value).notEmpty().end()),
@@ -33,7 +33,7 @@ export default function jobs(state = {}, action) {
 		const newForm = merge(state[job].form);
 		for (const key in form) {
 			if (form.hasOwnProperty(key)) {
-				newForm[key].update(form[key]);
+				newForm[key] = newForm[key].update(form[key]);
 			}
 		}
 		const newJob = merge(state[job], {form: newForm});
@@ -55,7 +55,7 @@ export default function jobs(state = {}, action) {
 		}
 		const newForm = merge(state[job].form);
 		for (const key in newForm) {
-			newForm[key].update({showError: true});
+			newForm[key] = newForm[key].update({showError: true});
 		}
 		const newJob = merge(state[job], {form: newForm});
 		return merge(state, {[job]: newJob});

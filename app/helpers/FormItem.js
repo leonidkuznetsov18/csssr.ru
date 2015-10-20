@@ -6,9 +6,11 @@ export default class FormItem {
 	}
 
 	update({value, validateFunction, showError}) {
-		if (value !== undefined) this.value = value;
-		if (validateFunction !== undefined) this.validateFunction = validateFunction;
-		if (showError !== undefined) this.showError = showError;
+		const formItem = Object.create(this);
+		if (value !== undefined) formItem.value = value;
+		if (validateFunction !== undefined) formItem.validate = validateFunction;
+		if (showError !== undefined) formItem.showError = showError;
+		return new FormItem(formItem.value, formItem.validate, formItem.showError);
 	}
 
 	toString = () => this.value

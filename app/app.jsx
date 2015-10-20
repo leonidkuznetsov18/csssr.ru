@@ -21,7 +21,7 @@ const sendAnswerFormMiddleware = currentStore => next => action => {
 	if (action.type === C.SEND_ANSWER_FORM) {
 		const data = currentStore.getState().jobs[action.job].form;
 		// send data to server here
-		console.log(data);
+		console.log('send it to server:', data);
 	}
 	return next(action);
 };

@@ -35,7 +35,7 @@ class Validate {
 	lessThen(length) {
 		if (!this.result) return this;
 
-		if (this.string.length > length) {
+		if (this.string.length >= length) {
 			this.result = false;
 		}
 		return this;
@@ -44,7 +44,7 @@ class Validate {
 	moreThen(length) {
 		if (!this.result) return this;
 
-		if (this.string.length < length) {
+		if (this.string.length <= length) {
 			this.result = false;
 		}
 		return this;
