@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import spliter from 'helpers/spliter';
 import FormGroup from 'components/form-group-true';
 import FormGroupFile from 'components/form-group-file';
 import Brick from 'components/brick';
@@ -26,10 +27,18 @@ export default class JobAnswerForm extends React.Component {
 	}
 
 
-	changeField = (e, field) => {
+	constructor(props) {
+		super(props);
+		this.state = {
+			inputAgeIsFocused: false
+		};
+	}
+
+
+	changeField = (value, field) => {
 		this.props.changeAnswerForm(this.props.job, {
 			[field]: {
-				value: e.target.value,
+				value: value.trim(),
 				showError: false
 			}
 		});
@@ -40,6 +49,43 @@ export default class JobAnswerForm extends React.Component {
 		e.preventDefault();
 		this.props.showFormErrors(this.props.job);
 		this.props.sendAnswerForm(this.props.job);
+	}
+
+
+	changeAge = e => {
+		const newAge = e.target.value.replace(/\D/g, '').slice(0, 3);
+		this.changeField(newAge, 'age');
+	}
+
+	changePhone = e => {
+		let newPhone = e.target.value
+			.replace(/\D/g, '')
+			.replace(/^8$/, '7')
+			.replace(/^[^379]$/, '')
+			.replace(/^9[^9]/, '9')
+			.replace(/^99[^5]/, '99')
+			.slice(0, 12);
+
+		if (e.target.value[0] === '7') {
+			newPhone = newPhone.slice(0, 11);
+		}
+		this.changeField(newPhone, 'phone');
+	}
+
+	formatPhone = value => {
+		value = () => {
+			switch (value.slice(0, 1)) {
+			case '3':
+				return spliter(value, [3, 2, 3, 2, 2]);
+			case '7':
+				return spliter(value, [1, 3, 3, 2, 2]);
+			case '9':
+				return spliter(value, [3, 3, 3, 3]);
+			default:
+				return value;
+			}
+		}();
+		return `${(value || this.state.inputAgeIsFocused) ? '+' : ''}${value}`;
 	}
 
 
@@ -56,7 +102,7 @@ export default class JobAnswerForm extends React.Component {
 					inputProps={{
 						className: 'answer__input',
 						value: this.props.form.name.value,
-						onChange: e => this.changeField(e, 'name')
+						onChange: e => this.changeField(e.target.value, 'name')
 					}}
 				/>
 
@@ -68,7 +114,7 @@ export default class JobAnswerForm extends React.Component {
 					inputProps={{
 						className: 'answer__input',
 						value: this.props.form.surname.value,
-						onChange: e => this.changeField(e, 'surname')
+						onChange: e => this.changeField(e.target.value, 'surname')
 					}}
 				/>
 
@@ -78,7 +124,7 @@ export default class JobAnswerForm extends React.Component {
 					wrong={this.props.form.age.showError && !this.props.form.age.isValid()}
 					inputProps={{
 						value: this.props.form.age.value,
-						onChange: e => this.changeField(e, 'age')
+						onChange: this.changeAge
 					}}
 				/>
 
@@ -88,7 +134,7 @@ export default class JobAnswerForm extends React.Component {
 					wrong={this.props.form.city.showError && !this.props.form.city.isValid()}
 					inputProps={{
 						value: this.props.form.city.value,
-						onChange: e => this.changeField(e, 'city')
+						onChange: e => this.changeField(e.target.value, 'city')
 					}}
 				/>
 
@@ -107,7 +153,7 @@ export default class JobAnswerForm extends React.Component {
 					wrong={this.props.form.email.showError && !this.props.form.email.isValid()}
 					inputProps={{
 						value: this.props.form.email.value,
-						onChange: e => this.changeField(e, 'email')
+						onChange: e => this.changeField(e.target.value, 'email')
 					}}
 				/>
 
@@ -117,7 +163,7 @@ export default class JobAnswerForm extends React.Component {
 					wrong={this.props.form.skype.showError && !this.props.form.skype.isValid()}
 					inputProps={{
 						value: this.props.form.skype.value,
-						onChange: e => this.changeField(e, 'skype')
+						onChange: e => this.changeField(e.target.value, 'skype')
 					}}
 				/>
 
@@ -126,8 +172,10 @@ export default class JobAnswerForm extends React.Component {
 					required
 					wrong={this.props.form.phone.showError && !this.props.form.phone.isValid()}
 					inputProps={{
-						value: this.props.form.phone.value,
-						onChange: e => this.changeField(e, 'phone')
+						value: this.formatPhone(this.props.form.phone.value),
+						onChange: this.changePhone,
+						onFocus: () => this.setState({inputAgeIsFocused: true}),
+						onBlur: () => this.setState({inputAgeIsFocused: false})
 					}}
 				/>
 

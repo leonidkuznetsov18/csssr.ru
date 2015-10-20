@@ -58,8 +58,8 @@ describe('jobs :: ADD_JOB', () => {
 
 		const state = jobs(initialState, action);
 
-		// state[action.job].form.should.has.deep.property('name.value', 'new name');
-		// state[action.job].form.should.has.deep.property('age.value', 34);
+		state[action.job].form.should.has.deep.property('name.value', 'new name');
+		state[action.job].form.should.has.deep.property('age.value', 34);
 		initialState.should.be.deep.equal(initialStateCopy);
 	});
 

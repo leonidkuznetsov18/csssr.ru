@@ -13,13 +13,13 @@ export default function jobs(state = {}, action) {
 			form: {
 				name: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
 				surname: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
-				age: new FormItem('', value => validate(value).notEmpty().lessThen(10).isInt().end()),
+				age: new FormItem('', value => validate(value).notEmpty().lessThen(3).isInt().end()),
 				city: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
 				filename: new FormItem('Прикрепите файл', value => validate(value).notEmpty().end()),
 				filepath: new FormItem(null, value => validate(value).notEmpty().end()),
 				email: new FormItem('', value => validate(value).isEmail().lessThen(100).notEmpty().end()),
 				skype: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
-				phone: new FormItem('', value => validate(value).lessThen(100).notEmpty().end())
+				phone: new FormItem('', value => validate(value).moreThen(5).lessThen(100).notEmpty().end())
 			}
 		};
 		return merge(state, {[action.name]: newJob});
