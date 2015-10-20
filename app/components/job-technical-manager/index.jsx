@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as actionCreators from 'actions/jobs';
 import Title from 'components/title';
 import Text from 'components/text';
 import DescriptionList from 'components/desc-list';
@@ -8,9 +11,27 @@ import File from 'components/file';
 import JobAnswerForm from 'components/job-answer-form';
 import './styles.css';
 
+const jobName = 'technical_manager';
+
+@connect(store =>({
+	form: store.jobs[jobName].form
+}))
 export default class JobTechnicalManager extends React.Component {
 
+	static propTypes = {
+		form: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
+	}
+
+
+	static defaultProps = {
+		form: {}
+	}
+
+
 	render() {
+		const actions = bindActionCreators(actionCreators, this.props.dispatch);
+
 		return (
 			<div>
 				<div className='hr-vacancy'>
@@ -80,8 +101,9 @@ export default class JobTechnicalManager extends React.Component {
 					<Text size='medium'>Хорошо подумали?</Text>
 
 					<JobAnswerForm
-						job='technical_manager'
-						idPrefix='hr'
+						{...actions}
+						form={this.props.form}
+						job={jobName}
 						fileInitialValue='Прикрепите решение квеста'
 						fileAccept='.docx'
 						fileWarning='DOCX, пожалуйста!'

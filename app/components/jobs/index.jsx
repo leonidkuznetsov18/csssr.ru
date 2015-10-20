@@ -5,9 +5,11 @@ import JobsAbout from 'components/jobs-about';
 import './styles.css';
 
 export default class Jobs extends React.Component {
+
 	componentDidMount() {
 		document.title = 'Вакансии CSSSR — удалённая работа, полная страданий, боли и отчаяния';
 	}
+
 
 	render() {
 		return (

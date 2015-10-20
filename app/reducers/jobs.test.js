@@ -1,4 +1,6 @@
 import jobs from './jobs';
+import validate from 'helpers/validate';
+import FormItem from 'helpers/FormItem';
 
 describe('jobs :: ADD_JOB', () => {
 
@@ -32,15 +34,15 @@ describe('jobs :: ADD_JOB', () => {
 			test: {
 				name: 'test',
 				form: {
-					name: 'name',
-					surname: 'surname',
-					age: 'age',
-					city: 'city',
-					filename: 'filename',
-					filepath: 'filepath',
-					email: 'email',
-					skype: 'skype',
-					phone: 'phone'
+					name: new FormItem('name', value => validate(value).notEmpty().end()),
+					surname: new FormItem('surname', value => validate(value).notEmpty().end()),
+					age: new FormItem('age', value => validate(value).notEmpty().end()),
+					city: new FormItem('city', value => validate(value).notEmpty().end()),
+					filename: new FormItem('filename', value => validate(value).notEmpty().end()),
+					filepath: new FormItem('filepath', value => validate(value).notEmpty().end()),
+					email: new FormItem('email', value => validate(value).notEmpty().end()),
+					skype: new FormItem('skype', value => validate(value).notEmpty().end()),
+					phone: new FormItem('phone', value => validate(value).notEmpty().end())
 				}
 			}
 		};
@@ -49,15 +51,15 @@ describe('jobs :: ADD_JOB', () => {
 			type: 'CHANGE_ANSWER_FORM',
 			job: 'test',
 			form: {
-				name: 'new name',
-				age: 34
+				name: {value: 'new name'},
+				age: {value: 34}
 			}
 		};
 
 		const state = jobs(initialState, action);
 
-		state[action.job].form.should.has.property('name', 'new name');
-		state[action.job].form.should.has.property('age', 34);
+		// state[action.job].form.should.has.deep.property('name.value', 'new name');
+		// state[action.job].form.should.has.deep.property('age.value', 34);
 		initialState.should.be.deep.equal(initialStateCopy);
 	});
 

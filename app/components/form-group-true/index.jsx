@@ -9,7 +9,8 @@ export default class FormGroup extends React.Component {
 		label: PropTypes.string,
 		required: PropTypes.bool,
 		inputProps: PropTypes.object,
-		labelProps: PropTypes.object
+		labelProps: PropTypes.object,
+		wrong: PropTypes.bool
 	}
 
 	static defaultProps = {
@@ -32,7 +33,7 @@ export default class FormGroup extends React.Component {
 
 
 	render() {
-		const {className, inputProps} = this.props;
+		const {className, inputProps, wrong} = this.props;
 		const id = (inputProps && inputProps.id) || Math.random().toString();
 
 		return (
@@ -41,7 +42,9 @@ export default class FormGroup extends React.Component {
 				<input
 					{...inputProps}
 					id={id}
-					className={cx('input-text', inputProps && inputProps.className)}
+					className={cx('input-text', inputProps && inputProps.className, {
+						'input-text_error': wrong
+					})}
 				/>
 			</div>
 		);

@@ -4,5 +4,9 @@
 		display: block;
 		width: 412px;
 		background-color: transparent;
+
+		&_error {
+			border: 1px solid rgb(199, 38, 26);
+		}
 	}
 }
