@@ -10,7 +10,10 @@ export default class Title extends React.Component {
 			React.PropTypes.element
 		]),
 		size: React.PropTypes.string,
-		component: React.PropTypes.element
+		component: React.PropTypes.oneOfType([
+			React.PropTypes.string,
+			React.PropTypes.element
+		])
 	}
 
 	static defaultProps = {
@@ -19,24 +22,26 @@ export default class Title extends React.Component {
 
 	render() {
 		const { size, children, component } = this.props;
-		const className = cx({
+		const classList = cx({
 			title: true,
 			title_size_medium: size === 'medium',
 			title_size_small: size === 'small'
 		});
-		const props = {
-			className
-		};
-		const childrenIsText = typeof children === 'string';
-		if (childrenIsText) {
-			props.dangerouslySetInnerHTML = {
-				__html: children
-			};
-		}
-		const child = childrenIsText ? null : children;
+		const Tag = component;
 
-		return (
-			React.createElement(component, props, child)
-		);
+		if (typeof children === 'string') {
+			return (
+				<Tag
+					className={classList}
+					dangerouslySetInnerHTML={{__html: children}}
+				/>
+			);
+		} else {
+			return (
+				<Tag className={classList}>
+					{children}
+				</Tag>
+			);
+		}
 	}
 }

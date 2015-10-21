@@ -6,18 +6,27 @@
 	color: #333333;
 	margin-bottom: 10px;
 
-	&_size_medium {
+	&_size_m {
 		font-size: 15px;
 		line-height: 21px;
 	}
 
-	&_size_small {
+	&_size_s {
 		font-size: 14px;
 		line-height: 22px;
 	}
 
-	&_size_extrasmall {
+	&_size_xs {
 		font-size: 12px;
 		line-height: 19px;
+	}
+
+	&_size_xxs {
+		font-size: 10px;
+		line-height: 18px;
+	}
+
+	&_noindent {
+		margin-bottom: 0;
 	}
 }

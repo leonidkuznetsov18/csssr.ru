@@ -23,7 +23,7 @@ export default class History extends React.Component {
 							{group.date}
 						</p>
 
-						<Text size='medium'>
+						<Text size='m'>
 							{group.text}
 						</Text>
 					</div>
