@@ -1,8 +1,8 @@
 import React from 'react';
 import Title from 'components/title';
 import Text from 'components/text';
-import DescriptionList from 'components/desc-list';
-import DescriptionListItem from 'components/desc-list-item';
+import List from 'components/list';
+import ListItem from 'components/list-item';
 import Quest from 'components/quest';
 import File from 'components/file';
 import JobAnswerForm from 'components/job-answer-form';
@@ -38,15 +38,15 @@ export default class JobPixelPerfectionist extends React.Component {
 
 					<br />
 					<Title size='medium'>навыки</Title>
-					<DescriptionList>
-						<DescriptionListItem>HTML5 и семантическая вёрстка;</DescriptionListItem>
-						<DescriptionListItem>CSS3;</DescriptionListItem>
-						<DescriptionListItem>jQuery (Vanilla JS будет большим плюсом);</DescriptionListItem>
-						<DescriptionListItem>БЭМ;</DescriptionListItem>
-						<DescriptionListItem>GIT;</DescriptionListItem>
-						<DescriptionListItem>Применение Gulp, Jade и Stylus или готовность их быстро освоить;</DescriptionListItem>
-						<DescriptionListItem>Умение разбираться в чужом коде.</DescriptionListItem>
-					</DescriptionList>
+					<List>
+						<ListItem>HTML5 и семантическая вёрстка;</ListItem>
+						<ListItem>CSS3;</ListItem>
+						<ListItem>jQuery (Vanilla JS будет большим плюсом);</ListItem>
+						<ListItem>БЭМ;</ListItem>
+						<ListItem>GIT;</ListItem>
+						<ListItem>Применение Gulp, Jade и Stylus или готовность их быстро освоить;</ListItem>
+						<ListItem>Умение разбираться в чужом коде.</ListItem>
+					</List>
 				</div>
 
 				<Quest>
@@ -75,19 +75,19 @@ export default class JobPixelPerfectionist extends React.Component {
 					<br />
 
 					<Title size='small'>мы обратим внимание на:</Title>
-					<DescriptionList>
-						<DescriptionListItem>Соответствие вёрстки исходному макету;</DescriptionListItem>
-						<DescriptionListItem>Организацию и качество кода;</DescriptionListItem>
-						<DescriptionListItem>Кроссбраузерность.</DescriptionListItem>
-					</DescriptionList>
+					<List>
+						<ListItem>Соответствие вёрстки исходному макету;</ListItem>
+						<ListItem>Организацию и качество кода;</ListItem>
+						<ListItem>Кроссбраузерность.</ListItem>
+					</List>
 
 					<Title size='small'>обязательные требования к коду</Title>
-					<DescriptionList>
-						<DescriptionListItem>Наименование классов по <a href='https://github.com/CSSSR/sputnik/blob/master/BEM.md'>Б​ЭМ’у</a>;</DescriptionListItem>
-						<DescriptionListItem>Использование <a href='https://github.com/CSSSR/sputnik/blob/master/Jade.md'>J​ade​</a> для HTML и <a href='https://github.com/CSSSR/sputnik/blob/master/Stylus.md'>S​tylus​</a> для CSS;</DescriptionListItem>
-						<DescriptionListItem>Использование нашего ш​аблона для быстрого старта проекта;</DescriptionListItem>
-						<DescriptionListItem>Если вы хотите похвастаться своим владением JS, то CoffeeScript и ES6 приветствуется особенно.</DescriptionListItem>
-					</DescriptionList>
+					<List>
+						<ListItem>Наименование классов по <a href='https://github.com/CSSSR/sputnik/blob/master/BEM.md'>Б​ЭМ’у</a>;</ListItem>
+						<ListItem>Использование <a href='https://github.com/CSSSR/sputnik/blob/master/Jade.md'>J​ade​</a> для HTML и <a href='https://github.com/CSSSR/sputnik/blob/master/Stylus.md'>S​tylus​</a> для CSS;</ListItem>
+						<ListItem>Использование нашего ш​аблона для быстрого старта проекта;</ListItem>
+						<ListItem>Если вы хотите похвастаться своим владением JS, то CoffeeScript и ES6 приветствуется особенно.</ListItem>
+					</List>
 
 					<Text weight='bold'>Внимание! Мы принимаем только выполненные по нашим требованиям анкеты!</Text>
 					<Text size='medium'>Надеемся, что наш тестовый квест покажется вам интересным.</Text>

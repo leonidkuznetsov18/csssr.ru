@@ -12,7 +12,7 @@ export default class DescriptionListItem extends React.Component {
 
 	render() {
 		return (
-			<li {...this.props} className={cx(this.props.className, 'desc-list__item')}>
+			<li {...this.props} className={cx(this.props.className, 'list__item')}>
 				{this.props.children}
 			</li>
 		);

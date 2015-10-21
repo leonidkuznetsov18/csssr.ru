@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import * as actionCreators from 'actions/jobs';
 import Title from 'components/title';
 import Text from 'components/text';
-import DescriptionList from 'components/desc-list';
-import DescriptionListItem from 'components/desc-list-item';
+import List from 'components/list';
+import ListItem from 'components/list-item';
 import Quest from 'components/quest';
 import File from 'components/file';
 import JobAnswerForm from 'components/job-answer-form';
@@ -45,21 +45,21 @@ export default class JobTechnicalManager extends React.Component {
 
 					<br />
 					<Title size='medium'>необходимые технические познания</Title>
-					<DescriptionList>
-						<DescriptionListItem>Глубокая осведомленность по теме современных frontend-технологий;</DescriptionListItem>
-						<DescriptionListItem>Понимание принципов БЭМ;</DescriptionListItem>
-						<DescriptionListItem>Чувство прекрасного в отношении UI.</DescriptionListItem>
-					</DescriptionList>
+					<List>
+						<ListItem>Глубокая осведомленность по теме современных frontend-технологий;</ListItem>
+						<ListItem>Понимание принципов БЭМ;</ListItem>
+						<ListItem>Чувство прекрасного в отношении UI.</ListItem>
+					</List>
 
 					<Title size='medium'>личные качества</Title>
-					<DescriptionList>
-						<DescriptionListItem>Способность руководить командой;</DescriptionListItem>
-						<DescriptionListItem>Умение задавать правильные (исследовательские) вопросы и упорно добиваться четких однозначных ответов;</DescriptionListItem>
-						<DescriptionListItem>Дар чувствовать интересы бизнеса;</DescriptionListItem>
-						<DescriptionListItem>Перфекционизм;</DescriptionListItem>
-						<DescriptionListItem>Умение формулировать;</DescriptionListItem>
-						<DescriptionListItem>Безупречная грамотность.</DescriptionListItem>
-					</DescriptionList>
+					<List>
+						<ListItem>Способность руководить командой;</ListItem>
+						<ListItem>Умение задавать правильные (исследовательские) вопросы и упорно добиваться четких однозначных ответов;</ListItem>
+						<ListItem>Дар чувствовать интересы бизнеса;</ListItem>
+						<ListItem>Перфекционизм;</ListItem>
+						<ListItem>Умение формулировать;</ListItem>
+						<ListItem>Безупречная грамотность.</ListItem>
+					</List>
 				</div>
 
 				<Quest className='hr-quest_manager' horison={true}>

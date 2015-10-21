@@ -1,11 +1,11 @@
-.desc-list__item {
+.list__item {
 	position: relative;
 	font-size: 14px;
 	line-height: 26px;
 
 	&:before {
 		position: absolute;
-		top: 12px;
+		top: 13px;
 		left: -20px;
 		width: 10px;
 		height: 1px;

@@ -11,7 +11,7 @@ export default class DescriptionList extends React.Component {
 
 	render() {
 		return (
-			<ul {...this.props} className={cx(this.props.className, 'desc-list')}>
+			<ul {...this.props} className={cx(this.props.className, 'list')}>
 				{this.props.children}
 			</ul>
 		);
