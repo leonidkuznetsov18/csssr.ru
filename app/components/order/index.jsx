@@ -1,16 +1,17 @@
 import React from 'react';
 import OrderShort from 'components/order-short';
 import OrderContent from 'components/order-content';
-import Faq from 'components/order-faq';
+import FaqGroup from 'components/faq-group';
+import Faq from 'components/faq';
 
 import './styles.css';
 
-export default class Order extends React.Component {
+const faq = require('data/faq-order.json');
 
+export default class Order extends React.Component {
 	componentDidMount() {
 		document.title = 'Вёрстка проекта в CSSSR';
 	}
-
 
 	render() {
 		return (
@@ -20,7 +21,12 @@ export default class Order extends React.Component {
 					<OrderShort />
 					<OrderContent />
 				</div>
-				<Faq />
+
+				<FaqGroup>
+					{faq.map((group, index) => (
+						<Faq data={group} key={index} />
+					))}
+				</FaqGroup>
 			</div>
 		);
 	}

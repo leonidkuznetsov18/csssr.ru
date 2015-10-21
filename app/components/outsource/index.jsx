@@ -4,11 +4,13 @@ import Power from 'components/outsource-power';
 import Magic from 'components/outsource-magic';
 import Use from 'components/outsource-use';
 import Form from 'components/outsource-form';
-import Faq from 'components/outsource-faq';
+import FaqGroup from 'components/faq-group';
+import Faq from 'components/faq';
 
 import './styles.css';
 
 const data = require('data/outsource.json');
+const faq = require('data/faq-outsource.json');
 
 export default class Outsource extends React.Component {
 
@@ -32,7 +34,12 @@ export default class Outsource extends React.Component {
 					<Use tips={data.tips} />
 					<Form data={data.form} />
 				</div>
-				<Faq data={data.faq} />
+
+				<FaqGroup>
+					{faq.map((group, index) => (
+						<Faq data={group} key={index} />
+					))}
+				</FaqGroup>
 			</div>
 		);
 	}
