@@ -1,10 +1,13 @@
 import React from 'react';
 import Icon from 'components/icon';
+
 import './styles.css';
 
-const data = require('data/jobs-vacancy.json');
-
 export default class JobsVacancy extends React.Component {
+	static propTypes = {
+		data: React.PropTypes.array.isRequired
+	}
+
 	renderName(name) {
 		return <span className='jobs-vacancy__name'>{ name }</span>;
 	}
@@ -45,9 +48,11 @@ export default class JobsVacancy extends React.Component {
 	}
 
 	render() {
+		const { data } = this.props;
+
 		return (
 			<ul className='jobs-vacancy'>
-				{ data.map(this.renderVacancy) }
+				{data.map(this.renderVacancy) }
 			</ul>
 		);
 	}

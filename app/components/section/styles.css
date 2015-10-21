@@ -1,5 +1,5 @@
-.jobs-about {
-	&__group {
+.section {
+	&_indent {
 		margin-bottom: 20px;
 	}
 }

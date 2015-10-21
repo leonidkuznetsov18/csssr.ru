@@ -1,6 +1,5 @@
 .description {
 	padding-top: 1px;
-	padding-bottom: 160px;
 	position: relative;
 
 	&__logo {
@@ -62,6 +61,7 @@
 	&__item {
 		padding-right: 25px;
 		position: relative;
+		width: 25%;
 
 		&:nth-child(1) {
 			margin-top: -230px;

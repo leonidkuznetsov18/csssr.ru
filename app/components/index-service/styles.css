@@ -1,14 +1,9 @@
-.index {
-	margin-top: 60px;
+.index-service {
+	margin-left: auto;
+	margin-right: auto;
+	width: 91.538%;
+	max-width: 1190px;
 	position: relative;
-
-	&__inner {
-		margin-left: auto;
-		margin-right: auto;
-		width: 91.538%;
-		max-width: 1190px;
-		position: relative;
-	}
 
 	&__header {
 		width: 361px;

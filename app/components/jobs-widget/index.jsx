@@ -1,25 +1,26 @@
 import React from 'react';
 import Icon from 'components/icon';
+import Text from 'components/text';
 import VkGroup from 'components/vk-group';
+
 import './styles.css';
 
-export default class JobsWidget extends React.Component {
-	render() {
-		return (
-			<div className='jobs-widget'>
-				<div className='jobs-widget__loader'>
-
-				</div>
-				<div className='jobs-widget__layout'>
-					<VkGroup />
-				</div>
-				<div className='jobs-widget__hint'>
-					<Icon className='jobs-widget__hint-arrow' icon='curve-arrow' />
-					<div className='jobs-widget__hint-text'>
-						Следите за новыми вакансиями
-					</div>
-				</div>
+export default function JobsWidget() {
+	return (
+		<div className='jobs-widget'>
+			<div className='jobs-widget__layout'>
+				<VkGroup />
 			</div>
-		);
-	}
+
+			<div className='jobs-widget__hint'>
+				<Icon className='jobs-widget__arrow'
+					icon='curve-arrow'
+				/>
+
+				<Text size='xs'>
+					Следите за новыми вакансиями
+				</Text>
+			</div>
+		</div>
+	);
 }

@@ -5,18 +5,20 @@ import Comment from 'components/comment';
 
 import './styles.css';
 
-const data = require('data/comments.json');
-
 export default class Comments extends React.Component {
-	constructor() {
-		super();
-		this.state = {
+	static propTypes = {
+		data: React.PropTypes.array.isRequired
+	}
+
+	componentWillMount() {
+		this.setState({
 			active: true,
 			index: 0
-		};
+		});
 	}
 
 	changeComment() {
+		const { data } = this.props;
 		const random = Math.floor(Math.random() * data.length);
 		const comment = this.refs.comment;
 
@@ -37,6 +39,7 @@ export default class Comments extends React.Component {
 	}
 
 	render() {
+		const { data } = this.props;
 		const comment = data[this.state.index];
 		const classList = cx({
 			comments__item: true,

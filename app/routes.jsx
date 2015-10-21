@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router';
 import Application from 'components/application';
-import Index from 'components/index';
-import Company from 'components/company';
-import Jobs from 'components/jobs';
+import Index from 'containers/page-index';
+import Company from 'containers/page-company';
+import Jobs from 'containers/page-jobs';
 import Order from 'components/order';
 import Outsource from 'components/outsource';
-import Offert from 'components/offert';
+import Offert from 'containers/page-offert';
 import Portfolio from 'components/portfolio';
 import Project from 'components/project';
 import ProjectPage from 'components/project-page';

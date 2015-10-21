@@ -7,38 +7,40 @@ import Icon from 'components/icon';
 
 import './styles.css';
 
-const data = require('data/company-info.json');
+export default function CompanyInfo({history, data}) {
+	return (
+		<div className='company-info'>
+			<Row>
+				<Column>
+					<History data={history}/>
+				</Column>
 
-export default class CompanyInfo extends React.Component {
-	render() {
-		return (
-			<div className='company-info'>
-				<Row>
-					<Column>
-						<History/>
+				<Column size={2 / 3}>
+					<Column size={1 / 2}>
+						<Section {...data.name}/>
 					</Column>
 
-					<Column size={2 / 3}>
-						<Column size={1 / 2}>
-							<Section {...data.name}/>
-						</Column>
-
-						<Column size={1 / 2}>
-							<Section {...data.structure}/>
-						</Column>
-
-						<div className='company-info__rocket'>
-							<Icon
-								icon='x3'
-								className='company-info__rocket-count'
-							/>
-							<Section {...data.count}/>
-						</div>
-
-						<Section {...data.work}/>
+					<Column size={1 / 2}>
+						<Section {...data.structure}/>
 					</Column>
-				</Row>
-			</div>
-		);
-	}
-}
+
+					<div className='company-info__rocket'>
+						<Icon
+							icon='x3'
+							className='company-info__rocket-count'
+						/>
+						<Section {...data.count}/>
+					</div>
+
+					<Section {...data.work}/>
+				</Column>
+			</Row>
+		</div>
+	);
+};
+
+CompanyInfo.propTypes = {
+	history: React.PropTypes.object.isRequired,
+	data: React.PropTypes.object.isRequired,
+};
+

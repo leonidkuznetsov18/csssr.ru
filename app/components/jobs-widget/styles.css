@@ -1,12 +1,10 @@
 .jobs-widget {
-	position: relative;
+	position: absolute;
 	z-index: 1;
 	width: 280px;
-
-	&__loader {
-		position: absolute;
-		z-index: 1;
-	}
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
 
 	&__layout {
 		position: relative;
@@ -24,19 +22,12 @@
 		height: 44px;
 	}
 
-	&__hint-arrow {
+	&__arrow {
 		position: absolute;
 		top: 15px;
 		left: 0;
 		z-index: 1;
 		width: 18px;
 		height: 26px;
-	}
-
-	&__hint-text {
-		font-family: roboto;
-		font-size: 12px;
-		line-height: 1;
-		font-weight: lighter;
 	}
 }

@@ -2,6 +2,7 @@
 	display: inline-block;
 	vertical-align: top;
 	padding: 0 15px;
+	position: relative;
 
 	&_size_one-third {
 		width: 33.333%;

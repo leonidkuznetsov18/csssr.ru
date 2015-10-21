@@ -1,17 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-export default class Icon extends React.Component {
-	static propTypes = {
-		className: PropTypes.string,
-		icon: PropTypes.string
-	}
+export default function Icon(props) {
+	const icon = require(`images/icons/${props.icon}.svg`);
 
-	render() {
-		const icon = require(`images/icons/${this.props.icon}.svg`);
-		return (
-			<div {...this.props}
-				dangerouslySetInnerHTML={{__html: icon}}
-			/>
-		);
-	}
-}
+	return (
+		<div {...props}
+			dangerouslySetInnerHTML={{__html: icon}}
+		/>
+	);
+};
+
+Icon.propTypes = {
+	icon: React.PropTypes.string
+};

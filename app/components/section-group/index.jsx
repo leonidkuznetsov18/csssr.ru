@@ -17,7 +17,7 @@ export default class SectionGroup extends React.Component {
 					<div className='section-group__block' key={index}>
 						<Section {...group} />
 					</div>
-				))};
+				))}
 			</div>
 		);
 	}

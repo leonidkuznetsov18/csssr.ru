@@ -2,16 +2,14 @@ import React from 'react';
 
 import './styles.css';
 
-export default class Row extends React.Component {
-	static propTypes = {
-		children: React.PropTypes.node
-	}
+export default function Row({children}) {
+	return (
+		<div className='row'>
+			{children}
+		</div>
+	);
+};
 
-	render() {
-		return (
-			<div className='row'>
-				{this.props.children}
-			</div>
-		);
-	}
-}
+Row.propTypes = {
+	children: React.PropTypes.node
+};
