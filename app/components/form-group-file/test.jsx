@@ -5,15 +5,20 @@ import TestUtils from 'react/lib/ReactTestUtils';
 import FormGroupFile from 'components/form-group-file';
 import FormGroup from 'components/form-group';
 import _ from 'lodash';
+import $ from 'jquery';
 
-var $R = require('rquery')(_, React);
+let element;
 
 describe('Input', () => {
+
+  beforeEach(() => {
+    element = document.createElement('div');
+    document.body.appendChild(element);
+  })
+
   it('renders without problems', () => {
     const formGroupFile = TestUtils.renderIntoDocument(
       <FormGroupFile
-        itemId='testId'
-        itemName='testName'
         label='testLabel'
       />
     ).render();
@@ -23,50 +28,33 @@ describe('Input', () => {
   it('should add default class', () => {
     const formGroupFile = TestUtils.renderIntoDocument(
       <FormGroupFile
-        itemId='testId'
-        itemName='testName'
         label='testLabel'
       />
     ).render();
     formGroupFile.props
       .should.have.property('className')
-        .which.contain('form-group-file__wrapper');
+        .which.contain('form-group-file');
   });
 
   it('should combine classes', () => {
     const formGroupFile = TestUtils.renderIntoDocument(
-      <FormGroupFile
-        itemId='testId'
-        itemName='testName'
-        label='testLabel'
-        className='test'
-      />
+      <FormGroupFile className='test' />
     ).render();
     formGroupFile.props
       .should.have.property('className')
-        .which.contain('test');
+        .which.contain('test', 'form-group-file');
   });
 
   it('should render input[type=file]', () => {
-    const formGroupFile = TestUtils.renderIntoDocument(
-      <FormGroupFile
-        itemId='testId'
-        itemName='testName'
-        label='testLabel'
-      />
-    ).render();
-    formGroupFile.props.children
-      .should.contain.a.thing.with.property('type', 'input')
-      .and.contain.a.thing.with.deep.property('props.type', 'file')
+    React.render(<FormGroupFile />, element);
+    $(element).find('input[type="file"]').should.have.length(1)
   });
 
-  it('should render warning if prop showWarning = true', () => {
+  it('should render warning if prop isWrong = true', () => {
     const formGroupFile = TestUtils.renderIntoDocument(
       <FormGroupFile
-        itemId='testId'
-        itemName='testName'
         label='testLabel'
-        showWarning={true}
+        isWrong={true}
       />
     ).render();
     formGroupFile.props.children

@@ -66,6 +66,7 @@
     "concurrently": "^0.1.1",
     "eslint": "^0.22.1",
     "eslint-plugin-react": "^2.5.0",
+    "jquery": "^2.1.4",
     "karma": "^0.13.10",
     "karma-chai": "^0.1.0",
     "karma-chai-things": "^0.1.4",

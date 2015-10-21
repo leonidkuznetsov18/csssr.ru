@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import FormGroup from 'components/form-group';
+import FormGroup from 'components/form-group-true';
 import cx from 'classnames';
 
 import './styles.css';
@@ -9,55 +9,53 @@ export default class FormGroupFile extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string,
-		itemName: PropTypes.string,
-		itemId: PropTypes.string,
-		inputClassName: PropTypes.string,
-		initialValue: PropTypes.string,
+		label: PropTypes.string,
+		required: PropTypes.bool,
+		inputProps: PropTypes.object,
+		labelProps: PropTypes.object,
 		buttonText: PropTypes.string,
 		accept: PropTypes.string,
-		showWarning: PropTypes.bool,
-		warning: PropTypes.string
+		isWrong: PropTypes.bool,
+		warning: PropTypes.string,
+		onChange: PropTypes.func
 	}
 
 	static defaultProps = {
-		showWarning: false,
+		required: false,
+		inputProps: {},
+		labelProps: {},
 		buttonText: 'Обзор',
-		accept: ''
-	}
-
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			filename: this.props.initialValue
-		};
+		accept: '',
+		isWrong: false
 	}
 
 
 	fileChange = (e) => {
-		this.setState({filename: e.target.files[0].name});
+		if (this.props.onChange) {
+			this.props.onChange(e);
+		}
 	}
 
 	render() {
+		const {inputProps} = this.props;
 		return (
-			<div className={cx('form-group-file__wrapper', this.props.className)}>
+			<div className={cx('form-group-file', this.props.className)}>
 				<FormGroup
 					{...this.props}
-					className={cx('form-group-file', this.props.className)}
-					inputClassName={cx('form-group-file__input', this.props.inputClassName)}
-					initialValue={this.state.filename}
-					hardUpdateInitialValue={true}
+					className={cx('form-group-file__text-input', inputProps && inputProps.className)}
+					inputProps={Object.assign({}, inputProps, {disabled: true})}
+					isWrong={this.props.isWrong}
 				/>
-				<div className='form-group-file__btn'>{this.props.buttonText}</div>
-				<input
-					className='form-group-file__file-input'
-					id={`file.${this.props.itemId}`}
-					name={`file.${this.props.itemName}`}
-					accept={this.props.accept}
-					type='file'
-					onChange={this.fileChange}
-				/>
-				{this.props.showWarning ? <div className='form-group-file__warning'>{this.props.warning}</div> : null}
+				<div className='form-group-file__btn'>
+					{this.props.buttonText}
+					<input
+						className='form-group-file__file-input'
+						accept={this.props.accept}
+						onChange={this.fileChange}
+						type='file'
+					/>
+				</div>
+				{this.props.isWrong ? <div className='form-group-file__warning'>{this.props.warning}</div> : null}
 			</div>
 		);
 	}

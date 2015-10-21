@@ -6,13 +6,21 @@ export default class FormGroup extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string,
-		size: PropTypes.oneOf('half'),
+		small: PropTypes.bool,
 		style: PropTypes.object,
 		label: PropTypes.string,
 		required: PropTypes.bool,
 		inputProps: PropTypes.object,
 		labelProps: PropTypes.object,
-		wrong: PropTypes.bool
+		isWrong: PropTypes.bool
+	}
+
+	static defaultProps = {
+		small: false,
+		required: false,
+		inputProps: {},
+		labelProps: {},
+		isWrong: false
 	}
 
 
@@ -32,14 +40,14 @@ export default class FormGroup extends React.Component {
 
 
 	render() {
-		const {className, inputProps, wrong, size} = this.props;
+		const {className, inputProps, isWrong} = this.props;
 		const id = (inputProps && inputProps.id) || Math.random().toString();
 
 		return (
 			<div
 				{...this.props}
 				className={cx('form-group', className, {
-					'form-group_size_half': size === 'half'
+					'form-group_size_half': this.props.small
 				})}
 			>
 				{this.getLabel(id)}
@@ -47,7 +55,7 @@ export default class FormGroup extends React.Component {
 					{...inputProps}
 					id={id}
 					className={cx('form-group__input', inputProps && inputProps.className, {
-						'form-group__input_error': wrong
+						'form-group__input_error': isWrong
 					})}
 				/>
 			</div>

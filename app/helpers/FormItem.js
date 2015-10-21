@@ -1,5 +1,5 @@
 export default class FormItem {
-	constructor(value, validateFunction, showError = false) {
+	constructor(value, validateFunction = () => true, showError = false) {
 		this.value = value;
 		this.validate = validateFunction;
 		this.showError = showError;

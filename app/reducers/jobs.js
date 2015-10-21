@@ -15,8 +15,9 @@ export default function jobs(state = {}, action) {
 				surname: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
 				age: new FormItem('', value => validate(value).notEmpty().lessThen(4).isInt().end()),
 				city: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
-				filename: new FormItem('Прикрепите файл', value => validate(value).notEmpty().end()),
-				filepath: new FormItem(null, value => validate(value).notEmpty().end()),
+				filename: new FormItem('Прикрепите файл'),
+				filepath: new FormItem('', value => validate(value).notEmpty().end()),
+				filewarning: new FormItem('DOCX, пожалуйста!'),
 				email: new FormItem('', value => validate(value).isEmail().lessThen(100).notEmpty().end()),
 				skype: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
 				phone: new FormItem('', value => validate(value).moreThen(5).lessThen(100).notEmpty().end())

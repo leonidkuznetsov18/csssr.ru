@@ -4,7 +4,7 @@ import React from 'react';
 import TestUtils from 'react/lib/ReactTestUtils';
 import File from 'components/file';
 
-describe('Input', () => {
+describe('file component', () => {
   it('renders without problems', () => {
     const file = TestUtils.renderIntoDocument(<File type='psd' />).render();
     file.should.to.exist;

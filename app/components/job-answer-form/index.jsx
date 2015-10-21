@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import request from 'superagent';
 import spliter from 'helpers/spliter';
 import FormGroup from 'components/form-group-true';
 import FormGroupFile from 'components/form-group-file';
@@ -90,17 +91,39 @@ export default class JobAnswerForm extends React.Component {
 		return `${(value || this.state.inputAgeIsFocused) ? '+' : ''}${value}`;
 	}
 
+	onFileLoad = (err, res) => {
+		if (err) throw new Error(err);
+		this.props.changeAnswerForm(this.props.job, {
+			filename: {
+				value: res.body.file.originalname
+			},
+			filepath: {
+				value: res.body.file.path,
+				showError: false
+			}
+		});
+	}
+
+	fileChange = e => {
+		this.changeField(e.target.files[0].name, 'filename');
+		// TODO: load and set filepath here
+		const formData = new FormData();
+		formData.append('file', e.target.files[0]);
+		request
+			.post('/upload')
+			.send(formData)
+			.end(this.onFileLoad);
+	}
+
 
 	render() {
-		const { fileInitialValue, fileAccept, fileWarning } = this.props;
-
 		return (
 			<form className='answer__form' onSubmit={this.submitForm}>
 				<FormGroup
 					label='Имя'
 					required
-					wrong={this.props.form.name.showError && !this.props.form.name.isValid()}
-					size='half'
+					small
+					isWrong={this.props.form.name.showError && !this.props.form.name.isValid()}
 					inputProps={{
 						value: this.props.form.name.value,
 						onChange: e => this.changeField(e.target.value, 'name')
@@ -110,8 +133,8 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Фамилия'
 					required
-					size='half'
-					wrong={this.props.form.surname.showError && !this.props.form.surname.isValid()}
+					small
+					isWrong={this.props.form.surname.showError && !this.props.form.surname.isValid()}
 					inputProps={{
 						value: this.props.form.surname.value,
 						onChange: e => this.changeField(e.target.value, 'surname')
@@ -121,7 +144,7 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Возраст'
 					required
-					wrong={this.props.form.age.showError && !this.props.form.age.isValid()}
+					isWrong={this.props.form.age.showError && !this.props.form.age.isValid()}
 					inputProps={{
 						value: this.props.form.age.value,
 						onChange: this.changeAge
@@ -131,7 +154,7 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Город'
 					required
-					wrong={this.props.form.city.showError && !this.props.form.city.isValid()}
+					isWrong={this.props.form.city.showError && !this.props.form.city.isValid()}
 					inputProps={{
 						value: this.props.form.city.value,
 						onChange: e => this.changeField(e.target.value, 'city')
@@ -141,16 +164,18 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroupFile
 					label='Тестовый квест'
 					required
-					initialValue={fileInitialValue}
-					accept={fileAccept}
-					warning={fileWarning}
-					showWarning={false}
+					isWrong={this.props.form.filepath.showError && !this.props.form.filepath.isValid()}
+					inputProps={{
+						value: this.props.form.filename.value
+					}}
+					onChange={this.fileChange}
+					warning={this.props.form.filewarning}
 				/>
 
 				<FormGroup
 					label='Электронная почта'
 					required
-					wrong={this.props.form.email.showError && !this.props.form.email.isValid()}
+					isWrong={this.props.form.email.showError && !this.props.form.email.isValid()}
 					inputProps={{
 						value: this.props.form.email.value,
 						onChange: e => this.changeField(e.target.value, 'email')
@@ -160,7 +185,7 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Скайп'
 					required
-					wrong={this.props.form.skype.showError && !this.props.form.skype.isValid()}
+					isWrong={this.props.form.skype.showError && !this.props.form.skype.isValid()}
 					inputProps={{
 						value: this.props.form.skype.value,
 						onChange: e => this.changeField(e.target.value, 'skype')
@@ -170,7 +195,7 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Контактный телефон'
 					required
-					wrong={this.props.form.phone.showError && !this.props.form.phone.isValid()}
+					isWrong={this.props.form.phone.showError && !this.props.form.phone.isValid()}
 					inputProps={{
 						value: this.formatPhone(this.props.form.phone.value),
 						onChange: this.changePhone,
