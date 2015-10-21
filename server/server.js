@@ -7,7 +7,7 @@ import Layout from '../app/components/layout';
 import morgan from 'morgan';
 
 var	app = express();
-var isProduction = true;
+var isProduction = app.get('env') === 'production';
 var	port = +(process.env.PORT || 3000);
 var publicPath = isProduction ? '/_assets/' : '//localhost:2992/_assets/';
 var ASSETS = path.join(__dirname, '..', 'static');
