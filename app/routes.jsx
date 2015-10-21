@@ -7,9 +7,9 @@ import Jobs from 'containers/page-jobs';
 import Order from 'components/order';
 import Outsource from 'components/outsource';
 import Offert from 'containers/page-offert';
-import Portfolio from 'components/portfolio';
-import Project from 'components/project';
-import ProjectPage from 'components/project-page';
+import Portfolio from 'containers/page-portfolio';
+import Project from 'containers/page-project';
+import ProjectPage from 'containers/page-project-page';
 import Timeline from 'components/timeline';
 
 export default (

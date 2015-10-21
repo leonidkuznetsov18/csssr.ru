@@ -4,18 +4,32 @@ import { Link } from 'react-router';
 
 import './styles.css';
 
-export default class PortfolioItem extends React.Component {
-	static propTypes = {
-		data: React.PropTypes.object
-	}
+export default function PortfolioItem({project}) {
+	const work = ((project) => {
+		if (project.view && project.pages) {
+			return (
+				<Link to={`/portfolio/${project.view}/${project.pages[0].page}`} >
+					{project.name}
+				</Link>
+			);
+		}
 
-	render() {
-		const logo = ((project) => {
-			if (!(project.logo && project.logo.url)) {
-				return '';
-			}
+		if (project.url || project.view) {
+			let link = project.url || 'http://portfolio.csssr.ru/' + project.view + '/';
 
 			return (
+				<a href={link} target='_blank'>
+					{project.name}
+				</a>
+			);
+		}
+
+		return project.name;
+	}(project));
+
+	return (
+		<li className='portfolio-item'>
+			{project.logo &&
 				<div className='portfolio-item__logo'>
 					<img
 						src={require(`../../images/portfolio/${project.logo.url}`)}
@@ -25,67 +39,33 @@ export default class PortfolioItem extends React.Component {
 						height={project.logo.height}
 					/>
 				</div>
-			);
-		}(this.props.data));
-
-		const work = ((project) => {
-			if (project.view && project.pages) {
-				return (
-					<Link to={`/portfolio/${project.view}/${project.pages[0].page}`} >
-						{project.name}
-					</Link>
-				);
 			}
 
-			if (project.url || project.view) {
-				let link = project.url || 'http://portfolio.csssr.ru/' + project.view + '/';
+			<Text size='m' indent={false}>
+				{work}
+			</Text>
 
-				return (
-					<a href={link} target='_blank'>
-						{project.name}
-					</a>
-				);
-			}
-
-			return project.name;
-		}(this.props.data));
-
-		const featuring = ((project) => {
-			if (!project.featuring) {
-				return '';
-			}
-
-			return project.featuring.map((feat, i) => (
-				<span key={i}>
-					Совместно с
-					{' '}
-					{
-						(feat.url) ? (
+			{project.featuring &&
+				<Text size='xxs' indent={false}>
+					{project.featuring.map((feat, i) => (
+						<span key={i}>
+							Совместно с
+							{' '}
 							<a href={feat.url} target='_blank'>
 								{feat.company}
 							</a>
-						) : feat.company
-					}
-				</span>
-			));
-		}(this.props.data));
-
-		return (
-			<li className='portfolio-item'>
-				{logo}
-
-				<Text size='m' indent={false}>
-					{work}
+						</span>
+					))}
 				</Text>
+			}
 
-				<Text size='xxs' indent={false}>
-					{featuring}
-				</Text>
-
-				<Text size='xs'>
-					{this.props.data.date}
-				</Text>
-			</li>
-		);
-	}
+			<Text size='xs'>
+				{project.date}
+			</Text>
+		</li>
+	);
 }
+
+PortfolioItem.propTypes = {
+	project: React.PropTypes.object
+};
