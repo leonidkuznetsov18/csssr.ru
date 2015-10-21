@@ -10,6 +10,7 @@ export default class Title extends React.Component {
 			React.PropTypes.element
 		]),
 		size: React.PropTypes.string,
+		color: React.PropTypes.string,
 		component: React.PropTypes.oneOfType([
 			React.PropTypes.string,
 			React.PropTypes.element
@@ -21,11 +22,12 @@ export default class Title extends React.Component {
 	}
 
 	render() {
-		const { size, children, component } = this.props;
+		const { size, children, component, color } = this.props;
 		const classList = cx({
 			title: true,
 			title_size_medium: size === 'medium',
-			title_size_small: size === 'small'
+			title_size_small: size === 'small',
+			title_color_yellow: color === 'yellow'
 		});
 		const Tag = component;
 

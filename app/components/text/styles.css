@@ -10,6 +10,11 @@
 		font-weight: 400;
 	}
 
+	&_size_l {
+		font-size: 18px;
+		line-height: 28px;
+	}
+
 	&_size_m {
 		font-size: 15px;
 		line-height: 21px;
@@ -32,5 +37,9 @@
 
 	&_noindent {
 		margin-bottom: 0;
+	}
+
+	&_color_blue {
+		color: #aabbba;
 	}
 }

@@ -5,14 +5,24 @@ import './styles.css';
 
 export default class Text extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.node.isRequired,
 		weight: React.PropTypes.string,
 		indent: React.PropTypes.bool,
-		size: React.PropTypes.string
+		children: React.PropTypes.oneOfType([
+			React.PropTypes.string,
+			React.PropTypes.element,
+			React.PropTypes.array,
+		]),
+		size: React.PropTypes.string,
+		color: React.PropTypes.string,
+		indent: React.PropTypes.bool
+	}
+
+	static defaultProps = {
+		indent: true
 	}
 
 	render() {
-		const { size, children, indent, weight } = this.props;
+		const { size, children, indent, color, weight } = this.props;
 		const classList = cx({
 			text: true,
 			text_size_m: size === 'm',
@@ -20,7 +30,8 @@ export default class Text extends React.Component {
 			text_size_xs: size === 'xs',
 			text_size_xxs: size === 'xxs',
 			text_weight_bold: weight === 'bold',
-			text_noindent: indent === false
+			text_noindent: indent === false,
+			text_color_blue: color === 'blue'
 		});
 
 		return (
