@@ -7,7 +7,8 @@ export default class Text extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.oneOfType([
 			React.PropTypes.string,
-			React.PropTypes.element
+			React.PropTypes.element,
+			React.PropTypes.array,
 		]),
 		size: React.PropTypes.string,
 		indent: React.PropTypes.bool
@@ -27,8 +28,6 @@ export default class Text extends React.Component {
 			text_size_xxs: size === 'xxs',
 			text_noindent: indent === false
 		});
-
-		console.log(typeof children);
 
 		if (typeof children === 'string') {
 			return (

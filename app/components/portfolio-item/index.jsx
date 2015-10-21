@@ -1,9 +1,10 @@
 import React from 'react';
 import Text from 'components/text';
+import { Link } from 'react-router';
 
 import './styles.css';
 
-export default class PortfolioProject extends React.Component {
+export default class PortfolioItem extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.object
 	}
@@ -30,9 +31,9 @@ export default class PortfolioProject extends React.Component {
 		const work = ((project) => {
 			if (project.view && project.pages) {
 				return (
-					<a href={'view-project.html#' + project.view} >
+					<Link to={`/portfolio/${project.view}/${project.pages[0].page}`} >
 						{project.name}
-					</a>
+					</Link>
 				);
 			}
 
