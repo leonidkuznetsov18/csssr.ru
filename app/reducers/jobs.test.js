@@ -46,7 +46,6 @@ describe('jobs reducers', () => {
 			'city',
 			'filename',
 			'filepath',
-			'filewarning',
 			'email',
 			'skype',
 			'phone'

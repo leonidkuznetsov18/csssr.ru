@@ -35,6 +35,7 @@ const createStoreWithMiddleWare = compose(
 // while we don't have server-side rendering
 const initialStore = createStoreWithMiddleWare(reducer);
 initialStore.dispatch(addJob('technical_manager'));
+initialStore.dispatch(addJob('pixel_perfectionist'));
 window.__data = initialStore.getState();
 
 

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as actionCreators from 'actions/jobs';
 import Title from 'components/title';
 import Text from 'components/text';
 import List from 'components/list';
@@ -11,9 +14,27 @@ import './styles.css';
 import './styles.css';
 
 
+const jobName = 'pixel_perfectionist';
+
+@connect(store =>({
+	form: store.jobs[jobName].form
+}))
 export default class JobPixelPerfectionist extends React.Component {
 
+	static propTypes = {
+		form: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired
+	}
+
+
+	static defaultProps = {
+		form: {}
+	}
+
+
 	render() {
+		const actions = bindActionCreators(actionCreators, this.props.dispatch);
+
 		return (
 			<div className='job-pixel-perfectionist'>
 				<div className='hr-vacancy'>
@@ -98,7 +119,10 @@ export default class JobPixelPerfectionist extends React.Component {
 					<Text size='medium'>Представьтесь, пожалуйста, и расскажите нам еще немного о себе.</Text>
 
 					<JobAnswerForm
-						fileInitialValue='Прикрепите zip-архив'
+						{...actions}
+						form={this.props.form}
+						job={jobName}
+						fileInitialValue='Прикрепите решение квеста'
 						fileAccept='.zip'
 						fileWarning='ZIP, пожалуйста!'
 					/>

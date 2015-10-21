@@ -15,14 +15,12 @@ export default class JobAnswerForm extends React.Component {
 		changeAnswerForm: PropTypes.func.isRequired,
 		sendAnswerForm: PropTypes.func.isRequired,
 		showFormErrors: PropTypes.func.isRequired,
-		fileInitialValue: PropTypes.string,
 		fileAccept: PropTypes.string,
 		fileWarning: PropTypes.string
 	}
 
 
 	static defaultProps = {
-		fileInitialValue: 'Прикрепите решение',
 		fileAccept: '',
 		fileWarning: 'Файл, пожалуйста!'
 	}
@@ -169,7 +167,8 @@ export default class JobAnswerForm extends React.Component {
 						value: this.props.form.filename.value
 					}}
 					onChange={this.fileChange}
-					warning={this.props.form.filewarning}
+					accept={this.props.fileAccept}
+					warning={this.props.fileWarning}
 				/>
 
 				<FormGroup
