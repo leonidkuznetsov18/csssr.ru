@@ -13,8 +13,8 @@ export default class SectionGroup extends React.Component {
 
 		return (
 			<div className='section-group'>
-				{data.map(group => (
-					<div className='section-group__block'>
+				{data.map((group, index) => (
+					<div className='section-group__block' key={index}>
 						<Section {...group} />
 					</div>
 				))};

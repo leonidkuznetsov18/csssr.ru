@@ -15,30 +15,30 @@ export default class JobsVacancy extends React.Component {
 		);
 	}
 
-	renderOne(vacancy) {
+	renderOne = (vacancy, index) => {
 		const hh = vacancy.hh;
 
 		return (
-			<a href={vacancy.url} className='jobs-vacancy__link'>
+			<a href={vacancy.url} className='jobs-vacancy__link' key={index}>
 				{ this.renderName(vacancy.name) }
 				{ hh ? this.renderHh() : '' }
 			</a>
 		);
 	}
 
-	renderMore(vacancyName, vacancies) {
+	renderMore = (vacancyName, vacancies, index) => {
 		return (
-			<li className='jobs-vacancy__item'>
+			<li className='jobs-vacancy__item' key={index}>
 				{ this.renderName(vacancyName + ': ') }
-				{ vacancies.map(vacancy => this.renderOne(vacancy)) }
+				{ vacancies.map(this.renderOne) }
 			</li>
 		);
 	}
 
-	renderVacancy(vacancy) {
+	renderVacancy = (vacancy, index) => {
 		const vacancies = vacancy.vacancies;
-		return vacancies ? this.renderMore(vacancy.name, vacancies) : (
-			<li className='jobs-vacancy__item'>
+		return vacancies ? this.renderMore(vacancy.name, vacancies, index) : (
+			<li className='jobs-vacancy__item' key={index}>
 				{ this.renderOne(vacancy) }
 			</li>
 		);
@@ -47,7 +47,7 @@ export default class JobsVacancy extends React.Component {
 	render() {
 		return (
 			<ul className='jobs-vacancy'>
-				{ data.map(vacancy => this.renderVacancy(vacancy)) }
+				{ data.map(this.renderVacancy) }
 			</ul>
 		);
 	}

@@ -17,18 +17,23 @@ export default class Offert extends React.Component {
 					<h1 className='offert__title'>
 						{data.title}
 					</h1>
-					{data.content.map(section => (
-						<div className='offert__section'>
+					{data.content.map((section, index) => (
+						<div className='offert__section' key={index}>
 							<h2 className='offert__subtitle'>
 								{section.title}
 							</h2>
-							{(section.content || []).map(item => (
-								<div className='offert__group'>
+							{(section.content || []).map((item, index) => (
+								<div className='offert__group' key={index}>
 									<p className='offert__index'>
 										{item.title}
 									</p>
-									{([].concat(item.content || [])).map(paragraph => (
-										<p className='offert__text' dangerouslySetInnerHTML={{__html: paragraph}} />
+									{([].concat(item.content || [])).map((paragraph, index) => (
+										<p className='offert__text'
+											key={index}
+											dangerouslySetInnerHTML={{
+												__html: paragraph
+											}}
+										/>
 									))}
 								</div>
 							))}

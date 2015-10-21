@@ -28,8 +28,7 @@ export default class ProjectPage extends React.Component {
 	}
 
 	componentDidMount() {
-		const iframe = React.findDOMNode(this.refs.iframe);
-		iframe.addEventListener('load', this.onIframeLoad);
+		this.refs.iframe.addEventListener('load', this.onIframeLoad);
 	}
 
 	componentWillReceiveProps() {

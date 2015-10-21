@@ -18,7 +18,7 @@ export default class Comments extends React.Component {
 
 	changeComment() {
 		const random = Math.floor(Math.random() * data.length);
-		const comment = React.findDOMNode(this.refs.comment);
+		const comment = this.refs.comment;
 
 		this.setState({
 			active: false

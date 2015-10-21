@@ -1,25 +1,49 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Router from 'react-router';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import createHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import promiseMiddleware from 'helpers/promiseMiddleware';
-
-const reducer = combineReducers(reducers);
-const createStoreWithMiddleWare = compose(
-	applyMiddleware(promiseMiddleware),
-	createStore
-);
-const store = createStoreWithMiddleWare(reducer, window.__data);
-const history = new BrowserHistory();
-const element = (
-	<Provider store={store} key='provider'>
-		{() => <Router history={history} children={routes}/> }
-	</Provider>
-);
+import { createStore, combineReducers, compose } from 'redux';
+import DevTools from 'containers/dev-tools';
+import {
+	ReduxRouter,
+	routerStateReducer,
+	reduxReactRouter
+} from 'redux-router';
 
 require('smooth-scroll').init();
 
-React.render(element, document.getElementById('content'));
+const reducer = combineReducers({
+	router: routerStateReducer,
+	...reducers
+});
+const createStoreWithMiddleWare = compose(
+	reduxReactRouter({
+		routes,
+		createHistory
+	}),
+	DevTools.instrument()
+)(createStore);
+const store = createStoreWithMiddleWare(reducer, window.__data);
+
+let element;
+if (NODE_ENV !== 'production') {
+	element = (
+		<div>
+			<ReduxRouter routes={routes}/>
+			<DevTools/>
+		</div>
+	);
+} else {
+	element = <ReduxRouter routes={routes}/>;
+}
+
+const app = (
+	<Provider store={store} key='provider'>
+		{element}
+	</Provider>
+);
+
+ReactDOM.render(app, document.getElementById('content'));

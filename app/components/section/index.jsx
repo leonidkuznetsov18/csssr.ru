@@ -5,7 +5,10 @@ import Text from 'components/text';
 export default class Section extends React.Component {
 	static propTypes = {
 		title: React.PropTypes.object.isRequired,
-		description: React.PropTypes.object.isRequired,
+		description: React.PropTypes.oneOfType([
+			React.PropTypes.object,
+			React.PropTypes.array,
+		]),
 		children: React.PropTypes.node
 	}
 
@@ -23,8 +26,8 @@ export default class Section extends React.Component {
 				<Title {...title.props}>
 					{title.text}
 				</Title>
-				{description[0].text && description.map(paragraph => (
-					<Text {...paragraph.props}>
+				{description[0].text && description.map((paragraph, index) => (
+					<Text {...paragraph.props} key={index}>
 						{paragraph.text}
 					</Text>
 				))}

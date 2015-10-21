@@ -34,8 +34,8 @@ export default class Description extends React.Component {
 					</div>
 				</Parallax>
 				<div className='description__list'>
-					{data.map(item => (
-						<div className='description__item'>
+					{data.map((item, index) => (
+						<div className='description__item' key={index}>
 							<h2 className='description__title'
 								dangerouslySetInnerHTML={{__html: item.title}}
 							/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import express from 'express';
 import path from 'path';
 import compression from 'compression';
@@ -6,7 +7,7 @@ import Layout from '../app/components/layout';
 import morgan from 'morgan';
 
 var	app = express();
-var isProduction = app.get('env') === 'production';
+var isProduction = true;
 var	port = +(process.env.PORT || 3000);
 var publicPath = isProduction ? '/_assets/' : '//localhost:2992/_assets/';
 var ASSETS = path.join(__dirname, '..', 'static');
@@ -14,7 +15,6 @@ var ASSETS_BUILD = path.join(__dirname, '..', 'build', 'public');
 var SCRIPT_URL = publicPath + 'main.js';
 var STYLE = '/_assets/main.css';
 var renderApplication;
-
 
 if (isProduction) {
 	renderApplication = require('../build/prerender/main.js');
@@ -53,7 +53,7 @@ app.get('/*', function(request, response) {
 		content: content
 	});
 
-	application = React.renderToStaticMarkup(layout);
+	application = ReactDOMServer.renderToStaticMarkup(layout);
 	response.contentType('text/html');
 	response.write('<!DOCTYPE html>');
 	response.end(application);

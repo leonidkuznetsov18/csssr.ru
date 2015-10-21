@@ -44,7 +44,10 @@ module.exports = function(options) {
 	};
 	var plugins = [
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+		new webpack.NoErrorsPlugin(),
+		new webpack.DefinePlugin({
+			'NODE_ENV': '\'' + process.env.NODE_ENV + '\''
+		})
 	];
 
 	if (options.prerender) {
