@@ -1,29 +1,11 @@
 .answer {
-	margin-top: 38px;
-	padding-left: 302px;
 
-	&__inline {
-		display: inline-block;
-		width: 200px;
-		margin-right: 10px;
-	}
-
-	&__inline &__label,
-	&__inline &__input {
-		width: inherit;
-	}
-
-	&__label {
-		margin-bottom: 6px;
-		display: block;
-		font-family: Roboto;
-		font-weight: 300;
-		font-size: 12px;
-		color: #666;
+	&__form {
+		width: 370px;
 	}
 
 	&__submit {
 		margin-top: 25px;
-		width: 164px;
+		width: 170px;
 	}
 }

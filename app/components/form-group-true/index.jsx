@@ -6,6 +6,8 @@ export default class FormGroup extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string,
+		size: PropTypes.oneOf('half'),
+		style: PropTypes.object,
 		label: PropTypes.string,
 		required: PropTypes.bool,
 		inputProps: PropTypes.object,
@@ -13,19 +15,16 @@ export default class FormGroup extends React.Component {
 		wrong: PropTypes.bool
 	}
 
-	static defaultProps = {
-		hardUpdateInitialValue: false
-	}
-
 
 	getLabel = id => {
-		const {label, required} = this.props;
+		const {label, required, labelProps} = this.props;
 		if (!label) {
 			return null;
 		}
 		return (
 			<label
-				className={cx('label label-text', null)}
+				{...labelProps}
+				className={cx('form-group__label', labelProps && labelProps.className)}
 				htmlFor={id}
 			>{`${required ? '* ' : ''}${label}`}</label>
 		);
@@ -33,17 +32,22 @@ export default class FormGroup extends React.Component {
 
 
 	render() {
-		const {className, inputProps, wrong} = this.props;
+		const {className, inputProps, wrong, size} = this.props;
 		const id = (inputProps && inputProps.id) || Math.random().toString();
 
 		return (
-			<div {...this.props} className={cx('form-group', className)}>
+			<div
+				{...this.props}
+				className={cx('form-group', className, {
+					'form-group_size_half': size === 'half'
+				})}
+			>
 				{this.getLabel(id)}
 				<input
 					{...inputProps}
 					id={id}
-					className={cx('input-text', inputProps && inputProps.className, {
-						'input-text_error': wrong
+					className={cx('form-group__input', inputProps && inputProps.className, {
+						'form-group__input_error': wrong
 					})}
 				/>
 			</div>

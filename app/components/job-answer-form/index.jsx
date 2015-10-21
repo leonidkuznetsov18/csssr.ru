@@ -57,6 +57,7 @@ export default class JobAnswerForm extends React.Component {
 		this.changeField(newAge, 'age');
 	}
 
+
 	changePhone = e => {
 		let newPhone = e.target.value
 			.replace(/\D/g, '')
@@ -66,11 +67,12 @@ export default class JobAnswerForm extends React.Component {
 			.replace(/^99[^5]/, '99')
 			.slice(0, 12);
 
-		if (e.target.value[0] === '7') {
+		if (newPhone[0] === '7') {
 			newPhone = newPhone.slice(0, 11);
 		}
 		this.changeField(newPhone, 'phone');
 	}
+
 
 	formatPhone = value => {
 		value = () => {
@@ -97,10 +99,9 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Имя'
 					required
-					className='answer__inline'
 					wrong={this.props.form.name.showError && !this.props.form.name.isValid()}
+					size='half'
 					inputProps={{
-						className: 'answer__input',
 						value: this.props.form.name.value,
 						onChange: e => this.changeField(e.target.value, 'name')
 					}}
@@ -109,10 +110,9 @@ export default class JobAnswerForm extends React.Component {
 				<FormGroup
 					label='Фамилия'
 					required
-					className='answer__inline'
+					size='half'
 					wrong={this.props.form.surname.showError && !this.props.form.surname.isValid()}
 					inputProps={{
-						className: 'answer__input',
 						value: this.props.form.surname.value,
 						onChange: e => this.changeField(e.target.value, 'surname')
 					}}
