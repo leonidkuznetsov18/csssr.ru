@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import OptionPoint from 'components/order-option-point';
 
 import './styles.css';
@@ -22,9 +22,13 @@ export default class AdditionalOptions extends React.Component {
 	choose = (e) => {
 		let result = {};
 		result[e.target.id] = e.target.checked;
-		this.setState(React.addons.update(this.state, {
-			checkData: {$merge: result}
-		}));
+
+		const checkData = {
+			...this.state.checkData,
+			...result
+		};
+
+		this.setState({ checkData });
 	}
 
 

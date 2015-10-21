@@ -27,8 +27,8 @@ export default (
 		<Route path='/order' name='order' component={Order} />
 		<Route path='/outsource' name='outsource' component={Outsource} />
 		<Route path='/portfolio' name='portfolio' component={Portfolio} >
-			<Route path='/:project' name='project' component={Project} >
-				<Route path='/:page' name='page' component={ProjectPage} />
+			<Route path=':project' name='project' component={Project} >
+				<Route path=':page' name='page' component={ProjectPage} />
 			</Route>
 		</Route>
 		<Route path='/offert' name='offert' component={Offert} />

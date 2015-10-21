@@ -12,8 +12,8 @@ export default class JobsAbout extends React.Component {
 	render() {
 		return (
 			<div className='jobs-about'>
-				{data.slice(0, 2).map(group => (
-					<div className='jobs-about__group'>
+				{data.slice(0, 2).map((group, index) => (
+					<div className='jobs-about__group' key={index}>
 						<Section {...group} />
 					</div>
 				))}
@@ -22,8 +22,8 @@ export default class JobsAbout extends React.Component {
 						<JobsVacancy />
 					</Section>
 				</div>
-				{data.slice(3).map(group => (
-					<div className='jobs-about__group'>
+				{data.slice(3).map((group, index) => (
+					<div className='jobs-about__group'  key={index}>
 						<Section {...group} />
 					</div>
 				))}

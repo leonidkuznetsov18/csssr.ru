@@ -21,7 +21,7 @@ export default class FaqSingle extends React.Component {
 			}
 
 			return (
-				<div className='order__faq__single__full-single__column'>
+				<div className='order__faq__single__full-single__column' key={j}>
 					{result}
 				</div>
 			);

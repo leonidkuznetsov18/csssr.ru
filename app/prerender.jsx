@@ -1,27 +1,26 @@
 import React from 'react';
-import Router from 'react-router';
-import Location from 'react-router/lib/Location';
+import ReactDOMServer from 'react-dom/server';
+import { RoutingContext, match } from 'react-router';
+import createLocation from 'history/lib/createLocation';
 import routes from './routes';
-import * as reducers from './reducers/index';
+import * as reducers from './reducers';
 import { Provider } from 'react-redux';
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import promiseMiddleware from 'helpers/promiseMiddleware';
+import { createStore, combineReducers, compose } from 'redux';
 
 const reducer = combineReducers(reducers);
 const createStoreWithMiddleWare = compose(
-	applyMiddleware(promiseMiddleware),
 	createStore
 );
 const store = createStoreWithMiddleWare(reducer);
 
-module.exports = function(req) {
+export default function(req) {
 	var app;
-	var location = new Location(req.path, req.query);
+	var location = createLocation(req.url);
 
-	Router.run(routes, location, (error, initialState, transition) => {
-		app = React.renderToString(
+	match({ routes, location }, (error, redirect, renderProps) => {
+		app = ReactDOMServer.renderToString(
 			<Provider store={store} key='provider'>
-				{() => <Router {...initialState} /> }
+				<RoutingContext {...renderProps} />
 			</Provider>
 		);
 	});

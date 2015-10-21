@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import OptionPoint from 'components/order-option-point';
 
 import './styles.css';
@@ -21,7 +21,6 @@ export default class OptionsList extends React.Component {
 		this.state = {checkData: checkData};
 	}
 
-
 	choose = (e) => {
 		if (this.props.data.type === 'radio') {
 			const cbx = this.props.data.checkboxes;
@@ -36,9 +35,13 @@ export default class OptionsList extends React.Component {
 		} else {
 			let result = {};
 			result[e.target.id] = e.target.checked;
-			this.setState(React.addons.update(this.state, {
-				checkData: {$merge: result}
-			}));
+
+			const checkData = {
+				...this.state.checkData,
+				...result
+			};
+
+			this.setState({ checkData });
 		}
 	}
 

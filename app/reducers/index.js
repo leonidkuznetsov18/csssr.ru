@@ -1,5 +1,1 @@
-import jobs from './jobs';
-
-export default {
-	jobs
-};
+export {default as jobs} from './jobs.js';

@@ -17,8 +17,8 @@ export default class History extends React.Component {
 						{data.title}
 					</Link>
 				</Title>
-				{data.content.map(group => (
-					<div className='history__item'>
+				{data.content.map((group, index) => (
+					<div className='history__item' key={index}>
 						<p className='history__date'>
 							{group.date}
 						</p>
