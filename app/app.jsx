@@ -13,7 +13,6 @@ import {
 	reduxReactRouter
 } from 'redux-router';
 
-require('smooth-scroll').init();
 
 const reducer = combineReducers({
 	router: routerStateReducer,
@@ -45,7 +44,5 @@ const app = (
 		{element}
 	</Provider>
 );
-
-require('smooth-scroll').init();
 
 ReactDOM.render(app, document.getElementById('content'));

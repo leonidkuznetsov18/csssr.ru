@@ -1,4 +1,5 @@
 import React from 'react';
+import {Element as ScrollElement} from 'react-scroll';
 
 import './styles.css';
 
@@ -12,9 +13,9 @@ export default class FaqGroup extends React.Component {
 
 	render() {
 		return (
-			<div className='faq-group'>
+			<ScrollElement name='faq' className='faq-group'>
 				{this.props.children}
-			</div>
+			</ScrollElement>
 		);
 	}
 }

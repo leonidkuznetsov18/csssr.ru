@@ -4,8 +4,6 @@
   "description": "",
   "main": "app/app.jsx",
   "scripts": {
-    "test": "karma start --single-run=true",
-    "webpack": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
     "webpack-dev": "webpack-dev-server --config webpack-dev.config.js",
@@ -51,6 +49,7 @@
     "react-proxy-loader": "^0.3.4",
     "react-redux": "^4.0.0",
     "react-router": "v1.0.0-rc3",
+    "react-scroll": "^0.30.0",
     "redux": "^3.0.0",
     "redux-devtools": "^3.0.0-beta-3",
     "redux-router": "^1.0.0-beta3",
@@ -84,7 +83,6 @@
     "rquery": "^2.0.6",
     "eslint": "^1.7.0",
     "eslint-plugin-react": "^3.6.0",
-    "mocha": "^2.3.3",
     "redux-devtools-dock-monitor": "^1.0.0-beta-3",
     "redux-devtools-log-monitor": "^1.0.0-beta-3"
   }
