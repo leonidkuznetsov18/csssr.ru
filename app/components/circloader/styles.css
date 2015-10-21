@@ -8,6 +8,17 @@
 	border-top: 4px solid #6b0000;
 	border-radius: 50%;
 	animation: circloader .6s infinite linear;
+
+	&_size_big {
+		width: 62px;
+		height: 62px;
+		border-width: 6px;
+	}
+
+	&_color_white {
+		border-color: rgba(255,255,255,.2);
+		border-top-color: #fff;
+	}
 }
 
 @keyframes circloader {

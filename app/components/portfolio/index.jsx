@@ -38,6 +38,8 @@ export default class Portfolio extends React.Component {
 						<PortfolioList data={data.list} />
 					</div>
 				</Content>
+
+				{this.props.children}
 			</div>
 		);
 	}
