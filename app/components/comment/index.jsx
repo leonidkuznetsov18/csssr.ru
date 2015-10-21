@@ -21,7 +21,7 @@ export default class Comment extends React.Component {
 					</a>
 					, {company}
 				</div>
-				<Text size='extrasmall'>
+				<Text size='xs'>
 					{text}
 				</Text>
 			</div>

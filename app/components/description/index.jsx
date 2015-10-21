@@ -39,7 +39,7 @@ export default class Description extends React.Component {
 							<h2 className='description__title'
 								dangerouslySetInnerHTML={{__html: item.title}}
 							/>
-							<Text size='small'>
+							<Text size='s'>
 								{item.description}
 							</Text>
 						</div>
