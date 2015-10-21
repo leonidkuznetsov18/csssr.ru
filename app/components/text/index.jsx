@@ -12,7 +12,7 @@ export default class Text extends React.Component {
 	}
 
 	render() {
-		const { size, children, indent } = this.props;
+		const { size, children, indent, weight } = this.props;
 		const classList = cx({
 			text: true,
 			text_size_m: size === 'm',

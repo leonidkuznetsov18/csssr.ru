@@ -11,8 +11,6 @@ import File from 'components/file';
 import JobAnswerForm from 'components/job-answer-form';
 import './styles.css';
 
-import './styles.css';
-
 
 const jobName = 'pixel_perfectionist';
 
