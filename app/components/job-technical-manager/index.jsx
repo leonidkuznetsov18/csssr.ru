@@ -11,7 +11,7 @@ import File from 'components/file';
 import JobAnswerForm from 'components/job-answer-form';
 import './styles.css';
 
-const jobName = 'technical_manager';
+const jobName = 'technical-manager';
 
 @connect(store =>({
 	form: store.jobs[jobName].form

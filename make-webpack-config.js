@@ -31,6 +31,9 @@ module.exports = function(options) {
 		}, {
 			test: /icons.+\.svg?$/,
 			loader: 'raw'
+		}, {
+			test: /\.ya?ml$/,
+			loader: 'json!yaml'
 		}
 	];
 	var output = {

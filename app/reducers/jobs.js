@@ -3,27 +3,10 @@ import merge from 'helpers/merge';
 import validate from 'helpers/validate';
 import FormItem from 'helpers/FormItem';
 
+import {jobs as initialState} from './getInitialState';
 
-export default function jobs(state = {}, action) {
+export default function jobs(state = initialState, action) {
 	switch (action.type) {
-
-	case C.ADD_JOB: {
-		const newJob = {
-			name: action.name,
-			form: {
-				name: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
-				surname: new FormItem('', value => validate(value).notEmpty().lessThen(100).end()),
-				age: new FormItem('', value => validate(value).notEmpty().lessThen(4).isInt().end()),
-				city: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
-				filename: new FormItem('Прикрепите файл'),
-				filepath: new FormItem('', value => validate(value).notEmpty().end()),
-				email: new FormItem('', value => validate(value).isEmail().lessThen(100).notEmpty().end()),
-				skype: new FormItem('', value => validate(value).lessThen(100).notEmpty().end()),
-				phone: new FormItem('', value => validate(value).moreThen(5).lessThen(100).notEmpty().end())
-			}
-		};
-		return merge(state, {[action.name]: newJob});
-	}
 
 	case C.CHANGE_ANSWER_FORM: {
 		const {job, form} = action;

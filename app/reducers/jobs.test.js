@@ -32,26 +32,6 @@ describe('jobs reducers', () => {
 		initialState.should.be.deep.equal(simpleInitialState);
 	});
 
-
-	it('should add default job', () => {
-		const action = actionCreators.addJob('test_name');
-		const state = jobs(initialState, action);
-
-		state.should.has.property('test_name');
-		state[action.name].should.has.keys('name', 'form');
-		state[action.name].form.should.has.keys(
-			'name',
-			'surname',
-			'age',
-			'city',
-			'filename',
-			'filepath',
-			'email',
-			'skype',
-			'phone'
-		);
-	});
-
 	it('should change form', () => {
 		const action = actionCreators.changeAnswerForm( 'test', { name: {value: 'new name'}, age: {value: 34} });
 		const state = jobs(initialState, action);

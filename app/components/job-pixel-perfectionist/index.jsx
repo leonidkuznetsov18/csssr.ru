@@ -12,7 +12,7 @@ import JobAnswerForm from 'components/job-answer-form';
 import './styles.css';
 
 
-const jobName = 'pixel_perfectionist';
+const jobName = 'pixel-perfectionist';
 
 @connect(store =>({
 	form: store.jobs[jobName].form
