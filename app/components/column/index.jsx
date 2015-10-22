@@ -7,6 +7,7 @@ export default function Column({size, offset, children}) {
 	var classList = cx({
 		'column': true,
 		'column_size_one-third': size === 1 / 3,
+		'column_size_one-fourth': size === 1 / 4,
 		'column_size_two-third': size === 2 / 3,
 		'column_size_half': size === 1 / 2,
 		'column_offset_one-third': offset === 1 / 3

@@ -8,6 +8,12 @@
 		width: 33.333%;
 	}
 
+	&_size_one-fourth {
+		width: 25%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	&_size_two-third {
 		width: 66.666%;
 	}

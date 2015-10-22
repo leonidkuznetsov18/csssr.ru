@@ -3,22 +3,25 @@
     options:
       modernBrowsers:
         -
-          name: Chrome 44
+          name: Chrome 45
           isChecked: true
         -
-          name: Firefox 39
+          name: Firefox 41
           isChecked: true
         -
-          name: Safari 8
+          name: Safari 9
           isChecked: true
         -
-          name: Opera 30
+          name: Opera 32
           isChecked: true
         -
           name: Edge (Windows 10)
           isChecked: true
 
       oldBrowsers:
+        -
+          name: Safari 8
+          isChecked: true
         -
           name: Internet Explorer 11
           isChecked: true
@@ -37,10 +40,16 @@
 
       mobile:
         -
+          name: Safari 9 (iOS 9)
+          isChecked: true
+        -
           name: Safari 8 (iOS 8)
           isChecked: true
         -
-          name: Chrome 44 (iOS 8)
+          name: Chrome 45 (iOS 9)
+          isChecked: true
+        -
+          name: Chrome 45 (Android 6)
           isChecked: true
         -
           name: Chrome 44 (Android 5)
@@ -50,29 +59,26 @@
           isChecked: false
 
       pagesWidth:
-      -
-        name: Фиксированная (Static)
-        isChecked: true
-      -
-        name: Резиновая (Liquid)
-        isChecked: false
-      -
-        name: Адаптивная (Adaptive)
-        isChecked: false
-      -
-        name: Отзывчивая (Responsive)
-        isChecked: false
+        -
+          name: Фиксированная (Static)
+          isChecked: true
+        -
+          name: Резиновая (Liquid)
+          isChecked: false
+        -
+          name: Адаптивная (Adaptive)
+          isChecked: false
+        -
+          name: Отзывчивая (Responsive)
+          isChecked: false
 
       addition:
         -
-          name: Safari 8 (iOS 8)
-          isChecked: true
+          name: Pixel Perfect
+          isChecked: false
         -
-          name: Chrome 44 (iOS 8)
-          isChecked: true
+          name: Требуется поддержка Retina-дисплеев
+          isChecked: false
         -
-          name: Chrome 44 (Android 5)
-          isChecked: true
-        -
-          name: IE 11 (Windows Phone 8.1)
+          name: Очень срочный проект
           isChecked: false

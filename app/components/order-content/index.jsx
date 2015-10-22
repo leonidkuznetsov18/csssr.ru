@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from 'components/row';
 import Title from 'components/title';
 import Text from 'components/text';
 import OrderForm from 'containers/order-form';
@@ -14,10 +15,12 @@ export default class OrderContent extends React.Component {
 		return (
 			<div className='order__main__content'>
 				<Title>{data.title}</Title>
-				{data.description.map((content, i) => <Text key={i}>{content}</Text>)}
-				<div dangerouslySetInnerHTML={{__html: '<!--noindex-->'}} />
-				<OrderForm />
-				<div dangerouslySetInnerHTML={{__html: '<!--/noindex-->'}} />
+				<div style={{width: '95%'}}>
+					{data.description.map((content, i) => <Text key={i}>{content}</Text>)}
+					<div dangerouslySetInnerHTML={{__html: '<!--noindex-->'}} />
+					<OrderForm />
+					<div dangerouslySetInnerHTML={{__html: '<!--/noindex-->'}} />
+				</div>
 			</div>
 		);
 	}

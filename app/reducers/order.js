@@ -6,16 +6,29 @@ export default function order(state = initialState, action) {
 	switch (action.type) {
 
 	case C.ORDER_FORM_CHANGE_OPTIONS: {
-		if (!state.form.options[action.list]) {
+		const options = {...state.form.options};
+		if (!options[action.list]) {
 			throw new Error('ORDER_FORM_CHANGE_OPTIONS: List is invalid');
 		}
-		if (!state.form.options[action.list][action.index]) {
+		if (!options[action.list][action.index]) {
 			throw new Error('ORDER_FORM_CHANGE_OPTIONS: Index is invalid');
 		}
 
-		const newState = {...state};
-		newState.form.options[action.list][action.index].isChecked = action.value;
-		return newState;
+		if (action.structure === 'radio') {
+			options[action.list] = options[action.list].map(item => {
+				item.isChecked = false;
+				return item;
+			});
+		}
+		options[action.list][action.index].isChecked = action.value;
+
+		return {
+			...state,
+			form: {
+				...state.form,
+				...options
+			}
+		};
 	}
 
 	default:
