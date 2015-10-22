@@ -1,6 +1,14 @@
-.order__main__content__upload {
-	width: 728px;
-	margin-bottom: 23px;
+.uploader {
+	width: 730px;
+	margin-bottom: 25px;
 	position: relative;
 	clear: fix;
+
+	&__links {
+		margin-bottom: 5px;
+
+		a {
+			margin-right: 7px;
+		}
+	}
 }
