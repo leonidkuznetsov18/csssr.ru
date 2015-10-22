@@ -7,7 +7,7 @@ export default function order(state = initialState, action) {
 
 	case C.ORDER_FORM_CHANGE_OPTIONS: {
 		const options = {...state.form.options};
-		if (!options[action.list]) {
+		if (!(options[action.list] instanceof Array)) {
 			throw new Error('ORDER_FORM_CHANGE_OPTIONS: List is invalid');
 		}
 		if (!options[action.list][action.index]) {
