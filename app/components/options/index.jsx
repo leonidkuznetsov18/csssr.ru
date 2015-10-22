@@ -1,13 +1,27 @@
 import React, {PropTypes} from 'react';
 import cx from 'classnames';
+import Tooltip from 'components/tooltip';
 
 import './styles.css';
+
+/* Usage:
+
+	import {Option, Options} from 'component/options';
+
+	<Options>
+		<Option>option 1</Option>
+		<Option>option 2</Option>
+	</Options>
+
+*/
 
 export function Option(props) {
 	const classList = cx('option', props.className);
 	const id = Math.random();
 	const passedProps = {...props};
 	passedProps.onChange = undefined;
+
+	const tip = props.tip ? <Tooltip text={props.tip.text}>{props.tip.link}</Tooltip> : null;
 
 	return (
 		<li {...passedProps} className={classList}>
@@ -21,13 +35,21 @@ export function Option(props) {
 			<label
 				className='option__label'
 				htmlFor={id}
-			>{props.children}</label>
+			>
+				{props.children}
+			</label>
+			{' '}
+			{tip}
 		</li>
 	);
 };
 
 Option.propTypes = {
 	children: PropTypes.node,
+	tip: PropTypes.shape({
+		text: PropTypes.string.isRequired,
+		link: PropTypes.string
+	}),
 	checked: PropTypes.bool
 };
 

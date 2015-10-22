@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import cx from 'classnames';
 
 import './styles.css';
@@ -31,15 +31,15 @@ export default function Text({size, children, indent, color}) {
 };
 
 Text.propTypes = {
-	children: React.PropTypes.oneOfType([
-		React.PropTypes.string,
-		React.PropTypes.element,
-		React.PropTypes.array,
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.element,
+		PropTypes.array,
 	]),
-	size: React.PropTypes.string,
-	color: React.PropTypes.string,
-	weight: React.PropTypes.string,
-	indent: React.PropTypes.bool
+	size: PropTypes.string,
+	color: PropTypes.string,
+	weight: PropTypes.string,
+	indent: PropTypes.bool
 };
 
 Text.defaultProps = {

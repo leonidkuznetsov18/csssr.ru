@@ -22,6 +22,7 @@ export default class OrderOptions extends React.Component {
 						<Options>
 							{modernBrowsers.map((option, i) => (
 								<Option
+									tip={option.tip}
 									checked={option.isChecked}
 									onChange={e => this.props.changeOption('modernBrowsers', e.target.checked, i)}
 									key={i}
@@ -37,6 +38,7 @@ export default class OrderOptions extends React.Component {
 						<Options>
 							{oldBrowsers.map((option, i) => (
 								<Option
+									tip={option.tip}
 									checked={option.isChecked}
 									onChange={e => this.props.changeOption('oldBrowsers', e.target.checked, i)}
 									key={i}
@@ -52,6 +54,7 @@ export default class OrderOptions extends React.Component {
 						<Options>
 							{mobile.map((option, i) => (
 								<Option
+									tip={option.tip}
 									checked={option.isChecked}
 									onChange={e => this.props.changeOption('mobile', e.target.checked, i)}
 									key={i}
@@ -67,6 +70,7 @@ export default class OrderOptions extends React.Component {
 						<Options type='radio'>
 							{pagesWidth.map((option, i) => (
 								<Option
+									tip={option.tip}
 									checked={option.isChecked}
 									onChange={e => this.props.changeOption('pagesWidth', e.target.checked, i, 'radio')}
 									key={i}
@@ -86,6 +90,7 @@ export default class OrderOptions extends React.Component {
 					<Options inline>
 						{addition.map((option, i) => (
 							<Option
+								tip={option.tip}
 								checked={option.isChecked}
 								onChange={e => this.props.changeOption('addition', e.target.checked, i)}
 								key={i}

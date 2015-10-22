@@ -1,4 +1,7 @@
 .options {
+	font: 300 13px/23px Roboto;
+	color: #353535;
+
 	&_inline {
 		.option {
 			display: inline-block;
@@ -73,8 +76,6 @@
 		position: relative;
 		padding-left: 20px;
 		display: inline-block;
-		font: 300 13px/23px Roboto;
-		color: #353535;
 		cursor: pointer;
 	}
 	&__input:checked + &__label:after {
