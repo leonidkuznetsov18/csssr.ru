@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Icon from 'components/icon';
 
 import './styles.css';
+
+function hasPrefix(str, prefix) {
+	return str.slice(0, prefix.length) === prefix;
+}
 
 export default class JobsVacancy extends React.Component {
 	static propTypes = {
@@ -21,12 +26,31 @@ export default class JobsVacancy extends React.Component {
 	renderOne = (vacancy, index) => {
 		const hh = vacancy.hh;
 
+		const linkContent = [
+			this.renderName(vacancy.name),
+			hh ? this.renderHh() : ''
+		];
+
+		const isInternalLink = !(
+			hasPrefix(vacancy.url, '//') ||
+			hasPrefix(vacancy.url, 'http://') ||
+			hasPrefix(vacancy.url, 'https://')
+		);
+
+		if (isInternalLink) {
+			return (
+				<Link to={vacancy.url} className='jobs-vacancy__link'>
+					{linkContent}
+				</Link>
+			);
+		}
+
 		return (
-			<a href={vacancy.url} className='jobs-vacancy__link' key={index}>
-				{ this.renderName(vacancy.name) }
-				{ hh ? this.renderHh() : '' }
+			<a href={vacancy.url} target='_blank' className='jobs-vacancy__link'  key={index}>
+				{linkContent}
 			</a>
 		);
+
 	}
 
 	renderMore = (vacancyName, vacancies, index) => {

@@ -1,0 +1,19 @@
+.file {
+	display: block;
+	width: 52px;
+	height: 64px;
+	font-family: Roboto;
+	font-weight: 300;
+
+	&__link {
+		margin-top: 10px;
+		display: block;
+		font-size: 12px;
+	}
+
+	&__size {
+		margin-top: 8px;
+		font-size: 10px;
+		color: #333;
+	}
+}

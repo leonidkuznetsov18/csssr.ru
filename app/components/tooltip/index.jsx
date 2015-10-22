@@ -15,7 +15,7 @@ export default class Tooltip extends React.Component {
 
 			<div className={'tooltip-wrapper' +
 				(this.props.className ? (' ' + this.props.className) : '')}>
-				&nbsp;
+				{' '}
 				<span className='tooltip' tabIndex='-1'>?</span>
 				<div className='tooltip__full' tabIndex='-1'>
 					{this.props.text}

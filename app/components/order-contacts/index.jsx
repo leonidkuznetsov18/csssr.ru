@@ -23,8 +23,8 @@ export default class OrderFormContacts extends React.Component {
 				<FormGroup
 					key={group.name}
 					ref={group.name}
-					optId={'contacts-' + group.name}
-					optName={group.name}
+					itemId={'contacts-' + group.name}
+					itemName={group.name}
 					label={group.text}
 					regexp={group.validation}
 					validate={this.props.validate}
@@ -49,7 +49,7 @@ export default class OrderFormContacts extends React.Component {
 						</label>
 						<a
 							className='label-last-link blue-link'
-							href='confidential.html'
+							href='/confidential'
 							target='_blank'
 						>положение об обработке персональных данных</a>
 					</div>

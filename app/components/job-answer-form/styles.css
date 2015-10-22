@@ -1,0 +1,11 @@
+.answer {
+
+	&__form {
+		width: 370px;
+	}
+
+	&__submit {
+		margin-top: 25px;
+		width: 170px;
+	}
+}

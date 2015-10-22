@@ -27,12 +27,6 @@
 		max-width: 520px;
 		display: inline-block;
 		vertical-align: top;
-
-		.input-text {
-			background: transparent;
-			margin-top: 4px;
-			margin-bottom: 9px;
-		}
 	}
 
 	&__title {

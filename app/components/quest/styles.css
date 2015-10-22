@@ -1,0 +1,32 @@
+.hr-quest {
+	position: relative;
+	border: 1px dashed #231f20;
+	margin-top: 29px;
+	margin-left: 151px;
+	margin-right: 50px;
+	padding-top: 32px;
+	padding-left: 149px;
+	padding-right: 40px;
+	padding-bottom: 66px;
+
+	&__scissors {
+		position: absolute;
+		width: 15px;
+		height: 16px;
+		top: 249px;
+		left: -8px;
+
+		&_horison {
+			top: 202px;
+			left: auto;
+			right: 62px;
+			transform: rotate(-90deg);
+		}
+	}
+
+	.file {
+		position: absolute;
+		top: 58px;
+		left: 40px;
+	}
+}

@@ -38,6 +38,7 @@ Text.propTypes = {
 	]),
 	size: React.PropTypes.string,
 	color: React.PropTypes.string,
+	weight: React.PropTypes.string,
 	indent: React.PropTypes.bool
 };
 

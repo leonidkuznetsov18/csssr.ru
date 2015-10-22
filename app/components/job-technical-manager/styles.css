@@ -1,0 +1,28 @@
+.hr {
+	&-vacancy {
+		position: relative;
+		padding-top: 34px;
+		padding-left: 305px;
+		padding-right: 50px;
+
+		&__img {
+			position: absolute;
+			top: 34px;
+			left: 49px;
+			width: 183px;
+			height: 204px;
+		}
+	}
+
+	&-quest_manager {
+		padding-top: 47px;
+		padding-left: 20%;
+		height: 212px;
+
+		.file {
+			position: absolute;
+			top: 37px;
+			left: 6.6666%;
+		}
+	}
+}

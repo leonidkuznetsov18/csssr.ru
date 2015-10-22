@@ -1,10 +1,14 @@
 .text {
 	font-size: 16px;
 	line-height: 27px;
-	font-family: 'Roboto';
+	font-family: Roboto;
 	font-weight: 300;
 	color: #333333;
 	margin-bottom: 10px;
+
+	&_weight_bold {
+		font-weight: 400;
+	}
 
 	&_size_l {
 		font-size: 18px;

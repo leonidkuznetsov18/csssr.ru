@@ -53,8 +53,8 @@ export default class OutsourceForm extends React.Component {
 			fields.push(
 				<FormGroup
 					key={field.key}
-					optId={`outsource${field.key}`}
-					optName={field.key}
+					itemId={`outsource${field.key}`}
+					itemName={field.key}
 					ref={'formGroups.' + field.key}
 					label={field.text}
 					regexp={field.validation}
@@ -89,7 +89,7 @@ export default class OutsourceForm extends React.Component {
 							</label>
 							<a
 								className='label-last-link blue-link'
-								href='confidential'
+								href='/confidential'
 								target='_blank'
 							>положение об обработке персональных данных</a>
 						</div>
