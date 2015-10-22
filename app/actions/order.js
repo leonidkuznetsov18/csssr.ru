@@ -9,3 +9,10 @@ export function changeOption(list, value, index, structure = 'checkbox') {
 		structure
 	};
 }
+
+export function changeOrderFormContacts(contacts) {
+	return {
+		type: C.ORDER_FORM_CHANGE_CONTACTS,
+		contacts
+	};
+}

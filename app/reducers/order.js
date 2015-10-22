@@ -31,6 +31,19 @@ export default function order(state = initialState, action) {
 		};
 	}
 
+	case C.ORDER_FORM_CHANGE_CONTACTS: {
+		return {
+			...state,
+			form: {
+				...state.form,
+				contacts: {
+					...state.form.contacts,
+					...action.contacts
+				}
+			}
+		};
+	}
+
 	default:
 		return state;
 	}

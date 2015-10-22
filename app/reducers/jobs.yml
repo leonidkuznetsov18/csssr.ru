@@ -1,43 +1,43 @@
 ---
   technical-manager:
-    name: "Менеджер-технарь"
+    name: Менеджер-технарь
     form:
       name:
-        value: ""
+        value: ''
       surname:
-        value: ""
+        value: ''
       age:
-        value: ""
+        value: ''
       city:
-        value: ""
+        value: ''
       filename:
-        value: "Прикрепите решение квеста"
+        value: Прикрепите решение квеста
       filepath:
-        value: ""
+        value: ''
       email:
-        value: ""
+        value: ''
       skype:
-        value: ""
+        value: ''
       phone:
-        value: ""
+        value: ''
   pixel-perfectionist:
-    name: "Верстальщик пиксель-перфекционист"
+    name: Верстальщик пиксель-перфекционист
     form:
       name:
-        value: ""
+        value: ''
       surname:
-        value: ""
+        value: ''
       age:
-        value: ""
+        value: ''
       city:
-        value: ""
+        value: ''
       filename:
-        value: "Прикрепите zip-архив"
+        value: Прикрепите zip-архив
       filepath:
-        value: ""
+        value: ''
       email:
-        value: ""
+        value: ''
       skype:
-        value: ""
+        value: ''
       phone:
-        value: ""
+        value: ''

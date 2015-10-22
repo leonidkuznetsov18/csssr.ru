@@ -1,65 +1,82 @@
-import React from 'react';
-import FormGroup from 'components/form-group';
-import AdditionalOptions from 'components/order-additional-options';
+import React, {PropTypes} from 'react';
+import FormGroup from 'components/form-group-true';
 import Brick from 'components/brick';
-import FormValidation from 'components/form-validation';
 
 import './styles.css';
 
 
-var data = {};
-data.contactInfo = require('data/contact-info.json');
-
 export default class OrderFormContacts extends React.Component {
 
 	static propTypes = {
-		validate: React.PropTypes.bool,
-		showErrorWindow: React.PropTypes.bool
+		contacts: PropTypes.object,
+		changeOrderFormContacts: PropTypes.func
 	}
 
-	getFormGroups() {
-		return data.contactInfo.map((group) => {
-			return (
-				<FormGroup
-					key={group.name}
-					ref={group.name}
-					itemId={'contacts-' + group.name}
-					itemName={group.name}
-					label={group.text}
-					regexp={group.validation}
-					validate={this.props.validate}
-				/>
-			);
+	changeField = (value, field) => {
+		this.props.changeOrderFormContacts({
+			[field]: {
+				value: value,
+				showError: false
+			}
 		});
 	}
 
-
 	render() {
-		const formGroups = this.getFormGroups();
-
+		const {name, email, skype, phone} = this.props.contacts;
 		return (
-			<div className='order__main__content__contacts'>
-				<AdditionalOptions />
+			<div style={{width: 420, marginTop: 20}}>
+				<FormGroup
+					label='Ваше имя'
+					required
+					isWrong={name.showError && !name.isValid()}
+					inputProps={{
+						value: name.value,
+						onChange: e => this.changeField(e.target.value, 'name')
+					}}
+				/>
 
-				<div className='order__main__content__contacts__text'>
-					{formGroups}
-					<div className='confirm-rules'>
-						<label className='label checkbox label-last'>
-							<span className='corner-cover'>Принимаю&nbsp;</span>
-						</label>
-						<a
-							className='label-last-link blue-link'
-							href='/confidential'
-							target='_blank'
-						>положение об обработке персональных данных</a>
-					</div>
-					<FormValidation
-						show={this.props.showErrorWindow}
-						err='Прикрепите макеты страниц или укажите ссылку для скачивания'
-					/>
+				<FormGroup
+					label='Электронная почта'
+					required
+					isWrong={email.showError && !email.isValid()}
+					inputProps={{
+						value: email.value,
+						onChange: e => this.changeField(e.target.value, 'email')
+					}}
+				/>
+
+				<FormGroup
+					label='Скайп'
+					required
+					isWrong={skype.showError && !skype.isValid()}
+					inputProps={{
+						value: skype.value,
+						onChange: e => this.changeField(e.target.value, 'skype')
+					}}
+				/>
+
+				<FormGroup
+					label='Контактный телефон'
+					isWrong={phone.showError && !phone.isValid()}
+					inputProps={{
+						value: phone.value,
+						onChange: e => this.changeField(e.target.value, 'phone')
+					}}
+				/>
+
+
+				<div className='confirm-rules'>
+					<label className='label checkbox label-last'>
+						<span className='corner-cover'>Принимаю&nbsp;</span>
+					</label>
+					<a
+						className='label-last-link blue-link'
+						href='/confidential'
+						target='_blank'
+					>положение об обработке персональных данных</a>
 				</div>
 
-				<div className='order__main__content__contacts__submit'>
+				<div style={{marginTop: 30, width: 170}}>
 					<Brick text='— Поехали!' />
 				</div>
 

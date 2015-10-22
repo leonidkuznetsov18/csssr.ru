@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {changeOption} from 'actions/order';
 // import Uploader from 'components/order-uploader';
 import Options from 'components/order-options';
-// import Contacts from 'components/order-contacts';
+import Contacts from 'components/order-contacts';
 
 
 @connect(store => ({
@@ -37,6 +37,7 @@ export default class OrderForm extends React.Component {
 				onSubmit={this.onSubmit}
 			>
 				<Options {...actions} options={this.props.form.options} />
+				<Contacts {...actions} contacts={this.props.form.contacts} />
 			</form>
 		);
 	}

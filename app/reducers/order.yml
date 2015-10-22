@@ -85,3 +85,13 @@
         -
           name: Очень срочный проект
           isChecked: false
+
+    contacts:
+      name:
+        value: ''
+      email:
+        value: ''
+      skype:
+        value: ''
+      phone:
+        value: ''
