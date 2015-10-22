@@ -14,12 +14,10 @@ export default class Parallax extends React.Component {
 		speed: 1
 	}
 
-	constructor() {
-		super();
-		this.state = {
+	componentWillMount() {
+		this.setState({
 			position: 0
-		};
-		this.scrollHandler = this.scrollHandler.bind(this);
+		});
 	}
 
 	componentDidMount() {
@@ -30,10 +28,11 @@ export default class Parallax extends React.Component {
 		window.removeEventListener('scroll', this.scrollHandler);
 	}
 
-	scrollHandler() {
+	scrollHandler = () => {
 		const windowOffset = window.pageYOffset;
 		const { offset, speed } = this.props;
 		let position = (windowOffset - offset) * -1 * speed;
+
 		if (this.props.min !== undefined) {
 			position = Math.max(this.props.min, position);
 		}

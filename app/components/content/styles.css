@@ -6,4 +6,9 @@
 	width: 93%;
 	background-color: #ecdcc4;
 	background-image: url('../../images/background/content.jpg');
+	padding-bottom: 100px;
+
+	&_padding {
+		padding-top: 50px;
+	}
 }

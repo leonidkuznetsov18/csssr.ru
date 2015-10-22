@@ -4,20 +4,18 @@ import Footer from 'components/footer';
 
 import './styles.css';
 
-export default class Application extends React.Component {
-	static propTypes = {
-		children: PropTypes.node
-	}
-
-	render() {
-		return (
-			<div className='application'>
-				<Header/>
-				<div className='application__inner'>
-					{this.props.children}
-				</div>
-				<Footer/>
+export default function Application({children}) {
+	return (
+		<div className='application'>
+			<Header/>
+			<div className='application__inner'>
+				{children}
 			</div>
-		);
-	}
+			<Footer/>
+		</div>
+	);
 }
+
+Application.propTypes = {
+	children: PropTypes.node
+};

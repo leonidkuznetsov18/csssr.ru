@@ -1,38 +1,5 @@
 .portfolio {
-	width: 100%;
-	margin: 211px 0 112px;
-
-	&__header {
-		position: relative;
-		margin: 0 auto;
-		max-width: 1190px;
-		width: 93%;
-	}
-
-	&__slogan {
-		position: absolute;
-		background-image: url('../../images/portfolio/slogan.svg');
-		background-repeat: no-repeat;
-		width: 192px;
-		height: 197px;
-		top: -230px;
-		margin-left: 27.5%;
-		z-index: 10;
-	}
-
-	&__rocket {
-		position: absolute;
-		background: url('../../images/portfolio/rocket.png');
-		width: 225px;
-		height: 251px;
-		top: -270px;
-		margin-left: 53.5%;
-	}
-
-	&__container {
-		padding: 40px 0;
-		text-align: center;
-		width: 560px;
-		margin: 0 auto;
-	}
+	text-align: center;
+	width: 560px;
+	margin: 0 auto;
 }

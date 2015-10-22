@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route } from 'react-router';
 import Application from 'components/application';
-import Index from 'components/index';
-import Company from 'components/company';
-import Jobs from 'components/jobs';
 import JobWrapper from 'components/job-wrapper';
 import TechnicalManager from 'components/job-technical-manager';
 import PixelPerfectionist from 'components/job-pixel-perfectionist';
+import Index from 'containers/page-index';
+import Company from 'containers/page-company';
+import Jobs from 'containers/page-jobs';
 import Order from 'components/order';
 import Outsource from 'components/outsource';
-import Offert from 'components/offert';
-import Portfolio from 'components/portfolio';
-import Project from 'components/project';
-import ProjectPage from 'components/project-page';
+import Offert from 'containers/page-offert';
+import Portfolio from 'containers/page-portfolio';
+import Project from 'containers/page-project';
+import ProjectPage from 'containers/page-project-page';
 import Timeline from 'components/timeline';
 
 export default (

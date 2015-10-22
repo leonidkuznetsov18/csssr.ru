@@ -6,16 +6,16 @@ import Circloader from 'components/circloader';
 import './styles.css';
 
 export default class VkGroup extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
+	componentWillMount() {
+		this.setState({
 			active: false
-		};
+		});
 	}
 
-	onLoad() {
-		this.setState({active: true});
+	onLoad = () => {
+		this.setState({
+			active: true
+		});
 	}
 
 	render() {
