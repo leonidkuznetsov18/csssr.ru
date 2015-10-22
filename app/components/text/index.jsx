@@ -5,13 +5,12 @@ import './styles.css';
 
 export default class Text extends React.Component {
 	static propTypes = {
-		weight: React.PropTypes.string,
-		indent: React.PropTypes.bool,
 		children: React.PropTypes.oneOfType([
 			React.PropTypes.string,
 			React.PropTypes.element,
 			React.PropTypes.array,
 		]),
+		weight: React.PropTypes.string,
 		size: React.PropTypes.string,
 		color: React.PropTypes.string,
 		indent: React.PropTypes.bool

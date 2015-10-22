@@ -4,7 +4,6 @@ import React from 'react/addons';
 import TestUtils from 'react/lib/ReactTestUtils';
 import FormGroupFile from 'components/form-group-file';
 import FormGroup from 'components/form-group';
-import _ from 'lodash';
 import $ from 'jquery';
 
 let element;
