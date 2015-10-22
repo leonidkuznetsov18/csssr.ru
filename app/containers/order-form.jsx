@@ -26,14 +26,9 @@ export default class OrderForm extends React.Component {
 	}
 
 
-	handleOptionClick = (list, i, value) => {
-		this.props.dispatch(changeOption(list, value, i));
-	}
-
-
-	componentWillReceiveProps(nextProps) {
-		console.log('componentWillReceiveProps');
-		console.log(nextProps);
+	handleOptionClick = (list, index, value) => {
+		this.props.dispatch(changeOption(list, value, index));
+		this.forceUpdate();
 	}
 
 
