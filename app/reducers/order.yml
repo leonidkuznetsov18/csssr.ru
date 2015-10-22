@@ -1,0 +1,78 @@
+---
+  form:
+    options:
+      modernBrowsers:
+        -
+          name: Chrome 44
+          isChecked: true
+        -
+          name: Firefox 39
+          isChecked: true
+        -
+          name: Safari 8
+          isChecked: true
+        -
+          name: Opera 30
+          isChecked: true
+        -
+          name: Edge (Windows 10)
+          isChecked: true
+
+      oldBrowsers:
+        -
+          name: Internet Explorer 11
+          isChecked: true
+        -
+          name: Internet Explorer 10
+          isChecked: false
+        -
+          name: Internet Explorer 9
+          isChecked: false
+        -
+          name: Internet Explorer 8
+          isChecked: false
+        -
+          name: Opera 12
+          isChecked: false
+
+      mobile:
+        -
+          name: Safari 8 (iOS 8)
+          isChecked: true
+        -
+          name: Chrome 44 (iOS 8)
+          isChecked: true
+        -
+          name: Chrome 44 (Android 5)
+          isChecked: true
+        -
+          name: IE 11 (Windows Phone 8.1)
+          isChecked: false
+
+      pagesWidth:
+      -
+        name: Фиксированная (Static)
+        isChecked: true
+      -
+        name: Резиновая (Liquid)
+        isChecked: false
+      -
+        name: Адаптивная (Adaptive)
+        isChecked: false
+      -
+        name: Отзывчивая (Responsive)
+        isChecked: false
+
+      addition:
+        -
+          name: Safari 8 (iOS 8)
+          isChecked: true
+        -
+          name: Chrome 44 (iOS 8)
+          isChecked: true
+        -
+          name: Chrome 44 (Android 5)
+          isChecked: true
+        -
+          name: IE 11 (Windows Phone 8.1)
+          isChecked: false

@@ -2,10 +2,10 @@ import React from 'react';
 
 import './styles.css';
 
-export default function Row({children}) {
+export default function Row(props) {
 	return (
-		<div className='row'>
-			{children}
+		<div {...props} className='row'>
+			{props.children}
 		</div>
 	);
 };

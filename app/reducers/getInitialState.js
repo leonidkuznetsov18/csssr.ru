@@ -13,3 +13,4 @@ for (const key in jobs) if (jobs.hasOwnProperty(key)) {
 }
 
 export {newJobs as jobs};
+export order from './order.yml';

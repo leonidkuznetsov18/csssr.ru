@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from 'components/title';
 import Text from 'components/text';
-import OrderForm from 'components/order-form';
+import OrderForm from 'containers/order-form';
 import Section from 'components/section';
 
 import './styles.css';
