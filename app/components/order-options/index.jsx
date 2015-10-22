@@ -82,7 +82,7 @@ export default class OrderOptions extends React.Component {
 					</Column>
 				</Row>
 
-				<Row style={{marginTop: 50}}>
+				<Row style={{marginTop: 20}}>
 					<Title size='small'>дополнительно</Title>
 				</Row>
 

@@ -1,3 +1,5 @@
+import validate from 'helpers/validate';
+
 export default {
   form: {
     options: {
@@ -119,17 +121,21 @@ export default {
 
     contacts: {
       name: {
-        value: ''
+        value: '',
+        validate: value => validate(value).notEmpty().lessThen(100).end()
       },
       email: {
-        value: ''
+        value: '',
+        validate: value => validate(value).notEmpty().lessThen(100).isEmail().end()
       },
       skype: {
-        value: ''
+        value: '',
+        validate: value => validate(value).notEmpty().lessThen(100).end()
       },
       phone: {
-        value: ''
+        value: '',
+        validate: value => validate(value).notEmpty().lessThen(100).moreThen(10).end()
       },
     }
   }
-}
+};

@@ -9,11 +9,11 @@ export default class OrderFormContacts extends React.Component {
 
 	static propTypes = {
 		contacts: PropTypes.object,
-		changeOrderFormContacts: PropTypes.func
+		changeContacts: PropTypes.func
 	}
 
 	changeField = (value, field) => {
-		this.props.changeOrderFormContacts({
+		this.props.changeContacts({
 			[field]: {
 				value: value,
 				showError: false

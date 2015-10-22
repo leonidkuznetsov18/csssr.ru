@@ -32,14 +32,31 @@ export default function order(state = initialState, action) {
 	}
 
 	case C.ORDER_FORM_CHANGE_CONTACTS: {
+		const contacts = {...state.form.contacts};
+		for (const key in action.contacts) if (action.contacts.hasOwnProperty(key)) {
+			contacts[key] = contacts[key].update(action.contacts[key]);
+		}
+
 		return {
 			...state,
 			form: {
 				...state.form,
-				contacts: {
-					...state.form.contacts,
-					...action.contacts
-				}
+				contacts
+			}
+		};
+	}
+
+	case C.ORDER_FORM_SHOW_ERRORS: {
+		const contacts = {...state.form.contacts};
+		for (const key in contacts) if (contacts.hasOwnProperty(key)) {
+			contacts[key] = contacts[key].update({showError: true});
+		}
+
+		return {
+			...state,
+			form: {
+				...state.form,
+				contacts
 			}
 		};
 	}
