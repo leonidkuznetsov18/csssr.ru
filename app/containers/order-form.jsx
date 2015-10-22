@@ -29,6 +29,7 @@ export default class OrderForm extends React.Component {
 
 	render() {
 		const actions = bindActionCreators(actionCreators, this.props.dispatch);
+		const {options, contacts, files, filesLink} = this.props.form;
 
 		return (
 			<form
@@ -37,7 +38,7 @@ export default class OrderForm extends React.Component {
 				method='post'
 				onSubmit={this.onSubmit}
 			>
-				<Uploader {...actions} />
+				<Uploader {...actions} {...{files, filesLink}} />
 				<Options {...actions} options={this.props.form.options} />
 				<Contacts {...actions} contacts={this.props.form.contacts} />
 			</form>

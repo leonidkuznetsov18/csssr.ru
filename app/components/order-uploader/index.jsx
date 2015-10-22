@@ -32,7 +32,7 @@ export default class Uploader extends React.Component {
 						onClick={() => this.setState({active: 'link'})}
 					>ссылка</Link>
 				</div>
-				{active === 'link' ? <UploadFilesLink /> : <UploadFilesBlock />}
+				{active === 'link' ? <UploadFilesLink {...this.props} /> : <UploadFilesBlock {...this.props} />}
 			</div>
 		);
 	}

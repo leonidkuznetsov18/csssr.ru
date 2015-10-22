@@ -61,6 +61,17 @@ export default function order(state = initialState, action) {
 		};
 	}
 
+	case C.ORDER_FORM_CHANGE_FILES_LINK: {
+		const filesLink = action.link;
+		return {
+			...state,
+			form: {
+				...state.form,
+				filesLink
+			}
+		};
+	}
+
 	default:
 		return state;
 	}

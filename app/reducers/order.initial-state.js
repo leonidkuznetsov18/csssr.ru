@@ -136,6 +136,8 @@ export default {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).moreThen(10).end()
       },
-    }
+    },
+    filesLink: '',
+    files: []
   }
 };

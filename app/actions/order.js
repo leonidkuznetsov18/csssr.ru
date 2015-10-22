@@ -22,3 +22,10 @@ export function showErrors() {
 		type: C.ORDER_FORM_SHOW_ERRORS
 	};
 }
+
+export function changeFilesLink(link) {
+	return {
+		type: C.ORDER_FORM_CHANGE_FILES_LINK,
+		link
+	};
+}

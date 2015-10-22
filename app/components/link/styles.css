@@ -1,4 +1,7 @@
 .link {
+	transition-property: color, border;
+	transition-duration: .2s;
+
 	&_color_blue {
 		color: #056383;
 
