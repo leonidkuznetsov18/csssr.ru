@@ -15,8 +15,9 @@ export default class OrderContent extends React.Component {
 		return (
 			<div className='order__main__content'>
 				<Title>{data.title}</Title>
-				<div style={{width: '95%'}}>
-					{data.description.map((content, i) => <Text key={i}>{content}</Text>)}
+				<div style={{width: '90%'}}>
+					<Text>{data.description[0]}</Text>
+					{data.description.slice(1).map((content, i) => <Text size='m' key={i}>{content}</Text>)}
 					<div dangerouslySetInnerHTML={{__html: '<!--noindex-->'}} />
 					<OrderForm />
 					<div dangerouslySetInnerHTML={{__html: '<!--/noindex-->'}} />
