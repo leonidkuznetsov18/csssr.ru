@@ -43,6 +43,7 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
+				showErrorWindow: false,
 				contacts
 			}
 		};
@@ -58,6 +59,7 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
+				showErrorWindow: true,
 				contacts
 			}
 		};
@@ -69,6 +71,7 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
+				showErrorWindow: false,
 				filesLink
 			}
 		};
@@ -85,6 +88,7 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
+				showErrorWindow: false,
 				files
 			}
 		};
@@ -96,6 +100,7 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
+				showErrorWindow: false,
 				files
 			}
 		};

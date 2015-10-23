@@ -16,7 +16,7 @@ const onLoad = (store, file) => (err, res) => {
 			progress: 100
 		}));
 	} else {
-		console.group(res.body);
+		console.log(res.body);
 		store.dispatch(removeFile(file.id));
 	}
 };

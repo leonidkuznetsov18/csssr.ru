@@ -57,6 +57,7 @@ export default class OrderFormContacts extends React.Component {
 
 				<FormGroup
 					label='Контактный телефон'
+					required
 					isWrong={phone.showError && !phone.isValid()}
 					inputProps={{
 						value: phone.value,

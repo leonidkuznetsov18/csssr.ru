@@ -2,6 +2,7 @@ import validate from 'helpers/validate';
 
 export default {
   form: {
+    showErrorWindow: false,
     options: {
       modernBrowsers: [
         {

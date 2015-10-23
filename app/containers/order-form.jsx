@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {changeOption} from 'actions/order';
 import Uploader from 'components/order-uploader';
 import Options from 'components/order-options';
+import ValidationWindow from 'components/order-form-validation-window';
 import Contacts from 'components/order-contacts';
 
 
@@ -22,6 +23,7 @@ export default class OrderForm extends React.Component {
 	onSubmit = e => {
 		e.preventDefault();
 		this.props.dispatch(actionCreators.showErrors());
+		this.props.dispatch(actionCreators.sendOrderForm());
 		// TODO: send form to server if data is valid
 		console.log('submit order form');
 	}
@@ -29,7 +31,39 @@ export default class OrderForm extends React.Component {
 
 	render() {
 		const actions = bindActionCreators(actionCreators, this.props.dispatch);
-		const {options, contacts, files, filesLink} = this.props.form;
+		const {options, contacts, files, filesLink, showErrorWindow} = this.props.form;
+
+		const error = () => {
+			if (showErrorWindow) {
+				if (!files.length && !filesLink) {
+					return {
+						show: true,
+						text: 'Прикрепите макеты страниц или укажите ссылку для скачивания'
+					};
+				}
+				if (!files.reduce((p, n) => p && n.path, true)) {
+					return {
+						show: true,
+						text: 'Дождитесь окончания загрузки'
+					};
+				}
+
+				const isErrorInContacts = () => {
+					for (const key in contacts) if (contacts.hasOwnProperty(key)) {
+						if (contacts[key].showError && !contacts[key].isValid()) {
+							return true;
+						}
+					}
+					return false;
+				}();
+
+				return {
+					show: isErrorInContacts
+				}
+			}
+
+			return {show: false};
+		}();
 
 		return (
 			<form
@@ -40,6 +74,7 @@ export default class OrderForm extends React.Component {
 			>
 				<Uploader {...actions} {...{files, filesLink}} />
 				<Options {...actions} options={this.props.form.options} />
+				{error.show ? <ValidationWindow text={error.text} /> : null}
 				<Contacts {...actions} contacts={this.props.form.contacts} />
 			</form>
 		);

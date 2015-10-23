@@ -51,3 +51,9 @@ export function updateFile(fileId, properties) {
 		fileId
 	};
 }
+
+export function sendOrderForm(fileId, properties) {
+	return {
+		type: C.ORDER_FORM_SEND_FORM
+	};
+}
