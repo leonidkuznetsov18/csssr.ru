@@ -1,4 +1,45 @@
-.order__main__content__upload__uploaded-files {
+.upload-file {
+	position: relative;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	display: inline-block;
+	width: 33%;
+
+	&__name {
+		position: relative;
+		margin-right: 10px;
+		font-family: 'PT Sans Narrow';
+		font-size: 15px;
+		line-height: 25px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: #333;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 17px;
+			height: 1px;
+			width: 100%;
+			background-image: url('../../images/order/progress.png');
+			background-color: green;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 17px;
+		height: 25px;
+		background-image: url('../../images/order/file.png');
+		background-repeat: no-repeat;
+	}
+}
+
+/*.order__main__content__upload__uploaded-files {
 	.file-place {
 		display: inline-block;
 		width: 227px;
@@ -74,3 +115,4 @@
 
 	}
 }
+*/

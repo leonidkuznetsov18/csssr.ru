@@ -44,10 +44,10 @@ export function removeFile(fileId) {
 	};
 }
 
-export function updateFileProgress(fileId, progress) {
+export function updateFile(fileId, properties) {
 	return {
-		type: C.ORDER_FORM_UPDATE_FILE_PROGRESS,
-		progress,
+		type: C.ORDER_FORM_UPDATE_FILE,
+		properties,
 		fileId
 	};
 }

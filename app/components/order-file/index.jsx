@@ -16,8 +16,15 @@ export default class File extends React.Component {
 		const {name, id, progress, remove} = this.props;
 
 		return (
-			<div>
-				{name} with id {id} <button onClick={remove}>x</button> --- {progress}%
+			<div className='upload-file'>
+				<div className='upload-file__name'>
+					{name}
+				</div>
+				<div
+					className='upload-file__remove-button'
+					onClick={remove}
+				/>
+				{progress}%
 			</div>
 		);
 	}

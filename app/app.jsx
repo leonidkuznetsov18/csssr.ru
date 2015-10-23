@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import Router from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
+import filesUploader from 'middlewares/filesUploader';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import DevTools from 'containers/dev-tools';
 import {
 	ReduxRouter,
@@ -14,11 +15,14 @@ import {
 } from 'redux-router';
 
 
+
 const reducer = combineReducers({
 	router: routerStateReducer,
 	...reducers
 });
+
 const createStoreWithMiddleWare = compose(
+	applyMiddleware(filesUploader),
 	reduxReactRouter({
 		routes,
 		createHistory

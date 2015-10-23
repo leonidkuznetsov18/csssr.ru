@@ -22,7 +22,6 @@ export default class UploadFilesBlock extends React.Component {
 		this.refs.dropzone.open();
 	}
 
-
 	render() {
 		return (
 			<div className='upload-block'>

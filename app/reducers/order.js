@@ -101,8 +101,22 @@ export default function order(state = initialState, action) {
 		};
 	}
 
-	case C.ORDER_FORM_UPDATE_FILE_PROGRESS: {
-		const {fileId, progress} = action;
+	case C.ORDER_FORM_UPDATE_FILE: {
+		const {fileId, properties} = action;
+		let fileIdIsCorrect = false;
+
+		const files = state.form.files.map(file => {
+			if (file.id === fileId) {
+				fileIdIsCorrect = true;
+				for (const key in properties) if (properties.hasOwnProperty(key)) {
+					file[key] = properties[key];
+				}
+			}
+			return file;
+		});
+
+		if (!fileIdIsCorrect) return state;
+
 		return {
 			...state,
 			form: {
