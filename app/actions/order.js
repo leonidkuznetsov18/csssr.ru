@@ -30,7 +30,7 @@ export function changeFilesLink(link) {
 	};
 }
 
-export function addFiles(...files) {
+export function addFiles(files) {
 	return {
 		type: C.ORDER_FORM_ADD_FILES,
 		files

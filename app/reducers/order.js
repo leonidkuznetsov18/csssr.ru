@@ -2,6 +2,8 @@ import * as C from 'constants/actions';
 
 import {order as initialState} from './getInitialState';
 
+let lastId = 0;
+
 export default function order(state = initialState, action) {
 	switch (action.type) {
 
@@ -73,7 +75,12 @@ export default function order(state = initialState, action) {
 	}
 
 	case C.ORDER_FORM_ADD_FILES: {
-		const files = state.form.files.concat(action.files);
+		const files = state.form.files.concat(action.files.map((file, i) => {
+			file.id = lastId++;
+			file.progress = 0;
+			return file;
+		}));
+
 		return {
 			...state,
 			form: {
@@ -84,7 +91,7 @@ export default function order(state = initialState, action) {
 	}
 
 	case C.ORDER_FORM_REMOVE_FILE: {
-		const {fileId} = action;
+		const files = state.form.files.filter(file => file.id !== action.fileId);
 		return {
 			...state,
 			form: {

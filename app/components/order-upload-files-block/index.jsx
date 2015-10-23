@@ -9,60 +9,17 @@ import './styles.css';
 export default class UploadFilesBlock extends React.Component {
 
 	static propTypes = {
-		files: PropTypes.array.isRequired
+		files: PropTypes.array.isRequired,
+		addFiles: PropTypes.func.isRequired
 	}
 
-	progressUpdater = i => ({percent}) => {
-		const updatedFiles = this.state.files.map((file, index) => {
-			if (index === i) {
-				file.progress = percent;
-			}
-			return file;
-		});
-		this.setState(updatedFiles);
-	}
-
-
-	loadErrorHandler = err => {
-		if (err) {
-			// TODO: delete file from state and show error here
-			console.log(err);
-		}
-	}
-
-
-	onDrop = (files) => {
-		const newFiles = files.map((file) => {
-			file.key = Math.random();
-			file.progress = 0;
-			return file;
-		}).concat(this.state.files);
-
-		for (let i = 0, l = newFiles.length; i < l; i++) {
-			const formData = new FormData();
-			formData.append('file', newFiles[i]);
-			request
-				.post('/upload')
-				.send(formData)
-				.on('progress', this.progressUpdater(i))
-				.end(this.loadErrorHandler);
-		}
-
-		this.setState({
-			files: newFiles
-		});
+	onDrop = files => {
+		this.props.addFiles(files);
 	}
 
 
 	openSelectWindow = () => {
 		this.refs.dropzone.open();
-	}
-
-
-	deleteFile = (fileKey) => {
-		this.setState({
-			files: this.state.files.filter((file) => file.key !== fileKey)
-		});
 	}
 
 
@@ -87,10 +44,8 @@ export default class UploadFilesBlock extends React.Component {
 					Обычный загрузчик
 				</Link>
 
-				{true ? null : <FilesBlock
-					files={this.state.files}
-					deleteFile={this.deleteFile}
-				/>}
+				<FilesBlock {...this.props} />
+
 			</div>
 		);
 	}
