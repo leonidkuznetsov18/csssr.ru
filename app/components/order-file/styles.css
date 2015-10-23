@@ -1,31 +1,31 @@
+@keyframes showFile {
+	from {
+		transform: scaleY(0)translateY(-30px);
+	}
+	to {
+		transform: scaleY(1);
+	}
+}
+
 .upload-file {
 	position: relative;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
 	padding-left: 20px;
-	display: inline-block;
-	width: 33%;
+	display: inline-flex;
+	width: 32%;
+	margin-right: 2%;
 
-	&__name {
-		position: relative;
-		margin-right: 10px;
-		font-family: 'PT Sans Narrow';
-		font-size: 15px;
-		line-height: 25px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		color: #333;
+	font-family: 'PT Sans Narrow';
+	font-size: 15px;
+	line-height: 25px;
+	color: #333;
 
-		&::after {
-			content: '';
-			position: absolute;
-			top: 17px;
-			height: 1px;
-			width: 100%;
-			background-image: url('../../images/order/progress.png');
-			background-color: green;
-		}
+	animation: showFile .5s;
+
+
+	&:nth-child(3n) {
+		margin-right: 0;
 	}
 
 	&::before {
@@ -37,82 +37,55 @@
 		background-image: url('../../images/order/file.png');
 		background-repeat: no-repeat;
 	}
-}
 
-/*.order__main__content__upload__uploaded-files {
-	.file-place {
-		display: inline-block;
-		width: 227px;
-		height: 25px;
-		margin-bottom: 9px;
-		position: relative;
-		margin-left: 23px;
+	&__name {
+		padding-right: 5px;
+		max-width: 80%;
 		overflow: hidden;
-		transition: 0.2s ease-in-out;
-		clear: fix;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 
-		&.pre-deleted-file {
-			width: 0;
-			margin: 0;
-		}
+	&__progress {
+		flex: 1;
+		position: relative;
+		margin-top: 11px;
+		margin-right: 12px;
+		height: 5px;
+		background-color: #d4c5aa;
+		border-top: 1px solid #a8977b;
+		border-right: 1px solid #a8977b;
 
-		&__icon {
-			width: 17px;
-			height: 25px;
-			background-image: url('../../images/order/file.png');
-			background-repeat: no-repeat;
-		}
 
-		&__name {
-			font-family: 'PT Sans Narrow';
-			font-size: 15px;
-			color: #333;
+		&-line {
 			position: absolute;
-			top: 0;
-			left: 22px;
-			line-height: 25px;
-			max-width: 160px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-
-		&__progress-complieted {
-			position: absolute;
-			background-image: url('../../images/order/progress.png');
-			height: 1px;
-			top: 17px;
-			right: 10px;
-		}
-
-		&__progress {
-			position: absolute;
-			right: 12px;
-			top: 12px;
-			height: 5px;
-			background-color: #d4c5aa;
-			border-top: 1px solid #a8977b;
-			border-right: 1px solid #a8977b;
-		}
-
-		&__progress-line {
-			position: relative;
 			top: -1px;
-			width: 80%;
-			height: 6px;
-			background-color: #990000;
+			height: calc(100% + 1px);
+			background-color: #900;
+			transition: width .1s;
 		}
 
-		&__close {
-			position: absolute;
-			right: 0;
-			top: 11px;
-			width: 7px;
-			height: 7px;
-			background-image: url('../../images/order/close.png');
-			cursor: pointer;
+		&_completed &-line {
+			background-color: transparent;
 		}
 
+		&_completed {
+			border: none;
+			margin-top: 12px;
+			background-color: transparent;
+			background-image: url('../../images/order/progress.png');
+			background-repeat: no-repeat;
+			background-position: bottom;
+		}
+	}
+
+	&__remove-button {
+		position: absolute;
+		top: calc(50% - 3px);
+		right: 0;
+		width: 7px;
+		height: 7px;
+		background-image: url('../../images/order/close.png');
+		cursor: pointer;
 	}
 }
-*/

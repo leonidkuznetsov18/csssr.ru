@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import cx from 'classnames';
 
 import './styles.css';
 
@@ -17,14 +18,20 @@ export default class File extends React.Component {
 
 		return (
 			<div className='upload-file'>
-				<div className='upload-file__name'>
+				<span className='upload-file__name'>
 					{name}
+				</span>
+				<div className={cx('upload-file__progress', {
+					'upload-file__progress_completed': progress === 100
+				})}>
+					<div className='upload-file__progress-line'
+						style={{width: `${progress}%`}}
+					/>
 				</div>
 				<div
 					className='upload-file__remove-button'
 					onClick={remove}
 				/>
-				{progress}%
 			</div>
 		);
 	}
