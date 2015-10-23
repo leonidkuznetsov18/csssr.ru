@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import cx from 'classnames';
 import File from 'components/order-file';
 
 import './styles.css';
@@ -22,9 +23,20 @@ export default class FilesBlock extends React.Component {
 			/>
 		));
 
+		const loadingFiles = this.props.files.filter(file => file.progress !== 100);
+		const summaryProgress = loadingFiles.reduce((p, n) => p + n.progress, 0);
+		let globalProgress = summaryProgress / loadingFiles.length;
+
 		return (
-			<div className='files'>
-				{files}
+			<div className='upload-files'>
+				<div className={cx('global-progress', {
+					'global-progress_hidden': !globalProgress
+				})}>
+					<div className='global-progress__line' style={{width: `${globalProgress}%`}} />
+				</div>
+				<div>
+					{files}
+				</div>
 			</div>
 		);
 	}

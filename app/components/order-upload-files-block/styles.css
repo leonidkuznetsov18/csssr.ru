@@ -11,10 +11,10 @@
 
 	&__bg {
 		position: absolute;
-		top: 4px;
+		top: 5px;
 		left: 5px;
 		right: 5px;
-		bottom: 4px;
+		bottom: 5px;
 		background-color: rgba(233, 216, 184, .3);
 	}
 
