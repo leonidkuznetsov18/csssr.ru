@@ -25,7 +25,7 @@ export default class File extends React.Component {
 	componentDidMount() {
 		this.mounted = true;
 		this.setState({
-			progressBarWidth: 190 - this.refs.name.getDOMNode().offsetWidth
+			progressBarWidth: 190 - this.refs.name.offsetWidth
 		});
 	}
 

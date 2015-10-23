@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'components/link';
-import FormUploadType from 'components/order-upload-type';
 import UploadFilesBlock from 'components/order-upload-files-block';
 import UploadFilesLink from 'components/order-upload-files-link';
 

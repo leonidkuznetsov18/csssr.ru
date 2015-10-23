@@ -1,21 +1,16 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Dropzone from 'react-dropzone';
+import Link from 'components/link';
 import FilesBlock from 'components/order-files';
 import request from 'superagent';
 
 import './styles.css';
 
-const data = require('data/order-uploader.json').files;
-
 export default class UploadFilesBlock extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			files: []
-		};
+	static propTypes = {
+		files: PropTypes.array.isRequired
 	}
-
 
 	progressUpdater = i => ({percent}) => {
 		const updatedFiles = this.state.files.map((file, index) => {
@@ -34,6 +29,7 @@ export default class UploadFilesBlock extends React.Component {
 			console.log(err);
 		}
 	}
+
 
 	onDrop = (files) => {
 		const newFiles = files.map((file) => {
@@ -72,36 +68,29 @@ export default class UploadFilesBlock extends React.Component {
 
 	render() {
 		return (
-			<div
-				id='uploadFilesBlock'
-				className='order__main__content__upload__files-block'
-			>
-				<div className='order__main__content__upload__upload'>
-					<span
-						id='upload-files-button'
-						className='blue-link'
-						onClick={this.openSelectWindow}
-					>{data.plainDownloader}</span>
-				</div>
+			<div className='upload-block'>
 
 				<Dropzone
-					id='drop_place'
-					className='order__main__content__upload__drop-place'
-					activeClassName='hover' /* TODO: test this */
+					className='drop-place'
+					activeClassName='drop-place_active'
 					ref='dropzone'
 					onDrop={this.onDrop}
 				>
-					<div className='order-drop-place__bg'>
-						<div className='order-drop-place__text'>
-							{data.dropzoneMessage}
+					<div className='drop-place__bg'>
+						<div className='drop-place__text'>
+							Перетащите файлы проекта сюда
 						</div>
 					</div>
 				</Dropzone>
 
-				<FilesBlock
+				<Link size='small' onClick={this.openSelectWindow} underline>
+					Обычный загрузчик
+				</Link>
+
+				{true ? null : <FilesBlock
 					files={this.state.files}
 					deleteFile={this.deleteFile}
-				/>
+				/>}
 			</div>
 		);
 	}

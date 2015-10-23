@@ -72,6 +72,39 @@ export default function order(state = initialState, action) {
 		};
 	}
 
+	case C.ORDER_FORM_ADD_FILES: {
+		const files = state.form.files.concat(action.files);
+		return {
+			...state,
+			form: {
+				...state.form,
+				files
+			}
+		};
+	}
+
+	case C.ORDER_FORM_REMOVE_FILE: {
+		const {fileId} = action;
+		return {
+			...state,
+			form: {
+				...state.form,
+				files
+			}
+		};
+	}
+
+	case C.ORDER_FORM_UPDATE_FILE_PROGRESS: {
+		const {fileId, progress} = action;
+		return {
+			...state,
+			form: {
+				...state.form,
+				files
+			}
+		};
+	}
+
 	default:
 		return state;
 	}

@@ -1,4 +1,5 @@
 .link {
+	cursor: pointer;
 	transition-property: color, border;
 	transition-duration: .2s;
 
@@ -27,7 +28,6 @@
 		color: #056383;
 		text-transform: uppercase;
 		border-bottom: 1px dashed #056383;
-		cursor: pointer;
 
 		&:hover {
 			border-bottom: 1px dashed #df0b0b;
@@ -39,12 +39,19 @@
 		border-bottom: none;
 	}
 
-
 	&_color_yellow {
 		color: #ffae00;
 
 		&:hover {
 			color: #fff;
 		}
+	}
+
+	&_size_small {
+		font-size: 12px;
+	}
+
+	&_underline {
+		text-decoration: underline;
 	}
 }

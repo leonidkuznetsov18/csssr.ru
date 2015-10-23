@@ -3,8 +3,6 @@ import FormGroup from 'components/form-group-true';
 
 import './styles.css';
 
-const data = require('data/order-uploader.json').link;
-
 export default class UploadFilesLink extends React.Component {
 
 	static propTypes = {
@@ -17,13 +15,16 @@ export default class UploadFilesLink extends React.Component {
 		return (
 			<div className='upload-link'>
 				<FormGroup
-					label={data.title}
+					label='Откуда мы сможем скачать файлы проекта'
 					inputProps={{
 						value: this.props.filesLink,
 						onChange: e => this.props.changeFilesLink(e.target.value)
 					}}
 				/>
-				<span className='upload-link__info'>{data.info}</span>
+				<span className='upload-link__info'>
+					Вы можете поделиться ссылкой на архив или ссылкой на папку проекта в
+					Dropbox, Google Drive, Яндекс.Диске или любом другом облачном сервисе.
+				</span>
 			</div>
 		);
 	}

@@ -29,3 +29,25 @@ export function changeFilesLink(link) {
 		link
 	};
 }
+
+export function addFiles(...files) {
+	return {
+		type: C.ORDER_FORM_ADD_FILES,
+		files
+	};
+}
+
+export function removeFile(fileId) {
+	return {
+		type: C.ORDER_FORM_REMOVE_FILE,
+		fileId
+	};
+}
+
+export function updateFileProgress(fileId, progress) {
+	return {
+		type: C.ORDER_FORM_UPDATE_FILE_PROGRESS,
+		progress,
+		fileId
+	};
+}
