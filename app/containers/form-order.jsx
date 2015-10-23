@@ -21,8 +21,6 @@ export default class OrderForm extends React.Component {
 		e.preventDefault();
 		this.props.dispatch(actionCreators.showErrors());
 		this.props.dispatch(actionCreators.sendOrderForm());
-		// TODO: send form to server if data is valid
-		console.log('submit order form');
 	}
 
 	render() {

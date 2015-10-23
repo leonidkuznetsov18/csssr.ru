@@ -4,6 +4,7 @@ import Router from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import filesUploader from 'middlewares/filesUploader';
+import orderFormSender from 'middlewares/orderFormSender';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -23,7 +24,7 @@ const reducer = combineReducers({
 });
 
 const createStoreWithMiddleWare = compose(
-	applyMiddleware(filesUploader, thunk),
+	applyMiddleware(filesUploader, orderFormSender, thunk),
 	reduxReactRouter({
 		routes,
 		createHistory: useScroll(createHistory)
