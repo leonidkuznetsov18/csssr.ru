@@ -14,7 +14,7 @@ import Offert from 'containers/page-offert';
 import Portfolio from 'containers/page-portfolio';
 import Project from 'containers/page-project';
 import ProjectPage from 'containers/page-project-page';
-import Timeline from 'components/timeline';
+import Timeline from 'containers/page-timeline';
 
 export default (
 	<Route name='root' component={Application}>
