@@ -1,5 +1,6 @@
 import request from 'superagent';
 import * as C from 'constants/actions';
+import {pushState} from 'redux-router';
 
 
 function isMaketsExist(state) {
@@ -27,11 +28,16 @@ function isContactsValid(state) {
 };
 
 
-function requestHandler(err, res) {
+const requestHandler = store => (err, res) => {
 	if (err) throw err;
-	// TODO: clear form and redirect to /thanks
-	console.log('order form response:', res);
-}
+	if (res.status === 200 && res.result === 'ok') {
+		// TODO: clear form
+		store.dispatch(pushState(null, '/thanks'));
+	} else {
+		// TODO: handle errors
+		alert('error! AAAAA!');
+	}
+};
 
 
 function getDataToSend(state) {
@@ -81,7 +87,7 @@ const formSender = store => next => action => {
 		request
 			.post('/order')
 			.send(getDataToSend(state))
-			.end(requestHandler);
+			.end(requestHandler(store));
 	}
 	return result;
 };

@@ -38,7 +38,7 @@ import {handler, limitHandler, upload} from './lib/storage';
 app.use(limitHandler);
 app.post('/upload', upload.single('file'), handler);
 
-import {sendLetter} from './lib/mailer';
+import {sendLetter, renderOrderTemplate} from './lib/mailer';
 
 const errorHanderCreator = res => err => {
 	console.log(err);
