@@ -38,18 +38,24 @@ import {handler, limitHandler, upload} from './lib/storage';
 app.use(limitHandler);
 app.post('/upload', upload.single('file'), handler);
 
-import {send} from './lib/mailer';
+import {sendLetter} from './lib/mailer';
+
+const errorHanderCreator = res => err => {
+	console.log(err);
+	res.send({result: 'fail'});
+};
 
 app.post('/order', (request, response) => {
+	const errorHander = errorHanderCreator(response);
 	// TODO: validate req.body
 	console.log(request.body);
 	superagent
 		.post('http://test-tools-back.csssr.ru/api/site/order')
 		.send(request.body)
 		.end((err, res) => {
-			if (err) console.log(err);
-			send(res.body, request.body, (err, info) => {
-				if (err) console.log(err);
+			if (err) return errorHander(err);
+			sendLetter(res.body, renderOrderTemplate(res.body, request.body), (err, info) => {
+				if (err) return errorHander(err);
 				response.send({result: 'ok'});
 			});
 		});

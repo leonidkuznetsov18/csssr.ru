@@ -6,7 +6,7 @@ var transporter = nodemailer.createTransport({
 	auth
 });
 
-const getHtml = (toolsData, {options, contacts, pagesWidth, addition, filesLink}) => {
+export const renderOrderTemplate = (toolsData, {options, contacts, pagesWidth, addition, filesLink}) => {
 	const orderNumber = toolsData.unique_number;
 	const googleDriveLink = toolsData.url;
 	const sourceMakets = googleDriveLink ? `Макеты — <a href="${googleDriveLink}">${googleDriveLink}</a><br>` : '';
@@ -43,7 +43,7 @@ const getMailOptions = ({orderNumber}, html) => ({
 	html: html
 });
 
-export function send(toolsData, data, callback) {
-	const mailOptions = getMailOptions(toolsData, getHtml(toolsData, data));
+export function sendLetter(toolsData, data, callback) {
+	const mailOptions = getMailOptions(toolsData, );
 	transporter.sendMail(mailOptions, (err, res) => callback(err, res));
 }
