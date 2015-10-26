@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import './styles.css';
 
-export default function Text({size, children, indent, color}) {
+export default function Text({size, children, indent, color,center}) {
 	const classList = cx({
 		text: true,
 		text_size_m: size === 'm',
@@ -11,6 +11,7 @@ export default function Text({size, children, indent, color}) {
 		text_size_xs: size === 'xs',
 		text_size_xxs: size === 'xxs',
 		text_noindent: indent === false,
+		text_center: center === true,
 		text_color_blue: color === 'blue'
 	});
 
