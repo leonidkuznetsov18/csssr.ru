@@ -1,0 +1,37 @@
+import React from 'react';
+import Content from 'components/content';
+import Row from 'components/row';
+import Column from 'components/column';
+import Title from 'components/title';
+import Text from 'components/text';
+
+const dataAbout = require('data/company-about.json');
+const dataInfo = require('data/company-info.json');
+const dataComments= require('data/comments.json');
+const dataHistory = require('data/history.json');
+
+export default class Thanks extends React.Component {
+	componentDidMount() {
+		document.title = 'Успех, товарищ!';
+	}
+
+	render() {
+		return (
+			<Content>
+				<Row>
+					<Column size={1 / 2} offset={1 / 3}>
+						<Title>Успех, товарищ!</Title>
+						<Text>
+							Ваша заявка успешно доставлена в CSSSR.
+							Пока мы внимательно её изучаем, поделитесь
+							вашей радостью с друзьями.
+						</Text>
+						<Text size='s'>
+							Способы поделиться радостью с друзьями:
+						</Text>
+					</Column>
+				</Row>
+			</Content>
+		);
+	}
+}
