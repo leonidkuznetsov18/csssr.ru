@@ -8,7 +8,7 @@ function isMaketsExist(state) {
 }
 
 function isFilesLoaded(state) {
-	return !!state.order.form.files.reduce((p, n) => p && n.path, true);
+	return !!state.order.form.files.reduce((p, n) => p && n.filename, true);
 }
 
 function isOnlyLink(state) {
@@ -29,7 +29,7 @@ function isContactsValid(state) {
 
 function requestHandler(err, res) {
 	if (err) throw err;
-	// TODO: clear form and show success message
+	// TODO: clear form and redirect to /thanks
 	console.log('order form response:', res);
 }
 
@@ -50,7 +50,13 @@ function getDataToSend(state) {
 		contacts[key] = contacts[key].value;
 	}
 
-	const files = form.files.map(file => file.path);
+	const filesArray = form.files.map(file => ({
+		filename: '/uploads/' + file.filename,
+		title: file.originalname
+	}));
+
+	const files = {};
+	filesArray.forEach((file, i) => files[`file_${i}`] = file);
 
 	return {
 		options,

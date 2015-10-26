@@ -48,14 +48,13 @@ export function getUploadFileName(req, file, cb) {
     if (err) {
       console.log(err);
     }
-    const filename = file.originalname.replace(/[^\w\d]/g, '_');
-    cb(null, (raw.toString('hex')) + '__' + (Date.now()) + '__' + filename);
+    cb(null, (raw.toString('hex')) + '__' + (Date.now()));
   });
 }
 
 export const upload = multer({
   storage: multer.diskStorage({
-    destination: './uploads/',
+    destination: './static/uploads/',
     filename: getUploadFileName
   }),
   limits: {

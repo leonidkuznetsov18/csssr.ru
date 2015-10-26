@@ -12,11 +12,11 @@ const onLoad = (store, file) => (err, res) => {
 	if (err) throw err;
 	if (res.body.result === 'ok') {
 		store.dispatch(updateFile(file.id, {
-			path: res.body.file.path,
+			filename: res.body.file.filename,
+			originalname: res.body.file.originalname,
 			progress: 100
 		}));
 	} else {
-		console.log(res.body);
 		store.dispatch(removeFile(file.id));
 	}
 };

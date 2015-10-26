@@ -7,6 +7,7 @@ import compression from 'compression';
 import Layout from '../app/components/layout';
 import morgan from 'morgan';
 import getPageMetadata from 'helpers/getPageMetadata';
+import superagent from 'superagent';
 
 var app = express();
 var isProduction = app.get('env') === 'production';
@@ -37,15 +38,27 @@ import {handler, limitHandler, upload} from './lib/storage';
 app.use(limitHandler);
 app.post('/upload', upload.single('file'), handler);
 
-app.post('/order', (req, res) => {
-	console.log('New order:', req.body);
-	// TODO: check that data is correct
-	res.send({result: 'ok'});
-	// TODO: request to tools
-	// TODO: send message via nodemailer
+import {send} from './lib/mailer';
+
+app.post('/order', (request, response) => {
+	// TODO: validate req.body
+	console.log(request.body);
+	superagent
+		.post('http://test-tools-back.csssr.ru/api/site/order')
+		.send(request.body)
+		.end((err, res) => {
+			if (err) console.log(err);
+			send(res.body, request.body, (err, info) => {
+				if (err) console.log(err);
+				response.send({result: 'ok'});
+			});
+		});
 });
 
-app.get('/*.*', express.static(ASSETS, {
+app.get('/static/*', (req, res) => {
+	res.redirect(req.path.substr('static/'.length));
+});
+app.use(express.static(ASSETS, {
 	maxAge: '200d'
 }));
 

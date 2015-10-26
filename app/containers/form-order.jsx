@@ -35,7 +35,7 @@ export default class OrderForm extends React.Component {
 						text: 'Прикрепите макеты страниц или укажите ссылку для скачивания'
 					};
 				}
-				if (!files.reduce((p, n) => p && n.path, true)) {
+				if (!files.reduce((p, n) => p && n.filename, true)) {
 					return {
 						show: true,
 						text: 'Дождитесь окончания загрузки'
@@ -61,7 +61,6 @@ export default class OrderForm extends React.Component {
 
 		return (
 			<form
-				action='order/form/submit/path'
 				autoComplete='off'
 				method='post'
 				onSubmit={this.onSubmit}
