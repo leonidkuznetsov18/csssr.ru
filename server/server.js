@@ -8,6 +8,7 @@ import Layout from '../app/components/layout';
 import morgan from 'morgan';
 import getPageMetadata from 'helpers/getPageMetadata';
 import superagent from 'superagent';
+import FormData from 'form-data';
 
 var app = express();
 var isProduction = app.get('env') === 'production';
@@ -40,23 +41,54 @@ app.post('/upload', upload.single('file'), handler);
 
 import {sendLetter, renderOrderTemplate} from './lib/mailer';
 
-const errorHanderCreator = res => err => {
-	console.log(err);
+const errorHandlerCreator = res => err => {
+	console.log('error:', err);
 	res.send({result: 'fail'});
 };
+const successHandlerCreator = res => () => {
+	console.log('success');
+	res.send({result: 'ok'});
+};
 
-app.post('/order', (request, response) => {
-	const errorHander = errorHanderCreator(response);
-	// TODO: validate req.body
-	console.log(request.body);
+function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
+	const form = new FormData();
+
+	for (let option of optionsArray) {
+		form.append('options[]', option);
+	}
+
+	for (const key in contacts) if (contacts.hasOwnProperty(key)) {
+		form.append(`contact[${key}]`, contacts[key]);
+	}
+
+	files.forEach((file, i) => {
+		form.append(`files[${i}][filename]`, file.filename);
+		form.append(`files[${i}][title]`, file.originalname);
+	});
+
+	form.append('link', filesLink);
+	form.append('lang', lang);
+
+	return form;
+}
+
+app.post('/order', (orderRequest, orderResponse) => {
+	const error = errorHandlerCreator(orderResponse);
+	const success = successHandlerCreator(orderResponse);
+	// TODO: validate orderRequest.body
+	const form = getFormData(orderRequest.body);
+
 	superagent
 		.post('http://test-tools-back.csssr.ru/api/site/order')
-		.send(request.body)
+		.send(form)
 		.end((err, res) => {
-			if (err) return errorHander(err);
-			sendLetter(res.body, renderOrderTemplate(res.body, request.body), (err, info) => {
-				if (err) return errorHander(err);
-				response.send({result: 'ok'});
+			const toolsResponse = JSON.parse(res.text);
+			console.log(toolsResponse);
+			if (err) return error(err);
+			const html = renderOrderTemplate(toolsResponse, orderRequest.body);
+			sendLetter(toolsResponse, html, (err, info) => {
+				if (err) return error(err);
+				success();
 			});
 		});
 });

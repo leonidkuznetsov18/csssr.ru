@@ -30,12 +30,12 @@ function isContactsValid(state) {
 
 const requestHandler = store => (err, res) => {
 	if (err) throw err;
-	if (res.status === 200 && res.result === 'ok') {
+	if (res.status === 200 && res.body.result === 'ok') {
 		// TODO: clear form
 		store.dispatch(pushState(null, '/thanks'));
 	} else {
 		// TODO: handle errors
-		alert('error! AAAAA!');
+		alert(`error! AAAAA! Status is ${res.status} and result is ${res.body.result}`);
 	}
 };
 
@@ -51,21 +51,28 @@ function getDataToSend(state) {
 			.map(option => option.name);
 	}
 
+	let optionsArray = [];
+	for (const key in form.options) if (form.options.hasOwnProperty(key)) {
+		optionsArray = optionsArray.concat(
+			form.options[key]
+				.filter(option => option.isChecked)
+				.map(option => option.value)
+		);
+	}
+
 	const contacts = {...form.contacts};
 	for (const key in contacts) if (contacts.hasOwnProperty(key)) {
 		contacts[key] = contacts[key].value;
 	}
 
-	const filesArray = form.files.map(file => ({
-		filename: '/uploads/' + file.filename,
-		title: file.originalname
+	const files = form.files.map(file => ({
+		filename: file.filename,
+		originalname: file.originalname
 	}));
-
-	const files = {};
-	filesArray.forEach((file, i) => files[`file_${i}`] = file);
 
 	return {
 		options,
+		optionsArray,
 		contacts,
 		files,
 		filesLink

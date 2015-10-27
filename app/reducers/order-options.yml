@@ -1,0 +1,108 @@
+modernBrowsers:
+  -
+    name: 'Chrome 45'
+    value: 'chrome'
+    isChecked: true
+  -
+    name: 'Firefox 41'
+    value: 'firefox'
+    isChecked: true
+  -
+    name: 'Safari 9'
+    value: 'safari'
+    isChecked: true
+  -
+    name: 'Opera 32'
+    value: 'opera'
+    isChecked: true
+  -
+    name: 'Edge (Windows 10)'
+    value: 'edge'
+    isChecked: true
+
+oldBrowsers:
+  -
+    name: 'Safari 8'
+    value: 'safari8'
+    isChecked: true
+  -
+    name: 'Internet Explorer 11'
+    value: 'ie11'
+    isChecked: true
+  -
+    name: 'Internet Explorer 10'
+    value: 'ie10'
+    isChecked: false
+  -
+    name: 'Internet Explorer 9'
+    value: 'ie9'
+    isChecked: false
+  -
+    name: 'Internet Explorer 8'
+    value: 'ie8'
+    isChecked: false
+  -
+    name: 'Opera 12'
+    value: 'opera12'
+    isChecked: false
+
+mobile:
+  -
+    name: 'Safari 9 (iOS 9)'
+    value: 'mobilesafari'
+    isChecked: true
+  -
+    name: 'Safari 8 (iOS 8)'
+    value: 'mobilesafariold'
+    isChecked: true
+  -
+    name: 'Chrome 45 (iOS 9)'
+    value: 'mobilechromeios'
+    isChecked: true
+  -
+    name: 'Chrome 45 (Android 6)'
+    value: 'mobilechromeandroid'
+    isChecked: true
+  -
+    name: 'Chrome 44 (Android 5)'
+    value: 'mobilechromeandroidold'
+    isChecked: true
+  -
+    name: 'IE 11 (Windows Phone 8.1)'
+    value: 'mobileiewindowsphone'
+    isChecked: false
+
+pagesWidth:
+  -
+    name: 'Фиксированная (Static)'
+    value: 'static'
+    isChecked: true
+  -
+    name: 'Резиновая (Liquid)'
+    value: 'liquid'
+    isChecked: false
+  -
+    name: 'Адаптивная (Adaptive)'
+    value: 'adaptive'
+    isChecked: false
+  -
+    name: 'Отзывчивая (Responsive)'
+    value: 'responsive'
+    isChecked: false
+
+addition:
+  -
+    name: 'Pixel Perfect'
+    value: 'pixel_perfect'
+    isChecked: false
+    tip:
+      link: '?'
+      text: 'По умолчанию мы допускаем погрешность до 5 пикселей в размерах блоков отступов и плашек. Однако по вашей просьбе мы готовы подогнать вёрстку под макет со 100% соответствием.'
+  -
+    name: 'Требуется поддержка Retina-дисплеев'
+    value: 'retina'
+    isChecked: false
+  -
+    name: 'Очень срочный проект'
+    value: 'urgent'
+    isChecked: false

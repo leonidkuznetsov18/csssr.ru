@@ -1,4 +1,4 @@
 export default {
-	user: 'username@gmail.com',
-	pass: 'password'
+	user: 'staxoecl@gmail.com',
+	pass: 'testtest1'
 };
