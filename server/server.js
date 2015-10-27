@@ -41,15 +41,6 @@ app.post('/upload', upload.single('file'), handler);
 
 import {sendLetter, renderOrderTemplate} from './lib/mailer';
 
-const errorHandlerCreator = res => err => {
-	console.log('error:', err);
-	res.send({result: 'fail'});
-};
-const successHandlerCreator = res => () => {
-	console.log('success');
-	res.send({result: 'ok'});
-};
-
 function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
 	const form = new FormData();
 
@@ -72,24 +63,33 @@ function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
 	return form;
 }
 
-app.post('/order', (orderRequest, orderResponse) => {
-	const error = errorHandlerCreator(orderResponse);
-	const success = successHandlerCreator(orderResponse);
-	// TODO: validate orderRequest.body
-	const form = getFormData(orderRequest.body);
-
-	superagent
-		.post('http://test-tools-back.csssr.ru/api/site/order')
-		.send(form)
-		.end((err, res) => {
-			const toolsResponse = JSON.parse(res.text);
-			console.log(toolsResponse);
-			if (err) return error(err);
-			const html = renderOrderTemplate(toolsResponse, orderRequest.body);
-			sendLetter(toolsResponse, html, (err, info) => {
-				if (err) return error(err);
-				success();
+function getToolsInfo(form) {
+	return new Promise((resolve, reject) => {
+		superagent
+			.post('http://test-tools-back.csssr.ru/api/site/order')
+			.send(form)
+			.end((err, res) => {
+				if (err) reject(err);
+				resolve(JSON.parse(res.text));
 			});
+	});
+}
+
+async function newOrder (data) {
+	// TODO: validate req.body
+	const form = getFormData(data);
+	const toolsInfo = await getToolsInfo(form);
+	const html = renderOrderTemplate(toolsInfo, data);
+	await sendLetter(toolsInfo, html);
+}
+
+
+app.post('/order', (req, res) => {
+	newOrder(req.body)
+		.then(() => res.send({result: 'ok'}))
+		.catch(err => {
+			console.log(err);
+			res.send({result: 'fail'});
 		});
 });
 
