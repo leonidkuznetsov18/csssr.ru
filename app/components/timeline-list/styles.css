@@ -4,7 +4,30 @@
     overflow: hidden;
     width: 91.538%;
     min-height: 690px;
+
+    .title{
+		margin-top: 40px;
+	    margin-bottom: 20px;
+	    font-family: 'PT Sans Narrow';
+	    font-size: 35px;
+	    line-height: 1;
+	    color: #6a0005;
+    }
+	
+	.text{
+		margin-top: 20px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 0; 
+	    width: 524px;
+	    font-family: 'Roboto Light';
+	    font-size: 15px;
+	    line-height: 21px;
+	    color: #333;
+	}
+
     &__items{
+    	position: relative;
     	padding-top: 320px;
 	    margin-bottom: 124px;
 	    margin-left: auto;
@@ -22,75 +45,4 @@
 		    margin-left: -134px;
 		}
     }
-    &__item {
-	    position: relative;
-	    margin-top: 8px;
-	    margin-left: 200px;
-	    padding-left: 190px;
-	    padding-bottom: 28px;
-	    overflow: hidden;
-	    width: 600px;
-	    &:before{
-		    position: absolute;
-		    left: 140px;
-		    bottom: 0;
-		    display: block;
-		    width: 1px;
-		    height: 100%;
-		    content: '';
-		    background-color: #666;
-		}
-	}
-    &__event {
-	    display: table;
-	    font-family: 'PT Sans Narrow';
-	    font-size: 15px;
-	    line-height: 18px;
-	    text-transform: uppercase;
-	    word-spacing: 2px;
-	    color: #690009;
-	}
-	&__date {
-	    position: absolute;
-	    left: 0;
-	    width: 92px;
-	    font-family: 'Roboto Light';
-	    font-size: 11px;
-	    line-height: 18px;
-	    text-align: right;
-	    color: #333;
-	}
-	&__avatar {
-	    margin-left: 8px;
-	    width: 68px;
-	    height: 68px;
-	    display: inline-block;
-	    vertical-align: middle;
-	    font-size: 13px;
-	    cursor: pointer;
-	    border-radius: 100%;
-	    -webkit-filter: grayscale(100%);
-	    filter: grayscale(100%);
-	    -webkit-transition-duration: .25s;
-	    transition-duration: .25s;
-	    -webkit-transition-property: opacity,-webkit-transform,filter,-webkit-filter;
-	    transition-property: opacity,transform,filter,-webkit-filter;
-	    -webkit-transform: translateZ(0);
-	    transform: translateZ(0);
-	    -webkit-backface-visibility: hidden;
-	    backface-visibility: hidden;
-	    will-change: opacity,transform,filter,-webkit-filter;
-	    &:first-child{
-	    	margin-left:0;
-	    }
-	}
-	&__names{
-	    display: table;
-	    font-family: 'PT Sans Narrow';
-	    font-size: 15px;
-	    line-height: 18px;
-	    text-transform: uppercase;
-	    word-spacing: 2px;
-	    color: #690009;
-	}
 }
