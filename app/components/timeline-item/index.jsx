@@ -18,7 +18,7 @@ function getIcon(props){
 }
 
 export default function TimelineItem(props) {
-    const classList = "timeline__item";
+    var classList = "timeline__item";
 
     const images = props.data.images ? props.data.images.map(function (tag,index)
         {
@@ -39,9 +39,9 @@ export default function TimelineItem(props) {
     const audio = props.data.audio ? (
         <div className="timeline__audio">
             <audio>
-                <source src={props.data.audio.aac}/>
-                <source src={props.data.audio.mp3}/>
-                <source src={props.data.audio.ogg}/>
+                <source src={'http://csssr.ru/' + props.data.audio.aac}/>
+                <source src={'http://csssr.ru/' + props.data.audio.mp3}/>
+                <source src={'http://csssr.ru/' + props.data.audio.ogg}/>
             </audio>
         </div>
     ) : null;
@@ -49,7 +49,7 @@ export default function TimelineItem(props) {
     const version = props.data.version ? (
         <div className="timeline__version">
             csssr
-            <a href={props.data.version.url}> {props.data.version.text}</a>
+            <a href={'http://csssr.ru/' + props.data.version.url}> {props.data.version.text}</a>
         </div>
     ) : null;
 
@@ -68,6 +68,11 @@ export default function TimelineItem(props) {
         </div>
     ) : null;
 
+    if (props.data.newstaff){
+        classList+=" timeline__with-icon-count"
+    } else {
+        classList+=" timeline__with-icon-star"
+    }
     return (
         <li className={classList}>
             <div className="timeline__date">
