@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Head from 'components/head';
+import Head from '../head';
 
 export default class Layout extends React.Component {
 	static propTypes = {

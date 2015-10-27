@@ -10,17 +10,18 @@ const timeline = require('data/timeline.json');
 export default class PageTimeline extends React.Component {
     render() {
         return (
-            <Content>
-                <Title>
-                    История CSSSR
-                </Title>
+            <Content padding={false}>
+            	<div className="timeline">
+	                <Title>
+	                    История CSSSR
+	                </Title>
 
-                <Text size='m'>
-                    Каждый год в канун дня рождения CSSSR,
-                    мы дополняем хронологию ключевых событий нашей истории.
-                </Text>
-
-               <TimelineList data={timeline} />
+	                <Text>
+	                    Каждый год в канун дня рождения CSSSR,
+	                    мы дополняем хронологию ключевых событий нашей истории.
+	                </Text>
+               		<TimelineList data={timeline} />
+                </div>
             </Content>
         );
     }
