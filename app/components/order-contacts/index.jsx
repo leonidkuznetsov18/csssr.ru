@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import pureRender from 'helpers/pureRender';
 import Field from 'components/field';
 import Brick from 'components/brick';
 import Checkbox from 'components/checkbox';
@@ -7,16 +8,17 @@ import Button from 'components/button';
 
 import './styles.css';
 
+@pureRender
 export default class OrderFormContacts extends React.Component {
 	static propTypes = {
 		contacts: PropTypes.object,
 		changeContacts: PropTypes.func
 	}
 
-	changeField = (value, field) => {
+	changeField = e => {
 		this.props.changeContacts({
-			[field]: {
-				value: value,
+			[e.target.name]: {
+				value: e.target.value,
 				showError: false
 			}
 		});
@@ -33,7 +35,8 @@ export default class OrderFormContacts extends React.Component {
 					isWrong={name.showError && !name.isValid()}
 					inputProps={{
 						value: name.value,
-						onChange: e => this.changeField(e.target.value, 'name')
+						name: 'name',
+						onChange: this.changeField
 					}}
 				/>
 
@@ -43,7 +46,8 @@ export default class OrderFormContacts extends React.Component {
 					isWrong={email.showError && !email.isValid()}
 					inputProps={{
 						value: email.value,
-						onChange: e => this.changeField(e.target.value, 'email')
+						name: 'email',
+						onChange: this.changeField
 					}}
 				/>
 
@@ -53,7 +57,8 @@ export default class OrderFormContacts extends React.Component {
 					isWrong={skype.showError && !skype.isValid()}
 					inputProps={{
 						value: skype.value,
-						onChange: e => this.changeField(e.target.value, 'skype')
+						name: 'skype',
+						onChange: this.changeField
 					}}
 				/>
 
@@ -63,7 +68,8 @@ export default class OrderFormContacts extends React.Component {
 					isWrong={phone.showError && !phone.isValid()}
 					inputProps={{
 						value: phone.value,
-						onChange: e => this.changeField(e.target.value, 'phone')
+						name: 'phone',
+						onChange: this.changeField
 					}}
 				/>
 
