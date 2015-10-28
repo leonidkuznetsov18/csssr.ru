@@ -1,7 +1,11 @@
+require('babel/register');
+
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var loadersByExtension = require('./utils/loadersByExtension');
+
+process.env = require('./config/env.js');
 
 module.exports = function(options) {
 	var root = path.join(__dirname, 'app');
@@ -23,7 +27,10 @@ module.exports = function(options) {
 		{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
-			loaders: options.hotComponents ? ['react-hot', 'babel'] : ['babel']
+			loaders: (options.hotComponents ? ['react-hot'] : []).concat([
+				'transform-loader?envify',
+				'babel'
+			])
 		}, {
 			test: /\.svg$/,
 			exclude: /icons/,
