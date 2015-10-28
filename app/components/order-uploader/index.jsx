@@ -1,5 +1,5 @@
 import React from 'react';
-import FormUploadType from 'components/order-upload-type';
+import Link from 'components/link';
 import UploadFilesBlock from 'components/order-upload-files-block';
 import UploadFilesLink from 'components/order-upload-files-link';
 
@@ -10,33 +10,28 @@ export default class Uploader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeBlock: props.initialActiveBlock || 'files'
+			active: 'files'
 		};
 	}
 
 
-	setActiveBlock(newBlock) {
-		this.setState({
-			activeBlock: newBlock
-		});
-	}
-
-
 	render() {
-		const activeBlock = ((active) => {
-			if (active === 'link')
-				return <UploadFilesLink />;
-			else // default active is 'files'
-				return <UploadFilesBlock />;
-		})(this.state.activeBlock);
-
+		const {active} = this.state;
 		return (
-			<div className='order__main__content__upload'>
-				<FormUploadType
-					active={this.state.activeBlock}
-					setActive={this.setActiveBlock.bind(this)}
-					/>
-				{activeBlock}
+			<div className='uploader'>
+				<div className='uploader__links'>
+					<Link
+						size='big'
+						active={active === 'files'}
+						onClick={() => this.setState({active: 'files'})}
+					>макеты</Link>
+					<Link
+						size='big'
+						active={active === 'link'}
+						onClick={() => this.setState({active: 'link'})}
+					>ссылка</Link>
+				</div>
+				{active === 'link' ? <UploadFilesLink {...this.props} /> : <UploadFilesBlock {...this.props} />}
 			</div>
 		);
 	}

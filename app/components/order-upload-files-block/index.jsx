@@ -1,60 +1,20 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Dropzone from 'react-dropzone';
+import Link from 'components/link';
 import FilesBlock from 'components/order-files';
 import request from 'superagent';
 
 import './styles.css';
 
-const data = require('data/order-uploader.json').files;
-
 export default class UploadFilesBlock extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			files: []
-		};
+	static propTypes = {
+		files: PropTypes.array.isRequired,
+		addFiles: PropTypes.func.isRequired
 	}
 
-
-	progressUpdater = i => ({percent}) => {
-		const updatedFiles = this.state.files.map((file, index) => {
-			if (index === i) {
-				file.progress = percent;
-			}
-			return file;
-		});
-		this.setState(updatedFiles);
-	}
-
-
-	loadErrorHandler = err => {
-		if (err) {
-			// TODO: delete file from state and show error here
-			console.log(err);
-		}
-	}
-
-	onDrop = (files) => {
-		const newFiles = files.map((file) => {
-			file.key = Math.random();
-			file.progress = 0;
-			return file;
-		}).concat(this.state.files);
-
-		for (let i = 0, l = newFiles.length; i < l; i++) {
-			const formData = new FormData();
-			formData.append('file', newFiles[i]);
-			request
-				.post('/upload')
-				.send(formData)
-				.on('progress', this.progressUpdater(i))
-				.end(this.loadErrorHandler);
-		}
-
-		this.setState({
-			files: newFiles
-		});
+	onDrop = files => {
+		this.props.addFiles(files);
 	}
 
 
@@ -62,46 +22,29 @@ export default class UploadFilesBlock extends React.Component {
 		this.refs.dropzone.open();
 	}
 
-
-	deleteFile = (fileKey) => {
-		this.setState({
-			files: this.state.files.filter((file) => file.key !== fileKey)
-		});
-	}
-
-
 	render() {
 		return (
-			<div
-				id='uploadFilesBlock'
-				className='order__main__content__upload__files-block'
-			>
-				<div className='order__main__content__upload__upload'>
-					<span
-						id='upload-files-button'
-						className='blue-link'
-						onClick={this.openSelectWindow}
-					>{data.plainDownloader}</span>
-				</div>
+			<div className='upload-block'>
 
 				<Dropzone
-					id='drop_place'
-					className='order__main__content__upload__drop-place'
-					activeClassName='hover' /* TODO: test this */
+					className='drop-place'
+					activeClassName='drop-place_active'
 					ref='dropzone'
 					onDrop={this.onDrop}
 				>
-					<div className='order-drop-place__bg'>
-						<div className='order-drop-place__text'>
-							{data.dropzoneMessage}
+					<div className='drop-place__bg'>
+						<div className='drop-place__text'>
+							Перетащите файлы проекта сюда
 						</div>
 					</div>
 				</Dropzone>
 
-				<FilesBlock
-					files={this.state.files}
-					deleteFile={this.deleteFile}
-				/>
+				<Link size='small' onClick={this.openSelectWindow} underline>
+					Обычный загрузчик
+				</Link>
+
+				<FilesBlock {...this.props} />
+
 			</div>
 		);
 	}

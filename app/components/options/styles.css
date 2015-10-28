@@ -1,0 +1,85 @@
+.options {
+	font: 300 13px/23px Roboto;
+	color: #353535;
+
+	&_inline {
+		.option {
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
+
+	&_type_checkbox .option__label {
+		&:before {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			width: 12px;
+			height: 12px;
+			border: 1px solid #333;
+			content: '';
+		}
+
+		&:after {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			width: 4px;
+			height: 11px;
+			margin: -3px 0 0 5px;
+			border-right: 3px solid #333;
+			border-bottom: 3px solid #333;
+			opacity: 0;
+			content: '';
+			transform: rotate(40deg) scale(3);
+			transition: .125s ease-out;
+		}
+	}
+
+	&_type_radio .option__label {
+		&:before {
+			position: absolute;
+			top: 3px;
+			left: 0;
+			height: 14px;
+			width: 14px;
+			border: 1px solid #333;
+			border-radius: 100%;
+			content: '';
+		}
+
+		&:after {
+			position: absolute;
+			top: 3px;
+			left: 0;
+			height: 8px;
+			width: 8px;
+			margin: 4px;
+			background-color: #333;
+			border-radius: 100%;
+			opacity: 0;
+			content: '';
+			transition: .125s ease-out;
+			transform: scale(0);
+		}
+	}
+}
+
+.option {
+	margin-bottom: 5px;
+
+	&__input {
+		display: none;
+	}
+
+	&__label {
+		position: relative;
+		padding-left: 20px;
+		display: inline-block;
+		cursor: pointer;
+	}
+	&__input:checked + &__label:after {
+		opacity: 1;
+		transform: rotate(40deg) scale(1);
+	}
+}

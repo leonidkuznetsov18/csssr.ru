@@ -1,0 +1,57 @@
+.link {
+	cursor: pointer;
+	transition-property: color, border;
+	transition-duration: .2s;
+
+	&_color_blue {
+		color: #056383;
+
+		&:hover {
+			color: #df0b0b !important;
+		}
+	}
+
+	&_color_blue&_dashed {
+		border-bottom: 1px solid #056383;
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 1px solid #df0b0b;
+		}
+	}
+
+	&_color_blue&_size_big {
+		display: inline-block;
+		font-family: 'PT Sans';
+		font-weight: bold;
+		font-size: 16px;
+		color: #056383;
+		text-transform: uppercase;
+		border-bottom: 1px dashed #056383;
+
+		&:hover {
+			border-bottom: 1px dashed #df0b0b;
+		}
+	}
+
+	&_color_blue&_active {
+		color: #df0b0b;
+		border-bottom: none;
+	}
+
+	&_color_yellow {
+		color: #ffae00;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+
+	&_size_small {
+		font-size: 12px;
+	}
+
+	&_underline {
+		text-decoration: underline;
+	}
+}

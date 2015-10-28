@@ -37,7 +37,7 @@ export default class JobAnswerForm extends React.Component {
 	changeField = (value, field) => {
 		this.props.changeAnswerForm(this.props.job, {
 			[field]: {
-				value: value.trim(),
+				value: value,
 				showError: false
 			}
 		});
