@@ -4,3 +4,6 @@
 npm-debug.log
 /uploads
 .idea/
+floorc.json
+.flooignore
+.floo

@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import './styles.css';
 //import cx from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
+import Title from 'components/title';
 import ReactMarkdown from 'react-markdown';
 
-function getIcon(props){
-    if(props.data.newstaff) return (
+function getIcon(newstaff){
+    if (newstaff) return (
         <div className="timeline__icon_type_count">
-            + {props.data.newstaff.length}
+            <span className="plus">+</span> 
+            <span className="count">{newstaff.length}</span>
         </div>
     );
     return (
@@ -20,23 +22,28 @@ function getIcon(props){
 export default function TimelineItem(props) {
     var classList = "timeline__item";
 
-    const images = props.data.images ? props.data.images.map(function (tag,index)
-        {
-          return (
-            <img className="timeline__images" src={'http://csssr.ru/'+tag.url} width={tag.width} height={tag.height} key={index}/>
-        );
-    }) : null;
+    const images = props.data.images && props.data.images.map((tag,index) => (
+        <img
+            className="timeline__images"
+            src={'http://csssr.ru/'+tag.url}
+            width={tag.width}
+            height={tag.height}
+            key={index}
+        />
+    ));
 
-    const names =props.data.newstaff ? props.data.newstaff.map(person => person.name).join(', ') : null;
+    const names = props.data.newstaff && props.data.newstaff
+        .map(person => person.name)
+        .join(', ');
 
-    const quote = props.data.quote ? (
-             <div className="timeline__quote">
-                 <span>{props.data.quote.title}</span>
-                 <p>{props.data.quote.text}</p>
-             </div>
-        ) : null;
+    const quote = props.data.quote && (
+         <div className="timeline__quote">
+             <span>{props.data.quote.title}</span>
+             <p>{props.data.quote.text}</p>
+         </div>
+    );
 
-    const audio = props.data.audio ? (
+    const audio = props.data.audio && (
         <div className="timeline__audio">
             <audio>
                 <source src={'http://csssr.ru/' + props.data.audio.aac}/>
@@ -44,57 +51,82 @@ export default function TimelineItem(props) {
                 <source src={'http://csssr.ru/' + props.data.audio.ogg}/>
             </audio>
         </div>
-    ) : null;
+    );
 
-    const version = props.data.version ? (
+    const version = props.data.version && (
         <div className="timeline__version">
             csssr
             <a href={'http://csssr.ru/' + props.data.version.url}> {props.data.version.text}</a>
         </div>
-    ) : null;
+    );
 
-    const newStaffAvatars = props.data.newstaff ? props.data.newstaff.map((person,index) => (
-        <img className="timeline__avatar" src={'http://csssr.ru/' + person.avatar.src} alt={person.avatar.name} title={person.avatar.name} width={person.avatar.width} height={person.avatar.height} key={index}/>
-    )): null;
+    const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person,index) => (
+        <img 
+            className="timeline__avatar" 
+            src={'http://csssr.ru/' + person.avatar.src} 
+            alt={person.name} 
+            title={person.name} 
+            width={person.avatar.width} 
+            height={person.avatar.height} 
+            key={index}
+        />
+    ));
 
-    const newStaff = props.data.newstaff ? (
-        <div className="timeline__info-persons">
-            <div className="timeline__names">
-                {names}
+    let description;
+    if (props.data.description) {
+      description = <ReactMarkdown className="timeline__description" source={props.data.description}/>
+    }
+
+    let readLink;
+    if (props.data.readLink) {
+        readLink =
+        <div className="timeline__readLink">
+            {props.data.readLink ? <Button to={props.data.readLink}>{props.data.buttonName}</Button> : null}
+        </div>
+    }
+
+    let date;
+    if(props.data.date) {
+        date = (
+            <div className="timeline__date">
+                {props.data.date}
             </div>
+        )
+    }
+
+    const newStaff = props.data.newstaff && (
+        <div className="timeline__info-persons">
             <div className="timeline__avatars">
                 {newStaffAvatars}
             </div>
         </div>
-    ) : null;
+    );
+
 
     if (props.data.newstaff){
         classList+=" timeline__with-icon-count"
     } else {
         classList+=" timeline__with-icon-star"
     }
+
     return (
         <li className={classList}>
-            <div className="timeline__date">
-                {props.data.date}
-            </div>
-            <div className="timeline__event">
-                {props.data.event}
-            </div>
+            {date}
+            <Title size='extra-small' component='h6'>
+              {names || props.data.event}
+            </Title>
+            {description}
             {newStaff}
-            <div className="timeline__images">
-                {images}
-            </div>
-            <div className="timeline__description">
-                <ReactMarkdown source={props.data.description}/>
-            </div>
-            <div className="timeline__readLink">
-                {props.data.readLink ? <Button to={props.data.readLink}>{props.data.buttonName}</Button> : null}
-            </div>
-                {version}
-                {audio}
-                {quote}
-            {getIcon(props)}
+            {images && <div className="timeline__images">{images}</div>}
+            {readLink}
+            {version}
+            {audio}
+            {quote}
+            {getIcon(props.data.newstaff)}
         </li>
     );
+}
+
+TimelineItem.propTypes = {
+    data: PropTypes.object.isRequired
 }

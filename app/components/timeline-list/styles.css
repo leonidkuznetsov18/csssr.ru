@@ -4,28 +4,26 @@
     overflow: hidden;
     width: 91.538%;
     min-height: 690px;
-
-    .title{
-		margin-top: 40px;
-	    margin-bottom: 20px;
-	    font-family: 'PT Sans Narrow';
-	    font-size: 35px;
-	    line-height: 1;
-	    color: #6a0005;
+    &__centered-text{
+		margin-left: auto;
+		margin-right: auto;
+		width: 524px;
+		.title_center{
+			margin-top: 40px;
+			margin-bottom: 20px;
+			font-family: 'PT Sans Narrow';
+			font-size: 35px;
+			line-height: 1;
+			color: #6a0005;
+		}
+		.text_center{
+			font-family: 'Roboto';
+			font-weight: 300;
+			font-size: 15px;
+			line-height: 21px;
+			color: #333;
+		}
     }
-	
-	.text{
-		margin-top: 20px;
-	    margin-left: auto;
-	    margin-right: auto;
-	    margin-bottom: 0; 
-	    width: 524px;
-	    font-family: 'Roboto Light';
-	    font-size: 15px;
-	    line-height: 21px;
-	    color: #333;
-	}
-
     &__items{
     	position: relative;
     	padding-top: 320px;

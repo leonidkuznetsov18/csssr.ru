@@ -25,9 +25,10 @@ export default class Title extends React.Component {
 		const { size, children, component, color, center } = this.props;
 		const classList = cx({
 			title: true,
-			title_center: center === true, 
+			title_center: center === true,
 			title_size_medium: size === 'medium',
 			title_size_small: size === 'small',
+			title_size_extra_small: size === 'extra-small',
 			title_color_yellow: color === 'yellow'
 		});
 		const Tag = component;
