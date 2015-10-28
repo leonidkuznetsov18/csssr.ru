@@ -5,12 +5,12 @@
   "main": "app/app.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
+    "build": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
     "webpack-dev": "webpack-dev-server --config webpack-dev.config.js",
-    "server-dev": "nodemon --watch server/ --exec babel-node server/server",
-    "server": "NODE_ENV=production NODE_PATH=./node_modules:./app babel-node server/server",
-    "dev": "node ./node_modules/concurrently/src/main.js --kill-others \"npm run webpack-dev\" \"npm run server-dev\"",
-    "prod": "npm run webpack && npm run server"
+    "server-dev": "nodemon --watch server/ --exec node ./server",
+    "server": "NODE_ENV=production node ./server",
+    "start": "node ./node_modules/concurrently/src/main.js --kill-others \"npm run webpack-dev\" \"npm run server-dev\"",
+    "production": "npm run build && npm run server"
   },
   "author": "Aleksandr Petrov @dzhiriki",
   "private": true,
@@ -23,6 +23,7 @@
     "classnames": "^2.1.5",
     "compression": "^1.6.0",
     "css-loader": "^0.21.0",
+    "envify": "^3.4.0",
     "es6-promise": "^3.0.2",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.8.2",
@@ -57,9 +58,11 @@
     "request": "^2.64.0",
     "style-loader": "^0.13.0",
     "superagent": "^1.4.0",
+    "transform-loader": "^0.2.3",
     "url-loader": "^0.5.5",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.10.1",
+    "yaml-loader": "^0.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.0.0",
