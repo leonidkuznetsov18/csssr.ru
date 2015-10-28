@@ -1,12 +1,13 @@
 import React, {PropTypes} from 'react';
-import FormGroup from 'components/form-group-true';
+import Field from 'components/field';
 import Brick from 'components/brick';
+import Checkbox from 'components/checkbox';
+import Link from 'components/link';
+import Button from 'components/button';
 
 import './styles.css';
 
-
 export default class OrderFormContacts extends React.Component {
-
 	static propTypes = {
 		contacts: PropTypes.object,
 		changeContacts: PropTypes.func
@@ -23,9 +24,10 @@ export default class OrderFormContacts extends React.Component {
 
 	render() {
 		const {name, email, skype, phone} = this.props.contacts;
+
 		return (
-			<div style={{width: 420, marginTop: 20}}>
-				<FormGroup
+			<div className='order-contacts'>
+				<Field
 					label='Ваше имя'
 					required
 					isWrong={name.showError && !name.isValid()}
@@ -35,7 +37,7 @@ export default class OrderFormContacts extends React.Component {
 					}}
 				/>
 
-				<FormGroup
+				<Field
 					label='Электронная почта'
 					required
 					isWrong={email.showError && !email.isValid()}
@@ -45,7 +47,7 @@ export default class OrderFormContacts extends React.Component {
 					}}
 				/>
 
-				<FormGroup
+				<Field
 					label='Скайп'
 					required
 					isWrong={skype.showError && !skype.isValid()}
@@ -55,7 +57,7 @@ export default class OrderFormContacts extends React.Component {
 					}}
 				/>
 
-				<FormGroup
+				<Field
 					label='Контактный телефон'
 					required
 					isWrong={phone.showError && !phone.isValid()}
@@ -65,20 +67,20 @@ export default class OrderFormContacts extends React.Component {
 					}}
 				/>
 
-
-				<div className='confirm-rules'>
-					<label className='label checkbox label-last'>
-						<span className='corner-cover'>Принимаю&nbsp;</span>
-					</label>
-					<a
-						className='label-last-link blue-link'
+				<Checkbox className='order-contacts__rules' checked readOnly>
+					Принимаю&nbsp;
+					<Link color='blue'
 						href='/confidential'
 						target='_blank'
-					>положение об обработке персональных данных</a>
-				</div>
+					>
+						положение об обработке персональных данных
+					</Link>
+				</Checkbox>
 
-				<div style={{marginTop: 30, width: 170}}>
-					<Brick text='— Поехали!' />
+				<div className='order-contacts__button'>
+					<Button mod='form' type='submit'>
+						— Поехали!
+					</Button>
 				</div>
 
 			</div>

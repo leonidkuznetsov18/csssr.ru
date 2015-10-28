@@ -2,105 +2,77 @@ import React, {PropTypes} from 'react';
 import Row from 'components/row';
 import Column from 'components/column';
 import Title from 'components/title';
-import {Options, Option} from 'components/options';
+import Options from 'components/options';
+import Checkbox from 'components/checkbox';
+import Radio from 'components/radio';
 
+import './styles.css';
 
-export default class OrderOptions extends React.Component {
+export default function OrderOptions({options, changeOption}) {
+	const titles = [
+		'Современные браузеры',
+		'Устаревшие браузеры',
+		'Мобильные платформы',
+		'Ширина страниц'
+	];
+	const keys = [
+		'modernBrowsers',
+		'mobile',
+		'oldBrowsers',
+		'pagesWidth'
+	];
 
-	static propTypes = {
-		options: PropTypes.object.isRequired,
-		changeOption: PropTypes.func.isRequired
-	}
+	const {addition} = options;
 
-	render() {
-		const {mobile, modernBrowsers, oldBrowsers, pagesWidth, addition} = this.props.options;
-		return (
-			<div>
-				<Row>
-					<Column size={1 / 4}>
-						<Title size='small'>современные браузеры</Title>
-						<Options>
-							{modernBrowsers.map((option, i) => (
-								<Option
-									tip={option.tip}
-									checked={option.isChecked}
-									onChange={e => this.props.changeOption('modernBrowsers', e.target.checked, i)}
-									key={i}
-								>
-									{option.name}
-								</Option>
-							))}
-						</Options>
-					</Column>
+	return (
+		<div className='order-options'>
+			<Row>
+				{keys.map((key, index) => {
+					const Component = key === 'pagesWidth' ? Radio : Checkbox;
+					const structure = key === 'pagesWidth' ? 'radio' : 'checkbox';
 
-					<Column size={1 / 4}>
-						<Title size='small'>устаревшие браузеры</Title>
-						<Options>
-							{oldBrowsers.map((option, i) => (
-								<Option
-									tip={option.tip}
-									checked={option.isChecked}
-									onChange={e => this.props.changeOption('oldBrowsers', e.target.checked, i)}
-									key={i}
-								>
-									{option.name}
-								</Option>
-							))}
-						</Options>
-					</Column>
+					return (
+						<Column size={1 / 4} key={index}>
+							<Title size='small'>
+								{titles[index]}
+							</Title>
 
-					<Column size={1 / 4}>
-						<Title size='small'>мобильные платформы</Title>
-						<Options>
-							{mobile.map((option, i) => (
-								<Option
-									tip={option.tip}
-									checked={option.isChecked}
-									onChange={e => this.props.changeOption('mobile', e.target.checked, i)}
-									key={i}
-								>
-									{option.name}
-								</Option>
-							))}
-						</Options>
-					</Column>
+							<Options>
+								{options[key].map((option, index) => (
+									<Component
+										tip={option.tip}
+										checked={option.isChecked}
+										name={key}
+										onChange={e => changeOption(key, e.target.checked, index, structure)}
+										key={index}
+									>
+										{option.name}
+									</Component>
+								))}
+							</Options>
+						</Column>
+					);
+				})}
+			</Row>
 
-					<Column size={1 / 4}>
-						<Title size='small'>ширина страниц</Title>
-						<Options type='radio'>
-							{pagesWidth.map((option, i) => (
-								<Option
-									tip={option.tip}
-									checked={option.isChecked}
-									onChange={e => this.props.changeOption('pagesWidth', e.target.checked, i, 'radio')}
-									key={i}
-								>
-									{option.name}
-								</Option>
-							))}
-						</Options>
-					</Column>
-				</Row>
-
-				<Row style={{marginTop: 20}}>
-					<Title size='small'>дополнительно</Title>
-				</Row>
-
-				<Row>
-					<Options inline>
-						{addition.map((option, i) => (
-							<Option
-								tip={option.tip}
-								checked={option.isChecked}
-								onChange={e => this.props.changeOption('addition', e.target.checked, i)}
-								key={i}
-							>
-								{option.name}
-							</Option>
-						))}
-					</Options>
-				</Row>
-			</div>
-		);
-	}
+			<Title size='small'>Дополнительно</Title>
+			<Options inline>
+				{addition.map((option, i) => (
+					<Checkbox
+						tip={option.tip}
+						checked={option.isChecked}
+						onChange={e => changeOption('addition', e.target.checked, i)}
+						key={i}
+					>
+						{option.name}
+					</Checkbox>
+				))}
+			</Options>
+		</div>
+	);
 }
+
+OrderOptions.propTypes = {
+	options: PropTypes.object.isRequired,
+	changeOption: PropTypes.func.isRequired
+};

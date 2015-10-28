@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'components/button';
+import { Link } from 'react-router';
 import './styles.css';
 
 export default function Service({service}) {
@@ -11,7 +12,7 @@ export default function Service({service}) {
 			<h4 className='service__subtitle'>
 				{service.subtitle}
 			</h4>
-			<Button to={service.link}>
+			<Button to={service.link} component={Link}>
 				{service.linkText}
 			</Button>
 			<p className='service__text'>

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import request from 'superagent';
 import spliter from 'helpers/spliter';
-import FormGroup from 'components/form-group-true';
+import FormGroup from 'components/field';
 import FormGroupFile from 'components/form-group-file';
 import Brick from 'components/brick';
 import './styles.css';

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import FormGroup from 'components/form-group-true';
+import Field from 'components/field';
 import cx from 'classnames';
 
 import './styles.css';
@@ -40,7 +40,7 @@ export default class FormGroupFile extends React.Component {
 		const {inputProps} = this.props;
 		return (
 			<div className={cx('form-group-file', this.props.className)}>
-				<FormGroup
+				<Field
 					{...this.props}
 					className={cx('form-group-file__text-input', inputProps && inputProps.className)}
 					inputProps={Object.assign({}, inputProps, {disabled: true})}

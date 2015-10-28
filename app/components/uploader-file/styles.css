@@ -1,0 +1,78 @@
+.uploader-file {
+	position: relative;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 20px;
+	display: inline-flex;
+	width: 32%;
+	margin-right: 2%;
+	font-family: 'PT Sans Narrow';
+	font-size: 15px;
+	line-height: 25px;
+	color: #333;
+
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 17px;
+		height: 25px;
+		background-image: url('../../images/order/file.png');
+		background-repeat: no-repeat;
+	}
+
+	&__name {
+		padding-right: 5px;
+		max-width: 80%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__progress {
+		flex: 1;
+		position: relative;
+		margin-top: 11px;
+		margin-right: 12px;
+		height: 5px;
+		background-color: #d4c5aa;
+		border-top: 1px solid #a8977b;
+		border-right: 1px solid #a8977b;
+
+
+		&-line {
+			position: absolute;
+			top: -1px;
+			height: calc(100% + 1px);
+			background-color: #900;
+			transition: width .1s;
+		}
+
+		&_completed &-line {
+			background-color: transparent;
+		}
+
+		&_completed {
+			border: none;
+			margin-top: 12px;
+			background-color: transparent;
+			background-image: url('../../images/order/progress.png');
+			background-repeat: no-repeat;
+			background-position: bottom;
+		}
+	}
+
+	&__remove-button {
+		position: absolute;
+		top: calc(50% - 3px);
+		right: 0;
+		width: 7px;
+		height: 7px;
+		background-image: url('../../images/order/close.png');
+		cursor: pointer;
+	}
+}

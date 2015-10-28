@@ -7,7 +7,7 @@ import PixelPerfectionist from 'components/job-pixel-perfectionist';
 import Index from 'containers/page-index';
 import Company from 'containers/page-company';
 import Jobs from 'containers/page-jobs';
-import Order from 'components/order';
+import Order from 'containers/page-order';
 import Outsource from 'components/outsource';
 import Offert from 'containers/page-offert';
 import Portfolio from 'containers/page-portfolio';

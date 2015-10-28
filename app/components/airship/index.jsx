@@ -2,8 +2,8 @@ import React from 'react';
 
 import './styles.css';
 
-export default function Airship({image}) {
-	const imageUrl = require(`../../images/background/${image}`)
+export default function Airship({image, children}) {
+	const imageUrl = require(`../../images/background/${image}`);
 	const textStyle = {
 		backgroundImage: `url(${imageUrl})`
 	};
@@ -13,6 +13,11 @@ export default function Airship({image}) {
 			<div className='airship__inner'>
 				<div className='airship__text' style={textStyle}/>
 			</div>
+			{children &&
+				<div className='airship__content'>
+					{children}
+				</div>
+			}
 		</div>
 	);
 };

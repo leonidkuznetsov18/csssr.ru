@@ -1,21 +1,13 @@
-.order__main__content__contacts {
-	display: block;
+.order-contacts {
+	width: 420px;
+	margin-top: 20px;
 
-	&__text {
-		position: relative;
-		margin-top: 19px;
-		margin-bottom: 29px;
-
-		.input-text {
-			margin: 4px 0 9px 0;
-			display: block;
-			width: 412px;
-			background-color: transparent;
-		}
+	&__rules {
+		font-size: 12px;
 	}
 
-	&__submit {
-		width: 164px;
+	&__button {
+		margin-top: 30px;
+		width: 170px;
 	}
-
 }

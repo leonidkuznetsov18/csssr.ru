@@ -1,0 +1,36 @@
+.uploader {
+	margin-bottom: 25px;
+	position: relative;
+	clear: fix;
+
+	&__links {
+		margin-top: 30px;
+		margin-bottom: 5px;
+	}
+
+	&__link {
+		margin-right: 7px;
+	}
+
+	&__sections {
+		height: 190px;
+		position: relative;
+	}
+
+	&__section {
+		position: absolute;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity .5s ease, visibiliy 0s linear .5s;
+		pointer-events: none;
+
+		&_active {
+			pointer-events: all;
+			transition-delay: 0s;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
