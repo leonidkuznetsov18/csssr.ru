@@ -3,6 +3,7 @@
 	padding-left: 10%;
 	padding-top: 42px;
 	position: relative;
+	margin: 0 30px;
 
 	&__wrapper {
 		position: absolute;

@@ -40,6 +40,8 @@
 			border-bottom-width: 1px;
 			border-bottom-style: dashed;
 			border-bottom-color: transparent;
+			text-decoration: none;
+			color: inherit;
 
 			&_state_active {
 				cursor: pointer;

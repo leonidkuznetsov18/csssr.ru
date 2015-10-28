@@ -1,9 +1,10 @@
-
 .projecter {
 	position: fixed;
-	z-index: -1;
-	top: -1000%;
-	left: -1000%;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	display: flex;
 	cursor: url('../../images/cursor/close.png') 15 15, url('../../images/cursor/close.cur'), ne-resize;
 	user-select: none;
@@ -12,7 +13,7 @@
 	background-position: 50% 50%;
 	background-size: cover;
 	opacity: 0;
-	transition: z-index 0s .25s, visibility 0s .25s, opacity .25s;
+	transition: visibility 0s linear .33s, opacity .33s ease;
 	will-change: top, left, z-index, visibility, opacity;
 
 	&::selection {
@@ -20,14 +21,9 @@
 	}
 
 	&_state_active {
-		z-index: 1000;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		visibility: visible;
 		opacity: 1;
-		transition: z-index 0s, visibility 0s, opacity .25s;
+		transition-delay: 0s;
 	}
 
 	&_project_yota {
@@ -42,12 +38,6 @@
 		align-items: center;
 		justify-content: center;
 		background-image: url('../../images/outsource/cpeople.gif');
-	}
-
-	&_project_life {
-		justify-content: space-between;
-		align-items: center;
-		background-image: url('../../images/outsource/life.gif');
 	}
 
 	&__title {

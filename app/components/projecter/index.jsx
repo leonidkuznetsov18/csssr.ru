@@ -1,28 +1,39 @@
 import React from 'react';
+import cx from 'classnames';
 
 import './styles.css';
 
+export default function Projecter({active, partner, title, content, onClose}) {
+	const blockClass = cx({
+		projecter: true,
+		projecter_state_active: active,
+		[`projecter_project_${partner}`]: partner,
+	});
 
-export default class Projecter extends React.Component {
-
-	static propTypes = {
-		project: React.PropTypes.string.isRequired,
-		closeProjecter: React.PropTypes.func,
-		children: React.PropTypes.node.isRequired
-	}
-
-
-	render() {
-		return (
-			<div
-				className={`projecter projecter_project_${this.props.project} projecter_state_active`}
-				onClick={this.props.closeProjecter}
-			>
-				<div onClick={(e) => e.stopPropagation()}>
-					{this.props.children}
+	return (
+		<div onClick={onClose} className={blockClass} >
+			<div onClick={(e) => e.stopPropagation()}>
+				<div className='projecter__title'>
+					<div
+						className='projecter__selection'
+						dangerouslySetInnerHTML={{__html: title}}
+					/>
 				</div>
 
+				<blockquote className='projecter__comment'>
+					<div
+						className='projecter__selection'
+						dangerouslySetInnerHTML={{__html: content}}
+					/>
+				</blockquote>
 			</div>
-		);
-	}
+		</div>
+	);
 }
+
+Projecter.propTypes = {
+	partner: React.PropTypes.string.isRequired,
+	active: React.PropTypes.bool,
+	title: React.PropTypes.string,
+	content: React.PropTypes.string,
+};

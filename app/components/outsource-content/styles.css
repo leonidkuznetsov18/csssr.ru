@@ -1,8 +1,33 @@
 .outsource {
 
+	&__subtitle {
+		color: #6b0000;
+		font-size: 26px;
+		font-family: 'PT Sans Narrow';
+		text-transform: uppercase;
+		position: relative;
+		overflow: hidden;
+		line-height: 40px;
+		z-index: 2;
+		letter-spacing: 0.075em;
+
+		&::after {
+			display: inline-block;
+			position: absolute;
+			width: 100%;
+			background: #6c0400;
+			height: 1px;
+			top: 20px;
+			content: '';
+			margin-left: 15px;
+		}
+	}
+
 	&__content {
 		position: relative;
 		font-size: 0;
+		padding-left: 30px;
+		padding-right: 30px;
 
 		&:before {
 			display: block;

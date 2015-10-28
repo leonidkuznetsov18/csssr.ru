@@ -1,0 +1,20 @@
+.outsource-title {
+	margin: 0 auto 84px;
+	width: 472px;
+	font-family: RodchenkoCTT;
+	font-size: 54px;
+	text-transform: uppercase;
+	font-style: italic;
+	line-height: 56px;
+	color: #333;
+
+	&__left,
+	&__right {
+		display: block;
+	}
+
+	&__right {
+		padding-left: 88px;
+		padding-top: 5px;
+	}
+}

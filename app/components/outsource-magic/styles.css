@@ -1,6 +1,7 @@
 .outsource-magic {
 	position: relative;
 	height: 545px;
+	margin: 0 30px;
 
 	&::before {
 		position: absolute;

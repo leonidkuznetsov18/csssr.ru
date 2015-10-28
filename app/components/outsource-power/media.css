@@ -31,3 +31,19 @@
 		margin-top: 80px;
 	}
 }
+
+@media (--small) {
+	.outsource-power {
+		&__circle-1 {
+			&::before {
+				display: none;
+			}
+
+			&::after {
+				width: 113px;
+				top: -52px;
+				right: 275px;
+			}
+		}
+	}
+}

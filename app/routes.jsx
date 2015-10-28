@@ -8,7 +8,8 @@ import Index from 'containers/page-index';
 import Company from 'containers/page-company';
 import Jobs from 'containers/page-jobs';
 import Order from 'containers/page-order';
-import Outsource from 'components/outsource';
+import Outsource from 'containers/page-outsource';
+import Partner from 'containers/page-partner';
 import Offert from 'containers/page-offert';
 import Portfolio from 'containers/page-portfolio';
 import Project from 'containers/page-project';
@@ -25,7 +26,9 @@ export default (
 			<Route path='pixel-perfectionist' name='pixel-perfectionist' component={PixelPerfectionist} />
 		</Route>
 		<Route path='/order' name='order' component={Order} />
-		<Route path='/outsource' name='outsource' component={Outsource} />
+		<Route path='/outsource' name='outsource' component={Outsource}>
+			<Route path=':partner' name='partner' component={Partner} />
+		</Route>
 		<Route path='/portfolio' name='portfolio' component={Portfolio} >
 			<Route path=':project' name='project' component={Project} >
 				<Route path=':page' name='page' component={ProjectPage} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Success from 'components/outsource-success';
+import OutsourceSuccess from 'components/outsource-success';
 
 import './styles.css';
 
@@ -8,7 +8,6 @@ export default class OutsourceContent extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.object.isRequired
 	}
-
 
 	render() {
 		const data = this.props.data;
@@ -43,7 +42,7 @@ export default class OutsourceContent extends React.Component {
 					</div>
 
 				</div>
-				<Success
+				<OutsourceSuccess
 					title={data.success.title}
 					description={data.success.description}
 				/>

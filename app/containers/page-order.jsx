@@ -44,6 +44,8 @@ export default class PageCompany extends React.Component {
 						<Faq data={group} key={index} />
 					))}
 				</FaqGroup>
+
+				{this.props.children}
 			</div>
 		);
 	}
