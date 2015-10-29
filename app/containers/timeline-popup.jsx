@@ -16,15 +16,6 @@ export default class PageTimelinePopup extends React.Component {
 
 
 	render() {
-		// const popupData = {
-		// 	name: 'Петя',
-		// 	city: 'Симферополь',
-		// 	histories: 'Непросто сделать космическую ракету на удаленном управлении, внутри которой кипит слаженный процесс. Дорогие наши менеджеры-девушки, спасибо вам!',
-		// 	wishes: 'С Днём Рождения, CSSSR!!! Желаю не останавливаться на достигнутом.',
-		// 	avatar: {
-		// 		src: '/img/timeline/avatar/petr-la.jpg'
-		// 	}
-		// };
 		const popupData = url => {
 			let target;
 			timeline.forEach(event => {

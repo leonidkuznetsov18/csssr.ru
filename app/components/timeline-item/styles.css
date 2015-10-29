@@ -1,229 +1,251 @@
 .timeline {
-    &__item {
-        position: relative;
-        margin-top: 8px;
-        margin-left: 200px;
-        padding-left: 190px;
-        padding-bottom: 28px;
-        overflow: hidden;
-        width: 600px;
-        &:last-child {
-            &:before {
-                display: none;
-            }
-        }
-        &:before {
-            position: absolute;
-            left: 140px;
-            bottom: 0;
-            display: block;
-            width: 1px;
-            content: '';
-            background-color: #666;
-        }
-    }
+	&__item {
+		position: relative;
+		margin-top: 8px;
+		margin-left: 200px;
+		padding-left: 190px;
+		padding-bottom: 28px;
+		overflow: hidden;
+		width: 600px;
 
-    &__images{
-        margin-top: 5px;
-        font-size: 0;
-        line-height: 1;
-    }
+		&:last-child {
+			&:before {
+				display: none;
+			}
+		}
 
-    &__date {
-        position: absolute;
-        left: 0;
-        width: 92px;
-        font-family: 'Roboto';
-        font-weight: 300;
-        font-size: 11px;
-        line-height: 18px;
-        text-align: right;
-        color: #333;
-    }
-    &__avatars {
-    	margin-left:-20px;
-	    margin-top: 5px;
-	    font-size: 0;
-	    line-height: 1;
-        .timeline__avatar {
-            margin-left: 8px;
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 13px;
-            cursor: pointer;
-            border-radius: 100%;
-            filter: grayscale(100%);
-            transition-duration: .25s;
-            transition-property: opacity, transform, filter, -webkit-filter;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            will-change: opacity, transform, filter, -webkit-filter;
-            &:hover {
-                opacity: .9;
-                -webkit-transform: translateY(-4px);
-                -ms-transform: translateY(-4px);
-                transform: translateY(-4px);
-                -webkit-filter: grayscale(0);
-                filter: grayscale(0);
-            }
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-    }
-    &__description {
-        margin-top: 5px;
-        margin-bottom: 28px;
-        display: table;
-        font-family: 'Roboto';
-        font-weight: 300;
-        font-size: 13px;
-        line-height: 18px;
-        color: #333;
-        a{
-            &:hover{
-                transition:color .25s;
-            }
-        }
-    }
-    &__icon_type_count {
-        position: absolute;
-        top: 0;
-        left: 112px;
-        width: 56px;
-        height: 56px;
-        vertical-align: top;
-        font-family: 'PT Sans Narrow';
-        font-size: 28px;
-        line-height: 56px;
-        text-align: center;
-        color: #f2ebda;
-        background: #aa2f23 url(http://csssr.ru//img/timeline-newstaff-circle.png) no-repeat;
-        background-size: cover;
-        border-radius: 100%;
-        .plus{
-            margin-right: 4px;
-            vertical-align: top;
-            font-family: 'Roboto';
-            font-weight:300;
-            font-size: 18px;
-            line-height: 56px;
-        }
-    }
-    &__icon_type_star {
-        position: absolute;
-        top: 0;
-        left: 134px;
-        width: 12px;
-        height: 12px;
-    }
-    &__audio {
-        position: relative;
-        width: 80px;
-        height: 80px;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-color: #fcb54d;
-        border-radius: 100%;
-        transition-duration: .25s;
-        transition-property: background-color;
-        &::before {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            content: '';
-            left: 0;
-            width: 72px;
-            height: 72px;
-            border: 1px dashed #5f1600;
-            border-radius: 100%;
-        }
-        &::after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            content: '';
-            left: 7px;
-            width: 0;
-            height: 0;
-            border-top: 12px solid transparent;
-            border-left: 20px solid #5f1600;
-            border-bottom: 12px solid transparent;
-        }
-    }
-    &__version {
-        font-family: 'Roboto';
-        font-weight:300;
-        font-size: 24px;
-        line-height: 30px;
-        text-transform: uppercase;
-        a {
-            text-transform: lowercase;
-        }
-    }
-    &__quote {
-        position: relative;
-        margin-top: 4px;
-        margin-left: -48px;
-        padding-left: 48px;
-        display: table;
-        line-height: 22px;
-        span {
-            margin-bottom: 10px;
-            display: block;
-            font-family: 'Roboto';
-            font-weight:300;
-            font-size: 12px;
-            font-style: italic;
-            line-height: 18px;
-        }
-        p {
-            position: relative;
-            font-family: 'Roboto';
-            font-weight:300;
-            font-size: 17px;
-            line-height: 22px;
-            color: #333;
-        }
-        &:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: 'PT Sans';
-            font-size: 80px;
-            line-height: 1;
-            content: '\201c';
-        }
-    }
-    &__with-icon-star{
-        padding-left: 165px;
-        &:before{
-            top: 20px;
-        }
-        .timeline__names{
+		&:before {
+			position: absolute;
+			left: 140px;
+			bottom: 0;
+			display: block;
+			width: 1px;
+			content: '';
+			background-color: #666;
+		}
+	}
 
-        }
-    }
-    &__with-icon-count{
-        &:before{
-            top: 64px;
-        }
-        .timeline__names{
-            margin-top:20px;
-        }
-        .timeline__date{
-            top:20px;
-        }
-        .title_size_extra_small{
-            margin-top:20px;
-            margin-bottom: 0;
-        }
-    }
+	&__images{
+		margin-top: 5px;
+		font-size: 0;
+		line-height: 1;
+	}
+
+	&__date {
+		position: absolute;
+		left: 0;
+		width: 92px;
+		font-family: 'Roboto';
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 18px;
+		text-align: right;
+		color: #333;
+	}
+
+	&__avatars {
+		margin-left:-20px;
+		margin-top: 5px;
+		font-size: 0;
+		line-height: 1;
+	}
+
+	&__avatar {
+		margin-left: 8px;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 13px;
+		cursor: pointer;
+		border-radius: 100%;
+		filter: grayscale(100%);
+		transition-duration: .25s;
+		transition-property: opacity, transform, filter, -webkit-filter;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		will-change: opacity, transform, filter, -webkit-filter;
+
+		&_disabled {
+			pointer-events: none;
+		}
+
+		:not(&_disabled):hover {
+			opacity: .9;
+			-webkit-transform: translateY(-4px);
+			-ms-transform: translateY(-4px);
+			transform: translateY(-4px);
+			-webkit-filter: grayscale(0);
+			filter: grayscale(0);
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&__description {
+		margin-top: 5px;
+		margin-bottom: 28px;
+		display: table;
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 13px;
+		line-height: 18px;
+		color: #333;
+
+		a{
+			&:hover{
+				transition:color .25s;
+			}
+		}
+	}
+
+	&__icon_type_count {
+		position: absolute;
+		top: 0;
+		left: 112px;
+		width: 56px;
+		height: 56px;
+		vertical-align: top;
+		font-family: 'PT Sans Narrow';
+		font-size: 28px;
+		line-height: 56px;
+		text-align: center;
+		color: #f2ebda;
+		background: #aa2f23 url(http://csssr.ru//img/timeline-newstaff-circle.png) no-repeat;
+		background-size: cover;
+		border-radius: 100%;
+		.plus{
+			margin-right: 4px;
+			vertical-align: top;
+			font-family: 'Roboto';
+			font-weight:300;
+			font-size: 18px;
+			line-height: 56px;
+		}
+	}
+
+	&__icon_type_star {
+		position: absolute;
+		top: 0;
+		left: 134px;
+		width: 12px;
+		height: 12px;
+	}
+
+	&__audio {
+		position: relative;
+		width: 80px;
+		height: 80px;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-color: #fcb54d;
+		border-radius: 100%;
+		transition-duration: .25s;
+		transition-property: background-color;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			content: '';
+			left: 0;
+			width: 72px;
+			height: 72px;
+			border: 1px dashed #5f1600;
+			border-radius: 100%;
+		}
+
+		&::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			content: '';
+			left: 7px;
+			width: 0;
+			height: 0;
+			border-top: 12px solid transparent;
+			border-left: 20px solid #5f1600;
+			border-bottom: 12px solid transparent;
+		}
+	}
+
+	&__version {
+		font-family: 'Roboto';
+		font-weight:300;
+		font-size: 24px;
+		line-height: 30px;
+		text-transform: uppercase;
+		a {
+			text-transform: lowercase;
+		}
+	}
+
+	&__quote {
+		position: relative;
+		margin-top: 4px;
+		margin-left: -48px;
+		padding-left: 48px;
+		display: table;
+		line-height: 22px;
+		span {
+			margin-bottom: 10px;
+			display: block;
+			font-family: 'Roboto';
+			font-weight:300;
+			font-size: 12px;
+			font-style: italic;
+			line-height: 18px;
+		}
+
+		p {
+			position: relative;
+			font-family: 'Roboto';
+			font-weight:300;
+			font-size: 17px;
+			line-height: 22px;
+			color: #333;
+		}
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-family: 'PT Sans';
+			font-size: 80px;
+			line-height: 1;
+			content: '\201c';
+		}
+	}
+
+	&__with-icon-star {
+		padding-left: 165px;
+		&:before{
+			top: 20px;
+		}
+	}
+
+	&__with-icon-count {
+		&:before{
+			top: 64px;
+		}
+
+		.timeline__names {
+			margin-top:20px;
+		}
+
+		.timeline__date {
+			top:20px;
+		}
+
+		.title_size_extra_small {
+			margin-top:20px;
+		}
+	}
 }
