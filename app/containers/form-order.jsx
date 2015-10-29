@@ -6,7 +6,7 @@ import {changeOption} from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import FormValidationWindow from 'components/form-validation-window';
-import Contacts from 'components/order-contacts';
+import Contacts from 'components/contacts-form';
 
 @connect(store => ({
 	form: store.order.form

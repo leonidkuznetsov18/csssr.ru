@@ -27,7 +27,7 @@ export default class OrderFormContacts extends React.Component {
 		const {name, email, skype, phone} = this.props.contacts;
 
 		return (
-			<div className='order-contacts'>
+			<div className='contacts-form'>
 				<Field
 					label='Ваше имя'
 					required
@@ -72,7 +72,7 @@ export default class OrderFormContacts extends React.Component {
 					}}
 				/>
 
-				<Checkbox className='order-contacts__rules' checked readOnly>
+				<Checkbox className='contacts-form__rules' checked readOnly>
 					Принимаю&nbsp;
 					<Link color='blue'
 						href='/confidential'
@@ -82,7 +82,7 @@ export default class OrderFormContacts extends React.Component {
 					</Link>
 				</Checkbox>
 
-				<div className='order-contacts__button'>
+				<div className='contacts-form__button'>
 					<Button mod='form' type='submit'>
 						— Поехали!
 					</Button>
