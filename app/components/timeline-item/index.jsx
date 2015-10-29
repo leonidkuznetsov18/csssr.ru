@@ -62,7 +62,7 @@ export default function TimelineItem(props) {
 
 		const classList = cx({
 			timeline__avatar: true,
-			timeline__avatar_disabled: person.url,
+			timeline__avatar_disabled: !person.url,
 		});
 
 		return (
@@ -74,7 +74,7 @@ export default function TimelineItem(props) {
 				width={person.avatar.width}
 				height={person.avatar.height}
 				key={index}
-				onClick={props.goToPage('/timeline/' + person.url)}
+				onClick={person.url && props.goToPage('/timeline/' + person.url)}
 			/>
 		);
 	});

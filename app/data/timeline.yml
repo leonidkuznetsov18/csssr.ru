@@ -153,6 +153,7 @@
     newstaff:
       -
         name: "Настя Синие Волосы"
+        url: "anastasiya-vn"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/anastasiya-vn.jpg"
@@ -163,7 +164,6 @@
         wishes: "CSSSR, ты просто космос. Ребята, у меня к вам любовь."
       -
         name: "Андрей"
-        url: "andrey-ko"
         city: "Санкт-Петербург"
         avatar:
           src: "/img/timeline/avatar/andrey-ko.jpg"

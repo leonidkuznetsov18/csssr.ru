@@ -64,11 +64,9 @@
 		backface-visibility: hidden;
 		will-change: opacity, transform, filter, -webkit-filter;
 
-		&_disabled {
-			pointer-events: none;
-		}
 
-		:not(&_disabled):hover {
+
+		&:hover:not(.timeline__avatar_disabled) {
 			opacity: .9;
 			-webkit-transform: translateY(-4px);
 			-ms-transform: translateY(-4px);
