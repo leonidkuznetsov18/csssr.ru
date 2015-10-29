@@ -88,7 +88,12 @@ export default function TimelineItem(props) {
 	if (props.data.readLink) {
 		readLink = (
 			<div className='timeline__readLink'>
-				{props.data.readLink ? <Button to={props.data.readLink}> {props.data.buttonName} </Button> : null}
+				{props.data.readLink && (
+					<Button
+						component='a'
+						href={props.data.readLink}
+					>{props.data.buttonName}</Button>
+				)}
 			</div>
 			);
 	}
