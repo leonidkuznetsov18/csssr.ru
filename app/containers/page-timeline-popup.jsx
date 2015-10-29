@@ -25,12 +25,12 @@ export default class PageTimelinePopup extends React.Component {
 		// 		src: '/img/timeline/avatar/petr-la.jpg'
 		// 	}
 		// };
-		const popupData = name => {
+		const popupData = url => {
 			let target;
 			timeline.forEach(event => {
 				if (event.newstaff) {
 					event.newstaff.forEach(person => {
-						if (person.name === name) {
+						if (person.url === url) {
 							return target = person;
 						}
 					});

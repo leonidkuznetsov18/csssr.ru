@@ -12,6 +12,7 @@
     newstaff: 
       - 
         name: "Лера"
+        url: "valeria-zy"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/valeria-zy.jpg"
@@ -20,6 +21,7 @@
         histories: "Любой тестировщик должен знать не только мат. часть, но и русский язык на отлично  проверено. А ещё теперь мой рабочий день начинается в 12 дня. Я безумно счастлива, что наконец-то высыпаюсь, и даже есть время на спорт\n(ну, иногда :) )"
       - 
         name: "Юля"
+        url: "juliya-de"
         city: "Москва"
         avatar:
           src: "/img/timeline/avatar/juliya-de.jpg"
@@ -29,6 +31,7 @@
         wishes: "Дорогой CSSSR! Желаю развиваться как в количестве, так и в качестве. Больших проектов! Крутых специалистов!"
       - 
         name: "Петя"
+        url: "petr-la"
         city: "Симферополь"
         avatar:
           src: "/img/timeline/avatar/petr-la.jpg"
@@ -38,6 +41,7 @@
         wishes: "С Днём Рождения, CSSSR!!! Желаю не останавливаться на достигнутом."
       - 
         name: "Никита"
+        url: "nikita-la"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/nikita-la.jpg"
@@ -47,6 +51,7 @@
         wishes: "Меня поражает позитив и суровость команды. Это и есть та самая золотая середина, которую все ищут. Оставайтесь крутыми, ребята!"
       - 
         name: "Леонард"
+        url: "leonard-ki"
         city: "Гомель"
         avatar:
           src: "/img/timeline/avatar/leonard-ki.jpg"
@@ -74,6 +79,7 @@
     newstaff: 
       - 
         name: "Петя"
+        url: "petr-sh"
         city: "Уфа"
         avatar:
           src: "/img/timeline/avatar/petr-sh.jpg"
@@ -82,6 +88,7 @@
         wishes: "Все нормально, продолжать в том же духе!"
       - 
         name: "Денис"
+        url: "denis-di"
         city: "Николаев"
         avatar:
           src: "/img/timeline/avatar/denis-di.jpg"
@@ -91,6 +98,7 @@
         wishes: "Всё зашибись. Так держать!"
       - 
         name: "Лёша"
+        url: "aleksey-du"
         city: "Курск"
         avatar:
           src: "/img/timeline/avatar/aleksey-du.jpg"
@@ -112,6 +120,7 @@
     newstaff: 
       - 
         name: "Вадим"
+        url: "vadim-lo"
         city: "Гомель"
         avatar:
           src: "/img/timeline/avatar/vadim-lo.jpg"
@@ -121,6 +130,7 @@
         wishes: "Всё космос. Продолжаем в том же духе!"
       - 
         name: "Виталик"
+        url: "vitaliy-ba"
         city: "Воронеж"
         avatar:
           src: "/img/timeline/avatar/vitaliy-ba.jpg"
@@ -130,6 +140,7 @@
         wishes: "Я очень хочу прыгнуть с парашютом всей командой, сходить в турпоход в тайгу или в горы. Желаю CSSSR так же стремительно развиваться."
       - 
         name: "Вика"
+        url: "viktoriya-ze"
         city: "Белгород"
         avatar:
           src: "/img/timeline/avatar/viktoriya-ze.jpg"
@@ -142,6 +153,7 @@
     newstaff: 
       - 
         name: "Настя Синие Волосы"
+        url: "anastasiya-vn"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/anastasiya-vn.jpg"
@@ -152,6 +164,7 @@
         wishes: "CSSSR, ты просто космос. Ребята, у меня к вам любовь."
       - 
         name: "Андрей"
+        url: "andrey-ko"
         city: "Санкт-Петербург"
         avatar:
           src: "/img/timeline/avatar/andrey-ko.jpg"
@@ -159,6 +172,7 @@
           height: 100
       - 
         name: "Дима"
+        url: "dmitriy-sh"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/dmitriy-sh.jpg"
@@ -178,6 +192,7 @@
     newstaff: 
       - 
         name: "Лёша"
+        url: "aleksey-ko"
         city: "Кривой Рог"
         avatar:
           src: "/img/timeline/avatar/aleksey-ko.jpg"
@@ -186,6 +201,7 @@
         histories: "CSSSR развивает в нас чувство прекрасного. Так, спустя небольшое количество времени, появляется вкус :) I love it!"
       - 
         name: "Олег"
+        url: "oleg-vi"
         city: "Нижний Новгород, Паттайя"
         avatar:
           src: "/img/timeline/avatar/oleg-vi.jpg"
@@ -195,6 +211,7 @@
         wishes: "CSSSR опережает своё время. Выбран очень правильный логотип! Как первый космический корабль, который открывает дверь в мир свободы перемещения, совмещая это со свободой профессиональной реализации и общения."
       - 
         name: "Рустам"
+        url: "rustam-ab"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/rustam-ab.jpg"
@@ -220,6 +237,7 @@
     newstaff: 
       - 
         name: "Андрей"
+        url: "andrey-by"
         city: "Тернополь"
         avatar:
           src: "/img/timeline/avatar/andrey-by.jpg"
@@ -229,6 +247,7 @@
         wishes: "Чтобы у вас всё-всё-всё получалось, и желаю вам только всего самого-самого лууучшегооо. CSSSR, ВЫ  КОСМОС! &lt;3 &lt;3 &lt;3"
       - 
         name: "Виктор"
+        url: "viktor-sc"
         city: "Кишинёв"
         avatar:
           src: "/img/timeline/avatar/viktor-sc.jpg"
@@ -245,6 +264,7 @@
     newstaff: 
       - 
         name: "Таня"
+        url: "tatiyana-ts"
         city: "Санкт-Петербург"
         avatar:
           src: "/img/timeline/avatar/tatiyana-ts.jpg"
@@ -278,6 +298,7 @@
     newstaff: 
       - 
         name: "Паша"
+        url: "pavel-az"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/pavel-az.jpg"
@@ -291,6 +312,7 @@
     newstaff: 
       - 
         name: "Нина"
+        url: "nina-sm"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/nina-sm.jpg"
@@ -301,6 +323,7 @@
         wishes: "Желаю, чтобы о CSSSR узнал весь мир и не на только на словах, но и на деле! Это просто работа мечты!"
       - 
         name: "Андрей"
+        url: "andrey-ya"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/andrey-ya.jpg"
@@ -310,6 +333,7 @@
         wishes: "Я бы рекомендовал открыть направление Web Accessibility. Штука крутая, мало кто это поддерживает, можно быстро стать лидерами в области. Ну и с парашютом бы я спрыгнул, да."
       - 
         name: "Никита"
+        url: "nikita-mo"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/nikita-mo.jpg"
@@ -320,6 +344,7 @@
     newstaff: 
       - 
         name: "Паша"
+        url: "pavel-ya"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/pavel-ya.jpg"
@@ -345,6 +370,7 @@
     newstaff: 
       - 
         name: "Саша"
+        url: "aleksandr-pe"
         city: "Санкт-Петербург"
         vip: "true"
         avatar:
@@ -355,6 +381,7 @@
         wishes: "Реорганизоваться и оптимизироваться."
       - 
         name: "Алекс"
+        url: "alek-zv"
         city: "Тирасполь"
         avatar:
           src: "/img/timeline/avatar/alek-zv.jpg"
@@ -362,6 +389,7 @@
           height: 84
       - 
         name: "Антон"
+        url: "anton-be"
         city: "Челябинск"
         avatar:
           src: "/img/timeline/avatar/anton-be.jpg"
@@ -371,6 +399,7 @@
         wishes: "Желаю развития и мирового господства!"
       - 
         name: "Дима"
+        url: "dmitriy-gr"
         city: "Королёв"
         avatar:
           src: "/img/timeline/avatar/dmitriy-gr.jpg"
@@ -399,6 +428,7 @@
     newstaff: 
       - 
         name: "Лиза"
+        url: "elizaveta-ya"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/elizaveta-ya.jpg"
@@ -433,6 +463,7 @@
     newstaff: 
       - 
         name: "Илья"
+        url: "iliya-fi"
         city: "Пионерский"
         avatar:
           src: "/img/timeline/avatar/iliya-fi.jpg"
@@ -445,6 +476,7 @@
     newstaff: 
       - 
         name: "Феликс"
+        url: "felix"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/felix.jpg"
@@ -463,6 +495,7 @@
     newstaff: 
       - 
         name: "Аня"
+        url: "anya-mi"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/anya-mi.jpg"
@@ -475,6 +508,7 @@
     newstaff: 
       - 
         name: "Саша"
+        url: "aleksandr-ma"
         city: "Планета Земля"
         avatar:
           src: "/img/timeline/avatar/aleksandr-ma.jpg"
@@ -551,6 +585,7 @@
     newstaff: 
       - 
         name: "Саша"
+        url: "aleksandr-kr"
         city: "Москва"
         avatar:
           src: "/img/timeline/avatar/aleksandr-kr.jpg"
@@ -558,6 +593,7 @@
           height: 116
       - 
         name: "Илья"
+        url: "iliya-a"
         city: "Москва"
         avatar:
           src: "/img/timeline/avatar/iliya-a.jpg"
@@ -572,6 +608,7 @@
     newstaff: 
       - 
         name: "Дима"
+        url: "dmitriy-ch"
         city: "Москва"
         avatar:
           src: "/img/timeline/avatar/dmitriy-ch.jpg"

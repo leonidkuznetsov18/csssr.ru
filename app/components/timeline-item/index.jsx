@@ -59,7 +59,6 @@ export default function TimelineItem(props) {
             <a href={'http://csssr.ru/' + props.data.version.url}> {props.data.version.text}</a>
         </div>
     );
-
     const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person,index) => (
         <img
             className='timeline__avatar'
@@ -69,10 +68,9 @@ export default function TimelineItem(props) {
             width={person.avatar.width}
             height={person.avatar.height}
             key={index}
-            onClick={props.goToPage('/timeline/' + person.name)}
+            onClick={props.goToPage('/timeline/' + person.url)}
         />
     ));
-
     let description;
     if (props.data.description) {
       description = <ReactMarkdown className='timeline__description' source={props.data.description}/>
@@ -96,10 +94,8 @@ export default function TimelineItem(props) {
     }
 
     const newStaff = props.data.newstaff && (
-        <div className='timeline__info-persons'>
-            <div className='timeline__avatars'>
-                {newStaffAvatars}
-            </div>
+        <div className='timeline__avatars'>
+            {newStaffAvatars}
         </div>
     );
 

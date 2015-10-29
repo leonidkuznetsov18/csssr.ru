@@ -32,6 +32,7 @@
 	    text-transform: uppercase;
 	    word-spacing: 2px;
 	    color: #690009;
+	    margin-bottom: 0;
     }
 
 	&_color_yellow {

@@ -14,14 +14,14 @@ export default function TimelinePopup(props) {
 		/>
 	);
 
-	const history = (
+	const history = props.histories && (
 		<blockquote className='timeline-popup__quote'>
 			<span>История связанная с CSSSR</span>
 			<div className='timeline-popup__history'>{props.histories}</div>
 		</blockquote>
 	);
 
-	const wishes = (
+	const wishes = props.wishes && (
 		<blockquote className='timeline-popup__quote'>
 			<span>Пожелания CSSSR</span>
 			<div className='timeline-popup__wishes'>{props.wishes}</div>
