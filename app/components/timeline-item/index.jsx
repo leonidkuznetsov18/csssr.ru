@@ -9,22 +9,22 @@ import ReactMarkdown from 'react-markdown';
 
 function getIcon(newstaff){
     if (newstaff) return (
-        <div className="timeline__icon_type_count">
-            <span className="plus">+</span> 
-            <span className="count">{newstaff.length}</span>
+        <div className='timeline__icon_type_count'>
+            <span className='plus'>+</span>
+            <span className='count'>{newstaff.length}</span>
         </div>
     );
     return (
-        <Icon className="timeline__icon_type_star" icon="timeline-star"/>
+        <Icon className='timeline__icon_type_star' icon='timeline-star'/>
     );
 }
 
 export default function TimelineItem(props) {
-    var classList = "timeline__item";
+    var classList = 'timeline__item';
 
     const images = props.data.images && props.data.images.map((tag,index) => (
         <img
-            className="timeline__images"
+            className='timeline__images'
             src={'http://csssr.ru/'+tag.url}
             width={tag.width}
             height={tag.height}
@@ -37,14 +37,14 @@ export default function TimelineItem(props) {
         .join(', ');
 
     const quote = props.data.quote && (
-         <div className="timeline__quote">
+         <div className='timeline__quote'>
              <span>{props.data.quote.title}</span>
              <p>{props.data.quote.text}</p>
          </div>
     );
 
     const audio = props.data.audio && (
-        <div className="timeline__audio">
+        <div className='timeline__audio'>
             <audio>
                 <source src={'http://csssr.ru/' + props.data.audio.aac}/>
                 <source src={'http://csssr.ru/' + props.data.audio.mp3}/>
@@ -54,33 +54,34 @@ export default function TimelineItem(props) {
     );
 
     const version = props.data.version && (
-        <div className="timeline__version">
+        <div className='timeline__version'>
             csssr
             <a href={'http://csssr.ru/' + props.data.version.url}> {props.data.version.text}</a>
         </div>
     );
 
     const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person,index) => (
-        <img 
-            className="timeline__avatar" 
-            src={'http://csssr.ru/' + person.avatar.src} 
-            alt={person.name} 
-            title={person.name} 
-            width={person.avatar.width} 
-            height={person.avatar.height} 
+        <img
+            className='timeline__avatar'
+            src={'http://csssr.ru/' + person.avatar.src}
+            alt={person.name}
+            title={person.name}
+            width={person.avatar.width}
+            height={person.avatar.height}
             key={index}
+            onClick={props.goToPage('/timeline/' + person.name)}
         />
     ));
 
     let description;
     if (props.data.description) {
-      description = <ReactMarkdown className="timeline__description" source={props.data.description}/>
+      description = <ReactMarkdown className='timeline__description' source={props.data.description}/>
     }
 
     let readLink;
     if (props.data.readLink) {
         readLink =
-        <div className="timeline__readLink">
+        <div className='timeline__readLink'>
             {props.data.readLink ? <Button to={props.data.readLink}>{props.data.buttonName}</Button> : null}
         </div>
     }
@@ -88,15 +89,15 @@ export default function TimelineItem(props) {
     let date;
     if(props.data.date) {
         date = (
-            <div className="timeline__date">
+            <div className='timeline__date'>
                 {props.data.date}
             </div>
         )
     }
 
     const newStaff = props.data.newstaff && (
-        <div className="timeline__info-persons">
-            <div className="timeline__avatars">
+        <div className='timeline__info-persons'>
+            <div className='timeline__avatars'>
                 {newStaffAvatars}
             </div>
         </div>
@@ -104,9 +105,9 @@ export default function TimelineItem(props) {
 
 
     if (props.data.newstaff){
-        classList+=" timeline__with-icon-count"
+        classList+=' timeline__with-icon-count'
     } else {
-        classList+=" timeline__with-icon-star"
+        classList+=' timeline__with-icon-star'
     }
 
     return (
@@ -117,7 +118,7 @@ export default function TimelineItem(props) {
             </Title>
             {description}
             {newStaff}
-            {images && <div className="timeline__images">{images}</div>}
+            {images && <div className='timeline__images'>{images}</div>}
             {readLink}
             {version}
             {audio}

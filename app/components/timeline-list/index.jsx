@@ -5,8 +5,9 @@ import './styles.css';
 
 export default function TimelineList(props) {
 	var items = props.data.map(function(item,index){
-		return <TimelineItem key={index} data={item}/>
+		return <TimelineItem goToPage={props.goToPage} key={index} data={item} />
 	});
+
 	return (
 		<ul className='timeline__items'>
 			{items}
