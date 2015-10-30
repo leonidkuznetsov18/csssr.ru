@@ -559,10 +559,7 @@
     date: "Май 2012"
     event: "CSSSR озвучен по версии Кураж-Бамбей"
     description: "Дима:Спонтанно пришла идея повесить на автоответчик голос Маршала из H.I.M.Y.M. Реализовали за пару дней, получилось круто и работает до сих пор!"
-    audio:
-      aac: "/audio/timeline/kuraj-bombey.aac"
-      mp3: "/audio/timeline/kuraj-bombey.mp3"
-      ogg: "/audio/timeline/kuraj-bombey.ogg"
+    audio: "/audio/timeline/kuraj-bombey"
   -
     date: "Апрель 2012"
     event: "Идея начала жить"
