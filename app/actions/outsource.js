@@ -13,7 +13,7 @@ export function showErrors() {
 	};
 }
 
-export function sendForm(fileId, properties) {
+export function sendForm() {
 	return {
 		type: C.OUTSOURCE_FORM_SEND_FORM
 	};

@@ -90,6 +90,23 @@ app.post('/order', (req, res) => {
 		});
 });
 
+
+async function newOutsourceProposal(data) {
+	console.log(data);
+	return Promise.resolve();
+}
+
+
+app.post('/outsource', (req, res) => {
+	newOutsourceProposal(req.body)
+		.then(() => res.send({result: 'ok'}))
+		.catch(err => {
+			console.log(err);
+			res.send({result: 'fail'});
+		});
+});
+
+
 app.get('/static/*', (req, res) => {
 	res.redirect(req.path.substr('static/'.length));
 });
