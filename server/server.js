@@ -10,7 +10,7 @@ import getPageMetadata from 'helpers/getPageMetadata';
 import superagent from 'superagent';
 import FormData from 'form-data';
 import {handler, limitHandler, upload} from './lib/storage';
-import {sendLetter, renderOrderTemplate} from './lib/mailer';
+import {sendOrder, sendOutsourceProposal} from './lib/mailer';
 
 var app = express();
 var isProduction = app.get('env') === 'production';
@@ -39,50 +39,9 @@ app.use('/_assets', express.static(ASSETS_BUILD, {
 app.use(limitHandler);
 app.post('/upload', upload.single('file'), handler);
 
-function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
-	const form = new FormData();
-
-	for (let option of optionsArray) {
-		form.append('options[]', option);
-	}
-
-	for (const key in contacts) if (contacts.hasOwnProperty(key)) {
-		form.append(`contact[${key}]`, contacts[key]);
-	}
-
-	files.forEach((file, i) => {
-		form.append(`files[${i}][filename]`, file.filename);
-		form.append(`files[${i}][title]`, file.originalname);
-	});
-
-	form.append('link', filesLink);
-	form.append('lang', lang);
-
-	return form;
-}
-
-function getToolsInfo(form) {
-	return new Promise((resolve, reject) => {
-		superagent
-			.post(process.env.TOOLS_URL)
-			.send(form)
-			.end((err, res) => {
-				if (err) reject(err);
-				resolve(JSON.parse(res.text));
-			});
-	});
-}
-
-async function newOrder (data) {
-	// TODO: validate req.body
-	const form = getFormData(data);
-	const toolsInfo = await getToolsInfo(form);
-	const html = renderOrderTemplate(toolsInfo, data);
-	await sendLetter(toolsInfo, html);
-}
-
 app.post('/order', (req, res) => {
-	newOrder(req.body)
+	// TODO: validate req.body
+	sendOrder(req.body)
 		.then(() => res.send({result: 'ok'}))
 		.catch(err => {
 			console.log(err);
@@ -90,15 +49,9 @@ app.post('/order', (req, res) => {
 		});
 });
 
-
-async function newOutsourceProposal(data) {
-	console.log(data);
-	return Promise.resolve();
-}
-
-
 app.post('/outsource', (req, res) => {
-	newOutsourceProposal(req.body)
+	// TODO: validate req.body
+	sendOutsourceProposal(req.body)
 		.then(() => res.send({result: 'ok'}))
 		.catch(err => {
 			console.log(err);
