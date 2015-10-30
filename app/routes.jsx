@@ -15,7 +15,8 @@ import Portfolio from 'containers/page-portfolio';
 import Project from 'containers/page-project';
 import ProjectPage from 'containers/page-project-page';
 import Timeline from 'containers/page-timeline';
-import TimelinePopup from 'containers/timeline-popup';
+import PageTimelinePopup from 'containers/page-timeline-popup';
+import VersionPopup from 'containers/version-popup';
 
 export default (
 	<Route name='root' component={Application}>
@@ -38,7 +39,10 @@ export default (
 		<Route path='/offert' name='offert' component={Offert} />
 		<Route path='/confidential' name='confidential' component={Offert} />
 		<Route path='/timeline' name='timeline' component={Timeline}>
-			<Route path=':person' name='person' component={TimelinePopup} />
+		  <Route path='version'>
+		    <Route path=':version' name='version' component={VersionPopup} />
+		  </Route>
+		  <Route path=':person' name='person' component={PageTimelinePopup} />
 		</Route>
 	</Route>
 );

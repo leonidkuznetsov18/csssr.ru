@@ -5,6 +5,7 @@ import cx from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
 import Title from 'components/title';
+import AudioButton from 'components/audio-button';
 import ReactMarkdown from 'react-markdown';
 
 function getIcon(newstaff){
@@ -41,20 +42,11 @@ export default function TimelineItem(props) {
 		 </div>
 	);
 
-	const audio = props.data.audio && (
-		<div className='timeline__audio'>
-			<audio>
-				<source src={'http://csssr.ru/' + props.data.audio.aac}/>
-				<source src={'http://csssr.ru/' + props.data.audio.mp3}/>
-				<source src={'http://csssr.ru/' + props.data.audio.ogg}/>
-			</audio>
-		</div>
-	);
 
 	const version = props.data.version && (
 		<div className='timeline__version'>
 			csssr
-			<a href={'http://csssr.ru/' + props.data.version.url}> {props.data.version.text}</a>
+			<a href='#' onClick={props.goToPage('http://csssr.ru/' + props.data.version.url)}> {props.data.version.text}</a>
 		</div>
 	);
 
@@ -121,6 +113,7 @@ export default function TimelineItem(props) {
 		'timeline__with-icon-star': !props.data.newstaff
 	});
 
+
 	return (
 		<li className={classList}>
 			{date}
@@ -132,7 +125,7 @@ export default function TimelineItem(props) {
 			{images && <div className='timeline__images'>{images}</div>}
 			{readLink}
 			{version}
-			{audio}
+			{props.data.audio && <AudioButton url={props.data.audio} />}
 			{quote}
 			{getIcon(props.data.newstaff)}
 		</li>
@@ -140,5 +133,6 @@ export default function TimelineItem(props) {
 }
 
 TimelineItem.propTypes = {
-	data: PropTypes.object.isRequired
+	data: PropTypes.object.isRequired,
+	goToPage: PropTypes.func
 };

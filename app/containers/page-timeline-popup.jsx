@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 import TimelinePopup from 'components/timeline-popup';
 
 const timeline = require('data/timeline.yml');
@@ -11,7 +12,8 @@ const goToPageCreator = history => path => e => {
 export default class PageTimelinePopup extends React.Component {
 
 	static propTypes = {
-		history: PropTypes.object.isRequired
+		history: PropTypes.object.isRequired,
+		routeParams: PropTypes.object.isRequired
 	}
 
 
@@ -37,4 +39,4 @@ export default class PageTimelinePopup extends React.Component {
 			/>
 		);
 	}
-}
+};

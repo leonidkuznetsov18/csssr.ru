@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 
 import './styles.css';
@@ -48,3 +48,8 @@ export default function TimelinePopup(props) {
 		</div>
 	);
 }
+
+
+TimelinePopup.propTypes = {
+	city: PropTypes.string.isRequired
+};

@@ -13,15 +13,15 @@ const goToPageCreator = history => path => e => {
 export default class PageTimeline extends React.Component {
 
 	static propTypes = {
-		history: PropTypes.object.isRequired
+		history: PropTypes.object.isRequired,
+		children: PropTypes.element
 	}
-
 
 	render() {
 		return (
 			<Content padding={false}>
-				<div className="timeline">
-					<div className="timeline__centered-text">
+				<div className='timeline'>
+					<div className='timeline__centered-text'>
 						<Title center={true}>
 							История CSSSR
 						</Title>
@@ -38,5 +38,5 @@ export default class PageTimeline extends React.Component {
 				</div>
 			</Content>
 		);
-	}
+	};
 }
