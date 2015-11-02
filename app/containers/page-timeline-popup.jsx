@@ -38,7 +38,7 @@ export default class PageTimelinePopup extends React.Component {
 		});
 
 		setTimeout(() => {
-			this.props.pushState(null, '/timeline');
+			this.props.history.pushState(null, '/timeline'); // тут добавил history
 		}, 300);
 	}
 

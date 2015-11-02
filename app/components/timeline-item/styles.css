@@ -69,10 +69,7 @@
 		&:hover:not(.timeline__avatar_disabled) {
 			img{
 				opacity: .9;
-				-webkit-transform: translateY(-4px);
-				-ms-transform: translateY(-4px);
 				transform: translateY(-4px);
-				-webkit-filter: grayscale(0);
 				filter: grayscale(0);
 			}
 		}
@@ -174,7 +171,7 @@
 
 		&:before {
 			position: absolute;
-			top: 0;
+			top: -5px;
 			left: 0;
 			font-family: 'PT Sans';
 			font-size: 80px;

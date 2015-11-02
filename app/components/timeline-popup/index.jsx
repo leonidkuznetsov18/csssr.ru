@@ -37,7 +37,7 @@ export default function TimelinePopup(props) {
 
 	return (
 		<div className={popupClass}>
-			<Link to='/timeline' className='timeline-popup__close' onClick={props.onClose}/>
+			<div  className='timeline-popup__close' onClick={props.onClose}/>
 			<div className='timeline-popup__content'>
 				<div className='timeline-popup__blockquote'>
 					<div className='timeline-popup__staff'>

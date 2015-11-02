@@ -19,7 +19,7 @@ export default function PopupVersion(props) {
 		});
 	return (
 		<div className={popupClass}>
-			<Link to='/timeline' className='timeline-popup__close' onClick={props.onClose}/>
+			<div className='timeline-popup__close' onClick={props.onClose}/>
 			<div className='timeline-popup__content'>
 				{img}
 			</div>
