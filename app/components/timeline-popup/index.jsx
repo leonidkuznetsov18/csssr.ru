@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import {Link} from 'react-router';
-
+import cx from 'classnames';
 
 import './styles.css';
 
@@ -30,9 +30,13 @@ export default function TimelinePopup(props) {
 		</blockquote>
 	);
 
+	const popupClass = cx({
+			'timeline-popup': true,
+			'timeline-popup_active': props.active
+		});
 
 	return (
-		<div className='timeline-popup'>
+		<div className={popupClass}>
 		<Link to='/timeline'>
 		<div className='timeline-popup__close' />
 		</Link>

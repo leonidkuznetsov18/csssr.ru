@@ -76,7 +76,7 @@ export default function TimelineItem(props) {
 				{img}
 			</Link>
 		);
-		return <Link className={classList} key={index}>{img}</Link>;
+		return <Link to={'/timeline'} className={classList} key={index}>{img}</Link>;
 	});
 
 	let description;
