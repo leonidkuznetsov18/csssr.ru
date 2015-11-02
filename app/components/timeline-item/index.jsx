@@ -7,6 +7,7 @@ import Icon from 'components/icon';
 import Title from 'components/title';
 import AudioButton from 'components/audio-button';
 import ReactMarkdown from 'react-markdown';
+import {Link} from 'react-router';
 
 function getIcon(newstaff){
 	if (newstaff) return (
@@ -24,7 +25,7 @@ export default function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag,index) => (
 		<img
 			className='timeline__images'
-			src={'http://csssr.ru/'+tag.url}
+			src={'http://csssr.ru/' + tag.url}
 			width={tag.width}
 			height={tag.height}
 			key={index}
@@ -36,17 +37,19 @@ export default function TimelineItem(props) {
 		.join(', ');
 
 	const quote = props.data.quote && (
-		 <div className='timeline__quote'>
-			 <span>{props.data.quote.title}</span>
-			 <p>{props.data.quote.text}</p>
-		 </div>
+		<div className='timeline__quote'>
+			<span>{props.data.quote.title}</span>
+			<p>{props.data.quote.text}</p>
+		</div>
 	);
 
 
 	const version = props.data.version && (
 		<div className='timeline__version'>
-			csssr
-			<a href='#' onClick={props.goToPage('http://csssr.ru/' + props.data.version.url)}> {props.data.version.text}</a>
+			csssr&nbsp;
+			<Link to={`/timeline/version/${props.data.version.number}`}>
+				{props.data.version.text}
+			</Link>
 		</div>
 	);
 
@@ -57,7 +60,7 @@ export default function TimelineItem(props) {
 			timeline__avatar_disabled: !person.url,
 		});
 
-		return (
+		const img = (
 			<img
 				className={classList}
 				src={'http://csssr.ru/' + person.avatar.src}
@@ -66,9 +69,15 @@ export default function TimelineItem(props) {
 				width={person.avatar.width}
 				height={person.avatar.height}
 				key={index}
-				onClick={person.url && props.goToPage('/timeline/' + person.url)}
 			/>
 		);
+
+		if (person.url) return (
+			<Link key={index} to={`/timeline/${person.url}`}>
+				{img}
+			</Link>
+		);
+		return img;
 	});
 
 	let description;
@@ -87,11 +96,11 @@ export default function TimelineItem(props) {
 					>{props.data.buttonName}</Button>
 				)}
 			</div>
-			);
+		);
 	}
 
 	let date;
-	if(props.data.date) {
+	if (props.data.date) {
 		date = (
 			<div className='timeline__date'>
 				{props.data.date}
@@ -118,7 +127,7 @@ export default function TimelineItem(props) {
 		<li className={classList}>
 			{date}
 			<Title size='extra-small' component='h6'>
-			  {names || props.data.event}
+				{names || props.data.event}
 			</Title>
 			{description}
 			{newStaff}
@@ -133,6 +142,5 @@ export default function TimelineItem(props) {
 }
 
 TimelineItem.propTypes = {
-	data: PropTypes.object.isRequired,
-	goToPage: PropTypes.func
+	data: PropTypes.object.isRequired
 };

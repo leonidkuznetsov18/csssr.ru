@@ -5,9 +5,6 @@ import TimelinePopup from 'components/timeline-popup';
 const timeline = require('data/timeline.yml');
 
 
-const goToPageCreator = history => path => e => {
-	history.pushState(null, path);
-};
 
 export default class PageTimelinePopup extends React.Component {
 
@@ -35,7 +32,6 @@ export default class PageTimelinePopup extends React.Component {
 		return (
 			<TimelinePopup
 				{...popupData}
-				goToPage={goToPageCreator(this.props.history)}
 			/>
 		);
 	}

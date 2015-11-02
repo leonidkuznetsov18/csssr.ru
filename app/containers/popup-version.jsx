@@ -1,17 +1,11 @@
 import React, { PropTypes } from 'react';
-
 import PopupVersion from 'components/popup-version';
 
 const timeline = require('data/timeline.yml');
 
-const goToPageCreator = history => path => e => {
-	history.pushState(null, path);
-};
-
 export default class VersionPopup extends React.Component {
 
 	static propTypes = {
-		history: PropTypes.object.isRequired,
 		routeParams: PropTypes.object.isRequired
 	}
 
@@ -19,12 +13,11 @@ export default class VersionPopup extends React.Component {
 		const popupData = url => {
 			let target;
 			timeline.forEach(event => {
-				if (event.data) {
-					event.data.forEach(version => {
-						if (version.url === url) {
-							return target = version;
-						}
-					});
+				if (event.version) {
+					if (event.version.number.toString() === url) {
+						target = event.version;
+						return;
+					}
 				}
 			});
 			return target;
@@ -32,8 +25,7 @@ export default class VersionPopup extends React.Component {
 
 		return (
 			<PopupVersion
-				{...popupData}
-				goToPage={goToPageCreator(this.props.history)}
+				screenshot={popupData.url}
 			/>
 		);
 	}

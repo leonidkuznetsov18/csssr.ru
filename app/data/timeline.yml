@@ -571,6 +571,7 @@
     version:
       url: "/img/timeline/content/csssr-size-v-1.jpg"
       text: "версия 1.0"
+      number: 1
   -
     date: "Апрель 2012"
     description: "Идеей вдохновились ещё два человека. Саша отвечает за бэкенд, Илья  первый фронтенд-разработчик."

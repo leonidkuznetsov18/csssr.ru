@@ -6,9 +6,7 @@ import Content from 'components/content';
 
 const timeline = require('data/timeline.yml');
 
-const goToPageCreator = history => path => e => {
-	history.pushState(null, path);
-};
+
 
 export default class PageTimeline extends React.Component {
 
@@ -31,7 +29,6 @@ export default class PageTimeline extends React.Component {
 						</Text>
 					</div>
 					<TimelineList
-						goToPage={goToPageCreator(this.props.history)}
 						data={timeline}
 					/>
 					{this.props.children}
