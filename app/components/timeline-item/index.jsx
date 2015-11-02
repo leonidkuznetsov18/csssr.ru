@@ -57,12 +57,11 @@ export default function TimelineItem(props) {
 
 		const classList = cx({
 			timeline__avatar: true,
-			timeline__avatar_disabled: !person.url,
+			timeline__avatar_disabled: !person.url
 		});
 
 		const img = (
 			<img
-				className={classList}
 				src={'http://csssr.ru/' + person.avatar.src}
 				alt={person.name}
 				title={person.name}
@@ -73,11 +72,11 @@ export default function TimelineItem(props) {
 		);
 
 		if (person.url) return (
-			<Link key={index} to={`/timeline/${person.url}`}>
+			<Link className={classList} key={index} to={`/timeline/${person.url}`}>
 				{img}
 			</Link>
 		);
-		return img;
+		return <Link className={classList} key={index}>{img}</Link>;
 	});
 
 	let description;
