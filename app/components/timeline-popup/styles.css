@@ -8,8 +8,7 @@
 		background-color: rgba(0,0,0,.9);
 		opacity: 0;
 		transition-property: opacity;
-		transition-duration: .25s;
-		transform: translateZ(0);
+		transition-duration: .3s;
 		backface-visbility: hidden;
 		will-change: opacity;
 
@@ -69,7 +68,7 @@
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		text-align: center;
-		transition-duration: .25s;
+		transition-duration: .3s;
 		transition-property: transform;
 		transform: translateY(-100px) scale(.5);
 		backface-visibility: hidden;

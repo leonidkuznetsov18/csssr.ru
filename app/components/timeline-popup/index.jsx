@@ -18,15 +18,15 @@ export default function TimelinePopup(props) {
 
 	const history = props.histories && (
 		<blockquote className='timeline-popup__quote'>
-		<span>История связанная с CSSSR</span>
-		<div className='timeline-popup__history'>{props.histories}</div>
+			<span>История связанная с CSSSR</span>
+			<div className='timeline-popup__history'>{props.histories}</div>
 		</blockquote>
 	);
 
 	const wishes = props.wishes && (
 		<blockquote className='timeline-popup__quote'>
-		<span>Пожелания CSSSR</span>
-		<div className='timeline-popup__wishes'>{props.wishes}</div>
+			<span>Пожелания CSSSR</span>
+			<div className='timeline-popup__wishes'>{props.wishes}</div>
 		</blockquote>
 	);
 
@@ -37,25 +37,24 @@ export default function TimelinePopup(props) {
 
 	return (
 		<div className={popupClass}>
-		<Link to='/timeline'>
-		<div className='timeline-popup__close' />
-		</Link>
-		<div className='timeline-popup__content'>
-		<div className='timeline-popup__blockquote'>
-		<div className='timeline-popup__staff'>
-		{avatar}
-		<div className='timeline-popup__name'>{props.name}</div>
-		<div className='timeline-popup__city'>{props.city}</div>
-		</div>
-		{history}
-		{wishes}
-		</div>
-		</div>
+			<Link to='/timeline' className='timeline-popup__close' onClick={props.onClose}/>
+			<div className='timeline-popup__content'>
+				<div className='timeline-popup__blockquote'>
+					<div className='timeline-popup__staff'>
+					{avatar}
+						<div className='timeline-popup__name'>{props.name}</div>
+						<div className='timeline-popup__city'>{props.city}</div>
+					</div>
+					{history}
+					{wishes}
+				</div>
+			</div>
 		</div>
 	);
 }
 
 
 TimelinePopup.propTypes = {
-	city: PropTypes.string.isRequired
+	city: PropTypes.string.isRequired,
+	onClose: PropTypes.func
 };
