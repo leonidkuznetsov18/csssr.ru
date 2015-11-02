@@ -1,118 +1,40 @@
 import React from 'react';
-import Button from 'components/button';
-import Field from 'components/field';
+
+import Column from 'components/column';
+import Row from 'components/row';
+import Title from 'components/title';
+import Text from 'components/text';
+import Form from 'containers/form-outsource';
+import Link from 'components/link';
 
 import './styles.css';
 
-
-export default class OutsourceForm extends React.Component {
-
-	static propTypes = {
-		data: React.PropTypes.object
-	}
-
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			validate: false
-		};
-	}
-
-
-	onSubmit = (e) => {
-		let preventDefault = false;
-		let fields = [];
-
-		this.setState({
-			validate: true
-		});
-
-		for (let ref in this.refs) {
-			if (ref.indexOf('formGroups.') === 0) {
-				fields.push(this.refs[ref]);
-			}
-		}
-
-		for (let key in fields) {
-			preventDefault = preventDefault || !fields[key].isRight();
-		}
-
-		if (preventDefault) {
-			e.preventDefault();
-		}
-	}
-
-
-	render() {
-		const data = this.props.data;
-
-		let fields = [];
-
-		for (let field of data.fields) {
-			fields.push(
-				<Field
-					key={field.key}
-					itemId={`outsource${field.key}`}
-					itemName={field.key}
-					ref={'formGroups.' + field.key}
-					label={field.text}
-					regexp={field.validation}
-					validate={this.state.validate}
-				/>
-			);
-		}
-
-		return (
-			<form
-				id='outsourceForm'
-				className='outsource-form'
-				ref='smth'
-				name='form'
-				action='classes/mailer-outsource.php'
-				role='form'
-				autoComplete='off'
-				method='post'
-				onSubmit={this.onSubmit}
-			>
-
-				<input type='hidden' name='lang' value='ru' />
-				<div className='outsource-form__container'>
-					<h2 className='outsource-form__title'>{data.title}</h2>
-					<p className='outsource-form__text'>{data.info}</p>
-					<div className='outsource-form__fields'>
-						{fields}
-
-						<div className='confirm-rules'>
-							<label className='label checkbox label-last'>
-								<span className='corner-cover'>Принимаю&nbsp;</span>
-							</label>
-							<a
-								className='label-last-link blue-link'
-								href='/confidential'
-								target='_blank'
-							>положение об обработке персональных данных</a>
-						</div>
-					</div>
-
-					<div className='outsource-form__submit'>
-						<Button mod='form' type='submit'>
-							{data.butotn}
-						</Button>
-					</div>
+export default function OutsourceForm(props) {
+	return (
+		<div className='outsource-request'>
+			<Row>
+				<Column size={2 / 3}>
+					<Title size='medium'>связь с центром</Title>
+					<Text>
+						Как гласит древняя китайская пословица: написание 1000 строк кода
+						начинается с заполения формы.
+					</Text>
+				</Column>
+			</Row>
+			<Row>
+				<div style={{width: 420}}>
+					<Form />
 				</div>
-				<div className='outsource-form__recruting'>
-					<div className='outsource-form__recruting-title'>Рекрутинг</div>
-					<div className='outsource-form__recruting-text'>
-						{'Хотите чтобы мы нашли вам фронтендера и испыстали его в боевых условиях? Пишите на '}
-						<a
-							className='blue-link outsource-form__recruting-link'
-							href='mailto:wanted@csssr.com'
-						>wanted@csssr.com</a>
-					</div>
-				</div>
-			</form>
 
-		);
-	}
+				<div className='outsource-request__recruting'>
+					<Title size='small'>Рекрутинг</Title>
+					<Text size='s' indent={false}>
+						Хотите чтобы мы нашли вам фронтендера и испыстали его в боевых условиях? Пишите на
+					</Text>
+					<Link href='mailto:wanted@csssr.com'>wanted@csssr.com</Link>
+				</div>
+
+			</Row>
+		</div>
+	);
 }

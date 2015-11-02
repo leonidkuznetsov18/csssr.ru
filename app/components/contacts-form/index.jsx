@@ -8,7 +8,7 @@ import Button from 'components/button';
 import './styles.css';
 
 @pureRender
-export default class OrderFormContacts extends React.Component {
+export default class ContactsForm extends React.Component {
 	static propTypes = {
 		contacts: PropTypes.object,
 		changeContacts: PropTypes.func

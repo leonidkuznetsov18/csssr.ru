@@ -8,7 +8,7 @@ import OutsourceUse from 'components/outsource-use';
 import OutsourceForm from 'components/outsource-form';
 import FaqGroup from 'components/faq-group';
 import Faq from 'components/faq';
-import Form from 'containers/form-outsource';
+import Form from 'components/outsource-form';
 
 const data = require('data/outsource.json');
 const faq = require('data/faq-outsource.json');

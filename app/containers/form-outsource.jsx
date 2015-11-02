@@ -11,7 +11,7 @@ import Contacts from 'components/contacts-form';
 @connect(store => ({
 	form: store.outsource.form
 }))
-export default class OrderForm extends React.Component {
+export default class FormOutsource extends React.Component {
 	static propTypes = {
 		form: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired
@@ -27,29 +27,13 @@ export default class OrderForm extends React.Component {
 		const actions = bindActionCreators(actionCreators, this.props.dispatch);
 
 		return (
-			<div>
-				<Row>
-					<Title size='medium'>связь с центром</Title>
-				</Row>
-				<Row>
-					<Text>
-						Как гласит древняя китайская пословица: написание 1000 строк кода
-						начинается с заполения формы.
-					</Text>
-				</Row>
-				<Row>
-					<Column>
-						<form
-							action='order/form/submit/path'
-							autoComplete='off'
-							method='post'
-							onSubmit={this.onSubmit}
-						>
-							<Contacts {...actions} contacts={this.props.form} />
-						</form>
-					</Column>
-				</Row>
-			</div>
+			<form
+				autoComplete='off'
+				method='post'
+				onSubmit={this.onSubmit}
+			>
+				<Contacts {...actions} contacts={this.props.form} />
+			</form>
 		);
 	}
 }
