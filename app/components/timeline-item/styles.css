@@ -1,5 +1,32 @@
-.timeline {
-	&__item {
+.timeline{
+	margin: 100px auto 50px;
+	overflow: hidden;
+	width: 91.538%;
+	min-height: 690px;
+	&__centered-text{
+		margin-left: auto;
+		margin-right: auto;
+		width: 524px;
+		.title_center{
+			margin-top: 40px;
+			margin-bottom: 20px;
+			font-family: 'PT Sans Narrow';
+			font-size: 35px;
+			line-height: 1;
+			color: #6a0005;
+		}
+		.text_center{
+			font-family: 'Roboto';
+			font-weight: 300;
+			font-size: 15px;
+			line-height: 21px;
+			color: #333;
+		}
+	}
+}
+
+
+.timeline-item {
 		position: relative;
 		margin-top: 8px;
 		margin-left: 200px;
@@ -23,7 +50,6 @@
 			content: '';
 			background-color: #666;
 		}
-	}
 
 	&__images{
 		margin-top: 5px;
@@ -43,6 +69,15 @@
 		color: #333;
 	}
 
+	&__link{
+		position: relative;
+		display: inline-block;
+		margin-left:8px;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
 	&__avatars {
 		margin-left:-20px;
 		margin-top: 5px;
@@ -51,31 +86,20 @@
 	}
 
 	&__avatar {
-		margin-left: 8px;
-		display: inline-block;
 		vertical-align: middle;
 		font-size: 13px;
+		border-radius: 100%;
+		filter: grayscale(100%);
+		transition-duration: .25s;
+		transition-property: opacity, transform, filter, -webkit-filter;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		will-change: opacity, transform, filter, -webkit-filter;
 
-		img{
-			border-radius: 100%;
-			filter: grayscale(100%);
-			transition-duration: .25s;
-			transition-property: opacity, transform, filter, -webkit-filter;
-			transform: translateZ(0);
-			backface-visibility: hidden;
-			will-change: opacity, transform, filter, -webkit-filter;
-		}
-
-		&:hover:not(.timeline__avatar_disabled) {
-			img{
-				opacity: .9;
-				transform: translateY(-4px);
-				filter: grayscale(0);
-			}
-		}
-
-		&:first-child {
-			margin-left: 0;
+		&:hover:not(.timeline-item__avatar_disabled) {
+			opacity: .9;
+			transform: translateY(-4px);
+			filter: grayscale(0);
 		}
 	}
 
@@ -108,10 +132,13 @@
 		line-height: 56px;
 		text-align: center;
 		color: #f2ebda;
-		background: #aa2f23 url(http://csssr.ru//img/timeline-newstaff-circle.png) no-repeat;
+		background-image: url(http://csssr.ru//img/timeline-newstaff-circle.png) ;
+		background-color: #aa2f23;
+		background-repeat: no-repeat;
 		background-size: cover;
 		border-radius: 100%;
-		.plus{
+		&:before {
+			content:'+';
 			margin-right: 4px;
 			vertical-align: top;
 			font-family: 'Roboto';
@@ -192,11 +219,11 @@
 			top: 64px;
 		}
 
-		.timeline__names {
+		.timeline-item__names {
 			margin-top:20px;
 		}
 
-		.timeline__date {
+		.timeline-item__date {
 			top:20px;
 		}
 

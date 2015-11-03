@@ -11,20 +11,19 @@ import {Link} from 'react-router';
 
 function getIcon(newstaff){
 	if (newstaff) return (
-		<div className='timeline__icon_type_count'>
-			<span className='plus'>+</span>
-			<span className='count'>{newstaff.length}</span>
+		<div className='timeline-item__icon_type_count'>
+				{newstaff.length}
 		</div>
 	);
 	return (
-		<Icon className='timeline__icon_type_star' icon='timeline-star'/>
+		<Icon className='timeline-item__icon_type_star' icon='timeline-star'/>
 	);
 }
 
 export default function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag,index) => (
 		<img
-			className='timeline__images'
+			className='timeline-item__images'
 			src={'http://csssr.ru/' + tag.url}
 			width={tag.width}
 			height={tag.height}
@@ -37,7 +36,7 @@ export default function TimelineItem(props) {
 		.join(', ');
 
 	const quote = props.data.quote && (
-		<div className='timeline__quote'>
+		<div className='timeline-item__quote'>
 			<span>{props.data.quote.title}</span>
 			<p>{props.data.quote.text}</p>
 		</div>
@@ -45,7 +44,7 @@ export default function TimelineItem(props) {
 
 
 	const version = props.data.version && (
-		<div className='timeline__version'>
+		<div className='timeline-item__version'>
 			csssr&nbsp;
 			<Link to={`/timeline/version/${props.data.version.number}`}>
 				{props.data.version.text}
@@ -56,12 +55,13 @@ export default function TimelineItem(props) {
 	const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person,index) => {
 
 		const classList = cx({
-			timeline__avatar: true,
-			timeline__avatar_disabled: !person.url
+			'timeline-item__avatar': true,
+			'timeline-item__avatar_disabled': !person.url
 		});
 
 		const img = (
 			<img
+				className={classList}
 				src={'http://csssr.ru/' + person.avatar.src}
 				alt={person.name}
 				title={person.name}
@@ -72,22 +72,22 @@ export default function TimelineItem(props) {
 		);
 
 		if (person.url) return (
-			<Link className={classList} key={index} to={`/timeline/${person.url}`}>
+			<Link className='timeline-item__link'  key={index} to={`/timeline/${person.url}`}>
 				{img}
 			</Link>
 		);
-		return <Link to={'/timeline'} className={classList} key={index}>{img}</Link>;
+		return <Link className='timeline-item__link' to={'/timeline'} key={index}>{img}</Link>;
 	});
 
 	let description;
 	if (props.data.description) {
-		description = <ReactMarkdown className='timeline__description' source={props.data.description}/>;
+		description = <ReactMarkdown className='timeline-item__description' source={props.data.description}/>;
 	}
 
 	let readLink;
 	if (props.data.readLink) {
 		readLink = (
-			<div className='timeline__readLink'>
+			<div className='timeline-item__readLink'>
 				{props.data.readLink && (
 					<Button
 						component='a'
@@ -101,14 +101,14 @@ export default function TimelineItem(props) {
 	let date;
 	if (props.data.date) {
 		date = (
-			<div className='timeline__date'>
+			<div className='timeline-item__date'>
 				{props.data.date}
 			</div>
 		);
 	}
 
 	const newStaff = props.data.newstaff && (
-		<div className='timeline__avatars'>
+		<div className='timeline-item__avatars'>
 			{newStaffAvatars}
 		</div>
 	);
@@ -116,9 +116,9 @@ export default function TimelineItem(props) {
 
 
 	const classList = cx({
-		timeline__item: true,
-		'timeline__with-icon-count': props.data.newstaff,
-		'timeline__with-icon-star': !props.data.newstaff
+		'timeline-item': true,
+		'timeline-item__with-icon-count': props.data.newstaff,
+		'timeline-item__with-icon-star': !props.data.newstaff
 	});
 
 
@@ -130,7 +130,7 @@ export default function TimelineItem(props) {
 			</Title>
 			{description}
 			{newStaff}
-			{images && <div className='timeline__images'>{images}</div>}
+			{images && <div className='timeline-item__images'>{images}</div>}
 			{readLink}
 			{version}
 			{props.data.audio && <AudioButton url={props.data.audio} />}

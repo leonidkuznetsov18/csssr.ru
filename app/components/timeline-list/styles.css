@@ -1,46 +1,19 @@
-.timeline {
-    position: relative;
-    margin: 100px auto 50px;
-    overflow: hidden;
-    width: 91.538%;
-    min-height: 690px;
-    &__centered-text{
-		margin-left: auto;
-		margin-right: auto;
-		width: 524px;
-		.title_center{
-			margin-top: 40px;
-			margin-bottom: 20px;
-			font-family: 'PT Sans Narrow';
-			font-size: 35px;
-			line-height: 1;
-			color: #6a0005;
-		}
-		.text_center{
-			font-family: 'Roboto';
-			font-weight: 300;
-			font-size: 15px;
-			line-height: 21px;
-			color: #333;
-		}
-    }
-    &__items{
-    	position: relative;
-    	padding-top: 320px;
-	    margin-bottom: 124px;
-	    margin-left: auto;
-	    margin-right: auto;
-	    display: table;
-	    &:before{
-		    content: '';
-		    position: absolute;
-		    display: block;
-		    background-image: url(http://csssr.ru//img/index_en/rocket_en.svg);
-		    width: 121px;
-		    height: 342px;
-		    top: 10px;
-		    left: 50%;
-		    margin-left: -134px;
-		}
-    }
+.timeline-items {
+	position: relative;
+	padding-top: 320px;
+	margin-bottom: 124px;
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+	&:before{
+		content: '';
+		position: absolute;
+		display: block;
+		background-image: url(http://csssr.ru//img/index_en/rocket_en.svg);
+		width: 121px;
+		height: 342px;
+		top: 10px;
+		left: 50%;
+		margin-left: -134px;
+	}
 }

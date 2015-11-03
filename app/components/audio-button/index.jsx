@@ -15,7 +15,7 @@ export default class AudioButton extends React.Component {
 		this.setState({active});
 
 		if (active) {
-			this.refs.audio.play(); // не работает, потому что неверный пусть
+			this.refs.audio.play();
 		} else {
 			this.refs.audio.pause();
 			this.refs.audio.currentTime = 0;
@@ -23,13 +23,13 @@ export default class AudioButton extends React.Component {
 	}
 
 	render() {
-		let classes = classnames('audioButton', {active: this.state.active});
+		let classes = classnames('audio-button', {'audio-button_active': this.state.active});
 		return(
 			<button className={classes} onClick={this.click.bind(this)}>
 				<audio preload ref='audio'>
-					<source src={`http://csssr.ru${this.props.url}.ogg`}/>
-					<source src={`http://csssr.ru${this.props.url}.acc`}/>
-					<source src={`http://csssr.ru${this.props.url}.mp3`}/>
+					<source src={require(`file?limit=9999!media/audio/${this.props.url}.ogg`)}/>
+					<source src={require(`file?limit=9999!media/audio/${this.props.url}.aac`)}/>
+					<source src={require(`file?limit=9999!media/audio/${this.props.url}.mp3`)}/>
 				</audio>
 			</button>
 		);

@@ -11,7 +11,7 @@ const timeline = require('data/timeline.yml');
 export default class PageTimeline extends React.Component {
 
 	static propTypes = {
-		history: PropTypes.object.isRequired,
+		history: PropTypes.object,
 		children: PropTypes.element
 	}
 
@@ -20,7 +20,7 @@ export default class PageTimeline extends React.Component {
 			<Content padding={false}>
 				<div className='timeline'>
 					<div className='timeline__centered-text'>
-						<Title center={true}>
+						<Title center>
 							История CSSSR
 						</Title>
 						<Text center={true}>

@@ -1,27 +1,14 @@
-.audioButton {
-		position: relative;
-		width: 80px;
-		height: 80px;
-		cursor: pointer;
-		border:none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		background-color: #fcb54d;
-		border-radius: 100%;
-		transition-duration: .25s;
-		transition-property: background-color;
-
-		&.active{
-			&:after{
-				left: 0;
-				border: none;
-				height: 22px;
-				width: 22px;
-				background-color: #5f1600;
-			}
-		}
+.audio-button {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	border:none;
+	user-select: none;
+	background-color: #fcb54d;
+	border-radius: 100%;
+	transition-duration: .25s;
+	transition-property: background-color;
 
 		&::before {
 			position: absolute;
@@ -50,5 +37,15 @@
 			border-top: 12px solid transparent;
 			border-left: 20px solid #5f1600;
 			border-bottom: 12px solid transparent;
+		}
+
+		&_active{
+			&:after{
+				left: 0;
+				border: none;
+				height: 22px;
+				width: 22px;
+				background-color: #5f1600;
+			}
 		}
 	}
