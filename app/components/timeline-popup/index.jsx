@@ -9,10 +9,10 @@ export default function TimelinePopup(props) {
 
 	const avatar = (
 		<img
-		className='timeline-popup__avatar'
-		src={'http://csssr.ru/' + props.avatar.src}
-		alt={props.name}
-		title={props.name}
+			className='timeline-popup__avatar'
+			src={'http://csssr.ru/' + props.avatar.src}
+			alt={props.name}
+			title={props.name}
 		/>
 	);
 

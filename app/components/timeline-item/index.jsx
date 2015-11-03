@@ -72,7 +72,7 @@ export default function TimelineItem(props) {
 		);
 
 		if (person.url) return (
-			<Link className='timeline-item__link'  key={index} to={`/timeline/${person.url}`}>
+			<Link className='timeline-item__link' key={index} to={`/timeline/${person.url}`}>
 				{img}
 			</Link>
 		);

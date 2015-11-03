@@ -6,8 +6,6 @@ import Content from 'components/content';
 
 const timeline = require('data/timeline.yml');
 
-
-
 export default class PageTimeline extends React.Component {
 
 	static propTypes = {

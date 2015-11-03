@@ -14,9 +14,9 @@ export default function PopupVersion(props) {
 		/>
 	);
 	const popupClass = cx({
-			'timeline-popup': true,
-			'timeline-popup_active': props.active
-		});
+		'timeline-popup': true,
+		'timeline-popup_active': props.active
+	});
 	return (
 		<div className={popupClass}>
 			<div className='timeline-popup__close' onClick={props.onClose}/>

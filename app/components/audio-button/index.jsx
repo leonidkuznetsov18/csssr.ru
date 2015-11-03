@@ -1,5 +1,5 @@
 import React, {PropTypes}  from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 
 import './styles.css';
 
@@ -23,7 +23,7 @@ export default class AudioButton extends React.Component {
 	}
 
 	render() {
-		let classes = classnames('audio-button', {'audio-button_active': this.state.active});
+		const classes = cx('audio-button', {'audio-button_active': this.state.active});
 		return(
 			<button className={classes} onClick={this.click.bind(this)}>
 				<audio preload ref='audio'>

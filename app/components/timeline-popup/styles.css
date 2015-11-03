@@ -1,18 +1,18 @@
-.timeline-popup{
-		position: fixed;
-		z-index: 10200;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(0,0,0,.9);
-		opacity: 0;
-		transition-property: opacity;
-		transition-duration: .3s;
-		backface-visbility: hidden;
-		will-change: opacity;
+.timeline-popup {
+	position: fixed;
+	z-index: 10200;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.9);
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: .3s;
+	backface-visbility: hidden;
+	will-change: opacity;
 
-	&_active{
+	&_active {
 		opacity:1;
 		display:block;
 		.timeline-popup__content{
@@ -30,7 +30,7 @@
 		height: 24px;
 		cursor: pointer;
 		backface-visibility: hidden;
-		&:before{
+		&:before {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -99,7 +99,7 @@
 
 	&__avatar {
 		border-radius: 100%;
-		height:128px;
+		height: 128px;
 		width: 128px;
 	}
 
@@ -112,8 +112,8 @@
 	}
 	&__city {
 		margin-top: 6px;
-		font-family: 'Roboto';
-		font-weight:300;
+		font-family: Roboto;
+		font-weight: 300;
 		font-size: 11px;
 		line-height: 18px;
 	}
@@ -132,11 +132,11 @@
 			line-height: 1;
 			content: '\201c';
 		}
-		span{
+		span {
 			margin-bottom: 12px;
 			display: block;
-			font-family: 'Roboto';
-			font-weight:300;
+			font-family: Roboto;
+			font-weight: 300;
 			font-size: 12px;
 			line-height: 18px;
 			font-style: italic;

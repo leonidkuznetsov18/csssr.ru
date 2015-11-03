@@ -4,11 +4,11 @@
 	font-family: 'PT Sans Narrow';
 	color: #6A0005;
 	margin-bottom: 20px;
-	
+
 	&_center{
 		text-align: center;
 	}
-	
+
 	&_size_medium {
 		font-size: 24px;
 		margin-bottom: 11px;
@@ -24,16 +24,17 @@
 		text-transform: uppercase;
 		letter-spacing: 0.075em;
 	}
-	    &_size_extra_small {
-	    display: table;
-	    font-family: 'PT Sans Narrow';
-	    font-size: 15px;
-	    line-height: 18px;
-	    text-transform: uppercase;
-	    word-spacing: 2px;
-	    color: #690009;
-	    margin-bottom: 0;
-    }
+
+	&_size_extra_small {
+		display: table;
+		font-family: 'PT Sans Narrow';
+		font-size: 15px;
+		line-height: 18px;
+		text-transform: uppercase;
+		word-spacing: 2px;
+		color: #690009;
+		margin-bottom: 0;
+	}
 
 	&_color_yellow {
 		color: #f6e1ba;

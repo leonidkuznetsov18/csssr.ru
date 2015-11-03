@@ -91,10 +91,10 @@
 		border-radius: 100%;
 		filter: grayscale(100%);
 		transition-duration: .25s;
-		transition-property: opacity, transform, filter, -webkit-filter;
+		transition-property: opacity, transform, filter;
 		transform: translateZ(0);
 		backface-visibility: hidden;
-		will-change: opacity, transform, filter, -webkit-filter;
+		will-change: opacity, transform, filter;
 
 		&:hover:not(.timeline-item__avatar_disabled) {
 			opacity: .9;
@@ -113,8 +113,8 @@
 		line-height: 18px;
 		color: #333;
 
-		a{
-			&:hover{
+		a {
+			&:hover {
 				transition:color .25s;
 			}
 		}
@@ -138,7 +138,7 @@
 		background-size: cover;
 		border-radius: 100%;
 		&:before {
-			content:'+';
+			content: '+';
 			margin-right: 4px;
 			vertical-align: top;
 			font-family: 'Roboto';
@@ -180,7 +180,7 @@
 		span {
 			margin-bottom: 10px;
 			display: block;
-			font-family: 'Roboto';
+			font-family: Roboto;
 			font-weight:300;
 			font-size: 12px;
 			font-style: italic;
@@ -189,7 +189,7 @@
 
 		p {
 			position: relative;
-			font-family: 'Roboto';
+			font-family: Roboto;
 			font-weight:300;
 			font-size: 17px;
 			line-height: 22px;
