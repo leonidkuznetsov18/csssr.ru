@@ -5,6 +5,15 @@ import cx from 'classnames';
 
 import './styles.css';
 
+function getQuote(title, text) {
+	 return (
+		<blockquote className='timeline-popup__quote'>
+			<span>{title}</span>
+			<div>{text}</div>
+		</blockquote>
+	);
+}
+
 export default function TimelinePopup(props) {
 
 	const avatar = (
@@ -16,19 +25,9 @@ export default function TimelinePopup(props) {
 		/>
 	);
 
-	const history = props.histories && (
-		<blockquote className='timeline-popup__quote'>
-			<span>История связанная с CSSSR</span>
-			<div className='timeline-popup__history'>{props.histories}</div>
-		</blockquote>
-	);
+	const history = props.histories && getQuote('История связанная с CSSSR', props.histories);
 
-	const wishes = props.wishes && (
-		<blockquote className='timeline-popup__quote'>
-			<span>Пожелания CSSSR</span>
-			<div className='timeline-popup__wishes'>{props.wishes}</div>
-		</blockquote>
-	);
+	const wishes = props.wishes && getQuote('Пожелания CSSSR', props.wishes);
 
 	const popupClass = cx({
 			'timeline-popup': true,
@@ -55,6 +54,7 @@ export default function TimelinePopup(props) {
 
 
 TimelinePopup.propTypes = {
-	city: PropTypes.string.isRequired,
-	onClose: PropTypes.func
+	city: PropTypes.string,
+	onClose: PropTypes.func,
+	data: PropTypes.object
 };

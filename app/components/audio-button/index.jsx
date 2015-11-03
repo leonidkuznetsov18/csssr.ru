@@ -10,7 +10,7 @@ export default class AudioButton extends React.Component {
 		this.state = {active: false};
 	}
 
-	click() {
+	click = () => {
 		const active = !this.state.active;
 		this.setState({active});
 
@@ -25,7 +25,7 @@ export default class AudioButton extends React.Component {
 	render() {
 		const classes = cx('audio-button', {'audio-button_active': this.state.active});
 		return(
-			<button className={classes} onClick={this.click.bind(this)}>
+			<button className={classes} onClick={this.click}>
 				<audio preload ref='audio'>
 					<source src={require(`file?limit=9999!media/audio/${this.props.url}.ogg`)}/>
 					<source src={require(`file?limit=9999!media/audio/${this.props.url}.aac`)}/>

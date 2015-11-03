@@ -569,7 +569,7 @@
     event: "В интернете появился новый сайт"
     description: "Это событие было приурочено к конференции РИФ+КИБ. Именно тогда CSSSR обзавёлся первыми полезными контактами."
     version:
-      url: "/img/timeline/content/csssr-size-v-1.jpg"
+      url: "csssr-size-v-1"
       text: "версия 1.0"
       number: 1
   -

@@ -10,7 +10,7 @@ export default function PopupVersion(props) {
 	const img = (
 		<img
 			className='timeline-popup__image'
-			src={`http://csssr.ru/${props.screenshot}`}
+			src={require(`images/timeline/${props.screenshot}.jpg`)}
 		/>
 	);
 	const popupClass = cx({
