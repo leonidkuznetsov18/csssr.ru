@@ -1,37 +1,29 @@
-import React, {PropTypes} from 'react';
-import cx from 'classnames';
+import React from 'react';
+
 import './styles.css';
 
-
-export default class file extends React.Component {
-
-	static propTypes = {
-		type: PropTypes.oneOf(['doc', 'psd']).isRequired,
-		filename: PropTypes.string,
-		link: PropTypes.string,
-		size: PropTypes.string,
-		className: PropTypes.string,
-		linkWidth: PropTypes.number
-	}
-
-	render() {
-		const {type, filename, link, size, className, linkWidth} = this.props;
-
-		const linkElement = link && filename ? (
+export default function File({ type, filename, link, size }) {
+	return (
+		<div className='file'>
+			<img src={require(`images/background/${type}.svg`)} />
 			<a
-				style={{width: linkWidth}}
 				className='file__link'
 				href={link}
 				target='_blank'
-			>{filename}</a>
-		) : null;
+			>
+				{filename}
+			</a>
+			<p className='file__size'>
+				{size}
+			</p>
+		</div>
+	);
+}
 
-		return (
-			<div {...this.props} className={cx('file', className)}>
-				<img src={require(`images/background/${type}.svg`)} />
-				{linkElement}
-				{size ? <div className='file__size'>{size}</div> : size}
-			</div>
-		);
-	}
+File.propTypes = {
+	type: React.PropTypes.oneOf(['doc', 'psd']).isRequired,
+	filename: React.PropTypes.string,
+	link: React.PropTypes.string,
+	size: React.PropTypes.string,
+	className: React.PropTypes.string,
 }

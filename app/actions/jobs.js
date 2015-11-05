@@ -1,12 +1,5 @@
 import * as C from 'constants/actions';
 
-export function addJob(name) {
-	return {
-		type: C.ADD_JOB,
-		name
-	};
-}
-
 export function changeAnswerForm(job, form) {
 	return {
 		type: C.CHANGE_ANSWER_FORM,

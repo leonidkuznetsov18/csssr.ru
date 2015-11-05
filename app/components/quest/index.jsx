@@ -1,28 +1,31 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import cx from 'classnames';
+import File from 'components/file';
+
 import './styles.css';
 
+export default function Quest({children, file, horizon}) {
+	const blockClass = cx({
+		quest: true,
+		quest_horizon: horizon
+	});
 
-export default class Quest extends React.Component {
-
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		className: PropTypes.string,
-		horison: PropTypes.bool
-	}
-
-
-	render() {
-		return (
-			<div className={cx('hr-quest', this.props.className)}>
-				<img
-					className={cx('hr-quest__scissors', {
-						'hr-quest__scissors_horison': this.props.horison
-					})}
-					src={require('images/background/cut.svg')}
-				/>
-				{this.props.children}
+	return (
+		<div className={blockClass}>
+			<div className="quest__file">
+				<File {...file} />
 			</div>
-		);
-	}
+			<img
+				className='quest__scissors'
+				src={require('images/background/cut.svg')}
+			/>
+			{children}
+		</div>
+	);
+}
+
+Quest.propTypes = {
+	children: React.PropTypes.node.isRequired,
+	file: React.PropTypes.object.isRequired,
+	horizon: React.PropTypes.bool,
 }

@@ -101,7 +101,7 @@
 		background-color: #FFB820;
 	}
 
-	&:focus {
+	&:active {
 		top: 3px;
 		left: 1px;
 
@@ -116,7 +116,7 @@
 			top: 1px;
 		}
 	}
-	&:focus & {
+	&:active & {
 		&__shadow {
 			top: 11px;
 			left: -5px;

@@ -20,12 +20,12 @@ export default {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      filename: {
-        value: 'Прикрепите решение квеста',
-      },
-      filepath: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
+      file: {
+        value: {
+          name: 'Прикрепите решение квеста',
+          type: ''
+        },
+        validate: value => validate(value.type).notEmpty().end()
       },
       email: {
         value: '',
@@ -60,13 +60,12 @@ export default {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      filename: {
-        value: 'Прикрепите zip-архив',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      filepath: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
+      file: {
+        value: {
+          name: 'Прикрепите zip-архив',
+          type: ''
+        },
+        validate: value => validate(value.type).notEmpty().end()
       },
       email: {
         value: '',

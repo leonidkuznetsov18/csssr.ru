@@ -7,7 +7,7 @@ class Validate {
 	notEmpty() {
 		if (!this.result) return this;
 
-		if (!this.string) {
+		if (!this.string.length) {
 			this.result = false;
 		}
 		return this;

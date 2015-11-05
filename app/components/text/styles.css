@@ -10,8 +10,8 @@
 		text-align: center;
 	}
 
-	&_weight_bold {
-		font-weight: 400;
+	&_noindent {
+		margin-bottom: 0;
 	}
 
 	&_size_l {
@@ -39,8 +39,8 @@
 		line-height: 18px;
 	}
 
-	&_noindent {
-		margin-bottom: 0;
+	&_weight_normal {
+		font-weight: 400;
 	}
 
 	&_color_blue {

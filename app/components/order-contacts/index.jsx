@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import pureRender from 'helpers/pureRender';
 import Field from 'components/field';
-import Brick from 'components/brick';
 import Checkbox from 'components/checkbox';
 import Link from 'components/link';
 import Button from 'components/button';

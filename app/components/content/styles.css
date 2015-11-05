@@ -11,4 +11,9 @@
 	&_padding {
 		padding-top: 50px;
 	}
+
+	&_layout_job {
+		padding-left: 307px;
+		padding-right: 50px;
+	}
 }

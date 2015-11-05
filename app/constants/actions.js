@@ -2,7 +2,6 @@ export const SEND_FORM = 'SEND_FORM';
 export const SEND_FORM_SUCCESS = 'SEND_FORM_SUCCESS';
 export const SEND_FORM_ERROR = 'SEND_FORM_ERROR';
 
-export const ADD_JOB = 'ADD_JOB';
 export const CHANGE_ANSWER_FORM = 'CHANGE_ANSWER_FORM';
 export const SEND_ANSWER_FORM = 'SEND_ANSWER_FORM';
 export const SHOW_FORM_ERRORS = 'SHOW_FORM_ERRORS';

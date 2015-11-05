@@ -2,10 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 import Title from 'components/title';
 import Text from 'components/text';
+import List from 'components/list';
 
 import './styles.css';
 
-export default function Section({title, description, children, indent}) {
+export default function Section({title, description, list, children, indent}) {
 	const blockClass = cx({
 		'section': true,
 		'section_indent': indent
@@ -23,6 +24,9 @@ export default function Section({title, description, children, indent}) {
 					{paragraph.text}
 				</Text>
 			))}
+			{list &&
+				<List {...list} />
+			}
 			{children}
 		</section>
 	);
