@@ -17,6 +17,8 @@ import ProjectPage from 'containers/page-project-page';
 import Timeline from 'containers/page-timeline';
 import PageTimelinePopup from 'containers/page-timeline-popup';
 import VersionPopup from 'containers/popup-version';
+import Timeline from 'components/timeline';
+import Error404 from 'containers/error-404';
 
 export default (
 	<Route name='root' component={Application}>

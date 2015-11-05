@@ -12,5 +12,4 @@ export default class Error404 extends React.Component {
 			</Content>
 		);
 	}
-
 };
