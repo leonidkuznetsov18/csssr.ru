@@ -2,14 +2,17 @@ import React, {PropTypes} from 'react';
 
 import {Link} from 'react-router';
 import cx from 'classnames';
+import Title from 'components/title';
+import ReactMarkdown from 'react-markdown';
+import Popup from 'components/popup';
 
 import './styles.css';
 
 function getQuote(title, text) {
 	 return (
 		<blockquote className='timeline-popup__quote'>
-			<span>{title}</span>
-			<div>{text}</div>
+			<Title size='small' component='h6' color='yellow'>{title}</Title>
+			<ReactMarkdown source={text}/>
 		</blockquote>
 	);
 }
@@ -29,32 +32,23 @@ export default function TimelinePopup(props) {
 
 	const wishes = props.wishes && getQuote('Пожелания CSSSR', props.wishes);
 
-	const popupClass = cx({
-			'timeline-popup': true,
-			'timeline-popup_active': props.active
-		});
-
 	return (
-		<div className={popupClass}>
-			<div  className='timeline-popup__close' onClick={props.onClose}/>
-			<div className='timeline-popup__content'>
-				<div className='timeline-popup__blockquote'>
-					<div className='timeline-popup__staff'>
-					{avatar}
-						<div className='timeline-popup__name'>{props.name}</div>
-						<div className='timeline-popup__city'>{props.city}</div>
-					</div>
-					{history}
-					{wishes}
+		<Popup active={props.active} onClose={props.onClose} >
+			<div className='timeline-popup__blockquote'>
+				<div className='timeline-popup__staff'>
+				{avatar}
+					<div className='timeline-popup__name'>{props.name}</div>
+					<div className='timeline-popup__city'>{props.city}</div>
 				</div>
+				{history}
+				{wishes}
 			</div>
-		</div>
+		</Popup>
 	);
 }
 
 
 TimelinePopup.propTypes = {
 	city: PropTypes.string,
-	onClose: PropTypes.func,
 	data: PropTypes.object
 };

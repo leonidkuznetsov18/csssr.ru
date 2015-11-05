@@ -10,42 +10,42 @@
 	transition-duration: .25s;
 	transition-property: background-color;
 
-		&::before {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			content: '';
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		content: '';
+		left: 0;
+		width: 72px;
+		height: 72px;
+		border: 1px dashed #5f1600;
+		border-radius: 100%;
+	}
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		content: '';
+		left: 7px;
+		width: 0;
+		height: 0;
+		border-top: 12px solid transparent;
+		border-left: 20px solid #5f1600;
+		border-bottom: 12px solid transparent;
+	}
+
+	&_active{
+		&:after{
 			left: 0;
-			width: 72px;
-			height: 72px;
-			border: 1px dashed #5f1600;
-			border-radius: 100%;
+			border: none;
+			height: 22px;
+			width: 22px;
+			background-color: #5f1600;
 		}
-
-		&::after {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			content: '';
-			left: 7px;
-			width: 0;
-			height: 0;
-			border-top: 12px solid transparent;
-			border-left: 20px solid #5f1600;
-			border-bottom: 12px solid transparent;
-		}
-
-		&_active{
-			&:after{
-				left: 0;
-				border: none;
-				height: 22px;
-				width: 22px;
-				background-color: #5f1600;
-			}
-		}
+	}
 	}

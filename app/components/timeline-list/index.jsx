@@ -9,7 +9,7 @@ export default function TimelineList(props) {
 	});
 
 	return (
-		<ul className='timeline-items'>
+		<ul className='timeline-list'>
 			{items}
 		</ul>
 	);

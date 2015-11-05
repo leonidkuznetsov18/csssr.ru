@@ -5,6 +5,10 @@ import './styles.css';
 
 export default class AudioButton extends React.Component {
 
+	static propTypes = {
+		url: PropTypes.string.isRequired
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {active: false};
@@ -37,7 +41,4 @@ export default class AudioButton extends React.Component {
 
 };
 
-AudioButton.propTypes = {
-	url: PropTypes.string.isRequired
-};
 

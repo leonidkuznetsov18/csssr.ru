@@ -5,6 +5,7 @@ import cx from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
 import Title from 'components/title';
+import Text from 'components/text';
 import AudioButton from 'components/audio-button';
 import ReactMarkdown from 'react-markdown';
 import {Link} from 'react-router';
@@ -37,8 +38,8 @@ export default function TimelineItem(props) {
 
 	const quote = props.data.quote && (
 		<div className='timeline-item__quote'>
-			<span>{props.data.quote.title}</span>
-			<p>{props.data.quote.text}</p>
+			<Title size='small' color='black' component='h6'>{props.data.quote.title}</Title>
+			<Text>{props.data.quote.text}</Text>
 		</div>
 	);
 
@@ -117,15 +118,15 @@ export default function TimelineItem(props) {
 
 	const classList = cx({
 		'timeline-item': true,
-		'timeline-item__with-icon-count': props.data.newstaff,
-		'timeline-item__with-icon-star': !props.data.newstaff
+		'timeline-item_with-icon-count': props.data.newstaff,
+		'timeline-item_with-icon-star': !props.data.newstaff
 	});
 
 
 	return (
 		<li className={classList}>
 			{date}
-			<Title size='extra-small' component='h6'>
+			<Title size='small' component='h6'>
 				{names || props.data.event}
 			</Title>
 			{description}

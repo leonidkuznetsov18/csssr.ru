@@ -1,31 +1,3 @@
-.timeline{
-	margin: 100px auto 50px;
-	overflow: hidden;
-	width: 91.538%;
-	min-height: 690px;
-	&__centered-text{
-		margin-left: auto;
-		margin-right: auto;
-		width: 524px;
-		.title_center{
-			margin-top: 40px;
-			margin-bottom: 20px;
-			font-family: 'PT Sans Narrow';
-			font-size: 35px;
-			line-height: 1;
-			color: #6a0005;
-		}
-		.text_center{
-			font-family: 'Roboto';
-			font-weight: 300;
-			font-size: 15px;
-			line-height: 21px;
-			color: #333;
-		}
-	}
-}
-
-
 .timeline-item {
 		position: relative;
 		margin-top: 8px;
@@ -112,12 +84,6 @@
 		font-size: 13px;
 		line-height: 18px;
 		color: #333;
-
-		a {
-			&:hover {
-				transition:color .25s;
-			}
-		}
 	}
 
 	&__icon_type_count {
@@ -157,7 +123,7 @@
 	}
 
 	&__version {
-		font-family: 'Roboto';
+		font-family: Roboto;
 		font-weight:300;
 		font-size: 24px;
 		line-height: 30px;
@@ -167,7 +133,7 @@
 			text-decoration: underline;
 			transition: all .25s;
 			cursor: pointer;
-		}
+		}   /*Используеться в Маркдауне*/
 	}
 
 	&__quote {
@@ -207,14 +173,14 @@
 		}
 	}
 
-	&__with-icon-star {
+	&_with-icon-star {
 		padding-left: 165px;
 		&:before{
 			top: 20px;
 		}
 	}
 
-	&__with-icon-count {
+	&_with-icon-count {
 		&:before{
 			top: 64px;
 		}

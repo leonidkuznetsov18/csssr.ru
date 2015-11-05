@@ -40,7 +40,8 @@ Text.propTypes = {
 	size: PropTypes.string,
 	color: PropTypes.string,
 	weight: PropTypes.string,
-	indent: PropTypes.bool
+	indent: PropTypes.bool,
+	center:PropTypes.bool
 };
 
 Text.defaultProps = {
