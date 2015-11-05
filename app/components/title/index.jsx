@@ -11,7 +11,7 @@ export default class Title extends React.Component {
 		]),
 		size: React.PropTypes.string,
 		color: React.PropTypes.string,
-		center: React.PropTypes.boolean,
+		center: React.PropTypes.bool,
 		component: React.PropTypes.oneOfType([
 			React.PropTypes.string,
 			React.PropTypes.element
