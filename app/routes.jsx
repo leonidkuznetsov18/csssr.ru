@@ -44,5 +44,6 @@ export default (
 			<Route path='version/:version' name='version' component={VersionPopup} />
 			<Route path=':person' name='person' component={PageTimelinePopup} />
 		</Route>
+		<Route path='*' component={Error404}/>
 	</Route>
 );
