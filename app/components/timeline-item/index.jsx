@@ -12,12 +12,12 @@ import {Link} from 'react-router';
 
 function getIcon(newstaff){
 	if (newstaff) return (
-		<div className='timeline-item__icon_type_count'>
+		<div className='timeline-item__icon-count'>
 				{newstaff.length}
 		</div>
 	);
 	return (
-		<Icon className='timeline-item__icon_type_star' icon='timeline-star'/>
+		<Icon className='timeline-item__icon-star' icon='timeline-star'/>
 	);
 }
 
@@ -126,9 +126,11 @@ export default function TimelineItem(props) {
 	return (
 		<li className={classList}>
 			{date}
-			<Title size='small' component='h6'>
-				{names || props.data.event}
-			</Title>
+			<div className='timeline-item__title'>
+				<Title size='small' component='h6'>
+					{names || props.data.event}
+				</Title>
+			</div>
 			{description}
 			{newStaff}
 			{images && <div className='timeline-item__images'>{images}</div>}

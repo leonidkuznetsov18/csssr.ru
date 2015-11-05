@@ -86,7 +86,7 @@
 		color: #333;
 	}
 
-	&__icon_type_count {
+	&__icon-count {
 		position: absolute;
 		top: 0;
 		left: 112px;
@@ -114,7 +114,7 @@
 		}
 	}
 
-	&__icon_type_star {
+	&__icon-star {
 		position: absolute;
 		top: 0;
 		left: 134px;
@@ -143,24 +143,6 @@
 		padding-left: 48px;
 		display: table;
 		line-height: 22px;
-		span {
-			margin-bottom: 10px;
-			display: block;
-			font-family: Roboto;
-			font-weight:300;
-			font-size: 12px;
-			font-style: italic;
-			line-height: 18px;
-		}
-
-		p {
-			position: relative;
-			font-family: Roboto;
-			font-weight:300;
-			font-size: 17px;
-			line-height: 22px;
-			color: #333;
-		}
 
 		&:before {
 			position: absolute;
@@ -185,16 +167,13 @@
 			top: 64px;
 		}
 
-		.timeline-item__names {
-			margin-top:20px;
-		}
-
 		.timeline-item__date {
-			top:20px;
+			top: 20px;
 		}
 
-		.title_size_extra_small {
-			margin-top:20px;
+		.timeline-item__title {
+			margin-top: 20px;
 		}
 	}
+
 }
