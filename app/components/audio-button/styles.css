@@ -3,7 +3,7 @@
 	width: 80px;
 	height: 80px;
 	cursor: pointer;
-	border:none;
+	border: none;
 	user-select: none;
 	background-color: #fcb54d;
 	border-radius: 100%;
@@ -39,8 +39,8 @@
 		border-bottom: 12px solid transparent;
 	}
 
-	&_active{
-		&:after{
+	&_active {
+		&:after {
 			left: 0;
 			border: none;
 			height: 22px;
@@ -48,4 +48,4 @@
 			background-color: #5f1600;
 		}
 	}
-	}
+}

@@ -166,14 +166,15 @@
 		&:before{
 			top: 64px;
 		}
+	}
 
-		.timeline-item__date {
+	&_with-icon-count & {
+		&__date {
 			top: 20px;
 		}
 
-		.timeline-item__title {
+		&__title {
 			margin-top: 20px;
 		}
 	}
-
 }

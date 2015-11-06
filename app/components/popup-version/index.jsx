@@ -6,16 +6,12 @@ import Popup from 'components/popup';
 
 export default function PopupVersion(props) {
 
-	const img = (
-		<img
-			className='popup__image'
-			src={require(`images/timeline/${props.screenshot}.jpg`)}
-		/>
-	);
-
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
-			{img}
+			<img
+				className='popup__image'
+				src={require(`images/timeline/${props.screenshot}.jpg`)}
+			/>
 		</Popup>
 	);
 }
