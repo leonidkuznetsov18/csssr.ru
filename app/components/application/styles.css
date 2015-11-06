@@ -2,14 +2,36 @@
 @import 'base';
 
 .application {
-	padding-top: 35px;
-	background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
-	background-color: #043351;
-	background-size: 100% 2000px, auto;
-	background-repeat: no-repeat, repeat;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+	&_active {
+		&:before {
+			background-color: rgba(0,0,0,.5);
+		}
+	}
+	&:before {
+		position: absolute;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		content: '';
+		visibility: hidden;
+		background-color: transparent;
+		transition: background-color .5s;
+	}
+
+	&__wrapper{
+		padding-top: 35px;
+		background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
+		background-color: #043351;
+		background-size: 100% 2000px, auto;
+		background-repeat: no-repeat, repeat;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
 
 	&__inner {
 		margin-left: auto;
