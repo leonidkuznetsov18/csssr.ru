@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Header from 'components/header';
 import Footer from 'components/footer';
 import Sharing from 'components/sharing';
+import Contacts from 'components/contacts';
 
 import './styles.css';
 
@@ -15,6 +16,8 @@ export default function Application({children, banner, meta}) {
 			</div>
 			<Sharing meta={meta}/>
 			<Footer />
+			<Footer/>
+			<Contacts/>
 		</div>
 	);
 }

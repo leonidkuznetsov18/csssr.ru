@@ -1,0 +1,22 @@
+.contacts{
+	position: absolute;
+	z-index: 100000;
+	top: 0;
+	left: 100%;
+	transform: translate(0);
+	max-width: 970px;
+	padding: 40px 50px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	max-width: 970px;
+	height: 100vh;
+	max-width: 970px;
+	background-color: #fff;
+	user-select: none;
+	transition: transform .5s ease-in-out;
+	backface-visibility: hidden;
+
+	&_active{
+		transform: translate(-100%);
+	}
+}
