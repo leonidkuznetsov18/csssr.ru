@@ -108,7 +108,7 @@
 			margin-right: 4px;
 			vertical-align: top;
 			font-family: Roboto;
-			font-weight:300;
+			font-weight: 300;
 			font-size: 18px;
 			line-height: 56px;
 		}
@@ -124,7 +124,7 @@
 
 	&__version {
 		font-family: Roboto;
-		font-weight:300;
+		font-weight: 300;
 		font-size: 24px;
 		line-height: 30px;
 		text-transform: uppercase;
@@ -157,13 +157,13 @@
 
 	&_with-icon-star {
 		padding-left: 165px;
-		&:before{
+		&:before {
 			top: 20px;
 		}
 	}
 
 	&_with-icon-count {
-		&:before{
+		&:before {
 			top: 64px;
 		}
 	}

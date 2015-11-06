@@ -1,15 +1,11 @@
 import React, {PropTypes} from 'react';
-
 import {Link} from 'react-router';
 import cx from 'classnames';
-
 import './styles.css';
-
 
 export default function Popup(props) {
 
-
-	const popupClass = cx({
+	const popupClass = cx ({
 			'popup': true,
 			'popup_active': props.active
 		});
@@ -21,7 +17,6 @@ export default function Popup(props) {
 		</div>
 	);
 }
-
 
 Popup.propTypes = {
 	onClose: PropTypes.func,

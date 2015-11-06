@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-
 import PopupVersion from 'components/popup-version';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';

@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-
 import './styles.css';
 import cx from 'classnames';
 import Button from 'components/button';
@@ -43,7 +42,6 @@ export default function TimelineItem(props) {
 		</div>
 	);
 
-
 	const version = props.data.version && (
 		<div className='timeline-item__version'>
 			csssr&nbsp;
@@ -55,7 +53,7 @@ export default function TimelineItem(props) {
 
 	const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person,index) => {
 
-		const classList = cx({
+		const classList = cx ({
 			'timeline-item__avatar': true,
 			'timeline-item__avatar_disabled': !person.url
 		});
@@ -114,14 +112,11 @@ export default function TimelineItem(props) {
 		</div>
 	);
 
-
-
-	const classList = cx({
+	const classList = cx ({
 		'timeline-item': true,
 		'timeline-item_with-icon-count': props.data.newstaff,
 		'timeline-item_with-icon-star': !props.data.newstaff
 	});
-
 
 	return (
 		<li className={classList}>

@@ -19,7 +19,7 @@ export default class PageTimeline extends React.Component {
 					<Title center>
 						История CSSSR
 					</Title>
-					<Text center={true}>
+					<Text center>
 						Каждый год в канун дня рождения CSSSR,
 						мы дополняем хронологию <br/> ключевых событий нашей истории.
 					</Text>

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TimelineItem from 'components/timeline-item';
 import './styles.css';
 

@@ -1,11 +1,9 @@
 import React, {PropTypes} from 'react';
-
 import {Link} from 'react-router';
 import cx from 'classnames';
 import Title from 'components/title';
 import ReactMarkdown from 'react-markdown';
 import Popup from 'components/popup';
-
 import './styles.css';
 
 function getQuote(title, text) {
@@ -46,7 +44,6 @@ export default function TimelinePopup(props) {
 		</Popup>
 	);
 }
-
 
 TimelinePopup.propTypes = {
 	city: PropTypes.string,

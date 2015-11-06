@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-
 import {Link} from 'react-router';
 import cx from 'classnames';
 import Popup from 'components/popup';
@@ -15,6 +14,7 @@ export default function PopupVersion(props) {
 		</Popup>
 	);
 }
+
 PopupVersion.propTypes = {
 	screenshot: PropTypes.string,
 	active: PropTypes.boolean,

@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react';
-
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
-
 import TimelinePopup from 'components/timeline-popup';
-
 
 const timeline = require('data/timeline.yml');
 
