@@ -4,23 +4,6 @@
 .application {
 	position: relative;
 	overflow: hidden;
-	&_active {
-		&:before {
-			background-color: rgba(0,0,0,.5);
-		}
-	}
-	&:before {
-		position: absolute;
-		z-index: 10000;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		content: '';
-		visibility: hidden;
-		background-color: transparent;
-		transition: background-color .5s;
-	}
 
 	&__wrapper{
 		padding-top: 35px;
@@ -31,6 +14,24 @@
 		min-height: 100%;
 		display: flex;
 		flex-direction: column;
+		transition-property: transform;
+		transition-duration: .5s;
+		transition-timing-function: ease-in-out;
+
+		&:before {
+			position: absolute;
+			z-index: 10000;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			content: '';
+			visibility: hidden;
+			background-color: transparent;
+			transition-duration: .5s;
+			transition-property: background-color, visibility;
+			transition-timing-function: ease-in-out;
+		}
 	}
 
 	&__inner {
@@ -41,6 +42,25 @@
 		width: 100%;
 		min-width: 1000px;
 		max-width: 1300px;
+	}
+
+	&_active {
+		height: 100vh;
+	}
+
+	&_active & {
+		&__wrapper {
+			&:before {
+				background-color: rgba(0,0,0,.5);
+				visibility: visible;
+			}
+		}
+	}
+
+	&_active & {
+		&__wrapper {
+			transform: translateX(-50%);
+		}
 	}
 }
 

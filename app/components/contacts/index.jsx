@@ -4,48 +4,14 @@ import Title from 'components/title';
 import Text from 'components/text';
 import cx from 'classnames';
 import { connect } from 'react-redux';
-import { pushState } from 'redux-router';
 import './styles.css';
 
-@connect(
-	state => ({}),
-	{pushState}
-)
 export default class Contacts extends React.Component {
 
 	static propTypes = {
-		active: PropTypes.string,
-		onClose: PropTypes.func,
-		history: PropTypes.object,
-		pushState: React.PropTypes.func.isRequired
-	}
-
-	componentWillMount() {
-		this.setState({
-			active: false
-		});
-	}
-
-	componentWillReceiveProps() {
-		this.setState({
-			active: true
-		});
-	}
-
-	onOpen = () => {
-		this.setState({
-			active: true
-		});
-	}
-
-	onClose = () => {
-		this.setState({
-			active: false
-		});
-
-		setTimeout(() => {
-			this.props.history.pushState(null, '/');
-		}, 500);
+		active: PropTypes.bool,
+		close: PropTypes.func,
+		history: PropTypes.object
 	}
 
 	render() {
@@ -53,10 +19,9 @@ export default class Contacts extends React.Component {
 				'contacts': true,
 				'contacts_active': this.props.active
 		});
-
 		return (
-			<div className={contactsClass} active={this.state.active}>
-				<div  className='contacts__close' onClick={this.props.onClose}/>
+			<div className={contactsClass}>
+				<div className='contacts__close' onClick={this.props.close}/>
 				<div className='contacts__header'>
 					Уголок <br/>
 					Развитого <br/>
