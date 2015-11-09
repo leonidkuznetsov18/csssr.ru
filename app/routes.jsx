@@ -17,6 +17,11 @@ import ProjectPage from 'containers/page-project-page';
 import Timeline from 'containers/page-timeline';
 import PageTimelinePopup from 'containers/page-timeline-popup';
 import VersionPopup from 'containers/popup-version';
+import Timeline from 'components/timeline';
+import Error404 from 'containers/error-404';
+import Error403 from 'containers/error-403';
+import Error500 from 'containers/error-500';
+import Error502 from 'containers/error-502';
 
 export default (
 	<Route name='root' component={Application}>
@@ -42,5 +47,9 @@ export default (
 			<Route path='version/:version' name='version' component={VersionPopup} />
 			<Route path=':person' name='person' component={PageTimelinePopup} />
 		</Route>
+		<Route path='*' component={Error404}/>
+		<Route path='/403' component={Error403}/>
+		<Route path='/500' component={Error500}/>
+		<Route path='/502' component={Error502}/>
 	</Route>
 );

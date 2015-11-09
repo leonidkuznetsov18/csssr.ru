@@ -6,6 +6,7 @@ import './styles.css';
 export default function Text({size, children, indent, color, center}) {
 	const classList = cx({
 		text: true,
+		text_size_l: size === 'l',
 		text_size_m: size === 'm',
 		text_size_s: size === 's',
 		text_size_xs: size === 'xs',
