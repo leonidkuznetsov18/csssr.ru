@@ -5,6 +5,10 @@
 	color: #6A0005;
 	margin-bottom: 20px;
 
+	&_center {
+		text-align: center;
+	}
+
 	&_size_medium {
 		font-size: 24px;
 		margin-bottom: 11px;
@@ -23,5 +27,8 @@
 
 	&_color_yellow {
 		color: #f6e1ba;
+	}
+	&_color_black {
+		color: #333;
 	}
 }

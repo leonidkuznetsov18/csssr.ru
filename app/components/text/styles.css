@@ -6,6 +6,10 @@
 	color: #333333;
 	margin-bottom: 10px;
 
+	&_center {
+		text-align: center;
+	}
+
 	&_weight_bold {
 		font-weight: 400;
 	}

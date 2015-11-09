@@ -1,0 +1,180 @@
+.timeline-item {
+		position: relative;
+		margin-top: 8px;
+		margin-left: 200px;
+		padding-left: 190px;
+		padding-bottom: 28px;
+		overflow: hidden;
+		width: 600px;
+
+		&:last-child {
+			&:before {
+				display: none;
+			}
+		}
+
+		&:before {
+			position: absolute;
+			left: 140px;
+			bottom: 0;
+			display: block;
+			width: 1px;
+			content: '';
+			background-color: #666;
+		}
+
+	&__images{
+		margin-top: 5px;
+		font-size: 0;
+		line-height: 1;
+	}
+
+	&__date {
+		position: absolute;
+		left: 0;
+		width: 92px;
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 18px;
+		text-align: right;
+		color: #333;
+	}
+
+	&__link{
+		position: relative;
+		display: inline-block;
+		margin-left:8px;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&__avatars {
+		margin-left:-20px;
+		margin-top: 5px;
+		font-size: 0;
+		line-height: 1;
+	}
+
+	&__avatar {
+		vertical-align: middle;
+		font-size: 13px;
+		border-radius: 100%;
+		filter: grayscale(100%);
+		transition-duration: .25s;
+		transition-property: opacity, transform, filter;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		will-change: opacity, transform, filter;
+
+		&:hover:not(.timeline-item__avatar_disabled) {
+			opacity: .9;
+			transform: translateY(-4px);
+			filter: grayscale(0);
+		}
+	}
+
+	&__description {
+		margin-top: 5px;
+		margin-bottom: 28px;
+		display: table;
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 13px;
+		line-height: 18px;
+		color: #333;
+	}
+
+	&__icon-count {
+		position: absolute;
+		top: 0;
+		left: 112px;
+		width: 56px;
+		height: 56px;
+		vertical-align: top;
+		font-family: 'PT Sans Narrow';
+		font-size: 28px;
+		line-height: 56px;
+		text-align: center;
+		color: #f2ebda;
+		background-image: url(../../images/timeline/timeline-newstaff-circle.png) ;
+		background-color: #aa2f23;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 100%;
+		&:before {
+			content: '+';
+			margin-right: 4px;
+			vertical-align: top;
+			font-family: Roboto;
+			font-weight: 300;
+			font-size: 18px;
+			line-height: 56px;
+		}
+	}
+
+	&__icon-star {
+		position: absolute;
+		top: 0;
+		left: 134px;
+		width: 12px;
+		height: 12px;
+	}
+
+	&__version {
+		font-family: Roboto;
+		font-weight: 300;
+		font-size: 24px;
+		line-height: 30px;
+		text-transform: uppercase;
+		a {
+			text-transform: lowercase;
+			text-decoration: underline;
+			transition: all .25s;
+			cursor: pointer;
+		}   /*Используеться в Маркдауне*/
+	}
+
+	&__quote {
+		position: relative;
+		margin-top: 4px;
+		margin-left: -48px;
+		padding-left: 48px;
+		display: table;
+		line-height: 22px;
+
+		&:before {
+			position: absolute;
+			top: -5px;
+			left: 0;
+			font-family: 'PT Sans';
+			font-size: 80px;
+			line-height: 1;
+			content: '\201c';
+		}
+	}
+
+	&_with-icon-star {
+		padding-left: 165px;
+		&:before {
+			top: 20px;
+		}
+	}
+
+	&_with-icon-count {
+		&:before {
+			top: 64px;
+		}
+	}
+
+	&_with-icon-count & {
+		&__date {
+			top: 20px;
+		}
+
+		&__title {
+			margin-top: 20px;
+		}
+	}
+}

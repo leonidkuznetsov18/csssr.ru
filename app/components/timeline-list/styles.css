@@ -1,0 +1,19 @@
+.timeline-list {
+	position: relative;
+	padding-top: 320px;
+	margin-bottom: 124px;
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+	&:before{
+		content: '';
+		position: absolute;
+		display: block;
+		background-image: url(../../images/timeline/rocket_en.svg);
+		width: 121px;
+		height: 342px;
+		top: 10px;
+		left: 50%;
+		margin-left: -134px;
+	}
+}
