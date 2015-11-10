@@ -33,7 +33,22 @@ export default function jobs(state = initialState, action) {
 	}
 
 	case C.SEND_ANSWER_FORM: {
-		return state;
+		return {
+			...state,
+			[job]: {
+				...state[job],
+				send: true,
+			}
+		}
+	}
+
+	case C.SENT_ANSWER_FORM: {
+		return {
+			...state,
+			[job]: {
+				...initialState[job],
+			}
+		}
 	}
 
 	case C.SHOW_FORM_ERRORS: {

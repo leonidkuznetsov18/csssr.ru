@@ -3,12 +3,13 @@ import validate from 'helpers/validate';
 export default {
   'technical-manager': {
     name: 'Менеджер-технарь',
+    key: 'technical-manager',
     form: {
-      name: {
+      firstname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      surname: {
+      lastname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
@@ -43,12 +44,13 @@ export default {
   },
   'pixel-perfectionist': {
     name: 'Верстальщик пиксель-перфекционист',
+    key: 'pixel-perfectionist',
     form: {
-      name: {
+      firstname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      surname: {
+      lastname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },

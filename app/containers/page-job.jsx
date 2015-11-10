@@ -73,9 +73,8 @@ export default class PageJob extends React.Component {
 					<JobAnswerForm
 						{...actions}
 						{...fileTypes[page]}
-						form={this.props.job.form}
+						job={this.props.job}
 						isValid={this.props.job.isValid}
-						job={page}
 					/>
 				</Content>
 			</div>

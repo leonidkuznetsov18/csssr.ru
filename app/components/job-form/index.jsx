@@ -11,8 +11,7 @@ import './styles.css';
 
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
-		job: React.PropTypes.string.isRequired,
-		form: React.PropTypes.object.isRequired,
+		job: React.PropTypes.object.isRequired,
 		changeAnswerForm: React.PropTypes.func.isRequired,
 		sendAnswerForm: React.PropTypes.func.isRequired,
 		showFormErrors: React.PropTypes.func.isRequired,
@@ -26,7 +25,7 @@ export default class JobAnswerForm extends React.Component {
 	}
 
 	changeField = (value, field) => {
-		this.props.changeAnswerForm(this.props.job, {
+		this.props.changeAnswerForm(this.props.job.key, {
 			[field]: {
 				value: value,
 				showError: false
@@ -38,9 +37,9 @@ export default class JobAnswerForm extends React.Component {
 		event.preventDefault();
 
 		if (this.props.isValid) {
-			this.props.sendAnswerForm(this.props.job);
+			this.props.sendAnswerForm(this.props.job.key);
 		} else {
-			this.props.showFormErrors(this.props.job);
+			this.props.showFormErrors(this.props.job.key);
 		}
 	}
 
@@ -54,7 +53,7 @@ export default class JobAnswerForm extends React.Component {
 	}
 
 	field(name, label, props, inputProps) {
-		const { form } = this.props;
+		const { form } = this.props.job;
 
 		return (
 			<Field
@@ -72,12 +71,12 @@ export default class JobAnswerForm extends React.Component {
 	}
 
 	render() {
-		const { form } = this.props;
+		const { form } = this.props.job;
 
 		return (
 			<form className='job-form' onSubmit={this.submitForm}>
-				{this.field('name', 'Имя', {small: true})}
-				{this.field('surname', 'Фамилия', {small: true})}
+				{this.field('firstname', 'Имя', {small: true})}
+				{this.field('lastname', 'Фамилия', {small: true})}
 				{this.field('age', 'Возраст', {}, {onChange: this.changeAge})}
 				{this.field('city', 'Город')}
 
