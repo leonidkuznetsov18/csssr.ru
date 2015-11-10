@@ -8,6 +8,7 @@ import Icon from 'components/icon';
 import './styles.css';
 
 export default function CompanyInfo({history, data}) {
+	console.log(data.name)
 	return (
 		<div className='company-info'>
 			<Row>
