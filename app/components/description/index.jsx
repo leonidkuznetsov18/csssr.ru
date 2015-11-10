@@ -1,9 +1,11 @@
 import React from 'react';
 import Airship from 'components/airship';
 import Icon from 'components/icon';
+import { Link } from 'react-router';
 import Parallax from 'components/parallax';
 import Workflow from 'components/workflow';
 import Text from 'components/text';
+
 import './styles.css';
 
 export default function Description({data}) {
@@ -33,9 +35,15 @@ export default function Description({data}) {
 			<div className='description__list'>
 				{data.map((item, index) => (
 					<div className='description__item' key={index}>
-						<h2 className='description__title'
-							dangerouslySetInnerHTML={{__html: item.title}}
-						/>
+						<h2 className='description__title'>
+							<span
+								dangerouslySetInnerHTML={{__html: item.title}}/>
+							{item.link &&
+								<Link to={item.link}>
+									{item.linkText}
+								</Link>
+							}
+						</h2>
 						<Text size='s'>
 							{item.description}
 						</Text>
