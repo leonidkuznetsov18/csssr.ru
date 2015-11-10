@@ -10,10 +10,6 @@ import './styles.css';
 export default function IndexService({data}) {
 	return (
 		<div className='index-service'>
-			<Icon
-				className='index-service__header'
-				icon='mission'
-			/>
 			<Parallax speed={0.3}>
 				<Icon
 					className='index-service__rocket'

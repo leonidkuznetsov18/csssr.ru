@@ -14,6 +14,7 @@ export default function Text({size, children, indent, color, center, weight}) {
 		text_noindent: indent === false,
 		text_center: center,
 		text_color_blue: color === 'blue',
+		text_color_grey: color === 'grey',
 		text_weight_normal: weight === 'normal'
 	});
 

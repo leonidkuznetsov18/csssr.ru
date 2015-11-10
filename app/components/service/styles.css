@@ -3,28 +3,28 @@
 
 	&__title {
 		font-family: 'RodchenkoCTT';
-		font-size: 36px;
+		font-size: 32px;
 		text-transform: uppercase;
 		line-height: 39px;
-		color: #F0E4CC;
+		color: #f4e0bb;
 		letter-spacing: 1px;
+
+		&:hover {
+			color: #f2ecde;
+		}
 	}
 
 	&__subtitle {
 		font-family: 'Roboto';
-		font-weight: bold;
-		font-size: 18px;
-		line-height: 24px;
-		margin-bottom: 25px;
+		font-weight: 400;
+		font-size: 17px;
+		line-height: 27px;
+		margin-bottom: 22px;
 		margin-top: 12px;
+		color: #74898f;
 	}
 
 	&__text {
-		font-family: 'Roboto';
-		font-weight: 300;
-		font-size: 14px;
-		line-height: 25px;
 		margin: 40px 0px 0px;
-		color: #B2BAB7;
 	}
 }

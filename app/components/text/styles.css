@@ -46,4 +46,8 @@
 	&_color_blue {
 		color: #aabbba;
 	}
+
+	&_color_grey {
+		color: #B2BAB7;
+	}
 }
