@@ -40,19 +40,19 @@ export default class Footer extends React.Component {
 						людей с ограниченными возможностями
 					</div>
 					<div className='footer__links'>
-						<Link
+						<a
 							className='footer__link'
-							to='http://csssrvice.reformal.ru/'
+							href='http://csssrvice.reformal.ru/'
 						>
 							Отзывы и предложения
-						</Link>
+						</a>
 						{' '}
-						<Link
+						<a
 							className='footer__link'
-							to='http://blog.csssr.ru'
+							href='http://blog.csssr.ru'
 						>
 							Блог трудового коллектива
-						</Link>
+						</a>
 					</div>
 					<div className='footer__copyright'>
 						© 2011—2015 «
