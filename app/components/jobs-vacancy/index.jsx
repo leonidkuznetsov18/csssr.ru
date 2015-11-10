@@ -4,71 +4,31 @@ import Icon from 'components/icon';
 
 import './styles.css';
 
-function hasPrefix(str, prefix) {
-	return str.slice(0, prefix.length) === prefix;
-}
-
 export default class JobsVacancy extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.array.isRequired
 	}
 
-	renderName(name) {
-		return <span className='jobs-vacancy__name'>{ name }</span>;
-	}
-
-	renderHh() {
-		return (
-			<Icon icon='hh' className='jobs-vacancy__hh' />
-		);
-	}
-
-	renderOne = (vacancy, index) => {
-		const hh = vacancy.hh;
-
-		const linkContent = [
-			this.renderName(vacancy.name),
-			hh ? this.renderHh() : ''
-		];
-
-		const isInternalLink = !(
-			hasPrefix(vacancy.url, '//') ||
-			hasPrefix(vacancy.url, 'http://') ||
-			hasPrefix(vacancy.url, 'https://')
-		);
+	renderLink = (vacancy, index) => {
+		const isInternalLink = !/^(https?:)?\/\//.test(vacancy.url);
 
 		if (isInternalLink) {
 			return (
-				<Link to={vacancy.url} className='jobs-vacancy__link'>
-					{linkContent}
+				<Link to={vacancy.url} className='jobs-vacancy__link' key={index}>
+					{vacancy.name}
 				</Link>
 			);
 		}
 
 		return (
 			<a href={vacancy.url} target='_blank' className='jobs-vacancy__link'  key={index}>
-				{linkContent}
+				{vacancy.name}
+				{vacancy.hh &&
+					<Icon icon='hh' className='jobs-vacancy__hh' />
+				}
 			</a>
 		);
 
-	}
-
-	renderMore = (vacancyName, vacancies, index) => {
-		return (
-			<li className='jobs-vacancy__item' key={index}>
-				{ this.renderName(vacancyName + ': ') }
-				{ vacancies.map(this.renderOne) }
-			</li>
-		);
-	}
-
-	renderVacancy = (vacancy, index) => {
-		const vacancies = vacancy.vacancies;
-		return vacancies ? this.renderMore(vacancy.name, vacancies, index) : (
-			<li className='jobs-vacancy__item' key={index}>
-				{ this.renderOne(vacancy) }
-			</li>
-		);
 	}
 
 	render() {
@@ -76,7 +36,13 @@ export default class JobsVacancy extends React.Component {
 
 		return (
 			<ul className='jobs-vacancy'>
-				{data.map(this.renderVacancy) }
+				{data.map((vacancy, index) => (
+					<li className='jobs-vacancy__item' key={index}>
+						{vacancy.name}
+						{' '}
+						{vacancy.vacancies.map(this.renderLink) }
+					</li>
+				))}
 			</ul>
 		);
 	}
