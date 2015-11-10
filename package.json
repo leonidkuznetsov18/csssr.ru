@@ -58,6 +58,7 @@
     "redux-router": "^1.0.0-beta3",
     "redux-thunk": "^1.0.0",
     "request": "^2.64.0",
+    "scroll-behavior": "^0.2.0",
     "style-loader": "^0.13.0",
     "superagent": "^1.4.0",
     "transform-loader": "^0.2.3",

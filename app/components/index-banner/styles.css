@@ -1,0 +1,11 @@
+.index-banner {
+	background-image: url('../../images/background/index-banner.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 103px;
+	width: 100%;
+	margin: 50px auto;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}

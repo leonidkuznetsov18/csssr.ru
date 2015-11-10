@@ -4,9 +4,10 @@ import Footer from 'components/footer';
 
 import './styles.css';
 
-export default function Application({children}) {
+export default function Application({children, banner}) {
 	return (
 		<div className='application'>
+			{banner}
 			<Header/>
 			<div className='application__inner'>
 				{children}
@@ -17,5 +18,6 @@ export default function Application({children}) {
 }
 
 Application.propTypes = {
-	children: PropTypes.node
+	children: PropTypes.node,
+	banner: PropTypes.node
 };

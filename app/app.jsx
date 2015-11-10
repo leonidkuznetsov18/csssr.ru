@@ -14,7 +14,7 @@ import {
 	routerStateReducer,
 	reduxReactRouter
 } from 'redux-router';
-
+import useScroll from 'scroll-behavior/lib/useStandardScroll'
 
 
 const reducer = combineReducers({
@@ -26,7 +26,7 @@ const createStoreWithMiddleWare = compose(
 	applyMiddleware(filesUploader, thunk),
 	reduxReactRouter({
 		routes,
-		createHistory
+		createHistory: useScroll(createHistory)
 	}),
 	DevTools.instrument()
 )(createStore);

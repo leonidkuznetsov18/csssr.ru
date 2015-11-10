@@ -13,7 +13,7 @@ export default function Service({service}) {
 			<h4 className='service__subtitle'>
 				{service.subtitle}
 			</h4>
-			<Button to={`${service.link}#form`} component={Link}>
+			<Button to={service.link} component={Link}>
 				{service.linkText}
 			</Button>
 			<div className='service__text'>

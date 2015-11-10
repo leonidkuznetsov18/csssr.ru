@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 import Application from 'components/application';
 import Index from 'containers/page-index';
+import IndexBanner from 'components/index-banner';
 import Company from 'containers/page-company';
 import Jobs from 'containers/page-jobs';
 import Job from 'containers/page-job';
@@ -22,7 +23,10 @@ import Error502 from 'containers/error-502';
 
 export default (
 	<Route name='root' component={Application}>
-		<Route path='/' name='index' component={Index} />
+		<Route path='/' name='index' components={{
+			children: Index,
+			banner: IndexBanner
+		}} />
 		<Route path='/company' name='company' component={Company} />
 		<Route path='/jobs' name='jobs' component={Jobs} />
 		<Route path='/jobs/:jobName' component={Job} />
