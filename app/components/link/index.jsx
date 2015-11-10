@@ -13,11 +13,11 @@ export default function Link (props) {
 		link_dashed: props.dashed,
 		link_active: props.active
 	});
-
+	const Component = props.component;
 	return (
-		<a {...props} className={classList}>
+		<Component {...props} className={classList}>
 			{props.children}
-		</a>
+		</Component>
 	);
 }
 
@@ -38,5 +38,6 @@ Link.propTypes = {
 Link.defaultProps = {
 	color: 'blue',
 	dashed: false,
-	active: false
+	active: false,
+	component: 'a'
 };

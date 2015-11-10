@@ -10,17 +10,18 @@ export default function OrderAirship() {
 	return (
 		<div className='order-airship'>
 			<Airship image='zeppelin_order.svg'>
-				<ScrollLink
+				<Link
 					to='faq'
 					spy={true}
 					smooth={true}
 					offset={-120}
 					duration={500}
+					size='big'
+					color='blue'
+					component={ScrollLink}
 				>
-					<Link size='big' color='blue'>
-						подробности
-					</Link>
-				</ScrollLink>
+					подробности
+				</Link>
 			</Airship>
 		</div>
 	);
