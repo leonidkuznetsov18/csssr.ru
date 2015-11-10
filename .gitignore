@@ -7,3 +7,4 @@ npm-debug.log
 floorc.json
 .flooignore
 .floo
+.DS_Store

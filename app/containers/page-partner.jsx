@@ -40,7 +40,6 @@ export default class PagePartner extends React.Component {
 
 	render() {
 		const partner = this.props.params.partner;
-		console.log(this.props);
 		return (
 			<Projecter
 				onClose={this.onClose}

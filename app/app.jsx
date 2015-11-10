@@ -6,6 +6,7 @@ import routes from './routes';
 import filesUploader from 'middlewares/filesUploader';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import DevTools from 'containers/dev-tools';
 import {
@@ -22,7 +23,7 @@ const reducer = combineReducers({
 });
 
 const createStoreWithMiddleWare = compose(
-	applyMiddleware(filesUploader),
+	applyMiddleware(filesUploader, thunk),
 	reduxReactRouter({
 		routes,
 		createHistory

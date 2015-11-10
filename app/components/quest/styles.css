@@ -1,13 +1,14 @@
-.hr-quest {
+.quest {
 	position: relative;
 	border: 1px dashed #231f20;
-	margin-top: 29px;
-	margin-left: 151px;
-	margin-right: 50px;
-	padding-top: 32px;
-	padding-left: 149px;
+	margin-top: 30px;
+	margin-left: -150px;
+	margin-bottom: 40px;
+	padding-top: 40px;
+	padding-left: 150px;
 	padding-right: 40px;
-	padding-bottom: 66px;
+	padding-bottom: 30px;
+	min-height: 195px;
 
 	&__scissors {
 		position: absolute;
@@ -15,18 +16,21 @@
 		height: 16px;
 		top: 249px;
 		left: -8px;
+	}
 
-		&_horison {
-			top: 202px;
+	&__file {
+		position: absolute;
+		top: 37px;
+		left: 40px;
+	}
+
+	&_horizon & {
+		&__scissors {
+			top: auto;
+			bottom: -8px;
 			left: auto;
 			right: 62px;
 			transform: rotate(-90deg);
 		}
-	}
-
-	.file {
-		position: absolute;
-		top: 58px;
-		left: 40px;
 	}
 }

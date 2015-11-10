@@ -3,12 +3,13 @@ import validate from 'helpers/validate';
 export default {
   'technical-manager': {
     name: 'Менеджер-технарь',
+    key: 'technical-manager',
     form: {
-      name: {
+      firstname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      surname: {
+      lastname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
@@ -20,12 +21,12 @@ export default {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      filename: {
-        value: 'Прикрепите решение квеста',
-      },
-      filepath: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
+      file: {
+        value: {
+          name: 'Прикрепите решение квеста',
+          type: ''
+        },
+        validate: value => validate(value.type).notEmpty().end()
       },
       email: {
         value: '',
@@ -43,12 +44,13 @@ export default {
   },
   'pixel-perfectionist': {
     name: 'Верстальщик пиксель-перфекционист',
+    key: 'pixel-perfectionist',
     form: {
-      name: {
+      firstname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      surname: {
+      lastname: {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
@@ -60,13 +62,12 @@ export default {
         value: '',
         validate: value => validate(value).notEmpty().lessThen(100).end()
       },
-      filename: {
-        value: 'Прикрепите zip-архив',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      filepath: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
+      file: {
+        value: {
+          name: 'Прикрепите zip-архив',
+          type: ''
+        },
+        validate: value => validate(value.type).notEmpty().end()
       },
       email: {
         value: '',

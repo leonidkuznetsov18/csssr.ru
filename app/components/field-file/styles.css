@@ -1,34 +1,12 @@
-.form-group-file {
+.field-file {
 	position: relative;
 
-	&__text-input {
+	&__input {
 		display: inline-block;
 		width: calc(100% - 95px);
 	}
 
-	&__btn {
-		width: 90px;
-		height: 36px;
-		margin-left: 5px;
-		display: inline-block;
-
-		font: italic bold 16px 'PT Sans';
-		text-align: center;
-		line-height: 36px;
-
-		color: #591200;
-		text-shadow: 0 1px rgba(255, 255, 255, .6);
-		background: #ffb800;
-		box-shadow: -2px 2px 1px 0 #c55a13;
-		user-select: none;
-		cursor: pointer;
-
-		&:active {
-			box-shadow: -1px 1px 1px 0 #c55a13;
-		}
-	}
-
-	&__file-input {
+	&__file {
 		position: absolute;
 		left: 0;
 		width: 100%;
@@ -37,6 +15,33 @@
 		opacity: 0;
 	}
 
+	&__button {
+		width: 90px;
+		height: 36px;
+		margin-left: 5px;
+		display: inline-block;
+		font-family: 'PT Sans';
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+		line-height: 36px;
+		color: #591200;
+		text-shadow: 0 1px rgba(255, 255, 255, .6);
+		background: #ffb800;
+		box-shadow: -2px 2px 1px 0 #c55a13;
+		user-select: none;
+		cursor: pointer;
+		vertical-align: top;
+		margin-top: 18px;
+
+		&:hover {
+			background: color(#ffb800 l(+10%));
+		}
+
+		&:active {
+			box-shadow: -1px 1px 1px 0 #c55a13;
+		}
+	}
 
 	&__warning {
 		position: absolute;

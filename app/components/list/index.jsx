@@ -1,19 +1,22 @@
-import React, {PropTypes} from 'react';
-import cx from 'classnames';
+import React from 'react';
+import Text from 'components/text';
+
 import './styles.css';
 
-export default class DescriptionList extends React.Component {
+export default function List({items, props}) {
+	return (
+		<ul {...props} className='list'>
+			{items.map((item, index) => (
+				<li className='list__item' key={index}>
+					<Text {...props} indent={false}>
+						{item}
+					</Text>
+				</li>
+			))}
+		</ul>
+	);
+}
 
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		className: PropTypes.string
-	}
-
-	render() {
-		return (
-			<ul {...this.props} className={cx(this.props.className, 'list')}>
-				{this.props.children}
-			</ul>
-		);
-	}
+List.propTypes = {
+	items: React.PropTypes.array.isRequired,
 }

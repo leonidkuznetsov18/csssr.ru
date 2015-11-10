@@ -1,6 +1,6 @@
 import React from 'react';
-import Brick from 'components/brick';
-import FormGroup from 'components/form-group';
+import Button from 'components/button';
+import Field from 'components/field';
 
 import './styles.css';
 
@@ -51,7 +51,7 @@ export default class OutsourceForm extends React.Component {
 
 		for (let field of data.fields) {
 			fields.push(
-				<FormGroup
+				<Field
 					key={field.key}
 					itemId={`outsource${field.key}`}
 					itemName={field.key}
@@ -96,7 +96,9 @@ export default class OutsourceForm extends React.Component {
 					</div>
 
 					<div className='outsource-form__submit'>
-						<Brick text={data.button} />
+						<Button mod='form' type='submit'>
+							{data.butotn}
+						</Button>
 					</div>
 				</div>
 				<div className='outsource-form__recruting'>
