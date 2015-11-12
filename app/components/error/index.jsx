@@ -16,5 +16,5 @@ export default function Error(props) {
 }
 
 Error.propTypes = {
-	number: React.PropTypes.string
+	number: React.PropTypes.number
 };
