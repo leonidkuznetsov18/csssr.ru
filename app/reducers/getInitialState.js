@@ -1,34 +1,20 @@
 import FormItem from 'helpers/FormItem';
 import jobs from './jobs.initial-state';
 import order from './order.initial-state';
+import outsource from './outsource.initial-state';
 
-for (const key in jobs) {
-	if (!jobs.hasOwnProperty(key)) {
-		continue;
+function convertFields(data) {
+	for (const k in data) if (data.hasOwnProperty(k)) {
+		data[k] = new FormItem(data[k].value, data[k].validate, data[k].showError);
 	}
+}
+
+for (const key in jobs) if (jobs.hasOwnProperty(key)) {
 	jobs[key] = jobs[key];
-	const form = jobs[key].form;
-	for (const k in form) if (form.hasOwnProperty(k)) {
-		form[k] = new FormItem(
-			form[k].value,
-			form[k].validate,
-			form[k].showError
-		);
-	}
+	convertFields(jobs[key].form);
 }
 
-const contacts = order.form.contacts;
-for (const key in contacts) {
-	if (!contacts.hasOwnProperty(key)) {
-		continue;
-	}
+convertFields(order.form.contacts);
+convertFields(outsource.form);
 
-	contacts[key] = new FormItem(
-		contacts[key].value,
-		contacts[key].validate,
-		contacts[key].showError
-	);
-}
-
-
-export {jobs, order};
+export {jobs, order, outsource};

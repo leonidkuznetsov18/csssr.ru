@@ -4,6 +4,7 @@ import Router from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import orderFormSender from 'middlewares/orderFormSender';
+import outsourceFormSender from 'middlewares/outsourceFormSender';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -22,7 +23,7 @@ const reducer = combineReducers({
 });
 
 const createStoreWithMiddleWare = compose(
-	applyMiddleware(orderFormSender, thunk),
+	applyMiddleware(orderFormSender, outsourceFormSender, thunk),
 	reduxReactRouter({
 		routes,
 		createHistory: useScroll(createHistory)

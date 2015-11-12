@@ -1,5 +1,5 @@
-.order-contacts {
-	width: 420px;
+.contacts-form {
+	width: 100%;
 	margin-top: 20px;
 
 	&__rules {

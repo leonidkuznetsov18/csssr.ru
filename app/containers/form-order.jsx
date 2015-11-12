@@ -6,7 +6,8 @@ import {changeOption} from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import FormValidationWindow from 'components/form-validation-window';
-import Contacts from 'components/order-contacts';
+import Contacts from 'components/contacts-form';
+import Column from 'components/column';
 
 @connect(store => ({
 	form: store.order.form
@@ -70,7 +71,9 @@ export default class OrderForm extends React.Component {
 				{error.show &&
 					<FormValidationWindow text={error.text} />
 				}
-				<Contacts {...actions} contacts={this.props.form.contacts} />
+				<div style={{width: 420}}>
+					<Contacts {...actions} contacts={this.props.form.contacts} />
+				</div>
 			</form>
 		);
 	}
