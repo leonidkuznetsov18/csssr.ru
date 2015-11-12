@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router';
-import Application from 'components/application';
+import Application from 'containers/application';
 import Index from 'containers/page-index';
 import IndexBanner from 'components/index-banner';
 import Company from 'containers/page-company';
@@ -45,9 +45,9 @@ export default (
 			<Route path='version/:version' name='version' component={VersionPopup} />
 			<Route path=':person' name='person' component={PageTimelinePopup} />
 		</Route>
-		<Route path='*' component={Error404}/>
 		<Route path='/403' component={Error403}/>
 		<Route path='/500' component={Error500}/>
 		<Route path='/502' component={Error502}/>
+		<Route path='*' component={Error404}/>
 	</Route>
 );

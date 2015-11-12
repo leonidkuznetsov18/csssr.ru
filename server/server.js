@@ -5,6 +5,7 @@ import path from 'path';
 import compression from 'compression';
 import Layout from '../app/components/layout';
 import morgan from 'morgan';
+import getPageMetadata from 'helpers/getPageMetadata';
 
 var	app = express();
 var isProduction = app.get('env') === 'production';
@@ -50,7 +51,8 @@ app.get('/*', function(request, response) {
 	layout = React.createElement(Layout, {
 		script: SCRIPT_URL,
 		style: style,
-		content: content
+		content: content,
+		meta: getPageMetadata(request.path)
 	});
 
 	application = ReactDOMServer.renderToStaticMarkup(layout);

@@ -12,10 +12,6 @@ const dataComments= require('data/comments.json');
 const dataHistory = require('data/history.json');
 
 export default class PageCompany extends React.Component {
-	componentDidMount() {
-		document.title = 'О компании CSSSR';
-	}
-
 	render() {
 		return (
 			<Content>

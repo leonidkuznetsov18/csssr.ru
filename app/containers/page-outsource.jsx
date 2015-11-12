@@ -17,10 +17,6 @@ export default class Outsource extends React.Component {
 		children: React.PropTypes.element
 	}
 
-	componentDidMount() {
-		document.title = 'CSSSR — фронтенд аутсорсинг. Что угодно с помощью HTML, CSS, JavaScript.';
-	}
-
 	render() {
 		return (
 			<div>

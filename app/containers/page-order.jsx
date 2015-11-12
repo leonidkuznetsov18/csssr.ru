@@ -16,10 +16,6 @@ const faq = require('data/faq-order.json');
 const data = require('data/order-content.json');
 
 export default class PageCompany extends React.Component {
-	componentDidMount() {
-		document.title = 'Вёрстка проекта в CSSSR';
-	}
-
 	render() {
 		return (
 			<div>

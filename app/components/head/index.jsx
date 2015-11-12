@@ -50,6 +50,26 @@ export default function Head({children, meta}) {
 			<meta name="msapplication-wide310x150logo" content="/mstile-wide.png" />
 			<meta name="msapplication-square310x310logo" content="/mstile-large.png" />
 
+			<title>
+				{pageTitle}
+			</title>
+
+			<meta name='description' content={pageDescription || shareDescription || ''}/>
+			<meta name='keywords' content={pageKeywords || ''}/>
+
+			<meta itemprop='name' content={shareTitle}/>
+			<meta itemprop='description' content={shareDescription}/>
+			<meta itemprop='image' content={shareImage}/>
+
+			<meta name='twitter:card' content='summary_large_image'/>
+			<meta name='twitter:title' content={shareTitle}/>
+			<meta name='twitter:description' content={shareDescription}/>
+			<meta name='twitter:image:src' content={shareImage}/>
+
+			<meta property='og:title' content={shareTitle}/>
+			<meta property='og:url' content={shareUrl}/>
+			<meta property='og:image' content={shareImage}/>
+			<meta property='og:description' content={shareDescription}/>
 			{children}
 		</head>
 	);

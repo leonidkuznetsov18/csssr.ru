@@ -11,10 +11,6 @@ export default class PageOffert extends React.Component {
 		route: React.PropTypes.object.isRequired
 	}
 
-	componentDidMount() {
-		document.title = pageTitles[this.props.route.name];
-	}
-
 	render() {
 		const { name } = this.props.route;
 		const data = require(`data/${name}.json`);

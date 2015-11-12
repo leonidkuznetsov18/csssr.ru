@@ -12,10 +12,6 @@ export default class PagePortfolio extends React.Component {
 		children: React.PropTypes.element
 	}
 
-	componentDidMount() {
-		document.title = 'Портфолио CSSSR';
-	}
-
 	render() {
 		return (
 			<div>
