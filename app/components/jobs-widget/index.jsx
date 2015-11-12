@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'components/icon';
 import Text from 'components/text';
-import VkGroup from 'components/vk-group';
+import Widget from 'components/widget';
 
 import './styles.css';
 
@@ -9,7 +9,7 @@ export default function JobsWidget() {
 	return (
 		<div className='jobs-widget'>
 			<div className='jobs-widget__layout'>
-				<VkGroup />
+				<Widget type='vk' />
 			</div>
 
 			<div className='jobs-widget__hint'>

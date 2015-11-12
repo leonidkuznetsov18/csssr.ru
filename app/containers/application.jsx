@@ -12,6 +12,25 @@ export default class ApplicationContainer extends React.Component {
 		document.title = meta.pageTitle;
 	}
 
+	openSidebar = (e) => {
+		e.stopPropagation();
+		this.setState({
+			active: true
+		});
+	}
+
+	closeSidebar = () => {
+		this.setState({
+			active: false
+		});
+	}
+
+	componentWillMount() {
+		this.setState({
+			active: false
+		})
+	}
+
 	componentDidMount() {
 		this.setPageTitle();
 	}
@@ -23,7 +42,12 @@ export default class ApplicationContainer extends React.Component {
 	render() {
 		const meta = getPageMetadata(window.location.pathname);
 		return (
-			<Application meta={meta}>
+			<Application
+				meta={meta}
+				active={this.state.active}
+				openSidebar={this.openSidebar}
+				closeSidebar={this.closeSidebar}
+			>
 				{this.props.children}
 			</Application>
 		);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {PropTypes} from 'react';
 import MenuItem from 'components/menu-item';
 
 import './styles.css';
@@ -23,29 +23,34 @@ const menu = [
 	{
 		text: 'Портфолио',
 		href: '/portfolio'
-	},
-	{
-		text: 'Контакты',
-		href: '/offert'
 	}
 ];
 
-export default class Menu extends React.Component {
-	render() {
-		return (
-			<nav className='menu'>
-				<ul className='menu__list'>
-					<li className='menu__item menu__item_fix'/>
-					{menu.map(item => (
-						<li className='menu__item' key={item.href}>
-							<MenuItem {...item} />
-						</li>
-					))}
-					<li className='menu__item menu__item_fix'/>
-				</ul>
+export default function Menu() {
+	return (
+		<nav className='menu'>
+			<ul className='menu__list'>
+				<li className='menu__item menu__item_fix'/>
+				{menu.map(item => (
+					<li className='menu__item' key={item.href}>
+						<MenuItem href={item.href}>
+							{item.text}
+						</MenuItem>
+					</li>
+				))}
+				<li className='menu__item' onClick={this.props.open}>
+					<MenuItem component='a' active={this.props.active}>
+						Контакты
+					</MenuItem>
+				</li>
+				<li className='menu__item menu__item_fix'/>
+			</ul>
+			<div className='menu__shadow'/>
+		</nav>
+	);
+}
 
-				<div className='menu__shadow'/>
-			</nav>
-		);
-	}
+Menu.propTypes = {
+	open: PropTypes.func,
+	active: PropTypes.bool
 }

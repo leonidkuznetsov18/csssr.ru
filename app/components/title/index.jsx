@@ -31,7 +31,6 @@ export default class Title extends React.Component {
 			title_size_small: size === 'small',
 			title_color_yellow: color === 'yellow',
 			title_color_black: color === 'black'
-
 		});
 		const Tag = component;
 
