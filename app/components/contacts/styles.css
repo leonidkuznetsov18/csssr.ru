@@ -3,22 +3,16 @@
 	z-index: 100000;
 	top: 0;
 	right: 0;
-	transform: translateX(100%);
+	transform: translate3d(100%, 0, 0);
 	padding: 40px 50px;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
-	min-height: 100vh;
+	height: 100vh;
 	width: 970px;
 	background-color: #fff;
 	user-select: none;
-	transition-property: transform;
-	transition-duration: .5s;
-	transition-timing-function: ease-in-out;
+	transition: transform .5s ease-in-out;
 	backface-visibility: hidden;
-
-	&_active {
-		transform: translateX(0);
-	}
 
 	&__close {
 		position: absolute;
@@ -29,20 +23,8 @@
 		height: 24px;
 		cursor: pointer;
 		backface-visibility: hidden;
-		&:before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			width: 20px;
-			height: 5px;
-			background-color: #333;
-			content: '';
-			backface-visibility: hidden;
-			transform: rotate(-45deg);
-		}
+
+		&:before,
 		&:after {
 			position: absolute;
 			top: 0;
@@ -55,7 +37,22 @@
 			background-color: #333;
 			content: '';
 			backface-visibility: hidden;
+			transition: all .3s ease;
+		}
+
+		&:before {
+			transform: rotate(-45deg);
+		}
+
+		&:after {
 			transform: rotate(45deg);
+		}
+
+		&:hover {
+			&::after,
+			&::before {
+				background-color: #666;
+			}
 		}
 	}
 
@@ -67,11 +64,6 @@
 		color: #333;
 	}
 
-	&__wrapper {
-		padding-top: 60px;
-		font-size: 0;
-	}
-
 	&__info {
 		position: absolute;
 		z-index: 1;
@@ -81,7 +73,46 @@
 		width: 240px;
 		user-select: text;
 	}
+
 	&__text {
-		margin-bottom:5px;
+		margin-bottom: 5px;
+	}
+
+	&__wrapper {
+		padding-top: 60px;
+		font-size: 0;
+	}
+
+	&__widget {
+		display: inline-block;
+		vertical-align: bottom;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+
+		&_type_bordered {
+			padding: 15px;
+			border: 1px solid #999;
+		}
+	}
+
+	&__job {
+		position: absolute;
+		top: 0;
+		top: -45px;
+		left: 20px;
+	}
+
+	&__arrow {
+		transform: rotate(180deg) scaleX(-1);
+		width: 17px;
+		height: 23px;
+		position: absolute;
+		top: 8px;
+		left: -20px;
+	}
+
+	&_active {
+		transform: translate3d(0, 0, 0);
 	}
 }
