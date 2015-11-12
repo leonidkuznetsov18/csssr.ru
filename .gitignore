@@ -8,3 +8,4 @@ floorc.json
 .flooignore
 .floo
 .DS_Store
+static/uploads

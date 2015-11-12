@@ -10,6 +10,7 @@ import Order from 'containers/page-order';
 import Outsource from 'containers/page-outsource';
 import Partner from 'containers/page-partner';
 import Offert from 'containers/page-offert';
+import Thanks from 'containers/page-thanks';
 import Portfolio from 'containers/page-portfolio';
 import Project from 'containers/page-project';
 import ProjectPage from 'containers/page-project-page';
@@ -39,6 +40,7 @@ export default (
 				<Route path=':page' name='page' component={ProjectPage} />
 			</Route>
 		</Route>
+		<Route path='/thanks' name='thanks' component={Thanks} />
 		<Route path='/offert' name='offert' component={Offert} />
 		<Route path='/confidential' name='confidential' component={Offert} />
 		<Route path='/timeline' name='timeline' component={Timeline}>
