@@ -21,8 +21,9 @@ export default class ApplicationContainer extends React.Component {
 	}
 
 	render() {
+		const meta = getPageMetadata(window.location.pathname);
 		return (
-			<Application>
+			<Application meta={meta}>
 				{this.props.children}
 			</Application>
 		);

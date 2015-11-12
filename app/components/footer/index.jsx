@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
+
 import './styles.css';
 
 export default class Footer extends React.Component {

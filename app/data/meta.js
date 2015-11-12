@@ -17,6 +17,7 @@ export const company = {
 export const jobs = {
 	...index,
 	pageTitle: 'Вакансии CSSSR — Удалённая работа, полная страданий, боли и отчаяния',
+	shareTitle: 'Вакансии CSSSR — Удалённая работа, полная страданий, боли и отчаяния',
 	shareUrl: `${index.shareUrl}jobs`,
 	shareImage: 'http://csssr.ru/share/remote-work.jpg'
 }
@@ -24,12 +25,15 @@ export const jobs = {
 export const jobsPixelPerfectionist = {
 	...jobs,
 	pageTitle: 'Вакансия «Верстальщик пиксель-перфекционист»',
+	shareTitle: 'Вакансия «Верстальщик пиксель-перфекционист»',
+	shareDescription: 'CSSSR — Работай, где хочешь!',
 	shareUrl: `${index.shareUrl}jobs/pixel-perfectionist`
 }
 
 export const jobsTechnicalManager = {
 	...jobs,
 	pageTitle: 'Вакансия «Менеджер-технарь»',
+	shareTitle: 'Вакансия «Менеджер-технарь»',
 	shareUrl: `${index.shareUrl}jobs/technical-manager`
 }
 

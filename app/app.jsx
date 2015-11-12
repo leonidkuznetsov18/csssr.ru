@@ -35,7 +35,7 @@ const store = createStoreWithMiddleWare(reducer, window.__data);
 let element;
 if (NODE_ENV !== 'production') {
 	element = (
-		<div>
+		<div id='content'>
 			<ReduxRouter routes={routes}/>
 			<DevTools/>
 		</div>
