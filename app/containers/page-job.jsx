@@ -37,6 +37,12 @@ export default class PageJob extends React.Component {
 		location: PropTypes.object
 	}
 
+	componentDidMount() {
+		const page = this.props.routeParams.jobName;
+		const pageName = pages[page];
+		document.title = `Вакансия «${pageName}»`
+	}
+
 	render() {
 		const page = this.props.routeParams.jobName;
 		const pageName = pages[page];

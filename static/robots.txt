@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /offert.html
+Disallow: /confidential.html
+Disallow: /thanks.html
+Disallow: /en-thanks.html
+Disallow: /view-project.html
+Disallow: /optmized
+Disallow: /pixel-perfectionist.html
+Disallow: /pixel-perfectionists-thanks.html
+Disallow: /timeline.html
+Disallow: /contacts.html
+Disallow: /iwannabe/
+Disallow: /browsehappy/
