@@ -9,6 +9,8 @@ import morgan from 'morgan';
 import getPageMetadata from 'helpers/getPageMetadata';
 import superagent from 'superagent';
 import FormData from 'form-data';
+import {handler, limitHandler, upload} from './lib/storage';
+import {sendLetter, renderOrderTemplate} from './lib/mailer';
 
 var app = express();
 var isProduction = app.get('env') === 'production';
@@ -34,12 +36,8 @@ app.use('/_assets', express.static(ASSETS_BUILD, {
 	maxAge: '200d'
 }));
 
-
-import {handler, limitHandler, upload} from './lib/storage';
 app.use(limitHandler);
 app.post('/upload', upload.single('file'), handler);
-
-import {sendLetter, renderOrderTemplate} from './lib/mailer';
 
 function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
 	const form = new FormData();
@@ -66,7 +64,7 @@ function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
 function getToolsInfo(form) {
 	return new Promise((resolve, reject) => {
 		superagent
-			.post('http://test-tools-back.csssr.ru/api/site/order')
+			.post(process.env.TOOLS_URL)
 			.send(form)
 			.end((err, res) => {
 				if (err) reject(err);
@@ -82,7 +80,6 @@ async function newOrder (data) {
 	const html = renderOrderTemplate(toolsInfo, data);
 	await sendLetter(toolsInfo, html);
 }
-
 
 app.post('/order', (req, res) => {
 	newOrder(req.body)

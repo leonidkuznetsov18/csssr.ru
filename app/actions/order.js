@@ -55,6 +55,7 @@ export function addFiles(files) {
 					if (err) {
 						throw err;
 					}
+
 					if (res.body.result === 'ok') {
 						dispatch(updateFile(file.id, {
 							filename: res.body.file.filename,

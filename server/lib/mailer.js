@@ -1,10 +1,10 @@
 import nodemailer from 'nodemailer';
-import auth from './auth.config';
+import directTransport from 'nodemailer-direct-transport';
 
-var transporter = nodemailer.createTransport({
-	service: 'Gmail',
-	auth
-});
+const transporter = nodemailer.createTransport(directTransport({
+	name: 'csssr.ru',
+	debug: process.env.NODE_ENV != 'production'
+}));
 
 export const renderOrderTemplate = (toolsData, {options, contacts, pagesWidth, addition, filesLink}) => {
 	const orderNumber = toolsData.unique_number;
@@ -38,8 +38,8 @@ export const renderOrderTemplate = (toolsData, {options, contacts, pagesWidth, a
 };
 
 const getMailOptions = (toolsData, html) => ({
-	from: 'Test User ✔ <staxoecl@gmail.com>',
-	to: 'nitive@icloud.com',
+	from: 'CSSSR Order <order@csssr.ru>',
+	to: process.env.ORDER_MAIL,
 	subject: `CSSSR. Заказ номер ${toolsData.unique_number}`,
 	html: html
 });
