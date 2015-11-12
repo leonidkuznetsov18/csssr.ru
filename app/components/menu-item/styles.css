@@ -15,9 +15,9 @@
 	color: var(--color-link);
 	text-decoration: none;
 
-	/*@media (--wide) {
+	@media (--wide) {
 		font-size: 20px;
-	}*/
+	}
 
 	&::after {
 		position: absolute;
