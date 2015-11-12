@@ -31,9 +31,9 @@ export default class AudioButton extends React.Component {
 		return(
 			<button className={classes} onClick={this.click}>
 				<audio preload ref='audio'>
-					<source src={require(`file?limit=9999!media/audio/${this.props.url}.ogg`)}/>
-					<source src={require(`file?limit=9999!media/audio/${this.props.url}.aac`)}/>
-					<source src={require(`file?limit=9999!media/audio/${this.props.url}.mp3`)}/>
+					<source src={`/audio/${this.props.url}.ogg`}/>
+					<source src={`/audio/${this.props.url}.aac`}/>
+					<source src={`/audio/${this.props.url}.mp3`}/>
 				</audio>
 			</button>
 		);
