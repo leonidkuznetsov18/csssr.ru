@@ -22,7 +22,6 @@ export default class Contacts extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log(nextProps);
 		if (nextProps.active) {
 			this.setState({
 				active: true

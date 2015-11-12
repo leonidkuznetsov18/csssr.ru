@@ -26,7 +26,7 @@ const menu = [
 	}
 ];
 
-export default function Menu() {
+export default function Menu({open, close, active}) {
 	return (
 		<nav className='menu'>
 			<ul className='menu__list'>
@@ -38,8 +38,8 @@ export default function Menu() {
 						</MenuItem>
 					</li>
 				))}
-				<li className='menu__item' onClick={this.props.open}>
-					<MenuItem component='a' active={this.props.active}>
+				<li className='menu__item' onClick={open}>
+					<MenuItem component='a' active={active}>
 						Контакты
 					</MenuItem>
 				</li>
