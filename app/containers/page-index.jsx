@@ -5,6 +5,7 @@ import IndexAbout from 'components/index-about';
 
 const dataDescription = require('data/description.json');
 const dataService = require('data/service.json');
+
 export default class PageIndex extends React.Component {
 	render() {
 		return (

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import pureRender from 'helpers/pureRender';
+
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
 import Link from 'components/link';
@@ -7,7 +7,6 @@ import Button from 'components/button';
 
 import './styles.css';
 
-@pureRender
 export default class ContactsForm extends React.Component {
 	static propTypes = {
 		contacts: PropTypes.object,
