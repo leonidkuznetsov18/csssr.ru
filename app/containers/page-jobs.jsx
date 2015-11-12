@@ -15,10 +15,6 @@ const dataStaff = require('data/jobs-staff.json');
 const dataVacancy = require('data/jobs-vacancy.json');
 
 export default class PageJobs extends React.Component {
-	componentDidMount() {
-		document.title = 'Вакансии CSSSR — удалённая работа, полная страданий, боли и отчаяния';
-	}
-
 	render() {
 		return (
 			<div>

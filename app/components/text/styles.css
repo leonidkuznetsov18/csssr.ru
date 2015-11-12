@@ -50,4 +50,8 @@
 	&_color_grey {
 		color: #B2BAB7;
 	}
+
+	&_color_white {
+		color: #fff;
+	}
 }
