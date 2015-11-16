@@ -9,8 +9,7 @@ process.env = require('./config/env.js');
 
 module.exports = function(options) {
 	var root = path.join(__dirname, 'app');
-	var serverPath = (options.devServer ? 'http://localhost:2992' : '');
-	var publicPath = serverPath + '/_assets/';
+	var publicPath = '/_assets/';
 	var loaders = {
 		'json': 'json',
 		'png|jpg|cur|gif': 'url?limit=5000',
@@ -27,10 +26,24 @@ module.exports = function(options) {
 		{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
-			loaders: (options.hotComponents ? ['react-hot'] : []).concat([
+			loaders: [
 				'transform-loader?envify',
-				'babel'
-			])
+				'babel?' + JSON.stringify({
+					"plugins": ["react-transform"],
+					"extra": {
+						"react-transform": {
+							"transforms": [{
+								"transform": "react-transform-hmr",
+								"imports": ["react"],
+								"locals": ["module"]
+							}, {
+								"transform": "react-transform-catch-errors",
+								"imports": ["react", "redbox-react"]
+							}]
+						}
+					}
+				})
+			]
 		}, {
 			test: /\.svg$/,
 			exclude: /icons/,
@@ -56,10 +69,8 @@ module.exports = function(options) {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
-			'NODE_ENV': '\'' + process.env.NODE_ENV + '\'',
 			'IS_CLIENT': !options.prerender,
 		}),
-
 	];
 
 	if (options.prerender) {
@@ -100,11 +111,6 @@ module.exports = function(options) {
 		plugins.push(
 			new webpack.optimize.UglifyJsPlugin(),
 			new webpack.optimize.DedupePlugin(),
-			new webpack.DefinePlugin({
-				'process.env': {
-					NODE_ENV: JSON.stringify('production')
-				}
-			})
 		);
 	}
 
@@ -114,8 +120,7 @@ module.exports = function(options) {
 
 	if (options.hotComponents) {
 		entry.push(
-			'webpack-dev-server/client?http://localhost:2992',
-			'webpack/hot/only-dev-server'
+			'webpack-hot-middleware/client',
 		);
 	}
 

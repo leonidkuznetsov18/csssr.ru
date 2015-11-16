@@ -33,7 +33,8 @@ const createStoreWithMiddleWare = compose(
 const store = createStoreWithMiddleWare(reducer, window.__data);
 
 let element;
-if (NODE_ENV !== 'production') {
+
+if (process.env.NODE_ENV !== 'production') {
 	element = (
 		<div id='content'>
 			<ReduxRouter routes={routes}/>
