@@ -20,6 +20,21 @@ export default class PageTimelinePopup extends React.Component {
 		this.setState({
 			active: true,
 		});
+
+		window.addEventListener('keyup', this.onKeyUp);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('keyup', this.onKeyUp);
+	}
+
+	onKeyUp = (event) => {
+		if (event.keyCode !== 27) {
+			return;
+		}
+
+		event.preventDefault();
+		this.onClose();
 	}
 
 	onClose = () => {

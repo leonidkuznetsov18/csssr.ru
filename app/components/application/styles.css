@@ -29,9 +29,7 @@
 		min-height: 100%;
 		display: flex;
 		flex-direction: column;
-		transform: translate3d(0, 0, 0);
 		backface-visibility: hidden;
-		will-change: transform;
 		transition-property: transform;
 		transition-duration: .5s;
 		transition-timing-function: ease-in-out;
