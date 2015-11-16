@@ -1,1 +1,1 @@
-NODE_ENV=staging npm run production
+PORT=3030 NODE_ENV=staging npm run production
