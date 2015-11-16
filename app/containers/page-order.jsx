@@ -6,8 +6,6 @@ import Column from 'components/column';
 import OrderAirship from 'components/order-airship';
 import Title from 'components/title';
 import Text from 'components/text';
-import Comments from 'components/comments';
-import SectionGroup from 'components/section-group';
 import FaqGroup from 'components/faq-group';
 import Faq from 'components/faq';
 import OrderForm from 'containers/form-order';
@@ -16,6 +14,10 @@ const faq = require('data/faq-order.json');
 const data = require('data/order-content.json');
 
 export default class PageCompany extends React.Component {
+	static propTypes = {
+		children: React.PropTypes.node,
+	}
+
 	render() {
 		return (
 			<div>

@@ -8,7 +8,7 @@ import CompanyInfo from 'components/company-info';
 
 const dataAbout = require('data/company-about.json');
 const dataInfo = require('data/company-info.json');
-const dataComments= require('data/comments.json');
+const dataComments = require('data/comments.json');
 const dataHistory = require('data/history.json');
 
 export default class PageCompany extends React.Component {

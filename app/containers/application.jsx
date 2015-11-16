@@ -4,9 +4,13 @@ import getPageMetadata from 'helpers/getPageMetadata';
 import Application from 'components/application';
 
 @connect((state) => ({
-	router: state.router
+	router: state.router,
 }))
 export default class ApplicationContainer extends React.Component {
+	static propTypes = {
+		children: React.PropTypes.node,
+	}
+
 	setPageTitle() {
 		const meta = getPageMetadata(window.location.pathname);
 		document.title = meta.pageTitle;
@@ -15,20 +19,20 @@ export default class ApplicationContainer extends React.Component {
 	openSidebar = (e) => {
 		e.stopPropagation();
 		this.setState({
-			active: true
+			active: true,
 		});
 	}
 
 	closeSidebar = () => {
 		this.setState({
-			active: false
+			active: false,
 		});
 	}
 
 	componentWillMount() {
 		this.setState({
-			active: false
-		})
+			active: false,
+		});
 	}
 
 	componentDidMount() {
@@ -43,13 +47,12 @@ export default class ApplicationContainer extends React.Component {
 		const meta = getPageMetadata(window.location.pathname);
 		return (
 			<Application
+				{...this.props}
 				meta={meta}
 				active={this.state.active}
 				openSidebar={this.openSidebar}
 				closeSidebar={this.closeSidebar}
-			>
-				{this.props.children}
-			</Application>
+			/>
 		);
 	}
 }

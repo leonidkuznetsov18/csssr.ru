@@ -9,7 +9,7 @@ const projects = require('data/projects.json');
 
 export default class PagePortfolio extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.element
+		children: React.PropTypes.node,
 	}
 
 	render() {

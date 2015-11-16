@@ -1,37 +1,30 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { pushState } from 'redux-router';
+import React from 'react';
 import TimelinePopup from 'components/timeline-popup';
+import PopupVersion from 'components/popup-version';
 
 const timeline = require('data/timeline.yml');
 
-@connect(
-	state => ({}),
-	{pushState}
-)
 export default class PageTimelinePopup extends React.Component {
-
 	static propTypes = {
-		history: PropTypes.object.isRequired,
-		routeParams: PropTypes.object.isRequired,
-		pushState: React.PropTypes.func.isRequired
+		history: React.PropTypes.object.isRequired,
+		routeParams: React.PropTypes.object.isRequired,
 	}
 
 	componentWillMount() {
 		this.setState({
-			active: false
+			active: false,
 		});
 	}
 
 	componentDidMount() {
 		this.setState({
-			active: true
+			active: true,
 		});
 	}
 
 	onClose = () => {
 		this.setState({
-			active: false
+			active: false,
 		});
 
 		setTimeout(() => {
@@ -40,26 +33,50 @@ export default class PageTimelinePopup extends React.Component {
 	}
 
 	render() {
-		const popupData = url => {
-			let target;
-			timeline.forEach(event => {
-				if (event.newstaff) {
-					event.newstaff.forEach(person => {
-						if (person.url === url) {
-							return target = person;
+		if (this.props.routeParams.version) {
+			const popupData = (url) => {
+				let target;
+				timeline.forEach((event) => {
+					if (event.version) {
+						if (event.version.number.toString() === url) {
+							target = event.version;
+							return;
 						}
-					});
-				}
-			});
-			return target;
-		}(this.props.routeParams.person);
+					}
+				});
+				return target;
+			}(this.props.routeParams.version);
 
-		return (
-			<TimelinePopup
-				onClose={this.onClose}
-				active={this.state.active}
-				{...popupData}
-			/>
-		);
+			return (
+				<PopupVersion
+					onClose={this.onClose}
+					active={this.state.active}
+					screenshot={popupData.url}
+				/>
+			);
+		} else {
+			const popupData = (url) => {
+				let target;
+				timeline.forEach((event) => {
+					if (event.newstaff) {
+						event.newstaff.forEach((person) => {
+							if (person.url === url) {
+								target = person;
+								return;
+							}
+						});
+					}
+				});
+				return target;
+			}(this.props.routeParams.person);
+
+			return (
+				<TimelinePopup
+					onClose={this.onClose}
+					active={this.state.active}
+					{...popupData}
+				/>
+			);
+		}
 	}
-};
+}

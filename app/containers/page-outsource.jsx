@@ -8,14 +8,13 @@ import OutsourceUse from 'components/outsource-use';
 import OutsourceForm from 'components/outsource-form';
 import FaqGroup from 'components/faq-group';
 import Faq from 'components/faq';
-import Form from 'components/outsource-form';
 
 const data = require('data/outsource.json');
 const faq = require('data/faq-outsource.json');
 
 export default class Outsource extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.element
+		children: React.PropTypes.element,
 	}
 
 	render() {
@@ -27,8 +26,9 @@ export default class Outsource extends React.Component {
 					<OutsourcePower />
 					<OutsourceMagic />
 					<OutsourceUse tips={data.tips} />
-					<Form />
+					<OutsourceForm />
 				</Content>
+
 				<FaqGroup>
 					{faq.map((group, index) => (
 						<Faq data={group} key={index} />

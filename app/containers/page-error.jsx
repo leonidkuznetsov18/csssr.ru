@@ -5,11 +5,11 @@ import Error from 'components/error';
 
 export default class PageError extends React.Component {
 	static propTypes = {
-		location: React.PropTypes.object.isRequired
+		location: React.PropTypes.object.isRequired,
 	}
 
 	render() {
-		let error = parseInt(this.props.location.pathname.slice(1));
+		let error = parseInt(this.props.location.pathname.slice(1), 10);
 		error = [403, 404, 500, 502].indexOf(error) === -1 ? 404 : error;
 
 		return (
@@ -18,4 +18,4 @@ export default class PageError extends React.Component {
 			</Content>
 		);
 	}
-};
+}

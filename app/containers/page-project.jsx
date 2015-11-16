@@ -7,12 +7,12 @@ const projects = require('data/projects.json');
 export default class PageProject extends React.Component {
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,
-		children: React.PropTypes.element
+		children: React.PropTypes.element,
 	}
 
 	onToggle = (collapsed) => {
 		this.setState({
-			collapsed: collapsed
+			collapsed,
 		});
 	}
 
@@ -23,7 +23,7 @@ export default class PageProject extends React.Component {
 			}
 
 			this.setState({
-				project
+				project,
 			});
 		});
 	}

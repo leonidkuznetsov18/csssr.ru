@@ -7,12 +7,12 @@ const projects = require('data/projects.json');
 export default class PageProjectPage extends React.Component {
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,
-		children: React.PropTypes.element
+		children: React.PropTypes.element,
 	}
 
 	componentWillMount() {
 		this.setState({
-			loaded: false
+			loaded: false,
 		});
 
 		projects.forEach((project) => {
@@ -21,26 +21,26 @@ export default class PageProjectPage extends React.Component {
 			}
 
 			this.setState({
-				project
+				project,
 			});
 		});
 	}
 
 	componentWillReceiveProps() {
 		this.setState({
-			loaded: false
+			loaded: false,
 		});
 	}
 
-	onLoad = (event) => {
+	onLoad = () => {
 		this.setState({
-			loaded: true
+			loaded: true,
 		});
 	}
 
 	render() {
-		const { params } = this.props;
-		const { project } = this.state;
+		const {params} = this.props;
+		const {project} = this.state;
 		const projectUrl = project.url || `http://portfolio.csssr.ru/${project.view}/`;
 		const url = `${projectUrl}${params.page}.html`;
 

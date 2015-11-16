@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import TimelineList from 'components/timeline-list';
 import Title from 'components/title';
 import Text from 'components/text';
@@ -8,12 +8,8 @@ const timeline = require('data/timeline.yml');
 
 export default class PageTimeline extends React.Component {
 	static propTypes = {
-		history: PropTypes.object,
-		children: PropTypes.element
-	}
-
-	componentDidMount() {
-		document.title = 'История CSSSR'
+		history: React.PropTypes.object,
+		children: React.PropTypes.node,
 	}
 
 	render() {
@@ -32,5 +28,5 @@ export default class PageTimeline extends React.Component {
 				{this.props.children}
 			</Content>
 		);
-	};
+	}
 }
