@@ -27,10 +27,10 @@ export function sendAnswerForm(job, form) {
 
 		request
 			.post(`${process.env.HR_DOMAIN}/jobs/${job}/create`)
-			.auth('admin', 'vpgE86uB')
+			.auth(process.env.HR_LOGIN, process.env.HR_PASSWORD)
 			.send(formData)
 			.end((err, res) => {
-				dispatch(pushState(null, '/'));
+				dispatch(pushState(null, '/thanks'));
 
 				dispatch({
 					type: C.SENT_ANSWER_FORM,

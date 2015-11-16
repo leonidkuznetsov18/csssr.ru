@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 import directTransport from 'nodemailer-direct-transport';
+import FormData from 'form-data';
+import superagent from 'superagent';
 
 const transporter = nodemailer.createTransport(directTransport({
 	name: 'csssr.ru',
