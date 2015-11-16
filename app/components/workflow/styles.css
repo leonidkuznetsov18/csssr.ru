@@ -20,5 +20,6 @@
 	&__mechanism {
 		margin-top: 20px;
 		margin-bottom: 40px;
+		max-width: 100%;
 	}
 }

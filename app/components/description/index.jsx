@@ -51,7 +51,7 @@ export default function Description({data}) {
 				))}
 			</div>
 			<div className='description__flow'>
-				<Parallax offset={1330} speed={-0.7} min={0} max={310}>
+				<Parallax offset={1600} speed={-0.7} min={0} max={310}>
 					<div className='description__airship'>
 						<Airship image='zeppelin_index.svg'/>
 					</div>
