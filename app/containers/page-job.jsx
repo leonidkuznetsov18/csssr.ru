@@ -8,6 +8,7 @@ import Breadcrubms from 'components/breadcrumbs';
 import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
 import JobAnswerForm from 'components/job-form';
+import JobBanner from 'components/job-banner';
 
 const pages = {
 	'technical-manager': 'Менеджер-технарь',
@@ -56,6 +57,7 @@ export default class PageJob extends React.Component {
 				]}/>
 
 				<Content layout='job'>
+					<JobBanner/>
 					{data.beforeQuest &&
 						<SectionGroup data={data.beforeQuest}/>
 					}

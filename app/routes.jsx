@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { IndexRoute, Route } from 'react-router';
 import Application from 'containers/application';
 import Index from 'containers/page-index';
 import IndexBanner from 'components/index-banner';
@@ -22,11 +22,13 @@ export default (
 	<Route component={Application}>
 		<Route path='/' components={{
 			children: Index,
-			banner: IndexBanner
+			banner: IndexBanner,
 		}} />
 		<Route path='/company' component={Company} />
-		<Route path='/jobs' component={Jobs} />
-		<Route path='/jobs/:jobName' component={Job} />
+		<Route path='/jobs'>
+			<IndexRoute component={Jobs} />
+			<Route path=':jobName' component={Job} />
+		</Route>
 		<Route path='/order' component={Order} />
 		<Route path='/outsource' component={Outsource}>
 			<Route path=':partner' component={Partner} />
