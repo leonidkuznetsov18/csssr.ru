@@ -1,5 +1,8 @@
-import superagent from 'superagent';
 import jsonp from 'superagent-jsonp';
+
+if (IS_CLIENT) {
+	const request = require('superagent');
+}
 
 const urls = {
 	tw: (url) => `https://cdn.api.twitter.com/1/urls/count.json?url=${url}`,

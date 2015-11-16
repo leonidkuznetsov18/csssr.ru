@@ -1,6 +1,9 @@
 import * as C from 'constants/actions';
-import request from 'superagent';
 import { pushState } from 'redux-router';
+
+if (IS_CLIENT) {
+	const request = require('superagent');
+}
 
 export function changeAnswerForm(job, form) {
 	return {

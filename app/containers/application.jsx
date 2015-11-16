@@ -9,10 +9,11 @@ import Application from 'components/application';
 export default class ApplicationContainer extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node,
+		location: React.PropTypes.object,
 	}
 
 	setPageTitle() {
-		const meta = getPageMetadata(window.location.pathname);
+		const meta = getPageMetadata(this.props.location.pathname);
 		document.title = meta.pageTitle;
 	}
 
@@ -44,7 +45,7 @@ export default class ApplicationContainer extends React.Component {
 	}
 
 	render() {
-		const meta = getPageMetadata(window.location.pathname);
+		const meta = getPageMetadata(this.props.location.pathname);
 		return (
 			<Application
 				{...this.props}

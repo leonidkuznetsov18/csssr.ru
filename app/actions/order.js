@@ -1,5 +1,8 @@
 import * as C from 'constants/actions';
-import request from 'superagent';
+
+if (IS_CLIENT) {
+	const request = require('superagent');
+}
 
 export function changeOption(list, value, index, structure = 'checkbox') {
 	return {

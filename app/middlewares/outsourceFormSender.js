@@ -1,7 +1,9 @@
-import request from 'superagent';
 import * as C from 'constants/actions';
 import {pushState} from 'redux-router';
 
+if (IS_CLIENT) {
+	const request = require('superagent');
+}
 
 function isFormValid(state) {
 	const {form} = state.outsource.form;

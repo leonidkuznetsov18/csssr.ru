@@ -56,8 +56,10 @@ module.exports = function(options) {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
-			'NODE_ENV': '\'' + process.env.NODE_ENV + '\''
-		})
+			'NODE_ENV': '\'' + process.env.NODE_ENV + '\'',
+			'IS_CLIENT': !options.prerender,
+		}),
+
 	];
 
 	if (options.prerender) {

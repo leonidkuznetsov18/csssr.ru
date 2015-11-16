@@ -1,7 +1,9 @@
-import request from 'superagent';
 import * as C from 'constants/actions';
 import {pushState} from 'redux-router';
 
+if (IS_CLIENT) {
+	const request = require('superagent');
+}
 
 function isMaketsExist(state) {
 	const {files, filesLink} = state.order.form;
