@@ -9,7 +9,12 @@
 npm start
 ```
 
+### `staging` версия
+```
+NODE_ENV=staging npm run production
+```
+
 ### `production` версия
 ```
-npm run production
+NODE_ENV=staging npm run production
 ```

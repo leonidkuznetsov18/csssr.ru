@@ -5,10 +5,10 @@
   "main": "app/app.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack --config webpack-production.config.js --progress --profile --colors",
+    "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "webpack-dev": "webpack-dev-server --config webpack-dev.config.js",
     "server-dev": "nodemon --watch server/ --exec node ./server",
-    "server": "NODE_ENV=production node ./server",
+    "server": "node ./server",
     "start": "node ./node_modules/concurrently/src/main.js --kill-others \"npm run webpack-dev\" \"npm run server-dev\"",
     "production": "npm run build && npm run server"
   },
