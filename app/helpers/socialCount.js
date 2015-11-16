@@ -1,7 +1,9 @@
 import jsonp from 'superagent-jsonp';
 
+let superagent;
+
 if (IS_CLIENT) {
-	const request = require('superagent');
+	superagent = require('superagent');
 }
 
 const urls = {

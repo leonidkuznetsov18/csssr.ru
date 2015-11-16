@@ -1,8 +1,10 @@
 import * as C from 'constants/actions';
 import {pushState} from 'redux-router';
 
+let superagent;
+
 if (IS_CLIENT) {
-	const request = require('superagent');
+	superagent = require('superagent');
 }
 
 function isMaketsExist(state) {
@@ -93,7 +95,7 @@ const formSender = store => next => action => {
 		)) {
 			return result;
 		}
-		request
+		superagent
 			.post('/order')
 			.send(getDataToSend(state))
 			.end(requestHandler(store));

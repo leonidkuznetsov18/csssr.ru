@@ -1,7 +1,9 @@
 import * as C from 'constants/actions';
 
+let superagent;
+
 if (IS_CLIENT) {
-	const request = require('superagent');
+	superagent = require('superagent');
 }
 
 export function changeOption(list, value, index, structure = 'checkbox') {
@@ -46,7 +48,7 @@ export function addFiles(files) {
 		for (const file of formFiles.slice(-files.length)) {
 			const formData = new FormData();
 			formData.append('file', file);
-			request
+			superagent
 				.post('/upload')
 				.send(formData)
 				.on('progress', ({percent}) => {

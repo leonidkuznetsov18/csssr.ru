@@ -1,8 +1,10 @@
 import * as C from 'constants/actions';
 import { pushState } from 'redux-router';
 
+let superagent;
+
 if (IS_CLIENT) {
-	const request = require('superagent');
+	superagent = require('superagent');
 }
 
 export function changeAnswerForm(job, form) {
@@ -28,7 +30,7 @@ export function sendAnswerForm(job, form) {
 			job
 		});
 
-		request
+		superagent
 			.post(`${process.env.HR_DOMAIN}/jobs/${job}/create`)
 			.auth(process.env.HR_LOGIN, process.env.HR_PASSWORD)
 			.send(formData)

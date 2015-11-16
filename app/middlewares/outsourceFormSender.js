@@ -1,8 +1,10 @@
 import * as C from 'constants/actions';
 import {pushState} from 'redux-router';
 
+let superagent;
+
 if (IS_CLIENT) {
-	const request = require('superagent');
+	superagent = require('superagent');
 }
 
 function isFormValid(state) {
@@ -50,7 +52,7 @@ const formSender = store => next => action => {
 		if (!isFormValid(state)) {
 			return result;
 		}
-		request
+		superagent
 			.post('/outsource')
 			.send(getDataToSend(state))
 			.end(requestHandler(store));
