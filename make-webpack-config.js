@@ -113,7 +113,7 @@ module.exports = function(options) {
 	if (options.minimize) {
 		plugins.push(
 			new webpack.optimize.UglifyJsPlugin(),
-			new webpack.optimize.DedupePlugin(),
+			new webpack.optimize.DedupePlugin()
 		);
 	}
 
@@ -123,7 +123,7 @@ module.exports = function(options) {
 
 	if (options.hotComponents) {
 		entry.push(
-			'webpack-hot-middleware/client',
+			'webpack-hot-middleware/client'
 		);
 	}
 
