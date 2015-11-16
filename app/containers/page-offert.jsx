@@ -8,8 +8,8 @@ export default class PageOffert extends React.Component {
 	}
 
 	render() {
-		const {name} = this.props.route;
-		const data = require(`data/${name}.json`);
+		const {path} = this.props.route;
+		const data = require(`data/${path.slice(1)}.json`);
 
 		return (
 			<Offert data={data}/>
