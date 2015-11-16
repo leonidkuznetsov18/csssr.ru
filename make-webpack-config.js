@@ -68,6 +68,9 @@ module.exports = function(options) {
 	var plugins = [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
+		new webpack.ProvidePlugin({
+			'Promise': 'exports?global.Promise!es6-promise'
+		}),
 		new webpack.DefinePlugin({
 			'IS_CLIENT': !options.prerender,
 		}),
