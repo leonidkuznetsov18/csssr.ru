@@ -3,35 +3,38 @@
 
 .application {
 	position: relative;
-	overflow: hidden;
+	height: 100%;
+	background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
+	background-color: #043351;
+	background-size: 100% 2000px, auto;
+	background-repeat: no-repeat, repeat;
+	overflow-x: hidden;
+
+	&:before {
+		position: absolute;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		content: '';
+		visibility: hidden;
+		background-color: rgba(0, 0, 0, .5);
+		opacity: 0;
+		transform: opacity .5s ease-in-out, visibility 0s linear .5s;
+	}
 
 	&__wrapper{
 		padding-top: 35px;
-		background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
-		background-color: #043351;
-		background-size: 100% 2000px, auto;
-		background-repeat: no-repeat, repeat;
 		min-height: 100%;
 		display: flex;
 		flex-direction: column;
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+		will-change: transform;
 		transition-property: transform;
 		transition-duration: .5s;
 		transition-timing-function: ease-in-out;
-
-		&:before {
-			position: absolute;
-			z-index: 10000;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			content: '';
-			visibility: hidden;
-			background-color: transparent;
-			transition-duration: .5s;
-			transition-property: background-color, visibility;
-			transition-timing-function: ease-in-out;
-		}
 	}
 
 	&__inner {
@@ -44,22 +47,37 @@
 		max-width: 1300px;
 	}
 
-	&_active {
+	&__contacts {
+		position: absolute;
+		z-index: 100000;
+		top: 0;
+		right: 0;
 		height: 100vh;
+		width: 970px;
+		transform: translate3d(100%, 0, 0);
+		transition: transform .5s ease-in-out;
+		backface-visibility: hidden;
+		will-change: transform;
 	}
 
-	&_active & {
-		&__wrapper {
-			&:before {
-				background-color: rgba(0,0,0,.5);
-				visibility: visible;
-			}
+	&_active {
+		overflow: hidden;
+
+		&:before {
+			transition-delay: 0s;
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 
 	&_active & {
 		&__wrapper {
-			transform: translateX(-50%);
+			transform: translate3d(-55%, 0, 0);
+
+		}
+
+		&__contacts {
+			transform: translate3d(0, 0, 0);
 		}
 	}
 }

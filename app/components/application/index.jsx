@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import scrollbarWidth from 'scrollbar-width';
+
 import Header from 'components/header';
 import Footer from 'components/footer';
 import Sharing from 'components/sharing';
@@ -9,14 +11,19 @@ import './styles.css';
 
 export default function Application({children, banner, meta, active, openSidebar, closeSidebar}) {
 
-	const applicationClass = cx ({
+	const applicationClass = cx({
 		'application': true,
-		'application_active': active
+		'application_active': active,
 	});
 
 	return (
-		<div className={applicationClass}>
-			<div className='application__wrapper' onClick={closeSidebar}>
+		<div className={applicationClass} onClick={closeSidebar} >
+			<div
+				className='application__wrapper'
+				style={{
+					paddingRight: active ? scrollbarWidth() : 0,
+				}}
+			>
 				{banner}
 
 				<Header open={openSidebar} active={active}/>
@@ -26,7 +33,9 @@ export default function Application({children, banner, meta, active, openSidebar
 				<Sharing meta={meta}/>
 				<Footer />
 			</div>
-			<Contacts close={closeSidebar} active={active}/>
+			<div className='application__contacts'>
+				<Contacts close={closeSidebar} active={active}/>
+			</div>
 		</div>
 	);
 }

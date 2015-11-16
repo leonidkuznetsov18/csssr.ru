@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react';
-import cx from 'classnames';
+import React from 'react';
 
 import Title from 'components/title';
 import Text from 'components/text';
@@ -10,33 +9,28 @@ import './styles.css';
 
 export default class Contacts extends React.Component {
 	static propTypes = {
-		active: PropTypes.bool,
-		close: PropTypes.func,
-		history: PropTypes.object
+		active: React.PropTypes.bool,
+		close: React.PropTypes.func,
+		history: React.PropTypes.object,
 	}
 
 	componentWillMount() {
 		this.setState({
-			active: false
-		})
+			active: false,
+		});
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.active) {
 			this.setState({
-				active: true
-			})
+				active: true,
+			});
 		}
 	}
 
 	render() {
-		const contactsClass = cx ({
-			'contacts': true,
-			'contacts_active': this.props.active
-		});
-
 		return (
-			<div className={contactsClass}>
+			<div className='contacts'>
 				<div className='contacts__close' onClick={this.props.close}/>
 				<div className='contacts__header'>
 					Уголок <br/>
