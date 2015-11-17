@@ -1,45 +1,65 @@
 import React, {PropTypes} from 'react';
-import * as actionCreators from 'actions/order';
+import * as actions from 'actions/order';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changeOption} from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import FormValidationWindow from 'components/form-validation-window';
 import Contacts from 'components/contacts-form';
-import Column from 'components/column';
 
-@connect(store => ({
-	form: store.order.form
+@connect((store) => ({
+	...store.order,
+}), (dispatch) => ({
+	...bindActionCreators(actions, dispatch),
 }))
 export default class OrderForm extends React.Component {
 	static propTypes = {
 		form: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired
+		isValid: React.PropTypes.bool,
+		sendOrderForm: React.PropTypes.func.isRequired,
+		showErrors: React.PropTypes.func.isRequired,
+		changeContacts: React.PropTypes.func.isRequired,
 	}
 
-	onSubmit = e => {
-		e.preventDefault();
-		this.props.dispatch(actionCreators.showErrors());
-		this.props.dispatch(actionCreators.sendOrderForm());
+	onChangeField = (value, field) => {
+		this.props.changeContacts({
+			[field]: {
+				value,
+				showError: false,
+			},
+		});
+	}
+
+	onSubmit = (event) => {
+		event.preventDefault();
+
+		if (this.props.isValid) {
+			this.props.sendOrderForm();
+		} else {
+			this.props.showErrors();
+		}
 	}
 
 	render() {
-		const actions = bindActionCreators(actionCreators, this.props.dispatch);
-		const {options, contacts, files, filesLink, showErrorWindow} = this.props.form;
+		const {
+			contacts,
+			files,
+			filesLink,
+			showErrorWindow,
+		} = this.props.form;
 
 		const error = () => {
 			if (showErrorWindow) {
 				if (!files.length && !filesLink) {
 					return {
 						show: true,
-						text: 'Прикрепите макеты страниц или укажите ссылку для скачивания'
+						text: 'Прикрепите макеты страниц или укажите ссылку для скачивания',
 					};
 				}
 				if (!files.reduce((p, n) => p && n.filename, true)) {
 					return {
 						show: true,
-						text: 'Дождитесь окончания загрузки'
+						text: 'Дождитесь окончания загрузки',
 					};
 				}
 
@@ -53,7 +73,7 @@ export default class OrderForm extends React.Component {
 				}();
 
 				return {
-					show: isErrorInContacts
+					show: isErrorInContacts,
 				};
 			}
 
@@ -66,13 +86,19 @@ export default class OrderForm extends React.Component {
 				method='post'
 				onSubmit={this.onSubmit}
 			>
-				<Uploader {...actions} {...{files, filesLink}} />
-				<Options {...actions} options={this.props.form.options} />
+				<Uploader {...this.props} {...{files, filesLink}} />
+				<Options {...this.props} options={this.props.form.options} />
+
 				{error.show &&
 					<FormValidationWindow text={error.text} />
 				}
+
 				<div style={{width: 420}}>
-					<Contacts {...actions} contacts={this.props.form.contacts} />
+					<Contacts
+						{...this.props}
+						form={this.props.form.contacts}
+						onChangeField={this.onChangeField}
+					/>
 				</div>
 			</form>
 		);

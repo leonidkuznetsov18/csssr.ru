@@ -23,10 +23,10 @@ export default class PageCompany extends React.Component {
 			<div>
 				<Content>
 					<Row>
-						<Column size={1 / 3}>
+						<Column size={1 / 3} smallSize={0}>
 							<OrderAirship/>
 						</Column>
-						<Column size={2 / 3}>
+						<Column size={2 / 3} smallSize={1}>
 							<Title>{data.title}</Title>
 							<Text>{data.description[0]}</Text>
 							{data.description.slice(1).map((content, i) => (

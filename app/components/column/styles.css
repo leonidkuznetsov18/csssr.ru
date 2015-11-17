@@ -33,4 +33,18 @@
 	&_offset_one-third {
 		margin-left: 33.333%;
 	}
+
+	&_small_hidden {
+		@media (max-width: 1250px) {
+			display: none;
+		}
+	}
+
+	&_small_full {
+		@media (max-width: 1250px) {
+			width: 100%;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
 }
