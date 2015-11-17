@@ -1,22 +1,34 @@
 import validate from 'helpers/validate';
 
 export default {
-  form: {
-    name: {
-      value: '',
-      validate: value => validate(value).notEmpty().lessThen(100).end()
-    },
-    email: {
-      value: '',
-      validate: value => validate(value).notEmpty().lessThen(100).isEmail().end()
-    },
-    skype: {
-      value: '',
-      validate: value => validate(value).notEmpty().lessThen(100).end()
-    },
-    phone: {
-      value: '',
-      validate: value => validate(value).notEmpty().lessThen(20).moreThen(10).end()
-    }
-  }
+	form: {
+		name: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		email: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		skype: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		phone: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+	},
 };

@@ -12,8 +12,10 @@ import Contacts from 'components/contacts-form';
 export default class FormOutsource extends React.Component {
 	static propTypes = {
 		form: React.PropTypes.object.isRequired,
+		isValid: React.PropTypes.bool,
 		sendForm: React.PropTypes.func.isRequired,
 		showErrors: React.PropTypes.func.isRequired,
+		changeContacts: React.PropTypes.func.isRequired,
 	}
 
 	onChangeField = (value, field) => {
@@ -29,17 +31,13 @@ export default class FormOutsource extends React.Component {
 		event.preventDefault();
 
 		if (this.props.isValid) {
-			console.log('send');
 			this.props.sendForm();
 		} else {
-			console.log('errors');
 			this.props.showErrors();
 		}
 	}
 
 	render() {
-		console.log(this.props);
-
 		return (
 			<form
 				autoComplete='off'

@@ -30,6 +30,8 @@ export function sendAnswerForm(job) {
 			formData.append(field, form[field].value)
 		);
 
+		console.log(formData);
+
 		dispatch({
 			type: SEND_ANSWER_FORM,
 			job,

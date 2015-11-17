@@ -6,26 +6,47 @@ export default function outsource(state = initialState, action) {
 	switch (action.type) {
 
 	case C.OUTSOURCE_FORM_CHANGE_FORM: {
-		const form = {...state.form};
-		for (const key in action.form) if (action.form.hasOwnProperty(key)) {
-			form[key] = form[key].update(action.form[key]);
+		const newForm = {
+			...state.form,
+		};
+
+		for (const key in newForm) {
+			if (!action.form.hasOwnProperty(key)) {
+				continue;
+			}
+
+			newForm[key] = newForm[key].update(action.form[key]);
 		}
+
+		const isValid = Object.keys(newForm).every((field) => {
+			return newForm[field].isValid();
+		});
 
 		return {
 			...state,
-			form
+			form: newForm,
+			isValid,
 		};
 	}
 
 	case C.OUTSOURCE_FORM_SHOW_ERRORS: {
-		const form = {...state.form};
-		for (const key in form) if (form.hasOwnProperty(key)) {
-			form[key] = form[key].update({showError: true});
+		const newForm = {
+			...state.form,
+		};
+
+		for (const key in newForm) {
+			if (!newForm.hasOwnProperty(key)) {
+				continue;
+			}
+
+			newForm[key] = newForm[key].update({
+				showError: true,
+			});
 		}
 
 		return {
 			...state,
-			form
+			form: newForm,
 		};
 	}
 
