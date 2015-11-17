@@ -8,28 +8,28 @@ export default {
 		isValid: true,
 		contacts: {
 			name: {
-				value: 'Вася',
+				value: '',
 				validate: (value) => validate(value, {
 					required: true,
 					maxlength: 100,
 				}),
 			},
 			email: {
-				value: 'dzhiriki@gmail.com',
+				value: '',
 				validate: (value) => validate(value, {
 					required: true,
 					maxlength: 100,
 				}),
 			},
 			skype: {
-				value: 'dzhiriki',
+				value: '',
 				validate: (value) => validate(value, {
 					required: true,
 					maxlength: 100,
 				}),
 			},
 			phone: {
-				value: '+79999999999',
+				value: '',
 				validate: (value) => validate(value, {
 					required: true,
 					maxlength: 100,
