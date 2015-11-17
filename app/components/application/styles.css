@@ -3,15 +3,13 @@
 
 .application {
 	position: relative;
-	height: 100%;
 	background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
 	background-color: #043351;
 	background-size: 100% 2000px, auto;
 	background-repeat: no-repeat, repeat;
-	overflow-x: hidden;
 
 	&:before {
-		position: absolute;
+		position: fixed;
 		z-index: 10000;
 		top: 0;
 		left: 0;
@@ -26,7 +24,7 @@
 
 	&__wrapper{
 		padding-top: 35px;
-		min-height: 100%;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
 		backface-visibility: hidden;
@@ -46,21 +44,22 @@
 	}
 
 	&__contacts {
-		position: absolute;
+		position: fixed;
 		z-index: 100000;
 		top: 0;
 		right: 0;
 		height: 100vh;
 		width: 970px;
-		transform: translate3d(100%, 0, 0);
 		transition: transform .5s ease-in-out;
 		backface-visibility: hidden;
 		will-change: transform;
+
+		&_mounted {
+			transform: translate3d(100%, 0, 0);
+		}
 	}
 
 	&_active {
-		overflow: hidden;
-
 		&:before {
 			transition-delay: 0s;
 			opacity: 1;

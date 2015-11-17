@@ -9,11 +9,15 @@ import cx from 'classnames';
 
 import './styles.css';
 
-export default function Application({children, banner, meta, active, openSidebar, closeSidebar}) {
-
+export default function Application({children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted}) {
 	const applicationClass = cx({
 		'application': true,
 		'application_active': active,
+	});
+
+	const contactsClass = cx({
+		'application__contacts': true,
+		'application__contacts_mounted': mounted,
 	});
 
 	return (
@@ -21,7 +25,7 @@ export default function Application({children, banner, meta, active, openSidebar
 			<div
 				className='application__wrapper'
 				style={{
-					paddingRight: active ? scrollbarWidth() : 0,
+					paddingRight: overflow ? scrollbarWidth() : 0,
 				}}
 			>
 				{banner}
@@ -33,7 +37,7 @@ export default function Application({children, banner, meta, active, openSidebar
 				<Sharing meta={meta}/>
 				<Footer />
 			</div>
-			<div className='application__contacts'>
+			<div className={contactsClass}>
 				<Contacts close={closeSidebar} active={active}/>
 			</div>
 		</div>

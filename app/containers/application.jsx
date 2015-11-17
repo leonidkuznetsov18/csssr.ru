@@ -21,23 +21,38 @@ export default class ApplicationContainer extends React.Component {
 		e.stopPropagation();
 		this.setState({
 			active: true,
+			overflow: true,
 		});
+
+		document.body.style.overflow = 'hidden';
 	}
 
 	closeSidebar = () => {
 		this.setState({
 			active: false,
 		});
+
+		setTimeout(() => {
+			this.setState({
+				overflow: false,
+			});
+
+			document.body.style.overflow = null;
+		}, 500);
 	}
 
 	componentWillMount() {
 		this.setState({
 			active: false,
+			mounted: false,
 		});
 	}
 
 	componentDidMount() {
 		this.setPageTitle();
+		this.setState({
+			mounted: true,
+		});
 	}
 
 	componentDidUpdate() {
@@ -46,11 +61,14 @@ export default class ApplicationContainer extends React.Component {
 
 	render() {
 		const meta = getPageMetadata(this.props.location.pathname);
+
 		return (
 			<Application
 				{...this.props}
 				meta={meta}
 				active={this.state.active}
+				overflow={this.state.overflow}
+				mounted={this.state.mounted}
 				openSidebar={this.openSidebar}
 				closeSidebar={this.closeSidebar}
 			/>

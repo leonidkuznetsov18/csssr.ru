@@ -6,6 +6,8 @@ html {
 body {
 	font-family: 'PT Sans', Helvetica, Arial, sans-serif;;
 	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 #content {

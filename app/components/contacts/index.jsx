@@ -50,7 +50,7 @@ export default class Contacts extends React.Component {
 					<div className='contacts__text'>
 						<Text size='xs' indent={false}>
 							Прием заказов
-
+							{' '}
 							<a href='sales@csssr.io'>
 								sales@csssr.io
 							</a>
@@ -59,6 +59,7 @@ export default class Contacts extends React.Component {
 					<div className='contacts__text'>
 						<Text size='xs' indent={false}>
 							Вопросы трудоустройства
+							{' '}
 							<a href='hr@csssr.com'>
 								hr@csssr.com
 							</a>
