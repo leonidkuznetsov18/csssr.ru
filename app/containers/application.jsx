@@ -40,7 +40,7 @@ export default class ApplicationContainer extends React.Component {
 		this.setPageTitle();
 	}
 
-	componentWillReceiveProps() {
+	componentDidUpdate() {
 		this.setPageTitle();
 	}
 
