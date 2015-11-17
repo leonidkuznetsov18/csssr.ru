@@ -1,34 +1,55 @@
 import React from 'react';
-import * as actionCreators from 'actions/outsource';
+import * as actions from 'actions/outsource';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Contacts from 'components/contacts-form';
 
 @connect((store) => ({
-	form: store.outsource.form,
+	...store.outsource,
+}), (dispatch) => ({
+	...bindActionCreators(actions, dispatch),
 }))
 export default class FormOutsource extends React.Component {
 	static propTypes = {
 		form: React.PropTypes.object.isRequired,
-		dispatch: React.PropTypes.func.isRequired,
+		sendForm: React.PropTypes.func.isRequired,
+		showErrors: React.PropTypes.func.isRequired,
+	}
+
+	onChangeField = (value, field) => {
+		this.props.changeContacts({
+			[field]: {
+				value,
+				showError: false,
+			},
+		});
 	}
 
 	onSubmit = (event) => {
 		event.preventDefault();
-		this.props.dispatch(actionCreators.showErrors());
-		this.props.dispatch(actionCreators.sendForm());
+
+		if (this.props.isValid) {
+			console.log('send');
+			this.props.sendForm();
+		} else {
+			console.log('errors');
+			this.props.showErrors();
+		}
 	}
 
 	render() {
-		const actions = bindActionCreators(actionCreators, this.props.dispatch);
+		console.log(this.props);
 
 		return (
 			<form
 				autoComplete='off'
-				method='post'
 				onSubmit={this.onSubmit}
 			>
-				<Contacts {...actions} contacts={this.props.form} />
+				<Contacts
+					{...this.props}
+					form={this.props.form}
+					onChangeField={this.onChangeField}
+				/>
 			</form>
 		);
 	}

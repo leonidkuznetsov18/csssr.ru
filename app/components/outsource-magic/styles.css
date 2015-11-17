@@ -3,6 +3,12 @@
 	height: 545px;
 	margin: 0 30px;
 
+	&::before,
+	&::after {
+		margin-left: 426px;
+		left: calc((100% - 918px) * 0.5);
+	}
+
 	&::before {
 		position: absolute;
 		top: 0;
@@ -22,13 +28,6 @@
 		height: 265px;
 		content: '';
 	}
-
-	&::after,
-	&::before {
-		margin-left: 426px;
-		left: calc((100% - 918px) * 0.5);
-	}
-
 
 	&__left {
 		left: -40px;

@@ -1,20 +1,24 @@
 import React from 'react';
-import UseExamples from 'components/outsource-use-examples';
+import Title from 'components/title';
+import Text from 'components/text';
+import OutsourceExamples from 'components/outsource-examples';
 
 import './styles.css';
 
-
 export default class OutsourceUse extends React.Component {
 	static propTypes = {
-		tips: React.PropTypes.object
+		tips: React.PropTypes.object,
 	}
 
 	render() {
 		const cloud = require('images/background/cloudx3.svg');
+
 		return (
 			<div className='outsource-use'>
 				<h2 className='outsource-use__title'>
-					<div className='outsource-use__title-text'>Идеи Применения</div>
+					<div className='outsource-use__title-text'>
+						Идеи Применения
+					</div>
 				</h2>
 
 				<img
@@ -26,24 +30,25 @@ export default class OutsourceUse extends React.Component {
 					src={cloud}
 				/>
 
-				<div className='outsource-use__how'>
-					<h3 className='outsource-use__subtitle'>
-						как применить
-						<br />
-						наш сервис
-						<br />
-						в вашем бизнесе?
-					</h3>
-					<div className='outsource-use__text'>
-						{'— Что такое «Frontend аутсосринг», как это может быть полезно?'}
-						<br />
-						— Ок, сейчас объясним наглядно...
+				<div className='outsource-use__content'>
+					<div className='outsource-use__how'>
+						<Title component='h3'>
+							КАК ПРИМЕНИТЬ
+							<br />
+							НАШ СЕРВИС
+							<br />
+							В ВАШЕМ БИЗНЕСЕ?
+						</Title>
+
+						<Text size='s'>
+							— Что такое «Frontend аутсосринг», как это может быть полезно?
+							<br />
+							— Ок, сейчас объясним наглядно...
+						</Text>
 					</div>
 
+					<OutsourceExamples tips={this.props.tips} />
 				</div>
-
-				<UseExamples tips={this.props.tips} />
-
 			</div>
 		);
 	}

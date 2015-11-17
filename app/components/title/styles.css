@@ -1,6 +1,5 @@
 .title {
 	font-size: 35px;
-	line-height: 1;
 	font-family: 'PT Sans Narrow';
 	color: #6A0005;
 	margin-bottom: 20px;
@@ -31,5 +30,9 @@
 
 	&_color_black {
 		color: #333;
+	}
+
+	&_noindent {
+		margin-bottom: 0;
 	}
 }

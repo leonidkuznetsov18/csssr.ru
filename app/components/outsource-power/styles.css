@@ -1,3 +1,5 @@
+@import 'helpers';
+
 .outsource-power {
 	height: 493px;
 	padding-left: 10%;
@@ -31,6 +33,10 @@
 		display: inline-block;
 		vertical-align: top;
 
+		@media (max-width: 1100px) {
+			left: 21px;
+		}
+
 		&::after {
 			width: 400px;
 			height: 400px;
@@ -43,29 +49,6 @@
 			border-color: transparent transparent #6c0400 #6c0400;
 			transform: rotate(5deg);
 			pointer-events: none;
-		}
-	}
-
-	&__cloud {
-		position: absolute;
-		z-index: 1;
-
-		&_bottom {
-			width: 200px;
-			left: -5px;
-			bottom: 93px;
-		}
-
-		&_top {
-			width: 178px;
-			bottom: -50px;
-			left: 70%;
-		}
-
-		&_middle {
-			width: 210px;
-			right: -300px;
-			bottom: -60px;
 		}
 	}
 
@@ -82,6 +65,10 @@
 			height: 1px;
 			background: #6c0400;
 			content: '';
+
+			@media (--small) {
+				display: none;
+			}
 		}
 
 		&::after {
@@ -94,6 +81,12 @@
 			right: 277px;
 			transform: rotate(45deg);
 			transform-origin: left;
+
+			@media (--small) {
+				width: 113px;
+				top: -52px;
+				right: 275px;
+			}
 		}
 	}
 
@@ -107,10 +100,9 @@
 			position: absolute;
 			height: 1px;
 			background: #6c0400;
-			width: 168px;
-			bottom: -1px;
-			top: 332px;
-			left: 308px;
+			width: 167px;
+			top: 334px;
+			left: 309px;
 			transform: rotate(45deg);
 			transform-origin: left;
 		}
@@ -136,27 +128,23 @@
 
 	&__text {
 		position: absolute;
-		display: inline-block;
-		vertical-align: top;
-		color: #333;
-		font-size: 16px;
-		line-height: 27px;
-		font-family: Roboto;
-		font-weight: 300;
 		max-width: 380px;
 		width: 38%;
 		margin-left: 440px;
 		top: 89px;
 		left: calc((100% - 918px) * 0.5);
-	}
 
-	&__text-title {
-		margin-bottom: 11px;
-		font-size: 26px;
-		font-family: 'PT Sans Narrow';
-		color: #6b0000;
-		letter-spacing: 0.075em;
-		text-transform: uppercase;
+		@media (max-width: 1300px) {
+			left: 8.5%;
+		}
+
+		@media (max-width: 1200px) {
+			width: 30%;
+
+		}
+		@media (max-width: 1100px) {
+			left: 21px;
+		}
 	}
 
 	&__social {
@@ -173,31 +161,46 @@
 		background-size: contain;
 		will-change: transform;
 
+		@media (max-width: 1100px) {
+			right: -8px;
+			margin-top: 80px;
+		}
+
 		&_state_fixed {
 			top: 0px;
 		}
+
 	}
 
-	&__likebox {
-		position: relative;
-		z-index: 10;
-
-		span {
-			background-color: #fff;
-		}
-	}
-
-	&__loader {
+	&__cloud {
 		position: absolute;
 		z-index: 1;
-		top: 308px;
-		left: 73px;
-		right: 55px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 32px;
-		height: 32px;
+
+		&_bottom {
+			width: 200px;
+			left: -5px;
+			bottom: 93px;
+
+			@media (max-width: 1280px) {
+				left: 8%;
+				bottom: 63px;
+			}
+		}
+
+		&_top {
+			width: 178px;
+			top: -80px;
+			left: 54%;
+		}
+
+		&_middle {
+			width: 210px;
+			right: -300px;
+			bottom: -60px;
+
+			@media (max-width: 1280px) {
+				right: -80%;
+			}
+		}
 	}
 }
-
-@import './media.css';

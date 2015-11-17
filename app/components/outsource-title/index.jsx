@@ -8,5 +8,5 @@ export default function OutsourceTitle() {
 			<span className='outsource-title__left'>Frontend</span>
 			<span className='outsource-title__right'>аутсорсинг</span>
 		</h1>
-	)
+	);
 }

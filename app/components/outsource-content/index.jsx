@@ -1,52 +1,51 @@
 import React from 'react';
-import OutsourceSuccess from 'components/outsource-success';
+
+import Title from 'components/title';
+import Text from 'components/text';
+
+import OutsourceProjects from 'components/outsource-projects';
+import OutsourceService from 'components/outsource-service';
 
 import './styles.css';
 
-export default class OutsourceContent extends React.Component {
-
-	static propTypes = {
-		data: React.PropTypes.object.isRequired
-	}
-
-	render() {
-		const data = this.props.data;
-
-		const events = data.events.cols.map((event, i) => {
-			return (
-				<div key={i} className='outsource__cols-item'>
-					<div className={`outsource__cols-img outsource__cols-${event.class}`} />
-					<h2 className='outsource__cols-title'>{event.title}</h2>
-					<p className='outsource__cols-text'>{event.text}</p>
-				</div>
-			);
-		});
-
-		return (
-			<div className='outsource__content'>
-				<div className='outsource__events'>
-					<h2 className='outsource__subtitle outsource__events-title'>
+export default function OutsourceContent({data, projects}) {
+	return (
+		<div className='outsource-content'>
+			<div className='outsource-content__events'>
+				<div className='outsource-content__title outsource-content__title_events'>
+					<Title size='medium' component='h2' indent={false}>
 						{data.events.title}
-					</h2>
-
-					<div className='outsource__cols'>
-						{events}
-						<img
-							className='outsource-power__cloud outsource-power__cloud_top'
-							src={require('images/background/cloudx3.svg')}
-							alt='cloud'
-							height={139}
-							width={212}
-						/>
-
-					</div>
-
+					</Title>
 				</div>
-				<OutsourceSuccess
-					title={data.success.title}
-					description={data.success.description}
-				/>
+
+				<div className='outsource-content__cols'>
+					{data.events.cols.map((event, index) => (
+						<OutsourceService {...event} key={index} />
+					))}
+				</div>
 			</div>
-		);
-	}
+
+			<div className='outsource-content__success'>
+				<div className='outsource-content__title'>
+					<Title size='medium' component='h2' indent={false}>
+						{data.success.title}
+					</Title>
+				</div>
+
+				<div className='outsource-content__text'>
+					<Text>
+						{data.success.description}
+					</Text>
+				</div>
+
+				<div className='outsource-content__projects'>
+					<OutsourceProjects projects={projects}/>
+				</div>
+			</div>
+		</div>
+	);
 }
+
+OutsourceContent.propTypes = {
+	data: React.PropTypes.object.isRequired,
+};

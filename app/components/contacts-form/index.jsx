@@ -4,70 +4,49 @@ import Field from 'components/field';
 import Checkbox from 'components/checkbox';
 import Link from 'components/link';
 import Button from 'components/button';
+import FieldPhone from 'components/field-phone';
 
 import './styles.css';
 
 export default class ContactsForm extends React.Component {
 	static propTypes = {
 		contacts: PropTypes.object,
-		changeContacts: PropTypes.func
+		onChangeField: PropTypes.func.isRequired,
 	}
 
-	changeField = e => {
-		this.props.changeContacts({
-			[e.target.name]: {
-				value: e.target.value,
-				showError: false
-			}
-		});
-	}
+	field(name, label, props, inputProps) {
+		const {form, onChangeField} = this.props;
 
+		return (
+			<Field
+				required
+				label={label}
+				isWrong={form[name].showError && !form[name].isValid()}
+				inputProps={{
+					value: form[name].value,
+					onChange: (e) => onChangeField(e.target.value, name),
+					...inputProps,
+				}}
+				{...props}
+			/>
+		);
+	}
 	render() {
-		const {name, email, skype, phone} = this.props.contacts;
+		const {form, onChangeField} = this.props;
 
 		return (
 			<div className='contacts-form'>
-				<Field
-					label='Ваше имя'
-					required
-					isWrong={name.showError && !name.isValid()}
-					inputProps={{
-						value: name.value,
-						name: 'name',
-						onChange: this.changeField
-					}}
-				/>
+				{this.field('name', 'Ваше имя')}
+				{this.field('email', 'Электронная почта')}
+				{this.field('skype', 'Скайп')}
 
-				<Field
-					label='Электронная почта'
-					required
-					isWrong={email.showError && !email.isValid()}
-					inputProps={{
-						value: email.value,
-						name: 'email',
-						onChange: this.changeField
-					}}
-				/>
-
-				<Field
-					label='Скайп'
-					required
-					isWrong={skype.showError && !skype.isValid()}
-					inputProps={{
-						value: skype.value,
-						name: 'skype',
-						onChange: this.changeField
-					}}
-				/>
-
-				<Field
+				<FieldPhone
 					label='Контактный телефон'
 					required
-					isWrong={phone.showError && !phone.isValid()}
+					isWrong={form.phone.showError && !form.phone.isValid()}
 					inputProps={{
-						value: phone.value,
-						name: 'phone',
-						onChange: this.changeField
+						value: form.phone.value,
+						onChange: (value) => onChangeField(value, 'phone'),
 					}}
 				/>
 
