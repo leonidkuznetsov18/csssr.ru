@@ -71,8 +71,23 @@ export const timeline = {
 	pageDescription: 'Таймлайн',
 };
 
-export const thanks = {
-	...index,
+export const thanksPixelPerfectionist = {
+	...jobsPixelPerfectionist,
+	pageTitle: 'Успех, товарищ!',
+};
+
+export const thanksTechnicalManager = {
+	...jobsTechnicalManager,
+	pageTitle: 'Успех, товарищ!',
+};
+
+export const thanksOrder = {
+	...order,
+	pageTitle: 'Успех, товарищ!',
+};
+
+export const thanksOutsource = {
+	...outsource,
 	pageTitle: 'Успех, товарищ!',
 };
 

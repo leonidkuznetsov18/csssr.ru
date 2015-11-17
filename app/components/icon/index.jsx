@@ -4,7 +4,7 @@ export default function Icon(props) {
 	const icon = require(`images/icons/${props.icon}.svg`);
 
 	return (
-		<div {...props}
+		<span {...props}
 			dangerouslySetInnerHTML={{__html: icon}}
 		/>
 	);

@@ -1,5 +1,6 @@
 import React from 'react';
 import socialCount from 'helpers/socialCount';
+import socialLink from 'helpers/socialLink';
 
 import Button from 'components/button';
 import Text from 'components/text';
@@ -10,22 +11,18 @@ const buttons = [
 	{
 		type: 'vk',
 		text: 'Мне нравится',
-		url: (opt) => `http://vk.com/share.php?url=${opt.shareUrl}&title=${opt.shareTitle}`
 	},
 	{
 		type: 'fb',
 		text: 'Мне нравится',
-		url: (opt) => `https://www.facebook.com/sharer/sharer.php?u=${opt.shareUrl}`
 	},
 	{
 		type: 'tw',
 		text: 'Твитнуть',
-		url: (opt) => `https://twitter.com/intent/tweet?url=${opt.shareUrl}&text=${opt.shareTitle}`
 	},
 	{
 		type: 'gp',
 		text: 'Плюс один',
-		url: (opt) => `https://plus.google.com/share?url=${opt.shareUrl}`
 	}
 ];
 
@@ -76,7 +73,7 @@ export default class Sharing extends React.Component {
 						component='a'
 						icon={`social-${button.type}`}
 						target='_blank'
-						href={button.url(this.props.meta)}
+						href={socialLink(button.type, this.props.meta)}
 					>
 						{button.text}
 					</Button>

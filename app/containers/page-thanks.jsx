@@ -1,29 +1,19 @@
 import React from 'react';
+import getPageMetadata from 'helpers/getPageMetadata';
 import Content from 'components/content';
-import Row from 'components/row';
-import Column from 'components/column';
-import Title from 'components/title';
-import Text from 'components/text';
+import Thanks from 'components/thanks';
 
-export default class Thanks extends React.Component {
+export default class ThanksContainer extends React.Component {
+	static propTypes = {
+		location: React.PropTypes.object,
+	}
+
 	render() {
+		const meta = getPageMetadata(this.props.location.pathname);
+
 		return (
 			<Content>
-				<Row>
-					<Column size={1 / 2} offset={1 / 3}>
-						<Title>
-							Успех, товарищ!
-						</Title>
-						<Text>
-							Ваша заявка успешно доставлена в CSSSR.
-							Пока мы внимательно её изучаем, поделитесь
-							вашей радостью с друзьями.
-						</Text>
-						<Text size='s'>
-							Способы поделиться радостью с друзьями:
-						</Text>
-					</Column>
-				</Row>
+				<Thanks meta={meta}/>
 			</Content>
 		);
 	}

@@ -38,7 +38,7 @@ export default (
 				<Route path=':page' component={ProjectPage} />
 			</Route>
 		</Route>
-		<Route path='/thanks' component={Thanks} />
+		<Route path='/thanks/:type' component={Thanks} />
 		<Route path='/offert' component={Offert} />
 		<Route path='/confidential' component={Offert} />
 		<Route path='/timeline' component={Timeline}>
