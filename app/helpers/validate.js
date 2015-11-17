@@ -1,61 +1,39 @@
-class Validate {
-	constructor(string) {
-		this.string = string;
-		this.result = true;
-	}
+const validator = {
+	required(value) {
+		return value.length;
+	},
 
-	notEmpty() {
-		if (!this.result) return this;
+	maxlength(value, length) {
+		return value.length <= length;
+	},
 
-		if (!this.string.length) {
-			this.result = false;
+	email(value) {
+		return /^.+@.+\..+$/.test(value);
+	},
+
+	number(value) {
+		return /^-?\d+$/.test(value);
+	},
+
+	minlength(value, length) {
+		return value.length >= length;
+	},
+
+	custom(value, fn) {
+		return fn(value);
+	},
+};
+
+export default function validate(value, options) {
+	const isValid = Object.keys(options).every((key) => {
+		if (validator[key]) {
+			return validator[key](value, options[key]);
+		} else {
+			throw new Error(`Undefined validator ${key}`);
 		}
-		return this;
-	};
 
-	isEmail() {
-		if (!this.result) return this;
+		return true;
+	});
 
-		// email has @ and dot
-		if (!/^.+@.+\..+$/.test(this.string)) {
-			this.result = false;
-		}
-		return this;
-	}
-
-	isInt() {
-		if (!this.result) return this;
-
-		if (!/^-?\d+$/.test(this.string)) {
-			this.result = false;
-		}
-		return this;
-	}
-
-	lessThen(length) {
-		if (!this.result) return this;
-
-		if (this.string.length >= length) {
-			this.result = false;
-		}
-		return this;
-	};
-
-	moreThen(length) {
-		if (!this.result) return this;
-
-		if (this.string.length <= length) {
-			this.result = false;
-		}
-		return this;
-	};
-
-	end = () => this.result;
-}
-
-export default function validate(string) {
-	if (typeof string !== 'string') {
-		throw new Error('Parameter must be a string');
-	}
-	return new Validate(string);
+	return isValid;
 }

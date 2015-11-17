@@ -1,14 +1,12 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as actionCreators from 'actions/jobs';
 
 import Content from 'components/content';
 import Breadcrubms from 'components/breadcrumbs';
 import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
-import JobAnswerForm from 'components/job-form';
 import JobBanner from 'components/job-banner';
+import FormJob from 'containers/form-job';
 
 const pages = {
 	'technical-manager': 'Менеджер-технарь',
@@ -17,16 +15,6 @@ const pages = {
 const dataList = {
 	'pixel-perfectionist': require('data/jobs/pixel-perfectionist.json'),
 	'technical-manager': require('data/jobs/technical-manager.json'),
-};
-const fileTypes = {
-	'pixel-perfectionist': {
-		fileAccept: '.zip',
-		fileWarning: 'ZIP, пожалуйста!',
-	},
-	'technical-manager': {
-		fileAccept: '.docx',
-		fileWarning: 'DOCX, пожалуйста!',
-	},
 };
 
 @connect((store, props) => ({
@@ -42,7 +30,6 @@ export default class PageJob extends React.Component {
 		const page = this.props.routeParams.jobName;
 		const pageName = pages[page];
 		const data = dataList[page];
-		const actions = bindActionCreators(actionCreators, this.props.dispatch);
 
 		return (
 			<div>
@@ -72,12 +59,7 @@ export default class PageJob extends React.Component {
 						<SectionGroup data={data.afterQuest}/>
 					}
 
-					<JobAnswerForm
-						{...actions}
-						{...fileTypes[page]}
-						job={this.props.job}
-						isValid={this.props.job.isValid}
-					/>
+					<FormJob jobName={page}/>
 				</Content>
 			</div>
 		);

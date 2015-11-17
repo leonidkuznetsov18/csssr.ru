@@ -18,17 +18,17 @@ export default function jobs(state = initialState, action) {
 			newForm[key] = newForm[key].update(form[key]);
 		}
 
-		const isValid = Object.keys(newForm).every(field => {
-			return newForm[field].isValid()
-		})
+		const isValid = Object.keys(newForm).every((field) => {
+			return newForm[field].isValid();
+		});
 
 		return {
 			...state,
 			[job]: {
 				...state[job],
 				isValid,
-				form: newForm
-			}
+				form: newForm,
+			},
 		};
 	}
 
@@ -38,8 +38,8 @@ export default function jobs(state = initialState, action) {
 			[job]: {
 				...state[job],
 				send: true,
-			}
-		}
+			},
+		};
 	}
 
 	case C.SENT_ANSWER_FORM: {
@@ -47,22 +47,27 @@ export default function jobs(state = initialState, action) {
 			...state,
 			[job]: {
 				...initialState[job],
-			}
-		}
+			},
+		};
 	}
 
 	case C.SHOW_FORM_ERRORS: {
-		const newForm = {...state[job].form};
-		for (const key in newForm) {
-			newForm[key] = newForm[key].update({showError: true});
-		}
+		const newForm = {
+			...state[job].form,
+		};
+
+		Object.keys(newForm).forEach((key) => {
+			newForm[key] = newForm[key].update({
+				showError: true,
+			});
+		});
 
 		return {
 			...state,
 			[job]: {
 				...state[job],
-				form: newForm
-			}
+				form: newForm,
+			},
 		};
 	}
 

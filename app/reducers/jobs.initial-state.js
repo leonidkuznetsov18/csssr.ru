@@ -1,86 +1,88 @@
 import validate from 'helpers/validate';
 
-export default {
-  'technical-manager': {
-    name: 'Менеджер-технарь',
-    key: 'technical-manager',
-    form: {
-      firstname: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      lastname: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      age: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).isInt().end()
-      },
-      city: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      file: {
-        value: {
-          name: 'Прикрепите решение квеста',
-          type: ''
-        },
-        validate: value => validate(value.type).notEmpty().end()
-      },
-      email: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).isEmail().end()
-      },
-      skype: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      phone: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      }
-    }
-  },
-  'pixel-perfectionist': {
-    name: 'Верстальщик пиксель-перфекционист',
-    key: 'pixel-perfectionist',
-    form: {
-      firstname: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      lastname: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      age: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).isInt().end()
-      },
-      city: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      file: {
-        value: {
-          name: 'Прикрепите zip-архив',
-          type: ''
-        },
-        validate: value => validate(value.type).notEmpty().end()
-      },
-      email: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).isEmail().end()
-      },
-      skype: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      },
-      phone: {
-        value: '',
-        validate: value => validate(value).notEmpty().lessThen(100).end()
-      }
-    }
-  }
+function generateForm(options) {
+	return {
+		firstname: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		lastname: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		age: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+				number: true,
+			}),
+		},
+		city: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		file: {
+			value: {
+				name: options.fileLabel,
+				type: '',
+			},
+			validate: (value) => validate(value, {
+				custom: function (val) {
+					return val.type && val.type === options.fileType;
+				},
+			}),
+		},
+		email: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+				email: true,
+			}),
+		},
+		skype: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+		phone: {
+			value: '',
+			validate: (value) => validate(value, {
+				required: true,
+				maxlength: 100,
+			}),
+		},
+	};
 }
+
+export default {
+	'technical-manager': {
+		name: 'Менеджер-технарь',
+		key: 'technical-manager',
+		form: generateForm({
+			fileLabel: 'Прикрепите решение квеста',
+			fileType: 'application/zip',
+		}),
+	},
+
+	'pixel-perfectionist': {
+		name: 'Верстальщик пиксель-перфекционист',
+		key: 'pixel-perfectionist',
+		form: generateForm({
+			fileLabel: 'Прикрепите zip-архив',
+			fileType: 'application/zip',
+		}),
+	},
+};

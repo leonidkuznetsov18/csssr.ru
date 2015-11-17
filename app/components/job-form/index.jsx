@@ -12,72 +12,59 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
 		job: React.PropTypes.object.isRequired,
-		changeAnswerForm: React.PropTypes.func.isRequired,
-		sendAnswerForm: React.PropTypes.func.isRequired,
-		showFormErrors: React.PropTypes.func.isRequired,
+		onChangeField: React.PropTypes.func.isRequired,
+		onChangeNumberField: React.PropTypes.func.isRequired,
+		onChangeFileField: React.PropTypes.func.isRequired,
+		onSubmit: React.PropTypes.func.isRequired,
 		fileAccept: React.PropTypes.string,
-		fileWarning: React.PropTypes.string
+		fileWarning: React.PropTypes.string,
+		isValid: React.PropTypes.bool,
 	}
 
 	static defaultProps = {
 		fileAccept: '',
-		fileWarning: 'Файл, пожалуйста!'
-	}
-
-	changeField = (value, field) => {
-		this.props.changeAnswerForm(this.props.job.key, {
-			[field]: {
-				value: value,
-				showError: false
-			}
-		});
-	}
-
-	submitForm = (event) => {
-		event.preventDefault();
-
-		if (this.props.isValid) {
-			this.props.sendAnswerForm(this.props.job.key);
-		} else {
-			this.props.showFormErrors(this.props.job.key);
-		}
-	}
-
-	changeAge = (event) => {
-		const newAge = event.target.value.replace(/\D/g, '').slice(0, 3);
-		this.changeField(newAge, 'age');
-	}
-
-	fileChange = (event) => {
-		this.changeField(event.target.files[0], 'file');
+		fileWarning: 'Файл, пожалуйста!',
 	}
 
 	field(name, label, props, inputProps) {
-		const { form } = this.props.job;
+		const {form} = this.props.job;
+		const {onChangeField} = this.props;
 
 		return (
 			<Field
-				label={label}
 				required
+				label={label}
 				isWrong={form[name].showError && !form[name].isValid()}
 				inputProps={{
 					value: form[name].value,
-					onChange: e => this.changeField(e.target.value, name),
-					...inputProps
+					onChange: (e) => onChangeField(e.target.value, name),
+					...inputProps,
 				}}
 				{...props}
 			/>
-		)
+		);
 	}
 
 	render() {
-		const { form } = this.props.job;
+		const {form} = this.props.job;
+		const {
+			onChangeField,
+			onChangeNumberField,
+			onChangeFileField,
+			onSubmit,
+		} = this.props;
 
 		return (
-			<form className='job-form' onSubmit={this.submitForm}>
-				{this.field('firstname', 'Имя', {small: true})}
-				{this.field('lastname', 'Фамилия', {small: true})}
-				{this.field('age', 'Возраст', {}, {onChange: this.changeAge})}
+			<form className='job-form' onSubmit={onSubmit}>
+				{this.field('firstname', 'Имя', {
+					small: true,
+				})}
+				{this.field('lastname', 'Фамилия', {
+					small: true,
+				})}
+				{this.field('age', 'Возраст', {}, {
+					onChange: (e) => onChangeNumberField(e, 'age'),
+				})}
 				{this.field('city', 'Город')}
 
 				<FieldFile
@@ -87,7 +74,7 @@ export default class JobAnswerForm extends React.Component {
 					inputProps={{
 						value: form.file.value.name,
 					}}
-					onChange={this.fileChange}
+					onChange={onChangeFileField}
 					accept={this.props.fileAccept}
 					warning={this.props.fileWarning}
 				/>
@@ -101,7 +88,7 @@ export default class JobAnswerForm extends React.Component {
 					isWrong={form.phone.showError && !form.phone.isValid()}
 					inputProps={{
 						value: form.phone.value,
-						onChange: value => this.changeField(value, 'phone'),
+						onChange: (value) => onChangeField(value, 'phone'),
 					}}
 				/>
 
@@ -123,7 +110,6 @@ export default class JobAnswerForm extends React.Component {
 					</Button>
 				</div>
 			</form>
-
 		);
 	}
 }
