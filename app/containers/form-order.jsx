@@ -33,7 +33,7 @@ export default class OrderForm extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
 
-		if (this.props.isValid) {
+		if (this.props.form.isValid) {
 			this.props.sendOrderForm();
 		} else {
 			this.props.showErrors();

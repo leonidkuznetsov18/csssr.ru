@@ -17,7 +17,7 @@ export default function order(state = initialState, action) {
 		}
 
 		if (action.structure === 'radio') {
-			options[action.list] = options[action.list].map(item => {
+			options[action.list] = options[action.list].map((item) => {
 				item.isChecked = false;
 				return item;
 			});
@@ -28,24 +28,36 @@ export default function order(state = initialState, action) {
 			...state,
 			form: {
 				...state.form,
-				...options
-			}
+				...options,
+			},
 		};
 	}
 
 	case C.ORDER_FORM_CHANGE_CONTACTS: {
-		const contacts = {...state.form.contacts};
-		for (const key in action.contacts) if (action.contacts.hasOwnProperty(key)) {
+		const contacts = {
+			...state.form.contacts,
+		};
+
+		for (const key in action.contacts) {
+			if (!action.contacts.hasOwnProperty(key)) {
+				continue;
+			}
+
 			contacts[key] = contacts[key].update(action.contacts[key]);
 		}
+
+		const isValid = Object.keys(contacts).every((field) => {
+			return contacts[field].isValid();
+		});
 
 		return {
 			...state,
 			form: {
 				...state.form,
 				showErrorWindow: false,
-				contacts
-			}
+				isValid,
+				contacts,
+			},
 		};
 	}
 
@@ -60,8 +72,8 @@ export default function order(state = initialState, action) {
 			form: {
 				...state.form,
 				showErrorWindow: true,
-				contacts
-			}
+				contacts,
+			},
 		};
 	}
 
@@ -72,13 +84,13 @@ export default function order(state = initialState, action) {
 			form: {
 				...state.form,
 				showErrorWindow: false,
-				filesLink
-			}
+				filesLink,
+			},
 		};
 	}
 
 	case C.ORDER_FORM_ADD_FILES: {
-		const files = state.form.files.concat(action.files.map((file, i) => {
+		const files = state.form.files.concat(action.files.map((file) => {
 			file.id = lastId++;
 			file.progress = 0;
 			return file;
@@ -89,20 +101,20 @@ export default function order(state = initialState, action) {
 			form: {
 				...state.form,
 				showErrorWindow: false,
-				files
-			}
+				files,
+			},
 		};
 	}
 
 	case C.ORDER_FORM_REMOVE_FILE: {
-		const files = state.form.files.filter(file => file.id !== action.fileId);
+		const files = state.form.files.filter((file) => file.id !== action.fileId);
 		return {
 			...state,
 			form: {
 				...state.form,
 				showErrorWindow: false,
-				files
-			}
+				files,
+			},
 		};
 	}
 
@@ -110,7 +122,7 @@ export default function order(state = initialState, action) {
 		const {fileId, properties} = action;
 		let fileIdIsCorrect = false;
 
-		const files = state.form.files.map(file => {
+		const files = state.form.files.map((file) => {
 			if (file.id === fileId) {
 				fileIdIsCorrect = true;
 				for (const key in properties) if (properties.hasOwnProperty(key)) {
@@ -120,14 +132,16 @@ export default function order(state = initialState, action) {
 			return file;
 		});
 
-		if (!fileIdIsCorrect) return state;
+		if (!fileIdIsCorrect) {
+			return state;
+		}
 
 		return {
 			...state,
 			form: {
 				...state.form,
-				files
-			}
+				files,
+			},
 		};
 	}
 

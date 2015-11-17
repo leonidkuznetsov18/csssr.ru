@@ -12,48 +12,64 @@ export function changeOption(list, value, index, structure = 'checkbox') {
 		list,
 		value,
 		index,
-		structure
+		structure,
 	};
 }
 
 export function changeContacts(contacts) {
 	return {
 		type: C.ORDER_FORM_CHANGE_CONTACTS,
-		contacts
+		contacts,
 	};
 }
 
 export function showErrors() {
 	return {
-		type: C.ORDER_FORM_SHOW_ERRORS
+		type: C.ORDER_FORM_SHOW_ERRORS,
 	};
 }
 
 export function changeFilesLink(link) {
 	return {
 		type: C.ORDER_FORM_CHANGE_FILES_LINK,
-		link
+		link,
+	};
+}
+
+export function updateFile(fileId, properties) {
+	return {
+		type: C.ORDER_FORM_UPDATE_FILE,
+		properties,
+		fileId,
+	};
+}
+
+export function removeFile(fileId) {
+	return {
+		type: C.ORDER_FORM_REMOVE_FILE,
+		fileId,
 	};
 }
 
 export function addFiles(files) {
-	return function(dispatch, getState) {
+	return function (dispatch, getState) {
 		dispatch({
 			type: C.ORDER_FORM_ADD_FILES,
-			files
+			files,
 		});
 
 		const formFiles = getState().order.form.files;
 
-		for (const file of formFiles.slice(-files.length)) {
+		formFiles.slice(-files.length).forEach((file) => {
 			const formData = new FormData();
 			formData.append('file', file);
 			superagent
 				.post('/upload')
 				.send(formData)
 				.on('progress', ({percent}) => {
+					console.log(percent);
 					dispatch(updateFile(file.id, {
-						progress: Math.ceil(percent)
+						progress: Math.ceil(percent),
 					}));
 				})
 				.end((err, res) => {
@@ -65,33 +81,18 @@ export function addFiles(files) {
 						dispatch(updateFile(file.id, {
 							filename: res.body.file.filename,
 							originalname: res.body.file.originalname,
-							progress: 100
+							progress: 100,
 						}));
 					} else {
 						dispatch(removeFile(file.id));
 					}
 				});
-		}
+		});
 	};
 }
 
-export function removeFile(fileId) {
+export function sendOrderForm() {
 	return {
-		type: C.ORDER_FORM_REMOVE_FILE,
-		fileId
-	};
-}
-
-export function updateFile(fileId, properties) {
-	return {
-		type: C.ORDER_FORM_UPDATE_FILE,
-		properties,
-		fileId
-	};
-}
-
-export function sendOrderForm(fileId, properties) {
-	return {
-		type: C.ORDER_FORM_SEND_FORM
+		type: C.ORDER_FORM_SEND_FORM,
 	};
 }

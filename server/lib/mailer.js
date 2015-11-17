@@ -1,34 +1,25 @@
 import nodemailer from 'nodemailer';
 import directTransport from 'nodemailer-direct-transport';
-import FormData from 'form-data';
 import superagent from 'superagent';
 
 const transporter = nodemailer.createTransport(directTransport({
 	name: 'csssr.ru',
-	debug: process.env.NODE_ENV != 'production'
+	debug: process.env.NODE_ENV !== 'production',
 }));
 
 
 function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
-	const form = new FormData();
+	files = files.map((file) => ({
+		filename: file.filename,
+		title: file.originalname,
+	}));
 
-	for (let option of optionsArray) {
-		form.append('options[]', option);
-	}
-
-	for (const key in contacts) if (contacts.hasOwnProperty(key)) {
-		form.append(`contact[${key}]`, contacts[key]);
-	}
-
-	files.forEach((file, i) => {
-		form.append(`files[${i}][filename]`, file.filename);
-		form.append(`files[${i}][title]`, file.originalname);
-	});
-
-	form.append('link', filesLink);
-	form.append('lang', lang);
-
-	return form;
+	return {
+		contact: contacts,
+		options: optionsArray,
+		link: filesLink,
+		lang,
+	};
 }
 
 

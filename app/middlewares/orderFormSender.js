@@ -36,7 +36,7 @@ const requestHandler = store => (err, res) => {
 	if (err) throw err;
 	if (res.status === 200 && res.body.result === 'ok') {
 		// TODO: clear form
-		store.dispatch(pushState(null, '/thanks'));
+		store.dispatch(pushState(null, '/thanks/order'));
 	} else {
 		// TODO: handle errors
 		alert(`error! AAAAA! Status is ${res.status} and result is ${res.body.result}`);
