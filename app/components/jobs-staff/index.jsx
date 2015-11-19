@@ -5,7 +5,7 @@ import Section from 'components/section';
 
 export default function JobsStaff({data}) {
 	return (
-		<Row innex>
+		<Row inner>
 			{[data.slice(0, 3), data.slice(3)].map((column, index) => (
 				<Column size={1 / 2} key={index}>
 					{column.map((group, index) => (
@@ -18,5 +18,5 @@ export default function JobsStaff({data}) {
 }
 
 JobsStaff.propTypes = {
-	data: React.PropTypes.array.isRequired
+	data: React.PropTypes.array.isRequired,
 };

@@ -26,7 +26,7 @@ export default function OrderOptions({options, changeOption}) {
 
 	return (
 		<div className='order-options'>
-			<Row>
+			<Row inner>
 				{keys.map((key, index) => {
 					const Component = key === 'pagesWidth' ? Radio : Checkbox;
 					const structure = key === 'pagesWidth' ? 'radio' : 'checkbox';

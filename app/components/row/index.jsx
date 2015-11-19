@@ -18,5 +18,5 @@ export default function Row(props) {
 
 Row.propTypes = {
 	children: React.PropTypes.node,
-	index: React.PropTypes.bool,
+	inner: React.PropTypes.bool,
 };
