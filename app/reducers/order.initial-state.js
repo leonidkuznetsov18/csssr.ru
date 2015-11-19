@@ -5,7 +5,7 @@ export default {
 	form: {
 		showErrorWindow: false,
 		options,
-		isValid: true,
+		isValid: false,
 		contacts: {
 			name: {
 				value: '',

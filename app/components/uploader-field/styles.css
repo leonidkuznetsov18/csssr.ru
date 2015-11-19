@@ -1,6 +1,4 @@
-.upload-link {
-	padding-bottom: 18px;
-
+.upload-field {
 	&__info {
 		font-family: Roboto;
 		font-weight: 300;

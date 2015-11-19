@@ -6,11 +6,11 @@ import './styles.css';
 
 export default class UploadFilesBlock extends React.Component {
 	static propTypes = {
-		addFiles: PropTypes.func.isRequired
+		addFiles: PropTypes.func.isRequired,
 	}
 
-	onDrop = files => {
-		this.props.addFiles(files);
+	onDrop = (files) => {
+		this.props.addFiles(files.filter((file) => file.type !== ''));
 	}
 
 	openSelectWindow = () => {

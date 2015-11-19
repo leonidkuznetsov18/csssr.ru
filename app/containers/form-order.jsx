@@ -96,6 +96,7 @@ export default class OrderForm extends React.Component {
 				<div style={{width: 420}}>
 					<Contacts
 						{...this.props}
+						onSubmit={this.onSubmit}
 						form={this.props.form.contacts}
 						onChangeField={this.onChangeField}
 					/>

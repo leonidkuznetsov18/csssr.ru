@@ -11,16 +11,16 @@ import './styles.css';
 export default class Uploader extends React.Component {
 	componentWillMount() {
 		this.setState({
-			active: 'files'
+			active: 'files',
 		});
 	}
 
 	render() {
 		const {active} = this.state;
-		const sectionClass = (active) => {
+		const sectionClass = (isActive) => {
 			return cx({
-				'uploader__section': true,
-				'uploader__section_active': active
+				uploader__section: true,
+				uploader__section_active: isActive,
 			});
 		};
 
@@ -47,14 +47,12 @@ export default class Uploader extends React.Component {
 					</span>
 				</div>
 
-				<div className='uploader__sections'>
-					<div className={sectionClass(active === 'link')}>
-						<UploaderField {...this.props} />
-					</div>
+				<div className={sectionClass(active === 'link')}>
+					<UploaderField {...this.props} />
+				</div>
 
-					<div className={sectionClass(active === 'files')}>
-						<UploaderDropzone {...this.props} />
-					</div>
+				<div className={sectionClass(active === 'files')}>
+					<UploaderDropzone {...this.props} />
 				</div>
 
 				<FilesBlock {...this.props} />
