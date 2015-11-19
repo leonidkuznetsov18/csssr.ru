@@ -20,7 +20,7 @@ const projects = [
 	},
 	{
 		name: 'Yota',
-		text: `Стараемся на благо <a class='blue-link blue-link_dashed' href='http://yota.ru'target='_blank'>yota.ru</a> уже ${calcDate(new Date(2014, 5, 4))}.`,
+		text: `Стараемся на благо <a class='blue-link blue-link_dashed' href='http://yota.ru' target='_blank'>yota.ru</a> уже ${calcDate(new Date(2014, 5, 4))}.`,
 		id: 'yota',
 	},
 	{

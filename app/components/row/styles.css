@@ -2,4 +2,9 @@
 	display: flex;
 	padding-left: 15px;
 	padding-right: 15px;
+
+	&_innder {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
