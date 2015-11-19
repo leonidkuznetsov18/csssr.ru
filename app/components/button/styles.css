@@ -25,7 +25,7 @@
 	&::after {
 		content: "";
 		position: absolute;
-		height: 40px;
+		height: 42px;
 		width: 3px;
 		right: -3px;
 		top: 3px;
