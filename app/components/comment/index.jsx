@@ -7,7 +7,7 @@ export default function Comment({author, company, url, text}) {
 	return (
 		<div className='comment'>
 			<div className='comment__header'>
-				<a className='comment__link' href={url}>
+				<a className='comment__link' href={url} target='_blank'>
 					{author}
 				</a>
 				, {company}

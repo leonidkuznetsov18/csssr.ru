@@ -20,7 +20,7 @@
 				}
 			},
 			{
-				"text": "<a href='/logo.svg'>Логотип CSSSR в векторе</a> (SVG, 3 Кбайт)",
+				"text": "<a href='/logo.svg' target='_blank'>Логотип CSSSR в векторе</a> (SVG, 3 Кбайт)",
 				"props": {
 					"size": "m"
 				}
@@ -59,12 +59,12 @@
 		"title": {
 			"text": "В CSSSR три экипажа",
 			"props": {
-				"size": "extrasmall"
+				"size": "small"
 			}
 		},
 		"description": [
 			{
-				"text": "«Восток», «Союз» и «Протон».",
+				"text": "«Восток», «Союз» и «Восход».",
 				"props": {
 					"size": "m"
 				}
