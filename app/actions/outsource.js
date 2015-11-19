@@ -2,6 +2,7 @@ import {
 	OUTSOURCE_FORM_CHANGE_FORM,
 	OUTSOURCE_FORM_SHOW_ERRORS,
 	OUTSOURCE_FORM_SEND_FORM,
+	OUTSOURCE_FORM_SENT_FORM,
 } from 'constants/actions';
 import {pushState} from 'redux-router';
 
@@ -44,6 +45,10 @@ export function sendForm() {
 			.end(() => {
 				// TODO: handle errors
 				dispatch(pushState(null, '/thanks/outsource'));
+
+				dispatch({
+					type: OUTSOURCE_FORM_SENT_FORM,
+				});
 			});
 	};
 }

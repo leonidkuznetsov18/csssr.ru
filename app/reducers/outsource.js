@@ -50,6 +50,10 @@ export default function outsource(state = initialState, action) {
 		};
 	}
 
+	case C.OUTSOURCE_FORM_SENT_FORM: {
+		return initialState;
+	}
+
 	default:
 		return state;
 	}

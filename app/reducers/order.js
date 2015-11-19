@@ -145,6 +145,10 @@ export default function order(state = initialState, action) {
 		};
 	}
 
+	case C.ORDER_FORM_SENT_FORM: {
+		return initialState
+	}
+
 	default:
 		return state;
 	}
