@@ -106,8 +106,8 @@
 			},
 			"list": {
 				"items": [
-					"Наименование классов по <a href='https://github.com/CSSSR/sputnik/blob/master/BEM.md'>Б​ЭМ’у</a>;",
-					"Использование <a href='https://github.com/CSSSR/sputnik/blob/master/Jade.md'>J​ade​</a> для HTML и <a href='https://github.com/CSSSR/sputnik/blob/master/Stylus.md'>S​tylus​</a> для CSS;",
+					"Наименование классов по <a target='_blank' href='https://github.com/CSSSR/sputnik/blob/master/BEM.md'>Б​ЭМ’у</a>;",
+					"Использование <a target='_blank' href='https://github.com/CSSSR/sputnik/blob/master/Jade.md'>J​ade​</a> для HTML и <a target='_blank' href='https://github.com/CSSSR/sputnik/blob/master/Stylus.md'>S​tylus​</a> для CSS;",
 					"Использование нашего ш​аблона для быстрого старта проекта;",
 					"Если вы хотите похвастаться своим владением JS, то CoffeeScript и ES6 приветствуется особенно."
 				],
