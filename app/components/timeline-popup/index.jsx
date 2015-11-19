@@ -26,7 +26,7 @@ export default function TimelinePopup(props) {
 				<div className='timeline-popup__staff'>
 					<img
 						className='timeline-popup__avatar'
-						src={`http://csssr.ru/${props.avatar.src}`}
+						src={require(`images/timeline/avatar/${props.avatar}.jpg`)}
 						alt={props.name}
 						title={props.name}
 					/>
@@ -56,7 +56,7 @@ TimelinePopup.propTypes = {
 	name: React.PropTypes.string,
 	histories: React.PropTypes.string,
 	wishes: React.PropTypes.string,
-	avatar: React.PropTypes.object,
+	avatar: React.PropTypes.string,
 	active: React.PropTypes.bool,
 	onClose: React.PropTypes.func,
 };

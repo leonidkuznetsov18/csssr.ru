@@ -1,4 +1,4 @@
-import React, {PropTypes}  from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
@@ -6,7 +6,7 @@ import './styles.css';
 export default class AudioButton extends React.Component {
 
 	static propTypes = {
-		url: PropTypes.string.isRequired
+		url: React.PropTypes.string.isRequired,
 	}
 
 	constructor(props) {
@@ -28,7 +28,8 @@ export default class AudioButton extends React.Component {
 
 	render() {
 		const classes = cx('audio-button', {'audio-button_active': this.state.active});
-		return(
+
+		return (
 			<button className={classes} onClick={this.click}>
 				<audio preload ref='audio'>
 					<source src={`/audio/${this.props.url}.ogg`}/>
@@ -38,7 +39,4 @@ export default class AudioButton extends React.Component {
 			</button>
 		);
 	}
-
 };
-
-
