@@ -1,36 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router';
+import cx from 'classnames';
 
 import './styles.css';
 
-export default class Language extends React.Component {
-	render() {
-		return (
-			<div className='language'>
-				<Link
-					className='language__link'
-					to='en'
-					activeClassName='language__link_active'
-				>
-					EN
-				</Link>
+const languages = [
+	{
+		href: 'http://csssr.com',
+		text: 'en',
+	},
+	{
+		href: 'http://csssr.de',
+		text: 'de',
+	},
+	{
+		href: 'http://csssr.ru',
+		text: 'ru',
+	},
+];
 
-				<Link
-					className='language__link'
-					to='de'
-					activeClassName='language__link_active'
-				>
-					DE
-				</Link>
+export default function Language({current}) {
+	const linkClass = (isActive) => cx({
+		language__link: true,
+		language__link_active: isActive,
+	});
 
-				<Link
-					className='language__link'
-					to='/'
-					activeClassName='language__link_active'
+	return (
+		<div className='language'>
+			{languages.map((language) => (
+				<a
+					className={linkClass(current === language.text)}
+					href={language.href}
 				>
-					RU
-				</Link>
-			</div>
-		);
-	}
+					{language.text}
+				</a>
+			))}
+		</div>
+	);
 }
+
+Language.propTypes = {
+	current: React.PropTypes.string,
+};
+
+Language.defaultProps = {
+	current: 'ru',
+};
