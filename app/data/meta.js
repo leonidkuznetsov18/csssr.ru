@@ -1,5 +1,5 @@
 export const index = {
-	pageTitle: 'Космический фронтенд',
+	pageTitle: 'Космический фронтенд – CSSSR',
 	pageDescription: 'CSSSR — веб-студия, предоставляющая frontend аутсорсинг. Мы верстаем из PSD в HTML и CSS. Вёрстка для сайтов, лэндингов и почтовых рассылок.',
 	pageKeywords: 'CSSSR, CSSR, css-service, вёрстка, вёрстка сайтов, вёрстка PSD в HTML, PSD to HTML, frontend аутсорсинг, фронтенд',
 	shareUrl: 'http://csssr.ru/',
@@ -49,6 +49,11 @@ export const outsource = {
 	pageTitle: 'CSSSR — фронтенд аутсорсинг. Что угодно с помощью HTML, CSS, JavaScript.',
 	pageDescription: 'CSSSR — это фронтенд аутсорсинг: HTML, CSS, JavaScript, AngularJS',
 	pageKeywords: 'CSSSR, CSSR, css-service, вёрстка, вёрстка сайтов, вёрстка PSD в HTML, PSD to HTML, frontend аутсорсинг, фронтенд, поддержка, рефакторинг, HTML,CSS, JavaScript, JS, Angular, AngularJS',
+};
+
+export const portfolio = {
+	...index,
+	pageTitle: 'Портфолио CSSSR',
 };
 
 export const offert = {
