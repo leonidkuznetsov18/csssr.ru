@@ -15,11 +15,11 @@
 		position: absolute;
 		width: 7.5%;
 		height: 321px;
-		top: 109px;
+		top: 69px;
 		left: 4%;
 		transform: translate3d(0, 0, 0);
 		will-change: transform;
-		backface-visibility: hiddn;
+		backface-visibility: hidden;
 	}
 
 	&__services {
