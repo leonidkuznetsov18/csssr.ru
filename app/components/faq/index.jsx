@@ -36,15 +36,18 @@ export default function Faq({data}) {
 			<div className='faq__questions'>
 				{data.columns.map((column, index) => (
 					<div className='faq__column' key={index}>
-						{column.map((item, index) => (
-							<div key={index} className='faq__question'>
-								<h3 className='faq__subtitle'>
-									{item.title}
-								</h3>
+						{column.map((item, columnIndex) => (
+							<div key={columnIndex} className='faq__question'>
+								<h3
+									className='faq__subtitle'
+									dangerouslySetInnerHTML={{__html: item.title}}
+								/>
 
-								<Text size='m' color='blue'>
-									{item.text}
-								</Text>
+								{[].concat(item.text).map(text => (
+									<Text size='m' color='blue'>
+										{text}
+									</Text>
+								))}
 							</div>
 						))}
 					</div>
@@ -55,5 +58,5 @@ export default function Faq({data}) {
 }
 
 Faq.propTypes = {
-	data: React.PropTypes.object
+	data: React.PropTypes.object,
 };
