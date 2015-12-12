@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from 'components/button';
 import Text from 'components/text';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
+
 import './styles.css';
 
 export default function Service({service}) {
@@ -10,12 +11,16 @@ export default function Service({service}) {
 			<Link className='service__title' to={service.link}>
 				{service.title}
 			</Link>
-			<h4 className='service__subtitle'>
-				{service.subtitle}
-			</h4>
+
+			<h4
+				className='service__subtitle'
+				dangerouslySetInnerHTML={{__html: service.subtitle}}
+			/>
+
 			<Button to={service.link} component={Link}>
 				{service.linkText}
 			</Button>
+
 			<div className='service__text'>
 				<Text size='s' color='grey'>
 					{service.description}
@@ -26,5 +31,5 @@ export default function Service({service}) {
 }
 
 Service.propTypes = {
-	service: React.PropTypes.object
+	service: React.PropTypes.object,
 };

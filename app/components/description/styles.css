@@ -95,9 +95,8 @@
 
 	&__airship {
 		width: 340px;
-		left: 0;
+		left: -10px;
 		position: absolute;
 		top: -70px;
-		padding-left: 20px;
 	}
 }
