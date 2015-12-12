@@ -18,15 +18,15 @@ export default function calcDate(date) {
 	}
 
 	if (year > 0) {
-		time.push(year + ' ' + plural(year, 'год', 'года', 'лет'));
+		time.push(year + '&nbsp;' + plural(year, 'год', 'года', 'лет'));
 	}
 
 	if (month > 0) {
-		time.push(month + ' ' + plural(month, 'месяц', 'месяца', 'месяцев'));
+		time.push(month + '&nbsp;' + plural(month, 'месяц', 'месяца', 'месяцев'));
 	}
 
 	if (day > 0) {
-		time.push(day + ' ' + plural(day, 'день', 'дня', 'дней'));
+		time.push(day + '&nbsp;' + plural(day, 'день', 'дня', 'дней'));
 	}
 
 	const string = time.reduce(function(prev, current, index, array) {

@@ -12,7 +12,7 @@ import './styles.css';
 export default function OutsourceContacts({children}) {
 	return (
 		<div className='outsource-contacts'>
-			<Row>
+			<Row inner>
 				<Column size={2 / 3}>
 					<Title size='medium'>
 						связь с центром
@@ -23,23 +23,25 @@ export default function OutsourceContacts({children}) {
 					</Text>
 				</Column>
 			</Row>
-			<Row>
-				<div style={{width: 420}}>
-					{children}
-				</div>
 
-				<div className='outsource-contacts__recruting'>
-					<Title size='small'>Рекрутинг</Title>
-					<Text size='s' indent={false}>
-						Хотите чтобы мы нашли вам фронтендера и испыстали
-						его в боевых условиях? Пишите на
-					</Text>
-					<Link href='mailto:wanted@csssr.com'>
-						wanted@csssr.com
-					</Link>
-				</div>
-
+			<Row inner>
+				<Column size={2 / 3}>
+					<div className='outsource-contacts__form'>
+						{children}
+					</div>
+				</Column>
 			</Row>
+
+			<div className='outsource-contacts__recruting'>
+				<Title size='small'>Рекрутинг</Title>
+				<Text size='s' indent={false}>
+					Хотите чтобы мы нашли вам фронтендера и испыстали
+					его в боевых условиях? Пишите на
+				</Text>
+				<Link href='mailto:wanted@csssr.com'>
+					wanted@csssr.com
+				</Link>
+			</div>
 		</div>
 	);
 }

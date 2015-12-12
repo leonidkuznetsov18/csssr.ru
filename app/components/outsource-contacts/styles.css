@@ -20,6 +20,10 @@
 		transform: rotate(-90deg);
 	}
 
+	&__form {
+		width: 420px;
+	}
+
 	&__recruting {
 		position: absolute;
 		top: 60px;
