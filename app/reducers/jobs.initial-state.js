@@ -38,7 +38,7 @@ function generateForm(options) {
 			},
 			validate: (value) => validate(value, {
 				custom: function (val) {
-					return val.type && val.type === options.fileType;
+					return options.fileType.test(val.name);
 				},
 			}),
 		},
@@ -73,7 +73,7 @@ export default {
 		key: 'technical-manager',
 		form: generateForm({
 			fileLabel: 'Прикрепите решение квеста',
-			fileType: 'application/zip',
+			fileType: /\.docx$/,
 		}),
 	},
 
@@ -82,7 +82,7 @@ export default {
 		key: 'pixel-perfectionist',
 		form: generateForm({
 			fileLabel: 'Прикрепите zip-архив',
-			fileType: 'application/zip',
+			fileType:  /\.zip$/,
 		}),
 	},
 };
