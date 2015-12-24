@@ -44,9 +44,26 @@
 	&__link{
 		position: relative;
 		display: inline-block;
-		margin-left:8px;
+		margin-left: 8px;
+		filter: grayscale(100%);
+		transition-duration: .25s;
+		transition-property: opacity, transform, filter;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		will-change: opacity, transform, filter;
+
 		&:first-child {
 			margin-left: 0;
+		}
+
+		&:hover {
+			opacity: .9;
+			transform: translateY(-4px);
+			filter: grayscale(0);
+		}
+
+		&_disabled {
+			pointer-events: none;
 		}
 	}
 
@@ -61,18 +78,6 @@
 		vertical-align: middle;
 		font-size: 13px;
 		border-radius: 100%;
-		filter: grayscale(100%);
-		transition-duration: .25s;
-		transition-property: opacity, transform, filter;
-		transform: translateZ(0);
-		backface-visibility: hidden;
-		will-change: opacity, transform, filter;
-
-		&:hover:not(.timeline-item__avatar_disabled) {
-			opacity: .9;
-			transform: translateY(-4px);
-			filter: grayscale(0);
-		}
 	}
 
 	&__description {

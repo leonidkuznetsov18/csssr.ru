@@ -41,7 +41,7 @@
 }, {
 	"date": "Март 2015",
 	"event": "Серьёзным разработчикам серьёзный Twitter",
-	"description": "У&nbsp;нас появился [технический твиттер](https:\/\/twitter.com\/csssr_dev). Настала пора делиться опытом.",
+	"description": "У&nbsp;нас появился <a href='https:\/\/twitter.com\/csssr_dev' target='_blank'>технический твиттер</a>. Настала пора делиться опытом.",
 	"buttonName": "Читать",
 	"readLink": "https:\/\/twitter.com\/csssr_dev"
 }, {
@@ -88,7 +88,7 @@
 		"name": "Вадим",
 		"city": "Гомель",
 		"avatar": "vadim-lo",
-		"histories": "CSSSR, ты&nbsp;просто КОСМОС! Думал, что умею верстать, а&nbsp;после знакомства [со&nbsp;стандартами](https:\/\/github.com\/CSSSR\/sputnik) понял, что не&nbsp;умею ничего. Но&nbsp;точно научусь.",
+		"histories": "CSSSR, ты&nbsp;просто КОСМОС! Думал, что умею верстать, а&nbsp;после знакомства <a href='https:\/\/github.com\/CSSSR\/sputnik' target='_blank'>со&nbsp;стандартами</a> понял, что не&nbsp;умею ничего. Но&nbsp;точно научусь.",
 		"wishes": "Всё космос. Продолжаем в&nbsp;том&nbsp;же духе!"
 	}, {
 		"name": "Виталик",
@@ -193,7 +193,7 @@
 }, {
 	"date": "Июль 2014",
 	"event": "Перешли на Slack",
-	"description": "Оказалось [очень удобно](http:\/\/blog.csssr.ru\/2015\/03\/12\/slack\/).",
+	"description": "Оказалось <a href='http:\/\/blog.csssr.ru\/2015\/03\/12\/slack\/' target='_blank'>очень удобно</a>.",
 	"images": [{
 		"url": "content\/slack.svg",
 		"width": 64,
@@ -219,7 +219,7 @@
 		"city": "Планета Земля",
 		"avatar": "pavel-az",
 		"vip": true,
-		"histories": "Без [совы](http:\/\/coub.com\/view\/45oo9) не&nbsp;задеплоились&nbsp;бы!",
+		"histories": "Без <a href='http:\/\/coub.com\/view\/45oo9' target='_blank'>совы</a> не&nbsp;задеплоились&nbsp;бы!",
 		"wishes": "CSSSR, вы&nbsp;крутые и&nbsp;уникальные! Желаю больше грамотных и&nbsp;разносторонних спецов, а&nbsp;также интересных проектов."
 	}]
 }, {
@@ -305,7 +305,7 @@
 }, {
 	"date": "Январь 2014",
 	"event": "Релиз csssr-project-template",
-	"description": "Мы&nbsp;привели свои процессы в&nbsp;порядок и&nbsp;во&nbsp;имя стандартизации создали свой первый [шаблон](https:\/\/github.com\/CSSSR\/csssr-project-template) проекта. Изначально использовался Grunt, но&nbsp;позднее перешли на&nbsp;Gulp."
+	"description": "Мы&nbsp;привели свои процессы в&nbsp;порядок и&nbsp;во&nbsp;имя стандартизации создали свой первый <a href='https:\/\/github.com\/CSSSR\/csssr-project-template' target='_blank'>шаблон</a> проекта. Изначально использовался Grunt, но&nbsp;позднее перешли на&nbsp;Gulp."
 }, {
 	"date": "Декабрь 2013",
 	"newstaff": [{
@@ -319,11 +319,11 @@
 }, {
 	"date": "Декабрь 2013",
 	"event": "Сконцентрировали вселенский разум",
-	"description": "Все наши стандарты и&nbsp;хаки теперь в&nbsp;[Спутнике](https://github.com/CSSSR/sputnik)."
+	"description": "Все наши стандарты и&nbsp;хаки теперь в&nbsp;<a href='https://github.com/CSSSR/sputnik' target='_blank'>Спутнике</a>."
 }, {
 	"date": "Октябрь 2013",
 	"event": "Переехали на GitHub",
-	"description": "[GitHub](https:\/\/github.com\/CSSSR)&nbsp;&mdash; поворотное событие в&nbsp;нашей истории. Больно думать о&nbsp;том, что когда-то мы&nbsp;использовали дропбокс в&nbsp;качестве системы контроля версий.",
+	"description": "<a href='https:\/\/github.com\/CSSSR' target='_blank'>GitHub</a>&nbsp;&mdash; поворотное событие в&nbsp;нашей истории. Больно думать о&nbsp;том, что когда-то мы&nbsp;использовали дропбокс в&nbsp;качестве системы контроля версий.",
 	"images": [{
 		"url": "content\/timeline-octocat.png",
 		"width": 128,
@@ -396,7 +396,7 @@
 }, {
 	"date": "Ноябрь 2012",
 	"event": "Появилась вторая версия сайта csssr.ru",
-	"description": "На&nbsp;сайте реализован [калькулятор](http:\/\/www.artlebedev.ru\/kovodstvo\/business-lynch\/2013\/07\/04) расчёта верстки стоимости сайта, который ещё долго притягивал внимание профессионалов."
+	"description": "На&nbsp;сайте реализован <a href='http:\/\/www.artlebedev.ru\/kovodstvo\/business-lynch\/2013\/07\/04' target='_blank'>калькулятор</a> расчёта верстки стоимости сайта, который ещё долго притягивал внимание профессионалов."
 }, {
 	"date": "Октябрь 2012",
 	"event": "Перебираемся на Бали",

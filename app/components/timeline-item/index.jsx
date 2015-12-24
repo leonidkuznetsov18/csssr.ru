@@ -59,13 +59,13 @@ export default function TimelineItem(props) {
 	const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person, index) => {
 
 		const classList = cx({
-			'timeline-item__avatar': true,
-			'timeline-item__avatar_disabled': !person.histories && !person.wishes,
+			'timeline-item__link': true,
+			'timeline-item__link_disabled': !person.histories && !person.wishes,
 		});
 
 		const img = (
 			<img
-				className={classList}
+				className='timeline-item__avatar'
 				src={require(`images/timeline/avatar/${person.avatar}.jpg`)}
 				alt={person.name}
 				title={person.name}
@@ -76,7 +76,7 @@ export default function TimelineItem(props) {
 		);
 
 		return (
-			<Link className='timeline-item__link' key={index} to={`/timeline/${person.avatar}`}>
+			<Link className={classList} key={index} to={`/timeline/${person.avatar}`}>
 				{img}
 			</Link>
 		);
@@ -94,6 +94,7 @@ export default function TimelineItem(props) {
 				{props.data.readLink && (
 					<Button
 						component='a'
+						target='_blank'
 						href={props.data.readLink}
 					>{props.data.buttonName}</Button>
 				)}
