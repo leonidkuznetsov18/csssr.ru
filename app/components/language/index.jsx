@@ -26,8 +26,9 @@ export default function Language({current}) {
 
 	return (
 		<div className='language'>
-			{languages.map((language) => (
+			{languages.map((language, index) => (
 				<a
+					key={index}
 					className={linkClass(current === language.text)}
 					href={language.href}
 				>
