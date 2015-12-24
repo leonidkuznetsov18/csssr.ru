@@ -82,6 +82,11 @@ app.get('/*', function(request, response) {
 	var application;
 	var style;
 
+	if (/\.html$/.test(request.path)) {
+		response.redirect(request.path.replace(/\.html?/, ''));
+		return;
+	};
+
 	if (isProduction) {
 		content = renderApplication(request);
 		style = STYLE;
