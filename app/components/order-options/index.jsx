@@ -43,6 +43,7 @@ export default function OrderOptions({options, changeOption}) {
 										tip={option.tip}
 										checked={option.isChecked}
 										name={key}
+										id={`${key}${index}`}
 										onChange={e => changeOption(key, e.target.checked, index, structure)}
 										key={index}
 									>
@@ -60,6 +61,7 @@ export default function OrderOptions({options, changeOption}) {
 				{addition.map((option, i) => (
 					<Checkbox
 						tip={option.tip}
+						id={option.value}
 						checked={option.isChecked}
 						onChange={e => changeOption('addition', e.target.checked, i)}
 						key={i}

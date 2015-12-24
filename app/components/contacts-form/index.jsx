@@ -19,6 +19,7 @@ export default class ContactsForm extends React.Component {
 
 		return (
 			<Field
+				name={name}
 				required
 				label={label}
 				isWrong={form[name].showError && !form[name].isValid()}
@@ -41,6 +42,7 @@ export default class ContactsForm extends React.Component {
 				{this.field('skype', 'Скайп')}
 
 				<FieldPhone
+					name='phone'
 					label='Контактный телефон'
 					required
 					isWrong={form.phone.showError && !form.phone.isValid()}
@@ -50,7 +52,12 @@ export default class ContactsForm extends React.Component {
 					}}
 				/>
 
-				<Checkbox className='contacts-form__rules' checked readOnly>
+				<Checkbox
+					className='contacts-form__rules'
+					checked
+					readOnly
+					name='confidential'
+				>
 					Принимаю&nbsp;
 					<Link color='blue'
 						href='/confidential'

@@ -36,8 +36,7 @@ export default class Field extends React.Component {
 
 	render() {
 		const {props} = this;
-		const {label, required, labelProps, inputProps, isWrong} = props;
-		const id = (inputProps && inputProps.id) || Math.random().toString();
+		const {label, required, labelProps, inputProps, isWrong, name} = props;
 		const blockClass = cx({
 			field: true,
 			field_size_half: props.small,
@@ -59,14 +58,14 @@ export default class Field extends React.Component {
 			>
 				<label {...labelProps}
 					className={labelClass}
-					htmlFor={id}
+					htmlFor={name}
 				>
 					{required && '* '}
 					{label}
 				</label>
 
 				<input ref='input' {...inputProps}
-					id={id}
+					id={name}
 					className={inputClass}
 				/>
 			</div>

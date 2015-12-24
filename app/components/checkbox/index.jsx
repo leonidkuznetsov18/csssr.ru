@@ -9,13 +9,11 @@ export default function Checkbox(props) {
 		'checkbox': true,
 		[props.className]: props.className
 	});
-	const id = Math.random();
-
 	return (
-		<div {...props} onChange={null} className={blockClass}>
+		<div {...props} id={null} name={null} onChange={null} className={blockClass}>
 			<input
 				className='checkbox__input'
-				id={id}
+				id={props.id}
 				type='checkbox'
 				checked={props.checked}
 				readOnly={props.readOnly}
@@ -23,7 +21,7 @@ export default function Checkbox(props) {
 			/>
 			<label
 				className='checkbox__label'
-				htmlFor={id}
+				htmlFor={props.id}
 			>
 				{props.children}
 			</label>

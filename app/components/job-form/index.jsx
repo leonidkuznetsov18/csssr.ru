@@ -34,6 +34,7 @@ export default class JobAnswerForm extends React.Component {
 			<Field
 				required
 				label={label}
+				name={name}
 				isWrong={form[name].showError && !form[name].isValid()}
 				inputProps={{
 					value: form[name].value,

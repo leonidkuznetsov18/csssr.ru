@@ -6,16 +6,15 @@ import './styles.css';
 
 export default function Radio(props) {
 	const blockClass = cx({
-		'radio': true,
-		[props.className]: props.className
+		radio: true,
+		[props.className]: props.className,
 	});
-	const id = Math.random();
 
 	return (
-		<div {...props} onChange={null} className={blockClass}>
+		<div {...props} id={null} name={null} onChange={null} className={blockClass}>
 			<input
 				className='radio__input'
-				id={id}
+				id={props.id}
 				type='radio'
 				name={props.name}
 				checked={props.checked}
@@ -23,7 +22,7 @@ export default function Radio(props) {
 			/>
 			<label
 				className='radio__label'
-				htmlFor={id}
+				htmlFor={props.id}
 			>
 				{props.children}
 			</label>
@@ -33,17 +32,20 @@ export default function Radio(props) {
 			}
 		</div>
 	);
-};
+}
 
 Radio.propTypes = {
+	className: React.PropTypes.string,
+	name: React.PropTypes.string,
+	onChange: React.PropTypes.func,
 	children: React.PropTypes.node,
 	tip: React.PropTypes.shape({
 		text: React.PropTypes.string.isRequired,
-		link: React.PropTypes.string
+		link: React.PropTypes.string,
 	}),
-	checked: React.PropTypes.bool
+	checked: React.PropTypes.bool,
 };
 
 Radio.defaultProps = {
-	checked: false
+	checked: false,
 };
