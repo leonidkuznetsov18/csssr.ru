@@ -38,12 +38,12 @@ export default function Head({children, meta}) {
 			<link sizes='192x192' href='/favicon-192x192.png' rel='icon' type='image/png' />
 			<link sizes='160x160' href='/favicon-160x160.png' rel='icon' type='image/png' />
 			<link sizes='96x96' href='/favicon-96x96.png' rel='icon' type='image/png' />
-			<link rel='manifest' href='/assets/icons/manifest.json' />
+			<link rel='manifest' href='/manifest.json' />
 			<meta name='application-name' content='' />
 			<meta name='msapplication-tooltip' content='' />
 			<meta name='msapplication-TileColor' content='#ffffff' />
 			<meta name='msapplication-TileImage' content='/mstile-large.png' />
-			<meta name='msapplication-starturl' content='https://csssr.github.io/csssr-project-template/' />
+			<meta name='msapplication-starturl' content='http://csssr.ru/' />
 			<meta name='msapplication-tap-highlight' content='no' />
 			<meta name='msapplication-square70x70logo' content='/mstile-small.png' />
 			<meta name='msapplication-square150x150logo' content='/mstile-medium.png' />
