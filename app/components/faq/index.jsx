@@ -43,8 +43,8 @@ export default function Faq({data}) {
 									dangerouslySetInnerHTML={{__html: item.title}}
 								/>
 
-								{[].concat(item.text).map(text => (
-									<Text size='m' color='blue'>
+								{[].concat(item.text).map((text, index) => (
+									<Text size='m' color='blue' key={index}>
 										{text}
 									</Text>
 								))}
