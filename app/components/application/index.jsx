@@ -21,8 +21,9 @@ export default function Application({children, banner, meta, active, openSidebar
 	});
 
 	return (
-		<div className={applicationClass} onClick={closeSidebar} >
+		<div className={applicationClass}>
 			<div
+				onClick={closeSidebar}
 				className='application__wrapper'
 				style={{
 					paddingRight: overflow ? scrollbarSize() : 0,

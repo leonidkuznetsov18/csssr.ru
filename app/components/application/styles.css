@@ -9,6 +9,7 @@
 	background-repeat: no-repeat, repeat;
 
 	&:before {
+		pointer-events: none;
 		position: fixed;
 		z-index: 10000;
 		top: 0;
