@@ -12,14 +12,18 @@ export default function Offert({data}) {
 				</h1>
 				{data.content.map((section, index) => (
 					<div className='offert__section' key={index}>
-						<h2 className='offert__subtitle'>
-							{section.title}
-						</h2>
+						<h2 className='offert__subtitle'
+							dangerouslySetInnerHTML={{
+								__html: section.title
+							}}
+						/>
 						{(section.content || []).map((item, index) => (
 							<div className='offert__group' key={index}>
-								<p className='offert__index'>
-									{item.title}
-								</p>
+								<p className='offert__index'
+									dangerouslySetInnerHTML={{
+										__html: item.title
+									}}
+								/>
 								{([].concat(item.content || [])).map((paragraph, index) => (
 									<p className='offert__text'
 										key={index}
