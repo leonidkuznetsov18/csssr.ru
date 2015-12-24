@@ -17,7 +17,10 @@ export default function Faq({data}) {
 							height={data.image.height}
 						/>
 						{data.link &&
-							<a href={data.link.href} className='faq__link'>
+							<a
+								href={data.link.href}
+								target='_blank'
+								className='faq__link'>
 								{data.link.text}
 							</a>
 						}
