@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from 'components/text';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 import './styles.css';
 
@@ -8,9 +8,12 @@ export default function PortfolioItem({project}) {
 	const work = ((project) => {
 		if (project.view && project.pages) {
 			return (
-				<Link to={`/portfolio/${project.view}/${project.pages[0].page}`} >
+				<a
+					target='_blank'
+					href={`/portfolio/${project.view}/${project.pages[0].page}`}
+				>
 					{project.name}
-				</Link>
+				</a>
 			);
 		}
 

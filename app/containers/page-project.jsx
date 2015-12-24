@@ -26,6 +26,12 @@ export default class PageProject extends React.Component {
 				project,
 			});
 		});
+
+		document.body.style.overflow = 'hidden';
+	}
+
+	componentWillUnount() {
+		document.body.style.overflow = null;
 	}
 
 	render() {
