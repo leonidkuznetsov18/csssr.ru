@@ -1,5 +1,5 @@
 import React from 'react';
-import scrollbarWidth from 'scrollbar-width';
+import scrollbarSize from 'scrollbar-size';
 
 import Header from 'components/header';
 import Footer from 'components/footer';
@@ -25,7 +25,7 @@ export default function Application({children, banner, meta, active, openSidebar
 			<div
 				className='application__wrapper'
 				style={{
-					paddingRight: overflow ? scrollbarWidth() : 0,
+					paddingRight: overflow ? scrollbarSize() : 0,
 				}}
 			>
 				{banner}

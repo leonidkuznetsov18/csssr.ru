@@ -1,9 +1,11 @@
 import React from 'react';
+import disableScroll from 'helpers/disableScroll';
 import TimelinePopup from 'components/timeline-popup';
 import PopupVersion from 'components/popup-version';
 
 const timeline = require('data/timeline.json');
 
+@disableScroll
 export default class PageTimelinePopup extends React.Component {
 	static propTypes = {
 		history: React.PropTypes.object.isRequired,

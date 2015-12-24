@@ -1,9 +1,11 @@
 import React from 'react';
+import disableScroll from 'helpers/disableScroll';
 
 import Project from 'components/project';
 
 const projects = require('data/projects.json');
 
+@disableScroll
 export default class PageProject extends React.Component {
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,
@@ -26,12 +28,6 @@ export default class PageProject extends React.Component {
 				project,
 			});
 		});
-
-		document.body.style.overflow = 'hidden';
-	}
-
-	componentWillUnount() {
-		document.body.style.overflow = null;
 	}
 
 	render() {

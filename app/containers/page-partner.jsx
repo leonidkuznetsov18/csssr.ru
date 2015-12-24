@@ -1,9 +1,11 @@
 import React from 'react';
+import disableScroll from 'helpers/disableScroll';
 
 import Projecter from 'components/projecter';
 
 const data = require('data/partners.json');
 
+@disableScroll
 export default class PagePartner extends React.Component {
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,
