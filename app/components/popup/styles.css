@@ -1,14 +1,14 @@
 .popup {
 	position: fixed;
+	display: block;
 	z-index: 10200;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0,0,0,.9);
+	background-color: rgba(0, 0, 0, .9);
 	opacity: 0;
-	transition-property: opacity;
-	transition-duration: .3s;
+	transition: opacity .3s ease;
 	backface-visbility: hidden;
 	will-change: opacity;
 
@@ -66,7 +66,7 @@
 		text-align: center;
 		transition-duration: .3s;
 		transition-property: transform;
-		transform: translateY3d(0, -100px, 0) scale(.5);
+		transform: translate3d(0, -100px, 0) scale(.5);
 		backface-visibility: hidden;
 		will-change: transform;
 	}
@@ -79,7 +79,6 @@
 
 	&_active {
 		opacity: 1;
-		display: block;
 	}
 
 	&_active & {

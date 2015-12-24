@@ -19,9 +19,11 @@ export default class PageTimelinePopup extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-			active: true,
-		});
+		setTimeout(() => {
+			this.setState({
+				active: true,
+			});
+		}, 0);
 
 		window.addEventListener('keyup', this.onKeyUp);
 	}
