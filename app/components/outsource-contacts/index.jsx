@@ -31,17 +31,6 @@ export default function OutsourceContacts({children}) {
 					</div>
 				</Column>
 			</Row>
-
-			<div className='outsource-contacts__recruting'>
-				<Title size='small'>Рекрутинг</Title>
-				<Text size='s' indent={false}>
-					Хотите чтобы мы нашли вам фронтендера и испыстали
-					его в боевых условиях? Пишите на
-				</Text>
-				<Link href='mailto:wanted@csssr.com'>
-					wanted@csssr.com
-				</Link>
-			</div>
 		</div>
 	);
 }
