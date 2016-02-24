@@ -56,7 +56,7 @@ export default class Footer extends React.Component {
 						</a>
 					</div>
 					<div className='footer__copyright'>
-						© 2011—2015 «
+						© 2011—{(new Date()).getFullYear()} «
 						<Link
 							className='footer__link'
 							to='/'
