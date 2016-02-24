@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import orderFormSender from 'middlewares/orderFormSender';
@@ -8,45 +7,30 @@ import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import DevTools from 'containers/dev-tools';
 import {
 	ReduxRouter,
 	routerStateReducer,
-	reduxReactRouter
+	reduxReactRouter,
 } from 'redux-router';
 
 const reducer = combineReducers({
 	router: routerStateReducer,
-	...reducers
+	...reducers,
 });
 
 const createStoreWithMiddleWare = compose(
 	applyMiddleware(orderFormSender, thunk),
 	reduxReactRouter({
 		routes,
-		createHistory
+		createHistory,
 	}),
-	DevTools.instrument()
+	window.devToolsExtension ? window.devToolsExtension() : (f) => f,
 )(createStore);
-const store = createStoreWithMiddleWare(reducer, window.__data);
+const store = createStoreWithMiddleWare(reducer);
 
-let element;
-
-if (process.env.NODE_ENV === 'development') {
-	element = (
-		<div id='content'>
-			<ReduxRouter routes={routes}/>
-			<DevTools/>
-		</div>
-	);
-} else {
-	element = <ReduxRouter routes={routes}/>;
-}
-
-const app = (
+ReactDOM.render(
 	<Provider store={store} key='provider'>
-		{element}
-	</Provider>
+		<ReduxRouter routes={routes}/>
+	</Provider>,
+	document.getElementById('content')
 );
-
-ReactDOM.render(app, document.getElementById('content'));
