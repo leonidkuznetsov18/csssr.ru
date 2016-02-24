@@ -5,10 +5,18 @@ import routes from './routes';
 import orderFormSender from 'middlewares/orderFormSender';
 import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
+import { reducer as form } from 'redux-form';
 import thunk from 'redux-thunk';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 
-const reducer = combineReducers(reducers);
+const reducer = combineReducers({
+	...reducers,
+	form: form.normalize({
+		job: {
+			age: (value) => value && value.replace(/\D/g, ''),
+		},
+	}),
+});
 
 const createStoreWithMiddleWare = compose(
 	applyMiddleware(orderFormSender, thunk),

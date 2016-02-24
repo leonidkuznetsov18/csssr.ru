@@ -11,6 +11,9 @@ import getPageMetadata from 'helpers/getPageMetadata';
 import jobs from './jobs';
 import { handler, limitHandler, upload } from './lib/storage';
 import { sendOrder, sendOutsourceProposal } from './lib/mailer';
+import multipart from 'connect-multiparty';
+
+var multipartMiddleware = multipart();
 
 const app = express();
 const isProduction = app.get('env') !== 'development';
@@ -66,6 +69,8 @@ app.post('/outsource', (req, res) => {
 			res.send({ result: 'fail' });
 		});
 });
+
+app.post('/jobs', multipartMiddleware, jobs);
 
 app.get('/static/*', (req, res) => {
 	res.redirect(req.path.substr('static/'.length));

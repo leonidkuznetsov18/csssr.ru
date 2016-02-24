@@ -11,14 +11,8 @@ import './styles.css';
 
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
-		job: React.PropTypes.object.isRequired,
-		onChangeField: React.PropTypes.func.isRequired,
-		onChangeNumberField: React.PropTypes.func.isRequired,
-		onChangeFileField: React.PropTypes.func.isRequired,
-		onSubmit: React.PropTypes.func.isRequired,
-		fileAccept: React.PropTypes.string,
-		fileWarning: React.PropTypes.string,
-		isValid: React.PropTypes.bool,
+		fields: React.PropTypes.object.isRequired,
+		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
 	static defaultProps = {
@@ -26,71 +20,45 @@ export default class JobAnswerForm extends React.Component {
 		fileWarning: 'Файл, пожалуйста!',
 	}
 
-	field(name, label, props, inputProps) {
-		const {form} = this.props.job;
-		const {onChangeField} = this.props;
-
+	renderField(name, label, props) {
 		return (
 			<Field
 				required
 				label={label}
 				name={name}
-				isWrong={form[name].showError && !form[name].isValid()}
-				inputProps={{
-					value: form[name].value,
-					onChange: (e) => onChangeField(e.target.value, name),
-					...inputProps,
-				}}
+				maxLength='100'
 				{...props}
+				{...this.props.fields[name]}
 			/>
 		);
 	}
 
 	render() {
-		const {form} = this.props.job;
-		const {
-			onChangeField,
-			onChangeNumberField,
-			onChangeFileField,
-			onSubmit,
-		} = this.props;
-
 		return (
-			<form className='job-form' onSubmit={onSubmit}>
-				{this.field('firstname', 'Имя', {
+			<form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
+				{this.renderField('firstname', 'Имя', {
 					small: true,
 				})}
-				{this.field('lastname', 'Фамилия', {
+				{this.renderField('lastname', 'Фамилия', {
 					small: true,
 				})}
-				{this.field('age', 'Возраст', {}, {
-					onChange: (e) => onChangeNumberField(e, 'age'),
-				})}
-				{this.field('city', 'Город')}
+				{this.renderField('age', 'Возраст')}
+				{this.renderField('city', 'Город')}
 
 				<FieldFile
-					label='Тестовый квест'
 					required
-					isWrong={form.file.showError && !form.file.isValid()}
-					inputProps={{
-						value: form.file.value.name,
-					}}
-					onChange={onChangeFileField}
-					accept={this.props.fileAccept}
-					warning={this.props.fileWarning}
+					label='Тестовый квест'
+					fileAccept={this.props.fileAccept}
+					{...this.props.fields.file}
 				/>
 
-				{this.field('email', 'Электронная почта')}
-				{this.field('skype', 'Скайп')}
+				{this.renderField('email', 'Электронная почта')}
+				{this.renderField('skype', 'Скайп')}
 
 				<FieldPhone
-					label='Контактный телефон'
 					required
-					isWrong={form.phone.showError && !form.phone.isValid()}
-					inputProps={{
-						value: form.phone.value,
-						onChange: (value) => onChangeField(value, 'phone'),
-					}}
+					label='Контактный телефон'
+					{...this.props.fields.phone}
 				/>
 
 				<Checkbox className='' checked readOnly>

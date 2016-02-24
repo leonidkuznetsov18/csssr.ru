@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import Content from 'components/content';
 import Breadcrubms from 'components/breadcrumbs';
@@ -17,9 +16,6 @@ const dataList = {
 	'technical-manager': require('data/jobs/technical-manager.json'),
 };
 
-@connect((store, props) => ({
-	job: store.jobs[props.routeParams.jobName],
-}))
 export default class PageJob extends React.Component {
 	static propTypes = {
 		location: React.PropTypes.object,

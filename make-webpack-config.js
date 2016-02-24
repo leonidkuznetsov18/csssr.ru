@@ -5,7 +5,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var loadersByExtension = require('./utils/loadersByExtension');
 
-process.env = require('./config/env.js');
+process.env = require('./config/env.js').default;
 
 module.exports = function(options) {
 	var root = path.join(__dirname, 'app');

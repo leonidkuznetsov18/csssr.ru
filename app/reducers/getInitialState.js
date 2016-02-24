@@ -1,5 +1,4 @@
 import FormItem from 'helpers/FormItem';
-import jobs from './jobs.initial-state';
 import order from './order.initial-state';
 import outsource from './outsource.initial-state';
 
@@ -9,12 +8,7 @@ function convertFields(data) {
 	}
 }
 
-for (const key in jobs) if (jobs.hasOwnProperty(key)) {
-	jobs[key] = jobs[key];
-	convertFields(jobs[key].form);
-}
-
 convertFields(order.form.contacts);
 convertFields(outsource.form);
 
-export {jobs, order, outsource};
+export { order, outsource };

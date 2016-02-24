@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import {setSelection} from 'react/lib/ReactInputSelection';
+import { setSelection } from 'react/lib/ReactInputSelection';
 
 import './styles.css';
 
@@ -8,12 +8,12 @@ export default class Field extends React.Component {
 	static propTypes = {
 		className: React.PropTypes.string,
 		small: React.PropTypes.bool,
-		style: React.PropTypes.object,
+		name: React.PropTypes.string,
 		label: React.PropTypes.string,
 		required: React.PropTypes.bool,
 		inputProps: React.PropTypes.object,
 		labelProps: React.PropTypes.object,
-		isWrong: React.PropTypes.bool,
+		invalid: React.PropTypes.bool,
 		position: React.PropTypes.number,
 	};
 
@@ -35,36 +35,28 @@ export default class Field extends React.Component {
 	}
 
 	render() {
-		const {props} = this;
-		const {label, required, labelProps, inputProps, isWrong, name} = props;
+		const { label, required, invalid, name, small } = this.props;
 		const blockClass = cx({
 			field: true,
-			field_size_half: props.small,
-			[props.className]: props.className,
+			field_size_half: small,
 		});
-		const labelClass = cx({
-			field__label: true,
-			[inputProps.className]: inputProps.className,
-		});
+
 		const inputClass = cx({
 			field__input: true,
-			field__input_error: isWrong,
-			[inputProps.className]: inputProps.className,
+			field__input_error: invalid,
 		});
 
 		return (
-			<div {...this.props}
-				className={blockClass}
-			>
-				<label {...labelProps}
-					className={labelClass}
+			<div className={blockClass}>
+				<label
+					className='field__label'
 					htmlFor={name}
 				>
 					{required && '* '}
 					{label}
 				</label>
 
-				<input ref='input' {...inputProps}
+				<input ref='input' {...this.props}
 					id={name}
 					className={inputClass}
 				/>
