@@ -4,7 +4,6 @@ import {
 	SENT_ANSWER_FORM,
 	SHOW_FORM_ERRORS,
 } from 'constants/actions';
-import {pushState} from 'redux-router';
 
 let superagent;
 
@@ -30,8 +29,6 @@ export function sendAnswerForm(job) {
 			formData.append(field, form[field].value)
 		);
 
-		console.log(formData);
-
 		dispatch({
 			type: SEND_ANSWER_FORM,
 			job,
@@ -43,7 +40,7 @@ export function sendAnswerForm(job) {
 			.send(formData)
 			.end(() => {
 				// TODO: handle errors
-				dispatch(pushState(null, `/thanks/${job}`));
+				history.pushState(null, `/thanks/${job}`);
 
 				dispatch({
 					type: SENT_ANSWER_FORM,

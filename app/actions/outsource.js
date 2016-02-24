@@ -4,7 +4,6 @@ import {
 	OUTSOURCE_FORM_SEND_FORM,
 	OUTSOURCE_FORM_SENT_FORM,
 } from 'constants/actions';
-import {pushState} from 'redux-router';
 
 let superagent;
 
@@ -44,7 +43,7 @@ export function sendForm() {
 			.send(formData)
 			.end(() => {
 				// TODO: handle errors
-				dispatch(pushState(null, '/thanks/outsource'));
+				history.pushState(null, '/thanks/outsource');
 
 				dispatch({
 					type: OUTSOURCE_FORM_SENT_FORM,

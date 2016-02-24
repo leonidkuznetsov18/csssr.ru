@@ -22,18 +22,18 @@ var ASSETS_BUILD = path.join(__dirname, '..', 'build', 'public');
 var SCRIPT_URL = publicPath + 'main.js';
 var STYLE = '/_assets/main.css';
 var renderApplication;
-var config = require('../webpack-dev.config.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 if (isProduction) {
-	renderApplication = require('../build/prerender/main.js');
+	renderApplication = require('../build/prerender/main.js').default;
 
 	app.use('/_assets', express.static(ASSETS_BUILD, {
 		maxAge: '200d',
 	}));
 } else {
+	const config = require('../webpack-dev.config.js');
 	const compiler = webpack(config);
 	app.use(morgan('dev'));
 	app.use(require('webpack-dev-middleware')(compiler, {

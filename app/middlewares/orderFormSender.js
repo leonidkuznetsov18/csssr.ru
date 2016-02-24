@@ -1,5 +1,4 @@
 import * as C from 'constants/actions';
-import {pushState} from 'redux-router';
 
 let superagent;
 
@@ -36,7 +35,7 @@ const requestHandler = store => (err, res) => {
 	if (err) throw err;
 	if (res.status === 200 && res.body.result === 'ok') {
 		// TODO: clear form
-		store.dispatch(pushState(null, '/thanks/order'));
+		history.pushState(null, '/thanks/order');
 		store.dispatch({
 			type: C.ORDER_FORM_SENT_FORM,
 		});

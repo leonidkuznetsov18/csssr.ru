@@ -1,11 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import getPageMetadata from 'helpers/getPageMetadata';
 import Application from 'components/application';
 
-@connect((state) => ({
-	router: state.router,
-}))
 export default class ApplicationContainer extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node,

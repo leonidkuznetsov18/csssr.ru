@@ -47,13 +47,13 @@ export default class PageTimelinePopup extends React.Component {
 		});
 
 		setTimeout(() => {
-			this.props.history.pushState(null, '/timeline');
+			this.props.history.push('/timeline');
 		}, 300);
 	}
 
 	render() {
 		if (this.props.routeParams.version) {
-			const popupData = (url) => {
+			const popupData = ((url) => {
 				let target;
 				timeline.forEach((event) => {
 					if (event.version) {
@@ -64,7 +64,7 @@ export default class PageTimelinePopup extends React.Component {
 					}
 				});
 				return target;
-			}(this.props.routeParams.version);
+			})(this.props.routeParams.version);
 
 			return (
 				<PopupVersion
@@ -75,7 +75,7 @@ export default class PageTimelinePopup extends React.Component {
 			);
 		}
 
-		const popupData = (url) => {
+		const popupData = ((url) => {
 			let target;
 			timeline.forEach((event) => {
 				if (event.newstaff) {
@@ -88,7 +88,7 @@ export default class PageTimelinePopup extends React.Component {
 				}
 			});
 			return target;
-		}(this.props.routeParams.person);
+		})(this.props.routeParams.person);
 
 		return (
 			<TimelinePopup

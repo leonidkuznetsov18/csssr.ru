@@ -1,4 +1,4 @@
-require('babel/register');
+require('babel-register');
 
 var path = require('path');
 var webpack = require('webpack');
@@ -29,17 +29,9 @@ module.exports = function(options) {
 			loaders: [
 				'transform-loader?envify',
 				'babel?' + JSON.stringify({
-					"plugins": ["react-transform"],
-					"extra": {
-						"react-transform": {
-							"transforms": [{
-								"transform": "react-transform-hmr",
-								"imports": ["react"],
-								"locals": ["module"]
-							}, {
-								"transform": "react-transform-catch-errors",
-								"imports": ["react", "redbox-react"]
-							}]
+					"env": {
+						"development": {
+							"presets": ["react-hmre"]
 						}
 					}
 				})
@@ -68,9 +60,6 @@ module.exports = function(options) {
 	var plugins = [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
-		new webpack.ProvidePlugin({
-			'Promise': 'exports?global.Promise!es6-promise'
-		}),
 		new webpack.DefinePlugin({
 			'IS_CLIENT': !options.prerender,
 		}),

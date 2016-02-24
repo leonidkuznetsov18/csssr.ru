@@ -28,7 +28,7 @@ export default function PortfolioItem({project}) {
 		}
 
 		return project.name;
-	}(project));
+	})(project);
 
 	return (
 		<li className='portfolio-item'>

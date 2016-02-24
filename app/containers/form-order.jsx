@@ -48,7 +48,7 @@ export default class OrderForm extends React.Component {
 			showErrorWindow,
 		} = this.props.form;
 
-		const error = () => {
+		const error = (() => {
 			if (showErrorWindow) {
 				if (!files.length && !filesLink) {
 					return {
@@ -63,14 +63,14 @@ export default class OrderForm extends React.Component {
 					};
 				}
 
-				const isErrorInContacts = () => {
+				const isErrorInContacts = (() => {
 					for (const key in contacts) if (contacts.hasOwnProperty(key)) {
 						if (contacts[key].showError && !contacts[key].isValid()) {
 							return true;
 						}
 					}
 					return false;
-				}();
+				})();
 
 				return {
 					show: isErrorInContacts,
@@ -78,7 +78,7 @@ export default class OrderForm extends React.Component {
 			}
 
 			return {show: false};
-		}();
+		})();
 
 		return (
 			<form
