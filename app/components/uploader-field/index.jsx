@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import Field from 'components/field';
 
 import './styles.css';
@@ -6,20 +6,15 @@ import './styles.css';
 export default class UploadFilesLink extends React.Component {
 
 	static propTypes = {
-		changeFilesLink: PropTypes.func.isRequired,
-		filesLink: PropTypes.string,
+		fields: React.PropTypes.object.isRequired,
 	}
-
 
 	render() {
 		return (
 			<div className='upload-field'>
 				<Field
 					label='Откуда мы сможем скачать файлы проекта'
-					inputProps={{
-						value: this.props.filesLink,
-						onChange: (e) => this.props.changeFilesLink(e.target.value),
-					}}
+					{...this.props.fields.filesLink}
 				/>
 				<span className='upload-field__info'>
 					Вы можете поделиться ссылкой на архив или ссылкой на папку проекта в

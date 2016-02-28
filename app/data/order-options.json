@@ -1,182 +1,112 @@
 {
-	"options": [
+	"modernBrowsers": [
 		{
-			"title": "современные браузеры",
-			"type": "checkboxes",
-			"checkboxes": [
-				{
-					"id": "googleChrome",
-					"value": "chrome",
-					"text": "Chrome 44",
-					"checked": true
-				},
-
-				{
-					"id": "mozillaFirefox",
-					"value": "firefox",
-					"text": "Firefox 39",
-					"checked": true
-				},
-
-				{
-					"id": "appleSafari",
-					"value": "safari",
-					"text": "Safari 8",
-					"checked": true
-				},
-
-				{
-					"id": "opera",
-					"value": "opera",
-					"text": "Opera 30",
-					"checked": true
-				},
-
-				{
-					"id": "internetExplorer",
-					"value": "edge",
-					"text": "Edge (Windows 10)",
-					"checked": true
-				}
-			]
+			"name": "Chrome 45",
+			"value": "chrome"
 		},
-
-		{
-			"title": "устаревшие браузеры",
-			"type": "checkboxes",
-			"checkboxes": [
-				{
-					"id": "internetExplorer11",
-					"value": "ie11",
-					"text": "Internet Explorer 11",
-					"checked": true
-				},
-
-				{
-					"id": "internetExplorer10",
-					"value": "ie10",
-					"text": "Internet Explorer 10",
-					"checked": false
-				},
-
-				{
-					"id": "internetExplorer9",
-					"value": "ie9",
-					"text": "Internet Explorer 9",
-					"checked": false
-				},
-
-				{
-					"id": "internetExplorer8",
-					"value": "ie8",
-					"text": "Internet Explorer 8",
-					"checked": false
-				},
-
-				{
-					"id": "opera12",
-					"value": "opera12",
-					"text": "Opera 12",
-					"checked": false
-				}
-
-			]
+			{
+			"name": "Firefox 41",
+			"value": "firefox"
 		},
-
 		{
-			"title": "мобильные платформы",
-			"type": "checkboxes",
-			"checkboxes": [
-				{
-					"id": "mobileSafariIos",
-					"value": "mobilesafari",
-					"text": "Safari 8 (iOS 8)",
-					"checked": true
-				},
-
-				{
-					"id": "mobileChromeIos",
-					"value": "mobilechromeios",
-					"text": "Chrome 44 (iOS 8)",
-					"checked": true
-				},
-
-				{
-					"id": "mobileChromeAndroid",
-					"value": "mobilechromeandroid",
-					"text": "Chrome 44 (Android 5)",
-					"checked": true
-				},
-
-				{
-					"id": "mobileIeWindowsPhone",
-					"value": "mobileiewindowsphone",
-					"text": "IE 11 (Windows Phone 8.1)",
-					"checked": false
-				}
-			]
+			"name": "Safari 9",
+			"value": "safari"
 		},
-
 		{
-			"title": "ширина страниц",
-			"type": "radio",
-			"checkboxes": [
-				{
-					"id": "typeStatic",
-					"value": "static",
-					"text": "Фиксированная (Static)",
-					"checked": true
-				},
-
-				{
-					"id": "typeLiquid",
-					"value": "liquid",
-					"text": "Резиновая (Liquid)",
-					"checked": false
-				},
-
-				{
-					"id": "typeAdaptive",
-					"value": "adaptive",
-					"text": "Адаптивная (Adaptive)",
-					"checked": false
-				},
-
-				{
-					"id": "typeResponsive",
-					"value": "responsive",
-					"text": "Отзывчивая (Responsive)",
-					"checked": false
-				}
-			]
+			"name": "Opera 32",
+			"value": "opera"
+		},
+		{
+			"name": "Edge (Windows 10)",
+			"value": "edge"
 		}
-
 	],
-	"addition": {
-		"title": "дополнительно",
-		"options": [
-			{
-				"id": "pixelPerfect",
-				"value": "pixel_perfect",
-				"text": "Pixel Perfect",
-				"tip": "По&nbsp;умолчанию мы&nbsp;допускаем погрешность до&nbsp;5&nbsp;пикселей в&nbsp;размерах блоков, отступов и&nbsp;плашек. Однако, по&nbsp;вашей просьбе, мы&nbsp;готовы подогнать вёрстку под макет со&nbsp;100% соответствием.",
-				"checked": false
-			},
-
-			{
-				"id": "retina",
-				"value": "retina",
-				"text": "Требуется поддержка Retina-дисплеев",
-				"checked": false
-			},
-
-			{
-				"id": "veryUrgentProject",
-				"value": "urgent",
-				"text": "Очень срочный проект",
-				"checked": false
+	"oldBrowsers": [
+		{
+			"name": "Safari 8",
+			"value": "safari8"
+		},
+		{
+			"name": "Internet Explorer 11",
+			"value": "ie11"
+		},
+		{
+			"name": "Internet Explorer 10",
+			"value": "ie10"
+		},
+		{
+			"name": "Internet Explorer 9",
+			"value": "ie9"
+		},
+		{
+			"name": "Internet Explorer 8",
+			"value": "ie8"
+		},
+		{
+			"name": "Opera 12",
+			"value": "opera12"
+		}
+	],
+	"mobile": [
+		{
+			"name": "Safari 9 (iOS 9)",
+			"value": "mobilesafari"
+		},
+		{
+			"name": "Safari 8 (iOS 8)",
+			"value": "mobilesafariold"
+		},
+		{
+			"name": "Chrome 45 (iOS 9)",
+			"value": "mobilechromeios"
+		},
+		{
+			"name": "Chrome 45 (Android 6)",
+			"value": "mobilechromeandroid"
+		},
+		{
+			"name": "Chrome 44 (Android 5)",
+			"value": "mobilechromeandroidold"
+		},
+		{
+			"name": "IE 11 (Windows Phone 8.1)",
+			"value": "mobileiewindowsphone"
+		}
+	],
+	"pagesWidth": [
+		{
+			"name": "Фиксированная (Static)",
+			"value": "static"
+		},
+		{
+			"name": "Резиновая (Liquid)",
+			"value": "liquid"
+		},
+		{
+			"name": "Адаптивная (Adaptive)",
+			"value": "adaptive"
+		},
+		{
+			"name": "Отзывчивая (Responsive)",
+			"value": "responsive"
+		}
+	],
+	"addition": [
+		{
+			"name": "Pixel Perfect",
+			"value": "pixel_perfect",
+			"tip": {
+				"link": "?",
+				"text": "По умолчанию мы допускаем погрешность до 5 пикселей в размерах блоков отступов и плашек. Однако по вашей просьбе мы готовы подогнать вёрстку под макет со 100% соответствием."
 			}
-
-		]
-	}
+		},
+		{
+			"name": "Требуется поддержка Retina-дисплеев",
+			"value": "retina"
+		},
+		{
+			"name": "Очень срочный проект",
+			"value": "urgent"
+		}
+	]
 }

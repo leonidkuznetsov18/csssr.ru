@@ -10,13 +10,12 @@ import webpack from 'webpack';
 import getPageMetadata from 'helpers/getPageMetadata';
 import jobs from './jobs';
 import outsource from './outsource';
-import { handler, limitHandler, upload } from './lib/storage';
-import { sendOrder, sendOutsourceProposal } from './lib/mailer';
+import order from './order';
+import { handler, limitHandler, upload } from './upload';
 import multipart from 'connect-multiparty';
 
-var multipartMiddleware = multipart();
-
 const app = express();
+const multipartMiddleware = multipart();
 const isProduction = app.get('env') !== 'development';
 const port = Number(process.env.PORT) || 3000;
 const publicPath = '/_assets/';
@@ -38,6 +37,7 @@ if (isProduction) {
 } else {
 	const config = require('../webpack-dev.config.js');
 	const compiler = webpack(config);
+
 	app.use(morgan('dev'));
 	app.use(require('webpack-dev-middleware')(compiler, {
 		noInfo: true,
@@ -46,27 +46,20 @@ if (isProduction) {
 
 	app.use(require('webpack-hot-middleware')(compiler));
 }
+
 app.use(compression());
 
 app.use(limitHandler);
-app.post('/upload', upload.single('file'), handler);
-
-app.post('/order', (req, res) => {
-	// TODO: validate req.body
-	sendOrder(req.body)
-		.then(() => res.send({ result: 'ok' }))
-		.catch((err) => {
-			console.log(err);
-			res.send({ result: 'fail' });
-		});
-});
 
 app.post('/jobs', multipartMiddleware, jobs);
+app.post('/order', multipartMiddleware, order);
 app.post('/outsource', multipartMiddleware, outsource);
+app.post('/upload', upload.single('file'), handler);
 
 app.get('/static/*', (req, res) => {
 	res.redirect(req.path.substr('static/'.length));
 });
+
 app.use(express.static(ASSETS, {
 	maxAge: '200d',
 }));

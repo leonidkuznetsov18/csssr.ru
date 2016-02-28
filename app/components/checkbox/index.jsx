@@ -9,15 +9,16 @@ export default function Checkbox(props) {
 		'checkbox': true,
 		[props.className]: props.className
 	});
+
+	const inputProps = { ...props };
+	delete inputProps.children;
+
 	return (
-		<div {...props} id={null} name={null} onChange={null} className={blockClass}>
+		<div className={blockClass}>
 			<input
+				{...inputProps}
 				className='checkbox__input'
-				id={props.id}
 				type='checkbox'
-				checked={props.checked}
-				readOnly={props.readOnly}
-				onChange={props.onChange}
 			/>
 			<label
 				className='checkbox__label'
@@ -27,7 +28,9 @@ export default function Checkbox(props) {
 			</label>
 			{' '}
 			{props.tip &&
-				<Tooltip text={props.tip.text}>{props.tip.link}</Tooltip>
+				<Tooltip text={props.tip.text}>
+					{props.tip.link}
+				</Tooltip>
 			}
 		</div>
 	);

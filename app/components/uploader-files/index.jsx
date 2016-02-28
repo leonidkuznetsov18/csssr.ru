@@ -4,13 +4,13 @@ import File from 'components/uploader-file';
 
 import './styles.css';
 
-export default function UploaderFiles({files, removeFile}) {
-	const loadingFiles = files.filter(file => file.progress !== 100);
+export default function UploaderFiles({ files, removeFile }) {
+	const loadingFiles = files.filter((file) => file.progress !== 100);
 	const summaryProgress = loadingFiles.reduce((p, n) => p + n.progress, 0);
 	const globalProgress = summaryProgress / loadingFiles.length;
 	const progressClass = cx({
 		'uploader-files__progress': true,
-		'uploader-files__progress_hidden': !globalProgress
+		'uploader-files__progress_hidden': !globalProgress,
 	});
 
 	return (
@@ -18,17 +18,15 @@ export default function UploaderFiles({files, removeFile}) {
 			<div className={progressClass}>
 				<div
 					className='uploader-files__line'
-					style={{width: `${globalProgress}%`}}
+					style={{ width: `${globalProgress}%` }}
 				/>
 			</div>
 			<div>
-				{files.map(file => (
+				{files.map((file) => (
 					<File
 						key={file.id}
-						id={file.id}
-						name={file.name}
-						progress={file.progress}
-						remove={() => removeFile(file.id)}
+						{...file}
+						onRemove={() => removeFile(file.id)}
 					/>
 				))}
 			</div>
@@ -36,7 +34,11 @@ export default function UploaderFiles({files, removeFile}) {
 	);
 }
 
+UploaderFiles.defaultProps = {
+	files: [],
+};
+
 UploaderFiles.propTypes = {
 	files: React.PropTypes.array.isRequired,
-	removeFile: React.PropTypes.func.isRequired
+	removeFile: React.PropTypes.func.isRequired,
 };

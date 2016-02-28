@@ -1,36 +1,35 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
 
-export default function UploaderFile({name, id, progress, remove}) {
+export default function UploaderFile({ file, progress, onRemove }) {
 	const progressClass = cx({
 		'uploader-file__progress': true,
-		'uploader-file__progress_completed': progress === 100
+		'uploader-file__progress_completed': progress === 100,
 	});
 
 	return (
 		<div className='uploader-file'>
 			<span className='uploader-file__name'>
-				{name}
+				{file.name}
 			</span>
 			<div className={progressClass}>
 				<div
 					className='uploader-file__progress-line'
-					style={{width: `${progress}%`}}
+					style={{ width: `${progress}%` }}
 				/>
 			</div>
 			<div
 				className='uploader-file__remove-button'
-				onClick={remove}
+				onClick={onRemove}
 			/>
 		</div>
 	);
 }
 
 UploaderFile.propTypes = {
-	name: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired,
-	progress: PropTypes.number.isRequired,
-	remove: PropTypes.func
+	file: React.PropTypes.object.isRequired,
+	progress: React.PropTypes.number.isRequired,
+	onRemove: React.PropTypes.func,
 };

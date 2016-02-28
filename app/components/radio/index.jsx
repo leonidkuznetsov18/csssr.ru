@@ -10,15 +10,15 @@ export default function Radio(props) {
 		[props.className]: props.className,
 	});
 
+	const inputProps = { ...props };
+	delete inputProps.children;
+
 	return (
-		<div {...props} id={null} name={null} onChange={null} className={blockClass}>
+		<div className={blockClass}>
 			<input
 				className='radio__input'
-				id={props.id}
 				type='radio'
-				name={props.name}
-				checked={props.checked}
-				onChange={props.onChange}
+				{...inputProps}
 			/>
 			<label
 				className='radio__label'
@@ -28,7 +28,9 @@ export default function Radio(props) {
 			</label>
 			{' '}
 			{props.tip &&
-				<Tooltip text={props.tip.text}>{props.tip.link}</Tooltip>
+				<Tooltip text={props.tip.text}>
+					{props.tip.link}
+				</Tooltip>
 			}
 		</div>
 	);

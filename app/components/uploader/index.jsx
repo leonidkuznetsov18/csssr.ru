@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Link from 'components/link';
 import UploaderDropzone from 'components/uploader-dropzone';
 import UploaderField from 'components/uploader-field';
-import FilesBlock from 'components/uploader-files';
+import UploaderFiles from 'components/uploader-files';
 
 import './styles.css';
 
@@ -15,8 +15,14 @@ export default class Uploader extends React.Component {
 		});
 	}
 
+	setActive = (type) => () => {
+		this.setState({
+			active: type,
+		});
+	}
+
 	render() {
-		const {active} = this.state;
+		const { active } = this.state;
 		const sectionClass = (isActive) => {
 			return cx({
 				uploader__section: true,
@@ -31,7 +37,7 @@ export default class Uploader extends React.Component {
 						<Link
 							size='big'
 							active={active === 'files'}
-							onClick={() => this.setState({active: 'files'})}
+							onClick={this.setActive('files')}
 						>
 							макеты
 						</Link>
@@ -40,7 +46,7 @@ export default class Uploader extends React.Component {
 						<Link
 							size='big'
 							active={active === 'link'}
-							onClick={() => this.setState({active: 'link'})}
+							onClick={this.setActive('link')}
 						>
 							ссылка
 						</Link>
@@ -55,7 +61,7 @@ export default class Uploader extends React.Component {
 					<UploaderDropzone {...this.props} />
 				</div>
 
-				<FilesBlock {...this.props} />
+				<UploaderFiles {...this.props} />
 			</div>
 		);
 	}

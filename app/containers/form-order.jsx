@@ -1,107 +1,106 @@
-import React, {PropTypes} from 'react';
-import * as actions from 'actions/order';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React from 'react';
+import { reduxForm } from 'redux-form';
+import { sendOrderForm } from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import FormValidationWindow from 'components/form-validation-window';
-import Contacts from 'components/contacts-form';
+import ContactsForm from 'components/contacts-form';
+import options from 'data/order-options.json';
+import * as actions from 'actions/files';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+@reduxForm({
+	form: 'order',
+	fields: [
+		'name',
+		'email',
+		'skype',
+		'phone',
+		'filesLink',
+		'modernBrowsers',
+		'oldBrowsers',
+		'mobile',
+		'pagesWidth',
+		'addition',
+		'files',
+	],
+	initialValues: {
+		modernBrowsers: ['chrome', 'firefox', 'safari', 'opera', 'edge'],
+		oldBrowsers: ['safari8', 'ie11'],
+		mobile: ['mobilesafari', 'mobilesafariold', 'mobilechromeios', 'mobilechromeandroid', 'mobilechromeandroidold'],
+		pagesWidth: 'static',
+		addition: [],
+
+		email: 'test@test.test',
+		phone: '+79999999999',
+	},
+})
 @connect((store) => ({
-	...store.order,
+	files: store.files,
 }), (dispatch) => ({
 	...bindActionCreators(actions, dispatch),
 }))
 export default class OrderForm extends React.Component {
 	static propTypes = {
-		form: PropTypes.object.isRequired,
-		isValid: React.PropTypes.bool,
-		sendOrderForm: React.PropTypes.func.isRequired,
-		showErrors: React.PropTypes.func.isRequired,
-		changeContacts: React.PropTypes.func.isRequired,
+		handleSubmit: React.PropTypes.func.isRequired,
+		files: React.PropTypes.array,
+		fields: React.PropTypes.array,
 	}
 
-	onChangeField = (value, field) => {
-		this.props.changeContacts({
-			[field]: {
-				value,
-				showError: false,
-			},
+	handleSubmit = (values, dispatch) => {
+		const { files } = this.props;
+
+		return new Promise((resolve, reject) => {
+			const errors = {};
+
+			['email', 'phone'].forEach((key) => {
+				if (!values[key]) {
+					errors[key] = true;
+				}
+			});
+
+			if (!values.filesLink && !files.length) {
+				errors.files = 'Прикрепите макеты страниц или укажите ссылку для скачивания';
+			}
+
+			if (!files.reduce((p, n) => p && n.filename, true)) {
+				errors.files = 'Дождитесь окончания загрузки';
+			}
+
+			if (Object.keys(errors).length) {
+				reject(errors);
+				return;
+			}
+
+			dispatch(sendOrderForm({
+				...values,
+				files,
+			}));
+
+			resolve();
 		});
 	}
 
-	onSubmit = (event) => {
-		event.preventDefault();
-
-		if (this.props.form.isValid) {
-			this.props.sendOrderForm();
-		} else {
-			this.props.showErrors();
-		}
-	}
-
 	render() {
-		const {
-			contacts,
-			files,
-			filesLink,
-			showErrorWindow,
-		} = this.props.form;
-
-		const error = (() => {
-			if (showErrorWindow) {
-				if (!files.length && !filesLink) {
-					return {
-						show: true,
-						text: 'Прикрепите макеты страниц или укажите ссылку для скачивания',
-					};
-				}
-				if (!files.reduce((p, n) => p && n.filename, true)) {
-					return {
-						show: true,
-						text: 'Дождитесь окончания загрузки',
-					};
-				}
-
-				const isErrorInContacts = (() => {
-					for (const key in contacts) if (contacts.hasOwnProperty(key)) {
-						if (contacts[key].showError && !contacts[key].isValid()) {
-							return true;
-						}
-					}
-					return false;
-				})();
-
-				return {
-					show: isErrorInContacts,
-				};
-			}
-
-			return {show: false};
-		})();
+		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
+		const { fields } = this.props;
+		const error = fields.files.error;
 
 		return (
-			<form
-				autoComplete='off'
-				method='post'
-				onSubmit={this.onSubmit}
-			>
-				<Uploader {...this.props} {...{files, filesLink}} />
-				<Options {...this.props} options={this.props.form.options} />
+			<div>
+				<Uploader {...this.props} />
+				<Options {...this.props} options={options} />
 
-				{error.show &&
-					<FormValidationWindow text={error.text} />
+				{error &&
+					<FormValidationWindow text={error} />
 				}
 
-				<div style={{width: 420}}>
-					<Contacts
-						{...this.props}
-						onSubmit={this.onSubmit}
-						form={this.props.form.contacts}
-						onChangeField={this.onChangeField}
-					/>
-				</div>
-			</form>
+				<ContactsForm
+					{...this.props}
+					handleSubmit={handleSubmit}
+				/>
+			</div>
 		);
 	}
 }

@@ -2,6 +2,7 @@ import path from 'path';
 
 const env = {
 	NODE_PATH: path.join(__dirname, '../app'),
+	FILES_FOLDER: './dist/uploads/'
 };
 
 export default {
