@@ -7,7 +7,6 @@ const transporter = nodemailer.createTransport(directTransport({
 	debug: process.env.NODE_ENV !== 'production',
 }));
 
-
 function getFormData({optionsArray, contacts, files, filesLink, lang = 'ru'}) {
 	files = files.map((file) => ({
 		filename: file.filename,
@@ -34,7 +33,6 @@ function getToolsInfo(form) {
 			});
 	});
 }
-
 
 
 const renderOrderTemplate = (toolsData, {options, contacts, pagesWidth, addition, filesLink}) => {
@@ -68,19 +66,6 @@ const renderOrderTemplate = (toolsData, {options, contacts, pagesWidth, addition
 	`;
 };
 
-const mailOptions = {
-	from: 'CSSSR Order <order@csssr.ru>',
-	to: process.env.ORDER_MAIL,
-};
-
-
-function sendMail(mailOptions) {
-	transporter.sendMail(mailOptions, (err, res) => {
-		if (err) return Promise.reject(err);
-		return Promise.resolve(res);
-	});
-}
-
 export async function sendOrder(data) {
 	const form = getFormData(data);
 	const toolsInfo = await getToolsInfo(form);
@@ -90,22 +75,5 @@ export async function sendOrder(data) {
 		...mailOptions,
 		subject: `CSSSR. Заказ номер ${toolsInfo.unique_number}`,
 		html: html
-	});
-}
-
-const renderOutsourceTemplate = ({name, email, skype, phone}) => `
-	<p>
-		Контактное лицо: ${name}<br>
-		Электронная почта: <a href="mailto:${email}">${email}</a><br>
-		Скайп: ${skype}<br>
-		Телефон: ${phone}<br>
-	</p>
-`;
-
-export async function sendOutsourceProposal(data) {
-	await sendMail({
-		...mailOptions,
-		subject: `CSSSR. Заказ на аутсорс`,
-		html: renderOutsourceTemplate(data)
 	});
 }

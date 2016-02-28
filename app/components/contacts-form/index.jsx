@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
@@ -10,46 +10,35 @@ import './styles.css';
 
 export default class ContactsForm extends React.Component {
 	static propTypes = {
-		contacts: PropTypes.object,
-		onChangeField: PropTypes.func.isRequired,
+		fields: React.PropTypes.object.isRequired,
+		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
-	field(name, label, props, inputProps) {
-		const {form, onChangeField} = this.props;
-
+	renderField(name, label, props) {
 		return (
 			<Field
-				name={name}
 				required
+				name={name}
 				label={label}
-				isWrong={form[name].showError && !form[name].isValid()}
-				inputProps={{
-					value: form[name].value,
-					onChange: (e) => onChangeField(e.target.value, name),
-					...inputProps,
-				}}
+				maxLength='100'
 				{...props}
+				{...this.props.fields[name]}
 			/>
 		);
 	}
-	render() {
-		const {form, onChangeField} = this.props;
 
+	render() {
 		return (
-			<div className='contacts-form'>
-				{this.field('name', 'Ваше имя')}
-				{this.field('email', 'Электронная почта')}
-				{this.field('skype', 'Скайп')}
+			<form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
+				{this.renderField('name', 'Ваше имя')}
+				{this.renderField('email', 'Электронная почта')}
+				{this.renderField('skype', 'Скайп')}
 
 				<FieldPhone
+					required
 					name='phone'
 					label='Контактный телефон'
-					required
-					isWrong={form.phone.showError && !form.phone.isValid()}
-					inputProps={{
-						value: form.phone.value,
-						onChange: (value) => onChangeField(value, 'phone'),
-					}}
+					{...this.props.fields.phone}
 				/>
 
 				<Checkbox
@@ -73,7 +62,7 @@ export default class ContactsForm extends React.Component {
 					</Button>
 				</div>
 
-			</div>
+			</form>
 		);
 	}
 }

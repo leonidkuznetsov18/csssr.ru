@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import webpack from 'webpack';
 import getPageMetadata from 'helpers/getPageMetadata';
 import jobs from './jobs';
+import outsource from './outsource';
 import { handler, limitHandler, upload } from './lib/storage';
 import { sendOrder, sendOutsourceProposal } from './lib/mailer';
 import multipart from 'connect-multiparty';
@@ -60,17 +61,8 @@ app.post('/order', (req, res) => {
 		});
 });
 
-app.post('/outsource', (req, res) => {
-	// TODO: validate req.body
-	sendOutsourceProposal(req.body)
-		.then(() => res.send({ result: 'ok' }))
-		.catch((err) => {
-			console.log(err);
-			res.send({ result: 'fail' });
-		});
-});
-
 app.post('/jobs', multipartMiddleware, jobs);
+app.post('/outsource', multipartMiddleware, outsource);
 
 app.get('/static/*', (req, res) => {
 	res.redirect(req.path.substr('static/'.length));
