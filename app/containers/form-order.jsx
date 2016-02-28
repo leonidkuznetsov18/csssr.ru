@@ -31,9 +31,6 @@ import { bindActionCreators } from 'redux';
 		mobile: ['mobilesafari', 'mobilesafariold', 'mobilechromeios', 'mobilechromeandroid', 'mobilechromeandroidold'],
 		pagesWidth: 'static',
 		addition: [],
-
-		email: 'test@test.test',
-		phone: '+79999999999',
 	},
 })
 @connect((store) => ({
