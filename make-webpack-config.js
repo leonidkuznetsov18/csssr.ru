@@ -61,7 +61,7 @@ module.exports = function(options) {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
-			'IS_CLIENT': !options.prerender,
+			'global.GENTLY': false,
 		}),
 	];
 
@@ -156,11 +156,11 @@ module.exports = function(options) {
 		plugins: plugins,
 		devServer: {
 			headers: {
-				'Access-Control-Allow-Origin': '*'
+				'Access-Control-Allow-Origin': '*',
 			},
 			publicPath: publicPath,
 			port: 2992,
-			hot: true
+			hot: true,
 		}
 	};
 };

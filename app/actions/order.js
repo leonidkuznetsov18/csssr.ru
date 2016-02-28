@@ -1,8 +1,4 @@
-let superagent;
-
-if (IS_CLIENT) {
-	superagent = require('superagent');
-}
+import superagent from 'superagent';
 
 export function sendOrderForm(values) {
 	values.files = values.files.map((file) => ({

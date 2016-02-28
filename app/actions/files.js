@@ -1,10 +1,5 @@
+import superagent from 'superagent';
 import { ADD_FILES, UPDATE_FILE, REMOVE_FILE } from 'constants/actions';
-
-let superagent;
-
-if (IS_CLIENT) {
-	superagent = require('superagent');
-}
 
 export function updateFile(fileId, properties) {
 	return {
