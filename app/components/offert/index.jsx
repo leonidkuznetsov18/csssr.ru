@@ -3,7 +3,7 @@ import Content from 'components/content';
 
 import './styles.css';
 
-export default function Offert({data}) {
+export default function Offert({ data }) {
 	return (
 		<Content>
 			<div className='offert'>
@@ -14,21 +14,21 @@ export default function Offert({data}) {
 					<div className='offert__section' key={index}>
 						<h2 className='offert__subtitle'
 							dangerouslySetInnerHTML={{
-								__html: section.title
+								__html: section.title,
 							}}
 						/>
-						{(section.content || []).map((item, index) => (
-							<div className='offert__group' key={index}>
+						{(section.content || []).map((item, itemIndex) => (
+							<div className='offert__group' key={itemIndex}>
 								<p className='offert__index'
 									dangerouslySetInnerHTML={{
-										__html: item.title
+										__html: item.title,
 									}}
 								/>
-								{([].concat(item.content || [])).map((paragraph, index) => (
+								{([].concat(item.content || [])).map((paragraph, paragraphIndex) => (
 									<p className='offert__text'
-										key={index}
+										key={paragraphIndex}
 										dangerouslySetInnerHTML={{
-											__html: paragraph
+											__html: paragraph,
 										}}
 									/>
 								))}
@@ -42,5 +42,5 @@ export default function Offert({data}) {
 }
 
 Offert.propTypes = {
-	data: React.PropTypes.object
+	data: React.PropTypes.object,
 };

@@ -18,7 +18,7 @@ export default class Layout extends React.Component {
 				</Head>
 				<body>
 					<div id='content' dangerouslySetInnerHTML={{
-						__html: this.props.content
+						__html: this.props.content,
 					}} />
 					<script src={this.props.script} async defer/>
 				</body>

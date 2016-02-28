@@ -11,14 +11,14 @@ export default class Footer extends React.Component {
 			'mastercard',
 			'yandex',
 			'paypal',
-			'cashless'
+			'cashless',
 		];
 
 		return (
 			<footer className='footer'>
 				<div className='footer__inner'>
 					<div className='footer__payment'>
-						{paymentSystems.map(system => (
+						{paymentSystems.map((system) => (
 							<Icon
 								className='footer__payment-icon'
 								icon={`payment/${system}`}

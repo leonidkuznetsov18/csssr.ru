@@ -18,7 +18,7 @@ const languages = [
 	},
 ];
 
-export default function Language({current}) {
+export default function Language({ current }) {
 	const linkClass = (isActive) => cx({
 		language__link: true,
 		language__link_active: isActive,

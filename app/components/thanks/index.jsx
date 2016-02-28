@@ -10,7 +10,7 @@ import './styles.css';
 
 const socials = ['vk', 'fb', 'tw', 'gp'];
 
-export default function Thanks({meta}) {
+export default function Thanks({ meta }) {
 	return (
 		<div className='thanks'>
 			<Row>
@@ -51,3 +51,7 @@ export default function Thanks({meta}) {
 		</div>
 	);
 }
+
+Thanks.propTypes = {
+	meta: React.PropTypes.object,
+};

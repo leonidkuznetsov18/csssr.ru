@@ -9,15 +9,15 @@ import cx from 'classnames';
 
 import './styles.css';
 
-export default function Application({children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted}) {
+export default function Application({ children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted }) {
 	const applicationClass = cx({
-		'application': true,
-		'application_active': active,
+		application: true,
+		application_active: active,
 	});
 
 	const contactsClass = cx({
-		'application__contacts': true,
-		'application__contacts_mounted': mounted,
+		application__contacts: true,
+		application__contacts_mounted: mounted,
 	});
 
 	return (
@@ -44,3 +44,14 @@ export default function Application({children, banner, meta, active, openSidebar
 		</div>
 	);
 }
+
+Application.propTypes = {
+	children: React.PropTypes.element,
+	banner: React.PropTypes.element,
+	meta: React.PropTypes.object,
+	active: React.PropTypes.bool,
+	openSidebar: React.PropTypes.func,
+	closeSidebar: React.PropTypes.func,
+	overflow: React.PropTypes.bool,
+	mounted: React.PropTypes.bool,
+};

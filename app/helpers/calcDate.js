@@ -1,11 +1,23 @@
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+function plural(num, single, some, multiple) {
+	if (num === 1) {
+		return single;
+	}
+
+	if (num < 5) {
+		return some;
+	}
+
+	return multiple;
+}
+
 export default function calcDate(date) {
 	const currentDate = new Date();
+	const time = [];
 	let year = currentDate.getYear() - date.getYear();
 	let month = currentDate.getMonth() - date.getMonth();
 	let day = currentDate.getDate() - date.getDate();
-	let time = [];
 
 	if (day < 0) {
 		month--;
@@ -29,27 +41,17 @@ export default function calcDate(date) {
 		time.push(day + '&nbsp;' + plural(day, 'день', 'дня', 'дней'));
 	}
 
-	const string = time.reduce(function(prev, current, index, array) {
+	return time.reduce((acc, item, index, array) => {
 		let prefix = '';
+
 		if (index > 0) {
 			prefix = ', ';
 		}
+
 		if (index === array.length - 1 && index !== 0) {
 			prefix = ' и ';
 		}
-		return prev + prefix + current;
+
+		return acc + prefix + item;
 	}, '');
-
-	return string;
 }
-
-function plural(num, single, some, multiple) {
-	if (num === 1) {
-		return single;
-	} else if (num < 5) {
-		return some;
-	} else {
-		return multiple;
-	}
-}
-

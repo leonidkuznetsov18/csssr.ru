@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import './styles.css';
 
-export default function Title({size, children, component, color, center, indent}) {
+export default function Title({ size, children, component, color, center, indent }) {
 	const classList = cx({
 		title: true,
 		title_noindent: indent === false,
@@ -19,16 +19,16 @@ export default function Title({size, children, component, color, center, indent}
 		return (
 			<Tag
 				className={classList}
-				dangerouslySetInnerHTML={{__html: children}}
+				dangerouslySetInnerHTML={{ __html: children }}
 			/>
 		);
-	} else {
-		return (
-			<Tag className={classList}>
-				{children}
-			</Tag>
-		);
 	}
+
+	return (
+		<Tag className={classList}>
+			{children}
+		</Tag>
+	);
 }
 
 Title.propTypes = {
@@ -37,6 +37,7 @@ Title.propTypes = {
 		React.PropTypes.arrayOf(React.PropTypes.node),
 		React.PropTypes.node,
 	]),
+	indent: React.PropTypes.bool,
 	size: React.PropTypes.string,
 	color: React.PropTypes.string,
 	center: React.PropTypes.bool,

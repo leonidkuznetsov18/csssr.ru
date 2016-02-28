@@ -2,12 +2,10 @@ import React from 'react';
 import Parallax from 'components/parallax';
 import Icon from 'components/icon';
 import Service from 'components/service';
-import Content from 'components/content';
-import Description from 'components/description';
 
 import './styles.css';
 
-export default function IndexService({data}) {
+export default function IndexService({ data }) {
 	return (
 		<div className='index-service'>
 			<Parallax speed={0.3}>
@@ -32,5 +30,5 @@ export default function IndexService({data}) {
 }
 
 IndexService.propTypes = {
-	data: React.PropTypes.array.isRequired
+	data: React.PropTypes.array.isRequired,
 };

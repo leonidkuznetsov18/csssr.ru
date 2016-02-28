@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
 import './styles.css';
 
 export default function Popup(props) {
 	const popupClass = cx({
-		'popup': true,
-		'popup_active': props.active,
+		popup: true,
+		popup_active: props.active,
 	});
 
 	return (
@@ -20,6 +20,7 @@ export default function Popup(props) {
 }
 
 Popup.propTypes = {
+	active: PropTypes.bool,
 	onClose: PropTypes.func,
 	children: PropTypes.element,
 };

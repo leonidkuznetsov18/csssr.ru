@@ -1,15 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import { Link } from 'react-router';
 
 import './styles.css';
 
-export default function MenuItem({href, children, active, component}) {
+export default function MenuItem({ href, children, active, component }) {
 	const Component = component;
 	const blockClass = cx({
 		'menu-item': true,
-		'menu-item_state_active': active
+		'menu-item_state_active': active,
 	});
 
 	return (
@@ -25,10 +25,15 @@ export default function MenuItem({href, children, active, component}) {
 }
 
 MenuItem.defaultProps = {
-	component: Link
-}
+	component: Link,
+};
 
 MenuItem.propTypes = {
-	href: PropTypes.string,
-	children: PropTypes.string
-}
+	href: React.PropTypes.string,
+	active: React.PropTypes.bool,
+	component: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.func,
+	]),
+	children: React.PropTypes.string,
+};

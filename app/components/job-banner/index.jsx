@@ -9,4 +9,4 @@ export default function JobBanner() {
 			src={require('images/background/work.svg')}
 		/>
 	);
-};
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Link as ScrollLink} from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 import Airship from 'components/airship';
 import Link from 'components/link';
 

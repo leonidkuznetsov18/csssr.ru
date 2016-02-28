@@ -12,6 +12,7 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
 

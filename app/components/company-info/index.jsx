@@ -7,7 +7,7 @@ import Icon from 'components/icon';
 
 import './styles.css';
 
-export default function CompanyInfo({history, data}) {
+export default function CompanyInfo({ history, data }) {
 	return (
 		<div className='company-info'>
 			<Row>
@@ -37,7 +37,7 @@ export default function CompanyInfo({history, data}) {
 			</Row>
 		</div>
 	);
-};
+}
 
 CompanyInfo.propTypes = {
 	history: React.PropTypes.object.isRequired,

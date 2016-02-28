@@ -8,7 +8,7 @@ import OutsourceService from 'components/outsource-service';
 
 import './styles.css';
 
-export default function OutsourceContent({data, projects}) {
+export default function OutsourceContent({ data, projects }) {
 	return (
 		<div className='outsource-content'>
 			<div className='outsource-content__events'>
@@ -48,4 +48,5 @@ export default function OutsourceContent({data, projects}) {
 
 OutsourceContent.propTypes = {
 	data: React.PropTypes.object.isRequired,
+	projects: React.PropTypes.array,
 };

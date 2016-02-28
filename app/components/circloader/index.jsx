@@ -7,8 +7,8 @@ export default class Circloader extends React.Component {
 	render() {
 		const blockClass = cx({
 			circloader: true,
-			circloader_size_big: this.props.size == 'big',
-			circloader_color_white: this.props.color == 'white'
+			circloader_size_big: this.props.size === 'big',
+			circloader_color_white: this.props.color === 'white',
 		});
 
 		return (
@@ -16,3 +16,8 @@ export default class Circloader extends React.Component {
 		);
 	}
 }
+
+Circloader.propTypes = {
+	size: React.PropTypes.string,
+	color: React.PropTypes.string,
+};

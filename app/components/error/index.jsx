@@ -5,7 +5,6 @@ import Text from 'components/text';
 import './styles.css';
 
 export default function Error(props) {
-
 	return (
 		<div className='error'>
 			<div className='error__smile'>¯\_(ツ)_/¯</div>
@@ -16,5 +15,5 @@ export default function Error(props) {
 }
 
 Error.propTypes = {
-	number: React.PropTypes.number
+	number: React.PropTypes.number,
 };

@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
 import './styles.css';
 
-export default function Tooltip({children, className, text}) {
+export default function Tooltip({ children, className, text }) {
 	return (
 		<div className={cx('tooltip-wrapper', className)}>
 			<span className='tooltip' tabIndex='-1'>{children}</span>
@@ -13,7 +13,7 @@ export default function Tooltip({children, className, text}) {
 			<div className='tooltip__mask' />
 		</div>
 	);
-};
+}
 
 Tooltip.propTypes = {
 	text: PropTypes.string.isRequired,
@@ -22,9 +22,9 @@ Tooltip.propTypes = {
 		PropTypes.element,
 		PropTypes.array,
 	]),
-	className: PropTypes.string
+	className: PropTypes.string,
 };
 
 Tooltip.defaultProps = {
-	children: '?'
+	children: '?',
 };

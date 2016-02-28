@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import './styles.css';
 import cx from 'classnames';
 import Button from 'components/button';
@@ -7,7 +7,7 @@ import Title from 'components/title';
 import Text from 'components/text';
 import AudioButton from 'components/audio-button';
 import ReactMarkdown from 'react-markdown';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 function getIcon(newstaff) {
 	if (newstaff) {

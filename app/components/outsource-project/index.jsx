@@ -1,11 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import Text from 'components/text';
 
 import './styles.css';
 
-export default function OutsourceProject({partner}) {
+export default function OutsourceProject({ partner }) {
 	const titleClass = cx({
 		'outsource-project__title': true,
 		'outsource-project__title_state_active': partner.id,
@@ -24,3 +24,7 @@ export default function OutsourceProject({partner}) {
 		</div>
 	);
 }
+
+OutsourceProject.propTypes = {
+	partner: React.PropTypes.object,
+};

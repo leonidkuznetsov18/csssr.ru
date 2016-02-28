@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import './styles.css';
 
-export default function Breadcrumbs({items}) {
+export default function Breadcrumbs({ items }) {
 	return (
 		<div className='breadcrumbs'>
 			{items.map((item, index, list) => (
@@ -29,9 +29,9 @@ export default function Breadcrumbs({items}) {
 				</div>
 			))}
 		</div>
-	)
+	);
 }
 
 Breadcrumbs.propTypes = {
-	items: React.PropTypes.array.isRequired
-}
+	items: React.PropTypes.array.isRequired,
+};

@@ -12,4 +12,4 @@ export default function IndexAbout(props) {
 			</div>
 		</Content>
 	);
-};
+}

@@ -6,8 +6,8 @@ import './styles.css';
 
 export default function Checkbox(props) {
 	const blockClass = cx({
-		'checkbox': true,
-		[props.className]: props.className
+		checkbox: true,
+		[props.className]: props.className,
 	});
 
 	const inputProps = { ...props };
@@ -34,17 +34,19 @@ export default function Checkbox(props) {
 			}
 		</div>
 	);
-};
+}
 
 Checkbox.propTypes = {
 	children: React.PropTypes.node,
+	id: React.PropTypes.string,
+	className: React.PropTypes.string,
 	tip: React.PropTypes.shape({
 		text: React.PropTypes.string.isRequired,
-		link: React.PropTypes.string
+		link: React.PropTypes.string,
 	}),
-	checked: React.PropTypes.bool
+	checked: React.PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
-	checked: false
+	checked: false,
 };

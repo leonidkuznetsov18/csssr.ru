@@ -6,17 +6,17 @@ export default class Parallax extends React.Component {
 		min: React.PropTypes.number,
 		max: React.PropTypes.number,
 		offset: React.PropTypes.number,
-		speed: React.PropTypes.number
+		speed: React.PropTypes.number,
 	}
 
 	static defaultProps = {
 		offset: 0,
-		speed: 1
+		speed: 1,
 	}
 
 	componentWillMount() {
 		this.setState({
-			position: 0
+			position: 0,
 		});
 	}
 
@@ -47,7 +47,7 @@ export default class Parallax extends React.Component {
 	render() {
 		const style = {
 			transform: `translate3d(0, ${this.state.position}px, 0)`,
-			WebkitTransform: `translate3d(0, ${this.state.position}px, 0)`
+			WebkitTransform: `translate3d(0, ${this.state.position}px, 0)`,
 		};
 
 		return React.cloneElement(this.props.children, { style });

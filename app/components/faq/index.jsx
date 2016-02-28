@@ -4,7 +4,7 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function Faq({data}) {
+export default function Faq({ data }) {
 	return (
 		<div className='faq'>
 			<div className='faq__info'>
@@ -43,11 +43,11 @@ export default function Faq({data}) {
 							<div key={columnIndex} className='faq__question'>
 								<h3
 									className='faq__subtitle'
-									dangerouslySetInnerHTML={{__html: item.title}}
+									dangerouslySetInnerHTML={{ __html: item.title }}
 								/>
 
-								{[].concat(item.text).map((text, index) => (
-									<Text size='m' color='blue' key={index}>
+								{[].concat(item.text).map((text, itemIndex) => (
+									<Text size='m' color='blue' key={itemIndex}>
 										{text}
 									</Text>
 								))}

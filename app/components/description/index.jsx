@@ -8,7 +8,7 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function Description({data}) {
+export default function Description({ data }) {
 	return (
 		<div className='description'>
 			<div className='description__logo'/>
@@ -37,7 +37,7 @@ export default function Description({data}) {
 					<div className='description__item' key={index}>
 						<h2 className='description__title'>
 							<span
-								dangerouslySetInnerHTML={{__html: item.title}}/>
+								dangerouslySetInnerHTML={{ __html: item.title }}/>
 							{item.link &&
 								<Link to={item.link}>
 									{item.linkText}
@@ -60,8 +60,8 @@ export default function Description({data}) {
 			</div>
 		</div>
 	);
-};
+}
 
 Description.propTypes = {
-	data: React.PropTypes.array.isRequired
+	data: React.PropTypes.array.isRequired,
 };

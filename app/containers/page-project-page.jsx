@@ -39,8 +39,8 @@ export default class PageProjectPage extends React.Component {
 	}
 
 	render() {
-		const {params} = this.props;
-		const {project} = this.state;
+		const { params } = this.props;
+		const { project } = this.state;
 		const projectUrl = project.url || `http://portfolio.csssr.ru/${project.view}/`;
 		const url = `${projectUrl}${params.page}.html`;
 

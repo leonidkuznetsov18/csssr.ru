@@ -8,4 +8,4 @@ export default function IndexBanner() {
 			Вёрстка и JavaScript — гибкая фронтенд разработка
 		</h1>
 	);
-};
+}

@@ -2,10 +2,10 @@ import React from 'react';
 
 import './styles.css';
 
-export default function Airship({image, children}) {
+export default function Airship({ image, children }) {
 	const imageUrl = require(`../../images/background/${image}`);
 	const textStyle = {
-		backgroundImage: `url(${imageUrl})`
+		backgroundImage: `url(${imageUrl})`,
 	};
 
 	return (
@@ -20,8 +20,9 @@ export default function Airship({image, children}) {
 			}
 		</div>
 	);
-};
+}
 
 Airship.propTypes = {
-	image: React.PropTypes.string
+	image: React.PropTypes.string,
+	children: React.PropTypes.element,
 };

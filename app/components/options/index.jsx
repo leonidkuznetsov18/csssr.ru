@@ -1,14 +1,13 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import cx from 'classnames';
-import Tooltip from 'components/tooltip';
 
 import './styles.css';
 
 export default function Options(props) {
 	const blockClass = cx({
-		'options': true,
-		'options_inline': props.inline,
-		[props.className]: props.className
+		options: true,
+		options_inline: props.inline,
+		[props.className]: props.className,
 	});
 
 	return (
@@ -20,13 +19,14 @@ export default function Options(props) {
 			))}
 		</ul>
 	);
-};
+}
 
 Options.propTypes = {
-	children: PropTypes.node,
-	inline: PropTypes.bool
+	className: React.PropTypes.string,
+	children: React.PropTypes.node,
+	inline: React.PropTypes.bool,
 };
 
 Options.defaultProps = {
-	inline: false
+	inline: false,
 };

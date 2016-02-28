@@ -3,7 +3,7 @@ import PortfolioItem from 'components/portfolio-item';
 
 import './styles.css';
 
-export default function PortfolioList({data}) {
+export default function PortfolioList({ data }) {
 	return (
 		<ul className='portfolio-list'>
 			{data.map((project, i) => (
@@ -17,5 +17,5 @@ export default function PortfolioList({data}) {
 }
 
 PortfolioList.propTypes = {
-	data: React.PropTypes.array.isRequired
+	data: React.PropTypes.array.isRequired,
 };

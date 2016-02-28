@@ -6,7 +6,7 @@ import './styles.css';
 
 export default class JobsVacancy extends React.Component {
 	static propTypes = {
-		data: React.PropTypes.array.isRequired
+		data: React.PropTypes.array.isRequired,
 	}
 
 	renderLink = (vacancy, index) => {
@@ -21,7 +21,7 @@ export default class JobsVacancy extends React.Component {
 		}
 
 		return (
-			<a href={vacancy.url} target='_blank' className='jobs-vacancy__link'  key={index}>
+			<a href={vacancy.url} target='_blank' className='jobs-vacancy__link' key={index}>
 				{vacancy.name}
 				{vacancy.hh &&
 					<Icon icon='hh' className='jobs-vacancy__hh' />

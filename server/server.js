@@ -66,8 +66,6 @@ app.use(express.static(ASSETS, {
 
 app.get('/*', function (request, response) {
 	let content;
-	let layout;
-	let application;
 	let style;
 
 	if (/\.html$/.test(request.path)) {
@@ -80,14 +78,14 @@ app.get('/*', function (request, response) {
 		style = STYLE;
 	}
 
-	layout = React.createElement(Layout, {
+	const layout = React.createElement(Layout, {
 		script: SCRIPT_URL,
 		style,
 		content,
 		meta: getPageMetadata(request.path),
 	});
 
-	application = ReactDOMServer.renderToStaticMarkup(layout);
+	const application = ReactDOMServer.renderToStaticMarkup(layout);
 	response.contentType('text/html');
 	response.write('<!DOCTYPE html>');
 	response.end(application);

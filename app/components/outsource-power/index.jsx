@@ -1,5 +1,4 @@
 import React from 'react';
-import Circloader from 'components/circloader';
 import Parallax from 'components/parallax';
 import Title from 'components/title';
 import Text from 'components/text';

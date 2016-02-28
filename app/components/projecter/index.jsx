@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import './styles.css';
 
-export default function Projecter({active, partner, title, content, onClose}) {
+export default function Projecter({ active, partner, title, content, onClose }) {
 	const blockClass = cx({
 		projecter: true,
 		projecter_state_active: active,
@@ -16,14 +16,14 @@ export default function Projecter({active, partner, title, content, onClose}) {
 				<div className='projecter__title'>
 					<div
 						className='projecter__selection'
-						dangerouslySetInnerHTML={{__html: title}}
+						dangerouslySetInnerHTML={{ __html: title }}
 					/>
 				</div>
 
 				<blockquote className='projecter__comment'>
 					<div
 						className='projecter__selection'
-						dangerouslySetInnerHTML={{__html: content}}
+						dangerouslySetInnerHTML={{ __html: content }}
 					/>
 				</blockquote>
 			</div>
@@ -36,4 +36,5 @@ Projecter.propTypes = {
 	active: React.PropTypes.bool,
 	title: React.PropTypes.string,
 	content: React.PropTypes.string,
+	onClose: React.PropTypes.func,
 };

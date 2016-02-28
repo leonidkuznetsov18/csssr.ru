@@ -9,7 +9,7 @@ import Link from 'components/link';
 
 import './styles.css';
 
-export default function OutsourceContacts({children}) {
+export default function OutsourceContacts({ children }) {
 	return (
 		<div className='outsource-contacts'>
 			<Row inner>
@@ -34,3 +34,7 @@ export default function OutsourceContacts({children}) {
 		</div>
 	);
 }
+
+OutsourceContacts.propTypes = {
+	children: React.PropTypes.element,
+};

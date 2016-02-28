@@ -4,7 +4,7 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function ProjectSidebar({project, onToggle}) {
+export default function ProjectSidebar({ project, onToggle }) {
 	return (
 		<div className='project-sidebar'>
 			<span
@@ -34,7 +34,6 @@ export default function ProjectSidebar({project, onToggle}) {
 		</div>
 	);
 }
-
 
 ProjectSidebar.propTypes = {
 	project: React.PropTypes.object.isRequired,

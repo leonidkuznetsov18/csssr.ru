@@ -7,13 +7,13 @@ import './styles.css';
 
 export default class Comments extends React.Component {
 	static propTypes = {
-		data: React.PropTypes.array.isRequired
+		data: React.PropTypes.array.isRequired,
 	}
 
 	componentWillMount() {
 		this.setState({
 			active: true,
-			index: 0
+			index: 0,
 		});
 	}
 
@@ -23,17 +23,17 @@ export default class Comments extends React.Component {
 		const comment = this.refs.comment;
 
 		this.setState({
-			active: false
+			active: false,
 		});
 
 		setTimeout(() => {
 			this.setState({
 				active: true,
-				index: random
+				index: random,
 			});
 
 			this.setState({
-				height: comment.clientHeight
+				height: comment.clientHeight,
 			});
 		}, 500);
 	}
@@ -43,10 +43,10 @@ export default class Comments extends React.Component {
 		const comment = data[this.state.index];
 		const classList = cx({
 			comments__item: true,
-			comments__item_state_active: this.state.active
+			comments__item_state_active: this.state.active,
 		});
 		const blockStyle = {
-			height: this.state.height
+			height: this.state.height,
 		};
 
 		return (

@@ -5,7 +5,7 @@ if (IS_CLIENT) {
 }
 
 export function sendOrderForm(values) {
-	values.files = values.files.map(file => ({
+	values.files = values.files.map((file) => ({
 		filename: file.filename,
 		title: file.originalname,
 	}));

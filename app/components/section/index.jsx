@@ -6,10 +6,10 @@ import List from 'components/list';
 
 import './styles.css';
 
-export default function Section({title, description, list, children, indent}) {
+export default function Section({ title, description, list, children, indent }) {
 	const blockClass = cx({
-		'section': true,
-		'section_indent': indent
+		section: true,
+		section_indent: indent,
 	});
 
 	description = [].concat(description);
@@ -39,10 +39,11 @@ Section.propTypes = {
 		React.PropTypes.array,
 	]),
 	children: React.PropTypes.node,
-	indent: React.PropTypes.bool
+	list: React.PropTypes.object,
+	indent: React.PropTypes.bool,
 };
 
 Section.defaultProps = {
 	title: {},
-	description: {}
+	description: {},
 };

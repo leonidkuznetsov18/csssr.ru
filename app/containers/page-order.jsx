@@ -8,7 +8,7 @@ import Title from 'components/title';
 import Text from 'components/text';
 import FaqGroup from 'components/faq-group';
 import Faq from 'components/faq';
-import OrderForm from 'containers/form-order';
+import FormOrder from 'containers/form-order';
 
 const faq = require('data/faq-order.json');
 const data = require('data/order-content.json');
@@ -32,7 +32,7 @@ export default class PageCompany extends React.Component {
 							{data.description.slice(1).map((content, i) => (
 								<Text size='m' key={i}>{content}</Text>
 							))}
-							<OrderForm />
+							<FormOrder />
 						</Column>
 					</Row>
 				</Content>

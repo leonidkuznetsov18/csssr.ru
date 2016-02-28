@@ -4,31 +4,29 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function PortfolioItem({project}) {
-	const work = ((project) => {
-		if (project.view && project.pages) {
-			return (
-				<a
-					target='_blank'
-					href={`/portfolio/${project.view}/${project.pages[0].page}`}
-				>
-					{project.name}
-				</a>
-			);
-		}
+export default function PortfolioItem({ project }) {
+	let work = project.name;
 
-		if (project.url || project.view) {
-			let link = project.url || 'http://portfolio.csssr.ru/' + project.view + '/';
+	if (project.view && project.pages) {
+		work = (
+			<a
+				target='_blank'
+				href={`/portfolio/${project.view}/${project.pages[0].page}`}
+			>
+				{project.name}
+			</a>
+		);
+	}
 
-			return (
-				<a href={link} target='_blank'>
-					{project.name}
-				</a>
-			);
-		}
+	if (project.url || project.view) {
+		const link = project.url || 'http://portfolio.csssr.ru/' + project.view + '/';
 
-		return project.name;
-	})(project);
+		work = (
+			<a href={link} target='_blank'>
+				{project.name}
+			</a>
+		);
+	}
 
 	return (
 		<li className='portfolio-item'>
@@ -70,5 +68,5 @@ export default function PortfolioItem({project}) {
 }
 
 PortfolioItem.propTypes = {
-	project: React.PropTypes.object
+	project: React.PropTypes.object,
 };

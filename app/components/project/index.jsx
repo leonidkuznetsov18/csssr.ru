@@ -4,10 +4,10 @@ import ProjectSidebar from 'components/project-sidebar';
 
 import './styles.css';
 
-export default function Project({project, onToggle, collapsed, children}) {
+export default function Project({ project, onToggle, collapsed, children }) {
 	const blockClass = cx({
 		project: true,
-		project_full: collapsed
+		project_full: collapsed,
 	});
 
 	return (

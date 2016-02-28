@@ -11,12 +11,13 @@ export default class AudioButton extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {active: false};
+		this.state = { active: false };
 	}
 
 	click = () => {
 		const active = !this.state.active;
-		this.setState({active});
+
+		this.setState({ active });
 
 		if (active) {
 			this.refs.audio.play();
@@ -27,7 +28,7 @@ export default class AudioButton extends React.Component {
 	}
 
 	render() {
-		const classes = cx('audio-button', {'audio-button_active': this.state.active});
+		const classes = cx('audio-button', { 'audio-button_active': this.state.active });
 
 		return (
 			<button className={classes} onClick={this.click}>
@@ -39,4 +40,4 @@ export default class AudioButton extends React.Component {
 			</button>
 		);
 	}
-};
+}

@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
 import './styles.css';
 
-export default function Text({size, children, indent, color, center, weight}) {
+export default function Text({ size, children, indent, color, center, weight }) {
 	const classList = cx({
 		text: true,
 		text_size_l: size === 'l',
@@ -16,24 +16,24 @@ export default function Text({size, children, indent, color, center, weight}) {
 		text_color_blue: color === 'blue',
 		text_color_grey: color === 'grey',
 		text_color_white: color === 'white',
-		text_weight_normal: weight === 'normal'
+		text_weight_normal: weight === 'normal',
 	});
 
 	if (typeof children === 'string') {
 		return (
 			<p
 				className={classList}
-				dangerouslySetInnerHTML={{__html: children}}
+				dangerouslySetInnerHTML={{ __html: children }}
 			/>
 		);
-	} else {
-		return (
-			<p className={classList}>
-				{children}
-			</p>
-		);
 	}
-};
+
+	return (
+		<p className={classList}>
+			{children}
+		</p>
+	);
+}
 
 Text.propTypes = {
 	children: PropTypes.oneOfType([
@@ -45,9 +45,9 @@ Text.propTypes = {
 	color: PropTypes.string,
 	weight: PropTypes.string,
 	indent: PropTypes.bool,
-	center: PropTypes.bool
+	center: PropTypes.bool,
 };
 
 Text.defaultProps = {
-	indent: true
+	indent: true,
 };

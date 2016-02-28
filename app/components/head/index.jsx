@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Head({children, meta}) {
+export default function Head({ children, meta }) {
 	const {
 		pageTitle,
 		pageDescription,
@@ -8,7 +8,7 @@ export default function Head({children, meta}) {
 		shareDescription,
 		shareTitle,
 		shareImage,
-		shareUrl
+		shareUrl,
 	} = meta;
 
 	return (
@@ -57,9 +57,9 @@ export default function Head({children, meta}) {
 			<meta name='description' content={pageDescription || shareDescription || ''}/>
 			<meta name='keywords' content={pageKeywords || ''}/>
 
-			<meta itemprop='name' content={shareTitle}/>
-			<meta itemprop='description' content={shareDescription}/>
-			<meta itemprop='image' content={shareImage}/>
+			<meta itemProp='name' content={shareTitle}/>
+			<meta itemProp='description' content={shareDescription}/>
+			<meta itemProp='image' content={shareImage}/>
 
 			<meta name='twitter:card' content='summary_large_image'/>
 			<meta name='twitter:title' content={shareTitle}/>
@@ -75,6 +75,11 @@ export default function Head({children, meta}) {
 	);
 }
 
+Head.propTypes = {
+	meta: React.PropTypes.object,
+	children: React.PropTypes.element,
+};
+
 Head.defaultProps = {
-	meta: {}
-}
+	meta: {},
+};

@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'components/button';
 import Text from 'components/text';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 import './styles.css';
 
-export default function Service({service}) {
+export default function Service({ service }) {
 	return (
 		<div className='service'>
 			<Link className='service__title' to={service.link}>
@@ -14,7 +14,7 @@ export default function Service({service}) {
 
 			<h4
 				className='service__subtitle'
-				dangerouslySetInnerHTML={{__html: service.subtitle}}
+				dangerouslySetInnerHTML={{ __html: service.subtitle }}
 			/>
 
 			<Button to={service.link} component={Link}>

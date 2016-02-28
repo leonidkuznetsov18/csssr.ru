@@ -26,4 +26,4 @@ File.propTypes = {
 	link: React.PropTypes.string,
 	size: React.PropTypes.string,
 	className: React.PropTypes.string,
-}
+};

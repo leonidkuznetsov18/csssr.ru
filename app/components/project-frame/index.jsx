@@ -12,7 +12,7 @@ export default class ProjectPage extends React.Component {
 	}
 
 	static defaultProps = {
-		onLoad: () => {}
+		onLoad: () => {},
 	}
 
 	componentDidMount() {
@@ -21,14 +21,14 @@ export default class ProjectPage extends React.Component {
 
 
 	render() {
-		const {loaded, url} = this.props;
+		const { loaded, url } = this.props;
 		const loaderClass = cx({
 			'project-frame__loader': true,
-			'project-frame__loader_active': !loaded
+			'project-frame__loader_active': !loaded,
 		});
 		const frameClass = cx({
 			'project-frame__frame': true,
-			'project-frame__frame_active': loaded
+			'project-frame__frame_active': loaded,
 		});
 
 		return (

@@ -62,9 +62,9 @@ export default function OrderOptions({ options, fields }) {
 							</Title>
 
 							<Options>
-								{options[key].map((option, index) => (
+								{options[key].map((option, optionIndex) => (
 									<Component
-										key={index}
+										key={optionIndex}
 										name={key}
 										id={`${key}${index}`}
 										tip={option.tip}

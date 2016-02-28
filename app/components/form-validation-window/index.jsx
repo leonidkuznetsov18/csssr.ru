@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 import './styles.css';
 
-export default function FormValidationWindow({title, text}) {
+export default function FormValidationWindow({ title, text }) {
 	return (
 		<div className='form-validation-window'>
 			<div className='form-validation-window__attention'>
@@ -19,10 +19,10 @@ export default function FormValidationWindow({title, text}) {
 
 FormValidationWindow.propTypes = {
 	title: PropTypes.string,
-	text: PropTypes.string
+	text: PropTypes.string,
 };
 
 FormValidationWindow.defaultProps = {
 	title: 'секундочку!',
-	text: ''
+	text: '',
 };

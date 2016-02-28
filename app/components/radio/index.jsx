@@ -37,6 +37,7 @@ export default function Radio(props) {
 }
 
 Radio.propTypes = {
+	id: React.PropTypes.string,
 	className: React.PropTypes.string,
 	name: React.PropTypes.string,
 	onChange: React.PropTypes.func,

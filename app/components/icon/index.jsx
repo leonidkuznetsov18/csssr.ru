@@ -5,11 +5,11 @@ export default function Icon(props) {
 
 	return (
 		<span {...props}
-			dangerouslySetInnerHTML={{__html: icon}}
+			dangerouslySetInnerHTML={{ __html: icon }}
 		/>
 	);
-};
+}
 
 Icon.propTypes = {
-	icon: React.PropTypes.string
+	icon: React.PropTypes.string,
 };

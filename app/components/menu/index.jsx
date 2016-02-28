@@ -1,4 +1,4 @@
-import React , {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import MenuItem from 'components/menu-item';
 
 import './styles.css';
@@ -6,32 +6,32 @@ import './styles.css';
 const menu = [
 	{
 		text: 'Компания',
-		href: '/company'
+		href: '/company',
 	},
 	{
 		text: 'Вакансии',
-		href: '/jobs'
+		href: '/jobs',
 	},
 	{
 		text: 'Вёрстка проекта',
-		href: '/order'
+		href: '/order',
 	},
 	{
 		text: 'FrontEnd аутсорсинг',
-		href: '/outsource'
+		href: '/outsource',
 	},
 	{
 		text: 'Портфолио',
-		href: '/portfolio'
-	}
+		href: '/portfolio',
+	},
 ];
 
-export default function Menu({open, close, active}) {
+export default function Menu({ open, active }) {
 	return (
 		<nav className='menu'>
 			<ul className='menu__list'>
 				<li className='menu__item menu__item_fix'/>
-				{menu.map(item => (
+				{menu.map((item) => (
 					<li className='menu__item' key={item.href}>
 						<MenuItem href={item.href}>
 							{item.text}
@@ -52,5 +52,5 @@ export default function Menu({open, close, active}) {
 
 Menu.propTypes = {
 	open: PropTypes.func,
-	active: PropTypes.bool
-}
+	active: PropTypes.bool,
+};

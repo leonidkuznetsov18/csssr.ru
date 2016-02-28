@@ -41,11 +41,11 @@ import { bindActionCreators } from 'redux';
 }), (dispatch) => ({
 	...bindActionCreators(actions, dispatch),
 }))
-export default class OrderForm extends React.Component {
+export default class FormOrder extends React.Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
 		files: React.PropTypes.array,
-		fields: React.PropTypes.array,
+		fields: React.PropTypes.object,
 	}
 
 	handleSubmit = (values, dispatch) => {

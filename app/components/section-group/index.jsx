@@ -3,7 +3,7 @@ import Section from 'components/section';
 
 import './styles.css';
 
-export default function SectionGroup({data}) {
+export default function SectionGroup({ data }) {
 	return (
 		<div className='section-group'>
 			{data.map((group, index) => (
@@ -16,5 +16,5 @@ export default function SectionGroup({data}) {
 }
 
 SectionGroup.propTypes = {
-	data: React.PropTypes.array
-}
+	data: React.PropTypes.array,
+};

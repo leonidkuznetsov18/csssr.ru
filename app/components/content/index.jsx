@@ -4,11 +4,11 @@ import Hole from 'components/hole';
 
 import './styles.css';
 
-export default function Content({padding, hole, children, layout}) {
+export default function Content({ padding, hole, children, layout }) {
 	const blockClass = cx({
 		content: true,
 		content_padding: padding,
-		content_layout_job: layout === 'job'
+		content_layout_job: layout === 'job',
 	});
 
 	return (
@@ -17,7 +17,7 @@ export default function Content({padding, hole, children, layout}) {
 			{children}
 		</main>
 	);
-};
+}
 
 Content.propTypes = {
 	children: React.PropTypes.node,
@@ -27,5 +27,5 @@ Content.propTypes = {
 };
 
 Content.defaultProps = {
-	padding: true
+	padding: true,
 };

@@ -6,7 +6,7 @@ import './styles.css';
 export default class PageTitle extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node,
-		size: React.PropTypes.string
+		size: React.PropTypes.string,
 	}
 
 	render() {
@@ -14,7 +14,7 @@ export default class PageTitle extends React.Component {
 		const classList = cx({
 			'page-title': true,
 			'page-title_size_medium': size === 'medium',
-			'page-title_size_small': size === 'small'
+			'page-title_size_small': size === 'small',
 		});
 
 		return (

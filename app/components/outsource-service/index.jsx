@@ -6,7 +6,7 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function OutsourceService({type, title, text}) {
+export default function OutsourceService({ type, title, text }) {
 	const imageClass = cx({
 		'outsource-service__image': true,
 		[`outsource-service__image_type_${type}`]: type,

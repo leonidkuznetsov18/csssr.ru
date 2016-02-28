@@ -5,6 +5,8 @@
   "main": "app/app.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --format node_modules/eslint-friendly-formatter/index.js --fix --ext .js,.jsx ./app ./config ./server ./utils",
+    "lint-pr": "eslint --format node_modules/eslint-friendly-formatter/index.js --ext .js,.jsx `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'jsx?$'`",
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
     "server": "node ./server",

@@ -6,7 +6,7 @@ import Text from 'components/text';
 
 import './styles.css';
 
-export default function History({data}) {
+export default function History({ data }) {
 	return (
 		<div className='history'>
 			<Title size='medium'>
@@ -27,8 +27,8 @@ export default function History({data}) {
 			))}
 		</div>
 	);
-};
+}
 
 History.propTypes = {
-	data: React.PropTypes.object.isRequired
+	data: React.PropTypes.object.isRequired,
 };

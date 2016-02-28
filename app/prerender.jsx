@@ -12,8 +12,8 @@ const createStoreWithMiddleWare = compose(
 );
 const store = createStoreWithMiddleWare(reducer);
 
-export default function(req) {
-	var app;
+export default function (req) {
+	let app;
 
 	match({ routes, location: req.url }, (error, redirect, renderProps) => {
 		app = ReactDOMServer.renderToString(
@@ -24,4 +24,4 @@ export default function(req) {
 	});
 
 	return app;
-};
+}

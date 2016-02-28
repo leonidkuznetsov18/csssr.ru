@@ -47,4 +47,4 @@ export default class Sharing extends React.Component {
 			</div>
 		);
 	}
-};
+}

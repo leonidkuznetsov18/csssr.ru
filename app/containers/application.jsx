@@ -25,7 +25,7 @@ export default class ApplicationContainer extends React.Component {
 
 	closeSidebar = () => {
 		if (!this.state.active) {
-			return
+			return;
 		}
 
 		this.setState({
