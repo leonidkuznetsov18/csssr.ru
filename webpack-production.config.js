@@ -1,11 +1,13 @@
+require('babel-register');
+
 module.exports = [
-	require('./make-webpack-config')({
+	require('./make-webpack-config').default({
 		longTermCaching: true,
 		separateStylesheet: true,
-		minimize: true
+		minimize: true,
 	}),
 
-	require('./make-webpack-config')({
-		prerender: true
-	})
+	require('./make-webpack-config').default({
+		prerender: true,
+	}),
 ];

@@ -1,63 +1,71 @@
-require('babel-register');
-
-var path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var loadersByExtension = require('./utils/loadersByExtension').default;
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import loadersByExtension from './utils/loadersByExtension';
 
 process.env = require('./config/env.js').default;
 
-module.exports = function(options) {
-	var root = path.join(__dirname, 'app');
-	var publicPath = '/_assets/';
-	var loaders = {
-		'json': 'json',
+export default function (options) {
+	const root = path.join(__dirname, 'app');
+	const publicPath = '/_assets/';
+	let loaders = {
+		json: 'json',
 		'png|jpg|cur|gif': 'url?limit=5000',
-		'woff|woff2': 'url?limit=1'
+		'woff|woff2': 'url?limit=1',
 	};
-	var stylesheetLoaders = {
-		'css': [
+	const stylesheetLoaders = {
+		css: [
 			'css',
-			'postcss'
-		]
+			'postcss',
+		],
 	};
-	var entry = [];
-	var additionalLoaders = [
+	const entry = [];
+	const postLoaders = [
+		{
+			test: /\.jsx?$/,
+			loaders: [
+				'transform-loader?envify',
+			],
+		},
+	];
+	const additionalLoaders = [
 		{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loaders: [
-				'transform-loader?envify',
 				'babel?' + JSON.stringify({
-					"env": {
-						"development": {
-							"presets": ["react-hmre"]
-						}
-					}
-				})
-			]
-		}, {
+					env: {
+						development: {
+							presets: ['react-hmre'],
+						},
+					},
+				}),
+			],
+		},
+		{
 			test: /\.svg$/,
 			exclude: /icons/,
-			loader: 'url?limit=10000'
-		}, {
+			loader: 'url?limit=10000',
+		},
+		{
 			test: /icons.+\.svg?$/,
-			loader: 'raw'
-		}, {
+			loader: 'raw',
+		},
+		{
 			test: /\.ya?ml$/,
-			loader: 'json!yaml'
-		}
+			loader: 'json!yaml',
+		},
 	];
-	var output = {
+	const output = {
 		path: path.join(__dirname, 'build', options.prerender ? 'prerender' : 'public'),
-		publicPath: publicPath,
+		publicPath,
 		filename: '[name].js',
 		chunkFilename: (options.devServer ? '[id].js' : '[name].js'),
 		sourceMapFilename: 'debugging/[file].map',
 		libraryTarget: options.prerender ? 'commonjs2' : undefined,
-		pathinfo: options.debug || options.prerender
+		pathinfo: options.debug || options.prerender,
 	};
-	var plugins = [
+	const plugins = [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
@@ -68,7 +76,7 @@ module.exports = function(options) {
 	if (options.prerender) {
 		plugins.push(
 			new webpack.optimize.LimitChunkCountPlugin({
-				maxChunks: 1
+				maxChunks: 1,
 			})
 		);
 	}
@@ -77,8 +85,8 @@ module.exports = function(options) {
 		plugins.push(new webpack.optimize.CommonsChunkPlugin('commons', 'commons.js'));
 	}
 
-	Object.keys(stylesheetLoaders).forEach(function(ext) {
-		var loader = stylesheetLoaders[ext];
+	Object.keys(stylesheetLoaders).forEach(function (ext) {
+		let loader = stylesheetLoaders[ext];
 
 		if (Array.isArray(loader)) {
 			loader = loader.join('!');
@@ -119,28 +127,29 @@ module.exports = function(options) {
 	entry.push('./app/' + (options.prerender ? 'prerender' : 'app'));
 
 	return {
-		entry: entry,
-		output: output,
+		entry,
+		output,
 		target: options.prerender ? 'node' : 'web',
 		module: {
-			loaders: loaders
+			loaders,
+			postLoaders,
 		},
 		devtool: options.devtool,
 		debug: options.debug,
 		resolveLoader: {
-			root: path.join(__dirname, 'node_modules')
+			root: path.join(__dirname, 'node_modules'),
 		},
 		resolve: {
-			root: root,
+			root,
 			modulesDirectories: [
 				'app',
-				'node_modules'
+				'node_modules',
 			],
-			extensions: ['.jsx', '.js', '']
+			extensions: ['.jsx', '.js', ''],
 		},
 		postcss: [
 			require('postcss-import')({
-				path: [root + '/styles']
+				path: [root + '/styles'],
 			}),
 			require('postcss-custom-media'),
 			require('postcss-clearfix'),
@@ -149,18 +158,18 @@ module.exports = function(options) {
 			require('postcss-nested'),
 			require('autoprefixer')({
 				browsers: [
-					'last 2 versions'
-				]
-			})
+					'last 2 versions',
+				],
+			}),
 		],
-		plugins: plugins,
+		plugins,
 		devServer: {
 			headers: {
 				'Access-Control-Allow-Origin': '*',
 			},
-			publicPath: publicPath,
+			publicPath,
 			port: 2992,
 			hot: true,
-		}
+		},
 	};
-};
+}
