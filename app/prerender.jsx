@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { RouterContext, match } from 'react-router';
-import routes from './routes';
-import * as reducers from './reducers';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, compose } from 'redux';
+import { RouterContext, match } from 'react-router';
+import { createStore, compose } from 'redux';
+import routes from './routes';
+import reducer from './reducers';
 
-const reducer = combineReducers(reducers);
 const createStoreWithMiddleWare = compose(
 	createStore
 );

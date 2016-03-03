@@ -1,21 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory } from 'react-router';
-import routes from './routes';
-import * as reducers from './reducers/index';
 import { Provider } from 'react-redux';
-import { reducer as form } from 'redux-form';
 import thunk from 'redux-thunk';
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-
-const reducer = combineReducers({
-	...reducers,
-	form: form.normalize({
-		job: {
-			age: (value) => value && value.replace(/\D/g, ''),
-		},
-	}),
-});
+import { createStore, compose, applyMiddleware } from 'redux';
+import routes from './routes';
+import reducer from './reducers';
 
 const createStoreWithMiddleWare = compose(
 	applyMiddleware(thunk),
