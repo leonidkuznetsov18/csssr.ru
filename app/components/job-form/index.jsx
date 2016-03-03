@@ -44,7 +44,7 @@ export default class JobAnswerForm extends React.Component {
 					small: true,
 				})}
 				{this.renderField('age', 'Возраст')}
-				{this.renderField('city', 'Город')}
+				{this.renderField('location', 'Город')}
 
 				<FieldFile
 					required

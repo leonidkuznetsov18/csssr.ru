@@ -22,7 +22,7 @@ const fileTypes = {
 		'firstname',
 		'lastname',
 		'age',
-		'city',
+		'location',
 		'file',
 		'email',
 		'skype',
@@ -67,7 +67,7 @@ export default class PageJob extends React.Component {
 
 			dispatch(sendAnswerForm({
 				...values,
-				job: this.props.jobName,
+				vacancy: this.props.jobName,
 			}));
 			resolve();
 		});
