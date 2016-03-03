@@ -16,9 +16,7 @@ export default function PortfolioItem({ project }) {
 				{project.name}
 			</a>
 		);
-	}
-
-	if (project.url || project.view) {
+	} else if (project.url || project.view) {
 		const link = project.url || 'http://portfolio.csssr.ru/' + project.view + '/';
 
 		work = (
