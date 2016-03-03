@@ -1,4 +1,5 @@
 import superagent from 'superagent';
+import { push } from 'react-router-redux';
 
 export function sendOrderForm(values) {
 	values.files = values.files.map((file) => ({
@@ -6,12 +7,12 @@ export function sendOrderForm(values) {
 		title: file.originalname,
 	}));
 
-	return function () {
+	return function (dispatch) {
 		superagent
 			.post('/order')
 			.send(values)
 			.end(() => {
-				history.pushState(null, '/thanks/order');
+				dispatch(push('/thanks/order'));
 			});
 	};
 }

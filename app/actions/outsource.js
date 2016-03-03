@@ -1,7 +1,8 @@
 import superagent from 'superagent';
+import { push } from 'react-router-redux';
 
 export function sendOutsourceForm(values) {
-	return function () {
+	return function (dispatch) {
 		const formData = new FormData();
 
 		Object.keys(values).forEach((key) => formData.append(key, values[key]));
@@ -10,7 +11,7 @@ export function sendOutsourceForm(values) {
 			.post('/outsource')
 			.send(formData)
 			.end(() => {
-				history.pushState(null, '/thanks/outsource');
+				dispatch(push('/thanks/outsource'));
 			});
 	};
 }

@@ -1,7 +1,8 @@
 import superagent from 'superagent';
+import { push } from 'react-router-redux';
 
 export function sendAnswerForm(values) {
-	return function () {
+	return function (dispatch) {
 		const formData = new FormData();
 		values.file = values.file[0];
 
@@ -11,7 +12,7 @@ export function sendAnswerForm(values) {
 			.post('/jobs')
 			.send(formData)
 			.end(() => {
-				history.pushState(null, `/thanks/${values.job}`);
+				dispatch(push(`/thanks/${values.vacancy}`));
 			});
 	};
 }
