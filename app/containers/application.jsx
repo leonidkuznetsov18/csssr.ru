@@ -13,13 +13,17 @@ export default class ApplicationContainer extends React.Component {
 		document.title = meta.pageTitle;
 	}
 
-	openSidebar = (e) => {
-		e.stopPropagation();
+	openSidebar = (event) => {
+		if (event) {
+			event.stopPropagation();
+		}
+
 		this.setState({
 			active: true,
 			overflow: true,
 		});
 
+		window.location.hash = 'contacts';
 		document.body.style.overflow = 'hidden';
 	}
 
@@ -27,6 +31,8 @@ export default class ApplicationContainer extends React.Component {
 		if (!this.state.active) {
 			return;
 		}
+
+		window.location.hash = '';
 
 		this.setState({
 			active: false,
@@ -53,6 +59,10 @@ export default class ApplicationContainer extends React.Component {
 		this.setState({
 			mounted: true,
 		});
+
+		if (window.location.hash === '#contacts') {
+			this.openSidebar();
+		}
 	}
 
 	componentDidUpdate() {
