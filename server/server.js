@@ -27,6 +27,7 @@ let renderApplication;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
 
 if (isProduction) {
 	renderApplication = require('../build/prerender/main.js').default;
@@ -46,8 +47,6 @@ if (isProduction) {
 
 	app.use(require('webpack-hot-middleware')(compiler));
 }
-
-app.use(compression());
 
 app.use(limitHandler);
 
