@@ -66,7 +66,7 @@ export default function OrderOptions({ options, fields }) {
 									<Component
 										key={optionIndex}
 										name={key}
-										id={`${key}${index}`}
+										id={`${key}${optionIndex}`}
 										tip={option.tip}
 										{...generateProps(fields[key], key, option.value, isRadio)}
 									>
