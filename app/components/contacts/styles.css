@@ -86,7 +86,7 @@
 		position: relative;
 
 		&_type_bordered {
-			padding: 15px;
+			padding: 5px;
 			border: 1px solid #999;
 		}
 	}
