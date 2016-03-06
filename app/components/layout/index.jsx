@@ -7,13 +7,13 @@ export default class Layout extends React.Component {
 		style: React.PropTypes.string,
 		content: React.PropTypes.string,
 		script: React.PropTypes.string,
-		meta: React.PropTypes.object,
+		head: React.PropTypes.object,
 	}
 
 	render() {
 		return (
 			<html>
-				<Head meta={this.props.meta}>
+				<Head head={this.props.head}>
 					<link rel='stylesheet' href={this.props.style} />
 				</Head>
 				<body>

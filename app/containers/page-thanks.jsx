@@ -1,7 +1,9 @@
 import React from 'react';
-import getPageMetadata from 'helpers/getPageMetadata';
+import Helmet from 'react-helmet';
+
 import Content from 'components/content';
 import Thanks from 'components/thanks';
+import { thanks } from 'data/meta';
 
 export default class ThanksContainer extends React.Component {
 	static propTypes = {
@@ -9,11 +11,10 @@ export default class ThanksContainer extends React.Component {
 	}
 
 	render() {
-		const meta = getPageMetadata(this.props.location.pathname);
-
 		return (
 			<Content>
-				<Thanks meta={meta}/>
+				<Helmet {...thanks} />
+				<Thanks />
 			</Content>
 		);
 	}

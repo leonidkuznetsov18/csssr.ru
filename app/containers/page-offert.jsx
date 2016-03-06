@@ -1,6 +1,8 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 import Offert from 'components/offert';
+import * as meta from 'data/meta';
 
 export default class PageOffert extends React.Component {
 	static propTypes = {
@@ -12,7 +14,9 @@ export default class PageOffert extends React.Component {
 		const data = require(`data/${path.slice(1)}.json`);
 
 		return (
-			<Offert data={data}/>
+			<Offert data={data}>
+				<Helmet {...meta[path]} />
+			</Offert>
 		);
 	}
 }

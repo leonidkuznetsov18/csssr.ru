@@ -1,10 +1,13 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+
 import Content from 'components/content';
 import Row from 'components/row';
 import Column from 'components/column';
 import Comments from 'components/comments';
 import SectionGroup from 'components/section-group';
 import CompanyInfo from 'components/company-info';
+import { company } from 'data/meta';
 
 const dataAbout = require('data/company-about.json');
 const dataInfo = require('data/company-info.json');
@@ -15,6 +18,7 @@ export default class PageCompany extends React.Component {
 	render() {
 		return (
 			<Content>
+				<Helmet {...company} />
 				<Row>
 					<Column size={2 / 3} offset={1 / 3}>
 						<SectionGroup data={dataAbout} />

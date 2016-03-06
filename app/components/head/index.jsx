@@ -1,16 +1,6 @@
 import React from 'react';
 
-export default function Head({ children, meta }) {
-	const {
-		pageTitle,
-		pageDescription,
-		pageKeywords,
-		shareDescription,
-		shareTitle,
-		shareImage,
-		shareUrl,
-	} = meta;
-
+export default function Head({ children, head }) {
 	return (
 		<head>
 			<meta charSet='utf-8'/>
@@ -50,36 +40,19 @@ export default function Head({ children, meta }) {
 			<meta name='msapplication-wide310x150logo' content='/mstile-wide.png' />
 			<meta name='msapplication-square310x310logo' content='/mstile-large.png' />
 
-			<title>
-				{pageTitle}
-			</title>
+			{head.title && head.title.toComponent()}
+			{head.meta && head.meta.toComponent()}
 
-			<meta name='description' content={pageDescription || shareDescription || ''}/>
-			<meta name='keywords' content={pageKeywords || ''}/>
-
-			<meta itemProp='name' content={shareTitle}/>
-			<meta itemProp='description' content={shareDescription}/>
-			<meta itemProp='image' content={shareImage}/>
-
-			<meta name='twitter:card' content='summary_large_image'/>
-			<meta name='twitter:title' content={shareTitle}/>
-			<meta name='twitter:description' content={shareDescription}/>
-			<meta name='twitter:image:src' content={shareImage}/>
-
-			<meta property='og:title' content={shareTitle}/>
-			<meta property='og:url' content={shareUrl}/>
-			<meta property='og:image' content={shareImage}/>
-			<meta property='og:description' content={shareDescription}/>
 			{children}
 		</head>
 	);
 }
 
 Head.propTypes = {
-	meta: React.PropTypes.object,
+	head: React.PropTypes.object,
 	children: React.PropTypes.element,
 };
 
 Head.defaultProps = {
-	meta: {},
+	head: {},
 };

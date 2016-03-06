@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import Helmet from 'react-helmet';
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
@@ -7,7 +8,6 @@ import compression from 'compression';
 import Layout from '../app/components/layout';
 import morgan from 'morgan';
 import webpack from 'webpack';
-import getPageMetadata from 'helpers/getPageMetadata';
 import jobs from './jobs';
 import outsource from './outsource';
 import order from './order';
@@ -64,7 +64,7 @@ app.use(express.static(ASSETS, {
 }));
 
 app.get('/*', function (request, response) {
-	let content;
+	let rendered;
 	let style;
 
 	if (/\.html$/.test(request.path)) {
@@ -73,15 +73,14 @@ app.get('/*', function (request, response) {
 	}
 
 	if (isProduction) {
-		content = renderApplication(request);
+		rendered = renderApplication(request);
 		style = STYLE;
 	}
 
 	const layout = React.createElement(Layout, {
+		...rendered,
 		script: SCRIPT_URL,
 		style,
-		content,
-		meta: getPageMetadata(request.path),
 	});
 
 	const application = ReactDOMServer.renderToStaticMarkup(layout);

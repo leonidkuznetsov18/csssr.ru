@@ -46,7 +46,10 @@ export default function Application({ children, banner, meta, active, openSideba
 }
 
 Application.propTypes = {
-	children: React.PropTypes.element,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.arrayOf(React.PropTypes.node),
+		React.PropTypes.node,
+	]),
 	banner: React.PropTypes.element,
 	meta: React.PropTypes.object,
 	active: React.PropTypes.bool,

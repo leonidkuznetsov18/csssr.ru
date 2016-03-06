@@ -23,28 +23,29 @@ const buttons = [
 	},
 ];
 
-export default class Sharing extends React.Component {
-	static propTypes = {
-		meta: React.PropTypes.object,
-	}
-
-	render() {
-		return (
-			<div className='sharing'>
-				{buttons.map((button) => (
-					<div key={button.type} className='sharing__item'>
-						<Button
-							mod='social'
-							component='a'
-							icon={`social-${button.type}`}
-							target='_blank'
-							href={socialLink(button.type, this.props.meta)}
-						>
-							{button.text}
-						</Button>
-					</div>
-				))}
-			</div>
-		);
-	}
+function onButtonClick(type) {
+	window.open(socialLink(type));
 }
+
+export default function Sharing() {
+	return (
+		<div className='sharing'>
+			{buttons.map((button) => (
+				<div key={button.type} className='sharing__item'>
+					<Button
+						mod='social'
+						component='a'
+						icon={`social-${button.type}`}
+						onClick={onButtonClick.bind(this, button.type)}
+					>
+						{button.text}
+					</Button>
+				</div>
+			))}
+		</div>
+	);
+}
+
+Sharing.propTypes = {
+	meta: React.PropTypes.object,
+};

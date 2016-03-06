@@ -10,7 +10,11 @@ import './styles.css';
 
 const socials = ['vk', 'fb', 'tw', 'gp'];
 
-export default function Thanks({ meta }) {
+function onButtonClick(type) {
+	window.open(socialLink(type));
+}
+
+export default function Thanks() {
 	return (
 		<div className='thanks'>
 			<Row>
@@ -38,8 +42,7 @@ export default function Thanks({ meta }) {
 								<a
 									key={index}
 									className='thanks__social'
-									target='_blank'
-									href={socialLink(social, meta)}
+									onClick={onButtonClick.bind(this, social)}
 								>
 									<Icon icon={`social-${social}`} />
 								</a>

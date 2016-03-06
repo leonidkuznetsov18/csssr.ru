@@ -1,16 +1,13 @@
 import React from 'react';
-import getPageMetadata from 'helpers/getPageMetadata';
+import Helmet from 'react-helmet';
+
 import Application from 'components/application';
+import { index } from 'data/meta';
 
 export default class ApplicationContainer extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node,
 		location: React.PropTypes.object,
-	}
-
-	setPageTitle() {
-		const meta = getPageMetadata(this.props.location.pathname);
-		document.title = meta.pageTitle;
 	}
 
 	openSidebar = (event) => {
@@ -55,7 +52,6 @@ export default class ApplicationContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setPageTitle();
 		this.setState({
 			mounted: true,
 		});
@@ -65,23 +61,19 @@ export default class ApplicationContainer extends React.Component {
 		}
 	}
 
-	componentDidUpdate() {
-		this.setPageTitle();
-	}
-
 	render() {
-		const meta = getPageMetadata(this.props.location.pathname);
-
 		return (
 			<Application
 				{...this.props}
-				meta={meta}
 				active={this.state.active}
 				overflow={this.state.overflow}
 				mounted={this.state.mounted}
 				openSidebar={this.openSidebar}
 				closeSidebar={this.closeSidebar}
-			/>
+			>
+				<Helmet {...index} />
+				{this.props.children}
+			</Application>
 		);
 	}
 }

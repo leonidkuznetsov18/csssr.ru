@@ -11,7 +11,7 @@ export function sendOutsourceForm(values) {
 			.post('/outsource')
 			.send(formData)
 			.end(() => {
-				dispatch(push('/thanks/outsource'));
+				dispatch(push('/outsource/thanks'));
 			});
 	};
 }

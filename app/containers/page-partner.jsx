@@ -29,9 +29,7 @@ export default class PagePartner extends React.Component {
 			active: false,
 		});
 
-		setTimeout(() => {
-			this.props.history.push('/outsource');
-		}, 300);
+		this.props.history.push('/outsource');
 	}
 
 	render() {

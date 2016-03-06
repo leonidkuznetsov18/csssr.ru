@@ -12,7 +12,7 @@ export function sendOrderForm(values) {
 			.post('/order')
 			.send(values)
 			.end(() => {
-				dispatch(push('/thanks/order'));
+				dispatch(push('/order/thanks'));
 			});
 	};
 }

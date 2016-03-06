@@ -1,10 +1,12 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 import PortfolioBanner from 'components/portfolio-banner';
 import Portfolio from 'components/portfolio';
 import Content from 'components/content';
+import { portfolio } from 'data/meta';
 
-const portfolio = require('data/portfolio.json');
+const portfolioData = require('data/portfolio.json');
 const projects = require('data/projects.json');
 
 export default class PagePortfolio extends React.Component {
@@ -15,9 +17,10 @@ export default class PagePortfolio extends React.Component {
 	render() {
 		return (
 			<div>
+				<Helmet {...portfolio} />
 				<PortfolioBanner/>
 				<Content>
-					<Portfolio data={portfolio} projects={projects}/>
+					<Portfolio data={portfolioData} projects={projects}/>
 				</Content>
 				{this.props.children}
 			</div>

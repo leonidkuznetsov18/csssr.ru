@@ -12,7 +12,7 @@ export function sendAnswerForm(values) {
 			.post('/jobs')
 			.send(formData)
 			.end(() => {
-				dispatch(push(`/thanks/${values.vacancy}`));
+				dispatch(push(`/jobs/${values.vacancy}/thanks`));
 			});
 	};
 }

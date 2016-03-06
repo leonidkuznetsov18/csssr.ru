@@ -1,10 +1,13 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+
 import TimelineList from 'components/timeline-list';
 import Title from 'components/title';
 import Text from 'components/text';
 import Content from 'components/content';
+import { timeline } from 'data/meta';
 
-const timeline = require('data/timeline.json');
+const timelineData = require('data/timeline.json');
 
 export default class PageTimeline extends React.Component {
 	static propTypes = {
@@ -15,6 +18,7 @@ export default class PageTimeline extends React.Component {
 	render() {
 		return (
 			<Content>
+				<Helmet {...timeline} />
 				<Title center>
 					История CSSSR
 				</Title>
@@ -24,7 +28,7 @@ export default class PageTimeline extends React.Component {
 					<br/>
 					ключевых событий нашей истории.
 				</Text>
-				<TimelineList data={timeline} />
+				<TimelineList data={timelineData} />
 				{this.props.children}
 			</Content>
 		);

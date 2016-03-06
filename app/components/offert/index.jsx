@@ -37,6 +37,7 @@ export default function Offert({ data }) {
 					</div>
 				))}
 			</div>
+			{this.props.children}
 		</Content>
 	);
 }
