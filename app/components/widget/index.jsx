@@ -61,12 +61,13 @@ export default class Widget extends React.Component {
 	renderWidget() {
 		return (
 			<iframe
-			className='widget__frame'
-			scrolling='no'
-			frameBorder='0'
-			src={url[this.props.type]}
-			onLoad={this.onLoad.bind(this)}
-			{...this.props}/>
+				className='widget__frame'
+				scrolling='no'
+				frameBorder='0'
+				src={url[this.props.type]}
+				onLoad={this.onLoad.bind(this)}
+				{...this.props}
+			/>
 		);
 	}
 
@@ -77,10 +78,10 @@ export default class Widget extends React.Component {
 
 		return (
 			<a className='twitter-timeline'
-			href='https://twitter.com/csssr_dev'
-			data-chrome='nofooter noheader noborder'
-			data-tweet-limit='1'
-			data-widget-id='705435656353398784'>
+				href='https://twitter.com/csssr_dev'
+				data-chrome='nofooter noheader noborder'
+				data-tweet-limit='1'
+				data-widget-id='705435656353398784'>
 				Tweets by @csssr_dev
 			</a>
 		);
