@@ -95,11 +95,6 @@ export default class Contacts extends React.Component {
 					</div>
 					<div className='contacts__widget'>
 						{this.state.active &&
-							<Widget type='gp'/>
-						}
-					</div>
-					<div className='contacts__widget'>
-						{this.state.active &&
 							<Widget type='tw'/>
 						}
 					</div>
@@ -108,4 +103,3 @@ export default class Contacts extends React.Component {
 		);
 	}
 }
-
