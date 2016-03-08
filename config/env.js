@@ -7,6 +7,6 @@ const env = {
 
 export default {
 	...env,
-	...require(`./env.${process.env.NODE_ENV || 'development'}.js`),
+	...require(`./env.${process.env.ENV || 'development'}.js`),
 	...process.env,
 };

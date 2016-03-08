@@ -1,1 +1,1 @@
-PORT=3030 NODE_ENV=production npm run production
+PORT=3030 ENV=production npm run production
