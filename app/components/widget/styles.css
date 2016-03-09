@@ -70,11 +70,9 @@
 		overflow: hidden;
 	}
 
-	&_type_tw & {
-		&__frame {
-			top: -30px;
-			height: 195px;
-			left: -8px;
-		}
-	}
+}
+
+.twitter-timeline {
+	border-left: 1px solid rgba(15, 70, 100, .12) !important;
+	border-right: 1px solid rgba(15, 70, 100, .12) !important;
 }
