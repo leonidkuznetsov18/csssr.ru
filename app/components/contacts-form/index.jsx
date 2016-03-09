@@ -1,9 +1,11 @@
 import React from 'react';
+import cx from 'classnames';
 
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
 import Link from 'components/link';
 import Button from 'components/button';
+import Circloader from 'components/circloader';
 import FieldPhone from 'components/field-phone';
 
 import './styles.css';
@@ -11,6 +13,7 @@ import './styles.css';
 export default class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		submitting: React.PropTypes.bool.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
@@ -28,6 +31,15 @@ export default class ContactsForm extends React.Component {
 	}
 
 	render() {
+		const buttonClass = cx({
+			'contacts-form__submit': true,
+			'contacts-form__submit_disabled': this.props.submitting,
+		});
+		const loaderClass = cx({
+			'contacts-form__loader': true,
+			'contacts-form__loader_active': this.props.submitting,
+		});
+
 		return (
 			<form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
 				{this.renderField('name', 'Ваше имя')}
@@ -56,12 +68,15 @@ export default class ContactsForm extends React.Component {
 					</Link>
 				</Checkbox>
 
-				<div className='contacts-form__button'>
+				<div className={buttonClass}>
 					<Button mod='form' type='submit'>
 						— Поехали!
 					</Button>
 				</div>
 
+				<div className={loaderClass}>
+					<Circloader/>
+				</div>
 			</form>
 		);
 	}

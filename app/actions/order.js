@@ -1,4 +1,5 @@
 import superagent from 'superagent';
+import { stopSubmit } from 'redux-form';
 import { push } from 'react-router-redux';
 
 export function sendOrderForm(values) {
@@ -12,6 +13,7 @@ export function sendOrderForm(values) {
 			.post('/order')
 			.send(values)
 			.end(() => {
+				dispatch(stopSubmit('order'));
 				dispatch(push('/order/thanks'));
 			});
 	};

@@ -69,7 +69,6 @@ export default class PageJob extends React.Component {
 				...values,
 				vacancy: this.props.jobName,
 			}));
-			resolve();
 		});
 	}
 

@@ -35,7 +35,6 @@ export default class FormOutsource extends React.Component {
 			}
 
 			dispatch(sendOutsourceForm(values));
-			resolve();
 		});
 	}
 

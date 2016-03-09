@@ -74,8 +74,6 @@ export default class FormOrder extends React.Component {
 				...values,
 				files,
 			}));
-
-			resolve();
 		});
 	}
 

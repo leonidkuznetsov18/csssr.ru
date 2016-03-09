@@ -1,4 +1,5 @@
 import superagent from 'superagent';
+import { stopSubmit } from 'redux-form';
 import { push } from 'react-router-redux';
 
 export function sendOutsourceForm(values) {
@@ -11,6 +12,7 @@ export function sendOutsourceForm(values) {
 			.post('/outsource')
 			.send(formData)
 			.end(() => {
+				dispatch(stopSubmit('outsource'));
 				dispatch(push('/outsource/thanks'));
 			});
 	};

@@ -1,4 +1,5 @@
 import superagent from 'superagent';
+import { stopSubmit } from 'redux-form';
 import { push } from 'react-router-redux';
 
 export function sendAnswerForm(values) {
@@ -12,6 +13,7 @@ export function sendAnswerForm(values) {
 			.post('/jobs')
 			.send(formData)
 			.end(() => {
+				dispatch(stopSubmit('job'));
 				dispatch(push(`/jobs/${values.vacancy}/thanks`));
 			});
 	};

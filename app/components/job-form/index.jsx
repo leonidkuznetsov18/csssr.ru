@@ -1,9 +1,11 @@
 import React from 'react';
+import cx from 'classnames';
 import Field from 'components/field';
 import FieldFile from 'components/field-file';
 import FieldPhone from 'components/field-phone';
 import Button from 'components/button';
 import Checkbox from 'components/checkbox';
+import Circloader from 'components/circloader';
 import Link from 'components/link';
 import Text from 'components/text';
 
@@ -12,6 +14,7 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		submitting: React.PropTypes.bool.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
@@ -35,6 +38,15 @@ export default class JobAnswerForm extends React.Component {
 	}
 
 	render() {
+		const buttonClass = cx({
+			'job-form__submit': true,
+			'job-form__submit_disabled': this.props.submitting,
+		});
+		const loaderClass = cx({
+			'job-form__loader': true,
+			'job-form__loader_active': this.props.submitting,
+		});
+
 		return (
 			<form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
 				{this.renderField('firstname', 'Имя', {
@@ -74,10 +86,14 @@ export default class JobAnswerForm extends React.Component {
 					</Text>
 				</Checkbox>
 
-				<div className='job-form__submit'>
+				<div className={buttonClass}>
 					<Button mod='form' type='submit'>
 						— Поехали!
 					</Button>
+				</div>
+
+				<div className={loaderClass}>
+					<Circloader/>
 				</div>
 			</form>
 		);
