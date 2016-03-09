@@ -71,6 +71,9 @@ export default function (options) {
 		new webpack.DefinePlugin({
 			'global.GENTLY': false,
 		}),
+		new webpack.ProvidePlugin({
+			Promise: 'exports?global.Promise!es6-promise',
+		}),
 	];
 
 	if (options.prerender) {
