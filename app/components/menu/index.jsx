@@ -39,7 +39,7 @@ export default function Menu({ open, active }) {
 					</li>
 				))}
 				<li className='menu__item' onClick={open}>
-					<MenuItem component='a' active={active}>
+					<MenuItem component='a'>
 						Контакты
 					</MenuItem>
 				</li>
