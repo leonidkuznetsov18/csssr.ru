@@ -53,10 +53,13 @@ export default function (req, res) {
 	getToolsInfo(form)
 		.then((toolsData) => sendOrderMail(toolsData, req.body))
 		.then(() => {
-			res.status(200).end();
+			res.status(200)
+				.send({ result: 'OK' })
+				.end();
 		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).end();
+		.catch(() => {
+			res.status(500)
+				.send({ result: 'ERROR' })
+				.end();
 		});
 }

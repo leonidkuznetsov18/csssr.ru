@@ -9,7 +9,18 @@ export default function (req, res) {
 		request = request.field(key, req.body[key]);
 	});
 
-	request.end(() => {
-		res.status(200).end();
+	request.end((err, response) => {
+		if (err) {
+			res.status(500)
+				.send({ result: 'ERROR' })
+				.end();
+
+			return;
+		}
+
+		res
+			.send({ result: 'OK' })
+			.status(200)
+			.end();
 	});
 }

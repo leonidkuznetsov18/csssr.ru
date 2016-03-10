@@ -14,6 +14,14 @@ export default function (req, res) {
 		subject: 'CSSSR. Заказ на аутсорс',
 		html: renderOutsourceTemplate(req.body),
 	})
-		.then(() => res.send({ result: 'ok' }))
-		.catch(() => res.send({ result: 'fail' }));
+		.then(() => {
+			res.status(200)
+				.send({ result: 'OK' })
+				.end();
+		})
+		.catch(() => {
+			res.status(500)
+				.send({ result: 'ERROR' })
+				.end();
+		});
 }
