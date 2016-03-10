@@ -1,7 +1,6 @@
 .jobs-widget {
 	position: absolute;
 	z-index: 1;
-	width: 280px;
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
