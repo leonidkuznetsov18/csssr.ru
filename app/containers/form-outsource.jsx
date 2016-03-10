@@ -3,6 +3,13 @@ import { reduxForm } from 'redux-form';
 import { sendOutsourceForm } from 'actions/outsource';
 import ContactsForm from 'components/contacts-form';
 
+const requiredFields = [
+	'name',
+	'email',
+	'skype',
+	'phone',
+];
+
 @reduxForm({
 	form: 'outsource',
 	fields: [
@@ -50,6 +57,7 @@ export default class FormOutsource extends React.Component {
 			<ContactsForm
 				{...this.props}
 				handleSubmit={handleSubmit}
+				requiredFields={requiredFields}
 				error={error}
 			/>
 		);

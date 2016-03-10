@@ -14,6 +14,7 @@ import './styles.css';
 export default class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		requiredFields: React.PropTypes.array.isRequired,
 		error: React.PropTypes.object.isRequired,
 		submitting: React.PropTypes.bool.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
@@ -26,7 +27,7 @@ export default class ContactsForm extends React.Component {
 	renderField(name, label, props) {
 		return (
 			<Field
-				required
+				required={this.props.requiredFields.indexOf(name) !== -1}
 				name={name}
 				label={label}
 				maxLength='100'

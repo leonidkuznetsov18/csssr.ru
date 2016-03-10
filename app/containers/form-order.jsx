@@ -9,6 +9,11 @@ import * as actions from 'actions/files';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+const requiredFields = [
+	'email',
+	'phone',
+];
+
 @reduxForm({
 	form: 'order',
 	fields: [
@@ -51,7 +56,7 @@ export default class FormOrder extends React.Component {
 		return new Promise((resolve, reject) => {
 			const errors = {};
 
-			['email', 'phone'].forEach((key) => {
+			requiredFields.forEach((key) => {
 				if (!values[key]) {
 					errors[key] = true;
 				}
@@ -97,6 +102,7 @@ export default class FormOrder extends React.Component {
 				<ContactsForm
 					{...this.props}
 					handleSubmit={handleSubmit}
+					requiredFields={requiredFields}
 					error={error}
 				/>
 			</div>
