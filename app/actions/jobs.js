@@ -12,9 +12,16 @@ export function sendAnswerForm(values) {
 		superagent
 			.post('/jobs')
 			.send(formData)
-			.end(() => {
-				dispatch(stopSubmit('job'));
-				dispatch(push(`/jobs/${values.vacancy}/thanks`));
+			.end((err, response) => {
+				if (response.statusCode === 200) {
+					dispatch(stopSubmit('job'));
+					dispatch(push(`/jobs/${values.vacancy}/thanks`));
+					return;
+				}
+
+				dispatch(stopSubmit('job', {
+					_error: true,
+				}));
 			});
 	};
 }

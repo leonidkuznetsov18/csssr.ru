@@ -8,12 +8,14 @@ import Checkbox from 'components/checkbox';
 import Circloader from 'components/circloader';
 import Link from 'components/link';
 import Text from 'components/text';
+import FormValidationWindow from 'components/form-validation-window';
 
 import './styles.css';
 
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		error: React.PropTypes.bool,
 		submitting: React.PropTypes.bool.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
@@ -49,6 +51,14 @@ export default class JobAnswerForm extends React.Component {
 
 		return (
 			<form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
+				{this.props.error &&
+					<div className='job-form__error'>
+						<FormValidationWindow
+							title='ВНИМАНИЕ!'
+							text='Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.'
+						/>
+					</div>
+				}
 				{this.renderField('firstname', 'Имя', {
 					small: true,
 				})}

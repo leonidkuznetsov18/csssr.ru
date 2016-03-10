@@ -12,9 +12,16 @@ export function sendOrderForm(values) {
 		superagent
 			.post('/order')
 			.send(values)
-			.end(() => {
-				dispatch(stopSubmit('order'));
-				dispatch(push('/order/thanks'));
+			.end((err, response) => {
+				if (response.statusCode === 200) {
+					dispatch(stopSubmit('order'));
+					dispatch(push('/order/thanks'));
+					return;
+				}
+
+				dispatch(stopSubmit('order', {
+					_error: true,
+				}));
 			});
 	};
 }

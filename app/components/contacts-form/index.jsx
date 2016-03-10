@@ -7,14 +7,20 @@ import Link from 'components/link';
 import Button from 'components/button';
 import Circloader from 'components/circloader';
 import FieldPhone from 'components/field-phone';
+import FormValidationWindow from 'components/form-validation-window';
 
 import './styles.css';
 
 export default class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
+		error: React.PropTypes.object.isRequired,
 		submitting: React.PropTypes.bool.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
+	}
+
+	static defaultProps = {
+		error: {},
 	}
 
 	renderField(name, label, props) {
@@ -42,6 +48,12 @@ export default class ContactsForm extends React.Component {
 
 		return (
 			<form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
+				{(this.props.error.text || this.props.error.title) &&
+					<div className='contacts-form__error'>
+						<FormValidationWindow {...this.props.error} />
+					</div>
+				}
+
 				{this.renderField('name', 'Ваше имя')}
 				{this.renderField('email', 'Электронная почта')}
 				{this.renderField('skype', 'Скайп')}

@@ -27,4 +27,11 @@
 			opacity: 1;
 		}
 	}
+
+	&__error {
+		width: 280px;
+		position: absolute;
+		margin-top: 20px;
+		margin-left: 430px;
+	}
 }

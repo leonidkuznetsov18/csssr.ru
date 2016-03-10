@@ -3,7 +3,6 @@ import { reduxForm } from 'redux-form';
 import { sendOrderForm } from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
-import FormValidationWindow from 'components/form-validation-window';
 import ContactsForm from 'components/contacts-form';
 import options from 'data/order-options.json';
 import * as actions from 'actions/files';
@@ -42,6 +41,7 @@ export default class FormOrder extends React.Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
 		files: React.PropTypes.array,
+		error: React.PropTypes.bool,
 		fields: React.PropTypes.object,
 	}
 
@@ -80,20 +80,24 @@ export default class FormOrder extends React.Component {
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
 		const { fields } = this.props;
-		const error = fields.files.error;
+		const error = {};
+
+		if (fields.files.error) {
+			error.text = fields.files.error;
+		} else if (this.props.error) {
+			error.title = 'Внимание!';
+			error.text = 'Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.';
+		}
 
 		return (
 			<div>
 				<Uploader {...this.props} />
 				<Options {...this.props} options={options} />
 
-				{error &&
-					<FormValidationWindow text={error} />
-				}
-
 				<ContactsForm
 					{...this.props}
 					handleSubmit={handleSubmit}
+					error={error}
 				/>
 			</div>
 		);

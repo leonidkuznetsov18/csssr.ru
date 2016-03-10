@@ -15,6 +15,7 @@ import ContactsForm from 'components/contacts-form';
 export default class FormOutsource extends React.Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
+		error: React.PropTypes.bool,
 	}
 
 	handleSubmit = (values, dispatch) => {
@@ -40,11 +41,16 @@ export default class FormOutsource extends React.Component {
 
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
+		const error = this.props.error ? {
+			title: 'Внимание!',
+			text: 'Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.',
+		} : {};
 
 		return (
 			<ContactsForm
 				{...this.props}
 				handleSubmit={handleSubmit}
+				error={error}
 			/>
 		);
 	}

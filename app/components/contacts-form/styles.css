@@ -30,4 +30,11 @@
 			opacity: 1;
 		}
 	}
+
+	&__error {
+		position: absolute;
+		margin-top: 20px;
+		margin-left: 460px;
+		width: 280px;
+	}
 }

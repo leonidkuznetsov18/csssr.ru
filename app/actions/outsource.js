@@ -11,9 +11,16 @@ export function sendOutsourceForm(values) {
 		superagent
 			.post('/outsource')
 			.send(formData)
-			.end(() => {
-				dispatch(stopSubmit('outsource'));
-				dispatch(push('/outsource/thanks'));
+			.end((err, response) => {
+				if (response.statusCode === 200) {
+					dispatch(stopSubmit('outsource'));
+					dispatch(push('/outsource/thanks'));
+					return;
+				}
+
+				dispatch(stopSubmit('outsource', {
+					_error: true,
+				}));
 			});
 	};
 }
