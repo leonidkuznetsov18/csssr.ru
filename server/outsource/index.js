@@ -1,19 +1,18 @@
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+
+import MailOutsource from 'mails/outsource';
 import sendMail from '../lib/mail';
 
-export default function (req, res) {
-	const renderOutsourceTemplate = ({ name, email, skype, phone }) => `
-		<p>
-			Контактное лицо: ${name}<br>
-			Электронная почта: <a href="mailto:${email}">${email}</a><br>
-			Скайп: ${skype}<br>
-			Телефон: ${phone}<br>
-		</p>
-	`;
-
-	sendMail({
+function sendOutsourceMail(data) {
+	return sendMail({
 		subject: 'CSSSR. Заказ на аутсорс',
-		html: renderOutsourceTemplate(req.body),
-	})
+		html: ReactDOMServer.renderToStaticMarkup(<MailOutsource data={data}/>),
+	});
+}
+
+export default function (req, res) {
+	sendOutsourceMail(req.body)
 		.then(() => {
 			res.status(200)
 				.send({ result: 'OK' })
