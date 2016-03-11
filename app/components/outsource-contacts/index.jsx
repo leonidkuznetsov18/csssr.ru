@@ -19,7 +19,7 @@ export default function OutsourceContacts({ children }) {
 					</Title>
 					<Text>
 						Как гласит древняя китайская пословица: написание 1000
-						строк кода начинается с заполения формы.
+						строк кода начинается с заполнения формы.
 					</Text>
 				</Column>
 			</Row>
