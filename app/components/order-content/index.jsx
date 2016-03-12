@@ -1,12 +1,11 @@
 import React from 'react';
 import Title from 'components/title';
 import Text from 'components/text';
-import OrderForm from 'containers/order-form';
+import FormOrder from 'containers/form-order';
 
 import './styles.css';
 
 const data = require('data/order-content.json');
-
 
 export default class OrderContent extends React.Component {
 	render() {
@@ -17,7 +16,7 @@ export default class OrderContent extends React.Component {
 					<Text>{data.description[0]}</Text>
 					{data.description.slice(1).map((content, i) => <Text size='m' key={i}>{content}</Text>)}
 					<div dangerouslySetInnerHTML={{ __html: '<!--noindex-->' }} />
-					<OrderForm />
+					<FormOrder />
 					<div dangerouslySetInnerHTML={{ __html: '<!--/noindex-->' }} />
 				</div>
 			</div>
