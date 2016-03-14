@@ -398,284 +398,12 @@
 }, {
 	"name": "Форум ГИС ЖКХ",
 	"date": "26.04.2015",
-	"url": "http://gisgkh.csssr.ru/",
-	"view": "gisgkh",
-	"pages": [{
-		"name": "Главная страница форумов",
-		"page": "main"
-	}, {
-		"name": "Соглашение о правилах",
-		"page": "terms-of-service"
-	}, {
-		"name": "Личные данные",
-		"page": "reg-personal"
-	}, {
-		"name": "Список тем",
-		"page": "topics-list"
-	}, {
-		"name": "Тема с сообщениями",
-		"page": "topic-msg"
-	}, {
-		"name": "Профиль пользователя",
-		"page": "profile"
-	}, {
-		"name": "Новое личное сообщение",
-		"page": "msg-new"
-	}, {
-		"name": "Поиск пользователей",
-		"page": "user-search"
-	}, {
-		"name": "Модерация - Список форумов",
-		"page": "forums-list"
-	}, {
-		"name": "Модерация - Проверка соообщений",
-		"page": "forums-msg-check"
-	}, {
-		"name": "Сообщения",
-		"page": "topic-msg-moderate"
-	}, {
-		"name": "Голосование в теме",
-		"page": "topic-msg-vote"
-	}, {
-		"name": "Результаты голосования в теме",
-		"page": "topic-msg-vote-results"
-	}, {
-		"name": "Закрытая тема",
-		"page": "topic-msg-disabled"
-	}, {
-		"name": "Тема с анкетой",
-		"page": "topic-msg-form"
-	}, {
-		"name": "Редактирование сообщения - Быстрый ответ",
-		"page": "topic-msg-edit"
-	}, {
-		"name": "Сообщения с прикрепленными файлами",
-		"page": "topic-msg-files"
-	}, {
-		"name": "Поиск",
-		"page": "search"
-	}, {
-		"name": "Авторизация",
-		"page": "sign-in"
-	}, {
-		"name": "Результаты поиска",
-		"page": "search-result"
-	}, {
-		"name": "Закладки",
-		"page": "bookmarks-list"
-	}, {
-		"name": "Редактирование закладки",
-		"page": "bookmark-edit"
-	}, {
-		"name": "Последние темы",
-		"page": "last-topics"
-	}, {
-		"name": "Лог модерирования",
-		"page": "moderation-logs"
-	}, {
-		"name": "Администрирование",
-		"page": "administration"
-	}, {
-		"name": "Список групп",
-		"page": "group-list"
-	}, {
-		"name": "Управление группами",
-		"page": "group-manag"
-	}, {
-		"name": "Управление правами групп",
-		"page": "user-groups-rights"
-	}, {
-		"name": "Управление пользователями",
-		"page": "user-management"
-	}, {
-		"name": "Личные сообщения",
-		"page": "msg-private"
-	}, {
-		"name": "Список категорий",
-		"page": "category-list"
-	}, {
-		"name": "Упавление категориями",
-		"page": "category-manag"
-	}, {
-		"name": "Список званий",
-		"page": "rank-list"
-	}, {
-		"name": "Статистика поиска",
-		"page": "search-statistic"
-	}, {
-		"name": "Настройки",
-		"page": "settings"
-	}, {
-		"name": "Управление размерами прикреплений",
-		"page": "file-size-manage"
-	}, {
-		"name": "Общие настройки прикреплений",
-		"page": "attach-options"
-	}, {
-		"name": "Расширения прикреплений",
-		"page": "file-extension-manage"
-	}, {
-		"name": "Востановление пароля",
-		"page": "forgot-password"
-	}, {
-		"name": "Список участников",
-		"page": "users-list"
-	}, {
-		"name": "Управление званиями",
-		"page": "rank-manage"
-	}, {
-		"name": "Ожидание модерации сообщения",
-		"page": "msg-waiting-moderate"
-	}, {
-		"name": "Просмотр личного сообщения",
-		"page": "msg-view"
-	}, {
-		"name": "Раздел в разработке",
-		"page": "section-development"
-	}, {
-		"name": "Список заблокированных пользователей",
-		"page": "ban-list-users"
-	}, {
-		"name": "Банлист - Добавление заблокированного пользователя",
-		"page": "add-user-ban"
-	}, {
-		"name": "Добавить новую группу расширений",
-		"page": "add-file-extensions"
-	}, {
-		"name": "Ожидание активации",
-		"page": "activation-waiting"
-	}, {
-		"name": "Список смайлов",
-		"page": "smiles-list"
-	}, {
-		"name": "Редактирование смайлов",
-		"page": "smiles-moderate"
-	}, {
-		"name": "Подтверждение удаления",
-		"page": "confirm-delete"
-	}, {
-		"name": "Тема с цитатой",
-		"page": "topic-msg-quote"
-	}, {
-		"name": "Список сообщений на модерацию",
-		"page": "msg-moderate-list"
-	}, {
-		"name": "Создание темы",
-		"page": "topic-create"
-	}, {
-		"name": "Добавление ответа",
-		"page": "msg-answer"
-	}, {
-		"name": "Регистрация",
-		"page": "registration"
-	}, {
-		"name": "Вы прошли регистрацию",
-		"page": "completion-reg"
-	}, {
-		"name": "Новый пароль",
-		"page": "new-password"
-	}, {
-		"name": "Управление форумом",
-		"page": "forum-manage"
-	},  {
-		"name": "Сообщения, отправленные пользоватедем",
-		"page": "sent-messages"
-	},  {
-		"name": "Группы для пользователя",
-		"page": "groups-for-user"
-	},  {
-		"name": "Список тем с открытыми опциями модератора",
-		"page": "topics-list-moderate"
-	},  {
-		"name": "Перемещение темы",
-		"page": "move-theme"
-	},  {
-		"name": "Кэш",
-		"page": "cash"
-	},  {
-		"name": "Настройки кэша",
-		"page": "cash-settings"
-	},  {
-		"name": "Заблокированный пользователь",
-		"page": "user-locked"
-	},  {
-		"name": "Темы на модерировании",
-		"page": "theme-on-moderate"
-	},  {
-		"name": "UI-Kit",
-		"page": "ui-kit"
-	}, {
-		"name": "Мобильная версия",
-		"page": "pages-mobile/index"
-	}]
-}, {
-	"name": "Дашборд с графиками для Keen Steps",
-	"date": "17.04.2015",
-	"url": "http://dashboard.csssr.ru/"
-}, {
-	"name": "Адаптивный интернет-магазин KAMBROOK",
-	"date": "16.04.2015",
-	"url": "http://kambrook-adaptive.csssr.ru/",
-	"view": "kambrook-adaptive",
-	"pages": [{
-		"name": "Главная",
-		"page": "index-page"
-	}, {
-		"name": "Категории",
-		"page": "categories-page"
-	}, {
-		"name": "Товары",
-		"page": "products-page"
-	}, {
-		"name": "Товар",
-		"page": "product-page"
-	}, {
-		"name": "Сравнение",
-		"page": "compare-page"
-	}, {
-		"name": "Поддержка - Контакты",
-		"page": "contacts-page"
-	}, {
-		"name": "Поддержка - Сервис-центры",
-		"page": "services-page"
-	}, {
-		"name": "Поддержка - Сервис-центр",
-		"page": "service-page"
-	}, {
-		"name": "Поддержка - Доставка",
-		"page": "delivery"
-	}, {
-		"name": "Поддержка - Оплата",
-		"page": "payment"
-	}, {
-		"name": "Корзина, шаг 1",
-		"page": "cart-1"
-	}, {
-		"name": "Корзина, шаг 2",
-		"page": "cart-2"
-	}, {
-		"name": "Корзина, шаг 3",
-		"page": "cart-3"
-	}, {
-		"name": "Корзина, шаг 4",
-		"page": "cart-4"
-	}, {
-		"name": "404",
-		"page": "404"
-	}, {
-		"name": "О компании",
-		"page": "about"
-	}, {
-		"name": "Поиск",
-		"page": "search"
-	}, {
-		"name": "Страница с контентом",
-		"page": "content-page"
-	}]
+	"view": "",
+	"pages": [{}]
 }, {
 	"name": "Адаптивный лэндинг Берокки",
 	"date": "15.04.2015",
-	"url": "http://berocca.csssr.ru",
+	"url": "http://berocca.csssr.ru/",
 	"view": "berocca",
 	"featuring": [{
 		"company": "Catzwolf",
@@ -1829,7 +1557,7 @@
 	"view": "4game-csssr",
 	"pages": [{
 		"name": "Премиум-аккаунт",
-		"page": "Premium/l2-premium"
+		"page": "Premium/l2-premium/"
 	}, {
 		"name": "Тренировочный лагерь",
 		"page": "TrenLagger/l2-tren-lager"
@@ -2089,7 +1817,7 @@
 }, {
 	"name": "Лэндинг проекта FastFoxes",
 	"date": "29.04.2014",
-	"url": "http://fastfoxes.com/"
+	"view": "fastfoxes"
 }, {
 	"name": "Сайт проекта rvTV",
 	"date": "24.04.2014",
@@ -2209,7 +1937,7 @@
 	"view": "digibu",
 	"pages": [{
 		"name": "Главная",
-		"page": "index"
+		"page": "main"
 	}, {
 		"name": "Журнал",
 		"page": "journal"
