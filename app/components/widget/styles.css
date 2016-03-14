@@ -33,7 +33,7 @@
 	}
 
 	&_state_active & {
-		.__loader {
+		&__loader {
 			opacity: 0;
 		}
 
