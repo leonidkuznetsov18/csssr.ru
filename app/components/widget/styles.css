@@ -53,14 +53,9 @@
 		height: 230px;
 	}
 
-	&_type_gp {
-		width: 200px;
-		height: 264px;
-	}
-
 	&_type_tw {
 		width: 450px;
-		height: 190px;
+		height: 134px;
 		overflow: hidden;
 	}
 
@@ -70,11 +65,8 @@
 		overflow: hidden;
 	}
 
-	&_type_tw & {
-		&__frame {
-			top: -30px;
-			height: 195px;
-			left: -8px;
-		}
+	&_type_tw&_state_active {
+		border-left: 1px solid rgba(15, 70, 100, .12);
+		border-right: 1px solid rgba(15, 70, 100, .12);
 	}
 }
