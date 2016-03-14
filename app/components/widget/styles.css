@@ -33,7 +33,7 @@
 	}
 
 	&_state_active & {
-		&__loader {
+		.__loader {
 			opacity: 0;
 		}
 
@@ -65,9 +65,8 @@
 		overflow: hidden;
 	}
 
-}
-
-.twitter-timeline {
-	border-left: 1px solid rgba(15, 70, 100, .12) !important;
-	border-right: 1px solid rgba(15, 70, 100, .12) !important;
+	&_type_tw&_state_active {
+		border-left: 1px solid rgba(15, 70, 100, .12);
+		border-right: 1px solid rgba(15, 70, 100, .12);
+	}
 }
