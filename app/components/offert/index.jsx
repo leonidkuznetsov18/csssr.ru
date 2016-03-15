@@ -3,7 +3,7 @@ import Content from 'components/content';
 
 import './styles.css';
 
-export default function Offert({ data }) {
+export default function Offert({ data, children }) {
 	return (
 		<Content>
 			<div className='offert'>
@@ -37,7 +37,7 @@ export default function Offert({ data }) {
 					</div>
 				))}
 			</div>
-			{this.props.children}
+			{children}
 		</Content>
 	);
 }
