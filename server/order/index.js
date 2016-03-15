@@ -36,7 +36,11 @@ function getToolsInfo(form) {
 					reject(err);
 				}
 
-				resolve(JSON.parse(res.text));
+				try {
+					resolve(JSON.parse(res.text));
+				} catch (err) {
+					reject(res.text)
+				}
 			});
 	});
 }
@@ -53,6 +57,7 @@ export default function (req, res) {
 
 	getToolsInfo(form)
 		.then((toolsData) => sendOrderMail(toolsData, req.body))
+		.catch(() => sendOrderMail({}, req.body))
 		.then(() => {
 			res.status(200)
 				.send({ result: 'OK' })
