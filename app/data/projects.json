@@ -1305,7 +1305,7 @@
 	"view": "2tbank",
 	"pages": [{
 		"name": "Лэндинг",
-		"page": "landing_vns/index"
+		"page": "index"
 	}, {
 		"name": "Шаг 1",
 		"page": "step1"
@@ -1556,17 +1556,17 @@
 	"date": "21.06.2014",
 	"view": "4game-csssr",
 	"pages": [{
-		"name": "Премиум-аккаунт",
-		"page": "Premium/l2-premium/"
+		"name": "Lineage 2 - Премиум-аккаунт",
+		"page": "l2-premium"
 	}, {
-		"name": "Тренировочный лагерь",
-		"page": "TrenLagger/l2-tren-lager"
+		"name": "Lineage 2 - Тренировочный лагерь",
+		"page": "l2-tren-lagger"
 	}, {
 		"name": "Point Blank",
-		"page": "PointBlank/pbpage"
+		"page": "point-blank"
 	}, {
 		"name": "Атлантика",
-		"page": "Atlantika/atlantika"
+		"page": "atlantika"
 	}]
 }, {
 	"name": "Сайт журнала «Генеральный Директор»",
