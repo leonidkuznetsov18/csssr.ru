@@ -2,11 +2,6 @@
 /build
 .vagrant
 npm-debug.log
-/uploads
+/static/uploads
 .idea/
-floorc.json
-.flooignore
-.floo
 .DS_Store
-static/uploads
-dist

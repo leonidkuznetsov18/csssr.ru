@@ -21,6 +21,7 @@ function getFormData(data) {
 		),
 		link: data.filesLink,
 		files: data.files,
+		siteUrl: process.env.SITE_URL,
 		lang: 'ru',
 	};
 }
