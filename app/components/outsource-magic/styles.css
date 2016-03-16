@@ -7,7 +7,16 @@
 	&::after {
 		margin-left: 426px;
 		left: calc((100% - 918px) * 0.5);
+
+		@media (max-width: 1100px) {
+			left: 21px;
+		}
+
+		@media (min-width: 1300px) {
+			left: calc(8.5% + 16px);
+		}
 	}
+
 
 	&::before {
 		position: absolute;
@@ -33,12 +42,28 @@
 		left: -40px;
 		margin-left: 60px;
 		width: calc((100% - 918px) * 0.5 + 329px);
+
+		@media (max-width: 1100px) {
+			width: calc(21px + 329px);
+		}
+
+		@media (min-width: 1300px) {
+			width: calc(8.5% + 16px + 329px);
+		}
 	}
 
 	&__right {
 		right: -40px;
 		max-width: 521px;
 		left: calc((100% - 918px) * 0.5 + 506px);
+
+		@media (max-width: 1100px) {
+			left: calc(21px + 506px);
+		}
+
+		@media (min-width: 1300px) {
+			left: calc(8.5% + 16px + 506px);
+		}
 
 		&:before {
 			top: 220px;
@@ -51,6 +76,10 @@
 			background-repeat: no-repeat;
 			background-size: 69px 36px;
 			background-position: right center;
+
+			@media (max-width: 1100px) {
+				width: 49px;
+			}
 		}
 	}
 
@@ -87,6 +116,10 @@
 			line-height: 26px;
 			text-align: center;
 			white-space: nowrap;
+
+			@media (max-width: 1100px) {
+				top: -23px;
+			}
 		}
 	}
 
@@ -156,6 +189,10 @@
 		font-size: 14px;
 		line-height: 28px;
 		padding-left: 77px;
+
+		@media (max-width: 1100px) {
+			left: -20px;
+		}
 	}
 
 	&__gulp {
@@ -165,7 +202,6 @@
 	&__grunt {
 		top: 238px;
 	}
-
 
 	&__wrapper {
 		position: relative;
@@ -183,6 +219,14 @@
 			background-position: right center;
 			height: 130px;
 			left: calc((100% - 918px) * 0.5 + 506px);
+
+			@media (max-width: 1100px) {
+					left: calc(21px + 506px);
+			}
+
+			@media (min-width: 1300px) {
+					left: calc(8.5% + 16px + 506px);
+			}
 		}
 
 		&::before {
@@ -196,6 +240,14 @@
 			background-position: left center;
 			height: 167px;
 			width: calc((100% - 918px) * 0.5 + 279px);
+
+			@media (max-width: 1100px) {
+				width: calc(21px + 279px);
+			}
+
+			@media (min-width: 1300px) {
+				width: calc(8.5% + 16px + 279px);
+			}
 		}
 	}
 
@@ -208,6 +260,14 @@
 		top: 123px;
 		margin-left: 348px;
 		left: calc((100% - 918px) * 0.5);
+
+		@media (max-width: 1100px) {
+			left: 21px;
+		}
+
+		@media (min-width: 1300px) {
+			left: calc(8.5% + 16px);
+		}
 	}
 
 	&__content {
@@ -245,6 +305,10 @@
 		border-width: 1px;
 		border-style: solid;
 		border-color: #333;
+
+		@media (max-width: 1100px) {
+			right: 4%;
+		}
 	}
 
 	&__title {
@@ -293,5 +357,3 @@
 		}
 	}
 }
-
-@import './media.css';
