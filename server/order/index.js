@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import superagent from 'superagent';
 
 import MailOrder from 'mails/order';
 import sendMail from '../lib/mail';
+import getToolsInfo from '../lib/getToolsInfo';
 
 function getFormData(data) {
 	return {
@@ -21,34 +21,20 @@ function getFormData(data) {
 		),
 		link: data.filesLink,
 		files: data.files,
-		siteUrl: process.env.SITE_URL,
+		labels: [
+			'ru',
+			'project',
+		],
 		lang: 'ru',
 	};
-}
-
-function getToolsInfo(form) {
-	return new Promise((resolve, reject) => {
-		superagent
-			.post(process.env.CRM_URL)
-			.send(form)
-			.end((err, res) => {
-				if (err) {
-					reject(err);
-				}
-
-				try {
-					resolve(JSON.parse(res.text));
-				} catch (err) {
-					reject(res.text)
-				}
-			});
-	});
 }
 
 function sendOrderMail(toolsData, data) {
 	return sendMail({
 		subject: `CSSSR. Заказ номер ${toolsData.unique_number}`,
-		html: ReactDOMServer.renderToStaticMarkup(<MailOrder toolsData={toolsData} data={data}/>),
+		html: ReactDOMServer.renderToStaticMarkup(
+			<MailOrder toolsData={toolsData} data={data} />
+		),
 	});
 }
 

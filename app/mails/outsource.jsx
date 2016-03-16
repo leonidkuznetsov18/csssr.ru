@@ -1,16 +1,41 @@
 import React from 'react';
 
-export default function MailOutsource({ data }) {
+export default function MailOutsource({ toolsData, data }) {
+	const orderNumber = toolsData.unique_number;
+
 	return (
 		<p>
-			Контактное лицо: ${data.name}<br/>
-			Электронная почта: <a href={`mailto:${data.email}`}>${data.email}</a><br/>
-			Скайп: ${data.skype}<br/>
-			Телефон: ${data.phone}<br/>
+			<a href={`http://test-tools.csssr.ru/order/${orderNumber}`}>
+				Детали заказа
+			</a>
+			<br/>
+			<p>
+				{data.name &&
+					<p style={{ margin: 0 }}>
+						Контактное лицо: {data.name}
+					</p>
+				}
+				{data.email &&
+					<p style={{ margin: 0 }}>
+						Электронная почта: {data.email}
+					</p>
+				}
+				{data.skype &&
+					<p style={{ margin: 0 }}>
+						Скайп: {data.skype}
+					</p>
+				}
+				{data.phone &&
+					<p style={{ margin: 0 }}>
+						Телефон: {data.phone}
+					</p>
+				}
+			</p>
 		</p>
 	);
 }
 
 MailOutsource.propTypes = {
+	toolsData: React.PropTypes.object,
 	data: React.PropTypes.object,
 };
