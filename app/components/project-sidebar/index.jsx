@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function ProjectSidebar({ project, onToggle }) {
 	return (
-		<div className='project-sidebar'>
+		<div className={styles.root}>
 			<span
-				className='project-sidebar__close'
+				className={styles.close}
 				rel='link'
 				onClick={() => onToggle(true)}
 			/>
 
-			<h1 className='project-sidebar__title'>
+			<h1 className={styles.title}>
 				{project.name}
 			</h1>
 
@@ -21,9 +21,11 @@ export default function ProjectSidebar({ project, onToggle }) {
 				{project.pages.map((page, index) => (
 					<li key={index}>
 						<Text size='xs'>
-							<Link className='project-sidebar__link'
-								activeClassName='project-sidebar__link_active'
-								to={`/portfolio/${project.view}/${page.page}`}>
+							<Link
+								className={styles.link}
+								activeClassName={styles.link_active}
+								to={`/portfolio/${project.view}/${page.page}`}
+							>
 
 								{page.name}
 							</Link>

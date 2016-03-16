@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import Field from 'components/field';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function FieldFild(props) {
 	return (
-		<div className='field-file'>
-			<div className='field-file__input'>
+		<div className={styles.root}>
+			<div className={styles.input}>
 				<Field
 					{...props}
 					value={props.value && props.value[0] && props.value[0].name}
@@ -14,11 +14,11 @@ export default function FieldFild(props) {
 				/>
 			</div>
 
-			<div className='field-file__button'>
+			<div className={styles.button}>
 				{props.buttonText}
 				<input
 					{...props}
-					className='field-file__file'
+					className={styles.file}
 					type='file'
 					value={null}
 					accept={props.fileAccept}
@@ -26,7 +26,7 @@ export default function FieldFild(props) {
 			</div>
 
 			{props.invalid && props.error &&
-				<div className='field-file__warning'>
+				<div className={styles.warning}>
 					{props.error}
 				</div>
 			}

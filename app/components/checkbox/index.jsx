@@ -2,14 +2,13 @@ import React from 'react';
 import cx from 'classnames';
 import Tooltip from 'components/tooltip';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Checkbox(props) {
 	const blockClass = cx({
-		checkbox: true,
+		[styles.root]: true,
 		[props.className]: props.className,
 	});
-
 	const inputProps = { ...props };
 	delete inputProps.children;
 
@@ -17,11 +16,11 @@ export default function Checkbox(props) {
 		<div className={blockClass}>
 			<input
 				{...inputProps}
-				className='checkbox__input'
+				className={styles.input}
 				type='checkbox'
 			/>
 			<label
-				className='checkbox__label'
+				className={styles.label}
 				htmlFor={props.id}
 			>
 				{props.children}

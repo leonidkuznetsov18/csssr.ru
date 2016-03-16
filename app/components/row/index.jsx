@@ -1,12 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Row(props) {
 	const blockClass = cx({
-		row: true,
-		row_inner: props.inner,
+		[styles.root]: true,
+		[styles.root_inner]: props.inner,
 	});
 
 	return (

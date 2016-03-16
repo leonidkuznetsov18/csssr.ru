@@ -1,4 +1,4 @@
-.link {
+.root {
 	cursor: pointer;
 	transition-property: color, border;
 	transition-duration: .2s;

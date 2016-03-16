@@ -4,11 +4,11 @@ import Title from 'components/title';
 import Text from 'components/text';
 import PortfolioList from 'components/portfolio-list';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Portfolio({ data, projects }) {
 	return (
-		<div className='portfolio'>
+		<div className={styles.root}>
 			<Title>
 				{data.title}
 			</Title>

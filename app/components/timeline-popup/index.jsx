@@ -3,11 +3,11 @@ import Title from 'components/title';
 import ReactMarkdown from 'react-markdown';
 import Popup from 'components/popup';
 
-import './styles.css';
+import styles from './styles.css';
 
 function getQuote(title, text) {
 	return (
-		<blockquote className='timeline-popup__quote'>
+		<blockquote className={styles.quote}>
 			<Title size='small' component='h6' color='yellow'>
 				{title}
 			</Title>
@@ -20,20 +20,20 @@ export default function TimelinePopup(props) {
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
 			<div
-				className='timeline-popup__blockquote'
+				className={styles.root}
 				onClick={(event) => event.stopPropagation()}
 			>
-				<div className='timeline-popup__staff'>
+				<div className={styles.staff}>
 					<img
-						className='timeline-popup__avatar'
+						className={styles.avatar}
 						src={require(`images/timeline/avatar/${props.avatar}.jpg`)}
 						alt={props.name}
 						title={props.name}
 					/>
-					<div className='timeline-popup__name'>
+					<div className={styles.name}>
 						{props.name}
 					</div>
-					<div className='timeline-popup__city'>
+					<div className={styles.city}>
 						{props.city}
 					</div>
 				</div>

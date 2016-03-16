@@ -6,39 +6,39 @@ import Text from 'components/text';
 import OutsourceProjects from 'components/outsource-projects';
 import OutsourceService from 'components/outsource-service';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function OutsourceContent({ data, projects }) {
 	return (
-		<div className='outsource-content'>
-			<div className='outsource-content__events'>
-				<div className='outsource-content__title outsource-content__title_events'>
+		<div className={styles.root}>
+			<div className={styles.events}>
+				<div className={styles.title + ' ' + styles.title_events}>
 					<Title size='medium' component='h2' indent={false}>
 						{data.events.title}
 					</Title>
 				</div>
 
-				<div className='outsource-content__cols'>
+				<div className={styles.cols}>
 					{data.events.cols.map((event, index) => (
 						<OutsourceService {...event} key={index} />
 					))}
 				</div>
 			</div>
 
-			<div className='outsource-content__success'>
-				<div className='outsource-content__title'>
+			<div className={styles.success}>
+				<div className={styles.title}>
 					<Title size='medium' component='h2' indent={false}>
 						{data.success.title}
 					</Title>
 				</div>
 
-				<div className='outsource-content__text'>
+				<div className={styles.text}>
 					<Text>
 						{data.success.description}
 					</Text>
 				</div>
 
-				<div className='outsource-content__projects'>
+				<div className='projects'>
 					<OutsourceProjects projects={projects}/>
 				</div>
 			</div>

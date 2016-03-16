@@ -5,7 +5,7 @@ import Text from 'components/text';
 import Widget from 'components/widget';
 import Icon from 'components/icon';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class Contacts extends React.Component {
 	static propTypes = {
@@ -30,24 +30,24 @@ export default class Contacts extends React.Component {
 
 	render() {
 		return (
-			<div className='contacts'>
-				<div className='contacts__close' onClick={this.props.close}/>
-				<div className='contacts__header'>
+			<div className={styles.root}>
+				<div className={styles.close} onClick={this.props.close}/>
+				<div className={styles.header}>
 					Уголок <br/>
 					Развитого <br/>
 					Socialisma
 				</div>
-				<div className='contacts__info'>
+				<div className={styles.info}>
 					<Title size='small' color='black' component='h6'>
 						Контактная информация
 					</Title>
-					<div className='contacts__text'>
+					<div className={styles.text}>
 						<Text size='xs' indent={false}>
 							Рабочее время с 12-00 до 21-00,
 							понедельник — пятница.
 						</Text>
 					</div>
-					<div className='contacts__text'>
+					<div className={styles.text}>
 						<Text size='xs' indent={false}>
 							Прием заказов
 							{' '}
@@ -56,7 +56,7 @@ export default class Contacts extends React.Component {
 							</a>
 						</Text>
 					</div>
-					<div className='contacts__text'>
+					<div className={styles.text}>
 						<Text size='xs' indent={false}>
 							Вопросы трудоустройства
 							{' '}
@@ -65,23 +65,23 @@ export default class Contacts extends React.Component {
 							</a>
 						</Text>
 					</div>
-					<div className='contacts__text'>
+					<div className={styles.text}>
 						<Text size='xs' indent={false}>
 							Для корреспонденции: 140090, Московская область,
 							город Дзержинский, улица Лермонтова, дом 42.
 						</Text>
 					</div>
 				</div>
-				<div className='contacts__wrapper'>
-					<div className='contacts__widget'>
+				<div className={styles.wrapper}>
+					<div className={styles.widget}>
 						{this.state.active &&
 							<Widget type='fb'/>
 						}
 					</div>
-					<div className='contacts__widget contacts__widget_type_bordered'>
-						<div className='contacts__job'>
+					<div className={styles.widget + ' ' + styles.widget_type_bordered}>
+						<div className={styles.job}>
 							<Icon
-								className='contacts__arrow'
+								className={styles.arrow}
 								icon='curve-arrow'
 							/>
 
@@ -93,7 +93,7 @@ export default class Contacts extends React.Component {
 							<Widget type='vk'/>
 						}
 					</div>
-					<div className='contacts__widget'>
+					<div className={styles.widget}>
 						{this.state.active &&
 							<Widget type='tw'/>
 						}

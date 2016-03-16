@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import Comment from 'components/comment';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class Comments extends React.Component {
 	static propTypes = {
@@ -42,17 +42,17 @@ export default class Comments extends React.Component {
 		const { data } = this.props;
 		const comment = data[this.state.index];
 		const classList = cx({
-			comments__item: true,
-			comments__item_state_active: this.state.active,
+			[styles.item]: true,
+			[styles.item_state_active]: this.state.active,
 		});
 		const blockStyle = {
 			height: this.state.height,
 		};
 
 		return (
-			<div className='comments' style={blockStyle}>
+			<div className={styles.root} style={blockStyle}>
 				<a
-					className='comments__link'
+					className={styles.link}
 					onClick={this.changeComment.bind(this)}
 				>
 					Еще отзыв

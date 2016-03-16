@@ -1,14 +1,14 @@
-.sharing {
+.root {
 	height: 42px;
 	text-align: center;
 	margin-bottom: 50px;
+}
 
-	&__item {
-		display: inline-block;
-		margin-right: 100px;
+.item {
+	display: inline-block;
+	margin-right: 100px;
 
-		&:last-child {
-			margin-right: 0;
-		}
+	&:last-child {
+		margin-right: 0;
 	}
 }

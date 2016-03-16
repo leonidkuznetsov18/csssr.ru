@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function JobBanner() {
 	return (
 		<img
-			className='job-banner'
+			className={styles.root}
 			src={require('images/background/work.svg')}
 		/>
 	);

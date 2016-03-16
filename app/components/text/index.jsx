@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Text({ size, children, indent, color, center, weight }) {
 	const classList = cx({
-		text: true,
-		text_size_l: size === 'l',
-		text_size_m: size === 'm',
-		text_size_s: size === 's',
-		text_size_xs: size === 'xs',
-		text_size_xxs: size === 'xxs',
-		text_noindent: indent === false,
-		text_center: center,
-		text_color_blue: color === 'blue',
-		text_color_grey: color === 'grey',
-		text_color_white: color === 'white',
-		text_weight_normal: weight === 'normal',
+		[styles.root]: true,
+		[styles.root_size_l]: size === 'l',
+		[styles.root_size_m]: size === 'm',
+		[styles.root_size_s]: size === 's',
+		[styles.root_size_xs]: size === 'xs',
+		[styles.root_size_xxs]: size === 'xxs',
+		[styles.root_noindent]: indent === false,
+		[styles.root_center]: center,
+		[styles.root_color_blue]: color === 'blue',
+		[styles.root_color_grey]: color === 'grey',
+		[styles.root_color_white]: color === 'white',
+		[styles.root_weight_normal]: weight === 'normal',
 	});
 
 	if (typeof children === 'string') {

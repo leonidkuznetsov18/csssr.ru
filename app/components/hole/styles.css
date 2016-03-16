@@ -1,37 +1,37 @@
-.hole {
+.root {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	pointer-events: none;
+}
 
-	&__side {
-		top: 8px;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
+.side {
+	top: 8px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	position: absolute;
+	background: #043351;
+	background-image: url('../../images/background/page.jpg');
+
+	&::after {
+		content: '';
 		position: absolute;
-		background: #043351;
-		background-image: url('../../images/background/page.jpg');
+		width: 2px;
+		height: 1000px;
+		background-color: #2C5471;
+		left: 50%;
+		margin-left: -1px;
+		bottom: 100%;
+		opacity: 0.7;
+	}
 
-		&::after {
-			content: '';
-			position: absolute;
-			width: 2px;
-			height: 1000px;
-			background-color: #2C5471;
-			left: 50%;
-			margin-left: -1px;
-			bottom: 100%;
-			opacity: 0.7;
-		}
+	&_left {
+		left: 8px;
+	}
 
-		&_left {
-			left: 8px;
-		}
-
-		&_right {
-			right: 8px;
-		}
+	&_right {
+		right: 8px;
 	}
 }

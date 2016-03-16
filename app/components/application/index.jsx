@@ -7,24 +7,24 @@ import Sharing from 'components/sharing';
 import Contacts from 'components/contacts';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Application({ children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted }) {
 	const applicationClass = cx({
-		application: true,
-		application_active: active,
+		[styles.root]: true,
+		[styles.root_active]: active,
 	});
 
 	const contactsClass = cx({
-		application__contacts: true,
-		application__contacts_mounted: mounted,
+		[styles.contacts]: true,
+		[styles.contacts_mounted]: mounted,
 	});
 
 	return (
 		<div className={applicationClass}>
 			<div
 				onClick={closeSidebar}
-				className='application__wrapper'
+				className={styles.wrapper}
 				style={{
 					paddingRight: overflow ? scrollbarSize() : 0,
 				}}
@@ -32,7 +32,7 @@ export default function Application({ children, banner, meta, active, openSideba
 				{banner}
 
 				<Header open={openSidebar} active={active}/>
-				<div className='application__inner'>
+				<div className={styles.inner}>
 					{children}
 				</div>
 				<Sharing meta={meta}/>

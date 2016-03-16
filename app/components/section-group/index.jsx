@@ -1,13 +1,13 @@
 import React from 'react';
 import Section from 'components/section';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function SectionGroup({ data }) {
 	return (
-		<div className='section-group'>
+		<div className={styles.root}>
 			{data.map((group, index) => (
-				<div className='section-group__block' key={index}>
+				<div className={styles.block} key={index}>
 					<Section {...group} />
 				</div>
 			))}

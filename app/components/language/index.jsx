@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 const languages = [
 	{
@@ -20,12 +20,12 @@ const languages = [
 
 export default function Language({ current }) {
 	const linkClass = (isActive) => cx({
-		language__link: true,
-		language__link_active: isActive,
+		[styles.link]: true,
+		[styles.link_active]: isActive,
 	});
 
 	return (
-		<div className='language'>
+		<div className={styles.root}>
 			{languages.map((language, index) => (
 				<a
 					key={index}

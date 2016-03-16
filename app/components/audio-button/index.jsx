@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class AudioButton extends React.Component {
 
@@ -9,12 +9,13 @@ export default class AudioButton extends React.Component {
 		url: React.PropTypes.string.isRequired,
 	}
 
-	constructor(props) {
-		super(props);
-		this.state = { active: false };
+	componentWillMount() {
+		this.setState({
+			active: false,
+		});
 	}
 
-	click = () => {
+	handleClick = () => {
 		const active = !this.state.active;
 
 		this.setState({ active });
@@ -28,10 +29,13 @@ export default class AudioButton extends React.Component {
 	}
 
 	render() {
-		const classes = cx('audio-button', { 'audio-button_active': this.state.active });
+		const classes = cx({
+			[styles.root]: true,
+			[styles.root_active]: this.state.active,
+		});
 
 		return (
-			<button className={classes} onClick={this.click}>
+			<button className={classes} onClick={this.handleClick}>
 				<audio preload ref='audio'>
 					<source src={`/audio/${this.props.url}.ogg`}/>
 					<source src={`/audio/${this.props.url}.aac`}/>

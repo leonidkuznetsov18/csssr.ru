@@ -1,27 +1,27 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function UploaderFile({ file, progress, onRemove }) {
 	const progressClass = cx({
-		'uploader-file__progress': true,
-		'uploader-file__progress_completed': progress === 100,
+		[styles.progress]: true,
+		[styles.progress_completed]: progress === 100,
 	});
 
 	return (
-		<div className='uploader-file'>
-			<span className='uploader-file__name'>
+		<div className='root'>
+			<span className={styles.name}>
 				{file.name}
 			</span>
 			<div className={progressClass}>
 				<div
-					className='uploader-file__progress-line'
+					className={styles.progressLine}
 					style={{ width: `${progress}%` }}
 				/>
 			</div>
 			<div
-				className='uploader-file__remove-button'
+				className={styles.remove}
 				onClick={onRemove}
 			/>
 		</div>

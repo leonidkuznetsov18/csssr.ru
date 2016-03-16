@@ -1,87 +1,88 @@
 @import 'helpers';
 
-.menu {
+.root {
 	height: 40px;
 	width: 78%;
 	position: relative;
+}
 
-	&__list {
-		position: relative;
-		z-index: 2;
-		background-color: var(--color-menu);
-		height: 100%;
-		display: flex;
-		list-style: none;
+.list {
+	position: relative;
+	z-index: 2;
+	background-color: var(--color-menu);
+	height: 100%;
+	display: flex;
+	list-style: none;
 
-		&::after {
-			position: absolute;
-			content: '';
-			height: 40px;
-			width: 6px;
-			right: -6px;
-			top: 3px;
-			background-color: #F1C87B;
-			transform: skewY(45deg);
-		}
-
-		&::before {
-			position: absolute;
-			top: 40px;
-			left: 6px;
-			width: 100%;
-			height: 6px;
-			transform: skew(45deg);
-			transform-origin: 0px 100% 0px;
-			content: '';
-			background-color: var(--color-menu-shadow);
-		}
-	}
-
-	&__item {
-		height: 40px;
-		display: block;
-		flex-grow: 1;
-		text-transform: uppercase;
-		display: flex;
-		align-items: center;
-		position: relative;
-
-		&_fix {
-			pointer-events: none;
-		}
-	}
-
-	&__shadow {
+	&::after {
 		position: absolute;
-		top: 24px;
-		left: 0;
-		margin-left: -28px;
-		height: 44px;
+		content: '';
+		height: 40px;
+		width: 6px;
+		right: -6px;
+		top: 3px;
+		background-color: #F1C87B;
+		transform: skewY(45deg);
+	}
+
+	&::before {
+		position: absolute;
+		top: 40px;
+		left: 6px;
 		width: 100%;
-		z-index: 1;
+		height: 6px;
+		transform: skew(45deg);
+		transform-origin: 0px 100% 0px;
+		content: '';
+		background-color: var(--color-menu-shadow);
+	}
+}
+
+.item {
+	height: 40px;
+	display: block;
+	flex-grow: 1;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	&:first-child,
+	&:last-child {
+		pointer-events: none;
+	}
+}
+
+.shadow {
+	position: absolute;
+	top: 24px;
+	left: 0;
+	margin-left: -28px;
+	height: 44px;
+	width: 100%;
+	z-index: 1;
+	background-color: #000;
+	opacity: 0.2;
+
+	&::before {
+		content: '';
+		position: absolute;
+		right: -23px;
+		top: 22px;
+		width: 41px;
+		height: 22px;
 		background-color: #000;
-		opacity: 0.2;
+		transform: skew(-46deg);
+	}
 
-		&::before {
-			content: '';
-			position: absolute;
-			right: -23px;
-			top: 22px;
-			width: 41px;
-			height: 22px;
-			background-color: #000;
-			transform: skew(-46deg);
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			left: 0px;
-			top: -12px;
-			width: 29px;
-			height: 29px;
-			background-color: #000;
-			transform: skewY(-40deg);
-		}
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0px;
+		top: -12px;
+		width: 29px;
+		height: 29px;
+		background-color: #000;
+		transform: skewY(-40deg);
 	}
 }

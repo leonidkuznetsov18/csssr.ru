@@ -1,22 +1,18 @@
-.jobs-vacancy {
+.root {
 	padding-bottom: 10px;
 	font-size: 17px;
 	font-family: Roboto;
 	font-weight: 300;
+}
 
-	&__item {
-		margin-top: 14px;
+.item {
+	margin-top: 14px;
+}
 
-		&:first {
-			margin-top: 0;
-		}
-	}
-
-	&__hh {
-		margin-left: 8px;
-		display: inline-block;
-		vertical-align: middle;
-		width: 26px;
-		height: 17px;
-	}
+.hh {
+	margin-left: 8px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 26px;
+	height: 17px;
 }

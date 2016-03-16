@@ -1,28 +1,28 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Projecter({ active, partner, title, content, onClose }) {
 	const blockClass = cx({
-		projecter: true,
-		projecter_state_active: active,
-		[`projecter_project_${partner}`]: partner,
+		[styles.root]: true,
+		[styles.root_state_active]: active,
+		[styles[`root_project_${partner}`]]: partner,
 	});
 
 	return (
 		<div onClick={onClose} className={blockClass} >
 			<div onClick={(e) => e.stopPropagation()}>
-				<div className='projecter__title'>
+				<div className={styles.title}>
 					<div
-						className='projecter__selection'
+						className={styles.selection}
 						dangerouslySetInnerHTML={{ __html: title }}
 					/>
 				</div>
 
-				<blockquote className='projecter__comment'>
+				<blockquote className={styles.comment}>
 					<div
-						className='projecter__selection'
+						className={styles.selection}
 						dangerouslySetInnerHTML={{ __html: content }}
 					/>
 				</blockquote>

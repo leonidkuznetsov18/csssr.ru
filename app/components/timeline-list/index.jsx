@@ -1,10 +1,11 @@
 import React from 'react';
 import TimelineItem from 'components/timeline-item';
-import './styles.css';
+
+import styles from './styles.css';
 
 export default function TimelineList({ data }) {
 	return (
-		<ul className='timeline-list'>
+		<ul className={styles.root}>
 			{data.map((item, index) => {
 				return (
 					<TimelineItem key={index} data={item} />

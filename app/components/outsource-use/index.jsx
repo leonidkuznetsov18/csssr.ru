@@ -1,9 +1,10 @@
 import React from 'react';
+import cx from 'classnames';
 import Title from 'components/title';
 import Text from 'components/text';
 import OutsourceExamples from 'components/outsource-examples';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class OutsourceUse extends React.Component {
 	static propTypes = {
@@ -12,26 +13,30 @@ export default class OutsourceUse extends React.Component {
 
 	render() {
 		const cloud = require('images/background/cloudx3.svg');
+		const cloudClass = (position) => cx({
+			[styles.cloud]: true,
+			[styles[`cloud_${position}`]]: position,
+		});
 
 		return (
-			<div className='outsource-use'>
-				<h2 className='outsource-use__title'>
-					<div className='outsource-use__title-text'>
+			<div className={styles.root}>
+				<h2 className={styles.title}>
+					<div className={styles.text}>
 						Идеи Применения
 					</div>
 				</h2>
 
 				<img
-					className='outsource-use__cloud outsource-use__cloud_left'
+					className={cloudClass('left')}
 					src={cloud}
 				/>
 				<img
-					className='outsource-use__cloud outsource-use__cloud_right'
+					className={cloudClass('right')}
 					src={cloud}
 				/>
 
-				<div className='outsource-use__content'>
-					<div className='outsource-use__how'>
+				<div className={styles.content}>
+					<div className={styles.how}>
 						<Title component='h3'>
 							КАК ПРИМЕНИТЬ
 							<br />

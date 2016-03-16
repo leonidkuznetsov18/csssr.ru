@@ -1,6 +1,6 @@
 @import 'helpers';
 
-.menu-item {
+.root {
 	font-family: 'PT Sans Narrow';
 	width: 100%;
 	height: 100%;
@@ -31,33 +31,6 @@
 		content: '';
 	}
 
-	&__arrow {
-		position: absolute;
-		left: 50%;
-		bottom: -15px;
-		border-width: 8px 7px 7px;
-		border-style: solid;
-		border-color: #FDB00A transparent transparent;
-		margin-left: -7px;
-		z-index: 1;
-		box-shadow: 0px -3px #FDB00A;
-		display: none;
-
-		&::before {
-			position: absolute;
-			top: -10px;
-			left: 0px;
-			width: 7px;
-			height: 10px;
-			background-color: #D5721B;
-			border-left: 1px solid #D5721B;
-			transform: rotate(42deg);
-			transform-origin: 0px 100% 0px;
-			content: '';
-		}
-	}
-
-
 	&:hover,
 	&_state_active {
 		color: var(--color-link);
@@ -68,7 +41,33 @@
 		}
 	}
 
-	&_state_active &__arrow {
+	&_state_active .arrow {
 		display: block;
+	}
+}
+
+.arrow {
+	position: absolute;
+	left: 50%;
+	bottom: -15px;
+	border-width: 8px 7px 7px;
+	border-style: solid;
+	border-color: #FDB00A transparent transparent;
+	margin-left: -7px;
+	z-index: 1;
+	box-shadow: 0px -3px #FDB00A;
+	display: none;
+
+	&::before {
+		position: absolute;
+		top: -10px;
+		left: 0px;
+		width: 7px;
+		height: 10px;
+		background-color: #D5721B;
+		border-left: 1px solid #D5721B;
+		transform: rotate(42deg);
+		transform-origin: 0px 100% 0px;
+		content: '';
 	}
 }

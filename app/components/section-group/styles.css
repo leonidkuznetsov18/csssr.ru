@@ -1,5 +1,7 @@
-.section-group {
-	&__block {
-		margin-bottom: 20px;
-	}
+.root {
+
+}
+
+.block {
+	margin-bottom: 20px;
 }

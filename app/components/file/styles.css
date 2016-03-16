@@ -1,21 +1,21 @@
-.file {
+.root {
 	display: block;
 	width: 52px;
 	height: 64px;
 	font-family: Roboto;
 	font-weight: 300;
+}
 
-	&__link {
-		margin-top: 10px;
-		display: block;
-		font-size: 12px;
-		line-height: 16px;
-		width: 90px;
-	}
+.link {
+	margin-top: 10px;
+	display: block;
+	font-size: 12px;
+	line-height: 16px;
+	width: 90px;
+}
 
-	&__size {
-		margin-top: 8px;
-		font-size: 10px;
-		color: #333;
-	}
+.size {
+	margin-top: 8px;
+	font-size: 10px;
+	color: #333;
 }

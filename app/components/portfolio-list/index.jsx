@@ -1,11 +1,11 @@
 import React from 'react';
 import PortfolioItem from 'components/portfolio-item';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function PortfolioList({ data }) {
 	return (
-		<ul className='portfolio-list'>
+		<ul className={styles.root}>
 			{data.map((project, i) => (
 				<PortfolioItem
 					key={i}

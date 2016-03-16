@@ -1,17 +1,17 @@
-.portfolio-item {
+.root {
 	position: relative;
 	margin-bottom: 18px;
 	display: block;
 	padding-left: 200px;
+}
 
-	&__logo {
-		position: absolute;
-		top: 7px;
-		left: -2px;
-		width: 156px;
-	}
+.logo {
+	position: absolute;
+	top: 7px;
+	left: -2px;
+	width: 156px;
+}
 
-	&__image {
-		float: right;
-	}
+.image {
+	float: right;
 }

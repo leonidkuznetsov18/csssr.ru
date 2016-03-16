@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function JobsBanner() {
 	return (
-		<div className='jobs-banner' />
+		<div className={styles.root} />
 	);
 }

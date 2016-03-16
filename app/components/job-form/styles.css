@@ -1,38 +1,39 @@
-.job-form {
+.root {
 	width: 370px;
+}
 
-	&__submit {
-		margin-top: 25px;
-		width: 170px;
-		display: inline-block;
-		vertical-align: middle;
+.submit {
+	margin-top: 25px;
+	width: 170px;
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 1;
+	transition: opacity .3s ease;
+
+	&_disabled {
+		pointer-events: none;
+		opacity: .5;
+	}
+}
+
+.loader {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 25px;
+	margin-top: 25px;
+	opacity: 0;
+	transition: opacity .3s ease;
+
+	&_active {
 		opacity: 1;
-		transition: opacity .3s ease;
-
-		&_disabled {
-			pointer-events: none;
-			opacity: .5;
-		}
 	}
+}
 
-	&__loader {
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: 25px;
-		margin-top: 25px;
-		opacity: 0;
-		transition: opacity .3s ease;
-
-		&_active {
-			opacity: 1;
-		}
-	}
-
-	&__error {
-		position: absolute;
-		margin-top: 20px;
-		margin-left: 430px;
-		margin-right: 20px;
-		max-width: 280px;
-	}
+.error {
+	width: 280px;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 430px;
+	margin-right: 20px;
+	max-width: 280px;
 }

@@ -1,4 +1,4 @@
-.uploader-file {
+.root {
 	position: relative;
 	padding-top: 7px;
 	padding-bottom: 7px;
@@ -24,55 +24,54 @@
 		background-image: url('../../images/order/file.png');
 		background-repeat: no-repeat;
 	}
+}
 
-	&__name {
-		padding-right: 5px;
-		max-width: 80%;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
+.name {
+	padding-right: 5px;
+	max-width: 80%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
-	&__progress {
-		flex: 1;
-		position: relative;
-		margin-top: 11px;
-		margin-right: 12px;
-		height: 5px;
-		background-color: #d4c5aa;
-		border-top: 1px solid #a8977b;
-		border-right: 1px solid #a8977b;
+.progress {
+	flex: 1;
+	position: relative;
+	margin-top: 11px;
+	margin-right: 12px;
+	height: 5px;
+	background-color: #d4c5aa;
+	border-top: 1px solid #a8977b;
+	border-right: 1px solid #a8977b;
 
+	&_completed {
+		border: none;
+		margin-top: 12px;
+		background-color: transparent;
+		background-image: url('../../images/order/progress.png');
+		background-repeat: no-repeat;
+		background-position: bottom;
 
-		&-line {
-			position: absolute;
-			top: -1px;
-			height: calc(100% + 1px);
-			background-color: #900;
-			transition: width .1s;
-		}
-
-		&_completed &-line {
+		.line {
 			background-color: transparent;
 		}
-
-		&_completed {
-			border: none;
-			margin-top: 12px;
-			background-color: transparent;
-			background-image: url('../../images/order/progress.png');
-			background-repeat: no-repeat;
-			background-position: bottom;
-		}
 	}
+}
 
-	&__remove-button {
-		position: absolute;
-		top: calc(50% - 3px);
-		right: 0;
-		width: 7px;
-		height: 7px;
-		background-image: url('../../images/order/close.png');
-		cursor: pointer;
-	}
+.line {
+	position: absolute;
+	top: -1px;
+	height: calc(100% + 1px);
+	background-color: #900;
+	transition: width .1s;
+}
+
+.remove {
+	position: absolute;
+	top: calc(50% - 3px);
+	right: 0;
+	width: 7px;
+	height: 7px;
+	background-image: url('../../images/order/close.png');
+	cursor: pointer;
 }

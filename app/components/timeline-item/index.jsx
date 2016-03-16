@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import './styles.css';
 import cx from 'classnames';
 import Button from 'components/button';
 import Icon from 'components/icon';
@@ -9,24 +8,26 @@ import AudioButton from 'components/audio-button';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router';
 
+import styles from './styles.css';
+
 function getIcon(newstaff) {
 	if (newstaff) {
 		return (
-			<div className='timeline-item__icon-count'>
+			<div className={styles.iconCount}>
 				{newstaff.length}
 			</div>
 		);
 	}
 
 	return (
-		<Icon className='timeline-item__icon-star' icon='timeline-star'/>
+		<Icon className={styles.iconStar} icon='timeline-star'/>
 	);
 }
 
 export default function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag, index) => (
 		<img
-			className='timeline-item__images'
+			className={styles.images}
 			src={require(`images/timeline/${tag.url}`)}
 			width={tag.width}
 			height={tag.height}
@@ -39,7 +40,7 @@ export default function TimelineItem(props) {
 		.join(', ');
 
 	const quote = props.data.quote && (
-		<div className='timeline-item__quote'>
+		<div className={styles.quote}>
 			<Title size='small' color='black' component='h6'>
 				{props.data.quote.title}
 			</Title>
@@ -48,7 +49,7 @@ export default function TimelineItem(props) {
 	);
 
 	const version = props.data.version && (
-		<div className='timeline-item__version'>
+		<div className={styles.version}>
 			csssr&nbsp;
 			<Link to={`/timeline/version/${props.data.version.number}`}>
 				{props.data.version.text}
@@ -59,13 +60,13 @@ export default function TimelineItem(props) {
 	const newStaffAvatars = props.data.newstaff && props.data.newstaff.map((person, index) => {
 
 		const classList = cx({
-			'timeline-item__link': true,
-			'timeline-item__link_disabled': !person.histories && !person.wishes,
+			[styles.link]: true,
+			[styles.link_disabled]: !person.histories && !person.wishes,
 		});
 
 		const img = (
 			<img
-				className='timeline-item__avatar'
+				className={styles.avatar}
 				src={require(`images/timeline/avatar/${person.avatar}.jpg`)}
 				alt={person.name}
 				title={person.name}
@@ -76,7 +77,11 @@ export default function TimelineItem(props) {
 		);
 
 		return (
-			<Link className={classList} key={index} to={`/timeline/${person.avatar}`}>
+			<Link
+				className={classList}
+				key={index}
+				to={`/timeline/${person.avatar}`}
+			>
 				{img}
 			</Link>
 		);
@@ -84,13 +89,13 @@ export default function TimelineItem(props) {
 
 	let description;
 	if (props.data.description) {
-		description = <ReactMarkdown className='timeline-item__description' source={props.data.description}/>;
+		description = <ReactMarkdown className={styles.description} source={props.data.description}/>;
 	}
 
 	let readLink;
 	if (props.data.readLink) {
 		readLink = (
-			<div className='timeline-item__readLink'>
+			<div className={styles.readLink}>
 				{props.data.readLink && (
 					<Button
 						component='a'
@@ -105,35 +110,35 @@ export default function TimelineItem(props) {
 	let date;
 	if (props.data.date) {
 		date = (
-			<div className='timeline-item__date'>
+			<div className={styles.date}>
 				{props.data.date}
 			</div>
 		);
 	}
 
 	const newStaff = props.data.newstaff && (
-		<div className='timeline-item__avatars'>
+		<div className={styles.avatars}>
 			{newStaffAvatars}
 		</div>
 	);
 
 	const classList = cx({
-		'timeline-item': true,
-		'timeline-item_with-icon-count': props.data.newstaff,
-		'timeline-item_with-icon-star': !props.data.newstaff,
+		[styles.root]: true,
+		[styles.root_with_iconCount]: props.data.newstaff,
+		[styles.root_with_iconStar]: !props.data.newstaff,
 	});
 
 	return (
 		<li className={classList}>
 			{date}
-			<div className='timeline-item__title'>
+			<div className={styles.title}>
 				<Title size='small' component='h6'>
 					{names || props.data.event}
 				</Title>
 			</div>
 			{description}
 			{newStaff}
-			{images && <div className='timeline-item__images'>{images}</div>}
+			{images && <div className={styles.images}>{images}</div>}
 			{readLink}
 			{version}
 			{props.data.audio && <AudioButton url={props.data.audio} />}

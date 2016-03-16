@@ -1,24 +1,24 @@
-.list {
+.root {
 	margin-bottom: 18px;
+}
 
-	&__item {
-		position: relative;
-		margin-bottom: 5px;
+.item {
+	position: relative;
+	margin-bottom: 5px;
 
+	&::before {
+		position: absolute;
+		top: 9px;
+		left: -20px;
+		width: 10px;
+		height: 1px;
+		content: '';
+		background-color: #a75d52;
+	}
+
+	&_size_s {
 		&::before {
-			position: absolute;
-			top: 9px;
-			left: -20px;
-			width: 10px;
-			height: 1px;
-			content: '';
-			background-color: #a75d52;
-		}
-
-		&_size_s {
-			&::before {
-				top: 11px;
-			}
+			top: 11px;
 		}
 	}
 }

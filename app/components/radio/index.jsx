@@ -2,11 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 import Tooltip from 'components/tooltip';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Radio(props) {
 	const blockClass = cx({
-		radio: true,
+		[styles.root]: true,
 		[props.className]: props.className,
 	});
 
@@ -16,12 +16,12 @@ export default function Radio(props) {
 	return (
 		<div className={blockClass}>
 			<input
-				className='radio__input'
+				className={styles.input}
 				type='radio'
 				{...inputProps}
 			/>
 			<label
-				className='radio__label'
+				className={styles.label}
 				htmlFor={props.id}
 			>
 				{props.children}

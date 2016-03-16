@@ -3,25 +3,25 @@ import Parallax from 'components/parallax';
 import Icon from 'components/icon';
 import Service from 'components/service';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function IndexService({ data }) {
 	return (
-		<div className='index-service'>
+		<div className={styles.root}>
 			<Parallax speed={0.3}>
 				<Icon
-					className='index-service__rocket'
+					className={styles.rocket}
 					icon='rocket'
 				/>
 			</Parallax>
-			<div className='index-service__services'>
+			<div className={styles.services}>
 				{data.map((service, item) => (
-					<div className='index-service__service' key={item}>
+					<div className={styles.service} key={item}>
 						<Service service={service} />
 					</div>
 				))}
 				<Icon
-					className='index-service__satellite'
+					className={styles.satellite}
 					icon='satellite'
 				/>
 			</div>

@@ -1,12 +1,16 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function OutsourceTitle() {
 	return (
-		<h1 className='outsource-title'>
-			<span className='outsource-title__left'>Frontend</span>
-			<span className='outsource-title__right'>аутсорсинг</span>
+		<h1 className={styles.root}>
+			<span className={styles.left}>
+				Frontend
+			</span>
+			<span className={styles.right}>
+				аутсорсинг
+			</span>
 		</h1>
 	);
 }

@@ -1,4 +1,4 @@
-.form-validation-window {
+.root {
 	padding: 25px 25px;
 	max-width: 100%;
 	border: 3px solid #a70e00;
@@ -11,15 +11,15 @@
 	animation-name: rotateRight;
 	animation-duration: 0.5s;
 	animation-fill-mode: both;
+}
 
-	&__attention {
-		font-size: 30px;
-		text-transform: uppercase;
-	}
+.attention {
+	font-size: 30px;
+	text-transform: uppercase;
+}
 
-	&__text {
-		margin-top: 10px;
-	}
+.text {
+	margin-top: 10px;
 }
 
 @keyframes rotateRight {

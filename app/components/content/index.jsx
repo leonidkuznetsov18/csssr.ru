@@ -2,13 +2,13 @@ import React from 'react';
 import cx from 'classnames';
 import Hole from 'components/hole';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Content({ padding, hole, children, layout }) {
 	const blockClass = cx({
-		content: true,
-		content_padding: padding,
-		content_layout_job: layout === 'job',
+		[styles.root]: true,
+		[styles.root_padding]: padding,
+		[styles.root_layout_job]: layout === 'job',
 	});
 
 	return (

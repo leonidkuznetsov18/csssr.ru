@@ -4,12 +4,12 @@ import Title from 'components/title';
 import Text from 'components/text';
 import List from 'components/list';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Section({ title, description, list, children, indent }) {
 	const blockClass = cx({
-		section: true,
-		section_indent: indent,
+		[styles.root]: true,
+		[styles.root_indent]: indent,
 	});
 
 	description = [].concat(description);

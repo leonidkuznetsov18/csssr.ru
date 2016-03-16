@@ -2,12 +2,12 @@ import React from 'react';
 import Title from 'components/title';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Error(props) {
 	return (
-		<div className='error'>
-			<div className='error__smile'>¯\_(ツ)_/¯</div>
+		<div className={styles.root}>
+			<div className={styles.smile}>¯\_(ツ)_/¯</div>
 			<Title size='large' center>Нам жаль, товарищ!</Title>
 			<Text size='l' center>Ошибка {props.number}</Text>
 		</div>

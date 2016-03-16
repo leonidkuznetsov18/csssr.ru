@@ -4,11 +4,11 @@ import { Link as ScrollLink } from 'react-scroll';
 import Airship from 'components/airship';
 import Link from 'components/link';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function OrderAirship() {
 	return (
-		<div className='order-airship'>
+		<div className={styles.root}>
 			<Airship image='zeppelin_order.svg'>
 				<Link
 					to='faq'

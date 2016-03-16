@@ -2,7 +2,7 @@ import React from 'react';
 import socialLink from 'helpers/socialLink';
 
 import Button from 'components/button';
-import './styles.css';
+import styles from './styles.css';
 
 const buttons = [
 	{
@@ -29,9 +29,9 @@ function onButtonClick(type) {
 
 export default function Sharing() {
 	return (
-		<div className='sharing'>
+		<div className={styles.root}>
 			{buttons.map((button) => (
-				<div key={button.type} className='sharing__item'>
+				<div key={button.type} className={styles.item}>
 					<Button
 						mod='social'
 						component='a'

@@ -1,4 +1,4 @@
-.offert {
+.root {
 	padding-left: 6%;
 	padding-bottom: 50px;
 	position: relative;
@@ -7,47 +7,47 @@
 	font-family: 'Roboto';
 	font-weight: 300;
 	width: 100%;
+}
 
-	&__title {
-		font-family: 'PT Sans Narrow';
-		font-size: 35px;
-		color: #6A0005;
-		margin-bottom: 15px;
-		margin-left: 40px;
-		font-weight: normal;
-	}
+.title {
+	font-family: 'PT Sans Narrow';
+	font-size: 35px;
+	color: #6A0005;
+	margin-bottom: 15px;
+	margin-left: 40px;
+	font-weight: normal;
+}
 
-	&__subtitle {
-		margin-left: 40px;
-		color: #6A0005;
-		font-family: 'PT Sans Narrow';
-		font-size: 15px;
-		line-height: 25px;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		margin-bottom: 11px;
-		font-weight: normal;
-	}
+.subtitle {
+	margin-left: 40px;
+	color: #6A0005;
+	font-family: 'PT Sans Narrow';
+	font-size: 15px;
+	line-height: 25px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 11px;
+	font-weight: normal;
+}
 
-	&__group {
-		position: relative;
-		width: 950px;
-	}
+.group {
+	position: relative;
+	width: 950px;
+}
 
-	&__index {
-		width: 45px;
-		position: absolute;
-		top: 2px;
-		left: 0;
-	}
+.index {
+	width: 45px;
+	position: absolute;
+	top: 2px;
+	left: 0;
+}
 
-	&__text {
-		margin-bottom: 10px;
-		line-height: 18px;
-		padding-left: 45px;
+.text {
+	margin-bottom: 10px;
+	line-height: 18px;
+	padding-left: 45px;
 
-		strong {
-			font-weight: 700;
-		}
+	strong {
+		font-weight: 700;
 	}
 }

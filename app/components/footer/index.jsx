@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class Footer extends React.Component {
 	render() {
@@ -15,24 +15,24 @@ export default class Footer extends React.Component {
 		];
 
 		return (
-			<footer className='footer'>
-				<div className='footer__inner'>
-					<div className='footer__payment'>
+			<footer className={styles.root}>
+				<div className={styles.inner}>
+					<div className={styles.payment}>
 						{paymentSystems.map((system) => (
 							<Icon
-								className='footer__payment-icon'
+								className={styles.paymentIcon}
 								icon={`payment/${system}`}
 								key={system}
 							/>
 						))}
 					</div>
-					<div className='footer__invite'>
+					<div className={styles.invite}>
 						<Icon
 							icon='invalid'
-							className='footer__invalid'
+							className={styles.invalid}
 						/>
 						<Link
-							className='footer__link'
+							className={styles.link}
 							to='/jobs'
 						>
 							Приглашаем на работу
@@ -40,25 +40,25 @@ export default class Footer extends React.Component {
 						{' '}
 						людей с ограниченными возможностями
 					</div>
-					<div className='footer__links'>
+					<div className={styles.links}>
 						<a
-							className='footer__link'
+							className={styles.link}
 							href='http://csssrvice.reformal.ru/'
 						>
 							Отзывы и предложения
 						</a>
 						{' '}
 						<a
-							className='footer__link'
+							className={styles.link}
 							href='http://blog.csssr.ru'
 						>
 							Блог трудового коллектива
 						</a>
 					</div>
-					<div className='footer__copyright'>
+					<div className={styles.copyright}>
 						© 2011—{(new Date()).getFullYear()} «
 						<Link
-							className='footer__link'
+							className={styles.link}
 							to='/'
 						>
 							CSSSR

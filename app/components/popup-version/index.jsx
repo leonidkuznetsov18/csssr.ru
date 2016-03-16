@@ -1,11 +1,13 @@
 import React from 'react';
 import Popup from 'components/popup';
 
+import styles from './styles.css';
+
 export default function PopupVersion(props) {
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
 			<img
-				className='popup__image'
+				className={styles.root}
 				src={require(`images/timeline/${props.screenshot}`)}
 			/>
 		</Popup>

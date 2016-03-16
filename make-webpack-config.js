@@ -8,6 +8,7 @@ process.env = require('./config/env.js').default;
 export default function (options) {
 	const root = path.join(__dirname, 'app');
 	const publicPath = '/_assets/';
+	const classFormat = options.minimize ? '[hash:base64:5]' : '[path]_[local]';
 	let loaders = {
 		json: 'json',
 		'png|jpg|cur|gif': 'url?limit=5000',
@@ -15,7 +16,7 @@ export default function (options) {
 	};
 	const stylesheetLoaders = {
 		css: [
-			'css',
+			`css?modules&minimize&importLoaders=1&localIdentName=${classFormat}`,
 			'postcss',
 		],
 	};
@@ -96,7 +97,7 @@ export default function (options) {
 		}
 
 		if (options.prerender) {
-			stylesheetLoaders[ext] = 'null';
+			stylesheetLoaders[ext] = loader.replace('css?', 'css/locals?');
 		} else if (options.separateStylesheet) {
 			stylesheetLoaders[ext] = ExtractTextPlugin.extract('style', loader);
 		} else {

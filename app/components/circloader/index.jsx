@@ -1,20 +1,18 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class Circloader extends React.Component {
-	render() {
-		const blockClass = cx({
-			circloader: true,
-			circloader_size_big: this.props.size === 'big',
-			circloader_color_white: this.props.color === 'white',
-		});
+export default function Circloader({ size, color }) {
+	const blockClass = cx({
+		[styles.root]: true,
+		[styles.root_size_big]: size === 'big',
+		[styles.root_color_white]: color === 'white',
+	});
 
-		return (
-			<div className={blockClass} />
-		);
-	}
+	return (
+		<div className={blockClass} />
+	);
 }
 
 Circloader.propTypes = {

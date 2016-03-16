@@ -2,29 +2,29 @@ import React from 'react';
 import cx from 'classnames';
 import ProjectSidebar from 'components/project-sidebar';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Project({ project, onToggle, collapsed, children }) {
 	const blockClass = cx({
-		project: true,
-		project_full: collapsed,
+		[styles.root]: true,
+		[styles.root_full]: collapsed,
 	});
 
 	return (
 		<div className={blockClass}>
-			<div className='project__open'
+			<div className={styles.open}
 				onClick={() => onToggle(false)}
 				role='link'
 			/>
 
-			<div className='project__sidebar'>
+			<div className={styles.sidebar}>
 				<ProjectSidebar
 					project={project}
 					onToggle={onToggle}
 				/>
 			</div>
 
-			<div className='project__page'>
+			<div className={styles.page}>
 				{children}
 			</div>
 		</div>

@@ -1,46 +1,53 @@
 import React from 'react';
+import cx from 'classnames';
+
 import Parallax from 'components/parallax';
 import Title from 'components/title';
 import Text from 'components/text';
 import Widget from 'components/widget';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function OutsourcePower() {
+	const cloudClass = (position) => cx({
+		[styles.cloud]: true,
+		[styles[`cloud_${position}`]]: position,
+	});
+
 	return (
-		<div className='outsource-power'>
+		<div className={styles.root}>
 			<img
-				className='outsource-power__cloud outsource-power__cloud_bottom'
+				className={cloudClass('bottom')}
 				src={require('images/background/cloudx3.svg')}
 			/>
 			<img
-				className='outsource-power__cloud outsource-power__cloud_top'
+				className={cloudClass('top')}
 				src={require('images/background/cloudx3.svg')}
 				alt='cloud'
 			/>
 
-			<div className='outsource-power__wrapper'>
+			<div className={styles.wrapper}>
 
-				<div className='outsource-power__circle'>
-					<div className='outsource-power__circle-1'>
+				<div className={styles.circle}>
+					<div className={styles.circle1}>
 						Более чем
 					</div>
-					<div className='outsource-power__circle-2'>
+					<div className={styles.circle2}>
 						6500
 					</div>
-					<div className='outsource-power__circle-3'>
+					<div className={styles.circle3}>
 						нормочасов / месяц
 					</div>
-					<div className='outsource-power__thunderbolt'>
+					<div className={styles.thunderbolt}>
 						Мощность
 					</div>
 					<img
-						className='outsource-power__cloud outsource-power__cloud_middle'
+						className={cloudClass('middle')}
 						src={require('images/background/cloudx3.svg')}
 					/>
 				</div>
 
-				<div className='outsource-power__text'>
+				<div className={styles.text}>
 					<Title size='medium'>
 						Подход
 					</Title>
@@ -60,7 +67,7 @@ export default function OutsourcePower() {
 				offset={330}
 				speed={0.3}
 			>
-				<div className='outsource-power__social'>
+				<div className={styles.social}>
 					<Widget type='likebox'/>
 				</div>
 			</Parallax>

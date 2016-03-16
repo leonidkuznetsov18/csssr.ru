@@ -1,13 +1,13 @@
 import React from 'react';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Comment({ author, company, url, text }) {
 	return (
-		<div className='comment'>
-			<div className='comment__header'>
-				<a className='comment__link' href={url} target='_blank'>
+		<div className={styles.root}>
+			<div className={styles.header}>
+				<a className={styles.link} href={url} target='_blank'>
 					{author}
 				</a>
 				, {company}

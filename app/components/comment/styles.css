@@ -1,10 +1,10 @@
-.comment {
+.root {
 	font-size: 15px;
 	font-family: 'Roboto';
 	font-weight: 300;
 	color: #333333;
+}
 
-	&__header {
-		margin-bottom: 10px;
-	}
+.header {
+	margin-bottom: 10px;
 }

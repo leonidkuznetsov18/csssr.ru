@@ -1,14 +1,14 @@
-.history {
+.root {
 	display: block;
+}
 
-	&__item {
-		margin-bottom: 16px;
-	}
+.item {
+	margin-bottom: 16px;
+}
 
-	&__date {
-		font-size: 12px;
-		line-height: 21px;
-		font-family: "PT Sans";
-		color: #666;
-	}
+.date {
+	font-size: 12px;
+	line-height: 21px;
+	font-family: "PT Sans";
+	color: #666;
 }

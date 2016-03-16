@@ -5,13 +5,11 @@ import Row from 'components/row';
 import Title from 'components/title';
 import Text from 'components/text';
 
-import Link from 'components/link';
-
-import './styles.css';
+import styles from './styles.css';
 
 export default function OutsourceContacts({ children }) {
 	return (
-		<div className='outsource-contacts'>
+		<div className={styles.root}>
 			<Row inner>
 				<Column size={2 / 3}>
 					<Title size='medium'>
@@ -26,7 +24,7 @@ export default function OutsourceContacts({ children }) {
 
 			<Row inner>
 				<Column size={2 / 3}>
-					<div className='outsource-contacts__form'>
+					<div className={styles.form}>
 						{children}
 					</div>
 				</Column>

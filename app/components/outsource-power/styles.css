@@ -1,202 +1,206 @@
 @import 'helpers';
 
-.outsource-power {
+.root {
 	height: 493px;
 	padding-left: 10%;
 	padding-top: 42px;
 	position: relative;
 	margin: 0 30px;
+}
 
-	&__wrapper {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		overflow: hidden;
+.wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.circle {
+	position: absolute;
+	top: 42px;
+	left: calc((100% - 918px) * 0.5);
+	width: 358px;
+	height: 358px;
+	border-radius: 50%;
+	background-color: #f2ecdd;
+	font-family: RodchenkoCTT;
+	color: #333333;
+	text-transform: uppercase;
+	padding-left: 70px;
+	padding-top: 115px;
+	letter-spacing: 0.075em;
+	display: inline-block;
+	vertical-align: top;
+
+	@media (max-width: 1100px) {
+		left: 21px;
 	}
 
-	&__circle {
+	&::after {
+		width: 400px;
+		height: 400px;
 		position: absolute;
-		top: 42px;
-		left: calc((100% - 918px) * 0.5);
-		width: 358px;
-		height: 358px;
+		left: -20px;
+		content: '';
+		top: -20px;
 		border-radius: 50%;
-		background-color: #f2ecdd;
-		font-family: RodchenkoCTT;
-		color: #333333;
-		text-transform: uppercase;
-		padding-left: 70px;
-		padding-top: 115px;
-		letter-spacing: 0.075em;
-		display: inline-block;
-		vertical-align: top;
-
-		@media (max-width: 1100px) {
-			left: 21px;
-		}
-
-		&::after {
-			width: 400px;
-			height: 400px;
-			position: absolute;
-			left: -20px;
-			content: '';
-			top: -20px;
-			border-radius: 50%;
-			border: 1px solid;
-			border-color: transparent transparent #6c0400 #6c0400;
-			transform: rotate(5deg);
-			pointer-events: none;
-		}
+		border: 1px solid;
+		border-color: transparent transparent #6c0400 #6c0400;
+		transform: rotate(5deg);
+		pointer-events: none;
 	}
+}
 
-	&__circle-1 {
-		font-size: 27px;
-		letter-spacing: 0.16em;
-		margin-bottom: -5px;
+.circle1 {
+	font-size: 27px;
+	letter-spacing: 0.16em;
+	margin-bottom: -5px;
 
-		&::before {
-			position: absolute;
-			right: 374px;
-			top: -42px;
-			width: 200px;
-			height: 1px;
-			background: #6c0400;
-			content: '';
-
-			@media (--small) {
-				display: none;
-			}
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			height: 1px;
-			background: #6c0400;
-			width: 97px;
-			top: -42px;
-			right: 277px;
-			transform: rotate(45deg);
-			transform-origin: left;
-
-			@media (--small) {
-				width: 113px;
-				top: -52px;
-				right: 275px;
-			}
-		}
-	}
-
-	&__circle-2 {
-		margin-left: -3px;
-		font-size: 95px;
-		margin-bottom: 3px;
-
-		&::after {
-			content: '';
-			position: absolute;
-			height: 1px;
-			background: #6c0400;
-			width: 167px;
-			top: 334px;
-			left: 309px;
-			transform: rotate(45deg);
-			transform-origin: left;
-		}
-	}
-
-	&__circle-3 {
-		font-size: 19px;
-	}
-
-	&__thunderbolt {
+	&::before {
 		position: absolute;
-		width: 173px;
-		height: 305px;
-		background-image: url('../../images/outsource/thunderbolt.png');
-		background-size: contain;
-		font-size: 20px;
-		color: #f2ecdd;
-		top: -50px;
-		left: 236px;
-		text-align: center;
-		padding-top: 146px;
+		right: 374px;
+		top: -42px;
+		width: 200px;
+		height: 1px;
+		background: #6c0400;
+		content: '';
+
+		@media (--small) {
+			display: none;
+		}
 	}
 
-	&__text {
+	&::after {
+		content: '';
 		position: absolute;
-		max-width: 380px;
-		width: 38%;
-		margin-left: 440px;
-		top: 89px;
-		left: calc((100% - 918px) * 0.5);
+		height: 1px;
+		background: #6c0400;
+		width: 97px;
+		top: -42px;
+		right: 277px;
+		transform: rotate(45deg);
+		transform-origin: left;
 
-		@media (max-width: 1200px) {
-			width: 30%;
-
-		}
-		@media (max-width: 1100px) {
-			left: 21px;
+		@media (--small) {
+			width: 113px;
+			top: -52px;
+			right: 275px;
 		}
 	}
+}
 
-	&__social {
-		position: absolute !important;
-		right: 8px;
-		top: 220px;
-		padding-top: 280px;
-		padding-left: 72px;
-		padding-bottom: 20px;
-		padding-right: 55px;
-		width: 204px;
-		height: 394px;
-		background-image: url('../../images/outsource/balloon.svg');
-		background-size: contain;
-		will-change: transform;
+.circle2 {
+	margin-left: -3px;
+	font-size: 95px;
+	margin-bottom: 3px;
 
-		@media (max-width: 1100px) {
-			right: -8px;
-			margin-top: 80px;
-		}
-
-		&_state_fixed {
-			top: 0px;
-		}
-
-	}
-
-	&__cloud {
+	&::after {
+		content: '';
 		position: absolute;
-		z-index: 1;
+		height: 1px;
+		background: #6c0400;
+		width: 167px;
+		top: 334px;
+		left: 309px;
+		transform: rotate(45deg);
+		transform-origin: left;
+	}
+}
 
-		&_bottom {
-			width: 200px;
-			left: -5px;
-			bottom: 93px;
+.circle3 {
+	font-size: 19px;
+}
 
-			@media (max-width: 1280px) {
-				left: 8%;
-				bottom: 63px;
-			}
+.thunderbolt {
+	position: absolute;
+	width: 173px;
+	height: 305px;
+	background-image: url('../../images/outsource/thunderbolt.png');
+	background-size: contain;
+	font-size: 20px;
+	color: #f2ecdd;
+	top: -50px;
+	left: 236px;
+	text-align: center;
+	padding-top: 146px;
+}
+
+.text {
+	position: absolute;
+	max-width: 380px;
+	width: 38%;
+	margin-left: 440px;
+	top: 89px;
+	left: calc((100% - 918px) * 0.5);
+
+	@media (max-width: 1300px) {
+		left: 8.5%;
+	}
+
+	@media (max-width: 1200px) {
+		width: 30%;
+
+	}
+	@media (max-width: 1100px) {
+		left: 21px;
+	}
+}
+
+.social {
+	position: absolute !important;
+	right: 8px;
+	top: 220px;
+	padding-top: 280px;
+	padding-left: 73px;
+	padding-bottom: 20px;
+	padding-right: 55px;
+	width: 204px;
+	height: 394px;
+	background-image: url('../../images/outsource/balloon.svg');
+	background-size: contain;
+	will-change: transform;
+
+	@media (max-width: 1100px) {
+		right: -8px;
+		margin-top: 80px;
+	}
+
+	&_state_fixed {
+		top: 0px;
+	}
+
+}
+
+.cloud {
+	position: absolute;
+	z-index: 1;
+
+	&_bottom {
+		width: 200px;
+		left: -5px;
+		bottom: 93px;
+
+		@media (max-width: 1280px) {
+			left: 8%;
+			bottom: 63px;
 		}
+	}
 
-		&_top {
-			width: 178px;
-			top: -80px;
-			left: 54%;
-		}
+	&_top {
+		width: 178px;
+		top: -80px;
+		left: 54%;
+	}
 
-		&_middle {
-			width: 210px;
-			right: -300px;
-			bottom: -60px;
+	&_middle {
+		width: 210px;
+		right: -300px;
+		bottom: -60px;
 
-			@media (max-width: 1280px) {
-				right: -80%;
-			}
+		@media (max-width: 1280px) {
+			right: -80%;
 		}
 	}
 }

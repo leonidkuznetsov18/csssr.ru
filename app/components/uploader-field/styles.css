@@ -1,10 +1,12 @@
-.upload-field {
-	&__info {
-		font-family: Roboto;
-		font-weight: 300;
-		font-size: 13px;
-		color: #333;
-		line-height: 20px;
-		display: block;
-	}
+.root {
+
+}
+
+.info {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 13px;
+	color: #333;
+	line-height: 20px;
+	display: block;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { setSelection } from 'react/lib/ReactInputSelection';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class Field extends React.Component {
 	static propTypes = {
@@ -37,19 +37,19 @@ export default class Field extends React.Component {
 	render() {
 		const { label, required, invalid, name, small } = this.props;
 		const blockClass = cx({
-			field: true,
-			field_size_half: small,
+			[styles.root]: true,
+			[styles.root_size_half]: small,
 		});
 
 		const inputClass = cx({
-			field__input: true,
-			field__input_error: invalid,
+			[styles.input]: true,
+			[styles.input_error]: invalid,
 		});
 
 		return (
 			<div className={blockClass}>
 				<label
-					className='field__label'
+					className={styles.label}
 					htmlFor={name}
 				>
 					{required && '* '}

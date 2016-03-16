@@ -1,16 +1,16 @@
-.options {
+.root {
 	font: 300 13px/23px Roboto;
 	display: block;
 
-	&__item {
-		display: block;
-		margin-bottom: 5px;
-	}
-
-	&_inline & {
-		&__item {
+	&_inline {
+		.item {
 			display: inline-block;
 			margin-right: 20px;
 		}
 	}
+}
+
+.item {
+	display: block;
+	margin-bottom: 5px;
 }

@@ -1,16 +1,23 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Tooltip({ children, className, text }) {
+	const blockClass = cx({
+		[styles.root]: true,
+		[className]: className,
+	});
+
 	return (
-		<div className={cx('tooltip-wrapper', className)}>
-			<span className='tooltip' tabIndex='-1'>{children}</span>
-			<div className='tooltip__full' tabIndex='-1'>
+		<div className={blockClass}>
+			<span className={styles.content} tabIndex='-1'>
+				{children}
+			</span>
+			<div className={styles.full} tabIndex='-1'>
 				{text}
 			</div>
-			<div className='tooltip__mask' />
+			<div className={styles.mask} />
 		</div>
 	);
 }

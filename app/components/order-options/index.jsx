@@ -6,8 +6,6 @@ import Options from 'components/options';
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';
 
-import './styles.css';
-
 function generateProps(fieldProps, fieldName, fieldValue, isRadio) {
 	if (isRadio) {
 		return {
@@ -49,7 +47,7 @@ export default function OrderOptions({ options, fields }) {
 	const { addition } = options;
 
 	return (
-		<div className='order-options'>
+		<div>
 			<Row inner>
 				{keys.map((key, index) => {
 					const isRadio = key === 'pagesWidth';

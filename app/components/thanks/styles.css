@@ -1,20 +1,22 @@
-.thanks {
-	&__image {
-		margin: 0 auto;
-		display: block;
-	}
+.root {
 
-	&__content {
-		padding-top: 100px;
-	}
+}
 
-	&__social {
-		width: 20px;
-		height: 20px;
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: 20px;
-		margin-right: -7px;
-		cursor: pointer;
-	}
+.image {
+	margin: 0 auto;
+	display: block;
+}
+
+.content {
+	padding-top: 100px;
+}
+
+.social {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-right: -7px;
+	cursor: pointer;
 }

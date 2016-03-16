@@ -1,31 +1,31 @@
-.jobs-widget {
+.root {
 	position: absolute;
 	z-index: 1;
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
+}
 
-	&__layout {
-		position: relative;
-		z-index: 2;
-		padding: 5px;
-		background-color: #fff;
-	}
+.layout {
+	position: relative;
+	z-index: 2;
+	padding: 5px;
+	background-color: #fff;
+}
 
-	&__hint {
-		position: relative;
-		z-index: 1;
-		padding-top: 33px;
-		padding-left: 25px;
-		height: 44px;
-	}
+.hint {
+	position: relative;
+	z-index: 1;
+	padding-top: 33px;
+	padding-left: 25px;
+	height: 44px;
+}
 
-	&__arrow {
-		position: absolute;
-		top: 15px;
-		left: 0;
-		z-index: 1;
-		width: 18px;
-		height: 26px;
-	}
+.arrow {
+	position: absolute;
+	top: 15px;
+	left: 0;
+	z-index: 1;
+	width: 18px;
+	height: 26px;
 }

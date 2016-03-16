@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import Circloader from 'components/circloader';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class ProjectPage extends React.Component {
 	static propTypes = {
@@ -23,16 +23,16 @@ export default class ProjectPage extends React.Component {
 	render() {
 		const { loaded, url } = this.props;
 		const loaderClass = cx({
-			'project-frame__loader': true,
-			'project-frame__loader_active': !loaded,
+			[styles.loader]: true,
+			[styles.loader_active]: !loaded,
 		});
 		const frameClass = cx({
-			'project-frame__frame': true,
-			'project-frame__frame_active': loaded,
+			[styles.frame]: true,
+			[styles.frame_active]: loaded,
 		});
 
 		return (
-			<div className='project-frame'>
+			<div className={styles.root}>
 				<div className={loaderClass}>
 					<Circloader size='big' color='white'/>
 				</div>

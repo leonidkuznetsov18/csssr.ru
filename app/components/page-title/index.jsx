@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default class PageTitle extends React.Component {
 	static propTypes = {

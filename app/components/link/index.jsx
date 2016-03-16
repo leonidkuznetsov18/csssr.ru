@@ -1,19 +1,22 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Link(props) {
-	const classList = cx('link', props.className, {
-		link_color_yellow: props.color === 'yellow',
-		link_color_blue: props.color === 'blue',
-		link_size_small: props.size === 'small',
-		link_size_big: props.size === 'big',
-		link_underline: props.underline,
-		link_dashed: props.dashed,
-		link_active: props.active,
-	});
 	const Component = props.component;
+	const classList = cx({
+		[styles.root]: true,
+		[styles.root_color_yellow]: props.color === 'yellow',
+		[styles.root_color_blue]: props.color === 'blue',
+		[styles.root_size_small]: props.size === 'small',
+		[styles.root_size_big]: props.size === 'big',
+		[styles.root_underline]: props.underline,
+		[styles.root_dashed]: props.dashed,
+		[styles.root_active]: props.active,
+		[props.className]: props.className,
+	});
+
 	return (
 		<Component {...props} className={classList}>
 			{props.children}

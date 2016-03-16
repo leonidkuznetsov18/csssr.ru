@@ -1,14 +1,14 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function JobsEmail() {
 	return (
-		<div className='jobs-email'>
-			<span className='jobs-email__caption'>
+		<div className={styles.root}>
+			<span className={styles.caption}>
 				Служба поиска талантов CSSSR
 			</span>
-			<a className='jobs-email__link' href='mailto:hr@csssr.io'>
+			<a className={styles.link} href='mailto:hr@csssr.io'>
 				hr@csssr.io
 			</a>
 		</div>

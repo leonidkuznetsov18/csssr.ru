@@ -1,4 +1,4 @@
-.quest {
+.root {
 	position: relative;
 	border: 1px dashed #231f20;
 	margin-top: 30px;
@@ -10,22 +10,8 @@
 	padding-bottom: 30px;
 	min-height: 195px;
 
-	&__scissors {
-		position: absolute;
-		width: 15px;
-		height: 16px;
-		top: 249px;
-		left: -8px;
-	}
-
-	&__file {
-		position: absolute;
-		top: 37px;
-		left: 40px;
-	}
-
-	&_horizon & {
-		&__scissors {
+	&_horizon {
+		.scissors {
 			top: auto;
 			bottom: -8px;
 			left: auto;
@@ -33,4 +19,18 @@
 			transform: rotate(-90deg);
 		}
 	}
+}
+
+.scissors {
+	position: absolute;
+	width: 15px;
+	height: 16px;
+	top: 249px;
+	left: -8px;
+}
+
+.file {
+	position: absolute;
+	top: 37px;
+	left: 40px;
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Title({ size, children, component, color, center, indent }) {
 	const classList = cx({
-		title: true,
-		title_noindent: indent === false,
-		title_center: center === true,
-		title_size_medium: size === 'medium',
-		title_size_small: size === 'small',
-		title_color_yellow: color === 'yellow',
-		title_color_black: color === 'black',
+		[styles.root]: true,
+		[styles.root_noindent]: indent === false,
+		[styles.root_center]: center === true,
+		[styles.root_size_medium]: size === 'medium',
+		[styles.root_size_small]: size === 'small',
+		[styles.root_color_yellow]: color === 'yellow',
+		[styles.root_color_black]: color === 'black',
 	});
 	const Tag = component;
 

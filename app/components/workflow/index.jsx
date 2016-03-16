@@ -1,19 +1,25 @@
 import React from 'react';
+import cx from 'classnames';
 import Text from 'components/text';
 import Link from 'components/link';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Workflow() {
+	const titleClass = (size) => cx({
+		[styles.title]: true,
+		[styles[`title_size_${size}`]]: size,
+	});
+
 	return (
-		<div className='workflow'>
-			<h3 className='workflow__title'>
+		<div className={styles.root}>
+			<h3 className={titleClass()}>
 				на чем летают
 			</h3>
-			<h3 className='workflow__title workflow__title_size_middle'>
+			<h3 className={titleClass('middle')}>
 				наши
 			</h3>
-			<h3 className='workflow__title workflow__title_size_big'>
+			<h3 className={titleClass('big')}>
 				ракеты
 			</h3>
 
@@ -22,7 +28,7 @@ export default function Workflow() {
 			</Text>
 
 			<img
-				className='workflow__mechanism'
+				className={styles.mechanism}
 				src={require('../../images/mechanism.svg')}
 				alt='mechanizm'
 				width='774'

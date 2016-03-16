@@ -6,36 +6,36 @@ import Parallax from 'components/parallax';
 import Workflow from 'components/workflow';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Description({ data }) {
 	return (
-		<div className='description'>
-			<div className='description__logo'/>
+		<div className={styles.root}>
+			<div className={styles.logo}/>
 			<Parallax offset={500} speed={0.4} max={0} min={-150}>
-				<div className='description__clouds'>
+				<div className={styles.clouds}>
 					<Icon
 						icon='cloud'
-						className='description__cloud'
+						className={styles.cloud}
 					/>
 					<Icon
 						icon='cloud'
-						className='description__cloud'
+						className={styles.cloud}
 					/>
 					<Icon
 						icon='cloud'
-						className='description__cloud'
+						className={styles.cloud}
 					/>
 					<Icon
 						icon='cloud'
-						className='description__cloud'
+						className={styles.cloud}
 					/>
 				</div>
 			</Parallax>
-			<div className='description__list'>
+			<div className={styles.list}>
 				{data.map((item, index) => (
-					<div className='description__item' key={index}>
-						<h2 className='description__title'>
+					<div className={styles.item} key={index}>
+						<h2 className={styles.title}>
 							<span
 								dangerouslySetInnerHTML={{ __html: item.title }}/>
 							{item.link &&
@@ -50,9 +50,9 @@ export default function Description({ data }) {
 					</div>
 				))}
 			</div>
-			<div className='description__flow'>
+			<div className={styles.flow}>
 				<Parallax offset={1600} speed={-0.7} min={0} max={310}>
-					<div className='description__airship'>
+					<div className={styles.airship}>
 						<Airship image='zeppelin_index.svg'/>
 					</div>
 				</Parallax>

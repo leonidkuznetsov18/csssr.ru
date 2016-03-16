@@ -1,19 +1,19 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function File({ type, filename, link, size }) {
 	return (
-		<div className='file'>
+		<div className={styles.root}>
 			<img src={require(`images/background/${type}.svg`)} />
 			<a
-				className='file__link'
+				className={styles.link}
 				href={link}
 				target='_blank'
 			>
 				{filename}
 			</a>
-			<p className='file__size'>
+			<p className={styles.size}>
 				{size}
 			</p>
 		</div>

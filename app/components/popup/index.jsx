@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function Popup(props) {
 	const popupClass = cx({
-		popup: true,
-		popup_active: props.active,
+		[styles.root]: true,
+		[styles.root_active]: props.active,
 	});
 
 	return (
 		<div className={popupClass} onClick={props.onClose}>
-			<div className='popup__close' onClick={props.onClose}/>
-			<div className='popup__content'>
+			<div className={styles.close} onClick={props.onClose} />
+			<div className={styles.content}>
 				{props.children}
 			</div>
 		</div>

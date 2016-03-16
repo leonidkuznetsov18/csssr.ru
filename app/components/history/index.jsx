@@ -4,19 +4,19 @@ import { Link } from 'react-router';
 import Title from 'components/title';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function History({ data }) {
 	return (
-		<div className='history'>
+		<div className={styles.root}>
 			<Title size='medium'>
 				<Link to='/timeline'>
 					{data.title}
 				</Link>
 			</Title>
 			{data.content.map((group, index) => (
-				<div className='history__item' key={index}>
-					<p className='history__date'>
+				<div className={styles.item} key={index}>
+					<p className={styles.date}>
 						{group.date}
 					</p>
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Element as ScrollElement } from 'react-scroll';
 
-import './styles.css';
+import styles from './styles.css';
 
 export default function FaqGroup({ children }) {
 	return (
-		<ScrollElement name='faq' className='faq-group'>
+		<ScrollElement name='faq' className={styles.root}>
 			{children}
 		</ScrollElement>
 	);

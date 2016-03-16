@@ -1,4 +1,4 @@
-.outsource-contacts {
+.root {
 	position: relative;
 	padding-top: 60px;
 	padding-left: 130px;
@@ -19,8 +19,8 @@
 		background-size: contain;
 		transform: rotate(-90deg);
 	}
+}
 
-	&__form {
-		width: 420px;
-	}
+.form {
+	width: 420px;
 }

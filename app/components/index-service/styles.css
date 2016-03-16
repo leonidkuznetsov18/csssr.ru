@@ -1,50 +1,50 @@
-.index-service {
+.root {
 	margin-left: auto;
 	margin-right: auto;
 	width: 91.538%;
 	max-width: 1190px;
 	position: relative;
+}
 
-	&__header {
-		width: 361px;
-		height: 92px;
-		margin: 0 auto;
-	}
+.header {
+	width: 361px;
+	height: 92px;
+	margin: 0 auto;
+}
 
-	&__rocket {
-		position: absolute;
-		width: 7.5%;
-		height: 321px;
-		top: 69px;
-		left: 4%;
-		transform: translate3d(0, 0, 0);
-		will-change: transform;
-		backface-visibility: hidden;
-	}
+.rocket {
+	position: absolute;
+	width: 7.5%;
+	height: 321px;
+	top: 69px;
+	left: 4%;
+	transform: translate3d(0, 0, 0);
+	will-change: transform;
+	backface-visibility: hidden;
+}
 
-	&__services {
-		padding-top: 97px;
-		padding-left: 10%;
-		padding-right: 10%;
-		display: flex;
-		position: relative;
-	}
+.services {
+	padding-top: 97px;
+	padding-left: 10%;
+	padding-right: 10%;
+	display: flex;
+	position: relative;
+}
 
-	&__service {
-		padding-left: 70px;
-		width: 50%;
-	}
+.service {
+	padding-left: 70px;
+	width: 50%;
+}
 
-	&__satellite {
-		position: absolute;
-		top: -7px;
-		width: 33%;
-		height: 211px;
-		right: 210px;
-		pointer-events: none;
-	}
+.satellite {
+	position: absolute;
+	top: -7px;
+	width: 33%;
+	height: 211px;
+	right: 210px;
+	pointer-events: none;
+}
 
-	&__content {
-		margin-top: 115px;
-	}
+.content {
+	margin-top: 115px;
 }
