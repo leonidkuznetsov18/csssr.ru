@@ -2,7 +2,6 @@ import React from 'react';
 
 import './styles.css';
 
-
 export default function OutsourceMagic() {
 	return (
 		<div className='outsource-magic'>
@@ -89,7 +88,6 @@ export default function OutsourceMagic() {
 					Применяется с удовольствием
 				</div>
 			</div>
-
 		</div>
 	);
 }

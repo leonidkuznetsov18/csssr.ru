@@ -164,6 +164,7 @@ export default function (options) {
 					'last 2 versions',
 				],
 			}),
+			require("css-mqpacker")
 		],
 		plugins,
 		devServer: {
