@@ -3,16 +3,39 @@ import ReactDOMServer from 'react-dom/server';
 
 import MailOutsource from 'mails/outsource';
 import sendMail from '../lib/mail';
+import getToolsInfo from '../lib/getToolsInfo';
 
-function sendOutsourceMail(data) {
+function getFormData(data) {
+	return {
+		contact: {
+			email: data.email,
+			name: data.name,
+			skype: data.skype,
+			phone: data.phone,
+		},
+		labels: [
+			'ru',
+			'outsource',
+		],
+		lang: 'ru',
+	};
+}
+
+function sendOutsourceMail(toolsData, data) {
 	return sendMail({
-		subject: 'CSSSR. Заказ на аутсорс',
-		html: ReactDOMServer.renderToStaticMarkup(<MailOutsource data={data}/>),
+		subject: `CSSSR. Заказ на аутсорс номер ${toolsData.unique_number}`,
+		html: ReactDOMServer.renderToStaticMarkup(
+			<MailOutsource toolsData={toolsData} data={data} />
+		),
 	});
 }
 
 export default function (req, res) {
-	sendOutsourceMail(req.body)
+	const form = getFormData(req.body);
+
+	getToolsInfo(form)
+		.then((toolsData) => sendOutsourceMail(toolsData, req.body))
+		.catch(() => sendOutsourceMail({}, req.body))
 		.then(() => {
 			res.status(200)
 				.send({ result: 'OK' })
