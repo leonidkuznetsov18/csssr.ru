@@ -1,18 +1,75 @@
+/* cyrillic */
 @font-face {
 	font-family: 'PT Sans';
-	src: url(../../../static/fonts/ptsanswebregular.woff2) format('woff2'),
-	     url(../../../static/fonts/ptsanswebregular.woff) format('woff');
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 400;
+	src: local('PT Sans'),
+	     local('PTSans-Regular'),
+	     url(../../../static/fonts/pt-sans-regular-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-regular.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
 }
 
+/* latin */
 @font-face {
 	font-family: 'PT Sans';
-	src: url(../../../static/fonts/ptsanswebbold.woff2) format('woff2'),
-	     url(../../../static/fonts/ptsanswebbold.woff) format('woff');
+	font-style: normal;
+	font-weight: 400;
+	src: local('PT Sans'),
+	     local('PTSans-Regular'),
+	     url(../../../static/fonts/pt-sans-regular-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-regular.woff) format('woff');
+	unicode-range: var(--letters-latin);
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'PT Sans';
 	font-style: normal;
 	font-weight: 700;
+	src: local('PT Sans Bold'),
+	     local('PTSans-Bold'),
+	     url(../../../static/fonts/pt-sans-bold-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-bold.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
 }
+
+/* latin */
+@font-face {
+	font-family: 'PT Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('PT Sans Bold'),
+	     local('PTSans-Bold'),
+	     url(../../../static/fonts/pt-sans-bold-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-bold.woff) format('woff');
+	unicode-range: var(--letters-latin);
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'PT Sans Narrow';
+	font-style: normal;
+	font-weight: 400;
+	src: local('PT Sans Narrow'),
+	     local('PTSans-Narrow'),
+	     url(../../../static/fonts/pt-sans-narrow-regular-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-narrow-regular.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
+}
+
+/* latin */
+@font-face {
+	font-family: 'PT Sans Narrow';
+	font-style: normal;
+	font-weight: 400;
+	src: local('PT Sans Narrow'),
+	     local('PTSans-Narrow'),
+	     url(../../../static/fonts/pt-sans-narrow-regular-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/pt-sans-narrow-regular.woff) format('woff');
+	unicode-range: var(--letters-latin);
+}
+
 
 @font-face {
 	font-family: 'RodchenkoCTT';
@@ -22,34 +79,74 @@
 	font-weight: normal;
 }
 
-@font-face {
-	font-family: 'PT Sans Narrow';
-	src: url(../../../static/fonts/ptsansnarrowwebregular.woff2) format('woff2'),
-	     url(../../../static/fonts/ptsansnarrowwebregular.woff) format('woff');
-	font-style: normal;
-	font-weight: normal;
-}
-
+/* cyrillic */
 @font-face {
 	font-family: 'Roboto';
-	src: url(../../../static/fonts/robotolight.woff2) format('woff2'),
-	     url(../../../static/fonts/robotolight.woff) format('woff');
 	font-style: normal;
 	font-weight: 300;
+	src: local('Roboto Light'),
+	     local('Roboto-Light'),
+	     url(../../../static/fonts/roboto-light-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-light.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
 }
 
+/* latin */
 @font-face {
 	font-family: 'Roboto';
-	src: url(../../../static/fonts/robotoregular.woff2) format('woff2'),
-	     url(../../../static/fonts/robotoregular.woff) format('woff');
+	font-style: normal;
+	font-weight: 300;
+	src: local('Roboto Light'),
+	     local('Roboto-Light'),
+	     url(../../../static/fonts/roboto-light-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-light.woff) format('woff');
+	unicode-range: var(--letters-latin);
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 400;
+	src: local('Roboto'),
+	     local('Roboto-Regular'),
+	     url(../../../static/fonts/roboto-regular-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-regular.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
 }
 
+/* latin */
 @font-face {
 	font-family: 'Roboto';
-	src: url(../../../static/fonts/robotobold.woff2) format('woff2'),
-	     url(../../../static/fonts/robotobold.woff) format('woff');
+	font-style: normal;
+	font-weight: 400;
+	src: local('Roboto'),
+	     local('Roboto-Regular'),
+	     url(../../../static/fonts/roboto-regular-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-regular.woff) format('woff');
+	unicode-range: var(--letters-latin);
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 700;
+	src: local('Roboto Bold'),
+	     local('Roboto-Bold'),
+	     url(../../../static/fonts/roboto-bold-cyrillic.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-bold.woff) format('woff');
+	unicode-range: var(--letters-cyrillic);
+}
+
+/* latin */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Roboto Bold'),
+	     local('Roboto-Bold'),
+	     url(../../../static/fonts/roboto-bold-latin.woff2) format('woff2'),
+	     url(../../../static/fonts/roboto-bold.woff) format('woff');
+	unicode-range: var(--letters-latin);
 }
