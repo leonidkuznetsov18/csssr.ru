@@ -7,16 +7,17 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import routes from './routes';
 import reducer from './reducers';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
+import useScroll from 'use-scroll-behavior';
 
 const createStoreWithMiddleWare = compose(
 	applyMiddleware(
 		thunk,
-		routerMiddleware(browserHistory)
+		routerMiddleware(useScroll(browserHistory))
 	),
 	window.devToolsExtension ? window.devToolsExtension() : (f) => f,
 )(createStore);
 const store = createStoreWithMiddleWare(reducer);
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(useScroll(browserHistory), store);
 
 ReactDOM.render(
 	<Provider store={store} key='provider'>

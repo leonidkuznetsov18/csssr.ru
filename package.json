@@ -40,6 +40,7 @@
     "form-data": "^0.2.0",
     "history": "^2.0.0",
     "json-loader": "^0.5.1",
+    "lodash.throttle": "^4.0.1",
     "morgan": "^1.6.1",
     "multer": "^1.0.5",
     "nodemailer": "^2.2.0",
@@ -74,6 +75,7 @@
     "superagent": "^1.4.0",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.5",
+    "use-scroll-behavior": "0.0.4",
     "webpack": "^1.10.1"
   },
   "devDependencies": {
