@@ -8,6 +8,7 @@
 	text-align: center;
 	height: 42px;
 	background-color: #FFA202;
+	user-select: none;
 
 	&::before {
 		content: "";
@@ -20,6 +21,7 @@
 		transform: skew(30deg);
 		transform-origin: 0px 100% 0px;
 		z-index: 2;
+		pointer-events: none;
 	}
 
 	&::after {
@@ -31,6 +33,7 @@
 		top: 3px;
 		background-color: #FC9700;
 		transform: skewY(60deg);
+		pointer-events: none;
 	}
 
 	&__inner {
@@ -46,6 +49,7 @@
 		font-size: 16px;
 		line-height: 38px;
 		font-style: italic;
+		pointer-events: none;
 		color: #591200;
 		text-shadow: 0px 1px rgba(255, 255, 255, 0.6);
 
@@ -70,6 +74,7 @@
 		display: inline-block;
 		vertical-align: middle;
 		color: #3F2114;
+		pointer-events: none;
 	}
 
 	&__shadow {
@@ -82,6 +87,7 @@
 		left: -12px;
 		opacity: 0.4;
 		box-shadow: 3px 0px #000;
+		pointer-events: none;
 
 		&::before {
 			content: "";
