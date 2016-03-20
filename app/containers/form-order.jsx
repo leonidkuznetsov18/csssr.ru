@@ -24,7 +24,7 @@ const requiredFields = [
 		'filesLink',
 		'modernBrowsers',
 		'oldBrowsers',
-		'mobile',
+		'mobileBrowsers',
 		'pagesWidth',
 		'addition',
 		'files',

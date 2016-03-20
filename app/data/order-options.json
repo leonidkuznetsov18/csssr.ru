@@ -47,7 +47,7 @@
 			"value": "opera12"
 		}
 	],
-	"mobile": [
+	"mobileBrowsers": [
 		{
 			"name": "Safari 9 (iOS 9)",
 			"value": "mobilesafari"
@@ -76,11 +76,11 @@
 	"pagesWidth": [
 		{
 			"name": "Фиксированная (Static)",
-			"value": "static"
+			"value": "fixed"
 		},
 		{
 			"name": "Резиновая (Liquid)",
-			"value": "liquid"
+			"value": "dynamic"
 		},
 		{
 			"name": "Адаптивная (Adaptive)",

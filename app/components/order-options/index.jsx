@@ -42,7 +42,7 @@ export default function OrderOptions({ options, fields }) {
 	const keys = [
 		'modernBrowsers',
 		'oldBrowsers',
-		'mobile',
+		'mobileBrowsers',
 		'pagesWidth',
 	];
 
