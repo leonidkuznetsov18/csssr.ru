@@ -24,12 +24,11 @@
 		position: absolute;
 		top: 40px;
 		left: 6px;
-		width: 102%;
+		width: 100%;
 		height: 6px;
 		transform: skew(45deg);
 		transform-origin: 0px 100% 0px;
 		content: '';
-		background-color: var(--color-menu-shadow);
 	}
 
 	&__arrow {

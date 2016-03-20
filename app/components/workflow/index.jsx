@@ -1,5 +1,6 @@
 import React from 'react';
 import Text from 'components/text';
+import Link from 'components/link';
 
 import './styles.css';
 
@@ -43,9 +44,12 @@ export default function Workflow() {
 				пользуемся следующими инструментами: css-препроцессорами
 				Stylus, Less, Sass, html-препроцессором Jade, а&nbsp;также
 				Gulp (либо Grunt) &nbsp;&mdash; в&nbsp;качестве сборщика. На
-				&nbsp; подавляющем большинстве проектов применяется
-				методология БЭМ. Также мы &nbsp;предлагаем всем разработчикам
-				попробовать наш шаблон для быстрого старта проекта.
+				&nbsp;подавляющем большинстве проектов применяется
+				методология БЭМ. Также мы&nbsp;предлагаем всем разработчикам
+				попробовать наш&nbsp;
+				<Link href='https://github.com/CSSSR/csssr-project-template' target='_blank'>
+					шаблон для быстрого старта проекта
+				</Link>.
 			</Text>
 		</div>
 	);
