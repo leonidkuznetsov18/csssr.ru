@@ -3,6 +3,7 @@
 	vertical-align: top;
 	padding: 0 15px;
 	position: relative;
+	box-sizing: border-box;
 
 	&_size_oneThird {
 		width: 33.333%;

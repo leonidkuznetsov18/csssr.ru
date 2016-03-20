@@ -1,10 +1,11 @@
 .root {
 	font-size: 16px;
 	line-height: 27px;
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 300;
 	color: #333333;
 	margin-bottom: 10px;
+	display: block;
 
 	&_center {
 		text-align: center;

@@ -1,6 +1,7 @@
 .root {
 	margin-bottom: 25px;
 	padding-right: 25px;
+	display: block;
 	position: relative;
 	clear: fix;
 }
@@ -8,6 +9,7 @@
 .links {
 	margin-top: 30px;
 	margin-bottom: 5px;
+	display: block;
 }
 
 .link {

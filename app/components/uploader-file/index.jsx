@@ -10,7 +10,7 @@ export default function UploaderFile({ file, progress, onRemove }) {
 	});
 
 	return (
-		<div className='root'>
+		<div className={styles.root}>
 			<span className={styles.name}>
 				{file.name}
 			</span>

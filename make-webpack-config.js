@@ -165,7 +165,11 @@ export default function (options) {
 					'last 2 versions',
 				],
 			}),
-			require("css-mqpacker")
+			require('postcss-autoreset')({
+				rulesMatcher: ({ selector }) => !/(_|:|\[)/.test(selector),
+			}),
+			require('postcss-initial'),
+			require('css-mqpacker'),
 		],
 		plugins,
 		devServer: {

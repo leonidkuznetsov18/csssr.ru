@@ -80,10 +80,9 @@ export default class Contacts extends React.Component {
 					</div>
 					<div className={styles.widget + ' ' + styles.widget_type_bordered}>
 						<div className={styles.job}>
-							<Icon
-								className={styles.arrow}
-								icon='curve-arrow'
-							/>
+							<span className={styles.arrow}>
+								<Icon icon='curve-arrow' />
+							</span>
 
 							<Text size='xs'>
 								Анонсы вакансий тут

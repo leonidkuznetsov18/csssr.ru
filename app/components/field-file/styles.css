@@ -33,7 +33,7 @@
 	user-select: none;
 	cursor: pointer;
 	vertical-align: top;
-	margin-top: 18px;
+	margin-top: 19px;
 
 	&:hover {
 		background: color(#ffb800 l(+10%));

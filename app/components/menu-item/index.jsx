@@ -15,7 +15,7 @@ export default function MenuItem({ href, children, active, component }) {
 	return (
 		<Component
 			className={blockClass}
-			activeClassName={styles.menuItem_state_active}
+			activeClassName={styles.root_state_active}
 			to={href}
 		>
 			{children}

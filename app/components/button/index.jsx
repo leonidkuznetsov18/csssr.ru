@@ -17,7 +17,9 @@ export default function Button(props) {
 		<Component {...props} className={blockClass}>
 			<span className={styles.inner}>
 				{props.icon &&
-					<Icon className={styles.icon} icon={props.icon} />
+					<span className={styles.icon}>
+						<Icon icon={props.icon} />
+					</span>
 				}
 				{props.children}
 			</span>

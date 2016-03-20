@@ -17,22 +17,17 @@ export default function ProjectSidebar({ project, onToggle }) {
 				{project.name}
 			</h1>
 
-			<ul>
-				{project.pages.map((page, index) => (
-					<li key={index}>
-						<Text size='xs'>
-							<Link
-								className={styles.link}
-								activeClassName={styles.link_active}
-								to={`/portfolio/${project.view}/${page.page}`}
-							>
-
-								{page.name}
-							</Link>
-						</Text>
-					</li>
-				))}
-			</ul>
+			{project.pages.map((page, index) => (
+				<Text size='xs' key={index}>
+					<Link
+						className={styles.link}
+						activeClassName={styles.link_active}
+						to={`/portfolio/${project.view}/${page.page}`}
+					>
+						{page.name}
+					</Link>
+				</Text>
+			))}
 		</div>
 	);
 }

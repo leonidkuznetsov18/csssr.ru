@@ -4,6 +4,8 @@
 	padding-left: 130px;
 	padding-right: 130px;
 	border-top: 1px dashed #231f20;
+	display: block;
+	box-sizing: border-box;
 
 	&::after {
 		content: '';

@@ -1,4 +1,6 @@
 .root {
+	display: block;
+
 	&_size_half {
 		display: inline-block;
 		width: calc(50% - 5px);
@@ -14,6 +16,8 @@
 	font-size: 13px;
 	color: #666;
 	cursor: pointer;
+	font-family: 'PT Sans';
+	display: block;
 }
 
 .input {
@@ -31,6 +35,7 @@
 	background-color: transparent;
 	border: 1px solid #969696;
 	transition: all .5s;
+	box-sizing: border-box;
 
 	&:focus {
 		border-color: #333;

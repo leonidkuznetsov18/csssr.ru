@@ -13,10 +13,9 @@ export default function JobsWidget() {
 			</div>
 
 			<div className={styles.hint}>
-				<Icon
-					className={styles.arrow}
-					icon='curve-arrow'
-				/>
+				<span className={styles.arrow}>
+					<Icon icon='curve-arrow' />
+				</span>
 
 				<Text size='xs'>
 					Следите за новыми вакансиями

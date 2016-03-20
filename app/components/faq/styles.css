@@ -8,6 +8,7 @@
 	position: relative;
 	flex-shrink: 0;
 	padding-right: 25px;
+	box-sizing: border-box;
 }
 
 .image {
@@ -31,6 +32,7 @@
 
 .questions {
 	width: 67%;
+	box-sizing: border-box;
 	padding: 40px 0 50px 0;
 	border-top: 1px solid #5d798a;
 	display: flex;
@@ -42,14 +44,16 @@
 }
 
 .subtitle {
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: bold;
 	font-size: 20px;
 	line-height: 23px;
 	color: #e9e2d3;
+	display: block;
 	margin-bottom: 10px;
 }
 
 .question {
 	margin-bottom: 20px;
+	display: block;
 }

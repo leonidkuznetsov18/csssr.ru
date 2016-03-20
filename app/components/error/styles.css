@@ -3,8 +3,9 @@
 }
 
 .smile {
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 400;
+	display: block;
 	font-size: 80px;
 	line-height: 1;
 	color: #6b0600;

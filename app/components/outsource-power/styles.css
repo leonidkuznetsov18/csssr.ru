@@ -6,6 +6,8 @@
 	padding-top: 42px;
 	position: relative;
 	margin: 0 30px;
+	display: block;
+	box-sizing: border-box;
 }
 
 .wrapper {
@@ -33,6 +35,7 @@
 	letter-spacing: 0.075em;
 	display: inline-block;
 	vertical-align: top;
+	box-sizing: border-box;
 
 	@media (max-width: 1100px) {
 		left: 21px;
@@ -54,9 +57,13 @@
 }
 
 .circle1 {
+	display: block;
+	font-family: RodchenkoCTT;
+	color: #333333;
 	font-size: 27px;
 	letter-spacing: 0.16em;
 	margin-bottom: -5px;
+	text-transform: uppercase;
 
 	&::before {
 		position: absolute;
@@ -92,9 +99,13 @@
 }
 
 .circle2 {
+	display: block;
+	font-family: RodchenkoCTT;
+	color: #333333;
 	margin-left: -3px;
 	font-size: 95px;
 	margin-bottom: 3px;
+	text-transform: uppercase;
 
 	&::after {
 		content: '';
@@ -110,15 +121,26 @@
 }
 
 .circle3 {
+	display: block;
+	font-family: RodchenkoCTT;
+	color: #333333;
 	font-size: 19px;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
 }
 
 .thunderbolt {
 	position: absolute;
 	width: 173px;
 	height: 305px;
+	display: block;
+	box-sizing: border-box;
 	background-image: url('../../images/outsource/thunderbolt.png');
+	letter-spacing: 0.075em;
 	background-size: contain;
+	border-right: no-repeat;
+	font-family: RodchenkoCTT;
+	text-transform: uppercase;
 	font-size: 20px;
 	color: #f2ecdd;
 	top: -50px;
@@ -161,6 +183,8 @@
 	background-image: url('../../images/outsource/balloon.svg');
 	background-size: contain;
 	will-change: transform;
+	display: block;
+	box-sizing: border-box;
 
 	@media (max-width: 1100px) {
 		right: -8px;
@@ -170,7 +194,6 @@
 	&_state_fixed {
 		top: 0px;
 	}
-
 }
 
 .cloud {

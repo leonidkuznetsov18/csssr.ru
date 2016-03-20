@@ -2,11 +2,9 @@
 	padding-left: 6%;
 	padding-bottom: 50px;
 	position: relative;
-	color: #333;
-	font-size: 12px;
-	font-family: 'Roboto';
-	font-weight: 300;
 	width: 100%;
+	box-sizing: border-box;
+	display: block;
 }
 
 .title {
@@ -16,6 +14,7 @@
 	margin-bottom: 15px;
 	margin-left: 40px;
 	font-weight: normal;
+	display: block;
 }
 
 .subtitle {
@@ -28,11 +27,13 @@
 	text-transform: uppercase;
 	margin-bottom: 11px;
 	font-weight: normal;
+	display: block;
 }
 
 .group {
 	position: relative;
 	width: 950px;
+	display: block;
 }
 
 .index {
@@ -40,14 +41,27 @@
 	position: absolute;
 	top: 2px;
 	left: 0;
+	color: #333;
+	font-size: 12px;
+	font-family: 'Roboto';
+	font-weight: 300;
 }
 
 .text {
 	margin-bottom: 10px;
 	line-height: 18px;
 	padding-left: 45px;
+	display: block;
+	color: #333;
+	font-size: 12px;
+	font-family: 'Roboto';
+	font-weight: 300;
 
 	strong {
+		color: inherit;
+		font-size: inherit;
+		font-family: inherit;
+		line-height: inherit;
 		font-weight: 700;
 	}
 }

@@ -1,5 +1,5 @@
 .root {
-
+	display: block;
 }
 
 .input {
@@ -12,6 +12,11 @@
 	display: inline-block;
 	cursor: pointer;
 	user-select: none;
+	display: block;
+	line-height: 23px;
+	font-family: 'Roboto';
+	font-size: 13px;
+	font-weight: 300;
 
 	&::before {
 		position: absolute;

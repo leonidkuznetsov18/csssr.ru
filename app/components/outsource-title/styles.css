@@ -7,13 +7,24 @@
 	font-style: italic;
 	line-height: 56px;
 	color: #333;
+	display: block;
 }
 
 .left {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	text-transform: inherit;
+	color: inherit;
 	display: block;
 }
 
 .right {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	text-transform: inherit;
+	color: inherit;
 	display: block;
 	padding-left: 88px;
 	padding-top: 5px;

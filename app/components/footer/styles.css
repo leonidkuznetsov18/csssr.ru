@@ -6,9 +6,6 @@
 	background-position: bottom;
 	background-size: 440px 66px;
 	height: 65px;
-	font-size: 12px;
-	line-height: 17px;
-	color: var(--color-footer-text);
 }
 
 .inner {
@@ -23,6 +20,9 @@
 .link {
 	color: var(--color-footer-link);
 	transition: color .3s ease;
+	font-family: 'PT Sans';
+	font-size: 12px;
+	line-height: 17px;
 
 	&:hover {
 		color: var(--color-white);
@@ -45,6 +45,11 @@
 	width: 25%;
 	position: relative;
 	padding-left: 40px;
+	width: 22%;
+	font-family: 'PT Sans';
+	font-size: 12px;
+	line-height: 17px;
+	color: var(--color-footer-text);
 }
 
 .invalid {
@@ -65,4 +70,6 @@
 .copyright {
 	margin-right: 15px;
 	font-size: 14px;
+	font-family: 'PT Sans';
+	color: var(--color-footer-text);
 }

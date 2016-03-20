@@ -10,7 +10,7 @@ export default function History({ data }) {
 	return (
 		<div className={styles.root}>
 			<Title size='medium'>
-				<Link to='/timeline'>
+				<Link to='/timeline' className={styles.link}>
 					{data.title}
 				</Link>
 			</Title>

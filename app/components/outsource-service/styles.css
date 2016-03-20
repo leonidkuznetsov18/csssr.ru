@@ -2,6 +2,7 @@
 	display: inline-block;
 	vertical-align: top;
 	width: 33.333%;
+	box-sizing: border-box;
 	padding: 0 3% 0 calc(3% + 10px);
 
 	&:nth-child(2) {
@@ -15,7 +16,8 @@
 
 .title {
 	line-height: 40px;
-	margin-bottom: -5px;
+	display: block;
+	padding: 10px 0;
 	width: 200px;
 }
 
@@ -26,6 +28,7 @@
 	width: 110px;
 	background-repeat: no-repeat;
 	margin-left: -10px;
+	display: block;
 
 	&_type_rocket {
 		background-image: url('../../images/outsource/rocket.svg'), url('../../images/outsource/circle.png');

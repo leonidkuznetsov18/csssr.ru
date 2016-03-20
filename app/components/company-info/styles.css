@@ -2,7 +2,7 @@
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 50px;
-
+	display: block;
 }
 
 .rocket {
@@ -17,6 +17,8 @@
 	margin-bottom: 50px;
 	padding-top: 100px;
 	padding-left: 51%;
+	display: block;
+	box-sizing: border-box;
 }
 
 .rocketCount {

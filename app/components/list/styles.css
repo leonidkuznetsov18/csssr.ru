@@ -1,9 +1,11 @@
 .root {
 	margin-bottom: 18px;
+	display: block;
 }
 
 .item {
 	position: relative;
+	display: block;
 	margin-bottom: 5px;
 
 	&::before {

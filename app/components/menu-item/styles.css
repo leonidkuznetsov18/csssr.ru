@@ -15,6 +15,7 @@
 	color: var(--color-link);
 	text-decoration: none;
 	padding-top: 1px;
+	box-sizing: border-box;
 
 	@media (--wide) {
 		font-size: 20px;
@@ -41,8 +42,10 @@
 		}
 	}
 
-	&_state_active .arrow {
-		display: block;
+	&_state_active {
+		.arrow {
+			display: block;
+		}
 	}
 }
 

@@ -18,16 +18,10 @@
 	display: block;
 	height: 26px;
 	width: 100%;
-	font-family: 'PT Sans Narrow';
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 0.029em;
-	color: #6b0000;
 	transition-duration: .25s;
 	transition-property: color;
 	will-change: color;
 	cursor: pointer;
-
 
 	&::after {
 		display: inline-block;
@@ -41,12 +35,13 @@
 	}
 
 	&_active {
-		color: #6c0400;
-		background: #fdb00b;
 		pointer-events: none;
+		background: #fdb00b;
 
-		.outsource-examples__link-text {
+		.text {
 			border-bottom: 0;
+			color: #6c0400;
+			pointer-events: none;
 		}
 
 		&::before {
@@ -66,6 +61,12 @@
 	display: inline;
 	vertical-align: middle;
 	border-bottom: 1px dotted;
+	font-family: 'PT Sans Narrow';
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.029em;
+	cursor: inherit;
+	color: #6b0000;
 }
 
 .tab {

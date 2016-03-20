@@ -4,6 +4,7 @@
 	width: 91.538%;
 	max-width: 1190px;
 	position: relative;
+	display: block;
 }
 
 .header {

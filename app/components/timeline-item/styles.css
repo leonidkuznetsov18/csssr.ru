@@ -6,6 +6,8 @@
 	padding-bottom: 28px;
 	overflow: hidden;
 	width: 600px;
+	display: block;
+	box-sizing: border-box;
 
 	&::before {
 		position: absolute;
@@ -157,15 +159,22 @@
 	font-size: 24px;
 	line-height: 30px;
 	text-transform: uppercase;
-
-	a {
-		text-transform: lowercase;
-		text-decoration: underline;
-		transition: all .25s;
-		cursor: pointer;
-	}
 }
 
+.versionLink {
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
+	}
+}
 .quote {
 	position: relative;
 	margin-top: 4px;

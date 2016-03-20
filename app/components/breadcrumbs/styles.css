@@ -2,9 +2,8 @@
 	margin: 0 auto 26px;
 	padding-left: 307px;
 	width: 93%;
-	font-family: Roboto;
-	font-weight: 300;
-	font-size: 14px;
+	display: block;
+	box-sizing: border-box;
 }
 
 .item {
@@ -16,6 +15,9 @@
 .link {
 	color: #0099cc;
 	text-decoration: underline;
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 14px;
 
 	&:hover,
 	&:active {
@@ -25,4 +27,7 @@
 
 .text {
 	color: #aaa8a4;
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 14px;
 }

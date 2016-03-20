@@ -19,18 +19,20 @@ export default class Footer extends React.Component {
 				<div className={styles.inner}>
 					<div className={styles.payment}>
 						{paymentSystems.map((system) => (
-							<Icon
-								className={styles.paymentIcon}
-								icon={`payment/${system}`}
-								key={system}
-							/>
+							<span className={styles.paymentIcon}>
+								<Icon
+									icon={`payment/${system}`}
+									key={system}
+								/>
+							</span>
 						))}
 					</div>
 					<div className={styles.invite}>
-						<Icon
-							icon='invalid'
-							className={styles.invalid}
-						/>
+						<span className={styles.invalid}>
+							<Icon
+								icon='invalid'
+							/>
+						</span>
 						<Link
 							className={styles.link}
 							to='/jobs'

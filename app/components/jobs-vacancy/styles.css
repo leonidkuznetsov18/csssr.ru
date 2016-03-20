@@ -1,12 +1,23 @@
 .root {
 	padding-bottom: 10px;
-	font-size: 17px;
-	font-family: Roboto;
-	font-weight: 300;
 }
 
 .item {
 	margin-top: 14px;
+	display: block;
+}
+
+.link {
+	font-size: 17px;
+	font-family: Roboto;
+	font-weight: 300;
+	text-decoration: underline;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
+	}
 }
 
 .hh {

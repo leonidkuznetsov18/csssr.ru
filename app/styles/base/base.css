@@ -1,9 +1,13 @@
 html {
+	all: initial;
+	display: block;
 	height: 100%;
 	min-width: 1024px;
 }
 
 body {
+	all: initial;
+	display: block;
 	font-family: 'PT Sans', Helvetica, Arial, sans-serif;;
 	height: 100%;
 	overflow-y: scroll;
@@ -14,6 +18,11 @@ body {
 }
 
 a {
+	all: inherit;
+	padding: 0;
+	margin: 0;
+	text-decoration: underline;
+	display: inline;
 	color: #056383;
 	transition: color .3s ease;
 

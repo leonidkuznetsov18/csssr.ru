@@ -5,6 +5,8 @@
 	background-image: url('../../images/background/content.jpg');
 	padding: 30px 20px;
 	position: relative;
+	display: block;
+	box-sizing: border-box;
 }
 
 .close {
@@ -59,10 +61,16 @@
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 15px;
+	display: block;
 }
 
 .link {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
 	position: relative;
+	color: #056383;
+	text-decoration: underline;
 	transtion: all .3s ease;
 
 	&::before {

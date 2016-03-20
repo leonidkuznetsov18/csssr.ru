@@ -13,19 +13,19 @@ export default function Projecter({ active, partner, title, content, onClose }) 
 	return (
 		<div onClick={onClose} className={blockClass} >
 			<div onClick={(e) => e.stopPropagation()}>
-				<div className={styles.title}>
+				<div className={styles.selection}>
 					<div
-						className={styles.selection}
+						className={styles.title}
 						dangerouslySetInnerHTML={{ __html: title }}
 					/>
 				</div>
 
-				<blockquote className={styles.comment}>
-					<div
-						className={styles.selection}
+				<div className={styles.selection}>
+					<blockquote
+						className={styles.comment}
 						dangerouslySetInnerHTML={{ __html: content }}
 					/>
-				</blockquote>
+				</div>
 			</div>
 		</div>
 	);

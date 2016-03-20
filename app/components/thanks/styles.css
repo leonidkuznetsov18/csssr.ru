@@ -1,5 +1,5 @@
 .root {
-
+	display: block;
 }
 
 .image {
@@ -9,6 +9,7 @@
 
 .content {
 	padding-top: 100px;
+	display: block;
 }
 
 .social {
@@ -19,4 +20,10 @@
 	margin-left: 20px;
 	margin-right: -7px;
 	cursor: pointer;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
+	}
 }

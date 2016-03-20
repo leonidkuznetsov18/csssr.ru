@@ -79,6 +79,7 @@
 		.inner {
 			padding-left: 0;
 			padding-right: 0;
+			text-align: center;
 		}
 
 		.shadow {
@@ -117,6 +118,7 @@
 	color: #591200;
 	text-shadow: 0px 1px rgba(255, 255, 255, 0.6);
 	pointer-events: none;
+	box-sizing: border-box;
 
 	&::after {
 		position: absolute;

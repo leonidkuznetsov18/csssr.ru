@@ -25,10 +25,9 @@ export default function CompanyInfo({ history, data }) {
 					</Column>
 
 					<div className={styles.rocket}>
-						<Icon
-							icon='x3'
-							className={styles.rocketCount}
-						/>
+						<span className={styles.rocketCount}>
+							<Icon icon='x3' />
+						</span>
 						<Section {...data.count}/>
 					</div>
 

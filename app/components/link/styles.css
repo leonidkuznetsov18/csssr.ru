@@ -1,7 +1,10 @@
 .root {
+	font-size: inherit;
 	cursor: pointer;
 	transition-property: color, border;
 	transition-duration: .2s;
+	font-family: 'PT Sans';
+	text-decoration: underline;
 
 	&_color_blue {
 		color: #056383;

@@ -9,10 +9,9 @@ export default function IndexService({ data }) {
 	return (
 		<div className={styles.root}>
 			<Parallax speed={0.3}>
-				<Icon
-					className={styles.rocket}
-					icon='rocket'
-				/>
+				<span className={styles.rocket}>
+					<Icon icon='rocket' />
+				</span>
 			</Parallax>
 			<div className={styles.services}>
 				{data.map((service, item) => (
@@ -20,10 +19,9 @@ export default function IndexService({ data }) {
 						<Service service={service} />
 					</div>
 				))}
-				<Icon
-					className={styles.satellite}
-					icon='satellite'
-				/>
+				<span className={styles.satellite}>
+					<Icon icon='satellite' />
+				</span>
 			</div>
 		</div>
 	);

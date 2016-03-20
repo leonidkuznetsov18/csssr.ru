@@ -6,10 +6,7 @@
 	display: inline-flex;
 	width: 32%;
 	margin-right: 2%;
-	font-family: 'PT Sans Narrow';
-	font-size: 15px;
-	line-height: 25px;
-	color: #333;
+	box-sizing: border-box;
 
 	&:nth-child(3n) {
 		margin-right: 0;
@@ -32,6 +29,10 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	font-family: 'PT Sans Narrow';
+	font-size: 15px;
+	line-height: 25px;
+	color: #333;
 }
 
 .progress {

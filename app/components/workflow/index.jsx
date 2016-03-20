@@ -31,8 +31,6 @@ export default function Workflow() {
 				className={styles.mechanism}
 				src={require('../../images/mechanism.svg')}
 				alt='mechanizm'
-				width='774'
-				height='328'
 			/>
 
 			<Text size='s'>

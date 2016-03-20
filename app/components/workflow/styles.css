@@ -1,13 +1,14 @@
 .root {
-
+	display: block;
 }
 
 .title {
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	color: #333;
 	text-transform: uppercase;
 	font-size: 27px;
-	line-height: 1;;
+	line-height: 1;
+	display: block;
 
 	&_size_middle {
 		font-size: 50px;
@@ -24,4 +25,7 @@
 	margin-top: 20px;
 	margin-bottom: 40px;
 	max-width: 100%;
+	display: block;
+	width: 774px;
+	height: 328px;
 }

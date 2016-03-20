@@ -78,4 +78,5 @@
 	transform: translate3d(0, -100px, 0) scale(.5);
 	backface-visibility: hidden;
 	will-change: transform;
+	display: block;
 }

@@ -9,11 +9,11 @@ import styles from './styles.css';
 export default function Portfolio({ data, projects }) {
 	return (
 		<div className={styles.root}>
-			<Title>
+			<Title center>
 				{data.title}
 			</Title>
 
-			<Text size='m'>
+			<Text size='m' center>
 				{data.info}
 			</Text>
 

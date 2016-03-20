@@ -20,7 +20,9 @@ function getIcon(newstaff) {
 	}
 
 	return (
-		<Icon className={styles.iconStar} icon='timeline-star'/>
+		<span className={styles.iconStar}>
+			<Icon icon='timeline-star'/>
+		</span>
 	);
 }
 
@@ -29,8 +31,10 @@ export default function TimelineItem(props) {
 		<img
 			className={styles.images}
 			src={require(`images/timeline/${tag.url}`)}
-			width={tag.width}
-			height={tag.height}
+			style={{
+				width: tag.width,
+				height: tag.height,
+			}}
 			key={index}
 		/>
 	));
@@ -51,7 +55,10 @@ export default function TimelineItem(props) {
 	const version = props.data.version && (
 		<div className={styles.version}>
 			csssr&nbsp;
-			<Link to={`/timeline/version/${props.data.version.number}`}>
+			<Link
+				className={styles.versionLink}
+				to={`/timeline/version/${props.data.version.number}`}
+			>
 				{props.data.version.text}
 			</Link>
 		</div>
@@ -70,8 +77,10 @@ export default function TimelineItem(props) {
 				src={require(`images/timeline/avatar/${person.avatar}.jpg`)}
 				alt={person.name}
 				title={person.name}
-				width={person.vip ? 148 : 148 - 16 * props.data.newstaff.length}
-				height={person.vip ? 148 : 148 - 16 * props.data.newstaff.length}
+				style={{
+					width: person.vip ? 148 : 148 - 16 * props.data.newstaff.length,
+					height: person.vip ? 148 : 148 - 16 * props.data.newstaff.length,
+				}}
 				key={index}
 			/>
 		);

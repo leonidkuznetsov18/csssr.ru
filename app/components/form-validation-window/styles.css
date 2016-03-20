@@ -11,6 +11,8 @@
 	animation-name: rotateRight;
 	animation-duration: 0.5s;
 	animation-fill-mode: both;
+	box-sizing: border-box;
+	display: block;
 }
 
 .attention {

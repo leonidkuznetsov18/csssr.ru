@@ -45,6 +45,7 @@
 	height: 100%;
 	width: 100%;
 	padding-right: 230px;
+	box-sizing: border-box;
 	transition: transform .3s ease, padding-right 0s linear .3s;
 	transform: translate3d(230px, 0, 0);
 }

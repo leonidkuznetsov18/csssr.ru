@@ -49,6 +49,7 @@
 	color: #f2ebda;
 	width: 640px;
 	font-size: 22px;
+	display: block;
 }
 
 .link {
@@ -59,17 +60,22 @@
 }
 
 .selection {
-	display: inline-block;
+	display: block;
 	background-color: rgba(0, 136, 255, .5);
 }
 
 .comment {
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 14px;
-	line-height: 20px;
 	font-weight: bold;
 	cursor: default;
-	color: #f2ebda;
 	margin-top: 22px;
 	width: 640px;
+	display: block;
+
+	p {
+		display: block;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 14px;
+		line-height: 20px;
+		color: #f2ebda;
+	}
 }

@@ -14,22 +14,11 @@ export default function Description({ data }) {
 			<div className={styles.logo}/>
 			<Parallax offset={500} speed={0.4} max={0} min={-150}>
 				<div className={styles.clouds}>
-					<Icon
-						icon='cloud'
-						className={styles.cloud}
-					/>
-					<Icon
-						icon='cloud'
-						className={styles.cloud}
-					/>
-					<Icon
-						icon='cloud'
-						className={styles.cloud}
-					/>
-					<Icon
-						icon='cloud'
-						className={styles.cloud}
-					/>
+					{[0, 1, 2, 3].map((key) => (
+						<span className={styles.cloud} key={key}>
+							<Icon icon='cloud' />
+						</span>
+					))}
 				</div>
 			</Parallax>
 			<div className={styles.list}>
@@ -37,9 +26,10 @@ export default function Description({ data }) {
 					<div className={styles.item} key={index}>
 						<h2 className={styles.title}>
 							<span
-								dangerouslySetInnerHTML={{ __html: item.title }}/>
+								dangerouslySetInnerHTML={{ __html: item.title }}
+							/>
 							{item.link &&
-								<Link to={item.link}>
+								<Link to={item.link} className={styles.link}>
 									{item.linkText}
 								</Link>
 							}

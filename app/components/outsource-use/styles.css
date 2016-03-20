@@ -13,12 +13,13 @@
 	background-image: url('../../images/outsource/lamp.svg');;
 	background-size: cover;
 	padding-top: 155px;
-	text-transform: uppercase;
 	position: absolute;
 	top: 0;
 	margin-left: 353px;
 	letter-spacing: 0.075em;
 	left: calc((100% - 918px) * 0.5);
+	box-sizing: border-box;
+	display: block;
 
 	@media (max-width: 1100px) {
 		left: 21px;
@@ -40,11 +41,12 @@
 	position: absolute;
 	display: block;
 	font-size: 26px;
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	color: #f2ebd9;
 	position: relative;
 	line-height: 43px;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 .content {

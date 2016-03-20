@@ -2,6 +2,17 @@
 	display: block;
 }
 
+.link {
+	all: inherit;
+	color: #056383;
+	transition: color .3s ease;
+	text-decoration: underline;
+
+	&:hover {
+		color: #DF0B0B;
+	}
+}
+
 .item {
 	margin-bottom: 16px;
 }

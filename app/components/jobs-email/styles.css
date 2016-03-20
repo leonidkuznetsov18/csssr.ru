@@ -1,5 +1,6 @@
 .root {
 	margin-top: 50px;
+	display: block;
 }
 
 .caption {
@@ -18,4 +19,10 @@
 	font-size: 35px;
 	text-decoration: underline;
 	line-height: 26px;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
+	}
 }

@@ -9,6 +9,8 @@
 	line-height: 39px;
 	color: #f4e0bb;
 	letter-spacing: 1px;
+	display: block;
+	text-decoration: underline;
 
 	&:hover {
 		color: #f2ecde;
@@ -23,8 +25,10 @@
 	margin-bottom: 22px;
 	margin-top: 12px;
 	color: #74898f;
+	display: block;
 }
 
 .text {
 	margin: 40px 0px 0px;
+	display: block;
 }

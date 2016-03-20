@@ -1,5 +1,6 @@
 .root {
 	margin-bottom: 10px;
+	display: block;
 }
 
 .progress {
@@ -14,6 +15,7 @@
 	transform: scaleY(1);
 	transition-property: transform;
 	transition-duration: .5s;
+	display: block;
 
 	&_hidden {
 		transform: scaleY(0);

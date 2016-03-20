@@ -9,6 +9,7 @@
 	padding-right: 40px;
 	padding-bottom: 30px;
 	min-height: 195px;
+	display: block;
 
 	&_horizon {
 		.scissors {
