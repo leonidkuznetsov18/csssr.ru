@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Field from 'components/field';
 
 import styles from './styles.css';
 
-export default class UploadFilesLink extends React.Component {
+class UploadFilesLink extends React.Component {
 
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
@@ -24,3 +25,5 @@ export default class UploadFilesLink extends React.Component {
 		);
 	}
 }
+
+export default withStyles(UploadFilesLink, styles);

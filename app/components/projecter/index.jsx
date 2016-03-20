@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Projecter({ active, partner, title, content, onClose }) {
+function Projecter({ active, partner, title, content, onClose }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_state_active]: active,
@@ -38,3 +39,5 @@ Projecter.propTypes = {
 	content: React.PropTypes.string,
 	onClose: React.PropTypes.func,
 };
+
+export default withStyles(Projecter, styles);

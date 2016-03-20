@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Button from 'components/button';
 import Text from 'components/text';
 import { Link } from 'react-router';
 
 import styles from './styles.css';
 
-export default function Service({ service }) {
+function Service({ service }) {
 	return (
 		<div className={styles.root}>
 			<Link className={styles.title} to={service.link}>
@@ -33,3 +34,5 @@ export default function Service({ service }) {
 Service.propTypes = {
 	service: React.PropTypes.object,
 };
+
+export default withStyles(Service, styles);

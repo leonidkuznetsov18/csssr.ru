@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Icon from 'components/icon';
 
 import styles from './styles.css';
 
-export default function Button(props) {
+function Button(props) {
 	const Component = props.component;
 	const blockClass = cx({
 		[styles.root]: true,
@@ -41,3 +42,5 @@ Button.propTypes = {
 Button.defaultProps = {
 	component: 'button',
 };
+
+export default withStyles(Button, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Title from 'components/title';
 import Text from 'components/text';
@@ -7,7 +8,7 @@ import Icon from 'components/icon';
 
 import styles from './styles.css';
 
-export default class Contacts extends React.Component {
+class Contacts extends React.Component {
 	static propTypes = {
 		active: React.PropTypes.bool,
 		close: React.PropTypes.func,
@@ -102,3 +103,5 @@ export default class Contacts extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Contacts, styles);

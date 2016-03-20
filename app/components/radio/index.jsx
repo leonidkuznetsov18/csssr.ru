@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Tooltip from 'components/tooltip';
 
 import styles from './styles.css';
 
-export default function Radio(props) {
+function Radio(props) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[props.className]: props.className,
@@ -52,3 +53,5 @@ Radio.propTypes = {
 Radio.defaultProps = {
 	checked: false,
 };
+
+export default withStyles(Radio, styles);

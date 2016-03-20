@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Title from 'components/title';
 import ReactMarkdown from 'react-markdown';
 import Popup from 'components/popup';
@@ -16,7 +17,7 @@ function getQuote(title, text) {
 	);
 }
 
-export default function TimelinePopup(props) {
+function TimelinePopup(props) {
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
 			<div
@@ -60,3 +61,5 @@ TimelinePopup.propTypes = {
 	active: React.PropTypes.bool,
 	onClose: React.PropTypes.func,
 };
+
+export default withStyles(TimelinePopup, styles);

@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Hole from 'components/hole';
 
 import styles from './styles.css';
 
-export default function Content({ padding, hole, children, layout }) {
+function Content({ padding, hole, children, layout }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_padding]: padding,
@@ -29,3 +30,5 @@ Content.propTypes = {
 Content.defaultProps = {
 	padding: true,
 };
+
+export default withStyles(Content, styles);

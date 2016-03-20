@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import ProjectSidebar from 'components/project-sidebar';
 
 import styles from './styles.css';
 
-export default function Project({ project, onToggle, collapsed, children }) {
+function Project({ project, onToggle, collapsed, children }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_full]: collapsed,
@@ -37,3 +38,5 @@ Project.propTypes = {
 	children: React.PropTypes.element,
 	collapsed: React.PropTypes.bool,
 };
+
+export default withStyles(Project, styles);

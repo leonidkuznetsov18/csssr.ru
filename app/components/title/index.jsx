@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Title({ size, children, component, color, center, indent }) {
+function Title({ size, children, component, color, center, indent }) {
 	const classList = cx({
 		[styles.root]: true,
 		[styles.root_noindent]: indent === false,
@@ -51,3 +52,5 @@ Title.defaultProps = {
 	component: 'h1',
 	indent: true,
 };
+
+export default withStyles(Title, styles);

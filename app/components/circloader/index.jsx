@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Circloader({ size, color }) {
+function Circloader({ size, color }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_size_big]: size === 'big',
@@ -19,3 +20,5 @@ Circloader.propTypes = {
 	size: React.PropTypes.string,
 	color: React.PropTypes.string,
 };
+
+export default withStyles(Circloader, styles);

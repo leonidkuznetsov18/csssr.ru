@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Title from 'components/title';
 import Text from 'components/text';
@@ -8,7 +9,7 @@ import OutsourceService from 'components/outsource-service';
 
 import styles from './styles.css';
 
-export default function OutsourceContent({ data, projects }) {
+function OutsourceContent({ data, projects }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.events}>
@@ -50,3 +51,5 @@ OutsourceContent.propTypes = {
 	data: React.PropTypes.object.isRequired,
 	projects: React.PropTypes.array,
 };
+
+export default withStyles(OutsourceContent, styles);

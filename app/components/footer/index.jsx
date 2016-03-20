@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
 
 import styles from './styles.css';
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
 	render() {
 		const paymentSystems = [
 			'visa',
@@ -72,3 +73,5 @@ export default class Footer extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Footer, styles);

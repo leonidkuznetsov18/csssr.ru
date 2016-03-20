@@ -16,6 +16,7 @@ export default function (options) {
 	};
 	const stylesheetLoaders = {
 		css: [
+			'isomorphic-style',
 			`css?modules&minimize&importLoaders=1&localIdentName=${classFormat}`,
 			'postcss',
 		],
@@ -96,13 +97,7 @@ export default function (options) {
 			loader = loader.join('!');
 		}
 
-		if (options.prerender) {
-			stylesheetLoaders[ext] = loader.replace('css?', 'css/locals?');
-		} else if (options.separateStylesheet) {
-			stylesheetLoaders[ext] = ExtractTextPlugin.extract('style', loader);
-		} else {
-			stylesheetLoaders[ext] = 'style!' + loader;
-		}
+		stylesheetLoaders[ext] = loader;
 	});
 
 	if (options.separateStylesheet) {

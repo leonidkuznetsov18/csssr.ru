@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Link from 'components/link';
@@ -8,7 +9,7 @@ import UploaderFiles from 'components/uploader-files';
 
 import styles from './styles.css';
 
-export default class Uploader extends React.Component {
+class Uploader extends React.Component {
 	componentWillMount() {
 		this.setState({
 			active: 'files',
@@ -66,3 +67,5 @@ export default class Uploader extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Uploader, styles);

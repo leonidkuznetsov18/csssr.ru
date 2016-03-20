@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import { setSelection } from 'react/lib/ReactInputSelection';
 
 import styles from './styles.css';
 
-export default class Field extends React.Component {
+class Field extends React.Component {
 	static propTypes = {
 		className: React.PropTypes.string,
 		small: React.PropTypes.bool,
@@ -64,3 +65,5 @@ export default class Field extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Field, styles);

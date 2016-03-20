@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Tooltip({ children, className, text }) {
+function Tooltip({ children, className, text }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[className]: className,
@@ -23,15 +24,17 @@ export default function Tooltip({ children, className, text }) {
 }
 
 Tooltip.propTypes = {
-	text: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.element,
-		PropTypes.array,
+	text: React.PropTypes.string.isRequired,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element,
+		React.PropTypes.array,
 	]),
-	className: PropTypes.string,
+	className: React.PropTypes.string,
 };
 
 Tooltip.defaultProps = {
 	children: '?',
 };
+
+export default withStyles(Tooltip, styles);

@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Popup from 'components/popup';
 
 import styles from './styles.css';
 
-export default function PopupVersion(props) {
+function PopupVersion(props) {
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
 			<img
@@ -19,3 +20,5 @@ PopupVersion.propTypes = {
 	active: React.PropTypes.bool,
 	onClose: React.PropTypes.func,
 };
+
+export default withStyles(PopupVersion, styles);

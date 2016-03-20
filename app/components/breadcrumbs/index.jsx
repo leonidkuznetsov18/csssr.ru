@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 
 import styles from './styles.css';
 
-export default function Breadcrumbs({ items }) {
+function Breadcrumbs({ items }) {
 	return (
 		<div className={styles.root}>
 			{items.map((item, index, list) => (
@@ -35,3 +36,5 @@ export default function Breadcrumbs({ items }) {
 Breadcrumbs.propTypes = {
 	items: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(Breadcrumbs, styles);

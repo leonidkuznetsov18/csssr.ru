@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Parallax from 'components/parallax';
 
 import styles from './styles.css';
 
-export default function PortfolioBanner() {
+function PortfolioBanner() {
 	return (
 		<div className={styles.root}>
 			<Parallax speed={0.3}>
@@ -16,3 +17,5 @@ export default function PortfolioBanner() {
 		</div>
 	);
 }
+
+export default withStyles(PortfolioBanner, styles);

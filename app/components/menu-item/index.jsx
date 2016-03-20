@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import { Link } from 'react-router';
 
 import styles from './styles.css';
 
-export default function MenuItem({ href, children, active, component }) {
+function MenuItem({ href, children, active, component }) {
 	const Component = component;
 	const blockClass = cx({
 		[styles.root]: true,
@@ -37,3 +38,5 @@ MenuItem.propTypes = {
 	]),
 	children: React.PropTypes.string,
 };
+
+export default withStyles(MenuItem, styles);

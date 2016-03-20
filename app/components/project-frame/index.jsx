@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Circloader from 'components/circloader';
 
 import styles from './styles.css';
 
-export default class ProjectPage extends React.Component {
+class ProjectFrame extends React.Component {
 	static propTypes = {
 		loaded: React.PropTypes.bool,
 		url: React.PropTypes.string.isRequired,
@@ -47,3 +48,5 @@ export default class ProjectPage extends React.Component {
 		);
 	}
 }
+
+export default withStyles(ProjectFrame, styles);

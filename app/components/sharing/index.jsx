@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import socialLink from 'helpers/socialLink';
 
 import Button from 'components/button';
@@ -27,7 +28,7 @@ function onButtonClick(type) {
 	window.open(socialLink(type));
 }
 
-export default function Sharing() {
+function Sharing() {
 	return (
 		<div className={styles.root}>
 			{buttons.map((button) => (
@@ -49,3 +50,5 @@ export default function Sharing() {
 Sharing.propTypes = {
 	meta: React.PropTypes.object,
 };
+
+export default withStyles(Sharing, styles);

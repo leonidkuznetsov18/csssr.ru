@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
@@ -18,7 +19,7 @@ const languages = [
 	},
 ];
 
-export default function Language({ current }) {
+function Language({ current }) {
 	const linkClass = (isActive) => cx({
 		[styles.link]: true,
 		[styles.link_active]: isActive,
@@ -46,3 +47,5 @@ Language.propTypes = {
 Language.defaultProps = {
 	current: 'ru',
 };
+
+export default withStyles(Language, styles);

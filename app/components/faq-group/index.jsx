@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Element as ScrollElement } from 'react-scroll';
 
 import styles from './styles.css';
 
-export default function FaqGroup({ children }) {
+function FaqGroup({ children }) {
 	return (
 		<ScrollElement name='faq' className={styles.root}>
 			{children}
@@ -17,3 +18,5 @@ FaqGroup.propTypes = {
 		React.PropTypes.node,
 	]),
 };
+
+export default withStyles(FaqGroup, styles);

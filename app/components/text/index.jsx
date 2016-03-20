@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Text({ size, children, indent, color, center, weight }) {
+function Text({ size, children, indent, color, center, weight }) {
 	const classList = cx({
 		[styles.root]: true,
 		[styles.root_size_l]: size === 'l',
@@ -36,18 +37,20 @@ export default function Text({ size, children, indent, color, center, weight }) 
 }
 
 Text.propTypes = {
-	children: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.element,
-		PropTypes.array,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element,
+		React.PropTypes.array,
 	]),
-	size: PropTypes.string,
-	color: PropTypes.string,
-	weight: PropTypes.string,
-	indent: PropTypes.bool,
-	center: PropTypes.bool,
+	size: React.PropTypes.string,
+	color: React.PropTypes.string,
+	weight: React.PropTypes.string,
+	indent: React.PropTypes.bool,
+	center: React.PropTypes.bool,
 };
 
 Text.defaultProps = {
 	indent: true,
 };
+
+export default withStyles(Text, styles);

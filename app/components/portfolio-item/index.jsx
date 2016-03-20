@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function PortfolioItem({ project }) {
+function PortfolioItem({ project }) {
 	let work = project.name;
 
 	if (project.view && project.pages) {
@@ -67,3 +68,5 @@ export default function PortfolioItem({ project }) {
 PortfolioItem.propTypes = {
 	project: React.PropTypes.object,
 };
+
+export default withStyles(PortfolioItem, styles);

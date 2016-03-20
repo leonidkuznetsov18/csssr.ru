@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function FormValidationWindow({ title, text, children }) {
+function FormValidationWindow({ title, text, children }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.attention}>
@@ -18,11 +19,13 @@ export default function FormValidationWindow({ title, text, children }) {
 }
 
 FormValidationWindow.propTypes = {
-	title: PropTypes.string,
-	text: PropTypes.string,
+	title: React.PropTypes.string,
+	text: React.PropTypes.string,
 };
 
 FormValidationWindow.defaultProps = {
 	title: 'секундочку!',
 	text: '',
 };
+
+export default withStyles(FormValidationWindow, styles);

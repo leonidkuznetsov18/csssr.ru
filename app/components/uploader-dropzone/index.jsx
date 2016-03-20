@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Dropzone from 'react-dropzone';
 import Link from 'components/link';
 
 import styles from './styles.css';
 
-export default class UploadFilesBlock extends React.Component {
+class UploadFilesBlock extends React.Component {
 	static propTypes = {
-		addFiles: PropTypes.func.isRequired,
+		addFiles: React.PropTypes.func.isRequired,
 	}
 
 	onDrop = (files) => {
@@ -39,5 +40,6 @@ export default class UploadFilesBlock extends React.Component {
 			</div>
 		);
 	}
-
 }
+
+export default withStyles(UploadFilesBlock, styles);

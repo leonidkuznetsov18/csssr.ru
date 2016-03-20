@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Parallax from 'components/parallax';
@@ -8,7 +9,7 @@ import Widget from 'components/widget';
 
 import styles from './styles.css';
 
-export default function OutsourcePower() {
+function OutsourcePower() {
 	const cloudClass = (position) => cx({
 		[styles.cloud]: true,
 		[styles[`cloud_${position}`]]: position,
@@ -74,3 +75,5 @@ export default function OutsourcePower() {
 		</div>
 	);
 }
+
+export default withStyles(OutsourcePower, styles);

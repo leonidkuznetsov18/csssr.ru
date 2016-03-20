@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Parallax from 'components/parallax';
 import Icon from 'components/icon';
 import Service from 'components/service';
 
 import styles from './styles.css';
 
-export default function IndexService({ data }) {
+function IndexService({ data }) {
 	return (
 		<div className={styles.root}>
 			<Parallax speed={0.3}>
@@ -30,3 +31,5 @@ export default function IndexService({ data }) {
 IndexService.propTypes = {
 	data: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(IndexService, styles);

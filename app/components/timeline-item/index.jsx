@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
+
 import Button from 'components/button';
 import Icon from 'components/icon';
 import Title from 'components/title';
@@ -26,7 +28,7 @@ function getIcon(newstaff) {
 	);
 }
 
-export default function TimelineItem(props) {
+function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag, index) => (
 		<img
 			className={styles.images}
@@ -158,5 +160,7 @@ export default function TimelineItem(props) {
 }
 
 TimelineItem.propTypes = {
-	data: PropTypes.object.isRequired,
+	data: React.PropTypes.object.isRequired,
 };
+
+export default withStyles(TimelineItem, styles);

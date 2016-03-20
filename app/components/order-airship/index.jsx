@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import { Link as ScrollLink } from 'react-scroll';
 import Airship from 'components/airship';
@@ -6,7 +7,7 @@ import Link from 'components/link';
 
 import styles from './styles.css';
 
-export default function OrderAirship() {
+function OrderAirship() {
 	return (
 		<div className={styles.root}>
 			<Airship image='zeppelin_order.svg'>
@@ -26,3 +27,5 @@ export default function OrderAirship() {
 		</div>
 	);
 }
+
+export default withStyles(OrderAirship, styles);

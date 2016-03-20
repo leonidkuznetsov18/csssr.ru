@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import TimelineItem from 'components/timeline-item';
 
 import styles from './styles.css';
 
-export default function TimelineList({ data }) {
+function TimelineList({ data }) {
 	return (
 		<ul className={styles.root}>
 			{data.map((item, index) => {
@@ -18,3 +19,5 @@ export default function TimelineList({ data }) {
 TimelineList.propTypes = {
 	data: React.PropTypes.array,
 };
+
+export default withStyles(TimelineList, styles);

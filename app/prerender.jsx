@@ -1,19 +1,16 @@
 import React from 'react';
+import { withContext } from 'recompose';
 import Helmet from 'react-helmet';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
-import { createStore, compose } from 'redux';
 import routes from './routes';
-import reducer from './reducers';
-
-const createStoreWithMiddleWare = compose(
-	createStore
-);
-const store = createStoreWithMiddleWare(reducer);
+import store from './store';
 
 export default function (req, response) {
-	const rendered = {};
+	const rendered = {
+		css: [],
+	};
 
 	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
 		if (redirectLocation) {
@@ -21,10 +18,24 @@ export default function (req, response) {
 			return;
 		}
 
-		rendered.content = ReactDOMServer.renderToString(
-			<Provider store={store} key='provider'>
+		const App = () => (
+			<Provider store={store}>
 				<RouterContext {...renderProps} />
 			</Provider>
+		);
+
+		const ProvideApp = withContext(
+			{
+				insertCss: React.PropTypes.func,
+			},
+			() => ({
+				insertCss: (styles) => rendered.css.push(styles._getCss()),
+			}),
+			App
+		);
+
+		rendered.content = ReactDOMServer.renderToString(
+			<ProvideApp/>
 		);
 
 		rendered.head = Helmet.rewind();

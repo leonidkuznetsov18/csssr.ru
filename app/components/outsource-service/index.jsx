@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Title from 'components/title';
@@ -6,7 +7,7 @@ import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function OutsourceService({ type, title, text }) {
+function OutsourceService({ type, title, text }) {
 	const imageClass = cx({
 		[styles.image]: true,
 		[styles[`image_type_${type}`]]: type,
@@ -34,3 +35,5 @@ OutsourceService.propTypes = {
 	title: React.PropTypes.string.isRequired,
 	text: React.PropTypes.string.isRequired,
 };
+
+export default withStyles(OutsourceService, styles);

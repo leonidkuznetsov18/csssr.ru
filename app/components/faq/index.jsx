@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Title from 'components/title';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function Faq({ data }) {
+function Faq({ data }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.info}>
@@ -63,3 +64,5 @@ export default function Faq({ data }) {
 Faq.propTypes = {
 	data: React.PropTypes.object,
 };
+
+export default withStyles(Faq, styles);

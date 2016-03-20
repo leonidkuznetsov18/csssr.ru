@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Options(props) {
+function Options(props) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_inline]: props.inline,
@@ -30,3 +31,5 @@ Options.propTypes = {
 Options.defaultProps = {
 	inline: false,
 };
+
+export default withStyles(Options, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Airship from 'components/airship';
 import Icon from 'components/icon';
 import { Link } from 'react-router';
@@ -8,7 +9,7 @@ import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function Description({ data }) {
+function Description({ data }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.logo}/>
@@ -55,3 +56,5 @@ export default function Description({ data }) {
 Description.propTypes = {
 	data: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(Description, styles);

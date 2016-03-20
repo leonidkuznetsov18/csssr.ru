@@ -1,4 +1,6 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+
 import scrollbarSize from 'scrollbar-size';
 
 import Header from 'components/header';
@@ -9,7 +11,7 @@ import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Application({ children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted }) {
+function Application({ children, banner, meta, active, openSidebar, closeSidebar, overflow, mounted }) {
 	const applicationClass = cx({
 		[styles.root]: true,
 		[styles.root_active]: active,
@@ -58,3 +60,5 @@ Application.propTypes = {
 	overflow: React.PropTypes.bool,
 	mounted: React.PropTypes.bool,
 };
+
+export default withStyles(Application, styles);

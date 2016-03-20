@@ -1,4 +1,6 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+
 import socialLink from 'helpers/socialLink';
 import Row from 'components/row';
 import Column from 'components/column';
@@ -14,7 +16,7 @@ function onButtonClick(type) {
 	window.open(socialLink(type));
 }
 
-export default function Thanks() {
+function Thanks() {
 	return (
 		<div className={styles.root}>
 			<Row>
@@ -58,3 +60,5 @@ export default function Thanks() {
 Thanks.propTypes = {
 	meta: React.PropTypes.object,
 };
+
+export default withStyles(Thanks, styles);

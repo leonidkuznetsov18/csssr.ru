@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Row from 'components/row';
 import Column from 'components/column';
 import History from 'components/history';
@@ -7,7 +8,7 @@ import Icon from 'components/icon';
 
 import styles from './styles.css';
 
-export default function CompanyInfo({ history, data }) {
+function CompanyInfo({ history, data }) {
 	return (
 		<div className={styles.root}>
 			<Row>
@@ -42,3 +43,5 @@ CompanyInfo.propTypes = {
 	history: React.PropTypes.object.isRequired,
 	data: React.PropTypes.object.isRequired,
 };
+
+export default withStyles(CompanyInfo, styles);

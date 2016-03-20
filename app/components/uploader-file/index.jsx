@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function UploaderFile({ file, progress, onRemove }) {
+function UploaderFile({ file, progress, onRemove }) {
 	const progressClass = cx({
 		[styles.progress]: true,
 		[styles.progress_completed]: progress === 100,
@@ -33,3 +34,5 @@ UploaderFile.propTypes = {
 	progress: React.PropTypes.number.isRequired,
 	onRemove: React.PropTypes.func,
 };
+
+export default withStyles(UploaderFile, styles);

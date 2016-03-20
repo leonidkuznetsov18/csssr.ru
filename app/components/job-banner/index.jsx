@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function JobBanner() {
+function JobBanner() {
 	return (
 		<img
 			className={styles.root}
@@ -10,3 +11,5 @@ export default function JobBanner() {
 		/>
 	);
 }
+
+export default withStyles(JobBanner, styles);

@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Comment from 'components/comment';
 
 import styles from './styles.css';
 
-export default class Comments extends React.Component {
+class Comments extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.array.isRequired,
 	}
@@ -64,3 +65,5 @@ export default class Comments extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Comments, styles);

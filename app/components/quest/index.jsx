@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import File from 'components/file';
 
 import styles from './styles.css';
 
-export default function Quest({ children, file, horizon }) {
+function Quest({ children, file, horizon }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_horizon]: horizon,
@@ -29,3 +30,5 @@ Quest.propTypes = {
 	file: React.PropTypes.object.isRequired,
 	horizon: React.PropTypes.bool,
 };
+
+export default withStyles(Quest, styles);

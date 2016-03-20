@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function Icon(props) {
+function Icon(props) {
 	const icon = require(`images/icons/${props.icon}.svg`);
 
 	return (
@@ -17,3 +18,5 @@ Icon.propTypes = {
 	icon: React.PropTypes.string,
 	className: React.PropTypes.string,
 };
+
+export default withStyles(Icon, styles);

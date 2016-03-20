@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Section from 'components/section';
 
 import styles from './styles.css';
 
-export default function SectionGroup({ data }) {
+function SectionGroup({ data }) {
 	return (
 		<div className={styles.root}>
 			{data.map((group, index) => (
@@ -18,3 +19,5 @@ export default function SectionGroup({ data }) {
 SectionGroup.propTypes = {
 	data: React.PropTypes.array,
 };
+
+export default withStyles(SectionGroup, styles);

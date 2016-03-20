@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import { Link } from 'react-router';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function OutsourceProject({ partner }) {
+function OutsourceProject({ partner }) {
 	const Component = partner.id ? Link : 'div';
 	const titleClass = cx({
 		[styles.title]: true,
@@ -28,3 +29,5 @@ export default function OutsourceProject({ partner }) {
 OutsourceProject.propTypes = {
 	partner: React.PropTypes.object,
 };
+
+export default withStyles(OutsourceProject, styles);

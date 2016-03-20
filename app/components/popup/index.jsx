@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Popup(props) {
+function Popup(props) {
 	const popupClass = cx({
 		[styles.root]: true,
 		[styles.root_active]: props.active,
@@ -20,7 +21,9 @@ export default function Popup(props) {
 }
 
 Popup.propTypes = {
-	active: PropTypes.bool,
-	onClose: PropTypes.func,
-	children: PropTypes.element,
+	active: React.PropTypes.bool,
+	onClose: React.PropTypes.func,
+	children: React.PropTypes.element,
 };
+
+export default withStyles(Popup, styles);

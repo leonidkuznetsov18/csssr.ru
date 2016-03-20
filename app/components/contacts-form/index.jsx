@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
@@ -10,7 +11,7 @@ import Link from 'components/link';
 
 import styles from './styles.css';
 
-export default class ContactsForm extends React.Component {
+class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
 		requiredFields: React.PropTypes.array.isRequired,
@@ -93,3 +94,5 @@ export default class ContactsForm extends React.Component {
 		</form>;
 	}
 }
+
+export default withStyles(ContactsForm, styles);

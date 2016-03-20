@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function JobsEmail() {
+function JobsEmail() {
 	return (
 		<div className={styles.root}>
 			<span className={styles.caption}>
@@ -14,3 +15,5 @@ export default function JobsEmail() {
 		</div>
 	);
 }
+
+export default withStyles(JobsEmail, styles);

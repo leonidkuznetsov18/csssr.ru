@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Title from 'components/title';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function Error(props) {
+function Error(props) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.smile}>¯\_(ツ)_/¯</div>
@@ -17,3 +18,5 @@ export default function Error(props) {
 Error.propTypes = {
 	number: React.PropTypes.number,
 };
+
+export default withStyles(Error, styles);

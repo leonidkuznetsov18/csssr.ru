@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Text from 'components/text';
 import Link from 'components/link';
 
 import styles from './styles.css';
 
-export default function Workflow() {
+function Workflow() {
 	const titleClass = (size) => cx({
 		[styles.title]: true,
 		[styles[`title_size_${size}`]]: size,
@@ -43,3 +44,5 @@ export default function Workflow() {
 		</div>
 	);
 }
+
+export default withStyles(Workflow, styles);

@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Link(props) {
+function Link(props) {
 	const Component = props.component;
 	const classList = cx({
 		[styles.root]: true,
@@ -48,3 +49,5 @@ Link.defaultProps = {
 	active: false,
 	component: 'a',
 };
+
+export default withStyles(Link, styles);

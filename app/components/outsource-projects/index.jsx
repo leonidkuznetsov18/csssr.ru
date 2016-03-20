@@ -1,4 +1,5 @@
 import React from 'react';
+
 import OutsourceProject from 'components/outsource-project';
 
 export default function OutsourceProjects({ projects }) {

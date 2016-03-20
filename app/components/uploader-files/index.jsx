@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import File from 'components/uploader-file';
 
 import styles from './styles.css';
 
-export default function UploaderFiles({ files, removeFile }) {
+function UploaderFiles({ files, removeFile }) {
 	const loadingFiles = files.filter((file) => file.progress !== 100);
 	const summaryProgress = loadingFiles.reduce((p, n) => p + n.progress, 0);
 	const globalProgress = summaryProgress / loadingFiles.length;
@@ -42,3 +43,5 @@ UploaderFiles.propTypes = {
 	files: React.PropTypes.array.isRequired,
 	removeFile: React.PropTypes.func.isRequired,
 };
+
+export default withStyles(UploaderFiles, styles);

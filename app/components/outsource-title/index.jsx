@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function OutsourceTitle() {
+function OutsourceTitle() {
 	return (
 		<h1 className={styles.root}>
 			<span className={styles.left}>
@@ -14,3 +15,5 @@ export default function OutsourceTitle() {
 		</h1>
 	);
 }
+
+export default withStyles(OutsourceTitle, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Field from 'components/field';
 import FieldFile from 'components/field-file';
@@ -12,7 +13,7 @@ import FormValidationWindow from 'components/form-validation-window';
 
 import styles from './styles.css';
 
-export default class JobForm extends React.Component {
+class JobForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
 		error: React.PropTypes.any,
@@ -117,3 +118,5 @@ export default class JobForm extends React.Component {
 		</form>;
 	}
 }
+
+export default withStyles(JobForm, styles);

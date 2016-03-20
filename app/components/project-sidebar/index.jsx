@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function ProjectSidebar({ project, onToggle }) {
+function ProjectSidebar({ project, onToggle }) {
 	return (
 		<div className={styles.root}>
 			<span
@@ -36,3 +37,5 @@ ProjectSidebar.propTypes = {
 	project: React.PropTypes.object.isRequired,
 	onToggle: React.PropTypes.func.isRequired,
 };
+
+export default withStyles(ProjectSidebar, styles);

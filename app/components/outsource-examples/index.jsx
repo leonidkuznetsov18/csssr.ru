@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import SectionGroup from 'components/section-group';
 
 import styles from './styles.css';
 
-export default class OutsourceExamples extends React.Component {
+class OutsourceExamples extends React.Component {
 	static propTypes = {
 		tips: React.PropTypes.object,
 	}
@@ -66,3 +67,5 @@ export default class OutsourceExamples extends React.Component {
 		);
 	}
 }
+
+export default withStyles(OutsourceExamples, styles);

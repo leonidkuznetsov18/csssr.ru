@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Content from 'components/content';
 
 import styles from './styles.css';
 
-export default function Offert({ data, children }) {
+function Offert({ data, children }) {
 	return (
 		<Content>
 			<div className={styles.root}>
@@ -49,3 +50,5 @@ Offert.propTypes = {
 		React.PropTypes.node,
 	]),
 };
+
+export default withStyles(Offert, styles);

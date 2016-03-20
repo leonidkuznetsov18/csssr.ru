@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+
 import MenuItem from 'components/menu-item';
 
 import styles from './styles.css';
@@ -26,7 +28,7 @@ const menu = [
 	},
 ];
 
-export default function Menu({ open }) {
+function Menu({ open }) {
 	return (
 		<nav className={styles.root}>
 			<ul className={styles.list}>
@@ -51,5 +53,7 @@ export default function Menu({ open }) {
 }
 
 Menu.propTypes = {
-	open: PropTypes.func,
+	open: React.PropTypes.func,
 };
+
+export default withStyles(Menu, styles);

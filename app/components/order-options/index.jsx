@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Row from 'components/row';
 import Column from 'components/column';
 import Title from 'components/title';
@@ -29,6 +30,7 @@ function generateProps(fieldProps, fieldName, fieldValue, isRadio) {
 		},
 	};
 }
+
 export default function OrderOptions({ options, fields }) {
 	const titles = [
 		'Современные браузеры',

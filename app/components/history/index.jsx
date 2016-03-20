@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 
 import Title from 'components/title';
@@ -6,7 +7,7 @@ import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function History({ data }) {
+function History({ data }) {
 	return (
 		<div className={styles.root}>
 			<Title size='medium'>
@@ -32,3 +33,5 @@ export default function History({ data }) {
 History.propTypes = {
 	data: React.PropTypes.object.isRequired,
 };
+
+export default withStyles(History, styles);

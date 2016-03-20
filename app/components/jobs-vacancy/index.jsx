@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
 
 import styles from './styles.css';
 
-export default class JobsVacancy extends React.Component {
+class JobsVacancy extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.array.isRequired,
 	}
@@ -56,3 +57,5 @@ export default class JobsVacancy extends React.Component {
 		);
 	}
 }
+
+export default withStyles(JobsVacancy, styles);

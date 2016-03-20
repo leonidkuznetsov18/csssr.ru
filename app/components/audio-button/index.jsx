@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default class AudioButton extends React.Component {
+class AudioButton extends React.Component {
 
 	static propTypes = {
 		url: React.PropTypes.string.isRequired,
@@ -45,3 +46,5 @@ export default class AudioButton extends React.Component {
 		);
 	}
 }
+
+export default withStyles(AudioButton, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Column from 'components/column';
 import Row from 'components/row';
@@ -7,7 +8,7 @@ import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function OutsourceContacts({ children }) {
+function OutsourceContacts({ children }) {
 	return (
 		<div className={styles.root}>
 			<Row inner>
@@ -36,3 +37,5 @@ export default function OutsourceContacts({ children }) {
 OutsourceContacts.propTypes = {
 	children: React.PropTypes.element,
 };
+
+export default withStyles(OutsourceContacts, styles);

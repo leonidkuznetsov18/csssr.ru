@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Title from 'components/title';
 
 import styles from './styles.css';
 
-export default function OutsourceMagic() {
+function OutsourceMagic() {
 	const sectionClass = (mod) => cx({
 		[styles.section]: true,
 		[styles[`section_${mod}`]]: styles[`section_${mod}`],
@@ -111,3 +112,5 @@ export default function OutsourceMagic() {
 		</div>
 	);
 }
+
+export default withStyles(OutsourceMagic, styles);

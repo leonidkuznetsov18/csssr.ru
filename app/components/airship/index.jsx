@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function Airship({ image, children }) {
+function Airship({ image, children }) {
 	const imageUrl = require(`../../images/background/${image}`);
 	const textStyle = {
 		backgroundImage: `url(${imageUrl})`,
@@ -26,3 +27,5 @@ Airship.propTypes = {
 	image: React.PropTypes.string,
 	children: React.PropTypes.element,
 };
+
+export default withStyles(Airship, styles);

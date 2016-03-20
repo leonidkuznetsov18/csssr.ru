@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Field from 'components/field';
 
 import styles from './styles.css';
 
-export default function FieldFild(props) {
+function FieldFile(props) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.input}>
@@ -34,20 +35,22 @@ export default function FieldFild(props) {
 	);
 }
 
-FieldFild.propTypes = {
-	fileAccept: PropTypes.string,
-	value: PropTypes.object,
-	label: PropTypes.string,
-	required: PropTypes.bool,
-	buttonText: PropTypes.string,
-	invalid: PropTypes.bool,
-	error: PropTypes.string,
+FieldFile.propTypes = {
+	fileAccept: React.PropTypes.string,
+	value: React.PropTypes.object,
+	label: React.PropTypes.string,
+	required: React.PropTypes.bool,
+	buttonText: React.PropTypes.string,
+	invalid: React.PropTypes.bool,
+	error: React.PropTypes.string,
 };
 
-FieldFild.defaultProps = {
+FieldFile.defaultProps = {
 	label: '',
 	required: false,
 	buttonText: 'Обзор',
 	invalid: false,
 	error: '',
 };
+
+export default withStyles(FieldFile, styles);

@@ -1,8 +1,9 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-export default function File({ type, filename, link, size }) {
+function File({ type, filename, link, size }) {
 	return (
 		<div className={styles.root}>
 			<img src={require(`images/background/${type}.svg`)} />
@@ -27,3 +28,5 @@ File.propTypes = {
 	size: React.PropTypes.string,
 	className: React.PropTypes.string,
 };
+
+export default withStyles(File, styles);

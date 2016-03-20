@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Circloader from 'components/circloader';
@@ -11,7 +12,7 @@ const url = {
 	likebox: 'https://www.facebook.com/v2.5/plugins/like.php?app_id=113869198637480&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df212ff088d8c26c%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff3d398070e3f1e8%26relation%3Dparent.parent&container_width=613&href=https%3A%2F%2Fwww.facebook.com%2Fcsssr&layout=box_count&locale=ru_RU&sdk=joey&share=true&show_faces=true&width=80',
 };
 
-export default class Widget extends React.Component {
+class Widget extends React.Component {
 	static propTypes = {
 		type: React.PropTypes.string.isRequired,
 	}
@@ -110,3 +111,5 @@ export default class Widget extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Widget, styles);

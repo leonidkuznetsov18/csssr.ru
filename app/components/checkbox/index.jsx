@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Tooltip from 'components/tooltip';
 
 import styles from './styles.css';
 
-export default function Checkbox(props) {
+function Checkbox(props) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[props.className]: props.className,
@@ -49,3 +50,5 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
 	checked: false,
 };
+
+export default withStyles(Checkbox, styles);

@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function List({ items, props }) {
+function List({ items, props }) {
 	const classList = cx({
 		[styles.item]: true,
 		[styles.item_size_s]: props.size === 's',
@@ -28,3 +29,5 @@ List.propTypes = {
 	size: React.PropTypes.string,
 	props: React.PropTypes.object,
 };
+
+export default withStyles(List, styles);

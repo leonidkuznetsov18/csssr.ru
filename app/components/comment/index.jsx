@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Text from 'components/text';
 
 import styles from './styles.css';
 
-export default function Comment({ author, company, url, text }) {
+function Comment({ author, company, url, text }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.header}>
@@ -25,3 +26,5 @@ Comment.propTypes = {
 	url: React.PropTypes.string,
 	text: React.PropTypes.string,
 };
+
+export default withStyles(Comment, styles);

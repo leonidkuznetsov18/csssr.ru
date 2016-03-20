@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import styles from './styles.css';
 
-export default function Column({ size, smallSize, offset, children }) {
+function Column({ size, smallSize, offset, children }) {
 	const classList = cx({
 		[styles.root]: true,
 		[styles.root_size_oneThird]: size === 1 / 3,
@@ -33,3 +34,5 @@ Column.defaultProps = {
 	size: 1 / 3,
 	offset: 0,
 };
+
+export default withStyles(Column, styles);
