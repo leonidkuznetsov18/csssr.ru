@@ -29,27 +29,28 @@ export default class Widget extends React.Component {
 	}
 
 	initTwitter() {
-		window.twttr = (function (script, id) {
-			const fjs = document.getElementsByTagName(script)[0];
-			let js = document.getElementsByTagName(script)[0];
-			let twitter = window.twttr || {};
+		if (window.twttr) {
+			return;
+		}
 
-			if (document.getElementById(id)) {
-				return;
-			}
+		window.twttr = {
+			_e: [],
+			ready(f) {
+				window.twttr._e.push(f);
+			},
+		};
 
-			js = document.createElement(script);
-			js.id = id;
-			js.src = 'https://platform.twitter.com/widgets.js';
-			fjs.parentNode.insertBefore(js, fjs);
+		const id = 'twitter-wjs';
+		const fjs = document.getElementsByTagName('script')[0];
 
-			return window.twttr || (twitter = {
-				_e: [],
-				ready(f) {
-					twitter._e.push(f);
-				},
-			});
-		}('script', 'twitter-wjs'));
+		if (document.getElementById(id)) {
+			return;
+		}
+
+		const js = document.createElement('script');
+		js.id = id;
+		js.src = 'https://platform.twitter.com/widgets.js';
+		fjs.parentNode.insertBefore(js, fjs);
 
 		window.twttr.ready((twttr) => {
 			twttr.events.bind('rendered', () => {
