@@ -4,7 +4,7 @@ import orderOptions from 'data/order-options.json';
 
 const options = Object.keys(orderOptions).reduce((acc, group) => acc.concat(orderOptions[group]), []);
 const getNameByValue = (value) => options.filter((option) => option.value === value)[0].name;
-const convertArray = (array) => array.map(getNameByValue);
+const convertArray = (array = []) => array.map(getNameByValue);
 
 export default function MailOrder({ toolsData, data }) {
 	const orderNumber = toolsData.unique_number;
@@ -38,7 +38,7 @@ export default function MailOrder({ toolsData, data }) {
 				<br/>
 				Устаревшие браузеры: {convertArray(data.oldBrowsers).join(', ') || '—'}
 				<br/>
-				Мобильные платформы: {convertArray(data.mobile).join(', ') || '—'}
+				Мобильные платформы: {convertArray(data.mobileBrowsers).join(', ') || '—'}
 				<br/>
 				Ширина страниц: {getNameByValue(data.pagesWidth)}
 				<br/>
