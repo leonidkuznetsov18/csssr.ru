@@ -10,7 +10,7 @@ export default class UploadFilesBlock extends React.Component {
 	}
 
 	onDrop = (files) => {
-		this.props.addFiles(files.filter((file) => file.type !== ''));
+		this.props.addFiles(files);
 	}
 
 	openSelectWindow = () => {
