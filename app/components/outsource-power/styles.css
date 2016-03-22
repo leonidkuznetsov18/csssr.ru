@@ -134,10 +134,6 @@
 		top: 89px;
 		left: calc((100% - 918px) * 0.5);
 
-		@media (max-width: 1300px) {
-			left: 8.5%;
-		}
-
 		@media (max-width: 1200px) {
 			width: 30%;
 
