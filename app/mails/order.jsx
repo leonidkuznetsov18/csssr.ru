@@ -7,7 +7,7 @@ const getNameByValue = (value) => options.filter((option) => option.value === va
 const convertArray = (array = []) => array.map(getNameByValue);
 
 export default function MailOrder({ toolsData, data }) {
-	const orderNumber = toolsData.orderNumber;
+	const orderUrl = toolsData.orderUrl;
 	const googleDriveLink = toolsData.driveUrl;
 
 	return (
@@ -30,7 +30,7 @@ export default function MailOrder({ toolsData, data }) {
 				}
 			</p>
 			<p>
-				<a href={`http://test-tools.csssr.ru/order/${orderNumber}`}>
+				<a href={orderUrl}>
 					Детали заказа
 				</a>
 				<br/>
