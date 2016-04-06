@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function MailOutsource({ toolsData, data }) {
-	const orderNumber = toolsData.unique_number;
+	const orderNumber = toolsData.orderNumber;
 
 	return (
 		<p>
