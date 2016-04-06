@@ -79,11 +79,11 @@
     "webpack": "^1.10.1"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^6.0.2",
     "babel-preset-react-hmre": "^1.0.0",
     "chai": "^3.3.0",
     "chai-things": "^0.2.0",
-    "eslint": "^2.2.0",
+    "eslint": "^2.7.0",
     "eslint-plugin-react": "^4.1.0",
     "jquery": "^2.1.4",
     "karma": "^0.13.10",
@@ -98,6 +98,7 @@
     "mocha": "^2.3.3",
     "phantomjs": "^2.1.0",
     "phantomjs-polyfill": "0.0.1",
+    "phantomjs-prebuilt": "^2.1.7",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
