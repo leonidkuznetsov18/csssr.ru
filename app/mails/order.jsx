@@ -8,7 +8,7 @@ const convertArray = (array = []) => array.map(getNameByValue);
 
 export default function MailOrder({ toolsData, data }) {
 	const orderNumber = toolsData.orderNumber;
-	const googleDriveLink = toolsData.url;
+	const googleDriveLink = toolsData.driveUrl;
 
 	return (
 		<div>
