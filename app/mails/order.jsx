@@ -7,8 +7,8 @@ const getNameByValue = (value) => options.filter((option) => option.value === va
 const convertArray = (array = []) => array.map(getNameByValue);
 
 export default function MailOrder({ toolsData, data }) {
-	const orderNumber = toolsData.unique_number;
-	const googleDriveLink = toolsData.url;
+	const orderNumber = toolsData.orderNumber;
+	const googleDriveLink = toolsData.driveUrl;
 
 	return (
 		<div>

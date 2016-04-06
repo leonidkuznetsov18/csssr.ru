@@ -1,11 +1,11 @@
 import React from 'react';
 
 export default function MailOutsource({ toolsData, data }) {
-	const orderNumber = toolsData.unique_number;
+	const orderUrl = toolsData.orderUrl;
 
 	return (
 		<p>
-			<a href={`http://test-tools.csssr.ru/order/${orderNumber}`}>
+			<a href={orderUrl}>
 				Детали заказа
 			</a>
 			<br/>
