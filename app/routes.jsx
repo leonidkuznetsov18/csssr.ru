@@ -3,7 +3,7 @@ import { IndexRoute, Route } from 'react-router';
 
 import Application from 'containers/application';
 import Index from 'containers/page-index';
-import IndexBanner from 'components/index-banner';
+// import IndexBanner from 'components/index-banner';
 import Company from 'containers/page-company';
 import Jobs from 'containers/page-jobs';
 import JobsList from 'containers/page-jobs-list';
@@ -25,10 +25,7 @@ import PageError from 'containers/page-error';
 
 export default (
 	<Route component={Application}>
-		<Route path='/' components={{
-			children: Index,
-			banner: IndexBanner,
-		}} />
+		<Route path='/' component={Index} />
 		<Route path='/company' component={Company} />
 		<Route path='/jobs' component={Jobs}>
 			<IndexRoute component={JobsList} />
