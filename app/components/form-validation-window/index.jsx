@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 
 import './styles.css';
 
-export default function FormValidationWindow({ title, text }) {
+export default function FormValidationWindow({ title, text, children }) {
 	return (
 		<div className='form-validation-window'>
 			<div className='form-validation-window__attention'>
 				{title}
 			</div>
-			{text &&
+			{(children || text) &&
 				<div className='form-validation-window__text'>
-					{text}
+					{children || text}
 				</div>
 			}
 		</div>

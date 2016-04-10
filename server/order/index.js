@@ -26,6 +26,7 @@ function getFormData(data) {
 			'project',
 		],
 		lang: 'ru',
+		options: ['fixed'],
 	};
 }
 

@@ -8,7 +8,7 @@ export default function JobsEmail() {
 			<span className='jobs-email__caption'>
 				Служба поиска талантов CSSSR
 			</span>
-			<a className='jobs-email__link' href='mailto:hr@csssr.com'>
+			<a className='jobs-email__link' href='mailto:hr@csssr.io'>
 				hr@csssr.io
 			</a>
 		</div>
