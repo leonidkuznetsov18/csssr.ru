@@ -42,7 +42,7 @@ export default function MailOrder({ toolsData, data }) {
 				<br/>
 				Ширина страниц: {getNameByValue(data.pagesWidth)}
 				<br/>
-				Дополнительно: {convertArray(data.mobile).join(', ') || '—'}
+				Дополнительно: {convertArray(data.addition).join(', ') || '—'}
 				<br/>
 			</p>
 
