@@ -18,6 +18,7 @@ function getFormData(data) {
 			'outsource',
 		],
 		lang: 'ru',
+		options: ['fixed'],
 	};
 }
 

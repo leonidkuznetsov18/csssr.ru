@@ -60,7 +60,7 @@ export default class Contacts extends React.Component {
 						<Text size='xs' indent={false}>
 							Вопросы трудоустройства
 							{' '}
-							<a href='hr@csssr.io'>
+							<a href='mailto:hr@csssr.io'>
 								hr@csssr.io
 							</a>
 						</Text>

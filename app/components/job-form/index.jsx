@@ -53,10 +53,12 @@ export default class JobAnswerForm extends React.Component {
 			<form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
 				{this.props.error &&
 					<div className='job-form__error'>
-						<FormValidationWindow
-							title='ВНИМАНИЕ!'
-							text='Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.'
-						/>
+						<FormValidationWindow title='ВНИМАНИЕ!'>
+							Случилось непредвиденное.
+							Пожалуйста, попробуйте отправить форму снова или напишите нам на
+							{' '}
+							<Link href='mailto:order@csssr.ru'>order@csssr.ru</Link>
+						</FormValidationWindow>
 					</div>
 				}
 				{this.renderField('firstname', 'Имя', {
