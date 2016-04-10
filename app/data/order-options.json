@@ -1,112 +1,83 @@
 {
-	"modernBrowsers": [
-		{
-			"name": "Chrome 45",
-			"value": "chrome"
-		},
-			{
-			"name": "Firefox 41",
-			"value": "firefox"
-		},
-		{
-			"name": "Safari 9",
-			"value": "safari"
-		},
-		{
-			"name": "Opera 32",
-			"value": "opera"
-		},
-		{
-			"name": "Edge (Windows 10)",
-			"value": "edge"
+	"modernBrowsers": [{
+		"name": "Chrome 49",
+		"value": "chrome"
+	}, {
+		"name": "Firefox 45",
+		"value": "firefox"
+	}, {
+		"name": "Safari 9",
+		"value": "safari"
+	}, {
+		"name": "Opera 36",
+		"value": "opera"
+	}, {
+		"name": "Edge (Windows 10)",
+		"value": "edge"
+	}],
+	"oldBrowsers": [{
+		"name": "Safari 8",
+		"value": "safari8"
+	}, {
+		"name": "Internet Explorer 11",
+		"value": "ie11"
+	}, {
+		"name": "Internet Explorer 10",
+		"value": "ie10"
+	}, {
+		"name": "Internet Explorer 9",
+		"value": "ie9"
+	}, {
+		"name": "Internet Explorer 8",
+		"value": "ie8"
+	}, {
+		"name": "Opera 12",
+		"value": "opera12"
+	}],
+	"mobileBrowsers": [{
+		"name": "Safari 9 (iOS 9)",
+		"value": "mobilesafari"
+	}, {
+		"name": "Safari 8 (iOS 8)",
+		"value": "mobilesafariold"
+	}, {
+		"name": "Chrome 45 (iOS 9)",
+		"value": "mobilechromeios"
+	}, {
+		"name": "Chrome 45 (Android 6)",
+		"value": "mobilechromeandroid"
+	}, {
+		"name": "Chrome 44 (Android 5)",
+		"value": "mobilechromeandroidold"
+	}, {
+		"name": "IE 11 (Windows Phone 8.1)",
+		"value": "mobileiewindowsphone"
+	}],
+	"pagesWidth": [{
+		"name": "Фиксированная (Static)",
+		"value": "fixed"
+	}, {
+		"name": "Резиновая (Liquid)",
+		"value": "dynamic"
+	}, {
+		"name": "Адаптивная (Adaptive)",
+		"value": "adaptive"
+	}, {
+		"name": "Отзывчивая (Responsive)",
+		"value": "responsive"
+	}],
+	"addition": [{
+		"name": "Pixel Perfect",
+		"value": "pixel_perfect",
+		"tip": {
+			"link": "?",
+			"text": "По умолчанию мы допускаем погрешность до 5 пикселей в размерах блоков отступов и плашек. Однако по вашей просьбе мы готовы подогнать вёрстку под макет со 100% соответствием."
 		}
-	],
-	"oldBrowsers": [
-		{
-			"name": "Safari 8",
-			"value": "safari8"
-		},
-		{
-			"name": "Internet Explorer 11",
-			"value": "ie11"
-		},
-		{
-			"name": "Internet Explorer 10",
-			"value": "ie10"
-		},
-		{
-			"name": "Internet Explorer 9",
-			"value": "ie9"
-		},
-		{
-			"name": "Internet Explorer 8",
-			"value": "ie8"
-		},
-		{
-			"name": "Opera 12",
-			"value": "opera12"
-		}
-	],
-	"mobileBrowsers": [
-		{
-			"name": "Safari 9 (iOS 9)",
-			"value": "mobilesafari"
-		},
-		{
-			"name": "Safari 8 (iOS 8)",
-			"value": "mobilesafariold"
-		},
-		{
-			"name": "Chrome 45 (iOS 9)",
-			"value": "mobilechromeios"
-		},
-		{
-			"name": "Chrome 45 (Android 6)",
-			"value": "mobilechromeandroid"
-		},
-		{
-			"name": "Chrome 44 (Android 5)",
-			"value": "mobilechromeandroidold"
-		},
-		{
-			"name": "IE 11 (Windows Phone 8.1)",
-			"value": "mobileiewindowsphone"
-		}
-	],
-	"pagesWidth": [
-		{
-			"name": "Фиксированная (Static)",
-			"value": "fixed"
-		},
-		{
-			"name": "Резиновая (Liquid)",
-			"value": "dynamic"
-		},
-		{
-			"name": "Адаптивная (Adaptive)",
-			"value": "adaptive"
-		},
-		{
-			"name": "Отзывчивая (Responsive)",
-			"value": "responsive"
-		}
-	],
-	"addition": [
-		{
-			"name": "Pixel Perfect",
-			"value": "pixel_perfect",
-			"tip": {
-				"link": "?",
-				"text": "По умолчанию мы допускаем погрешность до 5 пикселей в размерах блоков отступов и плашек. Однако по вашей просьбе мы готовы подогнать вёрстку под макет со 100% соответствием."
-			}
-		},
-		{
-			"name": "Требуется поддержка Retina-дисплеев",
-			"value": "retina"
-		},
-		{
-			"name": "Очень срочный проект",
-			"value": "urgent"
-		}
-	]
+	}, {
+		"name": "Требуется поддержка Retina-дисплеев",
+		"value": "retina"
+	}, {
+		"name": "Очень срочный проект",
+		"value": "urgent"
+	}]
 }
