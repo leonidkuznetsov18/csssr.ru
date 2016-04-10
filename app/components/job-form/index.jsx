@@ -57,7 +57,7 @@ export default class JobAnswerForm extends React.Component {
 							Случилось непредвиденное.
 							Пожалуйста, попробуйте отправить форму снова или напишите нам на
 							{' '}
-							<Link href='mailto:order@csssr.ru'>order@csssr.ru</Link>
+							<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
 						</FormValidationWindow>
 					</div>
 				}

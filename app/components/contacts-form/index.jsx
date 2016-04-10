@@ -49,9 +49,14 @@ export default class ContactsForm extends React.Component {
 
 		return (
 			<form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
-				{(this.props.error.text || this.props.error.title) &&
+				{
 					<div className='contacts-form__error'>
-						<FormValidationWindow {...this.props.error} />
+						<FormValidationWindow title="ВНИМАНИЕ!">
+							Случилось непредвиденное.
+							Пожалуйста, попробуйте отправить форму снова или напишите нам на
+							{' '}
+							<Link href='mailto:order@csssr.ru'>order@csssr.ru</Link>
+						</FormValidationWindow>
 					</div>
 				}
 
