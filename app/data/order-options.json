@@ -41,13 +41,13 @@
 		"name": "Safari 8 (iOS 8)",
 		"value": "mobilesafariold"
 	}, {
-		"name": "Chrome 45 (iOS 9)",
+		"name": "Chrome 49 (iOS 9)",
 		"value": "mobilechromeios"
 	}, {
-		"name": "Chrome 45 (Android 6)",
+		"name": "Chrome 49 (Android 6)",
 		"value": "mobilechromeandroid"
 	}, {
-		"name": "Chrome 44 (Android 5)",
+		"name": "Chrome 49 (Android 5)",
 		"value": "mobilechromeandroidold"
 	}, {
 		"name": "IE 11 (Windows Phone 8.1)",
