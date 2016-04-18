@@ -13,7 +13,7 @@ export default function Header({ open, active }) {
 				<Icon icon='logo'/>
 			</Link>
 			<Menu open={open} active={active}/>
-			<Language/>
+			{ /*<Language/>*/}
 		</header>
 	);
 }
