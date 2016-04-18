@@ -4,6 +4,7 @@ import { sendOrderForm } from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import ContactsForm from 'components/contacts-form';
+import Link from 'components/link';
 import options from 'data/order-options.json';
 import * as actions from 'actions/files';
 import { connect } from 'react-redux';
@@ -46,7 +47,7 @@ export default class FormOrder extends React.Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
 		files: React.PropTypes.array,
-		error: React.PropTypes.bool,
+		error: React.PropTypes.any,
 		fields: React.PropTypes.object,
 	}
 
@@ -85,13 +86,20 @@ export default class FormOrder extends React.Component {
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
 		const { fields } = this.props;
+
+		const responseError = this.props.error;
 		const error = {};
 
 		if (fields.files.error) {
 			error.text = fields.files.error;
-		} else if (this.props.error) {
+		} else if (responseError) {
 			error.title = 'Внимание!';
-			error.text = 'Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.';
+			error.text = responseError === 'ERROR' ? <span>
+				Случилось непредвиденное.
+				Пожалуйста, попробуйте отправить форму снова или напишите нам на
+				{' '}
+				<Link href='mailto:sales@csssr.com'>sales@csssr.com</Link>
+			</span> : responseError;
 		}
 
 		return (

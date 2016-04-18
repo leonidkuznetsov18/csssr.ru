@@ -12,23 +12,21 @@ export default function MailOrder({ toolsData, data }) {
 
 	return (
 		<div>
-			<p>
-				Источник: <br/>
-				{googleDriveLink &&
-					<p style={{ margin: 0 }}>
-						Ссылка — <a href={googleDriveLink}>
-							{googleDriveLink}
-						</a>
-					</p>
-				}
-				{data.filesLink &&
-					<p style={{ margin: 0 }}>
-						Макеты — <a href={data.filesLink}>
-							{data.filesLink}
-						</a>
-					</p>
-				}
-			</p>
+			Источник: <br/>
+			{googleDriveLink &&
+				<p style={{ margin: 0 }}>
+					Ссылка — <a href={googleDriveLink}>
+						{googleDriveLink}
+					</a>
+				</p>
+			}
+			{data.filesLink &&
+				<p style={{ margin: 0 }}>
+					Макеты — <a href={data.filesLink}>
+						{data.filesLink}
+					</a>
+				</p>
+			}
 			<p>
 				<a href={orderUrl}>
 					Детали заказа
@@ -46,28 +44,26 @@ export default function MailOrder({ toolsData, data }) {
 				<br/>
 			</p>
 
-			<p>
-				{data.name &&
-					<p style={{ margin: 0 }}>
-						Контактное лицо: {data.name}
-					</p>
-				}
-				{data.email &&
-					<p style={{ margin: 0 }}>
-						Электронная почта: {data.email}
-					</p>
-				}
-				{data.skype &&
-					<p style={{ margin: 0 }}>
-						Скайп: {data.skype}
-					</p>
-				}
-				{data.phone &&
-					<p style={{ margin: 0 }}>
-						Телефон: {data.phone}
-					</p>
-				}
-			</p>
+			{data.name &&
+				<p style={{ margin: 0 }}>
+					Контактное лицо: {data.name}
+				</p>
+			}
+			{data.email &&
+				<p style={{ margin: 0 }}>
+					Электронная почта: {data.email}
+				</p>
+			}
+			{data.skype &&
+				<p style={{ margin: 0 }}>
+					Скайп: {data.skype}
+				</p>
+			}
+			{data.phone &&
+				<p style={{ margin: 0 }}>
+					Телефон: {data.phone}
+				</p>
+			}
 		</div>
 	);
 }

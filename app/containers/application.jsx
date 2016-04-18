@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-
 import Application from 'components/application';
 import { index } from 'data/meta';
 
@@ -62,18 +61,16 @@ export default class ApplicationContainer extends React.Component {
 	}
 
 	render() {
-		return (
-			<Application
-				{...this.props}
-				active={this.state.active}
-				overflow={this.state.overflow}
-				mounted={this.state.mounted}
-				openSidebar={this.openSidebar}
-				closeSidebar={this.closeSidebar}
-			>
-				<Helmet {...index} />
-				{this.props.children}
-			</Application>
-		);
+		return <Application
+			{...this.props}
+			active={this.state.active}
+			overflow={this.state.overflow}
+			mounted={this.state.mounted}
+			openSidebar={this.openSidebar}
+			closeSidebar={this.closeSidebar}
+		>
+			<Helmet {...index} />
+			{this.props.children}
+		</Application>;
 	}
 }

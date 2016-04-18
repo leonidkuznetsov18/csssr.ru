@@ -1,13 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
-
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
-import Link from 'components/link';
 import Button from 'components/button';
 import Circloader from 'components/circloader';
 import FieldPhone from 'components/field-phone';
 import FormValidationWindow from 'components/form-validation-window';
+import Link from 'components/link';
 
 import './styles.css';
 
@@ -15,7 +14,7 @@ export default class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
 		requiredFields: React.PropTypes.array.isRequired,
-		error: React.PropTypes.object.isRequired,
+		error: React.PropTypes.any.isRequired,
 		submitting: React.PropTypes.bool.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
@@ -47,55 +46,50 @@ export default class ContactsForm extends React.Component {
 			'contacts-form__loader_active': this.props.submitting,
 		});
 
-		return (
-			<form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
-				{(this.props.error.text || this.props.error.title) &&
-					<div className='contacts-form__error'>
-						<FormValidationWindow title="ВНИМАНИЕ!">
-							Случилось непредвиденное.
-							Пожалуйста, попробуйте отправить форму снова или напишите нам на
-							{' '}
-							<Link href='mailto:order@csssr.ru'>order@csssr.ru</Link>
-						</FormValidationWindow>
-					</div>
-				}
+		const error = this.props.error;
 
-				{this.renderField('name', 'Ваше имя')}
-				{this.renderField('email', 'Электронная почта')}
-				{this.renderField('skype', 'Скайп')}
+		return <form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
+			{(error && (error.text || error.title) || typeof error === 'string' && error) &&
+				<div className='contacts-form__error'>
+					<FormValidationWindow {...error} />
+				</div>
+			}
 
-				<FieldPhone
-					required
-					name='phone'
-					label='Контактный телефон'
-					{...this.props.fields.phone}
-				/>
+			{this.renderField('name', 'Ваше имя')}
+			{this.renderField('email', 'Электронная почта')}
+			{this.renderField('skype', 'Скайп')}
 
-				<Checkbox
-					className='contacts-form__rules'
-					checked
-					readOnly
-					name='confidential'
+			<FieldPhone
+				required
+				name='phone'
+				label='Контактный телефон'
+				{...this.props.fields.phone}
+			/>
+
+			<Checkbox
+				className='contacts-form__rules'
+				checked
+				readOnly
+				name='confidential'
+			>
+				Принимаю&nbsp;
+				<Link color='blue'
+					href='/confidential'
+					target='_blank'
 				>
-					Принимаю&nbsp;
-					<Link color='blue'
-						href='/confidential'
-						target='_blank'
-					>
-						положение об обработке персональных данных
-					</Link>
-				</Checkbox>
+					положение об обработке персональных данных
+				</Link>
+			</Checkbox>
 
-				<div className={buttonClass}>
-					<Button mod='form' type='submit'>
-						— Поехали!
-					</Button>
-				</div>
+			<div className={buttonClass}>
+				<Button mod='form' type='submit'>
+					— Поехали!
+				</Button>
+			</div>
 
-				<div className={loaderClass}>
-					<Circloader/>
-				</div>
-			</form>
-		);
+			<div className={loaderClass}>
+				<Circloader/>
+			</div>
+		</form>;
 	}
 }
