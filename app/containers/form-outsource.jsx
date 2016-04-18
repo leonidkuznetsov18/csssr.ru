@@ -56,7 +56,7 @@ export default class FormOutsource extends React.Component {
 				Случилось непредвиденное.
 				Пожалуйста, попробуйте отправить форму снова или напишите нам на
 				{' '}
-				<Link href='mailto:sales@csssr.com'>sales@csssr.com</Link>
+				<Link href='mailto:sales@csssr.io'>sales@csssr.io</Link>
 			</span> : responseError,
 		} : {};
 

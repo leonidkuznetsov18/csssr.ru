@@ -7,7 +7,7 @@ const transporter = nodemailer.createTransport(directTransport({
 }));
 
 const defaultOptions = {
-	from: 'CSSSR Order <order@csssr.ru>',
+	from: 'CSSSR Order <sales@csssr.io>',
 	to: process.env.ORDER_MAIL,
 };
 
