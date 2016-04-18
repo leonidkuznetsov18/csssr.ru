@@ -15,7 +15,7 @@ import './styles.css';
 export default class JobAnswerForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
-		error: React.PropTypes.bool,
+		error: React.PropTypes.any,
 		submitting: React.PropTypes.bool.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
@@ -49,65 +49,71 @@ export default class JobAnswerForm extends React.Component {
 			'job-form__loader_active': this.props.submitting,
 		});
 
-		return (
-			<form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
-				{this.props.error &&
-					<div className='job-form__error'>
-						<FormValidationWindow title='ВНИМАНИЕ!'>
-							Случилось непредвиденное.
-							Пожалуйста, попробуйте отправить форму снова или напишите нам на
-							{' '}
-							<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
-						</FormValidationWindow>
-					</div>
-				}
-				{this.renderField('firstname', 'Имя', {
-					small: true,
-				})}
-				{this.renderField('lastname', 'Фамилия', {
-					small: true,
-				})}
-				{this.renderField('age', 'Возраст')}
-				{this.renderField('location', 'Город')}
+		const responseError = this.props.error;
+		const error = responseError === 'ERROR' ? {
+			title: 'Внимание!',
+			text: <span>
+				Случилось непредвиденное.
+				Пожалуйста, попробуйте отправить форму снова или напишите нам на
+				{' '}
+				<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
+			</span>,
+		} : responseError;
 
-				<FieldFile
-					required
-					label='Тестовый квест'
-					fileAccept={this.props.fileAccept}
-					{...this.props.fields.file}
-				/>
-
-				{this.renderField('email', 'Электронная почта')}
-				{this.renderField('skype', 'Скайп')}
-
-				<FieldPhone
-					required
-					label='Контактный телефон'
-					{...this.props.fields.phone}
-				/>
-
-				<Checkbox className='' checked readOnly>
-					<Text size='xs' weight='normal'>
-						Принимаю&nbsp;
-						<Link color='blue'
-							href='/confidential'
-							target='_blank'
-						>
-							положение об обработке персональных данных
-						</Link>
-					</Text>
-				</Checkbox>
-
-				<div className={buttonClass}>
-					<Button mod='form' type='submit'>
-						— Поехали!
-					</Button>
+		return <form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
+			{
+				(responseError && (responseError.text || responseError.title) ||
+				 responseError) &&
+				<div className='job-form__error'>
+					<FormValidationWindow {...error} />
 				</div>
+			}
+			{this.renderField('firstname', 'Имя', {
+				small: true,
+			})}
+			{this.renderField('lastname', 'Фамилия', {
+				small: true,
+			})}
+			{this.renderField('age', 'Возраст')}
+			{this.renderField('location', 'Город')}
 
-				<div className={loaderClass}>
-					<Circloader/>
-				</div>
-			</form>
-		);
+			<FieldFile
+				required
+				label='Тестовый квест'
+				fileAccept={this.props.fileAccept}
+				{...this.props.fields.file}
+			/>
+
+			{this.renderField('email', 'Электронная почта')}
+			{this.renderField('skype', 'Скайп')}
+
+			<FieldPhone
+				required
+				label='Контактный телефон'
+				{...this.props.fields.phone}
+			/>
+
+			<Checkbox className='' checked readOnly>
+				<Text size='xs' weight='normal'>
+					Принимаю&nbsp;
+					<Link color='blue'
+						href='/confidential'
+						target='_blank'
+					>
+						положение об обработке персональных данных
+					</Link>
+				</Text>
+			</Checkbox>
+
+			<div className={buttonClass}>
+				<Button mod='form' type='submit'>
+					— Поехали!
+				</Button>
+			</div>
+
+			<div className={loaderClass}>
+				<Circloader/>
+			</div>
+		</form>;
 	}
 }

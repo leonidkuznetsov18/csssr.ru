@@ -13,6 +13,12 @@ export function sendOrderForm(values) {
 			.post('/order')
 			.send(values)
 			.end((err, response) => {
+				if (window.__CSSSR_ERROR_RESPONSE__) {
+					return dispatch(stopSubmit('order', {
+						_error: window.__CSSSR_ERROR_RESPONSE__ || response.body.result || true,
+					}));
+				}
+
 				if (response.statusCode === 200) {
 					dispatch(stopSubmit('order'));
 					dispatch(push('/order/thanks'));
@@ -20,7 +26,7 @@ export function sendOrderForm(values) {
 				}
 
 				dispatch(stopSubmit('order', {
-					_error: true,
+					_error: response.body.result || true,
 				}));
 			});
 	};

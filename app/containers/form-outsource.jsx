@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 import { sendOutsourceForm } from 'actions/outsource';
 import ContactsForm from 'components/contacts-form';
+import Link from 'components/link';
 
 const requiredFields = [
 	'name',
@@ -22,7 +23,7 @@ const requiredFields = [
 export default class FormOutsource extends React.Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
-		error: React.PropTypes.bool,
+		error: React.PropTypes.any,
 	}
 
 	handleSubmit = (values, dispatch) => {
@@ -48,9 +49,15 @@ export default class FormOutsource extends React.Component {
 
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
-		const error = this.props.error ? {
+		const responseError = this.props.error;
+		const error = responseError ? {
 			title: 'Внимание!',
-			text: 'Случилось непредвиденное. Пожалуйста, попробуйте отправить форму снова.',
+			text: responseError === 'ERROR' ? <span>
+				Случилось непредвиденное.
+				Пожалуйста, попробуйте отправить форму снова или напишите нам на
+				{' '}
+				<Link href='mailto:sales@csssr.com'>sales@csssr.com</Link>
+			</span> : responseError,
 		} : {};
 
 		return (

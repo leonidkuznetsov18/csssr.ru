@@ -1,6 +1,6 @@
 import React from 'react';
-
 import Head from 'components/head';
+import YM from 'components/yandex-metrika';
 
 export default class Layout extends React.Component {
 	static propTypes = {
@@ -11,18 +11,17 @@ export default class Layout extends React.Component {
 	}
 
 	render() {
-		return (
-			<html>
-				<Head head={this.props.head}>
-					<link rel='stylesheet' href={this.props.style} />
-				</Head>
-				<body>
-					<div id='content' dangerouslySetInnerHTML={{
-						__html: this.props.content,
-					}} />
-					<script src={this.props.script} async defer/>
-				</body>
-			</html>
-		);
+		return <html>
+			<Head head={this.props.head}>
+				<link rel='stylesheet' href={this.props.style} />
+			</Head>
+			<body>
+				<div id='content' dangerouslySetInnerHTML={{
+					__html: this.props.content,
+				}} />
+				<script src={this.props.script} async/>
+				<YM />
+			</body>
+		</html>;
 	}
 }

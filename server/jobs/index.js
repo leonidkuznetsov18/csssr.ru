@@ -19,8 +19,8 @@ export default function (req, res) {
 		}
 
 		res
-			.send({ result: 'OK' })
 			.status(200)
+			.send({ result: 'OK' })
 			.end();
 	});
 }
