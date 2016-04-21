@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexRoute, Route } from 'react-router';
+import { IndexRoute, Route, Redirect } from 'react-router';
 
 import Application from 'containers/application';
 import Index from 'containers/page-index';
@@ -54,6 +54,7 @@ export default (
 			<Route path='version/:version' component={PageTimelinePopup} />
 			<Route path=':person' component={PageTimelinePopup} />
 		</Route>
+		<Redirect from='/vacancy' to='/jobs' />
 		<Route path='*' component={PageError}/>
 	</Route>
 );
