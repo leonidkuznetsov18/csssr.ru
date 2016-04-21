@@ -8,6 +8,9 @@ import routes from './routes';
 import reducer from './reducers';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import useScroll from 'use-scroll-behavior';
+import redirect from './helpers/redirectOldUrls';
+
+redirect();
 
 const createStoreWithMiddleWare = compose(
 	applyMiddleware(
