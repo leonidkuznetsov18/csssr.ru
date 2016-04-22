@@ -1,5 +1,6 @@
 .contacts {
 	width: 100%;
+	min-width: 600px;
 	height: 100%;
 	padding: 40px 40px 40px 50px;
 	overflow-y: auto;
