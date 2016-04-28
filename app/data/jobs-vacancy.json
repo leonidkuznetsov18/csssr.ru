@@ -14,5 +14,13 @@
 				"url": "/jobs/technical-manager"
 			}
 		]
+	},
+	{
+		"vacancies": [
+			{
+				"name": "Дизайнер одного сайта и двух интерфейсов",
+				"url": "/jobs/one-site-designer"
+			}
+		]
 	}
 ]

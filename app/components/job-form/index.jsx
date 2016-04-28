@@ -79,7 +79,7 @@ export default class JobAnswerForm extends React.Component {
 
 			<FieldFile
 				required
-				label='Тестовый квест'
+				label={`Тестовый квест ${this.props.fileAccept === '.zip' ? '(упакованный в ZIP)' : ''}`}
 				fileAccept={this.props.fileAccept}
 				{...this.props.fields.file}
 			/>

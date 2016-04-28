@@ -14,6 +14,11 @@ const fileTypes = {
 		regexp: /\.docx$/,
 		fileWarning: 'DOCX, пожалуйста!',
 	},
+	'one-site-designer': {
+		fileAccept: '.zip',
+		regexp: /\.zip$/,
+		fileWarning: 'ZIP, пожалуйста!',
+	},
 };
 
 @reduxForm({
