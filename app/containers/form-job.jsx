@@ -36,8 +36,8 @@ const fileTypes = {
 })
 export default class PageJob extends React.Component {
 	static propTypes = {
-		jobName: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
+		jobName: React.PropTypes.string.isRequired,
 	}
 
 	handleSubmit = (values, dispatch) => {

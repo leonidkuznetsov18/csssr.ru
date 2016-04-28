@@ -12,16 +12,17 @@ function Faq({ data }) {
 				{data.image &&
 					<div className={styles.image}>
 						<img
-							src={require(`images/faq/${data.image.file}.svg`)}
 							alt={data.image.alt}
-							width={data.image.width}
 							height={data.image.height}
+							src={require(`images/faq/${data.image.file}.svg`)}
+							width={data.image.width}
 						/>
 						{data.link &&
 							<a
+								className={styles.link}
 								href={data.link.href}
 								target='_blank'
-								className={styles.link}>
+							>
 								{data.link.text}
 							</a>
 						}
@@ -32,7 +33,7 @@ function Faq({ data }) {
 					{data.title}
 				</Title>
 
-				<Text size='l' color='blue'>
+				<Text color='blue' size='l'>
 					{data.comment}
 				</Text>
 			</div>
@@ -41,14 +42,18 @@ function Faq({ data }) {
 				{data.columns.map((column, index) => (
 					<div className={styles.column} key={index}>
 						{column.map((item, columnIndex) => (
-							<div key={columnIndex} className={styles.question}>
+							<div className={styles.question} key={columnIndex}>
 								<h3
 									className={styles.subtitle}
 									dangerouslySetInnerHTML={{ __html: item.title }}
 								/>
 
 								{[].concat(item.text).map((text, itemIndex) => (
-									<Text size='m' color='blue' key={itemIndex}>
+									<Text
+										color='blue'
+										key={itemIndex}
+										size='m'
+									>
 										{text}
 									</Text>
 								))}

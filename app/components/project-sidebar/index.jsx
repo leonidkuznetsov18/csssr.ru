@@ -6,12 +6,14 @@ import Text from 'components/text';
 import styles from './styles.css';
 
 function ProjectSidebar({ project, onToggle }) {
+	const closeSidebar = () => onToggle(true);
+
 	return (
 		<div className={styles.root}>
 			<span
 				className={styles.close}
+				onClick={closeSidebar}
 				rel='link'
-				onClick={() => onToggle(true)}
 			/>
 
 			<h1 className={styles.title}>
@@ -19,10 +21,10 @@ function ProjectSidebar({ project, onToggle }) {
 			</h1>
 
 			{project.pages.map((page, index) => (
-				<Text size='xs' key={index}>
+				<Text key={index} size='xs'>
 					<Link
-						className={styles.link}
 						activeClassName={styles.link_active}
+						className={styles.link}
 						to={`/portfolio/${project.view}/${page.page}`}
 					>
 						{page.name}
@@ -34,8 +36,8 @@ function ProjectSidebar({ project, onToggle }) {
 }
 
 ProjectSidebar.propTypes = {
-	project: React.PropTypes.object.isRequired,
 	onToggle: React.PropTypes.func.isRequired,
+	project: React.PropTypes.object.isRequired,
 };
 
 export default withStyles(ProjectSidebar, styles);

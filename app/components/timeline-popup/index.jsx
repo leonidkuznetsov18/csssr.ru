@@ -1,34 +1,23 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import Title from 'components/title';
-import ReactMarkdown from 'react-markdown';
+import stopPropagation from 'helpers/stopPropagation';
 import Popup from 'components/popup';
+import TimelineQuote from 'components/timeline-quote';
 
 import styles from './styles.css';
-
-function getQuote(title, text) {
-	return (
-		<blockquote className={styles.quote}>
-			<Title size='small' component='h6' color='yellow'>
-				{title}
-			</Title>
-			<ReactMarkdown source={text}/>
-		</blockquote>
-	);
-}
 
 function TimelinePopup(props) {
 	return (
 		<Popup active={props.active} onClose={props.onClose} >
 			<div
 				className={styles.root}
-				onClick={(event) => event.stopPropagation()}
+				onClick={stopPropagation}
 			>
 				<div className={styles.staff}>
 					<img
+						alt={props.name}
 						className={styles.avatar}
 						src={require(`images/timeline/avatar/${props.avatar}.jpg`)}
-						alt={props.name}
 						title={props.name}
 					/>
 					<div className={styles.name}>
@@ -40,11 +29,11 @@ function TimelinePopup(props) {
 				</div>
 
 				{props.histories &&
-					getQuote('История связанная с CSSSR', props.histories)
+					<TimelineQuote text={props.histories} title='История связанная с CSSSR' />
 				}
 
 				{props.wishes &&
-					getQuote('Пожелания CSSSR', props.wishes)
+					<TimelineQuote text={props.wishes} title='Пожелания CSSSR' />
 				}
 			</div>
 		</Popup>
@@ -52,14 +41,14 @@ function TimelinePopup(props) {
 }
 
 TimelinePopup.propTypes = {
+	active: React.PropTypes.bool,
+	avatar: React.PropTypes.string,
 	city: React.PropTypes.string,
 	data: React.PropTypes.object,
-	name: React.PropTypes.string,
 	histories: React.PropTypes.string,
-	wishes: React.PropTypes.string,
-	avatar: React.PropTypes.string,
-	active: React.PropTypes.bool,
+	name: React.PropTypes.string,
 	onClose: React.PropTypes.func,
+	wishes: React.PropTypes.string,
 };
 
 export default withStyles(TimelinePopup, styles);

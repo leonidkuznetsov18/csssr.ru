@@ -26,7 +26,6 @@ function getFormData(data) {
 			'project',
 		],
 		lang: 'ru',
-		options: ['fixed'],
 	};
 }
 
@@ -34,7 +33,7 @@ function sendOrderMail(toolsData, data) {
 	return sendMail({
 		subject: `CSSSR. Заказ номер ${toolsData.orderNumber}`,
 		html: ReactDOMServer.renderToStaticMarkup(
-			<MailOrder toolsData={toolsData} data={data} />
+			<MailOrder data={data} toolsData={toolsData} />
 		),
 	});
 }

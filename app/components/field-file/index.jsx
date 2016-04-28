@@ -10,8 +10,8 @@ function FieldFile(props) {
 			<div className={styles.input}>
 				<Field
 					{...props}
-					value={props.value && props.value[0] && props.value[0].name}
 					disabled
+					value={props.value && props.value[0] && props.value[0].name}
 				/>
 			</div>
 
@@ -19,10 +19,10 @@ function FieldFile(props) {
 				{props.buttonText}
 				<input
 					{...props}
+					accept={props.fileAccept}
 					className={styles.file}
 					type='file'
 					value={null}
-					accept={props.fileAccept}
 				/>
 			</div>
 
@@ -36,13 +36,13 @@ function FieldFile(props) {
 }
 
 FieldFile.propTypes = {
+	buttonText: React.PropTypes.string,
+	error: React.PropTypes.string,
 	fileAccept: React.PropTypes.string,
-	value: React.PropTypes.object,
+	invalid: React.PropTypes.bool,
 	label: React.PropTypes.string,
 	required: React.PropTypes.bool,
-	buttonText: React.PropTypes.string,
-	invalid: React.PropTypes.bool,
-	error: React.PropTypes.string,
+	value: React.PropTypes.object,
 };
 
 FieldFile.defaultProps = {

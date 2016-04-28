@@ -10,7 +10,7 @@ export default function MailOutsource({ toolsData, data }) {
 					<a href={orderUrl}>
 						Детали заказа
 					</a>
-					<br/>
+					<br />
 					{data.name &&
 						<p style={{ margin: 0 }}>
 							Контактное лицо: {data.name}
@@ -38,6 +38,6 @@ export default function MailOutsource({ toolsData, data }) {
 }
 
 MailOutsource.propTypes = {
-	toolsData: React.PropTypes.object,
 	data: React.PropTypes.object,
+	toolsData: React.PropTypes.object,
 };

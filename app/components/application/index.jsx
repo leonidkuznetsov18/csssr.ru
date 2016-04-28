@@ -25,40 +25,43 @@ function Application({ children, banner, meta, active, openSidebar, closeSidebar
 	return (
 		<div className={applicationClass}>
 			<div
-				onClick={closeSidebar}
 				className={styles.wrapper}
+				onClick={closeSidebar}
 				style={{
 					paddingRight: overflow ? scrollbarSize() : 0,
 				}}
 			>
 				{banner}
 
-				<Header open={openSidebar} active={active}/>
+				<Header open={openSidebar} />
 				<div className={styles.inner}>
 					{children}
 				</div>
-				<Sharing meta={meta}/>
+				<Sharing meta={meta} />
 				<Footer />
 			</div>
 			<div className={contactsClass}>
-				<Contacts close={closeSidebar} active={active}/>
+				<Contacts
+					active={active}
+					onClose={closeSidebar}
+				/>
 			</div>
 		</div>
 	);
 }
 
 Application.propTypes = {
+	active: React.PropTypes.bool,
+	banner: React.PropTypes.element,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.arrayOf(React.PropTypes.node),
 		React.PropTypes.node,
 	]),
-	banner: React.PropTypes.element,
-	meta: React.PropTypes.object,
-	active: React.PropTypes.bool,
-	openSidebar: React.PropTypes.func,
 	closeSidebar: React.PropTypes.func,
-	overflow: React.PropTypes.bool,
+	meta: React.PropTypes.object,
 	mounted: React.PropTypes.bool,
+	openSidebar: React.PropTypes.func,
+	overflow: React.PropTypes.bool,
 };
 
 export default withStyles(Application, styles);

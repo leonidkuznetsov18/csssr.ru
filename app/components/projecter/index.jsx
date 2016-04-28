@@ -1,4 +1,5 @@
 import React from 'react';
+import stopPropagation from 'helpers/stopPropagation';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
@@ -12,8 +13,8 @@ function Projecter({ active, partner, title, content, onClose }) {
 	});
 
 	return (
-		<div onClick={onClose} className={blockClass} >
-			<div onClick={(e) => e.stopPropagation()}>
+		<div className={blockClass} onClick={onClose}>
+			<div onClick={stopPropagation}>
 				<div className={styles.selection}>
 					<div
 						className={styles.title}
@@ -33,11 +34,11 @@ function Projecter({ active, partner, title, content, onClose }) {
 }
 
 Projecter.propTypes = {
-	partner: React.PropTypes.string.isRequired,
 	active: React.PropTypes.bool,
-	title: React.PropTypes.string,
 	content: React.PropTypes.string,
 	onClose: React.PropTypes.func,
+	partner: React.PropTypes.string.isRequired,
+	title: React.PropTypes.string,
 };
 
 export default withStyles(Projecter, styles);

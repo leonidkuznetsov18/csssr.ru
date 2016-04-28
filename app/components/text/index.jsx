@@ -37,16 +37,16 @@ function Text({ size, children, indent, color, center, weight }) {
 }
 
 Text.propTypes = {
+	center: React.PropTypes.bool,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.element,
 		React.PropTypes.array,
 	]),
-	size: React.PropTypes.string,
 	color: React.PropTypes.string,
-	weight: React.PropTypes.string,
 	indent: React.PropTypes.bool,
-	center: React.PropTypes.bool,
+	size: React.PropTypes.string,
+	weight: React.PropTypes.string,
 };
 
 Text.defaultProps = {

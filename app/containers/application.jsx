@@ -9,6 +9,23 @@ export default class ApplicationContainer extends React.Component {
 		location: React.PropTypes.object,
 	}
 
+	componentWillMount() {
+		this.setState({
+			active: false,
+			mounted: false,
+		});
+	}
+
+	componentDidMount() {
+		this.setState({
+			mounted: true,
+		});
+
+		if (window.location.hash === '#contacts') {
+			this.openSidebar();
+		}
+	}
+
 	openSidebar = (event) => {
 		if (event) {
 			event.stopPropagation();
@@ -43,34 +60,19 @@ export default class ApplicationContainer extends React.Component {
 		}, 500);
 	}
 
-	componentWillMount() {
-		this.setState({
-			active: false,
-			mounted: false,
-		});
-	}
-
-	componentDidMount() {
-		this.setState({
-			mounted: true,
-		});
-
-		if (window.location.hash === '#contacts') {
-			this.openSidebar();
-		}
-	}
-
 	render() {
-		return <Application
-			{...this.props}
-			active={this.state.active}
-			overflow={this.state.overflow}
-			mounted={this.state.mounted}
-			openSidebar={this.openSidebar}
-			closeSidebar={this.closeSidebar}
-		>
-			<Helmet {...index} />
-			{this.props.children}
-		</Application>;
+		return (
+			<Application
+				{...this.props}
+				active={this.state.active}
+				closeSidebar={this.closeSidebar}
+				mounted={this.state.mounted}
+				openSidebar={this.openSidebar}
+				overflow={this.state.overflow}
+			>
+				<Helmet {...index} />
+				{this.props.children}
+			</Application>
+		);
 	}
 }

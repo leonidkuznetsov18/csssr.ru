@@ -4,26 +4,23 @@ import Field from 'components/field';
 
 import styles from './styles.css';
 
-class UploadFilesLink extends React.Component {
-
-	static propTypes = {
-		fields: React.PropTypes.object.isRequired,
-	}
-
-	render() {
-		return (
-			<div className={styles.root}>
-				<Field
-					label='Откуда мы сможем скачать файлы проекта'
-					{...this.props.fields.filesLink}
-				/>
-				<span className={styles.info}>
-					Вы можете поделиться ссылкой на архив или ссылкой на папку проекта в
-					Dropbox, Google Drive, Яндекс.Диске или любом другом облачном сервисе.
-				</span>
-			</div>
-		);
-	}
+function UploadFilesLink({ fields }) {
+	return (
+		<div className={styles.root}>
+			<Field
+				label='Откуда мы сможем скачать файлы проекта'
+				{...fields.filesLink}
+			/>
+			<span className={styles.info}>
+				Вы можете поделиться ссылкой на архив или ссылкой на папку проекта в
+				Dropbox, Google Drive, Яндекс.Диске или любом другом облачном сервисе.
+			</span>
+		</div>
+	);
 }
+
+UploadFilesLink.propTypes = {
+	fields: React.PropTypes.object.isRequired,
+};
 
 export default withStyles(UploadFilesLink, styles);

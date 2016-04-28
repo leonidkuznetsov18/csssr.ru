@@ -26,8 +26,8 @@ function List({ items, props }) {
 
 List.propTypes = {
 	items: React.PropTypes.array.isRequired,
-	size: React.PropTypes.string,
 	props: React.PropTypes.object,
+	size: React.PropTypes.string,
 };
 
 export default withStyles(List, styles);

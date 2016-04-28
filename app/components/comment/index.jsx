@@ -8,7 +8,11 @@ function Comment({ author, company, url, text }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.header}>
-				<a className={styles.link} href={url} target='_blank'>
+				<a
+					className={styles.link}
+					href={url}
+					target='_blank'
+				>
 					{author}
 				</a>
 				, {company}
@@ -23,8 +27,8 @@ function Comment({ author, company, url, text }) {
 Comment.propTypes = {
 	author: React.PropTypes.string,
 	company: React.PropTypes.string,
-	url: React.PropTypes.string,
 	text: React.PropTypes.string,
+	url: React.PropTypes.string,
 };
 
 export default withStyles(Comment, styles);

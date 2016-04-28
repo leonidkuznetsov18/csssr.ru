@@ -10,8 +10,8 @@ function PortfolioItem({ project }) {
 	if (project.view && project.pages) {
 		work = (
 			<a
-				target='_blank'
 				href={`/portfolio/${project.view}/${project.pages[0].page}`}
+				target='_blank'
 			>
 				{project.name}
 			</a>
@@ -31,21 +31,21 @@ function PortfolioItem({ project }) {
 			{project.logo &&
 				<div className={styles.logo}>
 					<img
-						src={require(`../../images/portfolio/${project.logo.url}`)}
-						className={styles.image}
 						alt={project.name}
-						width={project.logo.width}
+						className={styles.image}
 						height={project.logo.height}
+						src={require(`../../images/portfolio/${project.logo.url}`)}
+						width={project.logo.width}
 					/>
 				</div>
 			}
 
-			<Text size='m' indent={false}>
+			<Text indent={false} size='m'>
 				{work}
 			</Text>
 
 			{project.featuring &&
-				<Text size='xxs' indent={false}>
+				<Text indent={false} size='xxs'>
 					{project.featuring.map((feat, i) => (
 						<span key={i}>
 							Совместно с

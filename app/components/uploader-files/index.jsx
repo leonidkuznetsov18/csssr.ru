@@ -13,6 +13,7 @@ function UploaderFiles({ files, removeFile }) {
 		[styles.progress]: true,
 		[styles.progress_hidden]: !globalProgress,
 	});
+	const handleRemoveFile = (file) => () => removeFile(file.id);
 
 	return (
 		<div className={styles.root}>
@@ -27,7 +28,7 @@ function UploaderFiles({ files, removeFile }) {
 					<File
 						key={file.id}
 						{...file}
-						onRemove={() => removeFile(file.id)}
+						onRemove={handleRemoveFile(file)}
 					/>
 				))}
 			</div>

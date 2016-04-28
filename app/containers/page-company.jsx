@@ -14,19 +14,17 @@ const dataInfo = require('data/company-info.json');
 const dataComments = require('data/comments.json');
 const dataHistory = require('data/history.json');
 
-export default class PageCompany extends React.Component {
-	render() {
-		return (
-			<Content>
-				<Helmet {...company} />
-				<Row>
-					<Column size={2 / 3} offset={1 / 3}>
-						<SectionGroup data={dataAbout} />
-						<Comments data={dataComments} />
-					</Column>
-				</Row>
-				<CompanyInfo data={dataInfo} history={dataHistory}/>
-			</Content>
-		);
-	}
+export default function PageCompany() {
+	return (
+		<Content>
+			<Helmet {...company} />
+			<Row>
+				<Column offset={1 / 3} size={2 / 3}>
+					<SectionGroup data={dataAbout} />
+					<Comments data={dataComments} />
+				</Column>
+			</Row>
+			<CompanyInfo data={dataInfo} history={dataHistory} />
+		</Content>
+	);
 }

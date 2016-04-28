@@ -32,20 +32,20 @@ export default class FieldPhone extends React.Component {
 		});
 	}
 
-	onFocus = () => {
+	handleFocus = () => {
 		this.setState({
 			focused: true,
 		});
 	}
 
-	onBlur = () => {
+	handleBlur = () => {
 		this.setState({
 			focused: false,
 			position: null,
 		});
 	}
 
-	onChange = (event) => {
+	handleChange = (event) => {
 		let value = event.target.value.replace(/\D/g, '');
 
 		const isPartOfCode = Object.keys(phoneCodes).some((code) => {
@@ -88,11 +88,11 @@ export default class FieldPhone extends React.Component {
 		return (
 			<Field
 				{...this.props}
+				onBlur={this.handleBlur}
+				onChange={this.handleChange}
+				onFocus={this.handleFocus}
 				position={this.state.position}
 				value={this.formatValue(this.props.value)}
-				onChange={this.onChange}
-				onFocus={this.onFocus}
-				onBlur={this.onBlur}
 			/>
 		);
 	}

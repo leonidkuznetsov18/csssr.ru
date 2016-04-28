@@ -14,7 +14,11 @@ function OutsourceContent({ data, projects }) {
 		<div className={styles.root}>
 			<div className={styles.events}>
 				<div className={styles.title + ' ' + styles.title_events}>
-					<Title size='medium' component='h2' indent={false}>
+					<Title
+						component='h2'
+						indent={false}
+						size='medium'
+					>
 						{data.events.title}
 					</Title>
 				</div>
@@ -28,7 +32,11 @@ function OutsourceContent({ data, projects }) {
 
 			<div className={styles.success}>
 				<div className={styles.title}>
-					<Title size='medium' component='h2' indent={false}>
+					<Title
+						component='h2'
+						indent={false}
+						size='medium'
+					>
 						{data.success.title}
 					</Title>
 				</div>
@@ -40,7 +48,7 @@ function OutsourceContent({ data, projects }) {
 				</div>
 
 				<div className='projects'>
-					<OutsourceProjects projects={projects}/>
+					<OutsourceProjects projects={projects} />
 				</div>
 			</div>
 		</div>

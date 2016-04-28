@@ -4,19 +4,17 @@ import Helmet from 'react-helmet';
 import Offert from 'components/offert';
 import * as meta from 'data/meta';
 
-export default class PageOffert extends React.Component {
-	static propTypes = {
-		route: React.PropTypes.object.isRequired,
-	}
+export default function PageOffert({ route }) {
+	const { path } = route;
+	const data = require(`data/${path.slice(1)}.json`);
 
-	render() {
-		const { path } = this.props.route;
-		const data = require(`data/${path.slice(1)}.json`);
-
-		return (
-			<Offert data={data}>
-				<Helmet {...meta[path]} />
-			</Offert>
-		);
-	}
+	return (
+		<Offert data={data}>
+			<Helmet {...meta[path]} />
+		</Offert>
+	);
 }
+
+PageOffert.propTypes = {
+	route: React.PropTypes.object.isRequired,
+};

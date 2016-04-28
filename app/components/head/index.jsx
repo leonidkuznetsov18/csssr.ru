@@ -3,42 +3,96 @@ import React from 'react';
 export default function Head({ children, head }) {
 	return (
 		<head>
-			<meta charSet='utf-8'/>
-			<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-			<meta name='viewport' content='width=1024' />
-			<meta name='imagetoolbar' content='no' />
-			<meta name='msthemecompatible' content='no' />
-			<meta name='cleartype' content='on' />
-			<meta name='HandheldFriendly' content='True' />
-			<meta name='format-detection' content='telephone=no' />
-			<meta name='format-detection' content='address=no' />
+			<meta charSet='utf-8' />
+			<meta content='IE=edge' httpEquiv='X-UA-Compatible' />
+			<meta content='width=1024' name='viewport' />
+			<meta content='no' name='imagetoolbar' />
+			<meta content='no' name='msthemecompatible' />
+			<meta content='on' name='cleartype' />
+			<meta content='True' name='HandheldFriendly' />
+			<meta content='telephone=no' name='format-detection' />
+			<meta content='address=no' name='format-detection' />
 			<meta name='google' value='notranslate' />
-			<meta name='apple-mobile-web-app-capable' content='yes' />
+			<meta content='yes' name='apple-mobile-web-app-capable' />
 
-			<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
-			<link sizes='57x57' href='/apple-touch-icon-57x57.png' rel='apple-touch-icon' />
-			<link sizes='114x114' href='/apple-touch-icon-114x114.png' rel='apple-touch-icon' />
-			<link sizes='72x72' href='/apple-touch-icon-72x72.png' rel='apple-touch-icon' />
-			<link sizes='144x144' href='/apple-touch-icon-144x144.png' rel='apple-touch-icon' />
-			<link sizes='60x60' href='/apple-touch-icon-60x60.png' rel='apple-touch-icon' />
-			<link sizes='120x120' href='/apple-touch-icon-120x120.png' rel='apple-touch-icon' />
-			<link sizes='76x76' href='/apple-touch-icon-76x76.png' rel='apple-touch-icon' />
-			<link sizes='152x152' href='/apple-touch-icon-152x152.png' rel='apple-touch-icon' />
-			<link sizes='180x180' href='/apple-touch-icon-180x180.png' rel='apple-touch-icon' />
-			<link sizes='192x192' href='/favicon-192x192.png' rel='icon' type='image/png' />
-			<link sizes='160x160' href='/favicon-160x160.png' rel='icon' type='image/png' />
-			<link sizes='96x96' href='/favicon-96x96.png' rel='icon' type='image/png' />
-			<link rel='manifest' href='/manifest.json' />
-			<meta name='application-name' content='' />
-			<meta name='msapplication-tooltip' content='' />
-			<meta name='msapplication-TileColor' content='#ffffff' />
-			<meta name='msapplication-TileImage' content='/mstile-large.png' />
-			<meta name='msapplication-starturl' content='http://csssr.ru/' />
-			<meta name='msapplication-tap-highlight' content='no' />
-			<meta name='msapplication-square70x70logo' content='/mstile-small.png' />
-			<meta name='msapplication-square150x150logo' content='/mstile-medium.png' />
-			<meta name='msapplication-wide310x150logo' content='/mstile-wide.png' />
-			<meta name='msapplication-square310x310logo' content='/mstile-large.png' />
+			<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style' />
+			<link
+				href='/apple-touch-icon-57x57.png'
+				rel='apple-touch-icon'
+				sizes='57x57'
+			/>
+			<link
+				href='/apple-touch-icon-114x114.png'
+				rel='apple-touch-icon'
+				sizes='114x114'
+			/>
+			<link
+				href='/apple-touch-icon-72x72.png'
+				rel='apple-touch-icon'
+				sizes='72x72'
+			/>
+			<link
+				href='/apple-touch-icon-144x144.png'
+				rel='apple-touch-icon'
+				sizes='144x144'
+			/>
+			<link
+				href='/apple-touch-icon-60x60.png'
+				rel='apple-touch-icon'
+				sizes='60x60'
+			/>
+			<link
+				href='/apple-touch-icon-120x120.png'
+				rel='apple-touch-icon'
+				sizes='120x120'
+			/>
+			<link
+				href='/apple-touch-icon-76x76.png'
+				rel='apple-touch-icon'
+				sizes='76x76'
+			/>
+			<link
+				href='/apple-touch-icon-152x152.png'
+				rel='apple-touch-icon'
+				sizes='152x152'
+			/>
+			<link
+				href='/apple-touch-icon-180x180.png'
+				rel='apple-touch-icon'
+				sizes='180x180'
+			/>
+			<link
+				href='/favicon-192x192.png'
+				rel='icon'
+				sizes='192x192'
+				type='image/png'
+			/>
+			<link
+				href='/favicon-160x160.png'
+				rel='icon'
+				sizes='160x160'
+				type='image/png'
+			/>
+			<link
+				href='/favicon-96x96.png'
+				rel='icon'
+				sizes='96x96'
+				type='image/png'
+			/>
+			<link
+				href='/manifest.json'
+				rel='manifest'
+			/>
+			<meta content='' name='application-name' />
+			<meta content='' name='msapplication-tooltip' />
+			<meta content='#ffffff' name='msapplication-TileColor' />
+			<meta content='/mstile-large.png' name='msapplication-TileImage' />
+			<meta content='http://csssr.ru/' name='msapplication-starturl' />
+			<meta content='no' name='msapplication-tap-highlight' />
+			<meta content='/mstile-small.png' name='msapplication-square70x70logo' />
+			<meta content='/mstile-medium.png' name='msapplication-square150x150logo' />
+			<meta content='/mstile-wide.png' name='msapplication-wide310x150logo' />
+			<meta content='/mstile-large.png' name='msapplication-square310x310logo' />
 
 			{head.title && head.title.toComponent()}
 			{head.meta && head.meta.toComponent()}
@@ -49,8 +103,8 @@ export default function Head({ children, head }) {
 }
 
 Head.propTypes = {
-	head: React.PropTypes.object,
 	children: React.PropTypes.element,
+	head: React.PropTypes.object,
 };
 
 Head.defaultProps = {

@@ -11,10 +11,7 @@ import Icon from 'components/icon';
 import styles from './styles.css';
 
 const socials = ['vk', 'fb', 'tw', 'gp'];
-
-function onButtonClick(type) {
-	window.open(socialLink(type));
-}
+const onButtonClick = (type) => () => window.open(socialLink(type));
 
 function Thanks() {
 	return (
@@ -42,9 +39,9 @@ function Thanks() {
 
 							{socials.map((social, index) => (
 								<a
-									key={index}
 									className={styles.social}
-									onClick={onButtonClick.bind(this, social)}
+									key={index}
+									onClick={onButtonClick(social)}
 								>
 									<Icon icon={`social-${social}`} />
 								</a>

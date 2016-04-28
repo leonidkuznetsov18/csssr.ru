@@ -8,8 +8,8 @@ import styles from './styles.css';
 class ProjectFrame extends React.Component {
 	static propTypes = {
 		loaded: React.PropTypes.bool,
-		url: React.PropTypes.string.isRequired,
 		onLoad: React.PropTypes.func,
+		url: React.PropTypes.string.isRequired,
 	}
 
 	static defaultProps = {
@@ -35,14 +35,15 @@ class ProjectFrame extends React.Component {
 		return (
 			<div className={styles.root}>
 				<div className={loaderClass}>
-					<Circloader size='big' color='white'/>
+					<Circloader color='white' size='big' />
 				</div>
 
-				<iframe className={frameClass}
-					ref='iframe'
+				<iframe
 					allowTransparency
-					src={url}
+					className={frameClass}
 					frameBorder='0'
+					ref='iframe'
+					src={url}
 				/>
 			</div>
 		);

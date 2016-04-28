@@ -23,21 +23,18 @@ const buttons = [
 		text: 'Плюс один',
 	},
 ];
-
-function onButtonClick(type) {
-	window.open(socialLink(type));
-}
+const onButtonClick = (type) => () => window.open(socialLink(type));
 
 function Sharing() {
 	return (
 		<div className={styles.root}>
 			{buttons.map((button) => (
-				<div key={button.type} className={styles.item}>
+				<div className={styles.item} key={button.type}>
 					<Button
-						mod='social'
 						component='a'
 						icon={`social-${button.type}`}
-						onClick={onButtonClick.bind(this, button.type)}
+						mod='social'
+						onClick={onButtonClick(button.type)}
 					>
 						{button.text}
 					</Button>

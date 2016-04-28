@@ -16,9 +16,9 @@ class JobsVacancy extends React.Component {
 		if (isInternalLink) {
 			return (
 				<Link
-					to={vacancy.url}
 					className={styles.link}
 					key={index}
+					to={vacancy.url}
 				>
 					{vacancy.name}
 				</Link>
@@ -27,14 +27,14 @@ class JobsVacancy extends React.Component {
 
 		return (
 			<a
-				href={vacancy.url}
-				target='_blank'
 				className={styles.link}
+				href={vacancy.url}
 				key={index}
+				target='_blank'
 			>
 				{vacancy.name}
 				{vacancy.hh &&
-					<Icon icon='hh' className={styles.hh} />
+					<Icon className={styles.hh} icon='hh' />
 				}
 			</a>
 		);
@@ -50,7 +50,7 @@ class JobsVacancy extends React.Component {
 					<li className={styles.item} key={index}>
 						{vacancy.name}
 						{' '}
-						{vacancy.vacancies.map(this.renderLink) }
+						{vacancy.vacancies.map(this.renderLink)}
 					</li>
 				))}
 			</ul>

@@ -8,9 +8,15 @@ function Breadcrumbs({ items }) {
 	return (
 		<div className={styles.root}>
 			{items.map((item, index, list) => (
-				<div key={index} className={styles.item}>
+				<div
+					className={styles.item}
+					key={index}
+				>
 					{item.link &&
-						<Link to={item.link} className={styles.link}>
+						<Link
+							className={styles.link}
+							to={item.link}
+						>
 							{item.name}
 						</Link>
 					}

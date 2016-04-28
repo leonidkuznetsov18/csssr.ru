@@ -6,7 +6,7 @@ export default function OutsourceProjects({ projects }) {
 	return (
 		<div>
 			{projects.map((partner, index) => (
-				<OutsourceProject partner={partner} key={index} />
+				<OutsourceProject key={index} partner={partner} />
 			))}
 		</div>
 	);

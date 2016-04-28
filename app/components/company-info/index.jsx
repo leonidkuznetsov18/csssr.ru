@@ -13,26 +13,26 @@ function CompanyInfo({ history, data }) {
 		<div className={styles.root}>
 			<Row>
 				<Column>
-					<History data={history}/>
+					<History data={history} />
 				</Column>
 
 				<Column size={2 / 3}>
 					<Column size={1 / 2}>
-						<Section {...data.name}/>
+						<Section {...data.name} />
 					</Column>
 
 					<Column size={1 / 2}>
-						<Section {...data.structure}/>
+						<Section {...data.structure} />
 					</Column>
 
 					<div className={styles.rocket}>
 						<span className={styles.rocketCount}>
 							<Icon icon='x3' />
 						</span>
-						<Section {...data.count}/>
+						<Section {...data.count} />
 					</div>
 
-					<Section {...data.work}/>
+					<Section {...data.work} />
 				</Column>
 			</Row>
 		</div>
@@ -40,8 +40,8 @@ function CompanyInfo({ history, data }) {
 }
 
 CompanyInfo.propTypes = {
-	history: React.PropTypes.object.isRequired,
 	data: React.PropTypes.object.isRequired,
+	history: React.PropTypes.object.isRequired,
 };
 
 export default withStyles(CompanyInfo, styles);

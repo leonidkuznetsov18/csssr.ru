@@ -8,8 +8,8 @@ const data = require('data/partners.json');
 @disableScroll
 export default class PagePartner extends React.Component {
 	static propTypes = {
-		params: React.PropTypes.object.isRequired,
 		history: React.PropTypes.object.isRequired,
+		params: React.PropTypes.object.isRequired,
 	}
 
 	componentWillMount() {
@@ -24,7 +24,7 @@ export default class PagePartner extends React.Component {
 		});
 	}
 
-	onClose = () => {
+	handleClose = () => {
 		this.setState({
 			active: false,
 		});
@@ -36,10 +36,10 @@ export default class PagePartner extends React.Component {
 		const partner = this.props.params.partner;
 		return (
 			<Projecter
-				onClose={this.onClose}
+				onClose={this.handleClose}
 				{...data[partner]}
-				partner={partner}
 				active={this.state.active}
+				partner={partner}
 			/>
 		);
 	}

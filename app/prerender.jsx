@@ -29,13 +29,13 @@ export default function (req, response) {
 				insertCss: React.PropTypes.func,
 			},
 			() => ({
-				insertCss: (styles) => rendered.css.push(styles._getCss()),
+				insertCss: (styles) => rendered.css.push(styles._getCss()), // eslint-disable-line no-underscore-dangle
 			}),
 			App
 		);
 
 		rendered.content = ReactDOMServer.renderToString(
-			<ProvideApp/>
+			<ProvideApp />
 		);
 
 		rendered.head = Helmet.rewind();

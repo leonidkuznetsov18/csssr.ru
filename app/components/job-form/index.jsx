@@ -15,11 +15,11 @@ import styles from './styles.css';
 
 class JobForm extends React.Component {
 	static propTypes = {
-		fields: React.PropTypes.object.isRequired,
 		error: React.PropTypes.any,
-		submitting: React.PropTypes.bool.isRequired,
+		fields: React.PropTypes.object.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
+		submitting: React.PropTypes.bool.isRequired,
 	}
 
 	static defaultProps = {
@@ -30,10 +30,10 @@ class JobForm extends React.Component {
 	renderField(name, label, props) {
 		return (
 			<Field
-				required
 				label={label}
-				name={name}
 				maxLength='100'
+				name={name}
+				required
 				{...props}
 				{...this.props.fields[name]}
 			/>
@@ -61,61 +61,65 @@ class JobForm extends React.Component {
 			</span>,
 		} : responseError;
 
-		return <form noValidate className={styles.root} onSubmit={this.props.handleSubmit}>
-			{
-				(responseError && (responseError.text || responseError.title) ||
-				 responseError) &&
-				<div className={styles.error}>
-					<FormValidationWindow {...error} />
+		return (
+			<form
+				className={styles.root}
+				noValidate
+				onSubmit={this.props.handleSubmit}
+			>
+				{responseError &&
+					<div className={styles.error}>
+						<FormValidationWindow {...error} />
+					</div>
+				}
+				{this.renderField('firstname', 'Имя', {
+					small: true,
+				})}
+				{this.renderField('lastname', 'Фамилия', {
+					small: true,
+				})}
+				{this.renderField('age', 'Возраст')}
+				{this.renderField('location', 'Город')}
+
+				<FieldFile
+					fileAccept={this.props.fileAccept}
+					label={`Тестовый квест ${this.props.fileAccept === '.zip' ? '(упакованный в ZIP)' : ''}`}
+					required
+					{...this.props.fields.file}
+				/>
+
+				{this.renderField('email', 'Электронная почта')}
+				{this.renderField('skype', 'Скайп')}
+
+				<FieldPhone
+					label='Контактный телефон'
+					required
+					{...this.props.fields.phone}
+				/>
+
+				<Checkbox checked readOnly>
+					<Text size='xs' weight='normal'>
+						Принимаю&nbsp;
+						<Link color='blue'
+							href='/confidential'
+							target='_blank'
+						>
+							положение об обработке персональных данных
+						</Link>
+					</Text>
+				</Checkbox>
+
+				<div className={buttonClass}>
+					<Button mod='form' type='submit'>
+						— Поехали!
+					</Button>
 				</div>
-			}
-			{this.renderField('firstname', 'Имя', {
-				small: true,
-			})}
-			{this.renderField('lastname', 'Фамилия', {
-				small: true,
-			})}
-			{this.renderField('age', 'Возраст')}
-			{this.renderField('location', 'Город')}
 
-			<FieldFile
-				required
-				label={`Тестовый квест ${this.props.fileAccept === '.zip' ? '(упакованный в ZIP)' : ''}`}
-				fileAccept={this.props.fileAccept}
-				{...this.props.fields.file}
-			/>
-
-			{this.renderField('email', 'Электронная почта')}
-			{this.renderField('skype', 'Скайп')}
-
-			<FieldPhone
-				required
-				label='Контактный телефон'
-				{...this.props.fields.phone}
-			/>
-
-			<Checkbox className='' checked readOnly>
-				<Text size='xs' weight='normal'>
-					Принимаю&nbsp;
-					<Link color='blue'
-						href='/confidential'
-						target='_blank'
-					>
-						положение об обработке персональных данных
-					</Link>
-				</Text>
-			</Checkbox>
-
-			<div className={buttonClass}>
-				<Button mod='form' type='submit'>
-					— Поехали!
-				</Button>
-			</div>
-
-			<div className={loaderClass}>
-				<Circloader/>
-			</div>
-		</form>;
+				<div className={loaderClass}>
+					<Circloader />
+				</div>
+			</form>
+		);
 	}
 }
 

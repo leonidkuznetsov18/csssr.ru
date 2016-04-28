@@ -25,36 +25,36 @@ import PageError from 'containers/page-error';
 
 export default (
 	<Route component={Application}>
-		<Route path='/' component={Index} />
-		<Route path='/company' component={Company} />
-		<Route path='/jobs' component={Jobs}>
+		<Route component={Index} path='/' />
+		<Route component={Company} path='/company' />
+		<Route component={Jobs} path='/jobs'>
 			<IndexRoute component={JobsList} />
-			<Route path=':jobName' component={Job}>
+			<Route component={Job} path=':jobName'>
 				<IndexRoute component={JobForm} />
-				<Route path='thanks' component={Thanks} />
+				<Route component={Thanks} path='thanks' />
 			</Route>
 		</Route>
-		<Route path='/order' component={Order} >
+		<Route component={Order} path='/order' >
 			<IndexRoute component={OrderForm} />
-			<Route path='thanks' component={Thanks} />
+			<Route component={Thanks} path='thanks' />
 		</Route>
-		<Route path='/outsource' component={Outsource}>
-			<IndexRoute component={OutsourceForm}/>
-			<Route path='thanks' component={Thanks} />
-			<Route path=':partner' component={Partner} />
+		<Route component={Outsource} path='/outsource'>
+			<IndexRoute component={OutsourceForm} />
+			<Route component={Thanks} path='thanks' />
+			<Route component={Partner} path=':partner' />
 		</Route>
-		<Route path='/portfolio' component={Portfolio} >
-			<Route path=':project' component={Project} >
-				<Route path=':page' component={ProjectPage} />
+		<Route component={Portfolio} path='/portfolio' >
+			<Route component={Project} path=':project' >
+				<Route component={ProjectPage} path=':page' />
 			</Route>
 		</Route>
-		<Route path='/offert' component={Offert} />
-		<Route path='/confidential' component={Offert} />
-		<Route path='/timeline' component={Timeline}>
-			<Route path='version/:version' component={PageTimelinePopup} />
-			<Route path=':person' component={PageTimelinePopup} />
+		<Route component={Offert} path='/offert' />
+		<Route component={Offert} path='/confidential' />
+		<Route component={Timeline} path='/timeline'>
+			<Route component={PageTimelinePopup} path='version/:version' />
+			<Route component={PageTimelinePopup} path=':person' />
 		</Route>
 		<Redirect from='/vacancy' to='/jobs' />
-		<Route path='*' component={PageError}/>
+		<Route component={PageError} path='*' />
 	</Route>
 );

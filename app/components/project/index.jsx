@@ -10,18 +10,19 @@ function Project({ project, onToggle, collapsed, children }) {
 		[styles.root]: true,
 		[styles.root_full]: collapsed,
 	});
+	const closeSidebar = () => onToggle(false);
 
 	return (
 		<div className={blockClass}>
 			<div className={styles.open}
-				onClick={() => onToggle(false)}
+				onClick={closeSidebar}
 				role='link'
 			/>
 
 			<div className={styles.sidebar}>
 				<ProjectSidebar
-					project={project}
 					onToggle={onToggle}
+					project={project}
 				/>
 			</div>
 
@@ -33,10 +34,10 @@ function Project({ project, onToggle, collapsed, children }) {
 }
 
 Project.propTypes = {
-	project: React.PropTypes.object.isRequired,
-	onToggle: React.PropTypes.func.isRequired,
 	children: React.PropTypes.element,
 	collapsed: React.PropTypes.bool,
+	onToggle: React.PropTypes.func.isRequired,
+	project: React.PropTypes.object.isRequired,
 };
 
 export default withStyles(Project, styles);

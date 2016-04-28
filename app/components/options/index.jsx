@@ -23,8 +23,8 @@ function Options(props) {
 }
 
 Options.propTypes = {
-	className: React.PropTypes.string,
 	children: React.PropTypes.node,
+	className: React.PropTypes.string,
 	inline: React.PropTypes.bool,
 };
 

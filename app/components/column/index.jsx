@@ -25,9 +25,9 @@ function Column({ size, smallSize, offset, children }) {
 
 Column.propTypes = {
 	children: React.PropTypes.node,
+	offset: React.PropTypes.number,
 	size: React.PropTypes.number,
 	smallSize: React.PropTypes.number,
-	offset: React.PropTypes.number,
 };
 
 Column.defaultProps = {

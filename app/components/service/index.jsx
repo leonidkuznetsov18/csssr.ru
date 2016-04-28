@@ -18,12 +18,12 @@ function Service({ service }) {
 				dangerouslySetInnerHTML={{ __html: service.subtitle }}
 			/>
 
-			<Button to={service.link} component={Link}>
+			<Button component={Link} to={service.link}>
 				{service.linkText}
 			</Button>
 
 			<div className={styles.text}>
-				<Text size='s' color='grey'>
+				<Text color='grey' size='s'>
 					{service.description}
 				</Text>
 			</div>

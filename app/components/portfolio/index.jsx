@@ -14,7 +14,7 @@ function Portfolio({ data, projects }) {
 				{data.title}
 			</Title>
 
-			<Text size='m' center>
+			<Text center size='m'>
 				{data.info}
 			</Text>
 

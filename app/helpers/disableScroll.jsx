@@ -15,7 +15,7 @@ export default (Component) => {
 
 		render() {
 			return (
-				<Component {...this.props}/>
+				<Component {...this.props} />
 			);
 		}
 	};

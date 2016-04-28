@@ -14,7 +14,7 @@ function Content({ padding, hole, children, layout }) {
 
 	return (
 		<main className={blockClass}>
-			{hole ? <Hole/> : ''}
+			{hole ? <Hole /> : ''}
 			{children}
 		</main>
 	);
@@ -23,8 +23,8 @@ function Content({ padding, hole, children, layout }) {
 Content.propTypes = {
 	children: React.PropTypes.node,
 	hole: React.PropTypes.bool,
-	padding: React.PropTypes.bool,
 	layout: React.PropTypes.string,
+	padding: React.PropTypes.bool,
 };
 
 Content.defaultProps = {

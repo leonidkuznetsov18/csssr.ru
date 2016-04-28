@@ -9,8 +9,18 @@ function Error(props) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.smile}>¯\_(ツ)_/¯</div>
-			<Title size='large' center>Нам жаль, товарищ!</Title>
-			<Text size='l' center>Ошибка {props.number}</Text>
+			<Title
+				center
+				size='large'
+			>
+				Нам жаль, товарищ!
+			</Title>
+			<Text
+				center
+				size='l'
+			>
+				Ошибка {props.number}
+			</Text>
 		</div>
 	);
 }

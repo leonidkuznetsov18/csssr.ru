@@ -3,8 +3,8 @@ import React from 'react';
 export default class Parallax extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.node.isRequired,
-		min: React.PropTypes.number,
 		max: React.PropTypes.number,
+		min: React.PropTypes.number,
 		offset: React.PropTypes.number,
 		speed: React.PropTypes.number,
 	}

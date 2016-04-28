@@ -15,7 +15,10 @@ function Button(props) {
 	});
 
 	return (
-		<Component {...props} className={blockClass}>
+		<Component
+			{...props}
+			className={blockClass}
+		>
 			<span className={styles.inner}>
 				{props.icon &&
 					<span className={styles.icon}>
@@ -35,8 +38,8 @@ Button.propTypes = {
 		React.PropTypes.string,
 		React.PropTypes.func,
 	]),
-	mod: React.PropTypes.string,
 	icon: React.PropTypes.string,
+	mod: React.PropTypes.string,
 };
 
 Button.defaultProps = {

@@ -24,13 +24,13 @@ function Tooltip({ children, className, text }) {
 }
 
 Tooltip.propTypes = {
-	text: React.PropTypes.string.isRequired,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.element,
 		React.PropTypes.array,
 	]),
 	className: React.PropTypes.string,
+	text: React.PropTypes.string.isRequired,
 };
 
 Tooltip.defaultProps = {

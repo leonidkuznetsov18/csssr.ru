@@ -31,8 +31,8 @@ function UploaderFile({ file, progress, onRemove }) {
 
 UploaderFile.propTypes = {
 	file: React.PropTypes.object.isRequired,
-	progress: React.PropTypes.number.isRequired,
 	onRemove: React.PropTypes.func,
+	progress: React.PropTypes.number.isRequired,
 };
 
 export default withStyles(UploaderFile, styles);

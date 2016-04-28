@@ -22,8 +22,8 @@ function Popup(props) {
 
 Popup.propTypes = {
 	active: React.PropTypes.bool,
-	onClose: React.PropTypes.func,
 	children: React.PropTypes.element,
+	onClose: React.PropTypes.func,
 };
 
 export default withStyles(Popup, styles);

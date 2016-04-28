@@ -8,14 +8,14 @@ import styles from './styles.css';
 class Field extends React.Component {
 	static propTypes = {
 		className: React.PropTypes.string,
-		small: React.PropTypes.bool,
-		name: React.PropTypes.string,
-		label: React.PropTypes.string,
-		required: React.PropTypes.bool,
 		inputProps: React.PropTypes.object,
-		labelProps: React.PropTypes.object,
 		invalid: React.PropTypes.bool,
+		label: React.PropTypes.string,
+		labelProps: React.PropTypes.object,
+		name: React.PropTypes.string,
 		position: React.PropTypes.number,
+		required: React.PropTypes.bool,
+		small: React.PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -57,9 +57,11 @@ class Field extends React.Component {
 					{label}
 				</label>
 
-				<input ref='input' {...this.props}
-					id={name}
+				<input
+					ref='input'
+					{...this.props}
 					className={inputClass}
+					id={name}
 				/>
 			</div>
 		);

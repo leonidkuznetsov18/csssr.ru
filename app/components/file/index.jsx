@@ -22,11 +22,11 @@ function File({ type, filename, link, size }) {
 }
 
 File.propTypes = {
-	type: React.PropTypes.oneOf(['doc', 'psd']).isRequired,
+	className: React.PropTypes.string,
 	filename: React.PropTypes.string,
 	link: React.PropTypes.string,
 	size: React.PropTypes.string,
-	className: React.PropTypes.string,
+	type: React.PropTypes.oneOf(['doc', 'psd']).isRequired,
 };
 
 export default withStyles(File, styles);

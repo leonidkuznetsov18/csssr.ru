@@ -3,23 +3,21 @@ import Helmet from 'react-helmet';
 
 import { job } from 'data/meta';
 
-export default class PageJob extends React.Component {
-	static propTypes = {
-		routeParams: React.PropTypes.object,
-		children: React.PropTypes.oneOfType([
-			React.PropTypes.arrayOf(React.PropTypes.node),
-			React.PropTypes.node,
-		]),
-	}
+export default function PageJob({ routeParams, children }) {
+	const page = routeParams.jobName;
 
-	render() {
-		const page = this.props.routeParams.jobName;
-
-		return (
-			<div>
-				<Helmet {...job[page]} />
-				{this.props.children}
-			</div>
-		);
-	}
+	return (
+		<div>
+			<Helmet {...job[page]} />
+			{children}
+		</div>
+	);
 }
+
+PageJob.propTypes = {
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.arrayOf(React.PropTypes.node),
+		React.PropTypes.node,
+	]),
+	routeParams: React.PropTypes.object,
+};

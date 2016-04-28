@@ -13,12 +13,6 @@ export function sendAnswerForm(values) {
 			.post('/jobs')
 			.send(formData)
 			.end((err, response) => {
-				if (window.__CSSSR_ERROR_RESPONSE__) {
-					return dispatch(stopSubmit('job', {
-						_error: window.__CSSSR_ERROR_RESPONSE__ || response.body.result || true,
-					}));
-				}
-
 				if (response.statusCode === 200) {
 					dispatch(stopSubmit('job'));
 					dispatch(push(`/jobs/${values.vacancy}/thanks`));

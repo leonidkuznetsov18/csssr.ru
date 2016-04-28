@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Helmet from 'react-helmet';
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';

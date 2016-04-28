@@ -15,8 +15,8 @@ function MenuItem({ href, children, active, component }) {
 
 	return (
 		<Component
-			className={blockClass}
 			activeClassName={styles.root_state_active}
+			className={blockClass}
 			to={href}
 		>
 			{children}
@@ -30,13 +30,13 @@ MenuItem.defaultProps = {
 };
 
 MenuItem.propTypes = {
-	href: React.PropTypes.string,
 	active: React.PropTypes.bool,
+	children: React.PropTypes.string,
 	component: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.func,
 	]),
-	children: React.PropTypes.string,
+	href: React.PropTypes.string,
 };
 
 export default withStyles(MenuItem, styles);

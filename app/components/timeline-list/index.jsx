@@ -9,7 +9,7 @@ function TimelineList({ data }) {
 		<ul className={styles.root}>
 			{data.map((item, index) => {
 				return (
-					<TimelineItem key={index} data={item} />
+					<TimelineItem data={item} key={index} />
 				);
 			})}
 		</ul>

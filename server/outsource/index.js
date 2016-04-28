@@ -18,7 +18,6 @@ function getFormData(data) {
 			'outsource',
 		],
 		lang: 'ru',
-		options: ['fixed'],
 	};
 }
 
@@ -26,7 +25,7 @@ function sendOutsourceMail(toolsData, data) {
 	return sendMail({
 		subject: `CSSSR. Заказ на аутсорс номер ${toolsData.orderNumber}`,
 		html: ReactDOMServer.renderToStaticMarkup(
-			<MailOutsource toolsData={toolsData} data={data} />
+			<MailOutsource data={data} toolsData={toolsData} />
 		),
 	});
 }

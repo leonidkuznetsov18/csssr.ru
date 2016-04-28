@@ -39,33 +39,31 @@ const projects = [
 	},
 ];
 
-export default class Outsource extends React.Component {
-	static propTypes = {
-		children: React.PropTypes.element,
-	}
+export default function Outsource({ children }) {
+	return (
+		<div>
+			<Content>
+				<OutsourceTitle />
+				<OutsourceContent data={data} projects={projects} />
+				<OutsourcePower />
+				<OutsourceMagic />
+				<OutsourceUse tips={data.tips} />
+				<OutsourceContacts>
+					<FormOutsource />
+				</OutsourceContacts>
+			</Content>
 
-	render() {
-		return (
-			<div>
-				<Content>
-					<OutsourceTitle />
-					<OutsourceContent data={data} projects={projects}/>
-					<OutsourcePower />
-					<OutsourceMagic />
-					<OutsourceUse tips={data.tips} />
-					<OutsourceContacts>
-						<FormOutsource/>
-					</OutsourceContacts>
-				</Content>
+			<FaqGroup>
+				{faq.map((group, index) => (
+					<Faq data={group} key={index} />
+				))}
+			</FaqGroup>
 
-				<FaqGroup>
-					{faq.map((group, index) => (
-						<Faq data={group} key={index} />
-					))}
-				</FaqGroup>
-
-				{this.props.children}
-			</div>
-		);
-	}
+			{children}
+		</div>
+	);
 }
+
+Outsource.propTypes = {
+	children: React.PropTypes.element,
+};

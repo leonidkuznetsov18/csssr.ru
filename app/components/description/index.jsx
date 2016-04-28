@@ -12,11 +12,19 @@ import styles from './styles.css';
 function Description({ data }) {
 	return (
 		<div className={styles.root}>
-			<div className={styles.logo}/>
-			<Parallax offset={500} speed={0.4} max={0} min={-150}>
+			<div className={styles.logo} />
+			<Parallax
+				max={0}
+				min={-150}
+				offset={500}
+				speed={0.4}
+			>
 				<div className={styles.clouds}>
 					{[0, 1, 2, 3].map((key) => (
-						<span className={styles.cloud} key={key}>
+						<span
+							className={styles.cloud}
+							key={key}
+						>
 							<Icon icon='cloud' />
 						</span>
 					))}
@@ -24,13 +32,19 @@ function Description({ data }) {
 			</Parallax>
 			<div className={styles.list}>
 				{data.map((item, index) => (
-					<div className={styles.item} key={index}>
+					<div
+						className={styles.item}
+						key={index}
+					>
 						<h2 className={styles.title}>
 							<span
 								dangerouslySetInnerHTML={{ __html: item.title }}
 							/>
 							{item.link &&
-								<Link to={item.link} className={styles.link}>
+								<Link
+									className={styles.link}
+									to={item.link}
+								>
 									{item.linkText}
 								</Link>
 							}
@@ -42,12 +56,17 @@ function Description({ data }) {
 				))}
 			</div>
 			<div className={styles.flow}>
-				<Parallax offset={1600} speed={-0.7} min={0} max={310}>
+				<Parallax
+					max={310}
+					min={0}
+					offset={1600}
+					speed={-0.7}
+				>
 					<div className={styles.airship}>
-						<Airship image='zeppelin_index.svg'/>
+						<Airship image='zeppelin_index.svg' />
 					</div>
 				</Parallax>
-				<Workflow/>
+				<Workflow />
 			</div>
 		</div>
 	);

@@ -12,7 +12,7 @@ export default function MailOrder({ toolsData, data }) {
 
 	return (
 		<div>
-			Источник: <br/>
+			Источник: <br />
 			{googleDriveLink &&
 				<p style={{ margin: 0 }}>
 					Ссылка — <a href={googleDriveLink}>
@@ -31,17 +31,17 @@ export default function MailOrder({ toolsData, data }) {
 				<a href={orderUrl}>
 					Детали заказа
 				</a>
-				<br/>
+				<br />
 				Современные браузеры: {convertArray(data.modernBrowsers).join(', ') || '—'}
-				<br/>
+				<br />
 				Устаревшие браузеры: {convertArray(data.oldBrowsers).join(', ') || '—'}
-				<br/>
+				<br />
 				Мобильные платформы: {convertArray(data.mobileBrowsers).join(', ') || '—'}
-				<br/>
+				<br />
 				Ширина страниц: {getNameByValue(data.pagesWidth)}
-				<br/>
+				<br />
 				Дополнительно: {convertArray(data.addition).join(', ') || '—'}
-				<br/>
+				<br />
 			</p>
 
 			{data.name &&
@@ -69,6 +69,6 @@ export default function MailOrder({ toolsData, data }) {
 }
 
 MailOrder.propTypes = {
-	toolsData: React.PropTypes.object,
 	data: React.PropTypes.object,
+	toolsData: React.PropTypes.object,
 };

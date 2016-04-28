@@ -12,14 +12,14 @@ function OrderAirship() {
 		<div className={styles.root}>
 			<Airship image='zeppelin_order.svg'>
 				<Link
-					to='faq'
-					spy={true}
-					smooth={true}
-					offset={-120}
-					duration={500}
-					size='big'
 					color='blue'
 					component={ScrollLink}
+					duration={500}
+					offset={-120}
+					size='big'
+					smooth
+					spy
+					to='faq'
 				>
 					подробности
 				</Link>

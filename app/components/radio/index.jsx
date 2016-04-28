@@ -38,16 +38,16 @@ function Radio(props) {
 }
 
 Radio.propTypes = {
-	id: React.PropTypes.string,
+	checked: React.PropTypes.bool,
+	children: React.PropTypes.node,
 	className: React.PropTypes.string,
+	id: React.PropTypes.string,
 	name: React.PropTypes.string,
 	onChange: React.PropTypes.func,
-	children: React.PropTypes.node,
 	tip: React.PropTypes.shape({
 		text: React.PropTypes.string.isRequired,
 		link: React.PropTypes.string,
 	}),
-	checked: React.PropTypes.bool,
 };
 
 Radio.defaultProps = {

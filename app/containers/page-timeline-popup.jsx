@@ -41,7 +41,7 @@ export default class PageTimelinePopup extends React.Component {
 		this.onClose();
 	}
 
-	onClose = () => {
+	hanldeClose = () => {
 		this.setState({
 			active: false,
 		});
@@ -68,8 +68,8 @@ export default class PageTimelinePopup extends React.Component {
 
 			return (
 				<PopupVersion
-					onClose={this.onClose}
 					active={this.state.active}
+					onClose={this.handleClose}
 					screenshot={popupData.url}
 				/>
 			);
@@ -92,8 +92,8 @@ export default class PageTimelinePopup extends React.Component {
 
 		return (
 			<TimelinePopup
-				onClose={this.onClose}
 				active={this.state.active}
+				onClose={this.handleClose}
 				{...popupData}
 			/>
 		);

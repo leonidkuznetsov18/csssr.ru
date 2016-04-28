@@ -3,17 +3,15 @@ import Helmet from 'react-helmet';
 
 import { outsource } from 'data/meta';
 
-export default class Outsource extends React.Component {
-	static propTypes = {
-		children: React.PropTypes.element,
-	}
-
-	render() {
-		return (
-			<div>
-				<Helmet {...outsource} />
-				{this.props.children}
-			</div>
-		);
-	}
+export default function Outsource({ children }) {
+	return (
+		<div>
+			<Helmet {...outsource} />
+			{children}
+		</div>
+	);
 }
+
+Outsource.propTypes = {
+	children: React.PropTypes.element,
+};

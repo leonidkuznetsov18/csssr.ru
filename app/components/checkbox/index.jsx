@@ -37,14 +37,14 @@ function Checkbox(props) {
 }
 
 Checkbox.propTypes = {
+	checked: React.PropTypes.bool,
 	children: React.PropTypes.node,
-	id: React.PropTypes.string,
 	className: React.PropTypes.string,
+	id: React.PropTypes.string,
 	tip: React.PropTypes.shape({
 		text: React.PropTypes.string.isRequired,
 		link: React.PropTypes.string,
 	}),
-	checked: React.PropTypes.bool,
 };
 
 Checkbox.defaultProps = {

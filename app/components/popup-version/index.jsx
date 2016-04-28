@@ -16,9 +16,9 @@ function PopupVersion(props) {
 }
 
 PopupVersion.propTypes = {
-	screenshot: React.PropTypes.string,
 	active: React.PropTypes.bool,
 	onClose: React.PropTypes.func,
+	screenshot: React.PropTypes.string,
 };
 
 export default withStyles(PopupVersion, styles);

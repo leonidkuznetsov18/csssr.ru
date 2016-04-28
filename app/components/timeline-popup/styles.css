@@ -49,24 +49,3 @@
 	display: block;
 	text-align: center;
 }
-
-.quote {
-	position: relative;
-	margin-top: 58px;
-	padding-left: 54px;
-	font-size: 17px;
-	line-height: 22px;
-	color: #f2ebda;
-	font-family: 'PT Sans';
-	display: block;
-
-	&::after {
-		position: absolute;
-		top: -5px;
-		left: 0;
-		font-family: inherit;
-		font-size: 80px;
-		line-height: 1;
-		content: '\201c';
-	}
-}

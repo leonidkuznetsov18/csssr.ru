@@ -6,7 +6,7 @@ import styles from './styles.css';
 
 function FaqGroup({ children }) {
 	return (
-		<ScrollElement name='faq' className={styles.root}>
+		<ScrollElement className={styles.root} name='faq'>
 			{children}
 		</ScrollElement>
 	);

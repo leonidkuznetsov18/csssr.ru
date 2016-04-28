@@ -17,8 +17,8 @@ function Circloader({ size, color }) {
 }
 
 Circloader.propTypes = {
-	size: React.PropTypes.string,
 	color: React.PropTypes.string,
+	size: React.PropTypes.string,
 };
 
 export default withStyles(Circloader, styles);

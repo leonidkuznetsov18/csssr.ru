@@ -22,8 +22,8 @@ const requiredFields = [
 })
 export default class FormOutsource extends React.Component {
 	static propTypes = {
-		handleSubmit: React.PropTypes.func.isRequired,
 		error: React.PropTypes.any,
+		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
 	handleSubmit = (values, dispatch) => {
@@ -63,9 +63,9 @@ export default class FormOutsource extends React.Component {
 		return (
 			<ContactsForm
 				{...this.props}
+				error={error}
 				handleSubmit={handleSubmit}
 				requiredFields={requiredFields}
-				error={error}
 			/>
 		);
 	}

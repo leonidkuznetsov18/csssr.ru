@@ -8,9 +8,13 @@ export default function JobsStaff({ data }) {
 	return (
 		<Row inner>
 			{[data.slice(0, 3), data.slice(3)].map((column, index) => (
-				<Column size={1 / 2} key={index}>
+				<Column key={index} size={1 / 2}>
 					{column.map((group, groupIndex) => (
-						<Section {...group} indent={true} key={groupIndex}/>
+						<Section
+							{...group}
+							indent
+							key={groupIndex}
+						/>
 					))}
 				</Column>
 			))}

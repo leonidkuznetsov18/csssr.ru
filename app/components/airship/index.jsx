@@ -12,7 +12,10 @@ function Airship({ image, children }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.inner}>
-				<div className={styles.text} style={textStyle}/>
+				<div
+					className={styles.text}
+					style={textStyle}
+				/>
 			</div>
 			{children &&
 				<div className={styles.content}>
@@ -24,8 +27,8 @@ function Airship({ image, children }) {
 }
 
 Airship.propTypes = {
-	image: React.PropTypes.string,
 	children: React.PropTypes.element,
+	image: React.PropTypes.string,
 };
 
 export default withStyles(Airship, styles);

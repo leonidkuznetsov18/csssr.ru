@@ -45,10 +45,10 @@ const requiredFields = [
 }))
 export default class FormOrder extends React.Component {
 	static propTypes = {
-		handleSubmit: React.PropTypes.func.isRequired,
-		files: React.PropTypes.array,
 		error: React.PropTypes.any,
 		fields: React.PropTypes.object,
+		files: React.PropTypes.array,
+		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
 	handleSubmit = (values, dispatch) => {
@@ -109,9 +109,9 @@ export default class FormOrder extends React.Component {
 
 				<ContactsForm
 					{...this.props}
+					error={error}
 					handleSubmit={handleSubmit}
 					requiredFields={requiredFields}
-					error={error}
 				/>
 			</div>
 		);

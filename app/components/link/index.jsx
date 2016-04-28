@@ -26,21 +26,27 @@ function Link(props) {
 }
 
 Link.propTypes = {
+	active: React.PropTypes.bool,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.element,
 		React.PropTypes.array,
 	]).isRequired,
 	className: React.PropTypes.string,
+	color: React.PropTypes.oneOf([
+		'blue',
+		'yellow',
+	]),
 	component: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.func,
 	]),
-	color: React.PropTypes.oneOf(['blue', 'yellow']),
-	size: React.PropTypes.oneOf(['big', 'small']),
-	underline: React.PropTypes.bool,
 	dashed: React.PropTypes.bool,
-	active: React.PropTypes.bool,
+	size: React.PropTypes.oneOf([
+		'big',
+		'small',
+	]),
+	underline: React.PropTypes.bool,
 };
 
 Link.defaultProps = {

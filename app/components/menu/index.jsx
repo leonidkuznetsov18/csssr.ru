@@ -32,7 +32,7 @@ function Menu({ open }) {
 	return (
 		<nav className={styles.root}>
 			<ul className={styles.list}>
-				<li className={styles.item}/>
+				<li className={styles.item} />
 				{menu.map((item) => (
 					<li className={styles.item} key={item.href}>
 						<MenuItem href={item.href}>

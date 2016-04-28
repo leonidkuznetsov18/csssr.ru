@@ -18,7 +18,7 @@ class Comments extends React.Component {
 		});
 	}
 
-	changeComment() {
+	handleChangeComment = () => {
 		const { data } = this.props;
 		const random = Math.floor(Math.random() * data.length);
 		const comment = this.refs.comment;
@@ -51,14 +51,20 @@ class Comments extends React.Component {
 		};
 
 		return (
-			<div className={styles.root} style={blockStyle}>
+			<div
+				className={styles.root}
+				style={blockStyle}
+			>
 				<a
 					className={styles.link}
-					onClick={this.changeComment.bind(this)}
+					onClick={this.handleChangeComment}
 				>
 					Еще отзыв
 				</a>
-				<div className={classList} ref='comment'>
+				<div
+					className={classList}
+					ref='comment'
+				>
 					<Comment {...comment} />
 				</div>
 			</div>

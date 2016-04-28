@@ -8,14 +8,8 @@ const projects = require('data/projects.json');
 @disableScroll
 export default class PageProject extends React.Component {
 	static propTypes = {
-		params: React.PropTypes.object.isRequired,
 		children: React.PropTypes.element,
-	}
-
-	onToggle = (collapsed) => {
-		this.setState({
-			collapsed,
-		});
+		params: React.PropTypes.object.isRequired,
 	}
 
 	componentWillMount() {
@@ -30,9 +24,15 @@ export default class PageProject extends React.Component {
 		});
 	}
 
+	handleToggle = (collapsed) => {
+		this.setState({
+			collapsed,
+		});
+	}
+
 	render() {
 		return (
-			<Project {...this.state} onToggle={this.onToggle}>
+			<Project {...this.state} onToggle={this.handleToggle}>
 				{this.props.children}
 			</Project>
 		);

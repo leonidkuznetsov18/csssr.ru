@@ -7,9 +7,9 @@ import styles from './styles.css';
 
 function IndexAbout(props) {
 	return (
-		<Content hole={true} padding={false}>
+		<Content hole padding={false}>
 			<div className={styles.root}>
-				<Description {...props}/>
+				<Description {...props} />
 			</div>
 		</Content>
 	);

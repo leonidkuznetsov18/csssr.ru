@@ -29,9 +29,9 @@ function Language({ current }) {
 		<div className={styles.root}>
 			{languages.map((language, index) => (
 				<a
-					key={index}
 					className={linkClass(current === language.text)}
 					href={language.href}
+					key={index}
 				>
 					{language.text}
 				</a>

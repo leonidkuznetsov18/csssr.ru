@@ -22,9 +22,9 @@ function OutsourcePower() {
 				src={require('images/background/cloudx3.svg')}
 			/>
 			<img
+				alt='cloud'
 				className={cloudClass('top')}
 				src={require('images/background/cloudx3.svg')}
-				alt='cloud'
 			/>
 
 			<div className={styles.wrapper}>
@@ -63,13 +63,13 @@ function OutsourcePower() {
 			</div>
 
 			<Parallax
-				min={-330}
 				max={0}
+				min={-330}
 				offset={330}
 				speed={0.3}
 			>
 				<div className={styles.social}>
-					<Widget type='likebox'/>
+					<Widget type='likebox' />
 				</div>
 			</Parallax>
 		</div>

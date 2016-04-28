@@ -11,7 +11,7 @@ function History({ data }) {
 	return (
 		<div className={styles.root}>
 			<Title size='medium'>
-				<Link to='/timeline' className={styles.link}>
+				<Link className={styles.link} to='/timeline'>
 					{data.title}
 				</Link>
 			</Title>

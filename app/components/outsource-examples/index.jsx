@@ -17,7 +17,7 @@ class OutsourceExamples extends React.Component {
 		});
 	}
 
-	setActive = (link) => {
+	setActive = (link) => () => {
 		this.setState({
 			active: link,
 		});
@@ -37,9 +37,9 @@ class OutsourceExamples extends React.Component {
 
 						return (
 							<a
-								key={link}
 								className={linkClass}
-								onClick={() => this.setActive(link)}
+								key={link}
+								onClick={this.setActive(link)}
 							>
 								<span className={styles.text}>
 									{links[link].text}
@@ -58,7 +58,7 @@ class OutsourceExamples extends React.Component {
 
 						return (
 							<div className={sectionClass} key={link}>
-								<SectionGroup data={links[link].tips}/>
+								<SectionGroup data={links[link].tips} />
 							</div>
 						);
 					})}

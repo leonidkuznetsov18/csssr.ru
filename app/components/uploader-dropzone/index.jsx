@@ -10,11 +10,11 @@ class UploadFilesBlock extends React.Component {
 		addFiles: React.PropTypes.func.isRequired,
 	}
 
-	onDrop = (files) => {
+	handleDrop = (files) => {
 		this.props.addFiles(files);
 	}
 
-	openSelectWindow = () => {
+	handleSelectWindow = () => {
 		this.refs.dropzone.open();
 	}
 
@@ -22,10 +22,10 @@ class UploadFilesBlock extends React.Component {
 		return (
 			<div>
 				<Dropzone
-					className={styles.root}
 					activeClassName={styles.root_active}
+					className={styles.root}
+					onDrop={this.handleDrop}
 					ref='dropzone'
-					onDrop={this.onDrop}
 				>
 					<div className={styles.background}>
 						<div className={styles.text}>
@@ -34,7 +34,11 @@ class UploadFilesBlock extends React.Component {
 					</div>
 				</Dropzone>
 
-				<Link size='small' onClick={this.openSelectWindow} underline>
+				<Link
+					onClick={this.handleSelectWindow}
+					size='small'
+					underline
+				>
 					Обычный загрузчик
 				</Link>
 			</div>

@@ -9,28 +9,25 @@ import { timeline } from 'data/meta';
 
 const timelineData = require('data/timeline.json');
 
-export default class PageTimeline extends React.Component {
-	static propTypes = {
-		history: React.PropTypes.object,
-		children: React.PropTypes.node,
-	}
-
-	render() {
-		return (
-			<Content>
-				<Helmet {...timeline} />
-				<Title center>
-					История CSSSR
-				</Title>
-				<Text center>
-					Каждый год в канун дня рождения CSSSR,
-					мы дополняем хронологию
-					<br/>
-					ключевых событий нашей истории.
-				</Text>
-				<TimelineList data={timelineData} />
-				{this.props.children}
-			</Content>
-		);
-	}
+export default function PageTimeline({ children }) {
+	return (
+		<Content>
+			<Helmet {...timeline} />
+			<Title center>
+				История CSSSR
+			</Title>
+			<Text center>
+				Каждый год в канун дня рождения CSSSR,
+				мы дополняем хронологию
+				<br />
+				ключевых событий нашей истории.
+			</Text>
+			<TimelineList data={timelineData} />
+			{children}
+		</Content>
+	);
 }
+
+PageTimeline.propTypes = {
+	children: React.PropTypes.node,
+};

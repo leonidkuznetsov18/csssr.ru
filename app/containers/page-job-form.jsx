@@ -20,50 +20,54 @@ const dataList = {
 	'one-site-designer': require('data/jobs/one-site-designer.json'),
 };
 
-export default class PageJobForm extends React.Component {
-	static propTypes = {
-		location: React.PropTypes.object,
-		params: React.PropTypes.object,
-	}
+export default function PageJobForm({ params }) {
+	const page = params.jobName;
+	const pageName = pages[page];
+	const data = dataList[page];
 
-	render() {
-		const page = this.props.params.jobName;
-		const pageName = pages[page];
-		const data = dataList[page];
+	return (
+		<div>
+			<Helmet {...job[page]} />
 
-		return (
-			<div>
-				<Helmet {...job[page]} />
+			<Breadcrubms
+				items={
+					[
+						{
+							link: '/jobs',
+							name: 'Все вакансии',
+						},
+						{
+							name: pageName,
+						},
+					]
+				}
+			/>
 
-				<Breadcrubms items={[
-					{
-						link: '/jobs',
-						name: 'Все вакансии',
-					},
-					{
-						name: pageName,
-					},
-				]}/>
+			<Content layout='job'>
+				<JobBanner />
+				{data.beforeQuest &&
+					<SectionGroup data={data.beforeQuest} />
+				}
 
-				<Content layout='job'>
-					<JobBanner/>
-					{data.beforeQuest &&
-						<SectionGroup data={data.beforeQuest}/>
-					}
+				{data.quest &&
+					<Quest
+						file={data.file}
+						horizon={page === 'technical-manager'}
+					>
+						<SectionGroup data={data.quest} />
+					</Quest>
+				}
 
-					{data.quest &&
-						<Quest file={data.file} horizon={page === 'technical-manager'}>
-							<SectionGroup data={data.quest}/>
-						</Quest>
-					}
+				{data.afterQuest &&
+					<SectionGroup data={data.afterQuest} />
+				}
 
-					{data.afterQuest &&
-						<SectionGroup data={data.afterQuest}/>
-					}
-
-					<FormJob jobName={page}/>
-				</Content>
-			</div>
-		);
-	}
+				<FormJob jobName={page} />
+			</Content>
+		</div>
+	);
 }
+
+PageJobForm.propTypes = {
+	params: React.PropTypes.object,
+};

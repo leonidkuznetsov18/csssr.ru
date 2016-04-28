@@ -6,8 +6,8 @@ const projects = require('data/projects.json');
 
 export default class PageProjectPage extends React.Component {
 	static propTypes = {
-		params: React.PropTypes.object.isRequired,
 		children: React.PropTypes.element,
+		params: React.PropTypes.object.isRequired,
 	}
 
 	componentWillMount() {
@@ -32,7 +32,7 @@ export default class PageProjectPage extends React.Component {
 		});
 	}
 
-	onLoad = () => {
+	handleLoad = () => {
 		this.setState({
 			loaded: true,
 		});
@@ -47,8 +47,8 @@ export default class PageProjectPage extends React.Component {
 		return (
 			<ProjectFrame
 				loaded={this.state.loaded}
+				onLoad={this.handleLoad}
 				url={url}
-				onLoad={this.onLoad}
 			/>
 		);
 	}

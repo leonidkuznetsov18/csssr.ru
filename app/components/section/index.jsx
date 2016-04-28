@@ -34,14 +34,14 @@ function Section({ title, description, list, children, indent }) {
 }
 
 Section.propTypes = {
-	title: React.PropTypes.object.isRequired,
+	children: React.PropTypes.node,
 	description: React.PropTypes.oneOfType([
 		React.PropTypes.object,
 		React.PropTypes.array,
 	]),
-	children: React.PropTypes.node,
-	list: React.PropTypes.object,
 	indent: React.PropTypes.bool,
+	list: React.PropTypes.object,
+	title: React.PropTypes.object.isRequired,
 };
 
 Section.defaultProps = {

@@ -18,7 +18,11 @@ function OutsourceService({ type, title, text }) {
 			<div className={imageClass} />
 
 			<div className={styles.title}>
-				<Title size='small' component='h2' indent={false}>
+				<Title
+					component='h2'
+					indent={false}
+					size='small'
+				>
 					{title}
 				</Title>
 			</div>
@@ -31,9 +35,9 @@ function OutsourceService({ type, title, text }) {
 }
 
 OutsourceService.propTypes = {
-	type: React.PropTypes.string.isRequired,
-	title: React.PropTypes.string.isRequired,
 	text: React.PropTypes.string.isRequired,
+	title: React.PropTypes.string.isRequired,
+	type: React.PropTypes.string.isRequired,
 };
 
 export default withStyles(OutsourceService, styles);

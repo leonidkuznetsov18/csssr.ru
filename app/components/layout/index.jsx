@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'components/head';
-import YM from 'components/yandex-metrika';
+import YandexMetrika from 'components/yandex-metrika';
 
 export default class Layout extends React.Component {
 	static propTypes = {
-		style: React.PropTypes.string,
 		content: React.PropTypes.string,
-		script: React.PropTypes.string,
-		head: React.PropTypes.object,
 		css: React.PropTypes.array,
+		head: React.PropTypes.object,
+		script: React.PropTypes.string,
+		style: React.PropTypes.string,
 	}
 
 	static defaultProps = {
@@ -19,16 +19,25 @@ export default class Layout extends React.Component {
 		return (
 			<html>
 				<Head head={this.props.head}>
-					<style dangerouslySetInnerHTML={{
-						__html: this.props.css.join(''),
-					}} />
+					<style
+						dangerouslySetInnerHTML={{
+							__html: this.props.css.join(''),
+						}}
+					/>
 				</Head>
 				<body>
-					<div id='content' dangerouslySetInnerHTML={{
-						__html: this.props.content,
-					}} />
-					<script src={this.props.script} async defer/>
-					<YM />
+					<div
+						dangerouslySetInnerHTML={{
+							__html: this.props.content,
+						}}
+						id='content'
+					/>
+					<script
+						async
+						defer
+						src={this.props.script}
+					/>
+					<YandexMetrika />
 				</body>
 			</html>
 		);

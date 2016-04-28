@@ -26,11 +26,12 @@ function Offert({ data, children }) {
 									}}
 								/>
 								{([].concat(item.content || [])).map((paragraph, paragraphIndex) => (
-									<p className={styles.text}
-										key={paragraphIndex}
+									<p
+										className={styles.text}
 										dangerouslySetInnerHTML={{
 											__html: paragraph,
 										}}
+										key={paragraphIndex}
 									/>
 								))}
 							</div>
@@ -44,11 +45,11 @@ function Offert({ data, children }) {
 }
 
 Offert.propTypes = {
-	data: React.PropTypes.object,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.arrayOf(React.PropTypes.node),
 		React.PropTypes.node,
 	]),
+	data: React.PropTypes.object,
 };
 
 export default withStyles(Offert, styles);

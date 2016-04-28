@@ -12,12 +12,6 @@ export function sendOutsourceForm(values) {
 			.post('/outsource')
 			.send(formData)
 			.end((err, response) => {
-				if (window.__CSSSR_ERROR_RESPONSE__) {
-					return dispatch(stopSubmit('outsource', {
-						_error: window.__CSSSR_ERROR_RESPONSE__ || response.body.result || true,
-					}));
-				}
-
 				if (response.statusCode === 200) {
 					dispatch(stopSubmit('outsource'));
 					dispatch(push('/outsource/thanks'));

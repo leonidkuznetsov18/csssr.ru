@@ -36,11 +36,17 @@ class AudioButton extends React.Component {
 		});
 
 		return (
-			<button className={classes} onClick={this.handleClick}>
-				<audio preload ref='audio'>
-					<source src={`/audio/${this.props.url}.ogg`}/>
-					<source src={`/audio/${this.props.url}.aac`}/>
-					<source src={`/audio/${this.props.url}.mp3`}/>
+			<button
+				className={classes}
+				onClick={this.handleClick}
+			>
+				<audio
+					preload
+					ref='audio'
+				>
+					<source src={`/audio/${this.props.url}.ogg`} />
+					<source src={`/audio/${this.props.url}.aac`} />
+					<source src={`/audio/${this.props.url}.mp3`} />
 				</audio>
 			</button>
 		);

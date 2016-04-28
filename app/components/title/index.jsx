@@ -33,19 +33,19 @@ function Title({ size, children, component, color, center, indent }) {
 }
 
 Title.propTypes = {
+	center: React.PropTypes.bool,
 	children: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.arrayOf(React.PropTypes.node),
 		React.PropTypes.node,
 	]),
-	indent: React.PropTypes.bool,
-	size: React.PropTypes.string,
 	color: React.PropTypes.string,
-	center: React.PropTypes.bool,
 	component: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.element,
 	]),
+	indent: React.PropTypes.bool,
+	size: React.PropTypes.string,
 };
 
 Title.defaultProps = {

@@ -23,7 +23,7 @@ class Widget extends React.Component {
 		});
 	}
 
-	onLoad = () => {
+	handleLoad = () => {
 		this.setState({
 			active: true,
 		});
@@ -37,7 +37,7 @@ class Widget extends React.Component {
 		window.twttr = {
 			_e: [],
 			ready(f) {
-				window.twttr._e.push(f);
+				window.twttr._e.push(f); // eslint-disable-line no-underscore-dangle
 			},
 		};
 
@@ -55,7 +55,7 @@ class Widget extends React.Component {
 
 		window.twttr.ready((twttr) => {
 			twttr.events.bind('rendered', () => {
-				this.onLoad();
+				this.handleLoad();
 			});
 		});
 	}
@@ -64,10 +64,10 @@ class Widget extends React.Component {
 		return (
 			<iframe
 				className={styles.frame}
-				scrolling='no'
 				frameBorder='0'
+				onLoad={this.handleLoad}
+				scrolling='no'
 				src={url[this.props.type]}
-				onLoad={this.onLoad.bind(this)}
 				{...this.props}
 			/>
 		);
@@ -79,11 +79,12 @@ class Widget extends React.Component {
 		}
 
 		return (
-			<a className='twitter-timeline'
-				href='https://twitter.com/csssr_dev'
+			<a
+				className='twitter-timeline'
 				data-chrome='nofooter noheader noborder'
 				data-tweet-limit='1'
 				data-widget-id='705435656353398784'
+				href='https://twitter.com/csssr_dev'
 			>
 				Tweets by @csssr_dev
 			</a>

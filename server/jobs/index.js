@@ -9,7 +9,7 @@ export default function (req, res) {
 		request = request.field(key, req.body[key]);
 	});
 
-	request.end((err, response) => {
+	request.end((err) => {
 		if (err) {
 			res.status(500)
 				.send({ result: 'ERROR' })

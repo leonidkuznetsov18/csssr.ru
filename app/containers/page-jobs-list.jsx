@@ -16,40 +16,46 @@ const dataAbout = require('data/jobs-about.json');
 const dataStaff = require('data/jobs-staff.json');
 const dataVacancy = require('data/jobs-vacancy.json');
 
-export default class PageJobsList extends React.Component {
-	render() {
-		return (
-			<div>
-				<Helmet {...jobs} />
-				<JobsBanner/>
-				<Content>
-					<Row>
-						<Column>
-							<JobsWidget />
-						</Column>
+export default function PageJobsList() {
+	return (
+		<div>
+			<Helmet {...jobs} />
+			<JobsBanner />
+			<Content>
+				<Row>
+					<Column>
+						<JobsWidget />
+					</Column>
 
-						<Column size={2 / 3}>
-							{dataAbout.slice(0, 2).map((group, index) => (
-								<Section {...group} indent={true} key={index}/>
-							))}
-
+					<Column size={2 / 3}>
+						{dataAbout.slice(0, 2).map((group, index) => (
 							<Section
-								{...dataAbout.slice(2, 3)[0]}
-								indent={true}
-							>
-								<JobsVacancy data={dataVacancy} />
-							</Section>
+								{...group}
+								indent
+								key={index}
+							/>
+						))}
 
-							{dataAbout.slice(3).map((group, index) => (
-								<Section {...group} indent={true} key={index}/>
-							))}
+						<Section
+							{...dataAbout.slice(2, 3)[0]}
+							indent
+						>
+							<JobsVacancy data={dataVacancy} />
+						</Section>
 
-							<JobsStaff data={dataStaff}/>
-							<JobsEmail />
-						</Column>
-					</Row>
-				</Content>
-			</div>
-		);
-	}
+						{dataAbout.slice(3).map((group, index) => (
+							<Section
+								{...group}
+								indent
+								key={index}
+							/>
+						))}
+
+						<JobsStaff data={dataStaff} />
+						<JobsEmail />
+					</Column>
+				</Row>
+			</Content>
+		</div>
+	);
 }

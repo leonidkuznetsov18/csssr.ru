@@ -12,32 +12,16 @@ import { Link } from 'react-router';
 
 import styles from './styles.css';
 
-function getIcon(newstaff) {
-	if (newstaff) {
-		return (
-			<div className={styles.iconCount}>
-				{newstaff.length}
-			</div>
-		);
-	}
-
-	return (
-		<span className={styles.iconStar}>
-			<Icon icon='timeline-star'/>
-		</span>
-	);
-}
-
 function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag, index) => (
 		<img
 			className={styles.images}
+			key={index}
 			src={require(`images/timeline/${tag.url}`)}
 			style={{
 				width: tag.width,
 				height: tag.height,
 			}}
-			key={index}
 		/>
 	));
 
@@ -47,10 +31,16 @@ function TimelineItem(props) {
 
 	const quote = props.data.quote && (
 		<div className={styles.quote}>
-			<Title size='small' color='black' component='h6'>
+			<Title
+				color='black'
+				component='h6'
+				size='small'
+			>
 				{props.data.quote.title}
 			</Title>
-			<Text>{props.data.quote.text}</Text>
+			<Text>
+				{props.data.quote.text}
+			</Text>
 		</div>
 	);
 
@@ -75,15 +65,15 @@ function TimelineItem(props) {
 
 		const img = (
 			<img
-				className={styles.avatar}
-				src={require(`images/timeline/avatar/${person.avatar}.jpg`)}
 				alt={person.name}
-				title={person.name}
+				className={styles.avatar}
+				key={index}
+				src={require(`images/timeline/avatar/${person.avatar}.jpg`)}
 				style={{
 					width: person.vip ? 148 : 148 - 16 * props.data.newstaff.length,
 					height: person.vip ? 148 : 148 - 16 * props.data.newstaff.length,
 				}}
-				key={index}
+				title={person.name}
 			/>
 		);
 
@@ -100,7 +90,7 @@ function TimelineItem(props) {
 
 	let description;
 	if (props.data.description) {
-		description = <ReactMarkdown className={styles.description} source={props.data.description}/>;
+		description = <ReactMarkdown className={styles.description} source={props.data.description} />;
 	}
 
 	let readLink;
@@ -110,8 +100,8 @@ function TimelineItem(props) {
 				{props.data.readLink && (
 					<Button
 						component='a'
-						target='_blank'
 						href={props.data.readLink}
+						target='_blank'
 					>{props.data.buttonName}</Button>
 				)}
 			</div>
@@ -139,11 +129,13 @@ function TimelineItem(props) {
 		[styles.root_with_iconStar]: !props.data.newstaff,
 	});
 
+	const newstaff = props.data.newstaff;
+
 	return (
 		<li className={classList}>
 			{date}
 			<div className={styles.title}>
-				<Title size='small' component='h6'>
+				<Title component='h6' size='small'>
 					{names || props.data.event}
 				</Title>
 			</div>
@@ -154,7 +146,11 @@ function TimelineItem(props) {
 			{version}
 			{props.data.audio && <AudioButton url={props.data.audio} />}
 			{quote}
-			{getIcon(props.data.newstaff)}
+			{newstaff ? <div className={styles.iconCount}>
+				{newstaff.length}
+			</div> : <span className={styles.iconStar}>
+				<Icon icon='timeline-star' />
+			</span>}
 		</li>
 	);
 }

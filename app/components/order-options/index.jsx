@@ -56,7 +56,7 @@ export default function OrderOptions({ options, fields }) {
 					const Component = isRadio ? Radio : Checkbox;
 
 					return (
-						<Column size={1 / 4} key={index}>
+						<Column key={index} size={1 / 4}>
 							<Title size='small'>
 								{titles[index]}
 							</Title>
@@ -64,9 +64,9 @@ export default function OrderOptions({ options, fields }) {
 							<Options>
 								{options[key].map((option, optionIndex) => (
 									<Component
+										id={`${key}${optionIndex}`}
 										key={optionIndex}
 										name={key}
-										id={`${key}${optionIndex}`}
 										tip={option.tip}
 										{...generateProps(fields[key], key, option.value, isRadio)}
 									>
@@ -83,10 +83,10 @@ export default function OrderOptions({ options, fields }) {
 			<Options inline>
 				{addition.map((option, i) => (
 					<Checkbox
+						checked={option.isChecked}
+						id={option.value}
 						key={i}
 						tip={option.tip}
-						id={option.value}
-						checked={option.isChecked}
 						{...generateProps(fields.addition, 'addition', option.value)}
 					>
 						{option.name}
@@ -98,6 +98,6 @@ export default function OrderOptions({ options, fields }) {
 }
 
 OrderOptions.propTypes = {
-	options: React.PropTypes.object.isRequired,
 	fields: React.PropTypes.object.isRequired,
+	options: React.PropTypes.object.isRequired,
 };

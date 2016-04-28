@@ -19,8 +19,12 @@ function FormValidationWindow({ title, text, children }) {
 }
 
 FormValidationWindow.propTypes = {
-	title: React.PropTypes.string,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.arrayOf(React.PropTypes.node),
+		React.PropTypes.node,
+	]),
 	text: React.PropTypes.string,
+	title: React.PropTypes.string,
 };
 
 FormValidationWindow.defaultProps = {

@@ -36,18 +36,18 @@ class Uploader extends React.Component {
 				<div className={styles.links}>
 					<span className={styles.link}>
 						<Link
-							size='big'
 							active={active === 'files'}
 							onClick={this.setActive('files')}
+							size='big'
 						>
 							макеты
 						</Link>
 					</span>
 					<span className={styles.link}>
 						<Link
-							size='big'
 							active={active === 'link'}
 							onClick={this.setActive('link')}
+							size='big'
 						>
 							ссылка
 						</Link>

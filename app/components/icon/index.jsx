@@ -15,8 +15,8 @@ function Icon(props) {
 }
 
 Icon.propTypes = {
-	icon: React.PropTypes.string,
 	className: React.PropTypes.string,
+	icon: React.PropTypes.string,
 };
 
 export default withStyles(Icon, styles);

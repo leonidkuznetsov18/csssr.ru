@@ -29,9 +29,9 @@ function Workflow() {
 			</Text>
 
 			<img
+				alt='mechanizm'
 				className={styles.mechanism}
 				src={require('../../images/mechanism.svg')}
-				alt='mechanizm'
 			/>
 
 			<Text size='s'>
