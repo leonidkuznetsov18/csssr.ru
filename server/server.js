@@ -68,13 +68,17 @@ app.get('/*', function (request, response) {
 	let style;
 
 	if (/\.html$/.test(request.path)) {
-		response.redirect(request.path.replace(/\.html?/, ''));
+		response.redirect(301, request.path.replace(/\.html?/, ''));
 		return;
 	}
 
 	if (isProduction) {
-		rendered = renderApplication(request);
+		rendered = renderApplication(request, response);
 		style = STYLE;
+
+		if (!rendered.content) {
+			return;
+		}
 	}
 
 	const layout = React.createElement(Layout, {
