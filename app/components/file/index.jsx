@@ -1,19 +1,20 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function File({ type, filename, link, size }) {
+function File({ type, filename, link, size }) {
 	return (
-		<div className='file'>
+		<div className={styles.root}>
 			<img src={require(`images/background/${type}.svg`)} />
 			<a
-				className='file__link'
+				className={styles.link}
 				href={link}
 				target='_blank'
 			>
 				{filename}
 			</a>
-			<p className='file__size'>
+			<p className={styles.size}>
 				{size}
 			</p>
 		</div>
@@ -27,3 +28,5 @@ File.propTypes = {
 	size: React.PropTypes.string,
 	className: React.PropTypes.string,
 };
+
+export default withStyles(File, styles);

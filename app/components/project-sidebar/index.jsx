@@ -1,36 +1,34 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function ProjectSidebar({ project, onToggle }) {
+function ProjectSidebar({ project, onToggle }) {
 	return (
-		<div className='project-sidebar'>
+		<div className={styles.root}>
 			<span
-				className='project-sidebar__close'
+				className={styles.close}
 				rel='link'
 				onClick={() => onToggle(true)}
 			/>
 
-			<h1 className='project-sidebar__title'>
+			<h1 className={styles.title}>
 				{project.name}
 			</h1>
 
-			<ul>
-				{project.pages.map((page, index) => (
-					<li key={index}>
-						<Text size='xs'>
-							<Link className='project-sidebar__link'
-								activeClassName='project-sidebar__link_active'
-								to={`/portfolio/${project.view}/${page.page}`}>
-
-								{page.name}
-							</Link>
-						</Text>
-					</li>
-				))}
-			</ul>
+			{project.pages.map((page, index) => (
+				<Text size='xs' key={index}>
+					<Link
+						className={styles.link}
+						activeClassName={styles.link_active}
+						to={`/portfolio/${project.view}/${page.page}`}
+					>
+						{page.name}
+					</Link>
+				</Text>
+			))}
 		</div>
 	);
 }
@@ -39,3 +37,5 @@ ProjectSidebar.propTypes = {
 	project: React.PropTypes.object.isRequired,
 	onToggle: React.PropTypes.func.isRequired,
 };
+
+export default withStyles(ProjectSidebar, styles);

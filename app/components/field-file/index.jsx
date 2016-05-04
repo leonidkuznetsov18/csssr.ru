@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Field from 'components/field';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function FieldFild(props) {
+function FieldFile(props) {
 	return (
-		<div className='field-file'>
-			<div className='field-file__input'>
+		<div className={styles.root}>
+			<div className={styles.input}>
 				<Field
 					{...props}
 					value={props.value && props.value[0] && props.value[0].name}
@@ -14,11 +15,11 @@ export default function FieldFild(props) {
 				/>
 			</div>
 
-			<div className='field-file__button'>
+			<div className={styles.button}>
 				{props.buttonText}
 				<input
 					{...props}
-					className='field-file__file'
+					className={styles.file}
 					type='file'
 					value={null}
 					accept={props.fileAccept}
@@ -26,7 +27,7 @@ export default function FieldFild(props) {
 			</div>
 
 			{props.invalid && props.error &&
-				<div className='field-file__warning'>
+				<div className={styles.warning}>
 					{props.error}
 				</div>
 			}
@@ -34,20 +35,22 @@ export default function FieldFild(props) {
 	);
 }
 
-FieldFild.propTypes = {
-	fileAccept: PropTypes.string,
-	value: PropTypes.object,
-	label: PropTypes.string,
-	required: PropTypes.bool,
-	buttonText: PropTypes.string,
-	invalid: PropTypes.bool,
-	error: PropTypes.string,
+FieldFile.propTypes = {
+	fileAccept: React.PropTypes.string,
+	value: React.PropTypes.object,
+	label: React.PropTypes.string,
+	required: React.PropTypes.bool,
+	buttonText: React.PropTypes.string,
+	invalid: React.PropTypes.bool,
+	error: React.PropTypes.string,
 };
 
-FieldFild.defaultProps = {
+FieldFile.defaultProps = {
 	label: '',
 	required: false,
 	buttonText: 'Обзор',
 	invalid: false,
 	error: '',
 };
+
+export default withStyles(FieldFile, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Field from 'components/field';
 import FieldFile from 'components/field-file';
@@ -10,9 +11,9 @@ import Link from 'components/link';
 import Text from 'components/text';
 import FormValidationWindow from 'components/form-validation-window';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class JobAnswerForm extends React.Component {
+class JobForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
 		error: React.PropTypes.any,
@@ -41,12 +42,12 @@ export default class JobAnswerForm extends React.Component {
 
 	render() {
 		const buttonClass = cx({
-			'job-form__submit': true,
-			'job-form__submit_disabled': this.props.submitting,
+			[styles.submit]: true,
+			[styles.submit_disabled]: this.props.submitting,
 		});
 		const loaderClass = cx({
-			'job-form__loader': true,
-			'job-form__loader_active': this.props.submitting,
+			[styles.loader]: true,
+			[styles.loader_active]: this.props.submitting,
 		});
 
 		const responseError = this.props.error;
@@ -60,11 +61,11 @@ export default class JobAnswerForm extends React.Component {
 			</span>,
 		} : responseError;
 
-		return <form noValidate className='job-form' onSubmit={this.props.handleSubmit}>
+		return <form noValidate className={styles.root} onSubmit={this.props.handleSubmit}>
 			{
 				(responseError && (responseError.text || responseError.title) ||
 				 responseError) &&
-				<div className='job-form__error'>
+				<div className={styles.error}>
 					<FormValidationWindow {...error} />
 				</div>
 			}
@@ -117,3 +118,5 @@ export default class JobAnswerForm extends React.Component {
 		</form>;
 	}
 }
+
+export default withStyles(JobForm, styles);

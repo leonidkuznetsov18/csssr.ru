@@ -1,82 +1,84 @@
-.outsource-use {
+.root {
 	position: relative;
 	display: block;
 	padding-left: 33px;
 	margin: 0 30px;
 	padding-bottom: 140px;
 	padding-top: 262px;
+}
 
-	&__title {
-		width: 146px;
-		height: 262px;
-		background-image: url('../../images/outsource/lamp.svg');;
-		background-size: cover;
-		padding-top: 155px;
-		text-transform: uppercase;
-		position: absolute;
+.title {
+	width: 146px;
+	height: 262px;
+	background-image: url('../../images/outsource/lamp.svg');;
+	background-size: cover;
+	padding-top: 155px;
+	position: absolute;
+	top: 0;
+	margin-left: 353px;
+	letter-spacing: 0.075em;
+	left: calc((100% - 918px) * 0.5);
+	box-sizing: border-box;
+	display: block;
+
+	@media (max-width: 1100px) {
+		left: 21px;
+	}
+
+	@media (min-width: 1300px) {
+		left: calc(8.5% + 16px);
+	}
+}
+
+.text {
+	z-index: 0;
+	width: 280px;
+	height: 43px;
+	background-image: url("../../images/background/red-pattern.jpg");
+	left: 50%;
+	margin-left: -140px;
+	content: '';
+	position: absolute;
+	display: block;
+	font-size: 26px;
+	font-family: 'RodchenkoCTT';
+	color: #f2ebd9;
+	position: relative;
+	line-height: 43px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.content {
+	display: flex;
+}
+
+.how {
+	width: 290px;
+	color: #333;
+	margin-top: -95px;
+	display: inline-block;
+	vertical-align: top;
+	flex-shrink: 0;
+}
+
+.cloud {
+	position: absolute;
+	z-index: 10;
+
+	&_left {
+		left: 10%;
 		top: 0;
-		margin-left: 353px;
-		letter-spacing: 0.075em;
-		left: calc((100% - 918px) * 0.5);
-
-		@media (max-width: 1100px) {
-			left: 21px;
-		}
-
-		@media (min-width: 1300px) {
-			left: calc(8.5% + 16px);
-		}
+		width: 210px;
 	}
 
-	&__title-text {
-		z-index: 0;
-		width: 280px;
-		height: 43px;
-		background-image: url("../../images/background/red-pattern.jpg");
-		left: 50%;
-		margin-left: -140px;
-		content: '';
-		position: absolute;
-		display: block;
-		font-size: 26px;
-		font-family: RodchenkoCTT;
-		color: #f2ebd9;
-		position: relative;
-		line-height: 43px;
-		text-align: center;
-	}
+	&_right {
+		right: 130px;
+		top: 70px;
+		width: 220px;
 
-	&__content {
-		display: flex;
-	}
-
-	&__how {
-		width: 290px;
-		color: #333;
-		margin-top: -95px;
-		display: inline-block;
-		vertical-align: top;
-		flex-shrink: 0;
-	}
-
-	&__cloud {
-		position: absolute;
-		z-index: 10;
-
-		&_left {
-			left: 10%;
-			top: 0;
-			width: 210px;
-		}
-
-		&_right {
-			right: 130px;
-			top: 70px;
-			width: 220px;
-
-			@media (max-width: 1280px) {
-				right: 9%;
-			}
+		@media (max-width: 1280px) {
+			right: 9%;
 		}
 	}
 }

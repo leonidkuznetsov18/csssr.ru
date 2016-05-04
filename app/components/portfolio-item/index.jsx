@@ -1,10 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Text from 'components/text';
-// import { Link } from 'react-router';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function PortfolioItem({ project }) {
+function PortfolioItem({ project }) {
 	let work = project.name;
 
 	if (project.view && project.pages) {
@@ -27,12 +27,12 @@ export default function PortfolioItem({ project }) {
 	}
 
 	return (
-		<li className='portfolio-item'>
+		<li className={styles.root}>
 			{project.logo &&
-				<div className='portfolio-item__logo'>
+				<div className={styles.logo}>
 					<img
 						src={require(`../../images/portfolio/${project.logo.url}`)}
-						className='portfolio-item__image'
+						className={styles.image}
 						alt={project.name}
 						width={project.logo.width}
 						height={project.logo.height}
@@ -68,3 +68,5 @@ export default function PortfolioItem({ project }) {
 PortfolioItem.propTypes = {
 	project: React.PropTypes.object,
 };
+
+export default withStyles(PortfolioItem, styles);

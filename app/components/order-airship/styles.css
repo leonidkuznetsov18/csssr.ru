@@ -1,5 +1,7 @@
 @import 'helpers';
 
-.order-airship {
+.root {
 	margin-top: 60px;
+	margin-left: 35px;
+	display: block;
 }

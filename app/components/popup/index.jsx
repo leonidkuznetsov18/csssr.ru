@@ -1,18 +1,19 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Popup(props) {
+function Popup(props) {
 	const popupClass = cx({
-		popup: true,
-		popup_active: props.active,
+		[styles.root]: true,
+		[styles.root_active]: props.active,
 	});
 
 	return (
 		<div className={popupClass} onClick={props.onClose}>
-			<div className='popup__close' onClick={props.onClose}/>
-			<div className='popup__content'>
+			<div className={styles.close} onClick={props.onClose} />
+			<div className={styles.content}>
 				{props.children}
 			</div>
 		</div>
@@ -20,7 +21,9 @@ export default function Popup(props) {
 }
 
 Popup.propTypes = {
-	active: PropTypes.bool,
-	onClose: PropTypes.func,
-	children: PropTypes.element,
+	active: React.PropTypes.bool,
+	onClose: React.PropTypes.func,
+	children: React.PropTypes.element,
 };
+
+export default withStyles(Popup, styles);

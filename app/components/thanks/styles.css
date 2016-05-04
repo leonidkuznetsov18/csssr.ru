@@ -1,20 +1,29 @@
-.thanks {
-	&__image {
-		margin: 0 auto;
-		display: block;
-	}
+.root {
+	display: block;
+}
 
-	&__content {
-		padding-top: 100px;
-	}
+.image {
+	margin: 0 auto;
+	display: block;
+}
 
-	&__social {
-		width: 20px;
-		height: 20px;
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: 20px;
-		margin-right: -7px;
-		cursor: pointer;
+.content {
+	padding-top: 100px;
+	display: block;
+}
+
+.social {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-right: -7px;
+	cursor: pointer;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
 	}
 }

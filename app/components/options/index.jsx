@@ -1,19 +1,20 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Options(props) {
+function Options(props) {
 	const blockClass = cx({
-		options: true,
-		options_inline: props.inline,
+		[styles.root]: true,
+		[styles.root_inline]: props.inline,
 		[props.className]: props.className,
 	});
 
 	return (
 		<ul {...props} className={blockClass}>
 			{props.children.map((child, index) => (
-				<li className='options__item' key={index}>
+				<li className={styles.item} key={index}>
 					{child}
 				</li>
 			))}
@@ -30,3 +31,5 @@ Options.propTypes = {
 Options.defaultProps = {
 	inline: false,
 };
+
+export default withStyles(Options, styles);

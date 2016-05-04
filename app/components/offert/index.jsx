@@ -1,31 +1,32 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Content from 'components/content';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Offert({ data, children }) {
+function Offert({ data, children }) {
 	return (
 		<Content>
-			<div className='offert'>
-				<h1 className='offert__title'>
+			<div className={styles.root}>
+				<h1 className={styles.title}>
 					{data.title}
 				</h1>
 				{data.content.map((section, index) => (
-					<div className='offert__section' key={index}>
-						<h2 className='offert__subtitle'
+					<div className={styles.section} key={index}>
+						<h2 className={styles.subtitle}
 							dangerouslySetInnerHTML={{
 								__html: section.title,
 							}}
 						/>
 						{(section.content || []).map((item, itemIndex) => (
-							<div className='offert__group' key={itemIndex}>
-								<p className='offert__index'
+							<div className={styles.group} key={itemIndex}>
+								<p className={styles.index}
 									dangerouslySetInnerHTML={{
 										__html: item.title,
 									}}
 								/>
 								{([].concat(item.content || [])).map((paragraph, paragraphIndex) => (
-									<p className='offert__text'
+									<p className={styles.text}
 										key={paragraphIndex}
 										dangerouslySetInnerHTML={{
 											__html: paragraph,
@@ -44,4 +45,10 @@ export default function Offert({ data, children }) {
 
 Offert.propTypes = {
 	data: React.PropTypes.object,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.arrayOf(React.PropTypes.node),
+		React.PropTypes.node,
+	]),
 };
+
+export default withStyles(Offert, styles);

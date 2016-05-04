@@ -1,110 +1,114 @@
-.contacts {
+.root {
 	width: 100%;
 	min-width: 600px;
 	height: 100%;
 	padding: 40px 40px 40px 50px;
 	overflow-y: auto;
+	display: block;
+	box-sizing: border-box;
 	-webkit-overflow-scrolling: touch;
 	background-color: #fff;
 	user-select: none;
 	backface-visibility: hidden;
 	transform: translate3d(0, 0, 0);
+}
 
-	&__close {
-		position: absolute;
-		top: 12px;
-		right: 12px;
-		display: block;
-		width: 24px;
-		height: 24px;
-		cursor: pointer;
-		backface-visibility: hidden;
+.close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	backface-visibility: hidden;
 
-		&:before,
-		&:after {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			width: 20px;
-			height: 5px;
-			background-color: #333;
-			content: '';
-			backface-visibility: hidden;
-			transition: all .3s ease;
-		}
-
-		&:before {
-			transform: rotate(-45deg);
-		}
-
-		&:after {
-			transform: rotate(45deg);
-		}
-
-		&:hover {
-			&::after,
-			&::before {
-				background-color: #666;
-			}
-		}
-	}
-
-	&__header {
-		font-family: RodchenkoCTT;
-		font-size: 39px;
-		line-height: 48px;
-		text-transform: uppercase;
-		color: #333;
-	}
-
-	&__info {
-		position: absolute;
-		z-index: 1;
-		top: 24px;
-		right: 30px;
-		margin-top: 30px;
-		width: 240px;
-		user-select: text;
-	}
-
-	&__text {
-		margin-bottom: 5px;
-	}
-
-	&__wrapper {
-		padding-top: 60px;
-		font-size: 0;
-	}
-
-	&__widget {
-		display: inline-block;
-		vertical-align: bottom;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		position: relative;
-
-		&_type_bordered {
-			padding: 5px;
-			border: 1px solid #999;
-		}
-	}
-
-	&__job {
+	&::before,
+	&::after {
 		position: absolute;
 		top: 0;
-		top: -45px;
-		left: 20px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		width: 20px;
+		height: 5px;
+		background-color: #333;
+		content: '';
+		backface-visibility: hidden;
+		transition: all .3s ease;
 	}
 
-	&__arrow {
-		transform: rotate(180deg) scaleX(-1);
-		width: 17px;
-		height: 23px;
-		position: absolute;
-		top: 8px;
-		left: -20px;
+	&::before {
+		transform: rotate(-45deg);
 	}
+
+	&::after {
+		transform: rotate(45deg);
+	}
+
+	&:hover {
+		&::after,
+		&::before {
+			background-color: #666;
+		}
+	}
+}
+
+.header {
+	font-family: RodchenkoCTT;
+	font-size: 39px;
+	line-height: 48px;
+	text-transform: uppercase;
+	color: #333;
+	display: block;
+}
+
+.info {
+	position: absolute;
+	z-index: 1;
+	top: 24px;
+	right: 30px;
+	margin-top: 30px;
+	width: 240px;
+	user-select: text;
+}
+
+.text {
+	margin-bottom: 5px;
+}
+
+.wrapper {
+	padding-top: 60px;
+	font-size: 0;
+	display: block;
+}
+
+.widget {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	position: relative;
+
+	&_type_bordered {
+		padding: 5px;
+		border: 1px solid #999;
+	}
+}
+
+.job {
+	position: absolute;
+	top: 0;
+	top: -45px;
+	left: 20px;
+}
+
+.arrow {
+	transform: rotate(180deg) scaleX(-1);
+	width: 17px;
+	height: 23px;
+	position: absolute;
+	top: 8px;
+	left: -20px;
 }

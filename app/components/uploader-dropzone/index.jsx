@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Dropzone from 'react-dropzone';
 import Link from 'components/link';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class UploadFilesBlock extends React.Component {
+class UploadFilesBlock extends React.Component {
 	static propTypes = {
-		addFiles: PropTypes.func.isRequired,
+		addFiles: React.PropTypes.func.isRequired,
 	}
 
 	onDrop = (files) => {
@@ -21,13 +22,13 @@ export default class UploadFilesBlock extends React.Component {
 		return (
 			<div>
 				<Dropzone
-					className='uploader-dropzone'
-					activeClassName='uploader-dropzone_active'
+					className={styles.root}
+					activeClassName={styles.root_active}
 					ref='dropzone'
 					onDrop={this.onDrop}
 				>
-					<div className='uploader-dropzone__background'>
-						<div className='uploader-dropzone__text'>
+					<div className={styles.background}>
+						<div className={styles.text}>
 							Перетащите файлы проекта сюда
 						</div>
 					</div>
@@ -39,5 +40,6 @@ export default class UploadFilesBlock extends React.Component {
 			</div>
 		);
 	}
-
 }
+
+export default withStyles(UploadFilesBlock, styles);

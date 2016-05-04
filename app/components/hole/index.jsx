@@ -1,12 +1,15 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Hole() {
+function Hole() {
 	return (
-		<div className='hole'>
-			<div className='hole__side hole__side_left'/>
-			<div className='hole__side hole__side_right'/>
+		<div className={styles.root}>
+			<div className={styles.side + ' ' + styles.side_left} />
+			<div className={styles.side + ' ' + styles.side_right} />
 		</div>
 	);
 }
+
+export default withStyles(Hole, styles);

@@ -1,4 +1,4 @@
-.content {
+.root {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -7,6 +7,8 @@
 	background-color: #ecdcc4;
 	background-image: url('../../images/background/content.jpg');
 	padding-bottom: 100px;
+	display: block;
+	box-sizing: border-box;
 
 	&_padding {
 		padding-top: 50px;

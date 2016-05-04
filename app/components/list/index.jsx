@@ -1,17 +1,18 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function List({ items, props }) {
+function List({ items, props }) {
 	const classList = cx({
-		list__item: true,
-		list__item_size_s: props.size === 's',
+		[styles.item]: true,
+		[styles.item_size_s]: props.size === 's',
 	});
 
 	return (
-		<ul {...props} className='list'>
+		<ul {...props} className={styles.root}>
 			{items.map((item, index) => (
 				<li className={classList} key={index}>
 					<Text {...props} indent={false}>
@@ -28,3 +29,5 @@ List.propTypes = {
 	size: React.PropTypes.string,
 	props: React.PropTypes.object,
 };
+
+export default withStyles(List, styles);

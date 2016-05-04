@@ -1,15 +1,16 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Row from 'components/row';
 import Column from 'components/column';
 import History from 'components/history';
 import Section from 'components/section';
 import Icon from 'components/icon';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function CompanyInfo({ history, data }) {
+function CompanyInfo({ history, data }) {
 	return (
-		<div className='company-info'>
+		<div className={styles.root}>
 			<Row>
 				<Column>
 					<History data={history}/>
@@ -24,11 +25,10 @@ export default function CompanyInfo({ history, data }) {
 						<Section {...data.structure}/>
 					</Column>
 
-					<div className='company-info__rocket'>
-						<Icon
-							icon='x3'
-							className='company-info__rocket-count'
-						/>
+					<div className={styles.rocket}>
+						<span className={styles.rocketCount}>
+							<Icon icon='x3' />
+						</span>
 						<Section {...data.count}/>
 					</div>
 
@@ -44,3 +44,4 @@ CompanyInfo.propTypes = {
 	data: React.PropTypes.object.isRequired,
 };
 
+export default withStyles(CompanyInfo, styles);

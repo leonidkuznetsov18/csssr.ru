@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import SectionGroup from 'components/section-group';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class OutsourceExamples extends React.Component {
+class OutsourceExamples extends React.Component {
 	static propTypes = {
 		tips: React.PropTypes.object,
 	}
@@ -26,12 +27,12 @@ export default class OutsourceExamples extends React.Component {
 		const links = this.props.tips;
 
 		return (
-			<div className='outsource-examples'>
-				<div className='outsource-examples__links'>
+			<div className={styles.root}>
+				<div className={styles.links}>
 					{Object.keys(links).map((link) => {
 						const linkClass = cx({
-							'outsource-examples__link': true,
-							'outsource-examples__link_active': this.state.active === link,
+							[styles.link]: true,
+							[styles.link_active]: this.state.active === link,
 						});
 
 						return (
@@ -40,7 +41,7 @@ export default class OutsourceExamples extends React.Component {
 								className={linkClass}
 								onClick={() => this.setActive(link)}
 							>
-								<span className='outsource-examples__link-text'>
+								<span className={styles.text}>
 									{links[link].text}
 								</span>
 							</a>
@@ -48,11 +49,11 @@ export default class OutsourceExamples extends React.Component {
 					})}
 				</div>
 
-				<div className='outsource-examples__tab'>
+				<div className={styles.tab}>
 					{Object.keys(links).map((link) => {
 						const sectionClass = cx({
-							'outsource-examples__content': true,
-							'outsource-examples__content_active': this.state.active === link,
+							[styles.content]: true,
+							[styles.content_active]: this.state.active === link,
 						});
 
 						return (
@@ -66,3 +67,5 @@ export default class OutsourceExamples extends React.Component {
 		);
 	}
 }
+
+export default withStyles(OutsourceExamples, styles);

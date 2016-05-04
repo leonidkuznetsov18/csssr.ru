@@ -1,9 +1,11 @@
-.outsource-contacts {
+.root {
 	position: relative;
 	padding-top: 60px;
 	padding-left: 130px;
 	padding-right: 130px;
 	border-top: 1px dashed #231f20;
+	display: block;
+	box-sizing: border-box;
 
 	&::after {
 		content: '';
@@ -19,8 +21,8 @@
 		background-size: contain;
 		transform: rotate(-90deg);
 	}
+}
 
-	&__form {
-		width: 420px;
-	}
+.form {
+	width: 420px;
 }

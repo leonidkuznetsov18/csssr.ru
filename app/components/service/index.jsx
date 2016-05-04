@@ -1,19 +1,20 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Button from 'components/button';
 import Text from 'components/text';
 import { Link } from 'react-router';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Service({ service }) {
+function Service({ service }) {
 	return (
-		<div className='service'>
-			<Link className='service__title' to={service.link}>
+		<div className={styles.root}>
+			<Link className={styles.title} to={service.link}>
 				{service.title}
 			</Link>
 
 			<h4
-				className='service__subtitle'
+				className={styles.subtitle}
 				dangerouslySetInnerHTML={{ __html: service.subtitle }}
 			/>
 
@@ -21,7 +22,7 @@ export default function Service({ service }) {
 				{service.linkText}
 			</Button>
 
-			<div className='service__text'>
+			<div className={styles.text}>
 				<Text size='s' color='grey'>
 					{service.description}
 				</Text>
@@ -33,3 +34,5 @@ export default function Service({ service }) {
 Service.propTypes = {
 	service: React.PropTypes.object,
 };
+
+export default withStyles(Service, styles);

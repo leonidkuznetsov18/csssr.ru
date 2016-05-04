@@ -1,9 +1,10 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Circloader from 'components/circloader';
 
-import './styles.css';
+import styles from './styles.css';
 
 const url = {
 	vk: 'http://vk.com/widget_community.php?app=0&width=288px&_ver=1&gid=57251439&mo…color3=5b7fa6&class_name=&height=218&url=http://csssr.ru/jobs/&14f61a3fc0a&mode=0',
@@ -11,7 +12,7 @@ const url = {
 	likebox: 'https://www.facebook.com/v2.5/plugins/like.php?app_id=113869198637480&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df212ff088d8c26c%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff3d398070e3f1e8%26relation%3Dparent.parent&container_width=613&href=https%3A%2F%2Fwww.facebook.com%2Fcsssr&layout=box_count&locale=ru_RU&sdk=joey&share=true&show_faces=true&width=80',
 };
 
-export default class Widget extends React.Component {
+class Widget extends React.Component {
 	static propTypes = {
 		type: React.PropTypes.string.isRequired,
 	}
@@ -62,7 +63,7 @@ export default class Widget extends React.Component {
 	renderWidget() {
 		return (
 			<iframe
-				className='widget__frame'
+				className={styles.frame}
 				scrolling='no'
 				frameBorder='0'
 				src={url[this.props.type]}
@@ -82,7 +83,8 @@ export default class Widget extends React.Component {
 				href='https://twitter.com/csssr_dev'
 				data-chrome='nofooter noheader noborder'
 				data-tweet-limit='1'
-				data-widget-id='705435656353398784'>
+				data-widget-id='705435656353398784'
+			>
 				Tweets by @csssr_dev
 			</a>
 		);
@@ -90,18 +92,18 @@ export default class Widget extends React.Component {
 
 	render() {
 		const className = cx({
-			widget: true,
-			widget_type_vk: this.props.type === 'vk',
-			widget_type_fb: this.props.type === 'fb',
-			widget_type_likebox: this.props.type === 'likebox',
-			widget_type_gp: this.props.type === 'gp',
-			widget_type_tw: this.props.type === 'tw',
-			widget_state_active: this.state.active,
+			[styles.root]: true,
+			[styles.root_type_vk]: this.props.type === 'vk',
+			[styles.root_type_fb]: this.props.type === 'fb',
+			[styles.root_type_likebox]: this.props.type === 'likebox',
+			[styles.root_type_gp]: this.props.type === 'gp',
+			[styles.root_type_tw]: this.props.type === 'tw',
+			[styles.root_state_active]: this.state.active,
 		});
 
 		return (
 			<div className={className}>
-				<div className='widget__loader'>
+				<div className={styles.loader}>
 					<Circloader />
 				</div>
 				{this.props.type !== 'tw' ? this.renderWidget() : this.renderTwitterWidget()}
@@ -109,3 +111,5 @@ export default class Widget extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Widget, styles);

@@ -1,25 +1,26 @@
-.portfolio-banner {
+.root {
 	position: relative;
 	margin: 0 auto;
 	height: 150px;
+	display: block;
+}
 
-	&__slogan {
-		position: absolute;
-		background-image: url('../../images/portfolio/slogan.svg');
-		background-repeat: no-repeat;
-		width: 192px;
-		height: 197px;
-		top: -90px;
-		margin-left: 27.5%;
-		z-index: 10;
-	}
+.slogan {
+	position: absolute;
+	background-image: url('../../images/portfolio/slogan.svg');
+	background-repeat: no-repeat;
+	width: 192px;
+	height: 197px;
+	top: -90px;
+	margin-left: 27.5%;
+	z-index: 10;
+}
 
-	&__rocket {
-		position: absolute;
-		background: url('../../images/portfolio/rocket.png');
-		width: 225px;
-		height: 251px;
-		top: -120px;
-		margin-left: 53.5%;
-	}
+.rocket {
+	position: absolute;
+	background: url('../../images/portfolio/rocket.png');
+	width: 225px;
+	height: 251px;
+	top: -120px;
+	margin-left: 53.5%;
 }

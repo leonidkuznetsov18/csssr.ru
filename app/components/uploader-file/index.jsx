@@ -1,27 +1,28 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function UploaderFile({ file, progress, onRemove }) {
+function UploaderFile({ file, progress, onRemove }) {
 	const progressClass = cx({
-		'uploader-file__progress': true,
-		'uploader-file__progress_completed': progress === 100,
+		[styles.progress]: true,
+		[styles.progress_completed]: progress === 100,
 	});
 
 	return (
-		<div className='uploader-file'>
-			<span className='uploader-file__name'>
+		<div className={styles.root}>
+			<span className={styles.name}>
 				{file.name}
 			</span>
 			<div className={progressClass}>
 				<div
-					className='uploader-file__progress-line'
+					className={styles.progressLine}
 					style={{ width: `${progress}%` }}
 				/>
 			</div>
 			<div
-				className='uploader-file__remove-button'
+				className={styles.remove}
 				onClick={onRemove}
 			/>
 		</div>
@@ -33,3 +34,5 @@ UploaderFile.propTypes = {
 	progress: React.PropTypes.number.isRequired,
 	onRemove: React.PropTypes.func,
 };
+
+export default withStyles(UploaderFile, styles);

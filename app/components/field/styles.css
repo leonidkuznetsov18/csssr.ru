@@ -1,39 +1,5 @@
-.field {
-	&__label {
-		font-size: 13px;
-		color: #666;
-		cursor: pointer;
-	}
-
-	&__input {
-		margin-top: 4px;
-		margin-bottom: 9px;
-		padding-left: 9px;
-		padding-right: 9px;
-		width: 100%;
-		height: 36px;
-		display: block;
-		font-family: 'PT Sans';
-		font-weight: bold;
-		font-size: 14px;
-		color: #333;
-		background-color: transparent;
-		border: 1px solid #969696;
-		transition: all .5s;
-
-		&:focus {
-			border-color: #333;
-		}
-
-		&_error {
-			border: 1px solid rgb(199, 38, 26);
-		}
-
-		&[disabled] {
-			color: #666;
-			-webkit-text-fill-color: #666
-		}
-	}
+.root {
+	display: block;
 
 	&_size_half {
 		display: inline-block;
@@ -43,5 +9,44 @@
 		& + & {
 			margin-right: 0;
 		}
+	}
+}
+
+.label {
+	font-size: 13px;
+	color: #666;
+	cursor: pointer;
+	font-family: 'PT Sans';
+	display: block;
+}
+
+.input {
+	margin-top: 4px;
+	margin-bottom: 9px;
+	padding-left: 9px;
+	padding-right: 9px;
+	width: 100%;
+	height: 36px;
+	display: block;
+	font-family: 'PT Sans';
+	font-weight: bold;
+	font-size: 14px;
+	color: #333;
+	background-color: transparent;
+	border: 1px solid #969696;
+	transition: all .5s;
+	box-sizing: border-box;
+
+	&:focus {
+		border-color: #333;
+	}
+
+	&_error {
+		border: 1px solid rgb(199, 38, 26);
+	}
+
+	&[disabled] {
+		color: #666;
+		-webkit-text-fill-color: #666
 	}
 }

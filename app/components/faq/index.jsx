@@ -1,15 +1,16 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Title from 'components/title';
 import Text from 'components/text';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Faq({ data }) {
+function Faq({ data }) {
 	return (
-		<div className='faq'>
-			<div className='faq__info'>
+		<div className={styles.root}>
+			<div className={styles.info}>
 				{data.image &&
-					<div className='faq__image'>
+					<div className={styles.image}>
 						<img
 							src={require(`images/faq/${data.image.file}.svg`)}
 							alt={data.image.alt}
@@ -20,7 +21,7 @@ export default function Faq({ data }) {
 							<a
 								href={data.link.href}
 								target='_blank'
-								className='faq__link'>
+								className={styles.link}>
 								{data.link.text}
 							</a>
 						}
@@ -36,13 +37,13 @@ export default function Faq({ data }) {
 				</Text>
 			</div>
 
-			<div className='faq__questions'>
+			<div className={styles.questions}>
 				{data.columns.map((column, index) => (
-					<div className='faq__column' key={index}>
+					<div className={styles.column} key={index}>
 						{column.map((item, columnIndex) => (
-							<div key={columnIndex} className='faq__question'>
+							<div key={columnIndex} className={styles.question}>
 								<h3
-									className='faq__subtitle'
+									className={styles.subtitle}
 									dangerouslySetInnerHTML={{ __html: item.title }}
 								/>
 
@@ -63,3 +64,5 @@ export default function Faq({ data }) {
 Faq.propTypes = {
 	data: React.PropTypes.object,
 };
+
+export default withStyles(Faq, styles);

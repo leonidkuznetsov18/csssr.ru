@@ -1,5 +1,5 @@
-.portfolio {
-	text-align: center;
+.root {
 	width: 560px;
 	margin: 0 auto;
+	display: block;
 }

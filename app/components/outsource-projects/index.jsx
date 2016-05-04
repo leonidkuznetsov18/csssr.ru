@@ -1,9 +1,10 @@
 import React from 'react';
+
 import OutsourceProject from 'components/outsource-project';
 
 export default function OutsourceProjects({ projects }) {
 	return (
-		<div className='outsource-projects'>
+		<div>
 			{projects.map((partner, index) => (
 				<OutsourceProject partner={partner} key={index} />
 			))}

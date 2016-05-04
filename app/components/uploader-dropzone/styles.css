@@ -1,50 +1,53 @@
-.uploader-dropzone {
+.root {
 	margin-top: 10px;
 	height: 165px;
 	width: 100%;
 	border: 2px dashed #c7261a;
 	position: relative;
 	cursor: pointer;
+	display: block;
+	box-sizing: border-box;
 
-	&__background {
-		position: absolute;
-		top: 5px;
-		left: 5px;
-		right: 5px;
-		bottom: 5px;
-		background-color: rgba(233, 216, 184, .3);
-		transition: all .3s ease;
-	}
-
-	&__text {
-		text-align: center;
-		line-height: 152px;
-		color: #847c6b;
-		font-family: 'PT Sans';
-		font-size: 13px;
-		transition: all .3s ease;
-	}
-
-	&:hover & {
-		&__background {
+	&:hover {
+		.background {
 			background-color: rgba(255, 255, 255, .2);
 		}
 
-		&__text {
+		.text {
 			color: #333;
 		}
 	}
 
-	&_active & {
-		&__background {
+	&_active {
+		.background {
 			background: url('../../images/background/fileupload-target.svg') no-repeat;
 			background-size: 115px;
 			background-position: center center;
 			background-color: rgba(255, 255, 255, .2);
 		}
 
-		&__text {
+		.text {
 			opacity: 0;
 		}
 	}
+}
+
+.background {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	background-color: rgba(233, 216, 184, .3);
+	transition: all .3s ease;
+}
+
+.text {
+	text-align: center;
+	line-height: 152px;
+	color: #847c6b;
+	font-family: 'PT Sans';
+	font-size: 13px;
+	display: block;
+	transition: all .3s ease;
 }

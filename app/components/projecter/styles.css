@@ -1,4 +1,4 @@
-.projecter {
+.root {
 	position: fixed;
 	z-index: 1000;
 	top: 0;
@@ -39,56 +39,43 @@
 		justify-content: center;
 		background-image: url('../../images/outsource/cpeople.gif');
 	}
+}
 
-	&__title {
-		font-family: 'Courier New', Courier, monospace;
-		font-weight: bold;
-		line-height: 1;
-		cursor: default;
-		color: #f2ebda;
-	}
+.title {
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+	line-height: 1;
+	cursor: default;
+	color: #f2ebda;
+	width: 640px;
+	font-size: 22px;
+	display: block;
+}
 
-	&__title-link {
-		display: inline-block;
-		line-height: 14px;
-		color: #f2ebda;
-		border-bottom: 1px solid currentColor;
-	}
+.link {
+	display: inline-block;
+	line-height: 14px;
+	color: #f2ebda;
+	border-bottom: 1px solid currentColor;
+}
 
-	&_project_yota &__title,
-	&_project_cpeople &__title {
-		width: 640px;
-		font-size: 22px;
-	}
+.selection {
+	display: block;
+	background-color: rgba(0, 136, 255, .5);
+}
 
-	&_project_life &__title {
-		margin-left: 80px;
-		width: 320px;
-		font-size: 48px;
-	}
+.comment {
+	font-weight: bold;
+	cursor: default;
+	margin-top: 22px;
+	width: 640px;
+	display: block;
 
-	&__comment {
+	p {
+		display: block;
 		font-family: 'Courier New', Courier, monospace;
 		font-size: 14px;
 		line-height: 20px;
-		font-weight: bold;
-		cursor: default;
 		color: #f2ebda;
-	}
-
-	&_project_yota &__comment,
-	&_project_cpeople &__comment {
-		margin-top: 22px;
-		width: 640px;
-	}
-
-	&_project_life &__comment {
-		margin-right: 80px;
-		width: 340px;
-	}
-
-	&__selection {
-		display: inline-block;
-		background-color: rgba(0, 136, 255, .5);
 	}
 }

@@ -1,22 +1,23 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import File from 'components/file';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Quest({ children, file, horizon }) {
+function Quest({ children, file, horizon }) {
 	const blockClass = cx({
-		quest: true,
-		quest_horizon: horizon,
+		[styles.root]: true,
+		[styles.root_horizon]: horizon,
 	});
 
 	return (
 		<div className={blockClass}>
-			<div className='quest__file'>
+			<div className={styles.file}>
 				<File {...file} />
 			</div>
 			<img
-				className='quest__scissors'
+				className={styles.scissors}
 				src={require('images/background/cut.svg')}
 			/>
 			{children}
@@ -29,3 +30,5 @@ Quest.propTypes = {
 	file: React.PropTypes.object.isRequired,
 	horizon: React.PropTypes.bool,
 };
+
+export default withStyles(Quest, styles);

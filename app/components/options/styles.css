@@ -1,16 +1,19 @@
-.options {
-	font: 300 13px/23px Roboto;
+.root {
+	font-family: 'Roboto';
+	font-size: 13px;
+	line-height: 23px;
+	font-weight: 300;
 	display: block;
 
-	&__item {
-		display: block;
-		margin-bottom: 5px;
-	}
-
-	&_inline & {
-		&__item {
+	&_inline {
+		.item {
 			display: inline-block;
 			margin-right: 20px;
 		}
 	}
+}
+
+.item {
+	display: block;
+	margin-bottom: 5px;
 }

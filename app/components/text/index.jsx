@@ -1,22 +1,23 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Text({ size, children, indent, color, center, weight }) {
+function Text({ size, children, indent, color, center, weight }) {
 	const classList = cx({
-		text: true,
-		text_size_l: size === 'l',
-		text_size_m: size === 'm',
-		text_size_s: size === 's',
-		text_size_xs: size === 'xs',
-		text_size_xxs: size === 'xxs',
-		text_noindent: indent === false,
-		text_center: center,
-		text_color_blue: color === 'blue',
-		text_color_grey: color === 'grey',
-		text_color_white: color === 'white',
-		text_weight_normal: weight === 'normal',
+		[styles.root]: true,
+		[styles.root_size_l]: size === 'l',
+		[styles.root_size_m]: size === 'm',
+		[styles.root_size_s]: size === 's',
+		[styles.root_size_xs]: size === 'xs',
+		[styles.root_size_xxs]: size === 'xxs',
+		[styles.root_noindent]: indent === false,
+		[styles.root_center]: center,
+		[styles.root_color_blue]: color === 'blue',
+		[styles.root_color_grey]: color === 'grey',
+		[styles.root_color_white]: color === 'white',
+		[styles.root_weight_normal]: weight === 'normal',
 	});
 
 	if (typeof children === 'string') {
@@ -36,18 +37,20 @@ export default function Text({ size, children, indent, color, center, weight }) 
 }
 
 Text.propTypes = {
-	children: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.element,
-		PropTypes.array,
+	children: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.element,
+		React.PropTypes.array,
 	]),
-	size: PropTypes.string,
-	color: PropTypes.string,
-	weight: PropTypes.string,
-	indent: PropTypes.bool,
-	center: PropTypes.bool,
+	size: React.PropTypes.string,
+	color: React.PropTypes.string,
+	weight: React.PropTypes.string,
+	indent: React.PropTypes.bool,
+	center: React.PropTypes.bool,
 };
 
 Text.defaultProps = {
 	indent: true,
 };
+
+export default withStyles(Text, styles);

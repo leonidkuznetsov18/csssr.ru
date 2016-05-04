@@ -1,20 +1,21 @@
-.column {
+.root {
 	display: inline-block;
 	vertical-align: top;
 	padding: 0 15px;
 	position: relative;
+	box-sizing: border-box;
 
-	&_size_one-third {
+	&_size_oneThird {
 		width: 33.333%;
 	}
 
-	&_size_one-fourth {
+	&_size_oneFourth {
 		width: 25%;
 		padding-left: 0;
 		padding-right: 0;
 	}
 
-	&_size_two-third {
+	&_size_twoThird {
 		width: 66.666%;
 	}
 
@@ -30,7 +31,7 @@
 		}
 	}
 
-	&_offset_one-third {
+	&_offset_oneThird {
 		margin-left: 33.333%;
 	}
 

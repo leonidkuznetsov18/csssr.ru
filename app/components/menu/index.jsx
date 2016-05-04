@@ -1,7 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+
 import MenuItem from 'components/menu-item';
 
-import './styles.css';
+import styles from './styles.css';
 
 const menu = [
 	{
@@ -26,30 +28,32 @@ const menu = [
 	},
 ];
 
-export default function Menu({ open }) {
+function Menu({ open }) {
 	return (
-		<nav className='menu'>
-			<ul className='menu__list'>
-				<li className='menu__item menu__item_fix'/>
+		<nav className={styles.root}>
+			<ul className={styles.list}>
+				<li className={styles.item}/>
 				{menu.map((item) => (
-					<li className='menu__item' key={item.href}>
+					<li className={styles.item} key={item.href}>
 						<MenuItem href={item.href}>
 							{item.text}
 						</MenuItem>
 					</li>
 				))}
-				<li className='menu__item' onClick={open}>
+				<li className={styles.item} onClick={open}>
 					<MenuItem component='a'>
 						Контакты
 					</MenuItem>
 				</li>
-				<li className='menu__item menu__item_fix'/>
+				<li className={styles.item} />
 			</ul>
-			<div className='menu__shadow'/>
+			<div className={styles.shadow} />
 		</nav>
 	);
 }
 
 Menu.propTypes = {
-	open: PropTypes.func,
+	open: React.PropTypes.func,
 };
+
+export default withStyles(Menu, styles);

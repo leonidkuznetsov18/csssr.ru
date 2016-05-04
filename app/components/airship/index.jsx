@@ -1,20 +1,21 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Airship({ image, children }) {
+function Airship({ image, children }) {
 	const imageUrl = require(`../../images/background/${image}`);
 	const textStyle = {
 		backgroundImage: `url(${imageUrl})`,
 	};
 
 	return (
-		<div className='airship'>
-			<div className='airship__inner'>
-				<div className='airship__text' style={textStyle}/>
+		<div className={styles.root}>
+			<div className={styles.inner}>
+				<div className={styles.text} style={textStyle}/>
 			</div>
 			{children &&
-				<div className='airship__content'>
+				<div className={styles.content}>
 					{children}
 				</div>
 			}
@@ -26,3 +27,5 @@ Airship.propTypes = {
 	image: React.PropTypes.string,
 	children: React.PropTypes.element,
 };
+
+export default withStyles(Airship, styles);

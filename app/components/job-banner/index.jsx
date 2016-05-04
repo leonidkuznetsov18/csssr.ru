@@ -1,12 +1,15 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function JobBanner() {
+function JobBanner() {
 	return (
 		<img
-			className='job-banner'
+			className={styles.root}
 			src={require('images/background/work.svg')}
 		/>
 	);
 }
+
+export default withStyles(JobBanner, styles);

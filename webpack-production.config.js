@@ -8,6 +8,7 @@ module.exports = [
 	}),
 
 	require('./make-webpack-config').default({
+		minimize: true,
 		prerender: true,
 	}),
 ];

@@ -1,11 +1,12 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import PortfolioItem from 'components/portfolio-item';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function PortfolioList({ data }) {
+function PortfolioList({ data }) {
 	return (
-		<ul className='portfolio-list'>
+		<ul className={styles.root}>
 			{data.map((project, i) => (
 				<PortfolioItem
 					key={i}
@@ -19,3 +20,5 @@ export default function PortfolioList({ data }) {
 PortfolioList.propTypes = {
 	data: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(PortfolioList, styles);

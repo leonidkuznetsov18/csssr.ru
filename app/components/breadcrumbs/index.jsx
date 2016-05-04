@@ -1,27 +1,28 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Breadcrumbs({ items }) {
+function Breadcrumbs({ items }) {
 	return (
-		<div className='breadcrumbs'>
+		<div className={styles.root}>
 			{items.map((item, index, list) => (
-				<div key={index} className='breadcrumbs__item'>
+				<div key={index} className={styles.item}>
 					{item.link &&
-						<Link to={item.link} className='breadcrumbs__link'>
+						<Link to={item.link} className={styles.link}>
 							{item.name}
 						</Link>
 					}
 
 					{!item.link &&
-						<span className='breadcrumbs__text'>
+						<span className={styles.text}>
 							{item.name}
 						</span>
 					}
 
 					{index !== list.length - 1 &&
-						<span className='breadcrumbs__text'>
+						<span className={styles.text}>
 							{' '}
 							/
 						</span>
@@ -35,3 +36,5 @@ export default function Breadcrumbs({ items }) {
 Breadcrumbs.propTypes = {
 	items: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(Breadcrumbs, styles);

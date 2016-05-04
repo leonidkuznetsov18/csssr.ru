@@ -1,23 +1,24 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class Circloader extends React.Component {
-	render() {
-		const blockClass = cx({
-			circloader: true,
-			circloader_size_big: this.props.size === 'big',
-			circloader_color_white: this.props.color === 'white',
-		});
+function Circloader({ size, color }) {
+	const blockClass = cx({
+		[styles.root]: true,
+		[styles.root_size_big]: size === 'big',
+		[styles.root_color_white]: color === 'white',
+	});
 
-		return (
-			<div className={blockClass} />
-		);
-	}
+	return (
+		<div className={blockClass} />
+	);
 }
 
 Circloader.propTypes = {
 	size: React.PropTypes.string,
 	color: React.PropTypes.string,
 };
+
+export default withStyles(Circloader, styles);

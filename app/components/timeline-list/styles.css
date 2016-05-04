@@ -1,11 +1,12 @@
-.timeline-list {
+.root {
 	position: relative;
 	padding-top: 320px;
 	margin-bottom: 124px;
 	margin-left: auto;
 	margin-right: auto;
 	display: table;
-	&:before{
+
+	&::before {
 		content: '';
 		position: absolute;
 		display: block;

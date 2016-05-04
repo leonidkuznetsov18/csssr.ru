@@ -1,17 +1,16 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Column from 'components/column';
 import Row from 'components/row';
 import Title from 'components/title';
 import Text from 'components/text';
 
-import Link from 'components/link';
+import styles from './styles.css';
 
-import './styles.css';
-
-export default function OutsourceContacts({ children }) {
+function OutsourceContacts({ children }) {
 	return (
-		<div className='outsource-contacts'>
+		<div className={styles.root}>
 			<Row inner>
 				<Column size={2 / 3}>
 					<Title size='medium'>
@@ -26,7 +25,7 @@ export default function OutsourceContacts({ children }) {
 
 			<Row inner>
 				<Column size={2 / 3}>
-					<div className='outsource-contacts__form'>
+					<div className={styles.form}>
 						{children}
 					</div>
 				</Column>
@@ -38,3 +37,5 @@ export default function OutsourceContacts({ children }) {
 OutsourceContacts.propTypes = {
 	children: React.PropTypes.element,
 };
+
+export default withStyles(OutsourceContacts, styles);

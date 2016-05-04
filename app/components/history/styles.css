@@ -1,14 +1,25 @@
-.history {
+.root {
 	display: block;
+}
 
-	&__item {
-		margin-bottom: 16px;
-	}
+.link {
+	all: inherit;
+	color: #056383;
+	transition: color .3s ease;
+	text-decoration: underline;
 
-	&__date {
-		font-size: 12px;
-		line-height: 21px;
-		font-family: "PT Sans";
-		color: #666;
+	&:hover {
+		color: #DF0B0B;
 	}
+}
+
+.item {
+	margin-bottom: 16px;
+}
+
+.date {
+	font-size: 12px;
+	line-height: 21px;
+	font-family: "PT Sans";
+	color: #666;
 }

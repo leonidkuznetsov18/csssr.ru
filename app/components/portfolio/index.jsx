@@ -1,19 +1,20 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Title from 'components/title';
 import Text from 'components/text';
 import PortfolioList from 'components/portfolio-list';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Portfolio({ data, projects }) {
+function Portfolio({ data, projects }) {
 	return (
-		<div className='portfolio'>
-			<Title>
+		<div className={styles.root}>
+			<Title center>
 				{data.title}
 			</Title>
 
-			<Text size='m'>
+			<Text size='m' center>
 				{data.info}
 			</Text>
 
@@ -26,3 +27,5 @@ Portfolio.propTypes = {
 	data: React.PropTypes.object.isRequired,
 	projects: React.PropTypes.array.isRequired,
 };
+
+export default withStyles(Portfolio, styles);

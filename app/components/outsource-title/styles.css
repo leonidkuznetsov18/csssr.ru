@@ -1,4 +1,4 @@
-.outsource-title {
+.root {
 	margin: 0 auto 84px;
 	width: 472px;
 	font-family: RodchenkoCTT;
@@ -7,14 +7,25 @@
 	font-style: italic;
 	line-height: 56px;
 	color: #333;
+	display: block;
+}
 
-	&__left,
-	&__right {
-		display: block;
-	}
+.left {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	text-transform: inherit;
+	color: inherit;
+	display: block;
+}
 
-	&__right {
-		padding-left: 88px;
-		padding-top: 5px;
-	}
+.right {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	text-transform: inherit;
+	color: inherit;
+	display: block;
+	padding-left: 88px;
+	padding-top: 5px;
 }

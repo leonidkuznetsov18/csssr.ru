@@ -1,12 +1,11 @@
 import React from 'react';
+
 import Row from 'components/row';
 import Column from 'components/column';
 import Title from 'components/title';
 import Options from 'components/options';
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';
-
-import './styles.css';
 
 function generateProps(fieldProps, fieldName, fieldValue, isRadio) {
 	if (isRadio) {
@@ -31,6 +30,7 @@ function generateProps(fieldProps, fieldName, fieldValue, isRadio) {
 		},
 	};
 }
+
 export default function OrderOptions({ options, fields }) {
 	const titles = [
 		'Современные браузеры',
@@ -49,7 +49,7 @@ export default function OrderOptions({ options, fields }) {
 	const { addition } = options;
 
 	return (
-		<div className='order-options'>
+		<div>
 			<Row inner>
 				{keys.map((key, index) => {
 					const isRadio = key === 'pagesWidth';

@@ -1,23 +1,25 @@
-.uploader {
+.root {
 	margin-bottom: 25px;
 	padding-right: 25px;
+	display: block;
 	position: relative;
 	clear: fix;
+}
 
-	&__links {
-		margin-top: 30px;
-		margin-bottom: 5px;
-	}
+.links {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	display: block;
+}
 
-	&__link {
-		margin-right: 7px;
-	}
+.link {
+	margin-right: 7px;
+}
 
-	&__section {
-		display: none;
+.section {
+	display: none;
 
-		&_active {
-			display: block;
-		}
+	&_active {
+		display: block;
 	}
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class JobsVacancy extends React.Component {
+class JobsVacancy extends React.Component {
 	static propTypes = {
 		data: React.PropTypes.array.isRequired,
 	}
@@ -14,17 +15,26 @@ export default class JobsVacancy extends React.Component {
 
 		if (isInternalLink) {
 			return (
-				<Link to={vacancy.url} className='jobs-vacancy__link' key={index}>
+				<Link
+					to={vacancy.url}
+					className={styles.link}
+					key={index}
+				>
 					{vacancy.name}
 				</Link>
 			);
 		}
 
 		return (
-			<a href={vacancy.url} target='_blank' className='jobs-vacancy__link' key={index}>
+			<a
+				href={vacancy.url}
+				target='_blank'
+				className={styles.link}
+				key={index}
+			>
 				{vacancy.name}
 				{vacancy.hh &&
-					<Icon icon='hh' className='jobs-vacancy__hh' />
+					<Icon icon='hh' className={styles.hh} />
 				}
 			</a>
 		);
@@ -35,9 +45,9 @@ export default class JobsVacancy extends React.Component {
 		const { data } = this.props;
 
 		return (
-			<ul className='jobs-vacancy'>
+			<ul className={styles.root}>
 				{data.map((vacancy, index) => (
-					<li className='jobs-vacancy__item' key={index}>
+					<li className={styles.item} key={index}>
 						{vacancy.name}
 						{' '}
 						{vacancy.vacancies.map(this.renderLink) }
@@ -47,3 +57,5 @@ export default class JobsVacancy extends React.Component {
 		);
 	}
 }
+
+export default withStyles(JobsVacancy, styles);

@@ -1,15 +1,16 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Title from 'components/title';
 import Text from 'components/text';
 import List from 'components/list';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Section({ title, description, list, children, indent }) {
+function Section({ title, description, list, children, indent }) {
 	const blockClass = cx({
-		section: true,
-		section_indent: indent,
+		[styles.root]: true,
+		[styles.root_indent]: indent,
 	});
 
 	description = [].concat(description);
@@ -47,3 +48,5 @@ Section.defaultProps = {
 	title: {},
 	description: {},
 };
+
+export default withStyles(Section, styles);

@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Link from 'components/link';
@@ -6,9 +7,9 @@ import UploaderDropzone from 'components/uploader-dropzone';
 import UploaderField from 'components/uploader-field';
 import UploaderFiles from 'components/uploader-files';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class Uploader extends React.Component {
+class Uploader extends React.Component {
 	componentWillMount() {
 		this.setState({
 			active: 'files',
@@ -25,15 +26,15 @@ export default class Uploader extends React.Component {
 		const { active } = this.state;
 		const sectionClass = (isActive) => {
 			return cx({
-				uploader__section: true,
-				uploader__section_active: isActive,
+				[styles.section]: true,
+				[styles.section_active]: isActive,
 			});
 		};
 
 		return (
-			<div className='uploader'>
-				<div className='uploader__links'>
-					<span className='uploader__link'>
+			<div className={styles.root}>
+				<div className={styles.links}>
+					<span className={styles.link}>
 						<Link
 							size='big'
 							active={active === 'files'}
@@ -42,7 +43,7 @@ export default class Uploader extends React.Component {
 							макеты
 						</Link>
 					</span>
-					<span className='uploader__link'>
+					<span className={styles.link}>
 						<Link
 							size='big'
 							active={active === 'link'}
@@ -66,3 +67,5 @@ export default class Uploader extends React.Component {
 		);
 	}
 }
+
+export default withStyles(Uploader, styles);

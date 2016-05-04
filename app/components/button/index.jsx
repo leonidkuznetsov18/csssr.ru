@@ -1,27 +1,30 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import Icon from 'components/icon';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Button(props) {
+function Button(props) {
 	const Component = props.component;
 	const blockClass = cx({
-		button: true,
-		button_type_form: props.mod === 'form',
-		button_type_social: props.mod === 'social',
+		[styles.root]: true,
+		[styles.root_type_form]: props.mod === 'form',
+		[styles.root_type_social]: props.mod === 'social',
 	});
 
 	return (
 		<Component {...props} className={blockClass}>
-			<span className='button__inner'>
+			<span className={styles.inner}>
 				{props.icon &&
-					<Icon className='button__icon' icon={props.icon} />
+					<span className={styles.icon}>
+						<Icon icon={props.icon} />
+					</span>
 				}
 				{props.children}
 			</span>
-			<span className='button__shadow' />
+			<span className={styles.shadow} />
 		</Component>
 	);
 }
@@ -39,3 +42,5 @@ Button.propTypes = {
 Button.defaultProps = {
 	component: 'button',
 };
+
+export default withStyles(Button, styles);

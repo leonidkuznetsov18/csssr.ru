@@ -1,30 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { withContext } from 'recompose';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, compose, applyMiddleware } from 'redux';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import useScroll from 'use-scroll-behavior';
+import store from './store';
 import routes from './routes';
 import reducer from './reducers';
-import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
-import useScroll from 'use-scroll-behavior';
 import redirect from './helpers/redirectOldUrls';
 
 redirect();
 
-const createStoreWithMiddleWare = compose(
-	applyMiddleware(
-		thunk,
-		routerMiddleware(useScroll(browserHistory))
-	),
-	window.devToolsExtension ? window.devToolsExtension() : (f) => f,
-)(createStore);
-const store = createStoreWithMiddleWare(reducer);
 const history = syncHistoryWithStore(useScroll(browserHistory), store);
 
-ReactDOM.render(
-	<Provider store={store} key='provider'>
+const App = () => (
+	<Provider store={store}>
 		<Router history={history} routes={routes}/>
-	</Provider>,
+	</Provider>
+);
+
+const ProvideApp = withContext(
+	{
+		insertCss: React.PropTypes.func,
+	},
+	() => ({
+		insertCss: (styles) => styles._insertCss(),
+	}),
+	App
+);
+
+ReactDOM.render(
+	<ProvideApp />,
 	document.getElementById('content')
 );

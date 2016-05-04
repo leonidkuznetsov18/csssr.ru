@@ -1,28 +1,33 @@
-.breadcrumbs {
+.root {
 	margin: 0 auto 26px;
 	padding-left: 307px;
 	width: 93%;
-	font-family: Roboto;
+	display: block;
+	box-sizing: border-box;
+}
+
+.item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+.link {
+	color: #0099cc;
+	text-decoration: underline;
+	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 14px;
 
-	&__item {
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 3px;
+	&:hover,
+	&:active {
+		color: #fff;
 	}
+}
 
-	&__link {
-		color: #0099cc;
-		text-decoration: underline;
-
-		&:hover,
-		&:active {
-			color: #fff;
-		}
-	}
-
-	&__text {
-		color: #aaa8a4;
-	}
+.text {
+	color: #aaa8a4;
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 14px;
 }

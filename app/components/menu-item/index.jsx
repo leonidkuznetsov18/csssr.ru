@@ -1,25 +1,26 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
 import { Link } from 'react-router';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function MenuItem({ href, children, active, component }) {
+function MenuItem({ href, children, active, component }) {
 	const Component = component;
 	const blockClass = cx({
-		'menu-item': true,
-		'menu-item_state_active': active,
+		[styles.root]: true,
+		[styles.root_state_active]: active,
 	});
 
 	return (
 		<Component
 			className={blockClass}
-			activeClassName='menu-item_state_active'
+			activeClassName={styles.root_state_active}
 			to={href}
 		>
 			{children}
-			<span className='menu-item__arrow'/>
+			<span className={styles.arrow} />
 		</Component>
 	);
 }
@@ -37,3 +38,5 @@ MenuItem.propTypes = {
 	]),
 	children: React.PropTypes.string,
 };
+
+export default withStyles(MenuItem, styles);

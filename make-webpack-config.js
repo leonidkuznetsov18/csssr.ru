@@ -8,6 +8,7 @@ process.env = require('./config/env.js').default;
 export default function (options) {
 	const root = path.join(__dirname, 'app');
 	const publicPath = '/_assets/';
+	const classFormat = options.minimize ? '[hash:base64:5]' : '[path]_[local]';
 	let loaders = {
 		json: 'json',
 		'png|jpg|cur|gif': 'url?limit=5000',
@@ -15,7 +16,8 @@ export default function (options) {
 	};
 	const stylesheetLoaders = {
 		css: [
-			'css',
+			'isomorphic-style',
+			`css?modules&minimize&importLoaders=1&localIdentName=${classFormat}`,
 			'postcss',
 		],
 	};
@@ -95,13 +97,7 @@ export default function (options) {
 			loader = loader.join('!');
 		}
 
-		if (options.prerender) {
-			stylesheetLoaders[ext] = 'null';
-		} else if (options.separateStylesheet) {
-			stylesheetLoaders[ext] = ExtractTextPlugin.extract('style', loader);
-		} else {
-			stylesheetLoaders[ext] = 'style!' + loader;
-		}
+		stylesheetLoaders[ext] = loader;
 	});
 
 	if (options.separateStylesheet) {
@@ -164,7 +160,11 @@ export default function (options) {
 					'last 2 versions',
 				],
 			}),
-			require("css-mqpacker")
+			require('postcss-autoreset')({
+				rulesMatcher: ({ selector }) => !/(_|:|\[)/.test(selector),
+			}),
+			require('postcss-initial'),
+			require('css-mqpacker'),
 		],
 		plugins,
 		devServer: {

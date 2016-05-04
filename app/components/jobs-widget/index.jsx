@@ -1,21 +1,22 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Icon from 'components/icon';
 import Text from 'components/text';
 import Widget from 'components/widget';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function JobsWidget() {
+function JobsWidget() {
 	return (
-		<div className='jobs-widget'>
-			<div className='jobs-widget__layout'>
+		<div className={styles.root}>
+			<div className={styles.layout}>
 				<Widget type='vk' />
 			</div>
 
-			<div className='jobs-widget__hint'>
-				<Icon className='jobs-widget__arrow'
-					icon='curve-arrow'
-				/>
+			<div className={styles.hint}>
+				<span className={styles.arrow}>
+					<Icon icon='curve-arrow' />
+				</span>
 
 				<Text size='xs'>
 					Следите за новыми вакансиями
@@ -24,3 +25,5 @@ export default function JobsWidget() {
 		</div>
 	);
 }
+
+export default withStyles(JobsWidget, styles);

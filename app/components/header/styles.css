@@ -1,6 +1,6 @@
 @import 'helpers';
 
-.header {
+.root {
 	width: 97%;
 	max-width: 1261px;
 	height: 142px;
@@ -15,17 +15,18 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 2.2% 13px;
-
-	&__logo {
-		min-width: 94px;
-		width: 9.4%;
-		display: inline-block;
-		margin-top: 4px;
-	}
+	box-sizing: border-box;
 
 	&::after {
 		width: 82px;
 		display: block;
 		content: '';
 	}
+}
+
+.logo {
+	min-width: 94px;
+	width: 9.4%;
+	display: inline-block;
+	margin-top: 4px;
 }

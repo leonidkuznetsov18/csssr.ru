@@ -1,4 +1,5 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Field from 'components/field';
 import Checkbox from 'components/checkbox';
@@ -8,9 +9,9 @@ import FieldPhone from 'components/field-phone';
 import FormValidationWindow from 'components/form-validation-window';
 import Link from 'components/link';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default class ContactsForm extends React.Component {
+class ContactsForm extends React.Component {
 	static propTypes = {
 		fields: React.PropTypes.object.isRequired,
 		requiredFields: React.PropTypes.array.isRequired,
@@ -38,19 +39,19 @@ export default class ContactsForm extends React.Component {
 
 	render() {
 		const buttonClass = cx({
-			'contacts-form__submit': true,
-			'contacts-form__submit_disabled': this.props.submitting,
+			[styles.submit]: true,
+			[styles.submit_disabled]: this.props.submitting,
 		});
 		const loaderClass = cx({
-			'contacts-form__loader': true,
-			'contacts-form__loader_active': this.props.submitting,
+			[styles.loader]: true,
+			[styles.loader_active]: this.props.submitting,
 		});
 
 		const error = this.props.error;
 
-		return <form noValidate className='contacts-form' onSubmit={this.props.handleSubmit}>
+		return <form noValidate className={styles.root} onSubmit={this.props.handleSubmit}>
 			{(error && (error.text || error.title) || typeof error === 'string' && error) &&
-				<div className='contacts-form__error'>
+				<div className={styles.error}>
 					<FormValidationWindow {...error} />
 				</div>
 			}
@@ -67,7 +68,7 @@ export default class ContactsForm extends React.Component {
 			/>
 
 			<Checkbox
-				className='contacts-form__rules'
+				className={styles.rules}
 				checked
 				readOnly
 				name='confidential'
@@ -93,3 +94,5 @@ export default class ContactsForm extends React.Component {
 		</form>;
 	}
 }
+
+export default withStyles(ContactsForm, styles);

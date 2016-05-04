@@ -1,12 +1,13 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Row(props) {
+function Row(props) {
 	const blockClass = cx({
-		row: true,
-		row_inner: props.inner,
+		[styles.root]: true,
+		[styles.root_inner]: props.inner,
 	});
 
 	return (
@@ -20,3 +21,5 @@ Row.propTypes = {
 	children: React.PropTypes.node,
 	inner: React.PropTypes.bool,
 };
+
+export default withStyles(Row, styles);

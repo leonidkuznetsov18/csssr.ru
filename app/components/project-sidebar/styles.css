@@ -1,93 +1,100 @@
-.project-sidebar {
+.root {
 	width: 100%;
 	height: 100%;
 	background-color: #ecdcc4;
 	background-image: url('../../images/background/content.jpg');
 	padding: 30px 20px;
 	position: relative;
+	display: block;
+	box-sizing: border-box;
+}
 
-	&__close {
+.close {
+	position: absolute;
+	top: 10px;
+	right: 12px;
+	z-index: 100;
+	height: 13px;
+	width: 13px;
+	cursor: pointer;
+	backface-visibility: hidden;
+	display: block;
+
+	&::after,
+	&::before {
 		position: absolute;
-		top: 10px;
-		right: 12px;
-		z-index: 100;
-		height: 13px;
-		width: 13px;
-		cursor: pointer;
-		backface-visibility: hidden;
-		display: block;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		height: 2px;
+		width: 16px;
+		background-color: #333;
+		content: '';
+	}
 
-		&::after,
-		&::before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			height: 2px;
-			width: 16px;
-			background-color: #333;
-			content: '';
-		}
+	&::after {
+		transform: rotate(45deg);
+	}
 
+	&::before {
+		transform: rotate(-45deg);
+	}
+
+	&:hover {
 		&::after {
-			transform: rotate(45deg);
+			transition: .25s ease-out;
+			transform: rotate(225deg);
 		}
 
 		&::before {
-			transform: rotate(-45deg);
-		}
-
-		&:hover {
-			&::after {
-				transition: .25s ease-out;
-				transform: rotate(225deg);
-			}
-
-			&::before {
-				transition: .25s ease-out;
-				transform: rotate(135deg);
-			}
+			transition: .25s ease-out;
+			transform: rotate(135deg);
 		}
 	}
+}
 
-	&__title {
-		color: #333333;
-		font-family: 'PT Sans Narrow';
-		font-size: 18px;
-		font-weight: 700;
-		margin-bottom: 15px;
-	}
+.title {
+	color: #333333;
+	font-family: 'PT Sans Narrow';
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 15px;
+	display: block;
+}
 
-	&__link {
-		position: relative;
+.link {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	position: relative;
+	color: #056383;
+	text-decoration: underline;
+	transtion: all .3s ease;
+
+	&::before {
+		position: absolute;
+		top: 50%;
+		margin-top: -6px;
+		left: -12px;
+		width: 0;
+		height: 0;
+		border-top: 6px solid transparent;
+		border-left: 7px solid #333;
+		border-bottom: 6px solid transparent;
+		content: '';
 		transtion: all .3s ease;
+		opacity: 0;
+	}
+
+	&_active {
+		text-decoration: none;
+		color: #333;
+		pointer-events: none;
 
 		&::before {
-			position: absolute;
-			top: 50%;
-			margin-top: -6px;
-			left: -12px;
-			width: 0;
-			height: 0;
-			border-top: 6px solid transparent;
-			border-left: 7px solid #333;
-			border-bottom: 6px solid transparent;
-			content: '';
-			transtion: all .3s ease;
-			opacity: 0;
+			opacity: 1;
 		}
-
-		&_active {
-			text-decoration: none;
-			color: #333;
-			pointer-events: none;
-
-			&::before {
-				opacity: 1;
-			}
-		}
-
 	}
 }

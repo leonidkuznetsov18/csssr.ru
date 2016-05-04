@@ -1,8 +1,9 @@
-.jobs-banner {
+.root {
 	height: 166px;
 	margin-bottom: 50px;
 	background-image: url('../../images/background/work-everywhere.png');
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 830px 166px;
+	display: block;
 }

@@ -1,31 +1,32 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import './styles.css';
+import styles from './styles.css';
 
-export default function Projecter({ active, partner, title, content, onClose }) {
+function Projecter({ active, partner, title, content, onClose }) {
 	const blockClass = cx({
-		projecter: true,
-		projecter_state_active: active,
-		[`projecter_project_${partner}`]: partner,
+		[styles.root]: true,
+		[styles.root_state_active]: active,
+		[styles[`root_project_${partner}`]]: partner,
 	});
 
 	return (
 		<div onClick={onClose} className={blockClass} >
 			<div onClick={(e) => e.stopPropagation()}>
-				<div className='projecter__title'>
+				<div className={styles.selection}>
 					<div
-						className='projecter__selection'
+						className={styles.title}
 						dangerouslySetInnerHTML={{ __html: title }}
 					/>
 				</div>
 
-				<blockquote className='projecter__comment'>
-					<div
-						className='projecter__selection'
+				<div className={styles.selection}>
+					<blockquote
+						className={styles.comment}
 						dangerouslySetInnerHTML={{ __html: content }}
 					/>
-				</blockquote>
+				</div>
 			</div>
 		</div>
 	);
@@ -38,3 +39,5 @@ Projecter.propTypes = {
 	content: React.PropTypes.string,
 	onClose: React.PropTypes.func,
 };
+
+export default withStyles(Projecter, styles);

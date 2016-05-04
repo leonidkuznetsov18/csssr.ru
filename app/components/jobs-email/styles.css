@@ -1,21 +1,28 @@
-.jobs-email {
+.root {
 	margin-top: 50px;
+	display: block;
+}
 
-	&__caption {
-		display: table;
-		font-family: 'roboto';
-		font-weight: lighter;
-		font-size: 12px;
-		color: #333;
-		line-height: 19px;
-	}
+.caption {
+	display: table;
+	font-family: 'Roboto';
+	font-weight: lighter;
+	font-size: 12px;
+	color: #333;
+	line-height: 19px;
+}
 
-	&__link {
-		display: table;
-		font-family: 'roboto';
-		font-weight: lighter;
-		font-size: 35px;
-		text-decoration: underline;
-		line-height: 26px;
+.link {
+	display: table;
+	font-family: 'Roboto';
+	font-weight: lighter;
+	font-size: 35px;
+	text-decoration: underline;
+	line-height: 26px;
+	color: #056383;
+	transition: color .3s ease;
+
+	&:hover {
+		color: #DF0B0B;
 	}
 }

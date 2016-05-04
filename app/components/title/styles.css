@@ -1,8 +1,9 @@
-.title {
+.root {
 	font-size: 35px;
 	font-family: 'PT Sans Narrow';
 	color: #6A0005;
 	margin-bottom: 20px;
+	display: block;
 
 	&_center {
 		text-align: center;

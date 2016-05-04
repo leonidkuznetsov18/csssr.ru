@@ -1,7 +1,7 @@
-.job-banner {
-    position: absolute;
-    top: 35px;
-    left: 50px;
-    width: 183px;
-    height: 204px;
+.root {
+	position: absolute;
+	top: 35px;
+	left: 50px;
+	width: 183px;
+	height: 204px;
 }
