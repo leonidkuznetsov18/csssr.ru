@@ -7,13 +7,13 @@
 	font-size: 32px;
 	text-transform: uppercase;
 	line-height: 39px;
-	color: #f4e0bb;
+	color: #F4E0BB;
 	letter-spacing: 1px;
 	display: block;
 	text-decoration: underline;
 
 	&:hover {
-		color: #f2ecde;
+		color: #F2ECDE;
 	}
 }
 
@@ -24,11 +24,11 @@
 	line-height: 27px;
 	margin-bottom: 22px;
 	margin-top: 12px;
-	color: #74898f;
+	color: #74898F;
 	display: block;
 }
 
 .text {
-	margin: 40px 0px 0px;
+	margin: 40px 0 0;
 	display: block;
 }

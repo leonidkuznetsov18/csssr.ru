@@ -10,7 +10,7 @@
 		color: #056383;
 
 		&:hover {
-			color: #df0b0b !important;
+			color: #DF0B0B;
 		}
 	}
 
@@ -19,34 +19,34 @@
 		text-decoration: none;
 
 		&:hover {
-			border-bottom: 1px solid #df0b0b;
+			border-bottom: 1px solid #DF0B0B;
 		}
 	}
 
 	&_color_blue&_size_big {
 		display: inline-block;
 		font-family: 'PT Sans';
-		font-weight: bold;
+		font-weight: 700;
 		font-size: 16px;
 		color: #056383;
 		text-transform: uppercase;
 		border-bottom: 1px dashed #056383;
 
 		&:hover {
-			border-bottom: 1px dashed #df0b0b;
+			border-bottom: 1px dashed #DF0B0B;
 		}
 	}
 
 	&_color_blue&_active {
-		color: #df0b0b;
+		color: #DF0B0B;
 		border-bottom: none;
 	}
 
 	&_color_yellow {
-		color: #ffae00;
+		color: #FFAE00;
 
 		&:hover {
-			color: #fff;
+			color: #FFFFFF;
 		}
 	}
 

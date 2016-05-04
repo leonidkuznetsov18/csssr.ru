@@ -5,6 +5,8 @@
 	pointer-events: inherit;
 	color: inherit;
 
+	/* stylelint-disable selector-no-type */
+	/* icon have no class */
 	svg {
 		all: inherit;
 	}

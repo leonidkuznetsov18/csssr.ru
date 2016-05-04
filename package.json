@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint --ext .js,.jsx ./app ./config ./server ./utils",
     "eslint-pr": "eslint --ext .js,.jsx `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'jsx?$'`",
+    "stylelint": "stylelint app/components/**/*.css",
+    "stylelint-pr": "stylelint `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'css?$'`",
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
     "server": "node ./server",
@@ -105,6 +107,7 @@
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
+    "stylelint": "^6.2.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1"
   }

@@ -6,16 +6,16 @@
 .caption {
 	display: table;
 	font-family: 'Roboto';
-	font-weight: lighter;
+	font-weight: 300;
 	font-size: 12px;
-	color: #333;
+	color: #333333;
 	line-height: 19px;
 }
 
 .link {
 	display: table;
 	font-family: 'Roboto';
-	font-weight: lighter;
+	font-weight: 300;
 	font-size: 35px;
 	text-decoration: underline;
 	line-height: 26px;

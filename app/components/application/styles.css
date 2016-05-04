@@ -3,7 +3,14 @@
 
 .root {
 	position: relative;
-	background-image: radial-gradient(circle at 50% 200px , rgba(234, 217, 185, 0.25) 130px, rgba(234, 217, 185, 0.15) 500px, rgba(234, 217, 185, 0) 1000px), url('../../images/background/page.jpg');
+	background-image:
+		radial-gradient(
+			circle at 50% 200px,
+			rgba(234, 217, 185, .25) 130px,
+			rgba(234, 217, 185, .15) 500px,
+			rgba(234, 217, 185, 0) 1000px
+		),
+		url('../../images/background/page.jpg');
 	background-color: #043351;
 	background-size: 100% 2000px, auto;
 	background-repeat: no-repeat, repeat;
@@ -26,7 +33,7 @@
 
 	&_active {
 		&::before {
-			transition-delay: 0s;
+			transition-delay: 0;
 			opacity: 1;
 			visibility: visible;
 		}
@@ -42,7 +49,7 @@
 	}
 }
 
-.wrapper{
+.wrapper {
 	padding-top: 35px;
 	min-height: 100vh;
 	display: flex;

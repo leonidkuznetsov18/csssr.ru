@@ -10,7 +10,7 @@
 		content: '';
 		position: absolute;
 		display: block;
-		background-image: url(../../images/timeline/rocket_en.svg);
+		background-image: url('../../images/timeline/rocket_en.svg');
 		width: 121px;
 		height: 342px;
 		top: 10px;

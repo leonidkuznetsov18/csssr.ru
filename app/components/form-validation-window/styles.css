@@ -1,15 +1,15 @@
 .root {
-	padding: 25px 25px;
+	padding: 25px;
 	max-width: 100%;
-	border: 3px solid #a70e00;
+	border: 3px solid #A70E00;
 	font-family: 'PT Sans Narrow';
 	font-size: 15px;
-	color: #900;
+	color: #990000;
 	line-height: 21px;
 	opacity: 0;
 	backface-visibility: visible;
-	animation-name: rotateRight;
-	animation-duration: 0.5s;
+	animation-name: rotateright;
+	animation-duration: .5s;
 	animation-fill-mode: both;
 	box-sizing: border-box;
 	display: block;
@@ -24,15 +24,16 @@
 	margin-top: 10px;
 }
 
-@keyframes rotateRight {
+@keyframes rotateright {
 	0% {
 		opacity: 0;
 		transform-origin: 0 0;
 		transform: perspective(800px) rotateY(180deg) translateZ(150px) translateX(-284px);
 	}
+
 	100% {
 		opacity: 1;
 		transform-origin: 50% 0;
-		transform: perspective(800px) rotateY(360deg) translateZ(0px);
+		transform: perspective(800px) rotateY(360deg) translateZ(0);
 	}
 }

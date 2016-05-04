@@ -19,22 +19,22 @@
 .link {
 	font-family: 'PT Sans';
 	font-size: 14px;
-	color: #0099cc;
+	color: #0099CC;
 	text-decoration: none;
 	position: relative;
 	top: -10px;
 	margin-left: 10px;
 
 	&:hover {
-		color: #fff!important;
+		color: #FFFFFF;
 	}
 }
 
 .questions {
 	width: 67%;
 	box-sizing: border-box;
-	padding: 40px 0 50px 0;
-	border-top: 1px solid #5d798a;
+	padding: 40px 0 50px;
+	border-top: 1px solid #5D798A;
 	display: flex;
 	justify-content: space-between;
 }
@@ -45,10 +45,10 @@
 
 .subtitle {
 	font-family: 'Roboto';
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 20px;
 	line-height: 23px;
-	color: #e9e2d3;
+	color: #E9E2D3;
 	display: block;
 	margin-bottom: 10px;
 }

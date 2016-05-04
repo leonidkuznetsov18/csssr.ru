@@ -9,7 +9,6 @@
 .label {
 	position: relative;
 	padding-left: 20px;
-	display: inline-block;
 	cursor: pointer;
 	user-select: none;
 	display: block;
@@ -24,7 +23,7 @@
 		left: 0;
 		height: 14px;
 		width: 14px;
-		border: 1px solid #333;
+		border: 1px solid #333333;
 		border-radius: 100%;
 		content: '';
 	}
@@ -36,7 +35,7 @@
 		height: 8px;
 		width: 8px;
 		margin: 4px;
-		background-color: #333;
+		background-color: #333333;
 		border-radius: 100%;
 		opacity: 0;
 		content: '';

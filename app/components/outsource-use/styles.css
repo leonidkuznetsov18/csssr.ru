@@ -10,14 +10,14 @@
 .title {
 	width: 146px;
 	height: 262px;
-	background-image: url('../../images/outsource/lamp.svg');;
+	background-image: url('../../images/outsource/lamp.svg');
 	background-size: cover;
 	padding-top: 155px;
 	position: absolute;
 	top: 0;
 	margin-left: 353px;
-	letter-spacing: 0.075em;
-	left: calc((100% - 918px) * 0.5);
+	letter-spacing: .075em;
+	left: calc((100% - 918px) * .5);
 	box-sizing: border-box;
 	display: block;
 
@@ -34,15 +34,14 @@
 	z-index: 0;
 	width: 280px;
 	height: 43px;
-	background-image: url("../../images/background/red-pattern.jpg");
+	background-image: url('../../images/background/red-pattern.jpg');
 	left: 50%;
 	margin-left: -140px;
 	content: '';
-	position: absolute;
 	display: block;
 	font-size: 26px;
 	font-family: 'RodchenkoCTT';
-	color: #f2ebd9;
+	color: #F2EBD9;
 	position: relative;
 	line-height: 43px;
 	text-align: center;
@@ -55,7 +54,7 @@
 
 .how {
 	width: 290px;
-	color: #333;
+	color: #333333;
 	margin-top: -95px;
 	display: inline-block;
 	vertical-align: top;

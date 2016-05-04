@@ -7,7 +7,7 @@
 	display: block;
 	box-sizing: border-box;
 	-webkit-overflow-scrolling: touch;
-	background-color: #fff;
+	background-color: #FFFFFF;
 	user-select: none;
 	backface-visibility: hidden;
 	transform: translate3d(0, 0, 0);
@@ -33,7 +33,7 @@
 		margin: auto;
 		width: 20px;
 		height: 5px;
-		background-color: #333;
+		background-color: #333333;
 		content: '';
 		backface-visibility: hidden;
 		transition: all .3s ease;
@@ -50,17 +50,17 @@
 	&:hover {
 		&::after,
 		&::before {
-			background-color: #666;
+			background-color: #666666;
 		}
 	}
 }
 
 .header {
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	font-size: 39px;
 	line-height: 48px;
 	text-transform: uppercase;
-	color: #333;
+	color: #333333;
 	display: block;
 }
 
@@ -93,13 +93,12 @@
 
 	&_type_bordered {
 		padding: 5px;
-		border: 1px solid #999;
+		border: 1px solid #999999;
 	}
 }
 
 .job {
 	position: absolute;
-	top: 0;
 	top: -45px;
 	left: 20px;
 }

@@ -45,7 +45,7 @@
 	}
 
 	&_color_blue {
-		color: #aabbba;
+		color: #AABBBA;
 	}
 
 	&_color_grey {
@@ -53,6 +53,6 @@
 	}
 
 	&_color_white {
-		color: #fff;
+		color: #FFFFFF;
 	}
 }
