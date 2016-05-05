@@ -1,6 +1,6 @@
 .root {
 	position: relative;
-	background-color: #fff;
+	background-color: #FFFFFF;
 	display: block;
 
 	&_state_active {
@@ -40,7 +40,6 @@
 		border-right: 1px solid rgba(15, 70, 100, .12);
 	}
 }
-
 
 .loader {
 	position: absolute;

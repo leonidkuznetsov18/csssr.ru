@@ -14,7 +14,7 @@
 
 .label {
 	font-size: 13px;
-	color: #666;
+	color: #666666;
 	cursor: pointer;
 	font-family: 'PT Sans';
 	display: block;
@@ -29,16 +29,16 @@
 	height: 36px;
 	display: block;
 	font-family: 'PT Sans';
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 14px;
-	color: #333;
+	color: #333333;
 	background-color: transparent;
 	border: 1px solid #969696;
 	transition: all .5s;
 	box-sizing: border-box;
 
 	&:focus {
-		border-color: #333;
+		border-color: #333333;
 	}
 
 	&_error {
@@ -46,7 +46,7 @@
 	}
 
 	&[disabled] {
-		color: #666;
-		-webkit-text-fill-color: #666
+		color: #666666;
+		-webkit-text-fill-color: #666666;
 	}
 }

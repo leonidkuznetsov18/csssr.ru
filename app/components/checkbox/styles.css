@@ -23,7 +23,7 @@
 		left: 0;
 		height: 12px;
 		width: 12px;
-		border: 1px solid #333;
+		border: 1px solid #333333;
 		content: '';
 	}
 
@@ -34,8 +34,8 @@
 		height: 11px;
 		width: 4px;
 		margin: -3px 0 0 5px;
-		border-right: 3px solid #333;
-		border-bottom: 3px solid #333;
+		border-right: 3px solid #333333;
+		border-bottom: 3px solid #333333;
 		opacity: 0;
 		content: '';
 		transform: rotate(40deg) scale(3);
@@ -43,7 +43,7 @@
 	}
 }
 
-.input:checked + .label:after {
+.input:checked + .label::after {
 	opacity: 1;
 	transform: rotate(40deg) scale(1);
 }

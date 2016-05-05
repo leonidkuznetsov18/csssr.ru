@@ -12,25 +12,23 @@
 	&_size_medium {
 		font-size: 24px;
 		margin-bottom: 11px;
-		letter-spacing: 1px;
 		text-transform: uppercase;
-		letter-spacing: 0.075em;
+		letter-spacing: .075em;
 	}
 
 	&_size_small {
-		letter-spacing: 1px;
 		font-size: 15px;
 		margin-bottom: 9px;
 		text-transform: uppercase;
-		letter-spacing: 0.075em;
+		letter-spacing: .075em;
 	}
 
 	&_color_yellow {
-		color: #f6e1ba;
+		color: #F6E1BA;
 	}
 
 	&_color_black {
-		color: #333;
+		color: #333333;
 	}
 
 	&_noindent {

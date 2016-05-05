@@ -31,23 +31,23 @@
 	}
 
 	&:hover {
-		color: #c72823;
+		color: #C72823;
 	}
 
 	&_active {
 		pointer-events: none;
-		background: #fdb00b;
+		background: #FDB00B;
 
 		.text {
 			border-bottom: 0;
-			color: #6c0400;
+			color: #6C0400;
 			pointer-events: none;
 		}
 
 		&::before {
 			border-top: 13px solid transparent;
 			border-bottom: 13px solid transparent;
-			border-left: 6px solid #fdb00b;
+			border-left: 6px solid #FDB00B;
 			position: absolute;
 			left: 100%;
 			content: '';
@@ -64,9 +64,9 @@
 	font-family: 'PT Sans Narrow';
 	text-decoration: none;
 	text-transform: uppercase;
-	letter-spacing: 0.029em;
+	letter-spacing: .029em;
 	cursor: inherit;
-	color: #6b0000;
+	color: #6B0000;
 }
 
 .tab {

@@ -4,7 +4,7 @@
 	width: 97%;
 	max-width: 1261px;
 	height: 142px;
-	margin: 0px auto;
+	margin: 0 auto;
 	background-image: url('../../images/background/header.jpg');
 	background-color: var(--color-header);
 	position: relative;

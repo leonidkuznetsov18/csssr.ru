@@ -16,7 +16,7 @@
 		display: block;
 		width: 1px;
 		content: '';
-		background-color: #666;
+		background-color: #666666;
 	}
 
 	&:last-child {
@@ -58,15 +58,15 @@
 	position: absolute;
 	left: 0;
 	width: 92px;
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 11px;
 	line-height: 18px;
 	text-align: right;
-	color: #333;
+	color: #333333;
 }
 
-.link{
+.link {
 	position: relative;
 	display: inline-block;
 	margin-left: 8px;
@@ -93,7 +93,7 @@
 }
 
 .avatars {
-	margin-left:-20px;
+	margin-left: -20px;
 	margin-top: 5px;
 	font-size: 0;
 	line-height: 1;
@@ -109,11 +109,11 @@
 	margin-top: 5px;
 	margin-bottom: 28px;
 	display: table;
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 13px;
 	line-height: 18px;
-	color: #333;
+	color: #333333;
 }
 
 .iconCount {
@@ -127,9 +127,9 @@
 	font-size: 28px;
 	line-height: 56px;
 	text-align: center;
-	color: #f2ebda;
-	background-image: url(../../images/timeline/timeline-newstaff-circle.png) ;
-	background-color: #aa2f23;
+	color: #F2EBDA;
+	background-image: url('../../images/timeline/timeline-newstaff-circle.png');
+	background-color: #AA2F23;
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 100%;
@@ -138,7 +138,7 @@
 		content: '+';
 		margin-right: 4px;
 		vertical-align: top;
-		font-family: Roboto;
+		font-family: 'Roboto';
 		font-weight: 300;
 		font-size: 18px;
 		line-height: 56px;
@@ -154,7 +154,7 @@
 }
 
 .version {
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 24px;
 	line-height: 30px;
@@ -175,6 +175,7 @@
 		color: #DF0B0B;
 	}
 }
+
 .quote {
 	position: relative;
 	margin-top: 4px;

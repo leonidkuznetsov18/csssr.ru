@@ -22,17 +22,17 @@
 .circle {
 	position: absolute;
 	top: 42px;
-	left: calc((100% - 918px) * 0.5);
+	left: calc((100% - 918px) * .5);
 	width: 358px;
 	height: 358px;
 	border-radius: 50%;
-	background-color: #f2ecdd;
-	font-family: RodchenkoCTT;
+	background-color: #F2ECDD;
+	font-family: 'RodchenkoCTT';
 	color: #333333;
 	text-transform: uppercase;
 	padding-left: 70px;
 	padding-top: 115px;
-	letter-spacing: 0.075em;
+	letter-spacing: .075em;
 	display: inline-block;
 	vertical-align: top;
 	box-sizing: border-box;
@@ -50,7 +50,7 @@
 		top: -20px;
 		border-radius: 50%;
 		border: 1px solid;
-		border-color: transparent transparent #6c0400 #6c0400;
+		border-color: transparent transparent #6C0400 #6C0400;
 		transform: rotate(5deg);
 		pointer-events: none;
 	}
@@ -58,10 +58,10 @@
 
 .circle1 {
 	display: block;
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	color: #333333;
 	font-size: 27px;
-	letter-spacing: 0.16em;
+	letter-spacing: .16em;
 	margin-bottom: -5px;
 	text-transform: uppercase;
 
@@ -71,7 +71,7 @@
 		top: -42px;
 		width: 200px;
 		height: 1px;
-		background: #6c0400;
+		background: #6C0400;
 		content: '';
 
 		@media (--small) {
@@ -83,7 +83,7 @@
 		content: '';
 		position: absolute;
 		height: 1px;
-		background: #6c0400;
+		background: #6C0400;
 		width: 97px;
 		top: -42px;
 		right: 277px;
@@ -100,7 +100,7 @@
 
 .circle2 {
 	display: block;
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	color: #333333;
 	margin-left: -3px;
 	font-size: 95px;
@@ -111,7 +111,7 @@
 		content: '';
 		position: absolute;
 		height: 1px;
-		background: #6c0400;
+		background: #6C0400;
 		width: 167px;
 		top: 334px;
 		left: 309px;
@@ -122,10 +122,10 @@
 
 .circle3 {
 	display: block;
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	color: #333333;
 	font-size: 19px;
-	letter-spacing: 0.075em;
+	letter-spacing: .075em;
 	text-transform: uppercase;
 }
 
@@ -136,13 +136,13 @@
 	display: block;
 	box-sizing: border-box;
 	background-image: url('../../images/outsource/thunderbolt.png');
-	letter-spacing: 0.075em;
+	letter-spacing: .075em;
 	background-size: contain;
 	border-right: no-repeat;
-	font-family: RodchenkoCTT;
+	font-family: 'RodchenkoCTT';
 	text-transform: uppercase;
 	font-size: 20px;
-	color: #f2ecdd;
+	color: #F2ECDD;
 	top: -50px;
 	left: 236px;
 	text-align: center;
@@ -155,7 +155,7 @@
 	width: 38%;
 	margin-left: 440px;
 	top: 89px;
-	left: calc((100% - 918px) * 0.5);
+	left: calc((100% - 918px) * .5);
 
 	@media (max-width: 1300px) {
 		left: 8.5%;
@@ -163,15 +163,15 @@
 
 	@media (max-width: 1200px) {
 		width: 30%;
-
 	}
+
 	@media (max-width: 1100px) {
 		left: 21px;
 	}
 }
 
 .social {
-	position: absolute !important;
+	position: absolute;
 	right: 8px;
 	top: 220px;
 	padding-top: 280px;
@@ -192,7 +192,7 @@
 	}
 
 	&_state_fixed {
-		top: 0px;
+		top: 0;
 	}
 }
 

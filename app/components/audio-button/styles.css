@@ -5,7 +5,7 @@
 	cursor: pointer;
 	border: none;
 	user-select: none;
-	background-color: #fcb54d;
+	background-color: #FCB54D;
 	border-radius: 100%;
 	transition-duration: .25s;
 	transition-property: background-color;
@@ -20,7 +20,7 @@
 		left: 0;
 		width: 72px;
 		height: 72px;
-		border: 1px dashed #5f1600;
+		border: 1px dashed #5F1600;
 		border-radius: 100%;
 	}
 
@@ -35,7 +35,7 @@
 		width: 0;
 		height: 0;
 		border-top: 12px solid transparent;
-		border-left: 20px solid #5f1600;
+		border-left: 20px solid #5F1600;
 		border-bottom: 12px solid transparent;
 	}
 
@@ -45,7 +45,7 @@
 			border: none;
 			height: 22px;
 			width: 22px;
-			background-color: #5f1600;
+			background-color: #5F1600;
 		}
 	}
 }

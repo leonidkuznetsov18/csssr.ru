@@ -2,7 +2,7 @@
 	margin-top: 10px;
 	height: 165px;
 	width: 100%;
-	border: 2px dashed #c7261a;
+	border: 2px dashed #C7261A;
 	position: relative;
 	cursor: pointer;
 	display: block;
@@ -14,7 +14,7 @@
 		}
 
 		.text {
-			color: #333;
+			color: #333333;
 		}
 	}
 
@@ -45,7 +45,7 @@
 .text {
 	text-align: center;
 	line-height: 152px;
-	color: #847c6b;
+	color: #847C6B;
 	font-family: 'PT Sans';
 	font-size: 13px;
 	display: block;

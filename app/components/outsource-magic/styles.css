@@ -7,7 +7,7 @@
 	&::before,
 	&::after {
 		margin-left: 426px;
-		left: calc((100% - 918px) * 0.5);
+		left: calc((100% - 918px) * .5);
 
 		@media (max-width: 1100px) {
 			left: 21px;
@@ -22,7 +22,7 @@
 		position: absolute;
 		top: 0;
 		width: 1px;
-		background: #6c0400;
+		background: #6C0400;
 		display: block;
 		height: 123px;
 		content: '';
@@ -32,7 +32,7 @@
 		position: absolute;
 		top: 281px;
 		width: 1px;
-		background: #6c0400;
+		background: #6C0400;
 		display: block;
 		height: 265px;
 		content: '';
@@ -60,7 +60,7 @@
 		background-size: 458px 130px;
 		background-position: right center;
 		height: 130px;
-		left: calc((100% - 918px) * 0.5 + 506px);
+		left: calc((100% - 918px) * .5 + 506px);
 
 		@media (max-width: 1100px) {
 			left: calc(21px + 506px);
@@ -79,7 +79,7 @@
 		background-size: 445px 167px;
 		background-position: left center;
 		height: 167px;
-		width: calc((100% - 918px) * 0.5 + 279px);
+		width: calc((100% - 918px) * .5 + 279px);
 
 		@media (max-width: 1100px) {
 			width: calc(21px + 279px);
@@ -95,11 +95,11 @@
 	position: absolute;
 	width: 159px;
 	height: 159px;
-	border: 1px solid #6c0400;
+	border: 1px solid #6C0400;
 	padding: 13px;
 	top: 123px;
 	margin-left: 348px;
-	left: calc((100% - 918px) * 0.5);
+	left: calc((100% - 918px) * .5);
 	display: block;
 	box-sizing: border-box;
 
@@ -115,14 +115,14 @@
 .content {
 	width: 133px;
 	height: 133px;
-	background: #f2ebd9;
-	font-family: RodchenkoCTT;
+	background: #F2EBD9;
+	font-family: 'RodchenkoCTT';
 	font-size: 24px;
 	color: #333333;
 	padding-top: 22px;
 	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 0.075em;
+	letter-spacing: .075em;
 	display: block;
 	box-sizing: border-box;
 
@@ -148,7 +148,7 @@
 .left {
 	left: -40px;
 	margin-left: 60px;
-	width: calc((100% - 918px) * 0.5 + 329px);
+	width: calc((100% - 918px) * .5 + 329px);
 
 	@media (max-width: 1100px) {
 		width: calc(21px + 329px);
@@ -162,7 +162,7 @@
 .right {
 	right: -40px;
 	max-width: 521px;
-	left: calc((100% - 918px) * 0.5 + 506px);
+	left: calc((100% - 918px) * .5 + 506px);
 
 	@media (max-width: 1100px) {
 		left: calc(21px + 506px);
@@ -174,7 +174,7 @@
 
 	&::before {
 		top: 220px;
-		left: 0px;
+		left: 0;
 		width: 69px;
 		height: 36px;
 		content: '';
@@ -224,7 +224,7 @@
 	text-align: center;
 	white-space: nowrap;
 	font-family: 'Courier New';
-	color: #333;
+	color: #333333;
 
 	&_css {
 		top: 42px;
@@ -254,7 +254,7 @@
 	display: block;
 	text-align: inherit;
 	text-transform: uppercase;
-	color: #333;
+	color: #333333;
 
 	&_type_main {
 		font-size: 16px;
@@ -270,7 +270,7 @@
 	height: 146px;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #333;
+	border-color: #333333;
 	box-sizing: border-box;
 
 	@media (max-width: 1100px) {
@@ -281,9 +281,9 @@
 .use {
 	font-size: 14px;
 	position: relative;
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 300;
-	color: #333;
+	color: #333333;
 	margin-top: 15px;
 	white-space: nowrap;
 	display: block;
@@ -293,7 +293,7 @@
 		display: inline-block;
 		width: 6px;
 		height: 6px;
-		border: 1px solid #6b0000;
+		border: 1px solid #6B0000;
 		border-radius: 50%;
 		margin-right: 24px;
 	}
@@ -304,7 +304,7 @@
 		position: absolute;
 		width: 16px;
 		height: 1px;
-		background: #000;
+		background: #000000;
 		left: 8px;
 		top: 50%;
 		margin-top: 1px;
@@ -312,7 +312,7 @@
 
 	&_fill {
 		&::before {
-			background: #6b0000;
+			background: #6B0000;
 		}
 	}
 }

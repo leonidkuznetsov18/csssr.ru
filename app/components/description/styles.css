@@ -6,7 +6,10 @@
 
 .logo {
 	height: 555px;
-	background-image: url("../../images/background/slogan.svg"), url("../../images/background/bubble.png"), url("../../images/background/logo.svg");;
+	background-image:
+		url('../../images/background/slogan.svg'),
+		url('../../images/background/bubble.png'),
+		url('../../images/background/logo.svg');
 	background-position: 69% 401px, 70% 358px, center top;
 	background-repeat: no-repeat;
 	margin-top: -40px;
