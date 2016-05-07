@@ -76,6 +76,7 @@
     "redux-form": "^4.2.0",
     "redux-thunk": "^1.0.0",
     "scrollbar-size": "^1.0.4",
+    "sitemap-webpack-plugin": "^0.1.0",
     "shortid": "^2.2.4",
     "superagent": "^1.4.0",
     "transform-loader": "^0.2.3",

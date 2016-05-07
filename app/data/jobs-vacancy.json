@@ -2,6 +2,7 @@
 	{
 		"vacancies": [
 			{
+				"id": "pixel-perfectionist",
 				"name": "Верстальщик пиксель-перфекционист",
 				"url": "/jobs/pixel-perfectionist"
 			}
@@ -10,6 +11,7 @@
 	{
 		"vacancies": [
 			{
+				"id": "technical-manager",
 				"name": "Менеджер-технарь",
 				"url": "/jobs/technical-manager"
 			}

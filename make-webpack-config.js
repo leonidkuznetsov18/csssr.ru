@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import loadersByExtension from './utils/loadersByExtension';
+import SitemapPlugin from 'sitemap-webpack-plugin';
 
 process.env = require('./config/env.js').default;
 
@@ -124,6 +125,13 @@ export default function (options) {
 	}
 
 	entry.push('./app/' + (options.prerender ? 'prerender' : 'app'));
+
+	if (options.sitemap) {
+		const paths = require('./utils/sitemap-paths');
+		plugins.push(
+			new SitemapPlugin(process.env.BASE_URL, paths, '../../static/sitemap.xml')
+		);
+	}
 
 	return {
 		entry,
