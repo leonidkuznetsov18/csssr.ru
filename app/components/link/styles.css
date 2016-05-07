@@ -1,16 +1,17 @@
 .root {
+	font-family: inherit;
 	font-size: inherit;
-	cursor: pointer;
+	font-weight: inherit;
+	line-height: inherit;
 	transition-property: color, border;
 	transition-duration: .2s;
-	font-family: 'PT Sans';
-	text-decoration: underline;
 
 	&_color_blue {
 		color: #056383;
 
 		&:hover {
 			color: #DF0B0B;
+			cursor: pointer;
 		}
 	}
 
@@ -28,6 +29,7 @@
 		font-family: 'PT Sans';
 		font-weight: 700;
 		font-size: 16px;
+		line-height: 1;
 		color: #056383;
 		text-transform: uppercase;
 		border-bottom: 1px dashed #056383;
@@ -46,6 +48,7 @@
 		color: #FFAE00;
 
 		&:hover {
+			cursor: pointer;
 			color: #FFFFFF;
 		}
 	}

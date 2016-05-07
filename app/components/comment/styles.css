@@ -8,6 +8,7 @@
 	display: block;
 	font-family: 'Roboto';
 	font-size: 15px;
+	line-height: 1;
 	font-weight: 300;
 }
 
@@ -15,6 +16,7 @@
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: inherit;
+	line-height: inherit;
 	text-decoration: underline;
 	color: #056383;
 	transition: color .3s ease;

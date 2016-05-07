@@ -21,10 +21,12 @@
 	color: var(--color-footer-link);
 	transition: color .3s ease;
 	font-family: 'PT Sans';
-	font-size: 12px;
+	font-size: inherit;
 	line-height: 17px;
+	text-decoration: underline;
 
 	&:hover {
+		cursor: pointer;
 		color: var(--color-white);
 	}
 }
@@ -63,6 +65,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 22%;
+	font-size: 12px;
 	margin-right: 45px;
 }
 

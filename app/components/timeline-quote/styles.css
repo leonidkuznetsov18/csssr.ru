@@ -2,10 +2,6 @@
 	position: relative;
 	margin-top: 58px;
 	padding-left: 54px;
-	font-size: 17px;
-	line-height: 22px;
-	color: #F2EBDA;
-	font-family: 'PT Sans';
 	display: block;
 
 	&::after {
@@ -16,5 +12,16 @@
 		font-size: 80px;
 		line-height: 1;
 		content: '\201c';
+	}
+
+	/* stylelint-disable selector-no-type */
+	/* generated from markdown */
+	p {
+		margin: 0;
+		font-size: 17px;
+		line-height: 22px;
+		color: #F2EBDA;
+		font-family: 'PT Sans';
+		display: block;
 	}
 }

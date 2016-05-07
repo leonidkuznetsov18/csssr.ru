@@ -3,10 +3,13 @@
 }
 
 .link {
-	all: inherit;
 	color: #056383;
 	transition: color .3s ease;
 	text-decoration: underline;
+	font-size: inherit;
+	font-family: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
 
 	&:hover {
 		color: #DF0B0B;
@@ -14,6 +17,7 @@
 }
 
 .item {
+	display: block;
 	margin-bottom: 16px;
 }
 

@@ -22,6 +22,9 @@
 }
 
 .size {
+	font-family: 'Roboto';
+	font-weight: 300;
+	display: block;
 	margin-top: 8px;
 	font-size: 10px;
 	color: #333333;

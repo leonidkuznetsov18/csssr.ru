@@ -37,15 +37,17 @@ function Thanks() {
 						<Text size='s'>
 							Способы поделиться радостью с друзьями:
 
-							{socials.map((social, index) => (
-								<a
-									className={styles.social}
-									key={index}
-									onClick={onButtonClick(social)}
-								>
-									<Icon icon={`social-${social}`} />
-								</a>
-							))}
+							<span className={styles.socials}>
+								{socials.map((social, index) => (
+									<a
+										className={styles.social}
+										key={index}
+										onClick={onButtonClick(social)}
+									>
+										<Icon icon={`social-${social}`} />
+									</a>
+								))}
+							</span>
 						</Text>
 					</div>
 				</Column>

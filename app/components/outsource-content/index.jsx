@@ -47,7 +47,7 @@ function OutsourceContent({ data, projects }) {
 					</Text>
 				</div>
 
-				<div className='projects'>
+				<div className={styles.projects}>
 					<OutsourceProjects projects={projects} />
 				</div>
 			</div>

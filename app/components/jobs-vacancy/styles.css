@@ -1,9 +1,10 @@
 .root {
 	padding-bottom: 10px;
+	display: block;
 }
 
 .item {
-	margin-top: 14px;
+	margin-top: 11px;
 	display: block;
 }
 
@@ -16,6 +17,7 @@
 	transition: color .3s ease;
 
 	&:hover {
+		cursor: pointer;
 		color: #DF0B0B;
 	}
 }

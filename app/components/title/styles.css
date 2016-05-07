@@ -4,6 +4,7 @@
 	color: #6A0005;
 	margin-bottom: 20px;
 	display: block;
+	line-height: 1;
 
 	&_center {
 		text-align: center;
@@ -14,10 +15,12 @@
 		margin-bottom: 11px;
 		text-transform: uppercase;
 		letter-spacing: .075em;
+		line-height: 1;
 	}
 
 	&_size_small {
 		font-size: 15px;
+		line-height: 15px;
 		margin-bottom: 9px;
 		text-transform: uppercase;
 		letter-spacing: .075em;

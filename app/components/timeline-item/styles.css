@@ -52,6 +52,13 @@
 	margin-top: 5px;
 	font-size: 0;
 	line-height: 1;
+	display: block;
+}
+
+.image {
+	margin-top: 5px;
+	font-size: 0;
+	line-height: 1;
 }
 
 .date {
@@ -106,14 +113,20 @@
 }
 
 .description {
-	margin-top: 5px;
+	margin-top: -1px;
 	margin-bottom: 28px;
 	display: table;
-	font-family: 'Roboto';
-	font-weight: 300;
-	font-size: 13px;
-	line-height: 18px;
-	color: #333333;
+
+	/* stylelint-disable selector-no-type */
+	/* generated from json */
+	p {
+		margin: 0;
+		font-family: 'Roboto';
+		font-weight: 300;
+		font-size: 13px;
+		line-height: 18px;
+		color: #333333;
+	}
 }
 
 .iconCount {

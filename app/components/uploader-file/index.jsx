@@ -17,7 +17,7 @@ function UploaderFile({ file, progress, onRemove }) {
 			</span>
 			<div className={progressClass}>
 				<div
-					className={styles.progressLine}
+					className={styles.line}
 					style={{ width: `${progress}%` }}
 				/>
 			</div>

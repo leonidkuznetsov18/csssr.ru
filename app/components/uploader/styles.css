@@ -14,10 +14,12 @@
 
 .link {
 	margin-right: 7px;
+	display: inline-block;
 }
 
 .section {
 	display: none;
+	font-family: 'Roboto';
 
 	&_active {
 		display: block;

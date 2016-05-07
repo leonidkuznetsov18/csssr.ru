@@ -87,6 +87,7 @@
 	pointer-events: none;
 	transition: opacity .3s ease;
 	z-index: 1;
+	display: block;
 
 	&_active {
 		position: relative;

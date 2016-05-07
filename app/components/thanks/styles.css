@@ -12,6 +12,11 @@
 	display: block;
 }
 
+.socials {
+	display: inline-block;
+	white-space: nowrap;
+}
+
 .social {
 	width: 20px;
 	height: 20px;
@@ -19,11 +24,11 @@
 	vertical-align: middle;
 	margin-left: 20px;
 	margin-right: -7px;
-	cursor: pointer;
 	color: #056383;
 	transition: color .3s ease;
 
 	&:hover {
+		cursor: pointer;
 		color: #DF0B0B;
 	}
 }

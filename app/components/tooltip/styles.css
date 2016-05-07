@@ -13,6 +13,7 @@
 	cursor: pointer;
 	user-select: none;
 	color: #056383;
+	font-size: 13px;
 
 	&:focus {
 		outline: none;
@@ -43,6 +44,7 @@
 	transform-origin: bottom center;
 	transition: .3s ease-in-out;
 	z-index: 10;
+	box-sizing: border-box;
 
 	&::before {
 		position: absolute;

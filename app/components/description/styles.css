@@ -103,6 +103,7 @@
 
 	&:hover {
 		color: #DF0B0B;
+		cursor: pointer;
 	}
 }
 

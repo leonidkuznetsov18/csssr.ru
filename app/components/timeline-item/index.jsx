@@ -15,7 +15,7 @@ import styles from './styles.css';
 function TimelineItem(props) {
 	const images = props.data.images && props.data.images.map((tag, index) => (
 		<img
-			className={styles.images}
+			className={styles.image}
 			key={index}
 			src={require(`images/timeline/${tag.url}`)}
 			style={{

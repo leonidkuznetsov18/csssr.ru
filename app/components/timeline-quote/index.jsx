@@ -8,7 +8,7 @@ import styles from './styles.css';
 
 function TimelineQuoute({ title, text }) {
 	return (
-		<blockquote className={styles.quote}>
+		<blockquote className={styles.root}>
 			<Title
 				color='yellow'
 				component='h6'

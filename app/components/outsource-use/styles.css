@@ -46,6 +46,7 @@
 	line-height: 43px;
 	text-align: center;
 	text-transform: uppercase;
+	letter-spacing: inherit;
 }
 
 .content {

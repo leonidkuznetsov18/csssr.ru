@@ -2,6 +2,7 @@
 	margin: 0 auto 26px;
 	padding-left: 307px;
 	width: 93%;
+	height: 15px;
 	display: block;
 	box-sizing: border-box;
 }
@@ -18,6 +19,7 @@
 	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 14px;
+	line-height: 1;
 
 	&:hover,
 	&:active {
@@ -30,4 +32,5 @@
 	font-family: 'Roboto';
 	font-weight: 300;
 	font-size: 14px;
+	line-height: 1;
 }

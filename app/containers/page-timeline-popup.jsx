@@ -38,10 +38,10 @@ export default class PageTimelinePopup extends React.Component {
 		}
 
 		event.preventDefault();
-		this.onClose();
+		this.handleClose();
 	}
 
-	hanldeClose = () => {
+	handleClose = () => {
 		this.setState({
 			active: false,
 		});
