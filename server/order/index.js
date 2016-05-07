@@ -32,6 +32,7 @@ function getFormData(data) {
 function sendOrderMail(toolsData, data) {
 	return sendMail({
 		subject: `CSSSR. Заказ номер ${toolsData.orderNumber}`,
+		replyTo: data.email,
 		html: ReactDOMServer.renderToStaticMarkup(
 			<MailOrder data={data} toolsData={toolsData} />
 		),
