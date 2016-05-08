@@ -8,6 +8,7 @@ import Quest from 'components/quest';
 import JobBanner from 'components/job-banner';
 import FormJob from 'containers/form-job';
 import { job } from 'data/meta';
+import PageError from 'containers/page-error';
 
 const pages = {
 	'technical-manager': 'Менеджер-технарь',
@@ -20,10 +21,16 @@ const dataList = {
 	'one-site-designer': require('data/jobs/one-site-designer.json'),
 };
 
-export default function PageJobForm({ params }) {
-	const page = params.jobName;
+export default function PageJobForm(props) {
+	const page = props.params.jobName;
 	const pageName = pages[page];
 	const data = dataList[page];
+
+	if (!pageName) {
+		return (
+			<PageError {...props} number={404} />
+		);
+	}
 
 	return (
 		<div>
