@@ -17,7 +17,7 @@
 
 .title {
 	display: block;
-	padding: 9px 0 4px;
+	padding: 9px 0 0;
 	width: 200px;
 	pointer-events: all;
 }

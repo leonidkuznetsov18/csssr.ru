@@ -29,7 +29,7 @@ function Breadcrumbs({ items }) {
 
 					{index !== list.length - 1 &&
 						<span className={styles.text}>
-							{' '}
+							&nbsp;
 							/
 						</span>
 					}

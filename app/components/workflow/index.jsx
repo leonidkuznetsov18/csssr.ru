@@ -37,7 +37,11 @@ function Workflow() {
 			<Text size='s'>
 				Наш рабочий процесс автоматизирован. Помимо собственных разработок, которые позволяют нам экономить время на&nbsp;рутине, в&nbsp;зависимости от&nbsp;задачи мы&nbsp;пользуемся следующими инструментами: css-препроцессорами Stylus, Less, Sass, html-препроцессором Jade, а&nbsp;также Gulp (либо Grunt)&nbsp;&mdash; в&nbsp;качестве сборщика. На&nbsp;подавляющем большинстве проектов применяется методология БЭМ. Также мы&nbsp;предлагаем всем разработчикам попробовать наш&nbsp;
 
-				<Link href='https://github.com/CSSSR/csssr-project-template' target='_blank'>
+				<Link
+					href='https://github.com/CSSSR/csssr-project-template'
+					target='_blank'
+					underline
+				>
 					шаблон для быстрого старта проекта
 				</Link>.
 			</Text>

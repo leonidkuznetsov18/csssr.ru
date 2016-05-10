@@ -74,14 +74,16 @@ class ContactsForm extends React.Component {
 
 				<Checkbox
 					checked
-					className={styles.rules}
 					name='confidential'
 					readOnly
+					small
 				>
 					Принимаю&nbsp;
-					<Link color='blue'
+					<Link
+						color='blue'
 						href='/confidential'
 						target='_blank'
+						underline
 					>
 						положение об обработке персональных данных
 					</Link>

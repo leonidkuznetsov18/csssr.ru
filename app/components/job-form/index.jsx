@@ -8,7 +8,6 @@ import Button from 'components/button';
 import Checkbox from 'components/checkbox';
 import Circloader from 'components/circloader';
 import Link from 'components/link';
-import Text from 'components/text';
 import FormValidationWindow from 'components/form-validation-window';
 
 import styles from './styles.css';
@@ -97,16 +96,20 @@ class JobForm extends React.Component {
 					{...this.props.fields.phone}
 				/>
 
-				<Checkbox checked readOnly>
-					<Text size='xs' weight='normal'>
-						Принимаю&nbsp;
-						<Link color='blue'
-							href='/confidential'
-							target='_blank'
-						>
-							положение об обработке персональных данных
-						</Link>
-					</Text>
+				<Checkbox
+					checked
+					readOnly
+					small
+				>
+					Принимаю&nbsp;
+					<Link
+						color='blue'
+						href='/confidential'
+						target='_blank'
+						underline
+					>
+						положение об обработке персональных данных
+					</Link>
 				</Checkbox>
 
 				<div className={buttonClass}>

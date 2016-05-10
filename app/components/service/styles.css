@@ -9,7 +9,7 @@
 	line-height: 39px;
 	color: #F4E0BB;
 	letter-spacing: 1px;
-	display: block;
+	display: inline-block;
 	text-decoration: underline;
 
 	&:hover {

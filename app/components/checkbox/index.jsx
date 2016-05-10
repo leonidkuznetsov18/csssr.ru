@@ -8,6 +8,7 @@ import styles from './styles.css';
 function Checkbox(props) {
 	const blockClass = cx({
 		[styles.root]: true,
+		[styles.root_small]: props.small,
 		[props.className]: props.className,
 	});
 	const inputProps = { ...props };
@@ -41,6 +42,7 @@ Checkbox.propTypes = {
 	children: React.PropTypes.node,
 	className: React.PropTypes.string,
 	id: React.PropTypes.string,
+	small: React.PropTypes.bool,
 	tip: React.PropTypes.shape({
 		text: React.PropTypes.string.isRequired,
 		link: React.PropTypes.string,

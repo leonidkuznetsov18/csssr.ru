@@ -19,7 +19,7 @@
 
 .section {
 	display: none;
-	font-family: 'Roboto';
+	font-family: 'PT Sans';
 
 	&_active {
 		display: block;

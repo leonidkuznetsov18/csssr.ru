@@ -110,6 +110,7 @@
 	vertical-align: middle;
 	font-size: 13px;
 	border-radius: 100%;
+	pointer-events: none;
 }
 
 .description {
@@ -135,7 +136,6 @@
 	left: 112px;
 	width: 56px;
 	height: 56px;
-	vertical-align: top;
 	font-family: 'PT Sans Narrow';
 	font-size: 28px;
 	line-height: 56px;

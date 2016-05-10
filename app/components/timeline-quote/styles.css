@@ -8,9 +8,10 @@
 		position: absolute;
 		top: -5px;
 		left: 0;
-		font-family: inherit;
+		font-family: 'PT Sans';
 		font-size: 80px;
 		line-height: 1;
+		color: #F2EBDA;
 		content: '\201c';
 	}
 

@@ -58,6 +58,7 @@
 	transition-property: transform;
 	transition-duration: .5s;
 	transition-timing-function: ease-in-out;
+	box-sizing: border-box;
 }
 
 .inner {

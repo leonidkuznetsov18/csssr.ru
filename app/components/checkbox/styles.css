@@ -1,5 +1,11 @@
 .root {
 	display: block;
+
+	&_small {
+		.label {
+			font-size: 12px;
+		}
+	}
 }
 
 .input {

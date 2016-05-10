@@ -14,5 +14,6 @@
 		height: inherit;
 		color: inherit;
 		cursor: inherit;
+		pointer-events: inherit;
 	}
 }

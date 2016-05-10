@@ -20,7 +20,6 @@ function OutsourceService({ type, title, text }) {
 			<div className={styles.title}>
 				<Title
 					component='h2'
-					indent={false}
 					size='small'
 				>
 					{title}

@@ -2,24 +2,29 @@
 	margin: 0 auto 26px;
 	padding-left: 307px;
 	width: 93%;
-	height: 15px;
 	display: block;
 	box-sizing: border-box;
+	line-height: 14px;
 }
 
 .item {
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 3px;
+	line-height: inherit;
+}
+
+.text, .link {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 14px;
+	line-height: inherit;
+	display: inline-block;
 }
 
 .link {
 	color: #0099CC;
 	text-decoration: underline;
-	font-family: 'Roboto';
-	font-weight: 300;
-	font-size: 14px;
-	line-height: 1;
 
 	&:hover,
 	&:active {
@@ -29,8 +34,4 @@
 
 .text {
 	color: #AAA8A4;
-	font-family: 'Roboto';
-	font-weight: 300;
-	font-size: 14px;
-	line-height: 1;
 }
