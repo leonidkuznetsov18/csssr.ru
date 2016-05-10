@@ -26,7 +26,7 @@ const projects = [
 	},
 	{
 		name: 'Финансовая группа Лайф',
-		text: `Выбрал нас ${calcDate(new Date(2014, 10, 28))} назад.`,
+		text: `${calcDate(new Date(2014, 10, 28), new Date(2015, 7, 28))} совместной работы.`,
 	},
 	{
 		name: 'Нота Медиа',

@@ -12,16 +12,15 @@ function plural(num, single, some, multiple) {
 	return multiple;
 }
 
-export default function calcDate(date) {
-	const currentDate = new Date();
+export default function calcDate(date, endDate = new Date()) {
 	const time = [];
-	let year = currentDate.getYear() - date.getYear();
-	let month = currentDate.getMonth() - date.getMonth();
-	let day = currentDate.getDate() - date.getDate();
+	let year = endDate.getYear() - date.getYear();
+	let month = endDate.getMonth() - date.getMonth();
+	let day = endDate.getDate() - date.getDate();
 
 	if (day < 0) {
 		month--;
-		day += daysInMonth[(currentDate.getMonth() - 1 + 12) % 12];
+		day += daysInMonth[(endDate.getMonth() - 1 + 12) % 12];
 	}
 
 	if (month < 0) {
