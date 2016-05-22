@@ -134,6 +134,7 @@
 		height: 53px;
 		background-image: url('../../images/outsource/magic.png');
 		background-size: contain;
+		background-repeat: no-repeat;
 		margin-bottom: 20px;
 	}
 }
