@@ -49,7 +49,9 @@ if (isProduction) {
 
 app.use(limitHandler);
 
-app.post('/jobs', multipartMiddleware, jobs);
+app.post('/jobs', multipart({
+	maxFilesSize: 50 * 1024 * 1024,
+}), jobs);
 app.post('/order', multipartMiddleware, order);
 app.post('/outsource', multipartMiddleware, outsource);
 app.post('/upload', upload.single('file'), handler);

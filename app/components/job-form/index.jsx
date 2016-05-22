@@ -26,6 +26,8 @@ class JobForm extends React.Component {
 		fileWarning: 'Файл, пожалуйста!',
 	}
 
+	state = {}
+
 	renderField(name, label, props) {
 		return (
 			<Field
@@ -48,9 +50,7 @@ class JobForm extends React.Component {
 			[styles.loader]: true,
 			[styles.loader_active]: this.props.submitting,
 		});
-
-		const responseError = this.props.error;
-		const error = responseError === 'ERROR' ? {
+		const error = this.props.error === 'ERROR' ? {
 			title: 'Внимание!',
 			text: <span>
 				Случилось непредвиденное.
@@ -58,7 +58,7 @@ class JobForm extends React.Component {
 				{' '}
 				<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
 			</span>,
-		} : responseError;
+		} : this.props.error;
 
 		return (
 			<form
@@ -66,7 +66,7 @@ class JobForm extends React.Component {
 				noValidate
 				onSubmit={this.props.handleSubmit}
 			>
-				{responseError &&
+				{error &&
 					<div className={styles.error}>
 						<FormValidationWindow {...error} />
 					</div>
@@ -77,7 +77,9 @@ class JobForm extends React.Component {
 				{this.renderField('lastname', 'Фамилия', {
 					small: true,
 				})}
-				{this.renderField('age', 'Возраст')}
+				{this.renderField('age', 'Возраст', {
+					maxLength: 3,
+				})}
 				{this.renderField('location', 'Город')}
 
 				<FieldFile

@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { sendAnswerForm } from 'actions/jobs';
 import JobForm from 'components/job-form';
+import rEmail from 'regex-email';
 
 const fileTypes = {
 	'pixel-perfectionist': {
 		fileAccept: '.zip',
 		regexp: /\.zip$/,
 		fileWarning: 'ZIP, пожалуйста!',
+		fileWarningSize: 'ZIP, пожалуйста (макс. 16 MB)!',
+		maxSize: 16 * 1024 * 1024,
 	},
 	'technical-manager': {
 		fileAccept: '.docx',
 		regexp: /\.docx$/,
 		fileWarning: 'DOCX, пожалуйста!',
+		fileWarningSize: 'DOCX, пожалуйста (макс. 16 MB)!',
+		maxSize: 16 * 1024 * 1024,
 	},
 	'one-site-designer': {
 		fileAccept: '.zip',
 		regexp: /\.zip$/,
 		fileWarning: 'ZIP, пожалуйста!',
+		fileWarningSize: 'ZIP, пожалуйста (макс. 50 MB)!',
+		maxSize: 50 * 1024 * 1024,
 	},
 };
 
@@ -34,7 +41,7 @@ const fileTypes = {
 		'phone',
 	],
 })
-export default class PageJob extends React.Component {
+export default class PageJob extends Component {
 	static propTypes = {
 		handleSubmit: React.PropTypes.func.isRequired,
 		jobName: React.PropTypes.string.isRequired,
@@ -49,14 +56,25 @@ export default class PageJob extends React.Component {
 				const value = values[key];
 
 				if (key === 'file') {
-					const file = fileTypes[this.props.jobName];
+					const fileSpec = fileTypes[this.props.jobName];
+					const file = value[0];
 
-					if (!value || !file.regexp.test(value[0].name)) {
-						errors[key] = fileTypes[this.props.jobName].fileWarning;
+					if (!value || !fileSpec.regexp.test(file.name)) {
+						errors[key] = fileSpec.fileWarning;
+						haveErrors = true;
+					}
+
+					if (file.size > fileSpec.maxSize) {
+						errors[key] = fileSpec.fileWarningSize;
 						haveErrors = true;
 					}
 
 					return;
+				}
+
+				if (key === 'email' && !rEmail.test(value)) {
+					errors[key] = true;
+					haveErrors = true;
 				}
 
 				if (!value) {

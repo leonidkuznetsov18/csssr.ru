@@ -13,6 +13,8 @@ export function sendAnswerForm(values) {
 			.post('/jobs')
 			.send(formData)
 			.end((err, response) => {
+				const { result } = (response.body || { result: 'ERROR' });
+
 				if (response.statusCode === 200) {
 					dispatch(stopSubmit('job'));
 					dispatch(push(`/jobs/${values.vacancy}/thanks`));
@@ -20,7 +22,7 @@ export function sendAnswerForm(values) {
 				}
 
 				dispatch(stopSubmit('job', {
-					_error: response.body.result || true,
+					_error: result || true,
 				}));
 			});
 	};
