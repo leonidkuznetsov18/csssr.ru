@@ -25,7 +25,7 @@ function Description({ data }) {
 							className={styles.cloud}
 							key={key}
 						>
-							<Icon icon='cloud' />
+							<Icon icon={key === 0 ? 'cloud' : 'cloud2'} />
 						</span>
 					))}
 				</div>
