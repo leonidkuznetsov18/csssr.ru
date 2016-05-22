@@ -12,7 +12,8 @@
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
     "server": "node ./server",
-    "production": "npm run build && npm run server"
+    "sitemap": "node ./utils/sitemap-paths",
+    "production": "npm run build && npm run sitemap && npm run server"
   },
   "author": "Aleksandr Petrov @dzhiriki",
   "private": true,
@@ -76,7 +77,7 @@
     "redux-form": "^4.2.0",
     "redux-thunk": "^1.0.0",
     "scrollbar-size": "^1.0.4",
-    "sitemap-webpack-plugin": "^0.1.0",
+    "sitemap": "^1.6.0",
     "shortid": "^2.2.4",
     "superagent": "^1.4.0",
     "transform-loader": "^0.2.3",

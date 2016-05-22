@@ -81,4 +81,6 @@ const paths = parser([], '', rawRoutes);
 const filteredPaths = filterPaths(paths, ignoreRules);
 const processedPaths = replaceParams(filteredPaths, replaceRules);
 
-export default processedPaths;
+export default (
+	processedPaths.map((path) => ({ url: path }))
+);

@@ -3,5 +3,6 @@
 .vagrant
 npm-debug.log
 /static/uploads
+/static/sitemap.xml
 .idea/
 .DS_Store

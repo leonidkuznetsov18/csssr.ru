@@ -12,4 +12,13 @@ process.env = require('../../config/env.js').default;
 require('module').Module._initPaths();
 /* eslint-enable */
 
-module.exports = require('./paths-builder').default;
+const fs = require('fs');
+const sm = require('sitemap');
+const urls = require('./paths-builder').default;
+
+const sitemap = sm.createSitemap({
+	hostname: process.env.BASE_URL,
+	urls,
+});
+
+fs.writeFileSync('./static/sitemap.xml', sitemap.toString());
