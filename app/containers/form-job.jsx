@@ -57,14 +57,12 @@ export default class PageJob extends Component {
 
 				if (key === 'file') {
 					const fileSpec = fileTypes[this.props.jobName];
-					const file = value[0];
+					const file = value && value.length && value[0];
 
-					if (!value || !fileSpec.regexp.test(file.name)) {
+					if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
 						errors[key] = fileSpec.fileWarning;
 						haveErrors = true;
-					}
-
-					if (file.size > fileSpec.maxSize) {
+					} else if (file.size > fileSpec.maxSize) {
 						errors[key] = fileSpec.fileWarningSize;
 						haveErrors = true;
 					}
