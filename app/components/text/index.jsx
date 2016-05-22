@@ -2,6 +2,8 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
+import routerLink from 'helpers/routerLink';
+
 import styles from './styles.css';
 
 function Text({ size, children, indent, color, center, weight }) {
@@ -53,4 +55,4 @@ Text.defaultProps = {
 	indent: true,
 };
 
-export default withStyles(Text, styles);
+export default withStyles(routerLink(Text), styles);
