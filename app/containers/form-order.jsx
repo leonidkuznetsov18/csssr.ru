@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import { sendOrderForm } from 'actions/order';
+import { sendOrderForm, setEmptyFields } from 'actions/order';
 import Uploader from 'components/uploader';
 import Options from 'components/order-options';
 import ContactsForm from 'components/contacts-form';
@@ -9,6 +9,7 @@ import options from 'data/order-options.json';
 import * as actions from 'actions/files';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import rEmail from 'regex-email';
 
 const requiredFields = [
 	'email',
@@ -51,6 +52,16 @@ export default class FormOrder extends React.Component {
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
+	state = {}
+
+	componentWillReceiveProps(props) {
+		const { error } = props;
+
+		if (error === 'EMPTY_FIELDS' || error === false) {
+			this.setState({ error });
+		}
+	}
+
 	handleSubmit = (values, dispatch) => {
 		const { files } = this.props;
 
@@ -58,7 +69,13 @@ export default class FormOrder extends React.Component {
 			const errors = {};
 
 			requiredFields.forEach((key) => {
+				const value = values[key];
+
 				if (!values[key]) {
+					errors[key] = true;
+				}
+
+				if (key === 'email' && !rEmail.test(value)) {
 					errors[key] = true;
 				}
 			});
@@ -72,6 +89,7 @@ export default class FormOrder extends React.Component {
 			}
 
 			if (Object.keys(errors).length) {
+				dispatch(setEmptyFields());
 				reject(errors);
 				return;
 			}
@@ -86,20 +104,26 @@ export default class FormOrder extends React.Component {
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
 		const { fields } = this.props;
+		let { error } = this.state;
 
-		const responseError = this.props.error;
-		const error = {};
-
-		if (fields.files.error) {
-			error.text = fields.files.error;
-		} else if (responseError) {
-			error.title = 'Внимание!';
-			error.text = responseError === 'ERROR' ? <span>
-				Случилось непредвиденное.
-				Пожалуйста, попробуйте отправить форму снова или напишите нам на
-				{' '}
-				<Link href='mailto:sales@csssr.io'>sales@csssr.io</Link>
-			</span> : responseError;
+		if (error === 'EMPTY_FIELDS' || fields.files.error) {
+			error = {
+				title: 'Внимание!',
+				text: <div>
+					{error === 'EMPTY_FIELDS' ? <div>Заполните все обязательные поля формы.</div> : null}
+					{fields.files.error ? <div>{fields.files.error}.</div> : null}
+				</div>,
+			};
+		} else if (error === 'ERROR') {
+			error = {
+				title: 'Внимание!',
+				text: <span>
+					Случилось непредвиденное.
+					Пожалуйста, попробуйте отправить форму снова или напишите нам на
+					{' '}
+					<Link href='mailto:sales@csssr.io'>sales@csssr.io</Link>
+				</span>,
+			};
 		}
 
 		return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { sendAnswerForm } from 'actions/jobs';
+import { sendAnswerForm, setEmptyFields } from 'actions/jobs';
 import JobForm from 'components/job-form';
 import rEmail from 'regex-email';
 
@@ -82,6 +82,7 @@ export default class PageJob extends Component {
 			});
 
 			if (haveErrors) {
+				dispatch(setEmptyFields());
 				reject(errors);
 				return;
 			}
@@ -95,7 +96,6 @@ export default class PageJob extends Component {
 
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
-
 		return (
 			<JobForm
 				{...this.props}

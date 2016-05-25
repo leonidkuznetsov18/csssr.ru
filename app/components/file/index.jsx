@@ -26,7 +26,7 @@ File.propTypes = {
 	filename: React.PropTypes.string,
 	link: React.PropTypes.string,
 	size: React.PropTypes.string,
-	type: React.PropTypes.oneOf(['doc', 'psd']).isRequired,
+	type: React.PropTypes.oneOf(['zip', 'doc', 'psd']).isRequired,
 };
 
 export default withStyles(File, styles);

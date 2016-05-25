@@ -8,6 +8,10 @@ export function sendOutsourceForm(values) {
 
 		Object.keys(values).forEach((key) => formData.append(key, values[key]));
 
+		dispatch(stopSubmit('outsource', {
+			_error: false,
+		}));
+
 		superagent
 			.post('/outsource')
 			.send(formData)
@@ -22,5 +26,14 @@ export function sendOutsourceForm(values) {
 					_error: response.body.result || true,
 				}));
 			});
+	};
+}
+
+
+export function setEmptyFields() {
+	return function (dispatch) {
+		return dispatch(stopSubmit('outsource', {
+			_error: 'EMPTY_FIELDS',
+		}));
 	};
 }

@@ -9,6 +9,10 @@ export function sendOrderForm(values) {
 	}));
 
 	return function (dispatch) {
+		dispatch(stopSubmit('order', {
+			_error: false,
+		}));
+
 		superagent
 			.post('/order')
 			.send(values)
@@ -23,5 +27,14 @@ export function sendOrderForm(values) {
 					_error: response.body.result || true,
 				}));
 			});
+	};
+}
+
+
+export function setEmptyFields() {
+	return function (dispatch) {
+		return dispatch(stopSubmit('order', {
+			_error: 'EMPTY_FIELDS',
+		}));
 	};
 }

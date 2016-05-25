@@ -28,6 +28,14 @@ class JobForm extends React.Component {
 
 	state = {}
 
+	componentWillReceiveProps(props) {
+		const { error } = props;
+
+		if (error === 'EMPTY_FIELDS' || error === false) {
+			this.setState({ error });
+		}
+	}
+
 	renderField(name, label, props) {
 		return (
 			<Field
@@ -50,15 +58,25 @@ class JobForm extends React.Component {
 			[styles.loader]: true,
 			[styles.loader_active]: this.props.submitting,
 		});
-		const error = this.props.error === 'ERROR' ? {
-			title: 'Внимание!',
-			text: <span>
-				Случилось непредвиденное.
-				Пожалуйста, попробуйте отправить форму снова или напишите нам на
-				{' '}
-				<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
-			</span>,
-		} : this.props.error;
+
+		let { error } = this.state;
+
+		if (error === 'ERROR') {
+			error = {
+				title: 'Внимание!',
+				text: <span>
+					Случилось непредвиденное.
+					Пожалуйста, попробуйте отправить форму снова или напишите нам на
+					{' '}
+					<Link href='mailto:hr@csssr.io'>hr@csssr.io</Link>
+				</span>,
+			};
+		} else if (error === 'EMPTY_FIELDS') {
+			error = {
+				title: 'Внимание!',
+				text: 'Заполните все обязательные поля формы.',
+			};
+		}
 
 		return (
 			<form

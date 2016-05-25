@@ -53,6 +53,7 @@
 	width: 240px;
 	display: block;
 	color: #8E4338;
+	font-family: 'PT Sans';
 	font-size: 15px;
 
 	&::before {

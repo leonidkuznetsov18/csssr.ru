@@ -1,5 +1,6 @@
 .root {
-	width: 370px;
+	position: relative;
+	padding-right: calc(100% - 370px);
 	display: block;
 }
 
@@ -31,10 +32,10 @@
 }
 
 .error {
-	width: 280px;
 	position: absolute;
-	margin-top: 20px;
-	margin-left: 430px;
-	margin-right: 20px;
+	top: 20px;
+	left: 430px;
+	right: 0;
+	min-width: 188px;
 	max-width: 280px;
 }

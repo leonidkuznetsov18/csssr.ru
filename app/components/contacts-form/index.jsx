@@ -21,7 +21,7 @@ class ContactsForm extends React.Component {
 	}
 
 	static defaultProps = {
-		error: {},
+		error: null,
 	}
 
 	renderField(name, label, props) {
@@ -47,7 +47,7 @@ class ContactsForm extends React.Component {
 			[styles.loader_active]: this.props.submitting,
 		});
 
-		const error = this.props.error;
+		const { error } = this.props;
 
 		return (
 			<form
@@ -55,7 +55,7 @@ class ContactsForm extends React.Component {
 				noValidate
 				onSubmit={this.props.handleSubmit}
 			>
-				{(error && (error.text || error.title) || typeof error === 'string' && error) &&
+				{error &&
 					<div className={styles.error}>
 						<FormValidationWindow {...error} />
 					</div>

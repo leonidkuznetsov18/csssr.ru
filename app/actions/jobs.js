@@ -9,6 +9,10 @@ export function sendAnswerForm(values) {
 
 		Object.keys(values).forEach((key) => formData.append(key, values[key]));
 
+		dispatch(stopSubmit('job', {
+			_error: false,
+		}));
+
 		superagent
 			.post('/jobs')
 			.send(formData)
@@ -25,5 +29,13 @@ export function sendAnswerForm(values) {
 					_error: result || true,
 				}));
 			});
+	};
+}
+
+export function setEmptyFields() {
+	return function (dispatch) {
+		return dispatch(stopSubmit('job', {
+			_error: 'EMPTY_FIELDS',
+		}));
 	};
 }
