@@ -24,10 +24,13 @@ class Uploader extends React.Component {
 
 	render() {
 		const { active } = this.state;
-		const sectionClass = (isActive) => {
+		const sectionClass = (isActive, type) => {
+			console.log(styles, `section_${type}`);
+
 			return cx({
 				[styles.section]: true,
 				[styles.section_active]: isActive,
+				[styles[`section_${type}`]]: styles[`section_${type}`],
 			});
 		};
 
@@ -54,11 +57,11 @@ class Uploader extends React.Component {
 					</span>
 				</div>
 
-				<div className={sectionClass(active === 'link')}>
+				<div className={sectionClass(active === 'link', 'field')}>
 					<UploaderField {...this.props} />
 				</div>
 
-				<div className={sectionClass(active === 'files')}>
+				<div className={sectionClass(active === 'files', 'dropzone')}>
 					<UploaderDropzone {...this.props} />
 				</div>
 

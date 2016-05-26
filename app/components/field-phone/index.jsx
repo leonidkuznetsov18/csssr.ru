@@ -23,12 +23,20 @@ export default class FieldPhone extends React.Component {
 
 	static defaultProps = {
 		value: '',
+		onChange: () => {},
 	}
 
 	componentWillMount() {
 		this.setState({
 			focused: false,
 			position: null,
+			value: this.props.value,
+		});
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			value: nextProps.value,
 		});
 	}
 
@@ -63,6 +71,7 @@ export default class FieldPhone extends React.Component {
 
 		this.setState({
 			position: getSelection(event.target).start + lengthDiff,
+			value,
 		});
 
 		this.props.onChange(value);
@@ -92,7 +101,7 @@ export default class FieldPhone extends React.Component {
 				onChange={this.handleChange}
 				onFocus={this.handleFocus}
 				position={this.state.position}
-				value={this.formatValue(this.props.value)}
+				value={this.formatValue(this.state.value)}
 			/>
 		);
 	}

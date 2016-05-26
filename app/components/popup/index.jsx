@@ -12,7 +12,7 @@ function Popup(props) {
 
 	return (
 		<div className={popupClass} onClick={props.onClose}>
-			<div className={styles.close} onClick={props.onClose} />
+			<div className={styles.close} />
 			<div className={styles.content}>
 				{props.children}
 			</div>

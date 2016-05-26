@@ -22,6 +22,13 @@ class ContactsForm extends React.Component {
 
 	static defaultProps = {
 		error: null,
+		requiredFields: [],
+		fields: {},
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault();
+		this.props.handleSubmit(event);
 	}
 
 	renderField(name, label, props) {
@@ -53,7 +60,7 @@ class ContactsForm extends React.Component {
 			<form
 				className={styles.root}
 				noValidate
-				onSubmit={this.props.handleSubmit}
+				onSubmit={this.handleSubmit}
 			>
 				{error &&
 					<div className={styles.error}>

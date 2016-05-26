@@ -50,8 +50,4 @@ Radio.propTypes = {
 	}),
 };
 
-Radio.defaultProps = {
-	checked: false,
-};
-
 export default withStyles(Radio, styles);

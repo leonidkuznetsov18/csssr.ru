@@ -1,6 +1,5 @@
 import React from 'react';
 
-import calcDate from 'helpers/calcDate';
 import Content from 'components/content';
 import OutsourceTitle from 'components/outsource-title';
 import OutsourceContent from 'components/outsource-content';
@@ -14,37 +13,14 @@ import Faq from 'components/faq';
 
 const data = require('data/outsource.json');
 const faq = require('data/faq-outsource.json');
-const projects = [
-	{
-		name: 'Банк Тинькофф',
-		text: `Доверяет нам уже ${calcDate(new Date(2015, 0, 16))}.`,
-	},
-	{
-		name: 'Yota',
-		text: `Стараемся на благо <a class='blue-link blue-link_dashed' href='http://yota.ru' target='_blank'>yota.ru</a> уже ${calcDate(new Date(2014, 5, 4))}.`,
-		id: 'yota',
-	},
-	{
-		name: 'Финансовая группа Лайф',
-		text: `${calcDate(new Date(2014, 10, 28), new Date(2015, 7, 28))} совместной работы.`,
-	},
-	{
-		name: 'Нота Медиа',
-		text: 'Приходим на помощь уже несколько лет',
-	},
-	{
-		name: 'Creative People',
-		text: `Выбрали нас ${calcDate(new Date(2014, 9, 22))} назад.`,
-		id: 'cpeople',
-	},
-];
+const partners = require('data/partners.js').default;
 
 export default function Outsource({ children }) {
 	return (
 		<div>
 			<Content>
 				<OutsourceTitle />
-				<OutsourceContent data={data} projects={projects} />
+				<OutsourceContent data={data} partners={partners} />
 				<OutsourcePower />
 				<OutsourceMagic />
 				<OutsourceUse tips={data.tips} />

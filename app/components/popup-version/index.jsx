@@ -6,7 +6,7 @@ import styles from './styles.css';
 
 function PopupVersion(props) {
 	return (
-		<Popup active={props.active} onClose={props.onClose} >
+		<Popup active={props.active} onClose={props.onClose}>
 			<img
 				className={styles.root}
 				src={require(`images/timeline/${props.screenshot}`)}

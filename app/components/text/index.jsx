@@ -16,7 +16,6 @@ function Text({ size, children, indent, color, center, weight }) {
 		[styles.root_size_xxs]: size === 'xxs',
 		[styles.root_noindent]: indent === false,
 		[styles.root_center]: center,
-		[styles.root_color_blue]: color === 'blue',
 		[styles.root_color_grey]: color === 'grey',
 		[styles.root_color_white]: color === 'white',
 		[styles.root_weight_normal]: weight === 'normal',

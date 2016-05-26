@@ -57,10 +57,7 @@ export default function PageJobForm(props) {
 				}
 
 				{data.quest &&
-					<Quest
-						file={data.file}
-						horizon={page === 'technical-manager'}
-					>
+					<Quest file={data.file}>
 						<SectionGroup data={data.quest} />
 					</Quest>
 				}

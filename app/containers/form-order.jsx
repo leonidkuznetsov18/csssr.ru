@@ -2,7 +2,7 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 import { sendOrderForm, setEmptyFields } from 'actions/order';
 import Uploader from 'components/uploader';
-import Options from 'components/order-options';
+import OrderOptions from 'components/order-options';
 import ContactsForm from 'components/contacts-form';
 import Link from 'components/link';
 import options from 'data/order-options.json';
@@ -129,7 +129,7 @@ export default class FormOrder extends React.Component {
 		return (
 			<div>
 				<Uploader {...this.props} />
-				<Options {...this.props} options={options} />
+				<OrderOptions {...this.props} options={options} />
 
 				<ContactsForm
 					{...this.props}

@@ -3,7 +3,6 @@ import { IndexRoute, Route, Redirect } from 'react-router';
 
 import Application from 'containers/application';
 import Index from 'containers/page-index';
-// import IndexBanner from 'components/index-banner';
 import Company from 'containers/page-company';
 import Jobs from 'containers/page-jobs';
 import JobsList from 'containers/page-jobs-list';

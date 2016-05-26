@@ -50,6 +50,11 @@ export default class Parallax extends React.Component {
 			WebkitTransform: `translate3d(0, ${this.state.position}px, 0)`,
 		};
 
-		return React.cloneElement(this.props.children, { style });
+		return React.cloneElement(this.props.children, {
+			style: {
+				...this.props.children.props.style,
+				...style,
+			},
+		});
 	}
 }

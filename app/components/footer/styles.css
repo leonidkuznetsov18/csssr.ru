@@ -6,6 +6,7 @@
 	background-position: bottom;
 	background-size: 440px 66px;
 	height: 65px;
+	display: block;
 }
 
 .inner {

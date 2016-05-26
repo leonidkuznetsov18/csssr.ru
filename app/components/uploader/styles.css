@@ -24,4 +24,8 @@
 	&_active {
 		display: block;
 	}
+
+	&_dropzone {
+		margin-top: 10px;
+	}
 }

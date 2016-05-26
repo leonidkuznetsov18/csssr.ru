@@ -33,7 +33,7 @@ function Faq({ data }) {
 					{data.title}
 				</Title>
 
-				<Text color='blue' size='l'>
+				<Text color='grey' size='l'>
 					{data.comment}
 				</Text>
 			</div>
@@ -50,7 +50,7 @@ function Faq({ data }) {
 
 								{[].concat(item.text).map((text, itemIndex) => (
 									<Text
-										color='blue'
+										color='grey'
 										key={itemIndex}
 										size='m'
 									>

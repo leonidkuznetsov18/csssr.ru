@@ -17,7 +17,7 @@ class Contacts extends React.Component {
 
 	componentWillMount() {
 		this.setState({
-			active: false,
+			active: this.props.active,
 		});
 	}
 

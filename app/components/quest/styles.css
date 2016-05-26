@@ -11,23 +11,13 @@
 	min-height: 195px;
 	display: block;
 	box-sizing: border-box;
-
-	&_horizon {
-		.scissors {
-			top: auto;
-			bottom: -8px;
-			left: auto;
-			right: 62px;
-			transform: rotate(-90deg);
-		}
-	}
 }
 
 .scissors {
 	position: absolute;
 	width: 15px;
 	height: 16px;
-	top: 249px;
+	top: 43%;
 	left: -8px;
 }
 

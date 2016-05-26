@@ -11,8 +11,8 @@ export default function (options) {
 	const classFormat = options.minimize ? '[hash:base64:5]' : '[path]_[local]';
 	let loaders = {
 		json: 'json',
-		'png|jpg|cur|gif': 'url?limit=5000',
-		'woff|woff2': 'url?limit=1',
+		'png|jpg|cur|gif': `url?limit=${options.storybook ? 0 : 5000}`,
+		'woff|woff2': `url?limit=${options.storybook ? 0 : 1}`,
 	};
 	const stylesheetLoaders = {
 		css: [
@@ -47,7 +47,7 @@ export default function (options) {
 		{
 			test: /\.svg$/,
 			exclude: /icons/,
-			loader: 'url?limit=10000',
+			loader: `url?limit=${options.storybook ? 0 : 10000}`,
 		},
 		{
 			test: /icons.+\.svg?$/,

@@ -4,6 +4,7 @@
 	height: 40px;
 	width: 78%;
 	position: relative;
+	display: block;
 }
 
 .list {

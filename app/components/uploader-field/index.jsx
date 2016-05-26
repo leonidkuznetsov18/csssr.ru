@@ -4,7 +4,7 @@ import Field from 'components/field';
 
 import styles from './styles.css';
 
-function UploadFilesLink({ fields }) {
+function UploaderField({ fields = {} }) {
 	return (
 		<div className={styles.root}>
 			<Field
@@ -19,8 +19,8 @@ function UploadFilesLink({ fields }) {
 	);
 }
 
-UploadFilesLink.propTypes = {
+UploaderField.propTypes = {
 	fields: React.PropTypes.object.isRequired,
 };
 
-export default withStyles(UploadFilesLink, styles);
+export default withStyles(UploaderField, styles);

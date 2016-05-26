@@ -49,8 +49,4 @@ Checkbox.propTypes = {
 	}),
 };
 
-Checkbox.defaultProps = {
-	checked: false,
-};
-
 export default withStyles(Checkbox, styles);

@@ -22,16 +22,24 @@ class JobForm extends React.Component {
 	}
 
 	static defaultProps = {
+		fields: {},
 		fileAccept: '',
-		fileWarning: 'Файл, пожалуйста!',
 	}
 
 	state = {}
 
-	componentWillReceiveProps(props) {
+	componentWillMount() {
+		this.setError(this.props);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setError(nextProps);
+	}
+
+	setError(props = this.props) {
 		const { error } = props;
 
-		if (error === 'EMPTY_FIELDS' || error === false) {
+		if (error || error === false) {
 			this.setState({ error });
 		}
 	}

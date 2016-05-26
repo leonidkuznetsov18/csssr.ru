@@ -29,11 +29,21 @@ function TimelinePopup(props) {
 				</div>
 
 				{props.histories &&
-					<TimelineQuote text={props.histories} title='История связанная с CSSSR' />
+					<div className={styles.quoute}>
+						<TimelineQuote
+							text={props.histories}
+							title='История связанная с CSSSR'
+						/>
+					</div>
 				}
 
 				{props.wishes &&
-					<TimelineQuote text={props.wishes} title='Пожелания CSSSR' />
+					<div className={styles.quoute}>
+						<TimelineQuote
+							text={props.wishes}
+							title='Пожелания CSSSR'
+						/>
+					</div>
 				}
 			</div>
 		</Popup>

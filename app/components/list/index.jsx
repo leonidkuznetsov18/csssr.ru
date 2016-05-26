@@ -5,7 +5,7 @@ import Text from 'components/text';
 
 import styles from './styles.css';
 
-function List({ items, props }) {
+function List({ items, props = {} }) {
 	const classList = cx({
 		[styles.item]: true,
 		[styles.item_size_s]: props.size === 's',

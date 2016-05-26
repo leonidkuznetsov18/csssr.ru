@@ -11,7 +11,7 @@ function UploaderFiles({ files, removeFile }) {
 	const globalProgress = summaryProgress / loadingFiles.length;
 	const progressClass = cx({
 		[styles.progress]: true,
-		[styles.progress_hidden]: !globalProgress,
+		[styles.progress_hidden]: !loadingFiles.length || globalProgress === 100,
 	});
 	const handleRemoveFile = (file) => () => removeFile(file.id);
 

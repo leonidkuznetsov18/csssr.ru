@@ -4,5 +4,6 @@
 npm-debug.log
 /static/uploads
 /static/sitemap.xml
+/static/components
 .idea/
 .DS_Store

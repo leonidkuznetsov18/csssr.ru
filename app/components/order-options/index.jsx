@@ -7,7 +7,7 @@ import Options from 'components/options';
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';
 
-function generateProps(fieldProps, fieldName, fieldValue, isRadio) {
+function generateProps(fieldProps = {}, fieldName, fieldValue, isRadio) {
 	if (isRadio) {
 		return {
 			...fieldProps,
@@ -100,4 +100,9 @@ export default function OrderOptions({ options, fields }) {
 OrderOptions.propTypes = {
 	fields: React.PropTypes.object.isRequired,
 	options: React.PropTypes.object.isRequired,
+};
+
+OrderOptions.defaultProps = {
+	fields: {},
+	options: [],
 };

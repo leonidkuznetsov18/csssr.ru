@@ -9,7 +9,7 @@ import OutsourceService from 'components/outsource-service';
 
 import styles from './styles.css';
 
-function OutsourceContent({ data, projects }) {
+function OutsourceContent({ data, partners }) {
 	return (
 		<div className={styles.root}>
 			<div className={styles.events}>
@@ -48,7 +48,7 @@ function OutsourceContent({ data, projects }) {
 				</div>
 
 				<div className={styles.projects}>
-					<OutsourceProjects projects={projects} />
+					<OutsourceProjects partners={partners} />
 				</div>
 			</div>
 		</div>
@@ -57,7 +57,7 @@ function OutsourceContent({ data, projects }) {
 
 OutsourceContent.propTypes = {
 	data: React.PropTypes.object.isRequired,
-	projects: React.PropTypes.array,
+	partners: React.PropTypes.array,
 };
 
 export default withStyles(OutsourceContent, styles);

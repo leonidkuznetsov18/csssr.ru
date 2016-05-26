@@ -20,7 +20,6 @@ class ProjectFrame extends React.Component {
 		this.refs.iframe.addEventListener('load', this.props.onLoad);
 	}
 
-
 	render() {
 		const { loaded, url } = this.props;
 		const loaderClass = cx({

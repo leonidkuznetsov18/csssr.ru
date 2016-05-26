@@ -2,10 +2,10 @@ import React from 'react';
 
 import OutsourceProject from 'components/outsource-project';
 
-export default function OutsourceProjects({ projects }) {
+export default function OutsourceProjects({ partners }) {
 	return (
 		<div>
-			{projects.map((partner, index) => (
+			{partners.map((partner, index) => (
 				<OutsourceProject key={index} partner={partner} />
 			))}
 		</div>
@@ -13,5 +13,5 @@ export default function OutsourceProjects({ projects }) {
 }
 
 OutsourceProjects.propTypes = {
-	projects: React.PropTypes.array.isRequired,
+	partners: React.PropTypes.array.isRequired,
 };
