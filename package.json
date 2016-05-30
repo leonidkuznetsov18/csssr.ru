@@ -9,7 +9,6 @@
     "eslint-pr": "eslint --ext .js,.jsx `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'jsx?$'`",
     "stylelint": "stylelint app/components/**/*.css",
     "stylelint-pr": "stylelint `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'css?$'`",
-    "prebuild": "npm run storybook-build",
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
     "server": "node ./server",
