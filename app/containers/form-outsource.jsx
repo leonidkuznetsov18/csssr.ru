@@ -32,7 +32,7 @@ export default class FormOutsource extends React.Component {
 	componentWillReceiveProps(props) {
 		const { error } = props;
 
-		if (error === 'EMPTY_FIELDS' || error === false) {
+		if (error || error === false) {
 			this.setState({ error });
 		}
 	}

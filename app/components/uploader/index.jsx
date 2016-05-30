@@ -25,8 +25,6 @@ class Uploader extends React.Component {
 	render() {
 		const { active } = this.state;
 		const sectionClass = (isActive, type) => {
-			console.log(styles, `section_${type}`);
-
 			return cx({
 				[styles.section]: true,
 				[styles.section_active]: isActive,

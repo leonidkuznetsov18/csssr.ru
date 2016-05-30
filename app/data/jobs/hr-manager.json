@@ -14,7 +14,7 @@
 		},
 		{
 			"title": {
-				"text": "Кртако о работе",
+				"text": "Кратко о работе",
 				"props": {
 					"size": "medium"
 				}
@@ -86,7 +86,7 @@
 		},
 		{
 			"title": {
-				"text": "Тестовый квест",
+				"text": "P/S",
 				"props": {
 					"size": "small"
 				}
