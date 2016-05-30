@@ -26,6 +26,13 @@ const fileTypes = {
 		fileWarningSize: 'ZIP, пожалуйста (макс. 50 MB)!',
 		maxSize: 50 * 1024 * 1024,
 	},
+	'hr-manager': {
+		fileAccept: '.xlsx',
+		regexp: /\.xlsx$/,
+		fileWarning: 'XLSX, пожалуйста!',
+		fileWarningSize: 'XLSX, пожалуйста (макс. 16 MB)!',
+		maxSize: 16 * 1024 * 1024,
+	},
 };
 
 @reduxForm({
@@ -35,6 +42,7 @@ const fileTypes = {
 		'lastname',
 		'age',
 		'location',
+		'resume',
 		'file',
 		'email',
 		'skype',

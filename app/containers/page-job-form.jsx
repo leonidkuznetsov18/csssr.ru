@@ -14,11 +14,13 @@ const pages = {
 	'technical-manager': 'Менеджер-технарь',
 	'pixel-perfectionist': 'Верстальщик пиксель-перфекционист',
 	'one-site-designer': 'Дизайнер одного сайта и двух интерфейсов',
+	'hr-manager': 'HR-менеджер',
 };
 const dataList = {
 	'pixel-perfectionist': require('data/jobs/pixel-perfectionist.json'),
 	'technical-manager': require('data/jobs/technical-manager.json'),
 	'one-site-designer': require('data/jobs/one-site-designer.json'),
+	'hr-manager': require('data/jobs/hr-manager.json'),
 };
 
 export default function PageJobForm(props) {

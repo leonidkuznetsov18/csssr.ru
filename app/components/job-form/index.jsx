@@ -86,6 +86,15 @@ class JobForm extends React.Component {
 			};
 		}
 
+		const { fileAccept } = this.props;
+		let questText = '';
+
+		if (fileAccept === '.zip') {
+			questText = '(упакованный в ZIP)';
+		} else if (fileAccept === '.xlsx') {
+			questText = '(в формате XLSX)';
+		}
+
 		return (
 			<form
 				className={styles.root}
@@ -107,10 +116,11 @@ class JobForm extends React.Component {
 					maxLength: 3,
 				})}
 				{this.renderField('location', 'Город')}
+				{this.renderField('resume', 'Ссылка на резюме')}
 
 				<FieldFile
-					fileAccept={this.props.fileAccept}
-					label={`Тестовый квест ${this.props.fileAccept === '.zip' ? '(упакованный в ZIP)' : ''}`}
+					fileAccept={fileAccept}
+					label={`Тестовый квест ${questText}`}
 					required
 					{...this.props.fields.file}
 				/>
