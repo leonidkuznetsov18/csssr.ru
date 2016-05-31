@@ -47,6 +47,7 @@
 	color: #847C6B;
 	font-family: 'PT Sans';
 	font-size: 13px;
+	cursor: pointer;
 	display: block;
 	transition: all .3s ease;
 }

@@ -40,8 +40,13 @@
 	}
 
 	&_color_blue&_active {
+		cursor: default;
 		color: #DF0B0B;
 		border-bottom: none;
+
+		&:hover {
+			border-bottom: none;
+		}
 	}
 
 	&_color_yellow {
