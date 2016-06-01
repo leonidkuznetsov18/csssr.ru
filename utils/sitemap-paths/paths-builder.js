@@ -1,12 +1,12 @@
 import { createRoutes } from 'react-router';
 import routes from '../../app/routes';
 import parser from './react-router-parser';
-import { persons, vacancies } from './data-routes';
+import { vacancies } from './data-routes';
 
 const ignoreRules = [
 	/\*/,
 	/^\/portfolio\/.+/,
-	/^\/timeline\/(version).+/,
+	/^\/timeline/,
 	/^\/vacancy/,
 	/^\/order\/.+/,
 	/^\/offert/,
@@ -20,10 +20,6 @@ const replaceRules = {
 	'/jobs/:jobName': {
 		param: 'jobName',
 		values: vacancies,
-	},
-	'/timeline/:person': {
-		param: 'person',
-		values: persons,
 	},
 };
 
