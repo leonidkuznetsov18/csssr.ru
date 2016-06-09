@@ -12,7 +12,7 @@
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
     "server": "node ./server",
-    "sitemap": "node ./utils/sitemap-paths",
+    "sitemap": "node ./utils/sitemap",
     "production": "npm run build && npm run sitemap && npm run server",
     "storybook": "start-storybook -p 9001",
     "storybook-build": "build-storybook -o static/components"
@@ -111,6 +111,7 @@
     "phantomjs": "^2.1.0",
     "phantomjs-polyfill": "0.0.1",
     "phantomjs-prebuilt": "^2.1.7",
+    "react-router-sitemap": "^1.0.7",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
