@@ -8,8 +8,11 @@ import useScroll from 'use-scroll-behavior';
 import store from './store';
 import routes from './routes';
 import redirect from './helpers/redirectOldUrls';
+import decorateConsole from './helpers/consoleDecorator';
 
 redirect();
+
+decorateConsole();
 
 const history = syncHistoryWithStore(useScroll(browserHistory), store);
 
