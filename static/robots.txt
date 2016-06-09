@@ -1,13 +1,17 @@
 User-agent: *
-Disallow: /offert.html
-Disallow: /confidential.html
-Disallow: /thanks.html
-Disallow: /en-thanks.html
-Disallow: /view-project.html
-Disallow: /optmized
-Disallow: /pixel-perfectionist.html
-Disallow: /pixel-perfectionists-thanks.html
-Disallow: /timeline.html
-Disallow: /contacts.html
-Disallow: /iwannabe/
-Disallow: /browsehappy/
+
+Disallow: /jobs/pixel-perfectionist/thanks
+Disallow: /jobs/technical-manager/thanks
+Disallow: /jobs/one-site-designer/thanks
+Disallow: /jobs/hr-manager/thanks
+Disallow: /order/thanks
+Disallow: /outsource/yota
+Disallow: /outsource/cpeople
+Disallow: /outsource/thanks
+Disallow: /portfolio
+Disallow: /offert
+Disallow: /confidential
+Disallow: /timeline
+Disallow: /vacancy
+
+Sitemap: http://csssr.ru/sitemap.xml
