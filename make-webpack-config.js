@@ -1,14 +1,20 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import AssetsPlugin from 'assets-webpack-plugin';
 import loadersByExtension from './utils/loadersByExtension';
 
 process.env = require('./config/env.js').default;
 
-export default function (options) {
+export default (options) => {
+	const isProdClient = options.minimize && !options.prerender;
 	const root = path.join(__dirname, 'app');
 	const publicPath = '/_assets/';
 	const classFormat = options.minimize ? '[hash:base64:5]' : '[path]_[local]';
+	const outputPath = path.join(__dirname, 'build', options.prerender ? 'prerender' : 'public');
+	const outputFilename = isProdClient ? '[name]-[hash].js' : '[name].js';
+	const outputChunkFilename = options.devServer ? '[id].js' : outputFilename;
+	const assetsMapFile = 'assets.json';
 	let loaders = {
 		json: 'json',
 		'png|jpg|cur|gif': `url?limit=${options.storybook ? 0 : 5000}`,
@@ -59,10 +65,10 @@ export default function (options) {
 		},
 	];
 	const output = {
-		path: path.join(__dirname, 'build', options.prerender ? 'prerender' : 'public'),
+		path: outputPath,
 		publicPath,
-		filename: '[name].js',
-		chunkFilename: (options.devServer ? '[id].js' : '[name].js'),
+		filename: outputFilename,
+		chunkFilename: outputChunkFilename,
 		sourceMapFilename: 'debugging/[file].map',
 		libraryTarget: options.prerender ? 'commonjs2' : undefined,
 		pathinfo: options.debug || options.prerender,
@@ -109,7 +115,17 @@ export default function (options) {
 	if (options.minimize) {
 		plugins.push(
 			new webpack.optimize.UglifyJsPlugin(),
-			new webpack.optimize.DedupePlugin()
+			new webpack.optimize.DedupePlugin(),
+		);
+	}
+
+	if (isProdClient) {
+		plugins.push(
+			new AssetsPlugin({
+				path: outputPath,
+				filename: assetsMapFile,
+				fullPath: false,
+			}),
 		);
 	}
 
@@ -176,4 +192,4 @@ export default function (options) {
 			hot: true,
 		},
 	};
-}
+};

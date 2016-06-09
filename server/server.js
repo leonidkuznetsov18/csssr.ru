@@ -67,6 +67,7 @@ app.use(express.static(ASSETS, {
 app.get('/*', function (request, response) {
 	let rendered;
 	let style;
+	let script = SCRIPT_URL;
 
 	if (/\.html$/.test(request.path)) {
 		response.redirect(301, request.path.replace(/\.html?/, ''));
@@ -74,7 +75,10 @@ app.get('/*', function (request, response) {
 	}
 
 	if (isProduction) {
+		const publicAssets = require('../build/public/assets.json');
+
 		rendered = renderApplication(request, response);
+		script = publicPath + publicAssets.main.js;
 		style = STYLE;
 
 		if (!rendered.content) {
@@ -84,7 +88,7 @@ app.get('/*', function (request, response) {
 
 	const layout = React.createElement(Layout, {
 		...rendered,
-		script: SCRIPT_URL,
+		script,
 		style,
 	});
 
