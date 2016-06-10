@@ -12,6 +12,8 @@ import { requestVacancies } from 'actions/vacancies';
 import mdToHtmlLink from 'helpers/md-to-html-link';
 import mdToHtmlStrike from 'helpers/md-to-html-strike';
 
+const formatText = (str) => mdToHtmlStrike(mdToHtmlLink(str));
+
 const defaultFieldPropTypes = {
 	type: PropTypes.string.isRequired,
 	title: PropTypes.string,
@@ -76,10 +78,6 @@ export default class PageJobForm extends Component {
 		};
 	}
 
-	formatText(str) {
-		return mdToHtmlStrike(mdToHtmlLink(str));
-	}
-
 	formatSection({ title, text, boldText, list }, { isSubSection = false, titleProps } = {}) {
 		const data = {};
 
@@ -94,7 +92,7 @@ export default class PageJobForm extends Component {
 
 		if (text) {
 			data.description = {
-				text: this.formatText(text),
+				text: formatText(text),
 				props: boldText ? {
 					weight: 'normal',
 				} : {
@@ -105,7 +103,7 @@ export default class PageJobForm extends Component {
 
 		if (list) {
 			data.list = {
-				items: list.map((item) => this.formatText(item)),
+				items: list.map((item) => formatText(item)),
 				props: {
 					size: isSubSection ? 'xs' : 's',
 				},
