@@ -51,11 +51,12 @@ const fileTypes = {
 })
 export default class PageJob extends Component {
 	static propTypes = {
+		fileType: React.PropTypes.object,
 		handleSubmit: React.PropTypes.func.isRequired,
-		jobName: React.PropTypes.string.isRequired,
+		jobName: React.PropTypes.string,
 	}
 
-	handleSubmit = (values, dispatch) => {
+	handleSubmit(values, dispatch) {
 		return new Promise((resolve, reject) => {
 			const errors = {};
 			let haveErrors = false;
@@ -64,7 +65,7 @@ export default class PageJob extends Component {
 				const value = values[key];
 
 				if (key === 'file') {
-					const fileSpec = fileTypes[this.props.jobName];
+					const fileSpec = this.props.fileType || fileTypes[this.props.jobName];
 					const file = value && value.length && value[0];
 
 					if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
@@ -103,11 +104,11 @@ export default class PageJob extends Component {
 	}
 
 	render() {
-		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
+		const handleSubmit = this.props.handleSubmit(this.handleSubmit.bind(this));
 		return (
 			<JobForm
 				{...this.props}
-				{...fileTypes[this.props.jobName]}
+				{...(this.props.fileType || fileTypes[this.props.jobName])}
 				handleSubmit={handleSubmit}
 			/>
 		);

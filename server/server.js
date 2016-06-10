@@ -10,6 +10,7 @@ import webpack from 'webpack';
 import jobs from './jobs';
 import outsource from './outsource';
 import order from './order';
+import vacancies from './vacancies';
 import { handler, limitHandler, upload } from './upload';
 import multipart from 'connect-multiparty';
 
@@ -55,6 +56,7 @@ app.post('/jobs', multipart({
 app.post('/order', multipartMiddleware, order);
 app.post('/outsource', multipartMiddleware, outsource);
 app.post('/upload', upload.single('file'), handler);
+app.get('/vacancies/:filter', vacancies);
 
 app.get('/static/*', (req, res) => {
 	res.redirect(req.path.substr('static/'.length));
