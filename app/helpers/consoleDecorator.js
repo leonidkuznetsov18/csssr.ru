@@ -1,8 +1,26 @@
 const configMessage = [
 	{
-		text: ':hug:\n',
+		text: ':',
 		styles: [
-			'font-family: "Roboto";',
+			'font-family: Times New Roman;',
+			'font-size: 270px;',
+			'font-weight: 700;',
+			'color: #333;',
+		],
+	},
+	{
+		text: 'hug',
+		styles: [
+			'font-family: Roboto, Helvetica;',
+			'font-size: 270px;',
+			'font-weight: 700;',
+			'color: #333;',
+		],
+	},
+	{
+		text: ':\n',
+		styles: [
+			'font-family: Times New Roman;',
 			'font-size: 270px;',
 			'font-weight: 700;',
 			'color: #333;',
@@ -11,7 +29,7 @@ const configMessage = [
 	{
 		text: 'Давай к нам: ',
 		styles: [
-			'font-family: "Roboto";',
+			'font-family: "Tahoma";',
 			'font-size: 24px;',
 			'color: #333;',
 			'margin-left: 3em;',
@@ -20,7 +38,7 @@ const configMessage = [
 	{
 		text: 'hr@csssr.io',
 		styles: [
-			'font-family: "Roboto";',
+			'font-family: "Tahoma";',
 			'font-size: 24px;',
 			'color: #158ecd;',
 		],
