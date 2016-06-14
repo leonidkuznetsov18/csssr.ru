@@ -34,6 +34,7 @@
     "classnames": "^2.1.5",
     "compression": "^1.6.0",
     "connect-multiparty": "^2.0.0",
+    "console.style": "^0.2.2",
     "css-loader": "^0.23.0",
     "css-mqpacker": "^4.0.0",
     "envify": "^3.4.0",
@@ -116,7 +117,7 @@
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
-    "stylelint": "^6.2.2",
+    "stylelint": "6.5.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1"
   }
