@@ -23,7 +23,7 @@ function getFormData(data) {
 
 function sendOutsourceMail(toolsData, data) {
 	return sendMail({
-		subject: `CSSSR. Заказ на аутсорс номер ${toolsData.orderNumber}`,
+		subject: `Аутсорсинг ${toolsData.orderNumber}`,
 		replyTo: data.email,
 		html: ReactDOMServer.renderToStaticMarkup(
 			<MailOutsource data={data} toolsData={toolsData} />
