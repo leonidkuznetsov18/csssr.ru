@@ -5,7 +5,6 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import Layout from '../app/components/layout';
-import morgan from 'morgan';
 import webpack from 'webpack';
 import jobs from './jobs';
 import outsource from './outsource';
@@ -13,6 +12,7 @@ import order from './order';
 import vacancies from './vacancies';
 import { handler, limitHandler, upload } from './upload';
 import multipart from 'connect-multiparty';
+import logger from './logger';
 
 const app = express();
 const multipartMiddleware = multipart();
@@ -29,6 +29,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 
+app.enable('trust proxy');
+app.use(logger({ debug: !isProduction }));
+
 if (isProduction) {
 	renderApplication = require('../build/prerender/main.js').default;
 
@@ -39,7 +42,6 @@ if (isProduction) {
 	const config = require('../webpack-dev.config.js');
 	const compiler = webpack(config);
 
-	app.use(morgan('dev'));
 	app.use(require('webpack-dev-middleware')(compiler, {
 		noInfo: true,
 		publicPath: config.output.publicPath,
