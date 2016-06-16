@@ -50,7 +50,7 @@ export default function logger({ debug = false } = { debug: false }) {
 
 	const logsStream = FileStreamRotator.getStream({
 		date_format: 'YYYY-MM-DD',
-		filename: join(logsPath, 'hr-%DATE%.log'),
+		filename: join(logsPath, 'csssr-%DATE%.log'),
 		frequency: 'daily',
 		verbose: false,
 	});
