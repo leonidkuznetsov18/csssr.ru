@@ -7,6 +7,7 @@ const dataList = {
 	'technical-manager': require('data/jobs/technical-manager.json'),
 	'one-site-designer': require('data/jobs/one-site-designer.json'),
 	'hr-manager': require('data/jobs/hr-manager.json'),
+	'ui-ux-designer': require('data/jobs/ui-ux-designer.json'),
 };
 
 Object.keys(dataList).forEach((job) =>

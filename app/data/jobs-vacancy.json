@@ -34,5 +34,14 @@
 				"url": "/jobs/hr-manager"
 			}
 		]
+	},
+	{
+		"vacancies": [
+			{
+				"id": "ui-ux-designer",
+				"name": "UI/UX-дизайнер",
+				"url": "/jobs/ui-ux-designer"
+			}
+		]
 	}
 ]

@@ -18,6 +18,7 @@ class JobForm extends React.Component {
 		fields: React.PropTypes.object.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
+		options: React.PropTypes.object.isRequired,
 		submitting: React.PropTypes.bool.isRequired,
 	}
 
@@ -86,13 +87,15 @@ class JobForm extends React.Component {
 			};
 		}
 
-		const { fileAccept } = this.props;
+		const { fileAccept, options: { fields } } = this.props;
 		let questText = '';
 
 		if (fileAccept === '.zip') {
 			questText = '(упакованный в ZIP)';
 		} else if (fileAccept === '.xlsx') {
 			questText = '(в формате XLSX)';
+		} else if (fileAccept === '.sketch') {
+			questText = '(в формате Sketch)';
 		}
 
 		return (
@@ -116,7 +119,8 @@ class JobForm extends React.Component {
 					maxLength: 3,
 				})}
 				{this.renderField('location', 'Город')}
-				{this.renderField('resume', 'Ссылка на резюме')}
+				{fields.resume && this.renderField('resume', 'Ссылка на резюме')}
+				{fields.portfolio && this.renderField('portfolio', 'Ссылка на портфолио')}
 
 				<FieldFile
 					fileAccept={fileAccept}

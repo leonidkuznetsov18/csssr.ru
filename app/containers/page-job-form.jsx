@@ -15,12 +15,14 @@ const pages = {
 	'pixel-perfectionist': 'Верстальщик пиксель-перфекционист',
 	'one-site-designer': 'Дизайнер одного сайта и двух интерфейсов',
 	'hr-manager': 'HR-менеджер',
+	'ui-ux-designer': 'UI/UX-дизайнер',
 };
 const dataList = {
 	'pixel-perfectionist': require('data/jobs/pixel-perfectionist.json'),
 	'technical-manager': require('data/jobs/technical-manager.json'),
 	'one-site-designer': require('data/jobs/one-site-designer.json'),
 	'hr-manager': require('data/jobs/hr-manager.json'),
+	'ui-ux-designer': require('data/jobs/ui-ux-designer.json'),
 };
 
 export default function PageJobForm(props) {
@@ -68,7 +70,7 @@ export default function PageJobForm(props) {
 					<SectionGroup data={data.afterQuest} />
 				}
 
-				<FormJob jobName={page} />
+				<FormJob jobName={page} options={data.options} />
 			</Content>
 		</div>
 	);

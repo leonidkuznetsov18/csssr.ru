@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { sendAnswerForm, setEmptyFields } from 'actions/jobs';
 import JobForm from 'components/job-form';
 import rEmail from 'regex-email';
+import pick from 'lodash.pick';
 
 const fileTypes = {
 	'pixel-perfectionist': {
@@ -33,6 +34,13 @@ const fileTypes = {
 		fileWarningSize: 'XLSX, пожалуйста (макс. 16 MB)!',
 		maxSize: 16 * 1024 * 1024,
 	},
+	'ui-ux-designer': {
+		fileAccept: '.sketch',
+		regexp: /\.sketch$/,
+		fileWarning: 'SKETCH, пожалуйста!',
+		fileWarningSize: 'SKETCH, пожалуйста (макс. 50 MB)!',
+		maxSize: 50 * 1024 * 1024,
+	},
 };
 
 @reduxForm({
@@ -43,6 +51,7 @@ const fileTypes = {
 		'age',
 		'location',
 		'resume',
+		'portfolio',
 		'file',
 		'email',
 		'skype',
@@ -54,14 +63,28 @@ export default class PageJob extends Component {
 		fileType: React.PropTypes.object,
 		handleSubmit: React.PropTypes.func.isRequired,
 		jobName: React.PropTypes.string,
+		options: React.PropTypes.object,
+	}
+
+	static defaultProps = {
+		options: {
+			fields: {
+				resume: true,
+				portfolio: false,
+			},
+		},
 	}
 
 	handleSubmit(values, dispatch) {
 		return new Promise((resolve, reject) => {
 			const errors = {};
 			let haveErrors = false;
+			const { options } = this.props;
+			const fields = Object.keys(values).filter((item) =>
+				typeof options.fields[item] === 'boolean' ? options.fields[item] : true
+			);
 
-			Object.keys(values).forEach((key) => {
+			fields.forEach((key) => {
 				const value = values[key];
 
 				if (key === 'file') {
@@ -97,7 +120,7 @@ export default class PageJob extends Component {
 			}
 
 			dispatch(sendAnswerForm({
-				...values,
+				...pick(values, fields),
 				vacancy: this.props.jobName,
 			}));
 		});
@@ -110,6 +133,7 @@ export default class PageJob extends Component {
 				{...this.props}
 				{...(this.props.fileType || fileTypes[this.props.jobName])}
 				handleSubmit={handleSubmit}
+				options={this.props.options}
 			/>
 		);
 	}
