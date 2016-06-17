@@ -5,37 +5,6 @@ import JobForm from 'components/job-form';
 import rEmail from 'regex-email';
 import pick from 'lodash.pick';
 
-const fileTypes = {
-	'pixel-perfectionist': {
-		fileAccept: '.zip',
-		regexp: /\.zip$/,
-		fileWarning: 'ZIP, пожалуйста!',
-		fileWarningSize: 'ZIP, пожалуйста (макс. 16 MB)!',
-		maxSize: 16 * 1024 * 1024,
-	},
-	'technical-manager': {
-		fileAccept: '.docx',
-		regexp: /\.docx$/,
-		fileWarning: 'DOCX, пожалуйста!',
-		fileWarningSize: 'DOCX, пожалуйста (макс. 16 MB)!',
-		maxSize: 16 * 1024 * 1024,
-	},
-	'hr-manager': {
-		fileAccept: '.xlsx',
-		regexp: /\.xlsx$/,
-		fileWarning: 'XLSX, пожалуйста!',
-		fileWarningSize: 'XLSX, пожалуйста (макс. 16 MB)!',
-		maxSize: 16 * 1024 * 1024,
-	},
-	'ui-ux-designer': {
-		fileAccept: '.sketch',
-		regexp: /\.sketch$/,
-		fileWarning: 'SKETCH, пожалуйста!',
-		fileWarningSize: 'SKETCH, пожалуйста (макс. 50 MB)!',
-		maxSize: 50 * 1024 * 1024,
-	},
-};
-
 @reduxForm({
 	form: 'job',
 	fields: [
@@ -59,29 +28,26 @@ export default class PageJob extends Component {
 		options: React.PropTypes.object,
 	}
 
-	static defaultProps = {
-		options: {
-			fields: {
-				resume: true,
-				portfolio: false,
-			},
-		},
-	}
-
 	handleSubmit(values, dispatch) {
 		return new Promise((resolve, reject) => {
+			console.info(values);
 			const errors = {};
 			let haveErrors = false;
-			const { options } = this.props;
+			const { hasResume, hasPortfolio } = this.props.options;
+			const optionalFields = {
+				resume: hasResume,
+				portfolio: hasPortfolio,
+			};
+
 			const fields = Object.keys(values).filter((item) =>
-				typeof options.fields[item] === 'boolean' ? options.fields[item] : true
+				typeof optionalFields[item] === 'boolean' ? optionalFields[item] : true
 			);
 
 			fields.forEach((key) => {
 				const value = values[key];
 
 				if (key === 'file') {
-					const fileSpec = this.props.fileType || fileTypes[this.props.jobName];
+					const fileSpec = this.props.fileType;
 					const file = value && value.length && value[0];
 
 					if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
@@ -124,7 +90,7 @@ export default class PageJob extends Component {
 		return (
 			<JobForm
 				{...this.props}
-				{...(this.props.fileType || fileTypes[this.props.jobName])}
+				{...this.props.fileType}
 				handleSubmit={handleSubmit}
 				options={this.props.options}
 			/>

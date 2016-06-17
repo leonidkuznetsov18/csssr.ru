@@ -8,7 +8,7 @@ import Jobs from 'containers/page-jobs';
 import JobsList from 'containers/page-jobs-list';
 import Job from 'containers/page-job';
 import JobPreview from 'containers/page-job-preview';
-import JobForm from 'containers/page-job-form';
+import JobActive from 'containers/page-job-active';
 import Order from 'containers/page-order';
 import OrderForm from 'containers/page-order-form';
 import Outsource from 'containers/page-outsource';
@@ -31,7 +31,7 @@ export default (
 			<IndexRoute component={JobsList} />
 			<Route component={JobPreview} path='preview/:jobName' />
 			<Route component={Job} path=':jobName'>
-				<IndexRoute component={JobForm} />
+				<IndexRoute component={JobActive} />
 				<Route component={Thanks} path='thanks' />
 			</Route>
 		</Route>

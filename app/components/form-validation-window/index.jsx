@@ -23,7 +23,7 @@ FormValidationWindow.propTypes = {
 		React.PropTypes.arrayOf(React.PropTypes.node),
 		React.PropTypes.node,
 	]),
-	text: React.PropTypes.string,
+	text: React.PropTypes.any,
 	title: React.PropTypes.string,
 };
 

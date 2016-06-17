@@ -1,0 +1,10 @@
+.root {
+	padding: 20px;
+	display: block;
+	font-family: 'PT Sans';
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+	color: #591200;
+	background-color: #fdb00a;
+}

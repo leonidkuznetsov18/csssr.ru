@@ -1,7 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
-import Icon from 'components/icon';
 
 import styles from './styles.css';
 
@@ -10,17 +9,16 @@ class JobsVacancy extends React.Component {
 		data: React.PropTypes.array.isRequired,
 	}
 
-	renderLink = (vacancy, index) => {
-		const isInternalLink = !/^(https?:)?\/\//.test(vacancy.url);
+	renderLink = (name, url) => {
+		const isInternalLink = !/^(https?:)?\/\//.test(url);
 
 		if (isInternalLink) {
 			return (
 				<Link
 					className={styles.link}
-					key={index}
-					to={vacancy.url}
+					to={url}
 				>
-					{vacancy.name}
+					{name}
 				</Link>
 			);
 		}
@@ -28,14 +26,10 @@ class JobsVacancy extends React.Component {
 		return (
 			<a
 				className={styles.link}
-				href={vacancy.url}
-				key={index}
+				href={url}
 				target='_blank'
 			>
-				{vacancy.name}
-				{vacancy.hh &&
-					<Icon className={styles.hh} icon='hh' />
-				}
+				{name}
 			</a>
 		);
 
@@ -46,11 +40,9 @@ class JobsVacancy extends React.Component {
 
 		return (
 			<ul className={styles.root}>
-				{data.map((vacancy, index) => (
+				{data.map(({ name, url }, index) => (
 					<li className={styles.item} key={index}>
-						{vacancy.name}
-						{' '}
-						{vacancy.vacancies.map(this.renderLink)}
+						{this.renderLink(name, url)}
 					</li>
 				))}
 			</ul>

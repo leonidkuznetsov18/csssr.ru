@@ -1,38 +1,22 @@
 [
 	{
-		"vacancies": [
-			{
-				"id": "pixel-perfectionist",
-				"name": "Верстальщик пиксель-перфекционист",
-				"url": "/jobs/pixel-perfectionist"
-			}
-		]
+		"id": "pixel-perfectionist",
+		"name": "Верстальщик пиксель-перфекционист",
+		"url": "/jobs/pixel-perfectionist"
 	},
 	{
-		"vacancies": [
-			{
-				"id": "technical-manager",
-				"name": "Менеджер-технарь",
-				"url": "/jobs/technical-manager"
-			}
-		]
+		"id": "technical-manager",
+		"name": "Менеджер-технарь",
+		"url": "/jobs/technical-manager"
 	},
 	{
-		"vacancies": [
-			{
-				"id": "hr-manager",
-				"name": "HR-менеджер",
-				"url": "/jobs/hr-manager"
-			}
-		]
+		"id": "hr-manager",
+		"name": "HR-менеджер",
+		"url": "/jobs/hr-manager"
 	},
 	{
-		"vacancies": [
-			{
-				"id": "ui-ux-designer",
-				"name": "UI/UX-дизайнер",
-				"url": "/jobs/ui-ux-designer"
-			}
-		]
+		"id": "ui-ux-designer",
+		"name": "UI/UX-дизайнер",
+		"url": "/jobs/ui-ux-designer"
 	}
 ]

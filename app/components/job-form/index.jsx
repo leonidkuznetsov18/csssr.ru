@@ -87,7 +87,7 @@ class JobForm extends React.Component {
 			};
 		}
 
-		const { fileAccept, options: { fields } } = this.props;
+		const { fileAccept, options: { hasResume, hasPortfolio } } = this.props;
 		let questText = '';
 
 		if (fileAccept === '.zip') {
@@ -119,8 +119,8 @@ class JobForm extends React.Component {
 					maxLength: 3,
 				})}
 				{this.renderField('location', 'Город')}
-				{fields.resume && this.renderField('resume', 'Ссылка на резюме')}
-				{fields.portfolio && this.renderField('portfolio', 'Ссылка на портфолио')}
+				{hasResume && this.renderField('resume', 'Ссылка на резюме')}
+				{hasPortfolio && this.renderField('portfolio', 'Ссылка на портфолио')}
 
 				<FieldFile
 					fileAccept={fileAccept}

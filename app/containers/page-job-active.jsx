@@ -3,6 +3,6 @@ import PageVacancy from 'containers/page-vacancy';
 
 export default function PageJobPreview(props) {
 	return (
-		<PageVacancy {...props} filter='preview' />
+		<PageVacancy {...props} filter='active' />
 	);
 }

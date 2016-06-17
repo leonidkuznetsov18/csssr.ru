@@ -21,10 +21,14 @@ export const requestVacancies = (filter = 'active') => (dispatch) => {
 	});
 	superagent
 		.get(`/vacancies/${filter}`)
-		.end((error, { statusCode, body }) => {
-			if (statusCode === 200) {
+		.end((error, response) => {
+			if (!response) {
+				return dispatch(rejectVacancies(error));
+			}
+
+			if (response.statusCode === 200) {
 				return dispatch(receiveVacancies({
-					[filter]: body.vacancies,
+					[filter]: response.body.vacancies,
 				}));
 			}
 
