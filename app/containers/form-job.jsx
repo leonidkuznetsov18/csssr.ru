@@ -20,13 +20,6 @@ const fileTypes = {
 		fileWarningSize: 'DOCX, пожалуйста (макс. 16 MB)!',
 		maxSize: 16 * 1024 * 1024,
 	},
-	'one-site-designer': {
-		fileAccept: '.zip',
-		regexp: /\.zip$/,
-		fileWarning: 'ZIP, пожалуйста!',
-		fileWarningSize: 'ZIP, пожалуйста (макс. 50 MB)!',
-		maxSize: 50 * 1024 * 1024,
-	},
 	'hr-manager': {
 		fileAccept: '.xlsx',
 		regexp: /\.xlsx$/,

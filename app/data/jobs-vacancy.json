@@ -20,15 +20,6 @@
 	{
 		"vacancies": [
 			{
-				"id": "one-site-designer",
-				"name": "Дизайнер одного сайта и двух интерфейсов",
-				"url": "/jobs/one-site-designer"
-			}
-		]
-	},
-	{
-		"vacancies": [
-			{
 				"id": "hr-manager",
 				"name": "HR-менеджер",
 				"url": "/jobs/hr-manager"

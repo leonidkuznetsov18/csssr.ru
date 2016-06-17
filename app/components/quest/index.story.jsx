@@ -5,7 +5,6 @@ import storiesOf from 'helpers/storiesOf';
 const dataList = {
 	'pixel-perfectionist': require('data/jobs/pixel-perfectionist.json'),
 	'technical-manager': require('data/jobs/technical-manager.json'),
-	'one-site-designer': require('data/jobs/one-site-designer.json'),
 	'hr-manager': require('data/jobs/hr-manager.json'),
 	'ui-ux-designer': require('data/jobs/ui-ux-designer.json'),
 };

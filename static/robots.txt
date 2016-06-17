@@ -2,7 +2,6 @@ User-agent: *
 
 Disallow: /jobs/pixel-perfectionist/thanks
 Disallow: /jobs/technical-manager/thanks
-Disallow: /jobs/one-site-designer/thanks
 Disallow: /jobs/hr-manager/thanks
 Disallow: /jobs/ui-ux-designer/thanks
 Disallow: /order/thanks
