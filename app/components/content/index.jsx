@@ -9,7 +9,7 @@ function Content({ padding, hole, children, layout }) {
 	const blockClass = cx({
 		[styles.root]: true,
 		[styles.root_padding]: padding,
-		[styles.root_layout_job]: layout === 'job',
+		[styles[`root_layout_${layout}`]]: !!layout,
 	});
 
 	return (

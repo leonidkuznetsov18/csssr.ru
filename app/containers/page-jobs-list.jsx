@@ -10,7 +10,7 @@ import Row from 'components/row';
 import Column from 'components/column';
 import Section from 'components/section';
 import Content from 'components/content';
-import VacancyLoader from 'components/vacancy-loader';
+import Circloader from 'components/circloader';
 import Warning from 'components/warning';
 import { jobs } from 'data/meta';
 import { requestVacancies } from 'actions/vacancies';
@@ -52,12 +52,12 @@ export default class PageJobsList extends Component {
 	static propTypes = {
 		dispatch: PropTypes.func.isRequired,
 		vacancies: PropTypes.shape({
-			isFetching: PropTypes.bool.isRequired,
 			data: PropTypes.shape({
 				active: vacancyPropTypes,
 				preview: vacancyPropTypes,
 			}).isRequired,
 			error: PropTypes.any,
+			isFetching: PropTypes.bool.isRequired,
 		}).isRequired,
 	}
 
@@ -95,12 +95,18 @@ export default class PageJobsList extends Component {
 								{...dataAbout.slice(2, 3)[0]}
 								indent
 							>
-								{!isFetching && error && <Warning>
+								{!isFetching && error && (error === 'NO_CONNECT' ? <Warning>
+									У вас отсутствует соединение с интернетом.
+									<br />
+									Для просмотра доступных вакансий подключитесь к интернету
+									<br />
+									и попробуйте обновить страницу.
+								</Warning> : <Warning>
 									Извините, на сайте ведутся технические работы.
 									<br />
 									Для просмотра доступных вакансий попробуйте обновить страницу позже.
-								</Warning>}
-								{isFetching && <VacancyLoader />}
+								</Warning>)}
+								{isFetching && <Circloader />}
 								{!(isFetching || error) && <JobsVacancy data={vacancies} />}
 							</Section>
 

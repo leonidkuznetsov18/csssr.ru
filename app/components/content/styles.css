@@ -18,4 +18,9 @@
 		padding-left: 307px;
 		padding-right: 50px;
 	}
+
+	&_layout_vacancy {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
 }

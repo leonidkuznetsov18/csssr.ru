@@ -22,6 +22,13 @@ export const requestVacancies = (filter = 'active') => (dispatch) => {
 	superagent
 		.get(`/vacancies/${filter}`)
 		.end((error, response) => {
+			if (
+				!navigator.onLine ||
+				response && response.body && response.body.error === 'ENOENT'
+			) {
+				return dispatch(rejectVacancies('NO_CONNECT'));
+			}
+
 			if (!response) {
 				return dispatch(rejectVacancies(error));
 			}

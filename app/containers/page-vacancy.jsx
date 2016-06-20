@@ -4,7 +4,7 @@ import { requestVacancies } from 'actions/vacancies';
 import PageJobForm from 'containers/page-job-form';
 import PageError from 'containers/page-error';
 import Helmet from 'react-helmet';
-import VacancyContent from 'components/vacancy-content';
+import Content from 'components/content';
 import Circloader from 'components/circloader';
 import Warning from 'components/warning';
 
@@ -44,11 +44,12 @@ export default class PageVacancy extends Component {
 		filter: PropTypes.string.isRequired,
 		params: PropTypes.object,
 		vacancies: PropTypes.shape({
-			isFetching: PropTypes.bool.isRequired,
 			data: PropTypes.shape({
 				active: vacancyPropTypes,
 				preview: vacancyPropTypes,
 			}).isRequired,
+			error: PropTypes.any,
+			isFetching: PropTypes.bool.isRequired,
 		}).isRequired,
 	}
 
@@ -78,10 +79,10 @@ export default class PageVacancy extends Component {
 
 		if (isFetching) {
 			return (
-				<VacancyContent>
+				<Content layout='vacancy'>
 					<Helmet title={'Вакансия'} />
 					<Circloader />
-				</VacancyContent>
+				</Content>
 			);
 		}
 
@@ -90,13 +91,19 @@ export default class PageVacancy extends Component {
 
 		if (error) {
 			return (
-				<VacancyContent>
-					<Warning>
+				<Content layout='vacancy'>
+					{error === 'NO_CONNECT' ? <Warning>
+						У вас отсутствует соединение с интернетом.
+						<br />
+						Для просмотра доступных вакансий подключитесь к интернету
+						<br />
+						и попробуйте обновить страницу.
+					</Warning> : <Warning>
 						Извините, на сайте ведутся технические работы.
 						<br />
-						Для просмотра доступных вакансий попробуйте обновить страницу позже.
-					</Warning>
-				</VacancyContent>
+						Для просмотра доступных вакансий попробуйте&nbsp;обновить&nbsp;страницу&nbsp;позже.
+					</Warning>}
+				</Content>
 			);
 		}
 
