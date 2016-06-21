@@ -3,7 +3,7 @@ const configMessage = [
 		text: ':',
 		styles: [
 			'font-family: Times New Roman;',
-			'font-size: 270px;',
+			'font-size: 168px;',
 			'font-weight: 700;',
 			'color: #333;',
 		],
@@ -12,7 +12,7 @@ const configMessage = [
 		text: 'hug',
 		styles: [
 			'font-family: Roboto, Helvetica;',
-			'font-size: 270px;',
+			'font-size: 168px;',
 			'font-weight: 700;',
 			'color: #333;',
 		],
@@ -21,7 +21,7 @@ const configMessage = [
 		text: ':\n',
 		styles: [
 			'font-family: Times New Roman;',
-			'font-size: 270px;',
+			'font-size: 168px;',
 			'font-weight: 700;',
 			'color: #333;',
 		],
@@ -32,7 +32,7 @@ const configMessage = [
 			'font-family: "Tahoma";',
 			'font-size: 24px;',
 			'color: #333;',
-			'margin-left: 3em;',
+			'margin-left: 64px;',
 		],
 	},
 	{
@@ -47,12 +47,15 @@ const configMessage = [
 
 const message = configMessage.map((part) => `%c${part.text}`).join('');
 const styles = configMessage.map((part) => part.styles.join(''));
+const log = console.log.bind(console);
 
 const displayMessage = () => {
-	console.log(message, ...styles);
+
+	window.log = log;
 	console.log = () => {};
+
+	log(message, ...styles);
+
 };
 
-export default () => {
-	displayMessage();
-};
+export default displayMessage;

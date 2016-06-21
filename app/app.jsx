@@ -9,10 +9,13 @@ import store from './store';
 import routes from './routes';
 import redirect from './helpers/redirectOldUrls';
 import decorateConsole from './helpers/consoleDecorator';
+import { NODE_ENV as PRODUCTION } from '../config/env.production';
 
 redirect();
 
-decorateConsole();
+if (process.env.NODE_ENV === PRODUCTION) {
+	decorateConsole();
+}
 
 const history = syncHistoryWithStore(useScroll(browserHistory), store);
 
