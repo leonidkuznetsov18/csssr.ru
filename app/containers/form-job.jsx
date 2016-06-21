@@ -28,9 +28,8 @@ export default class PageJob extends Component {
 		options: React.PropTypes.object,
 	}
 
-	handleSubmit(values, dispatch) {
+	onSubmit = () => this.props.handleSubmit((values, dispatch) => {
 		return new Promise((resolve, reject) => {
-			console.info(values);
 			const errors = {};
 			let haveErrors = false;
 			const { hasResume, hasPortfolio } = this.props.options;
@@ -83,15 +82,14 @@ export default class PageJob extends Component {
 				vacancy: this.props.jobName,
 			}));
 		});
-	}
+	})
 
 	render() {
-		const handleSubmit = this.props.handleSubmit(this.handleSubmit.bind(this));
 		return (
 			<JobForm
 				{...this.props}
 				{...this.props.fileType}
-				handleSubmit={handleSubmit}
+				handleSubmit={this.onSubmit()}
 				options={this.props.options}
 			/>
 		);
