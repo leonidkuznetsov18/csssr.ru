@@ -92,6 +92,8 @@ class JobForm extends React.Component {
 
 		if (fileAccept === '.zip') {
 			questText = '(упакованный в ZIP)';
+		} else if (fileAccept === '.docx') {
+			questText = '(в формате DOCX)';
 		} else if (fileAccept === '.xlsx') {
 			questText = '(в формате XLSX)';
 		} else if (fileAccept === '.sketch') {
