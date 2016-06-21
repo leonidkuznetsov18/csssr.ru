@@ -4,6 +4,7 @@ import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
 import JobBanner from 'components/job-banner';
 import FormJob from 'containers/form-job';
+import Breadcrubms from 'components/breadcrumbs';
 import mdToHtmlLink from 'helpers/md-to-html-link';
 import mdToHtmlStrike from 'helpers/md-to-html-strike';
 
@@ -135,6 +136,19 @@ export default class PageJobForm extends Component {
 
 		return (
 			<div>
+				<Breadcrubms
+					items={
+						[
+							{
+								link: '/jobs',
+								name: 'Все вакансии',
+							},
+							{
+								name: vacancy.name,
+							},
+						]
+					}
+				/>
 				<Content layout='job'>
 					<JobBanner />
 					{data.beforeQuest && <SectionGroup data={data.beforeQuest} />}
