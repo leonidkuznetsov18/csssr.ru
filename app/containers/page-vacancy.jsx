@@ -53,8 +53,30 @@ export default class PageVacancy extends Component {
 		}).isRequired,
 	}
 
+	state = {
+		isFetching: false,
+		isFetched: false,
+	}
+
 	componentDidMount() {
 		this.props.dispatch(requestVacancies(this.props.filter));
+	}
+
+	componentWillReceiveProps(props) {
+		const { isFetching } = props.vacancies;
+
+		if (isFetching) {
+			this.setState({
+				isFetching: true,
+			});
+		}
+
+		if (!isFetching && this.state.isFetching) {
+			this.setState({
+				isFetching: false,
+				isFetched: true,
+			});
+		}
 	}
 
 	getMeta({ name, pathName }) {
@@ -105,6 +127,10 @@ export default class PageVacancy extends Component {
 					</Warning>}
 				</Content>
 			);
+		}
+
+		if (!this.state.isFetched) {
+			return null;
 		}
 
 		if (!vacancy) {
