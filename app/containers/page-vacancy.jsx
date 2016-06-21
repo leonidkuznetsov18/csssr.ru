@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import Content from 'components/content';
 import Circloader from 'components/circloader';
 import Warning from 'components/warning';
+import 'babel-polyfill';
 
 const defaultFieldPropTypes = {
 	type: PropTypes.string.isRequired,
