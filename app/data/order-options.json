@@ -14,13 +14,13 @@
 	}, {
 		"name": "Edge (Windows 10)",
 		"value": "edge"
+	}, {
+		"name": "Internet Explorer 11",
+		"value": "ie11"
 	}],
 	"oldBrowsers": [{
 		"name": "Safari 8",
 		"value": "safari8"
-	}, {
-		"name": "Internet Explorer 11",
-		"value": "ie11"
 	}, {
 		"name": "Internet Explorer 10",
 		"value": "ie10"

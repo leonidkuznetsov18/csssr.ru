@@ -32,7 +32,7 @@ const requiredFields = [
 		'files',
 	],
 	initialValues: {
-		modernBrowsers: ['chrome', 'firefox', 'safari', 'opera', 'edge'],
+		modernBrowsers: ['chrome', 'firefox', 'safari', 'opera', 'edge', 'ie11'],
 		oldBrowsers: ['safari8', 'ie11'],
 		mobileBrowsers: ['mobilesafari', 'mobilesafariold', 'mobilechromeios', 'mobilechromeandroid', 'mobilechromeandroidold'],
 		pagesWidth: 'fixed',
