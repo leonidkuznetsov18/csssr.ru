@@ -65,6 +65,11 @@ export default class PageJob extends Component {
 					haveErrors = true;
 				}
 
+				if (key === 'phone' && value && value.length < 12) {
+					errors[key] = true;
+					haveErrors = true;
+				}
+
 				if (!value) {
 					errors[key] = true;
 					haveErrors = true;
