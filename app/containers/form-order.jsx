@@ -33,7 +33,7 @@ const requiredFields = [
 	],
 	initialValues: {
 		modernBrowsers: ['chrome', 'firefox', 'safari', 'opera', 'edge', 'ie11'],
-		oldBrowsers: ['safari8', 'ie11'],
+		oldBrowsers: ['safari8'],
 		mobileBrowsers: ['mobilesafari', 'mobilesafariold', 'mobilechromeios', 'mobilechromeandroid', 'mobilechromeandroidold'],
 		pagesWidth: 'fixed',
 		addition: [],
