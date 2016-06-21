@@ -27,7 +27,7 @@ export default (options) => {
 			'postcss',
 		],
 	};
-	const entry = [];
+	const entry = ['babel-polyfill'];
 	const postLoaders = [
 		{
 			test: /\.jsx?$/,
