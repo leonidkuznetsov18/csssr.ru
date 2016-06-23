@@ -8,8 +8,6 @@ require('babel-register')({
 	},
 });
 
-require('babel-polyfill');
-
 process.env = require('../config/env.js').default;
 
 /* eslint-disable */
