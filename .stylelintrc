@@ -5,7 +5,7 @@ rules:
     # color-no-hex: false
     color-no-invalid-hex: true
 
-    font-family-name-quotes: "single-unless-keyword"
+    font-family-name-quotes: "always-unless-keyword"
 
     font-weight-notation: "numeric"
 
@@ -21,7 +21,7 @@ rules:
     function-parentheses-newline-inside: "always-multi-line"
     function-parentheses-space-inside: "never-single-line"
     function-url-data-uris: "never"
-    function-url-quotes: "single"
+    function-url-quotes: "always"
     # function-whitelist: false
     function-whitespace-after: "always"
 

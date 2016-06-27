@@ -29,6 +29,12 @@
 		overflow: hidden;
 	}
 
+	/* stylelint-disable declaration-no-important */
+	/* iframe has inline styles */
+	&_type_tw .twitter-timeline {
+		display: block !important;
+	}
+
 	&_type_likebox {
 		width: 80px;
 		height: 86px;
