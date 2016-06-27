@@ -171,11 +171,7 @@ export default (options) => {
 			require('postcss-custom-properties'),
 			require('postcss-color-function'),
 			require('postcss-nested'),
-			require('autoprefixer')({
-				browsers: [
-					'last 2 versions',
-				],
-			}),
+			require('autoprefixer'),
 			require('postcss-autoreset')({
 				rulesMatcher: ({ selector }) => !/(_|:|\[)/.test(selector),
 			}),
