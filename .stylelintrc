@@ -101,7 +101,6 @@ rules:
     # selector-no-combinator: false
     selector-no-id: true
     selector-no-qualifying-type: true
-    selector-no-type: true
     selector-no-universal: true
     selector-no-vendor-prefix: true
     selector-pseudo-class-case: "lower"

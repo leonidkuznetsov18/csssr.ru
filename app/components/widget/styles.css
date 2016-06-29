@@ -27,12 +27,12 @@
 	&_type_tw {
 		width: 450px;
 		overflow: hidden;
-	}
 
-	/* stylelint-disable declaration-no-important */
-	/* iframe has inline styles */
-	&_type_tw .twitter-timeline {
-		display: block !important;
+		/* stylelint-disable declaration-no-important */
+		/* iframe has inline styles */
+		iframe {
+			display: block !important;
+		}
 	}
 
 	&_type_likebox {
