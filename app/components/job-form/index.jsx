@@ -98,6 +98,8 @@ class JobForm extends React.Component {
 			questText = '(в формате XLSX)';
 		} else if (fileAccept === '.sketch') {
 			questText = '(в формате Sketch)';
+		} else if (fileAccept === '.jpg') {
+			questText = '(в формате JPG)';
 		}
 
 		return (

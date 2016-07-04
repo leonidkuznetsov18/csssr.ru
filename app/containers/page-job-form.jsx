@@ -50,7 +50,7 @@ export default class PageJobForm extends Component {
 
 		return {
 			fileAccept: `.${fileExt}`,
-			regexp: new RegExp(`\\.${fileExt}$`),
+			regexp: new RegExp(`\\.${fileExt}$`, 'i'),
 			fileWarning: `${capitalExt}, пожалуйста!`,
 			fileWarningSize: `${capitalExt}, пожалуйста (макс. ${maxFileSize} MB)!`,
 			maxSize: maxFileSize * 1024 * 1024,
