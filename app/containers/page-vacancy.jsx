@@ -59,7 +59,8 @@ export default class PageVacancy extends Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(requestVacancies(this.props.filter));
+		const filter = this.props.params.filter || 'active';
+		this.props.dispatch(requestVacancies(filter));
 	}
 
 	componentWillReceiveProps(props) {
@@ -96,8 +97,9 @@ export default class PageVacancy extends Component {
 	}
 
 	render() {
-		const { vacancies, filter } = this.props;
+		const { vacancies } = this.props;
 		const { isFetching, error } = vacancies;
+		const filter = this.props.params.filter || 'active';
 
 		if (isFetching) {
 			return (
