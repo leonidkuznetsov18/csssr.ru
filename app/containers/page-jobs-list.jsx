@@ -12,7 +12,7 @@ import Column from 'components/column';
 import Section from 'components/section';
 import Content from 'components/content';
 import Circloader from 'components/circloader';
-import Warning from 'components/warning';
+import WarningJobs from 'components/warning-jobs';
 import { jobs } from 'data/meta';
 import { requestVacancies } from 'actions/vacancies';
 
@@ -33,17 +33,29 @@ export default class PageJobsList extends Component {
 		}).isRequired,
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.dispatch(requestVacancies('active'));
 	}
 
-	render() {
+	renderVacancies() {
 		const { data, isFetching, error } = this.props.vacancies;
 		const vacancies = data.active.map(({ name, pathName }) => ({
 			name,
 			url: `/jobs/${pathName}`,
 		}));
 
+		if (isFetching) {
+			return <Circloader />;
+		}
+
+		if (error) {
+			return <WarningJobs error={error} />;
+		}
+
+		return <JobsVacancy data={vacancies} />;
+	}
+
+	render() {
 		return (
 			<div>
 				<Helmet {...jobs} />
@@ -67,19 +79,7 @@ export default class PageJobsList extends Component {
 								{...dataAbout.slice(2, 3)[0]}
 								indent
 							>
-								{!isFetching && error && (error === 'NO_CONNECT' ? <Warning>
-									У вас отсутствует соединение с интернетом.
-									<br />
-									Для просмотра доступных вакансий подключитесь к интернету
-									<br />
-									и попробуйте обновить страницу.
-								</Warning> : <Warning>
-									Извините, на сайте ведутся технические работы.
-									<br />
-									Для просмотра доступных вакансий попробуйте обновить страницу позже.
-								</Warning>)}
-								{isFetching && <Circloader />}
-								{!(isFetching || error) && <JobsVacancy data={vacancies} />}
+								{this.renderVacancies()}
 							</Section>
 
 							{dataAbout.slice(3).map((group, index) => (

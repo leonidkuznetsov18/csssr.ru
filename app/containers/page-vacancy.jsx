@@ -7,7 +7,7 @@ import PageError from 'containers/page-error';
 import Helmet from 'react-helmet';
 import Content from 'components/content';
 import Circloader from 'components/circloader';
-import Warning from 'components/warning';
+import WarningJobs from 'components/warning-jobs';
 
 @connect(({ vacancies }) => ({ vacancies }))
 export default class PageVacancy extends Component {
@@ -24,31 +24,9 @@ export default class PageVacancy extends Component {
 		}).isRequired,
 	}
 
-	state = {
-		isFetching: false,
-		isFetched: false,
-	}
-
-	componentDidMount() {
+	componentWillMount() {
 		const filter = this.props.params.filter || 'active';
 		this.props.dispatch(requestVacancies(filter));
-	}
-
-	componentWillReceiveProps(props) {
-		const { isFetching } = props.vacancies;
-
-		if (isFetching) {
-			this.setState({
-				isFetching: true,
-			});
-		}
-
-		if (!isFetching && this.state.isFetching) {
-			this.setState({
-				isFetching: false,
-				isFetched: true,
-			});
-		}
 	}
 
 	getMeta({ name, pathName }) {
@@ -87,23 +65,9 @@ export default class PageVacancy extends Component {
 		if (error) {
 			return (
 				<Content layout='vacancy'>
-					{error === 'NO_CONNECT' ? <Warning>
-						У вас отсутствует соединение с интернетом.
-						<br />
-						Для просмотра доступных вакансий подключитесь к интернету
-						<br />
-						и попробуйте обновить страницу.
-					</Warning> : <Warning>
-						Извините, на сайте ведутся технические работы.
-						<br />
-						Для просмотра доступных вакансий попробуйте&nbsp;обновить&nbsp;страницу&nbsp;позже.
-					</Warning>}
+					<WarningJobs error={error} />
 				</Content>
 			);
-		}
-
-		if (!this.state.isFetched) {
-			return null;
 		}
 
 		if (!vacancy) {
