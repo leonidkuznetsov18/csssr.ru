@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { vacancyShape } from 'helpers/propTypes';
 import Content from 'components/content';
 import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
@@ -10,38 +11,9 @@ import mdToHtmlStrike from 'helpers/md-to-html-strike';
 
 const formatText = (str) => mdToHtmlStrike(mdToHtmlLink(str));
 
-const defaultFieldPropTypes = {
-	boldText: PropTypes.bool,
-	list: PropTypes.arrayOf(PropTypes.string),
-	text: PropTypes.string,
-	title: PropTypes.string,
-	type: PropTypes.string.isRequired,
-};
-
 export default class PageJobForm extends Component {
 	static propTypes = {
-		vacancy: PropTypes.shape({
-			createDate: PropTypes.string.isRequired,
-			description: PropTypes.string.isRequired,
-			editDate: PropTypes.string.isRequired,
-			fileExt: PropTypes.string.isRequired,
-			hasPortfolio: PropTypes.bool.isRequired,
-			hasResume: PropTypes.bool.isRequired,
-			id: PropTypes.string.isRequired,
-			isActive: PropTypes.bool.isRequired,
-			isArchived: PropTypes.bool.isRequired,
-			maxFileSize: PropTypes.number.isRequired,
-			name: PropTypes.string.isRequired,
-			pathName: PropTypes.string.isRequired,
-			sections: PropTypes.arrayOf(PropTypes.shape({
-				...defaultFieldPropTypes,
-				fileExt: PropTypes.string,
-				fileLink: PropTypes.string,
-				fileName: PropTypes.string,
-				fileSize: PropTypes.string,
-				sections: PropTypes.arrayOf(PropTypes.shape(defaultFieldPropTypes)),
-			})).isRequired,
-		}),
+		vacancy: vacancyShape,
 	}
 
 	getFileType(vacancy) {

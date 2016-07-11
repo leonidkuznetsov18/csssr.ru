@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { vacanciesShape } from 'helpers/propTypes';
 import { requestVacancies } from 'actions/vacancies';
 import PageJobForm from 'containers/page-job-form';
 import PageError from 'containers/page-error';
@@ -8,45 +9,15 @@ import Content from 'components/content';
 import Circloader from 'components/circloader';
 import Warning from 'components/warning';
 
-const defaultFieldPropTypes = {
-	type: PropTypes.string.isRequired,
-	title: PropTypes.string,
-	text: PropTypes.string,
-	boldText: PropTypes.bool,
-	list: PropTypes.arrayOf(PropTypes.string),
-};
-
-const vacancyPropTypes = PropTypes.arrayOf(PropTypes.shape({
-	id: PropTypes.string.isRequired,
-	createDate: PropTypes.string.isRequired,
-	editDate: PropTypes.string.isRequired,
-	isActive: PropTypes.bool.isRequired,
-	isArchived: PropTypes.bool.isRequired,
-	pathName: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
-	maxFileSize: PropTypes.number.isRequired,
-	fileExt: PropTypes.string.isRequired,
-	sections: PropTypes.arrayOf(PropTypes.shape({
-		...defaultFieldPropTypes,
-		fileSize: PropTypes.string,
-		fileExt: PropTypes.string,
-		fileName: PropTypes.string,
-		fileLink: PropTypes.string,
-		sections: PropTypes.arrayOf(PropTypes.shape(defaultFieldPropTypes)),
-	})).isRequired,
-}));
-
 @connect(({ vacancies }) => ({ vacancies }))
 export default class PageVacancy extends Component {
 	static propTypes = {
 		dispatch: PropTypes.func.isRequired,
-		filter: PropTypes.string.isRequired,
 		params: PropTypes.object,
 		vacancies: PropTypes.shape({
 			data: PropTypes.shape({
-				active: vacancyPropTypes,
-				preview: vacancyPropTypes,
+				active: vacanciesShape,
+				preview: vacanciesShape,
 			}).isRequired,
 			error: PropTypes.any,
 			isFetching: PropTypes.bool.isRequired,
