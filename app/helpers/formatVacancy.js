@@ -35,9 +35,9 @@ const formatSection = ({ title, text, boldText, list }, { isSubSection = false, 
 	}
 
 	return data;
-}
+};
 
-export default function({ name, description, sections }) {
+export default function ({ name, description, sections }) {
 	const questIndex = sections.findIndex((item) => item.type === 'quest');
 	const data = {
 		beforeQuest: [formatSection({
