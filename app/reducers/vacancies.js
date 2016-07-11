@@ -1,39 +1,41 @@
 import {
-	REQUEST_VACANCIES,
-	REJECT_VACANCIES,
-	RECEIVE_VACANCIES,
+	VACANCIES_PENDING,
+	VACANCIES_REJECTED,
+	VACANCIES_FULFILLED,
 } from 'constants/actions';
 
-export default (state = {
+const initialState = {
 	isFetching: false,
 	error: null,
 	data: {
 		active: [],
 		preview: [],
 	},
-}, { type, data, error }) => {
+};
+
+export default (state = initialState, { type, payload }) => {
 	switch (type) {
-	case REQUEST_VACANCIES:
+	case VACANCIES_PENDING:
 		return {
 			...state,
 			isFetching: true,
 			error: null,
 		};
 
-	case REJECT_VACANCIES:
+	case VACANCIES_REJECTED:
 		return {
 			...state,
 			isFetching: false,
-			error,
+			error: payload,
 		};
 
-	case RECEIVE_VACANCIES:
+	case VACANCIES_FULFILLED:
 		return {
 			...state,
 			isFetching: false,
 			data: {
 				...state.data,
-				...data,
+				...payload,
 			},
 		};
 

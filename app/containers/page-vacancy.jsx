@@ -11,6 +11,10 @@ import WarningJobs from 'components/warning-jobs';
 
 @connect(({ vacancies }) => ({ vacancies }))
 export default class PageVacancy extends Component {
+	static fetchData({ params, store }) {
+		return store.dispatch(requestVacancies(params.filter || 'active'));
+	}
+
 	static propTypes = {
 		dispatch: PropTypes.func.isRequired,
 		params: PropTypes.object,
@@ -24,9 +28,10 @@ export default class PageVacancy extends Component {
 		}).isRequired,
 	}
 
-	componentWillMount() {
-		const filter = this.props.params.filter || 'active';
-		this.props.dispatch(requestVacancies(filter));
+	componentDidMount() {
+		if (!this.props.vacancies.data.active.length) {
+			this.props.dispatch(requestVacancies(this.props.params.filter || 'active'));
+		}
 	}
 
 	getMeta({ name, pathName }) {

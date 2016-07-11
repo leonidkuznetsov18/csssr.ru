@@ -5,41 +5,67 @@ import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 import routes from './routes';
-import store from './store';
+import createStore from './store';
+
+
+function fetchData(renderProps, store) {
+	const { params } = renderProps;
+
+	return new Promise(function (resolve) {
+		const component = renderProps.components[renderProps.components.length - 1];
+
+		if (component.fetchData) {
+			resolve(component.fetchData({ params, store }));
+		} else {
+			resolve();
+		}
+	});
+}
 
 export default function (req, response) {
-	const rendered = {
-		css: [],
-	};
+	return new Promise((resolve) => {
+		const rendered = {
+			css: [],
+		};
 
-	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-		if (redirectLocation) {
-			response.redirect(301, redirectLocation.pathname + redirectLocation.search);
-			return;
-		}
+		let store = createStore();
 
-		const App = () => (
-			<Provider store={store}>
-				<RouterContext {...renderProps} />
-			</Provider>
-		);
+		match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+			if (redirectLocation) {
+				response.redirect(301, redirectLocation.pathname + redirectLocation.search);
+				return;
+			}
 
-		const ProvideApp = withContext(
-			{
-				insertCss: React.PropTypes.func,
-			},
-			() => ({
-				insertCss: (styles) => rendered.css.push(styles._getCss()), // eslint-disable-line no-underscore-dangle
-			}),
-			App
-		);
+			fetchData(renderProps, store).then(() => {
+				const storeWithState = createStore({
+					initialState: store.getState(),
+				});
 
-		rendered.content = ReactDOMServer.renderToString(
-			<ProvideApp />
-		);
+				const App = () => (
+					<Provider store={store}>
+						<RouterContext {...renderProps} />
+					</Provider>
+				);
 
-		rendered.head = Helmet.rewind();
+				const ProvideApp = withContext(
+					{
+						insertCss: React.PropTypes.func,
+					},
+					() => ({
+						insertCss: (styles) => rendered.css.push(styles._getCss()), // eslint-disable-line no-underscore-dangle
+					}),
+					App
+				);
+
+				rendered.state = storeWithState.getState();
+				rendered.content = ReactDOMServer.renderToString(
+					<ProvideApp />
+				);
+				rendered.head = Helmet.rewind();
+
+				resolve(rendered);
+			});
+
+		});
 	});
-
-	return rendered;
 }

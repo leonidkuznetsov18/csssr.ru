@@ -84,22 +84,22 @@ app.get('/*', function (request, response) {
 		rendered = renderApplication(request, response);
 		script = publicPath + publicAssets.main.js;
 		style = STYLE;
-
-		if (!rendered.content) {
-			return;
-		}
+	} else {
+		rendered = Promise.resolve();
 	}
 
-	const layout = React.createElement(Layout, {
-		...rendered,
-		script,
-		style,
-	});
+	rendered.then((data) => {
+		const layout = React.createElement(Layout, {
+			...data,
+			script,
+			style,
+		});
 
-	const application = ReactDOMServer.renderToStaticMarkup(layout);
-	response.contentType('text/html');
-	response.write('<!DOCTYPE html>');
-	response.end(application);
+		const application = ReactDOMServer.renderToStaticMarkup(layout);
+		response.contentType('text/html');
+		response.write('<!DOCTYPE html>');
+		response.end(application);
+	});
 });
 
 app.listen(port, function () {

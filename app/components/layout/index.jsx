@@ -8,6 +8,7 @@ export default class Layout extends React.Component {
 		css: React.PropTypes.array,
 		head: React.PropTypes.object,
 		script: React.PropTypes.string,
+		state: React.PropTypes.object,
 		style: React.PropTypes.string,
 	}
 
@@ -31,6 +32,11 @@ export default class Layout extends React.Component {
 							__html: this.props.content,
 						}}
 						id='content'
+					/>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `var __INITIAL_STATE__ = ${JSON.stringify(this.props.state)}`,
+						}}
 					/>
 					<script
 						async

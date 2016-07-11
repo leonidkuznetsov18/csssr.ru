@@ -21,6 +21,10 @@ const dataStaff = require('data/jobs-staff.json');
 
 @connect(({ vacancies }) => ({ vacancies }))
 export default class PageJobsList extends Component {
+	static fetchData({ store }) {
+		return store.dispatch(requestVacancies('active'));
+	}
+
 	static propTypes = {
 		dispatch: PropTypes.func.isRequired,
 		vacancies: PropTypes.shape({
@@ -33,8 +37,10 @@ export default class PageJobsList extends Component {
 		}).isRequired,
 	}
 
-	componentWillMount() {
-		this.props.dispatch(requestVacancies('active'));
+	componentDidMount() {
+		if (!this.props.vacancies.data.active.length) {
+			this.props.dispatch(requestVacancies('active'));
+		}
 	}
 
 	renderVacancies() {

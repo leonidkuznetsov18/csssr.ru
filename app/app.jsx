@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import useScroll from 'use-scroll-behavior';
-import store from './store';
+import createStore from './store';
 import routes from './routes';
 import redirect from './helpers/redirectOldUrls';
 import decorateConsole from './helpers/consoleDecorator';
@@ -16,6 +16,10 @@ redirect();
 if (process.env.NODE_ENV === PRODUCTION) {
 	decorateConsole();
 }
+
+const store = createStore({
+	initialState: global.__INITIAL_STATE__, // eslint-disable-line no-underscore-dangle
+});
 
 const history = syncHistoryWithStore(useScroll(browserHistory), store);
 
