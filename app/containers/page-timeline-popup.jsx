@@ -1,5 +1,5 @@
 import React from 'react';
-import disableScroll from 'helpers/disableScroll';
+import disableScroll from 'utils/disableScroll';
 import TimelinePopup from 'components/timeline-popup';
 import PopupVersion from 'components/popup-version';
 

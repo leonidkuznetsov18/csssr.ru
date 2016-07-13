@@ -1,5 +1,5 @@
 import React from 'react';
-import stopPropagation from 'helpers/stopPropagation';
+import stopPropagation from 'utils/stop-propagation';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 

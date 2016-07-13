@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const icons = require.context('images/icons/', true, /\.svg$/);
 

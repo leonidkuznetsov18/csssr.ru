@@ -1,6 +1,6 @@
 import React from 'react';
 import FieldFile from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 import { linkTo } from '@kadira/storybook';
 
 storiesOf('FieldFile')

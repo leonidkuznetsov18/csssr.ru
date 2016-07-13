@@ -1,6 +1,6 @@
 import React from 'react';
 
-import spliter from 'helpers/spliter';
+import spliter from 'utils/spliter';
 import Field from 'components/field';
 import { getSelection } from 'react/lib/ReactInputSelection';
 

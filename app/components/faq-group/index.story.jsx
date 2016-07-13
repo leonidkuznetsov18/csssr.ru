@@ -1,7 +1,7 @@
 import React from 'react';
 import FaqGroup from './index.jsx';
 import Faq from 'components/faq';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const faqOrder = require('data/faq-order.json');
 const faqOutsource = require('data/faq-outsource.json');

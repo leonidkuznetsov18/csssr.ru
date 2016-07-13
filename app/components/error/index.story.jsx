@@ -1,6 +1,6 @@
 import React from 'react';
 import Error from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('Error')
 	.add('403', () => (

@@ -29,6 +29,7 @@ export default class Parallax extends React.Component {
 	}
 
 	scrollHandler = () => {
+		// TODO: inside
 		const windowOffset = window.pageYOffset;
 		const { offset, speed } = this.props;
 		let position = (windowOffset - offset) * -1 * speed;

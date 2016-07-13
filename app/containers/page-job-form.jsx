@@ -5,8 +5,8 @@ import Quest from 'components/quest';
 import JobBanner from 'components/job-banner';
 import FormJob from 'containers/form-job';
 import Breadcrubms from 'components/breadcrumbs';
-import mdToHtmlLink from 'helpers/md-to-html-link';
-import mdToHtmlStrike from 'helpers/md-to-html-strike';
+import mdToHtmlLink from 'utils/md-to-html-link';
+import mdToHtmlStrike from 'utils/md-to-html-strike';
 
 const formatText = (str) => mdToHtmlStrike(mdToHtmlLink(str));
 

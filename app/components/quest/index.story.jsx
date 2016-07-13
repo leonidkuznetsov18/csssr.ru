@@ -1,6 +1,6 @@
 import React from 'react';
 import Quest from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const dataList = {
 	'pixel-perfectionist': require('data/jobs/pixel-perfectionist.json'),

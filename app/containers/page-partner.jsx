@@ -1,5 +1,5 @@
 import React from 'react';
-import disableScroll from 'helpers/disableScroll';
+import disableScroll from 'utils/disableScroll';
 
 import Projecter from 'components/projecter';
 

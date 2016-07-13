@@ -1,4 +1,4 @@
-import calcDate from 'helpers/calcDate';
+import calcDate from 'utils/calc-date';
 
 export default [
 	{

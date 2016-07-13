@@ -10,7 +10,7 @@ import styles from './styles.css';
 function OrderAirship() {
 	return (
 		<div className={styles.root}>
-			<Airship image='zeppelin_order.svg'>
+			<Airship image={require('../../images/background/zeppelin_index.svg')}>
 				<Link
 					color='blue'
 					component={ScrollLink}

@@ -1,6 +1,6 @@
 import React from 'react';
 import File from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('File')
 	.add('psd', () => (

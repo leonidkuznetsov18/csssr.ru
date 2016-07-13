@@ -1,6 +1,6 @@
 import React from 'react';
 import TimelinePopup from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 import { action } from '@kadira/storybook';
 
 storiesOf('TimelinePopup')

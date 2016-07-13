@@ -1,6 +1,6 @@
 import React from 'react';
 import Service from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const dataService = require('data/service.json');
 
