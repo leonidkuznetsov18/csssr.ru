@@ -1,20 +1,15 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import { sendOrderForm, setEmptyFields } from 'actions/order';
+import { sendOrderForm } from 'actions/order';
 import Uploader from 'components/uploader';
 import OrderOptions from 'components/order-options';
 import ContactsForm from 'components/contacts-form';
-import Link from 'components/link';
 import options from 'data/order-options.json';
 import * as actions from 'actions/files';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import rEmail from 'regex-email';
-
-const requiredFields = [
-	'email',
-	'phone',
-];
+import validator, { containErrors } from 'utils/validator';
+import getError from 'utils/getError';
 
 @reduxForm({
 	form: 'order',
@@ -52,45 +47,34 @@ export default class FormOrder extends React.Component {
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
-	state = {}
-
-	componentWillReceiveProps(props) {
-		const { error } = props;
-
-		if (error || error === false) {
-			this.setState({ error });
-		}
-	}
-
 	handleSubmit = (values, dispatch) => {
 		const { files } = this.props;
 
 		return new Promise((resolve, reject) => {
-			const errors = {};
+			const errors = validator({
+				...values,
+				files,
+			}, {
+				files: {
+					custom: () => {
+						if (!values.filesLink && !files.length) {
+							return 'Прикрепите макеты страниц или укажите ссылку для скачивания';
+						}
 
-			requiredFields.forEach((key) => {
-				const value = values[key];
-
-				if (!values[key]) {
-					errors[key] = true;
-				}
-
-				if (key === 'email' && !rEmail.test(value)) {
-					errors[key] = true;
-				}
+						if (!files.reduce((p, n) => p && n.filename, true)) {
+							return 'Дождитесь окончания загрузки';
+						}
+					},
+				},
 			});
 
-			if (!values.filesLink && !files.length) {
-				errors.files = 'Прикрепите макеты страниц или укажите ссылку для скачивания';
-			}
 
-			if (!files.reduce((p, n) => p && n.filename, true)) {
-				errors.files = 'Дождитесь окончания загрузки';
-			}
+			if (containErrors(errors)) {
+				reject({
+					...errors,
+					_error: 'EMPTY_FIELDS',
+				});
 
-			if (Object.keys(errors).length) {
-				dispatch(setEmptyFields());
-				reject(errors);
 				return;
 			}
 
@@ -103,28 +87,7 @@ export default class FormOrder extends React.Component {
 
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
-		const { fields } = this.props;
-		let { error } = this.state;
-
-		if (error === 'EMPTY_FIELDS' || fields.files.error) {
-			error = {
-				title: 'Внимание!',
-				text: <div>
-					{error === 'EMPTY_FIELDS' ? <div>Заполните все обязательные поля формы.</div> : null}
-					{fields.files.error ? <div>{fields.files.error}.</div> : null}
-				</div>,
-			};
-		} else if (error === 'ERROR') {
-			error = {
-				title: 'Внимание!',
-				text: <span>
-					Случилось непредвиденное.
-					Пожалуйста, попробуйте отправить форму снова или напишите нам на
-					{' '}
-					<Link href='mailto:sales@csssr.io'>sales@csssr.io</Link>
-				</span>,
-			};
-		}
+		const { fields, error } = this.props;
 
 		return (
 			<div>
@@ -133,9 +96,8 @@ export default class FormOrder extends React.Component {
 
 				<ContactsForm
 					{...this.props}
-					error={error}
+					error={getError(error, 'order', fields.files.error)}
 					handleSubmit={handleSubmit}
-					requiredFields={requiredFields}
 				/>
 			</div>
 		);

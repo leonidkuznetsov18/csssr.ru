@@ -18,7 +18,6 @@ export function sendOrderForm(values) {
 			.send(values)
 			.end((err, response) => {
 				if (response.statusCode === 200) {
-					dispatch(stopSubmit('order'));
 					dispatch(push('/order/thanks'));
 					return;
 				}
@@ -27,14 +26,5 @@ export function sendOrderForm(values) {
 					_error: response.body.result || true,
 				}));
 			});
-	};
-}
-
-
-export function setEmptyFields() {
-	return function (dispatch) {
-		return dispatch(stopSubmit('order', {
-			_error: 'EMPTY_FIELDS',
-		}));
 	};
 }

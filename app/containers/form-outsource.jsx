@@ -1,9 +1,10 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import { sendOutsourceForm, setEmptyFields } from 'actions/outsource';
+import { sendOutsourceForm } from 'actions/outsource';
 import ContactsForm from 'components/contacts-form';
-import Link from 'components/link';
-import rEmail from 'regex-email';
+
+import validator, { containErrors } from 'utils/validator';
+import getError from 'utils/getError';
 
 const requiredFields = [
 	'name',
@@ -27,38 +28,17 @@ export default class FormOutsource extends React.Component {
 		handleSubmit: React.PropTypes.func.isRequired,
 	}
 
-	state = {}
-
-	componentWillReceiveProps(props) {
-		const { error } = props;
-
-		if (error || error === false) {
-			this.setState({ error });
-		}
-	}
-
 	handleSubmit = (values, dispatch) => {
 		return new Promise((resolve, reject) => {
-			const errors = {};
-			let haveErrors = false;
-
-			Object.keys(values).forEach((key) => {
-				const value = values[key];
-
-				if (!values[key]) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-
-				if (key === 'email' && !rEmail.test(value)) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-			});
+			const errors = validator(values);
+			const haveErrors = containErrors(errors);
 
 			if (haveErrors) {
-				dispatch(setEmptyFields());
-				reject(errors);
+				reject({
+					...errors,
+					_error: 'EMPTY_FIELDS',
+				});
+
 				return;
 			}
 
@@ -68,29 +48,12 @@ export default class FormOutsource extends React.Component {
 
 	render() {
 		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
-		let { error } = this.state;
-
-		if (error === 'EMPTY_FIELDS') {
-			error = {
-				title: 'Внимание!',
-				text: 'Заполните все обязательные поля формы.',
-			};
-		} else if (error === 'ERROR') {
-			error = {
-				title: 'Внимание!',
-				text: <span>
-					Случилось непредвиденное.
-					Пожалуйста, попробуйте отправить форму снова или напишите нам на
-					{' '}
-					<Link href='mailto:sales@csssr.io'>sales@csssr.io</Link>
-				</span>,
-			};
-		}
+		const { error } = this.props;
 
 		return (
 			<ContactsForm
 				{...this.props}
-				error={error}
+				error={getError(error, 'outsource')}
 				handleSubmit={handleSubmit}
 				requiredFields={requiredFields}
 			/>

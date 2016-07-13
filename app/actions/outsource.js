@@ -17,7 +17,6 @@ export function sendOutsourceForm(values) {
 			.send(formData)
 			.end((err, response) => {
 				if (response.statusCode === 200) {
-					dispatch(stopSubmit('outsource'));
 					dispatch(push('/outsource/thanks'));
 					return;
 				}
@@ -26,14 +25,5 @@ export function sendOutsourceForm(values) {
 					_error: response.body.result || true,
 				}));
 			});
-	};
-}
-
-
-export function setEmptyFields() {
-	return function (dispatch) {
-		return dispatch(stopSubmit('outsource', {
-			_error: 'EMPTY_FIELDS',
-		}));
 	};
 }

@@ -30,6 +30,7 @@ export default class PageJob extends Component {
 
 	onSubmit = () => this.props.handleSubmit((values, dispatch) => {
 		return new Promise((resolve, reject) => {
+			console.log(values);
 			const errors = {};
 			let haveErrors = false;
 			const { hasResume, hasPortfolio } = this.props.options;

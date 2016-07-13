@@ -11,18 +11,21 @@ import Link from 'components/link';
 
 import styles from './styles.css';
 
+const requiredFields = [
+	'name',
+	'email',
+];
+
 class ContactsForm extends React.Component {
 	static propTypes = {
 		error: React.PropTypes.any.isRequired,
 		fields: React.PropTypes.object.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
-		requiredFields: React.PropTypes.array.isRequired,
 		submitting: React.PropTypes.bool.isRequired,
 	}
 
 	static defaultProps = {
 		error: null,
-		requiredFields: [],
 		fields: {},
 	}
 
@@ -37,7 +40,7 @@ class ContactsForm extends React.Component {
 				label={label}
 				maxLength='100'
 				name={name}
-				required={this.props.requiredFields.indexOf(name) !== -1}
+				required={requiredFields.indexOf(name) !== -1}
 				{...props}
 				{...this.props.fields[name]}
 			/>
@@ -75,7 +78,7 @@ class ContactsForm extends React.Component {
 				<FieldPhone
 					label='Контактный телефон'
 					name='phone'
-					required
+					required={requiredFields.indexOf('phone') !== -1}
 					{...this.props.fields.phone}
 				/>
 
