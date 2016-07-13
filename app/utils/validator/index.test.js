@@ -7,10 +7,12 @@ const valid = false;
 const generateString = (length) =>
 	Array.from(Array(100).keys()).join('').slice(0, length);
 
-const generateTest = (t, field, result, values) => {
+const generateTest = (t, field, result, values, options) => {
 	values.forEach((value) => {
 		const actual = validator({
 			[field]: value,
+		}, {
+			[field]: options,
 		});
 		const expected = {
 			[field]: result,
@@ -20,12 +22,28 @@ const generateTest = (t, field, result, values) => {
 	});
 };
 
-test('should correct work with unknown field', (t) => {
+test('unknown field should be valid', (t) => {
 	generateTest(t, 'qwerty', valid, [
 		'',
 		'anyvalue',
 		'+79991234567',
 		'+380123456789',
+	]);
+});
+
+test('should correct work with name default rules', (t) => {
+	generateTest(t, 'name', invalid, [
+		'',
+		generateString(101),
+	]);
+
+	generateTest(t, 'name', valid, [
+		'Я',
+		'Ян',
+		'Вася',
+		'Иванов Иван Иванович',
+		generateString(99),
+		generateString(100),
 	]);
 });
 
@@ -50,22 +68,6 @@ test('should correct work with email default rules', (t) => {
 		'very.common@example.com',
 		'a.little.lengthy.but.fine@dept.example.com',
 		'disposable.style.email.with+symbol@example.com',
-	]);
-});
-
-test('should correct work with name default rules', (t) => {
-	generateTest(t, 'name', invalid, [
-		'',
-		generateString(101),
-	]);
-
-	generateTest(t, 'name', valid, [
-		'Я',
-		'Ян',
-		'Вася',
-		'Иванов Иван Иванович',
-		generateString(99),
-		generateString(100),
 	]);
 });
 
@@ -99,4 +101,20 @@ test('should correct work with phone default rules', (t) => {
 		'+79991234567',
 		'+380123456789',
 	]);
+});
+
+test('should correct extends rules', (t) => {
+	generateTest(t, 'phone', invalid, [
+		'',
+	], {
+		required: true,
+	});
+});
+
+test('should correct overwire default rules', (t) => {
+	generateTest(t, 'age', valid, [
+		'',
+	], {
+		required: false,
+	});
 });

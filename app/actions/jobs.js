@@ -20,7 +20,6 @@ export function sendAnswerForm(values) {
 				const { result } = (response.body || { result: 'ERROR' });
 
 				if (response.statusCode === 200) {
-					dispatch(stopSubmit('job'));
 					dispatch(push(`/jobs/${values.vacancy}/thanks`));
 					return;
 				}
@@ -29,13 +28,5 @@ export function sendAnswerForm(values) {
 					_error: result || true,
 				}));
 			});
-	};
-}
-
-export function setEmptyFields() {
-	return function (dispatch) {
-		return dispatch(stopSubmit('job', {
-			_error: 'EMPTY_FIELDS',
-		}));
 	};
 }

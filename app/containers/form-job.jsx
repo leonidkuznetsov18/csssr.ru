@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { sendAnswerForm, setEmptyFields } from 'actions/jobs';
+import { sendAnswerForm } from 'actions/jobs';
 import JobForm from 'components/job-form';
-import rEmail from 'regex-email';
-import pick from 'lodash.pick';
+import getError from 'utils/getError';
+import validator, { containErrors } from 'utils/validator';
 
 @reduxForm({
 	form: 'job',
@@ -22,80 +22,61 @@ import pick from 'lodash.pick';
 })
 export default class PageJob extends Component {
 	static propTypes = {
+		error: React.PropTypes.any,
 		fileType: React.PropTypes.object,
 		handleSubmit: React.PropTypes.func.isRequired,
 		jobName: React.PropTypes.string,
 		options: React.PropTypes.object,
 	}
 
-	onSubmit = () => this.props.handleSubmit((values, dispatch) => {
+	handleSubmit = (values, dispatch) => {
 		return new Promise((resolve, reject) => {
-			console.log(values);
-			const errors = {};
-			let haveErrors = false;
 			const { hasResume, hasPortfolio } = this.props.options;
-			const optionalFields = {
-				resume: hasResume,
-				portfolio: hasPortfolio,
-			};
-
-			const fields = Object.keys(values).filter((item) =>
-				typeof optionalFields[item] === 'boolean' ? optionalFields[item] : true
-			);
-
-			fields.forEach((key) => {
-				const value = values[key];
-
-				if (key === 'file') {
-					const fileSpec = this.props.fileType;
-					const file = value && value.length && value[0];
-
-					if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
-						errors[key] = fileSpec.fileWarning;
-						haveErrors = true;
-					} else if (file.size > fileSpec.maxSize) {
-						errors[key] = fileSpec.fileWarningSize;
-						haveErrors = true;
-					}
-
-					return;
-				}
-
-				if (key === 'email' && !rEmail.test(value)) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-
-				if (key === 'phone' && value && value.length < 12) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-
-				if (!value) {
-					errors[key] = true;
-					haveErrors = true;
-				}
+			const errors = validator(values, {
+				file: {
+					file: this.props.fileType,
+				},
+				skype: {
+					required: true,
+				},
+				phone: {
+					required: true,
+				},
+				resume: {
+					required: !!hasResume,
+				},
+				portfolio: {
+					required: !!hasPortfolio,
+				},
 			});
+			const haveErrors = containErrors(errors);
 
 			if (haveErrors) {
-				dispatch(setEmptyFields());
-				reject(errors);
+				reject({
+					...errors,
+					_error: 'EMPTY_FIELDS',
+				});
+
 				return;
 			}
 
 			dispatch(sendAnswerForm({
-				...pick(values, fields),
+				...values,
 				vacancy: this.props.jobName,
 			}));
 		});
-	})
+	}
 
 	render() {
+		const handleSubmit = this.props.handleSubmit(this.handleSubmit);
+		const { error } = this.props;
+
 		return (
 			<JobForm
 				{...this.props}
 				{...this.props.fileType}
-				handleSubmit={this.onSubmit()}
+				error={getError(error, 'job')}
+				handleSubmit={handleSubmit}
 				options={this.props.options}
 			/>
 		);

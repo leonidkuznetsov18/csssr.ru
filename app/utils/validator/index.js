@@ -1,9 +1,21 @@
 import rEmail from 'regex-email';
 
+const defaultRule = {
+	required: true,
+	maxlength: 100,
+};
+
 const defaultRules = {
-	name: {
+	name: defaultRule,
+	firstname: defaultRule,
+	location: defaultRule,
+	lastname: defaultRule,
+	resume: defaultRule,
+	portfolio: defaultRule,
+
+	age: {
 		required: true,
-		maxlength: 100,
+		maxlength: 3,
 	},
 
 	email: {
@@ -29,21 +41,34 @@ const validators = {
 	minlength: (value, length) => !!value && value.length < length,
 	maxlength: (value, length) => !!value && value.length > length,
 	regexp: (value, regexp) => !!value && !regexp.test(value),
+	file: (value, fileSpec) => {
+		const file = value && value[0];
+
+		if (!value || !file || !fileSpec.regexp.test(file.name)) {
+			return fileSpec.fileWarning;
+		} else if (file.size > fileSpec.maxSize) {
+			return fileSpec.fileWarningSize;
+		}
+	},
 };
 
-export default function validator(values, customRules) {
+export default function validator(values, customRules = {}) {
 	const valuesName = Object.keys(values);
-	const rules = {
-		...defaultRules,
-		...customRules,
-	};
-
 	return valuesName.reduce((acc, field) => {
-		const fieldRules = Object.keys(rules[field] || {});
+		const rules = {
+			...defaultRules[field],
+			...customRules[field],
+		};
+
+		const fieldRules = Object.keys(rules);
 		const fieldErrors = fieldRules ? fieldRules.map((rule) => {
-			const ruleOptions = rules[field][rule];
+			const ruleOptions = rules[rule];
 			const ruleFunction = validators[rule];
 			const value = values[field];
+
+			if (ruleOptions === false) {
+				return false;
+			}
 
 			if (ruleFunction) {
 				return ruleFunction(value, ruleOptions);
