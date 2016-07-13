@@ -6,7 +6,10 @@ const defaultRule = {
 };
 
 const defaultRules = {
-	name: defaultRule,
+	name: {
+		required: false,
+		maxlength: 100,
+	},
 	firstname: defaultRule,
 	location: defaultRule,
 	lastname: defaultRule,
@@ -30,13 +33,14 @@ const defaultRules = {
 	},
 
 	phone: {
+		required: true,
 		minlength: 12,
 		maxlength: 13,
 	},
 };
 
 const validators = {
-	email: (value = '') => !rEmail.test(value),
+	email: (value = '') => !!rEmail && !rEmail.test(value),
 	required: (value = '') => value.length === 0,
 	minlength: (value, length) => !!value && value.length < length,
 	maxlength: (value, length) => !!value && value.length > length,

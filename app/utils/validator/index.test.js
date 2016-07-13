@@ -33,11 +33,11 @@ test('unknown field should be valid', (t) => {
 
 test('should correct work with name default rules', (t) => {
 	generateTest(t, 'name', invalid, [
-		'',
 		generateString(101),
 	]);
 
 	generateTest(t, 'name', valid, [
+		'',
 		'Я',
 		'Ян',
 		'Вася',
@@ -92,19 +92,19 @@ test('should correct work with skype default rules', (t) => {
 
 test('should correct work with phone default rules', (t) => {
 	generateTest(t, 'phone', invalid, [
+		'',
 		'+7999',
 		'+7999123456780',
 	]);
 
 	generateTest(t, 'phone', valid, [
-		'',
 		'+79991234567',
 		'+380123456789',
 	]);
 });
 
 test('should correct extends rules', (t) => {
-	generateTest(t, 'phone', invalid, [
+	generateTest(t, 'email', invalid, [
 		'',
 	], {
 		required: true,

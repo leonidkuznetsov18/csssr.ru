@@ -12,8 +12,8 @@ import Link from 'components/link';
 import styles from './styles.css';
 
 const requiredFields = [
-	'name',
 	'email',
+	'phone',
 ];
 
 class ContactsForm extends React.Component {
