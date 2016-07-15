@@ -31,8 +31,8 @@ export default (
 			<Route component={Job} path=':jobName'>
 				<IndexRoute component={JobVacancy} />
 				<Route component={Thanks} path='thanks' />
+				<Route component={JobVacancy} path=':filter' />
 			</Route>
-			<Route component={JobVacancy} path=':filter/:jobName' />
 		</Route>
 		<Route component={Order} path='/order' >
 			<IndexRoute component={OrderForm} />

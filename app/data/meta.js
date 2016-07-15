@@ -69,33 +69,24 @@ export const jobs = {
 	],
 };
 
-export const job = {
-	'pixel-perfectionist': {
-		title: 'Вакансия «Верстальщик пиксель-перфекционист»',
+export const job = ({ name, pathName }) => {
+	return {
+		title: `Вакансия «${name}»`,
 		meta: [
 			{
 				name: 'og:title',
-				content: 'Вакансия «Верстальщик пиксель-перфекционист»',
+				content: `Вакансия «${name}»`,
+			},
+			{
+				name: 'og:description',
+				content: 'Удаленная работа полная страданий, боли и отчаяния',
 			},
 			{
 				name: 'og:url',
-				content: 'http://csssr.ru/jobs/pixel-perfectionist',
+				content: `http://csssr.ru/jobs/${pathName}`,
 			},
 		],
-	},
-	'technical-manager': {
-		title: 'Вакансия «Менеджер-технарь»',
-		meta: [
-			{
-				name: 'og:title',
-				content: 'Вакансия «Менеджер-технарь»',
-			},
-			{
-				name: 'og:url',
-				content: 'http://csssr.ru/jobs/technical-manager',
-			},
-		],
-	},
+	};
 };
 
 export const order = {
