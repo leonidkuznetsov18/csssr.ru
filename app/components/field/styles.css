@@ -35,7 +35,8 @@
 	color: #333333;
 	background-color: transparent;
 	border: 1px solid #969696;
-	transition: all .5s;
+	transition-duration: .5s;
+	transition-property: color, -webkit-text-fill-color, border-color;
 	box-sizing: border-box;
 
 	&:focus {
@@ -43,8 +44,9 @@
 	}
 
 	&_textarea {
-		resize: vertical;
+		resize: none;
 		height: 100px;
+		min-height: 100px;
 		padding-top: 9px;
 		padding-bottom: 9px;
 	}

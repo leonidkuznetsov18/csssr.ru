@@ -83,6 +83,7 @@
     "react-router": "^2.0.0",
     "react-router-redux": "^4.0.0",
     "react-scroll": "^1.0.0",
+    "react-textarea-autosize": "^4.0.4",
     "recompose": "^0.15.0",
     "redux": "^3.0.0",
     "redux-form": "^4.2.0",
@@ -107,13 +108,13 @@
     "enzyme": "^2.3.0",
     "eslint": "2.8.0",
     "eslint-plugin-react": "^5.0.0",
-	"react-addons-test-utils": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
     "react-router-sitemap": "^1.0.7",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
     "stylelint": "6.5.1",
-	"sinon": "^1.17.4",
+    "sinon": "^1.17.4",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1"
   }

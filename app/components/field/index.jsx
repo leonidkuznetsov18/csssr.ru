@@ -2,6 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import { setSelection } from 'react/lib/ReactInputSelection';
+import Textarea from 'react-textarea-autosize'
 
 import styles from './styles.css';
 
@@ -49,7 +50,7 @@ class Field extends React.Component {
 			[styles.input_textarea]: this.props.type === 'textarea',
 		});
 
-		const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
+		const Tag = this.props.type === 'textarea' ? Textarea : 'input';
 
 		return (
 			<div className={blockClass}>
