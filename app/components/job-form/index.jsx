@@ -145,6 +145,7 @@ class JobForm extends React.Component {
 
 
 				{hasComment && this.renderField('comment', 'Комментарий', {
+					required: false,
 					maxLength: 3000,
 					type: 'textarea',
 				})}
