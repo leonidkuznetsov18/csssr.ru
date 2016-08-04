@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import { setSelection } from 'react/lib/ReactInputSelection';
-import Textarea from 'react-textarea-autosize'
+import Textarea from 'react-textarea-autosize';
 
 import styles from './styles.css';
 
