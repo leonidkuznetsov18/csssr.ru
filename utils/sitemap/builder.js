@@ -11,6 +11,7 @@ const filterConfig = {
 		/^\/vacancy/,
 		/^\/order\/.+/,
 		/^\/offert/,
+		/^\/estimate-offert/,
 		/^\/portfolio/,
 		/^\/confidential/,
 		/^\/outsource\/.+/,
