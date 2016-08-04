@@ -18,6 +18,7 @@ import pick from 'lodash.pick';
 		'email',
 		'skype',
 		'phone',
+		'comment',
 	],
 })
 export default class PageJob extends Component {
@@ -36,6 +37,7 @@ export default class PageJob extends Component {
 			const optionalFields = {
 				resume: hasResume,
 				portfolio: hasPortfolio,
+				comment: false,
 			};
 
 			const fields = Object.keys(values).filter((item) =>
@@ -75,6 +77,8 @@ export default class PageJob extends Component {
 					haveErrors = true;
 				}
 			});
+
+			console.log(errors);
 
 			if (haveErrors) {
 				dispatch(setEmptyFields());

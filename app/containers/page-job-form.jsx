@@ -130,7 +130,7 @@ export default class PageJobForm extends Component {
 
 	render() {
 		const { vacancy } = this.props;
-		const { hasResume, hasPortfolio, pathName } = vacancy;
+		const { hasResume, hasPortfolio, hasComment, pathName } = vacancy;
 		const fileType = this.getFileType(vacancy);
 		const data = this.getData(vacancy);
 
@@ -162,6 +162,7 @@ export default class PageJobForm extends Component {
 						options={{
 							hasResume,
 							hasPortfolio,
+							hasComment,
 						}}
 					/>
 				</Content>

@@ -42,6 +42,13 @@
 		border-color: #333333;
 	}
 
+	&_textarea {
+		resize: vertical;
+		height: 100px;
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+
 	&_error {
 		border: 1px solid rgb(199, 38, 26);
 	}
