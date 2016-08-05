@@ -80,7 +80,9 @@ export default class PageJob extends Component {
 					}
 				});
 
-			console.log(errors);
+			if (hasComment && !values.comment) {
+				values.comment = '';
+			}
 
 			if (haveErrors) {
 				dispatch(setEmptyFields());
