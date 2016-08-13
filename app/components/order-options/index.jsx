@@ -6,7 +6,7 @@ import Title from 'components/title';
 import Options from 'components/options';
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';
-import styles from './styles.css'
+import styles from './styles.css';
 
 function generateProps(fieldProps = {}, fieldName, fieldValue, isRadio) {
 	if (isRadio) {
