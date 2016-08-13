@@ -1,11 +1,12 @@
 import React from 'react';
-
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Row from 'components/row';
 import Column from 'components/column';
 import Title from 'components/title';
 import Options from 'components/options';
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';
+import styles from './styles.css'
 
 function generateProps(fieldProps = {}, fieldName, fieldValue, isRadio) {
 	if (isRadio) {
@@ -31,7 +32,7 @@ function generateProps(fieldProps = {}, fieldName, fieldValue, isRadio) {
 	};
 }
 
-export default function OrderOptions({ options, fields }) {
+function OrderOptions({ options, fields }) {
 	const titles = [
 		'Современные браузеры',
 		'Устаревшие браузеры',
@@ -79,20 +80,22 @@ export default function OrderOptions({ options, fields }) {
 				})}
 			</Row>
 
-			<Title size='small'>Дополнительно</Title>
-			<Options inline>
-				{addition.map((option, i) => (
-					<Checkbox
-						checked={option.isChecked}
-						id={option.value}
-						key={i}
-						tip={option.tip}
-						{...generateProps(fields.addition, 'addition', option.value)}
-					>
-						{option.name}
-					</Checkbox>
-				))}
-			</Options>
+			<div className={styles.extra}>
+				<Title size='small'>Дополнительно</Title>
+				<Options inline>
+					{addition.map((option, i) => (
+						<Checkbox
+							checked={option.isChecked}
+							id={option.value}
+							key={i}
+							tip={option.tip}
+							{...generateProps(fields.addition, 'addition', option.value)}
+						>
+							{option.name}
+						</Checkbox>
+					))}
+				</Options>
+			</div>
 		</div>
 	);
 }
@@ -106,3 +109,5 @@ OrderOptions.defaultProps = {
 	fields: {},
 	options: [],
 };
+
+export default withStyles(OrderOptions, styles);
