@@ -28,10 +28,7 @@
 		"name": "Internet Explorer 9",
 		"value": "ie9"
 	}, {
-		"name": "Internet Explorer 8",
-		"value": "ie8"
-	}, {
-		"name": "Opera 12",
+		"name": "Opera 12.18",
 		"value": "opera12"
 	}],
 	"mobileBrowsers": [{
