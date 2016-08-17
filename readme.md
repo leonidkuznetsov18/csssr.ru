@@ -1,6 +1,6 @@
 # CSSSR.RU
 
-[![Build Status](https://travis-ci.com/CSSSR/csssr.ru.svg?token=E6AsPDZczxxsqc4GHsy8&branch=develop)](https://travis-ci.com/CSSSR/csssr.ru)
+[![Build Status](https://travis-ci.org/CSSSR/csssr.ru.svg?branch=master)](https://travis-ci.org/CSSSR/csssr.ru)
 
 ## Запуск
 
