@@ -18,6 +18,7 @@ import validator, { containErrors } from 'utils/validator';
 		'email',
 		'skype',
 		'phone',
+		'comment',
 	],
 })
 export default class PageJob extends Component {
@@ -31,7 +32,7 @@ export default class PageJob extends Component {
 
 	handleSubmit = (values, dispatch) => {
 		return new Promise((resolve, reject) => {
-			const { hasResume, hasPortfolio } = this.props.options;
+			const { hasResume, hasPortfolio, hasComment } = this.props.options;
 			const errors = validator(values, {
 				file: {
 					file: this.props.fileType,
@@ -50,6 +51,10 @@ export default class PageJob extends Component {
 				},
 			});
 			const haveErrors = containErrors(errors);
+
+			if (hasComment && !values.comment) {
+				values.comment = '';
+			}
 
 			if (haveErrors) {
 				reject({

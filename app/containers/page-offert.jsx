@@ -11,7 +11,7 @@ export default function PageOffert({ route }) {
 
 	return (
 		<Content>
-			<Helmet {...meta[path]} />
+			<Helmet {...meta[path]} title={data.title} />
 			<Offert data={data} />
 		</Content>
 	);

@@ -84,7 +84,7 @@ export class Widget extends React.Component {
 		return (
 			<a
 				className='twitter-timeline'
-				data-chrome='nofooter noheader noborder'
+				data-chrome='nofooter noheader noborders'
 				data-tweet-limit='1'
 				data-widget-id='705435656353398784'
 				href={url[this.props.type]}

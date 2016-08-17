@@ -31,7 +31,7 @@ function Sharing() {
 			{buttons.map((button) => (
 				<div className={styles.item} key={button.type}>
 					<Button
-						component='a'
+						component='button'
 						icon={`social-${button.type}`}
 						mod='social'
 						onClick={onButtonClick(button.type)}

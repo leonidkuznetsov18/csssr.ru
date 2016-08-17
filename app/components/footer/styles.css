@@ -26,6 +26,10 @@
 	line-height: 17px;
 	text-decoration: underline;
 
+	&_indent {
+		margin-right: 10px;
+	}
+
 	&:hover {
 		cursor: pointer;
 		color: var(--color-white);

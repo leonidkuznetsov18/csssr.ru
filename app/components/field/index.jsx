@@ -16,6 +16,7 @@ class Field extends React.Component {
 		position: React.PropTypes.number,
 		required: React.PropTypes.bool,
 		small: React.PropTypes.bool,
+		type: React.PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -45,7 +46,10 @@ class Field extends React.Component {
 		const inputClass = cx({
 			[styles.input]: true,
 			[styles.input_error]: invalid,
+			[styles.input_textarea]: this.props.type === 'textarea',
 		});
+
+		const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
 
 		return (
 			<div className={blockClass}>
@@ -57,7 +61,7 @@ class Field extends React.Component {
 					{label}
 				</label>
 
-				<input
+				<Tag
 					ref='input'
 					{...this.props}
 					className={inputClass}

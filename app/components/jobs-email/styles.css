@@ -21,6 +21,7 @@
 	line-height: 26px;
 	color: #056383;
 	transition: color .3s ease;
+	cursor: pointer;
 
 	&:hover {
 		color: #DF0B0B;
