@@ -4,7 +4,7 @@ export const requestVacancies = (filter = 'active') => ({
 	type: 'VACANCIES',
 	payload: new Promise((resolve, reject) =>
 		superagent
-			.get(`${process.env.INNER_URL}/vacancies/${filter}`)
+			.get(`${process.env.SERVER ? process.env.INNER_URL : ''}/vacancies/${filter}`)
 			.end((error, response) => {
 				if (
 					(global.navigator && !global.navigator.onLine) ||

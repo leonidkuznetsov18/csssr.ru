@@ -1,4 +1,3 @@
-export const INNER_URL = 'http://localhost:3030';
 export const BASE_URL = 'http://test-site.csssr.ru';
 export const SITE_URL = 'http://test-site.csssr.ru/uploads/';
 export const HR_DOMAIN = 'http://test-hr.csssr.ru';

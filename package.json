@@ -13,7 +13,7 @@
     "stylelint-pr": "stylelint `git diff --name-status $(git merge-base origin/develop HEAD)..HEAD | grep -E '^[AM]' | awk ' {print $2} ' | grep -E 'css?$'`",
     "build": "webpack --config webpack-production.config.js --progress --profile --colors",
     "start": "nodemon --watch server/ --exec node ./server",
-    "server": "node ./server",
+    "server": "SERVER=true node ./server",
     "sitemap": "node ./utils/sitemap",
     "production": "npm run build && npm run sitemap && npm run server",
     "storybook": "start-storybook -p 9001",
