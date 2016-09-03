@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'components/link';
 import FormValidationWindow from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('FormValidationWindow')
 	.add('default', () => (

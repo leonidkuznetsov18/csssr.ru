@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'components/icon';
 
 import Parallax from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('Parallax')
 	.add('default', () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Offert from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const offert = require('data/offert.json');
 const confidential = require('data/confidential.json');

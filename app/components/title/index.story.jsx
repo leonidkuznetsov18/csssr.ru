@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('Title')
 	.add('default', () => (

@@ -50,6 +50,7 @@ export default (
 		</Route>
 		<Route component={Offert} path='/offert' />
 		<Route component={Offert} path='/confidential' />
+		<Route component={Offert} path='/estimate-offert' />
 		<Route component={Timeline} path='/timeline'>
 			<Route component={PageTimelinePopup} path='version/:version' />
 			<Route component={PageTimelinePopup} path=':person' />

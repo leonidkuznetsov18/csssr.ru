@@ -1,6 +1,6 @@
 import React from 'react';
 import Comments from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const dataComments = require('data/comments.json');
 

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { vacanciesShape } from 'helpers/propTypes';
+import { vacanciesShape } from 'utils/propTypes';
 import JobsBanner from 'components/jobs-banner';
 import JobsWidget from 'components/jobs-widget';
 import JobsVacancy from 'components/jobs-vacancy';

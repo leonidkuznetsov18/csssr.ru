@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Link } from 'react-router';
 import Icon from 'components/icon';
@@ -13,6 +14,10 @@ function Footer() {
 		'paypal',
 		'cashless',
 	];
+	const linkWithMargin = cx({
+		[styles.link]: true,
+		[styles.link_indent]: true,
+	});
 
 	return (
 		<footer className={styles.root}>
@@ -41,7 +46,7 @@ function Footer() {
 				</div>
 				<div className={styles.links}>
 					<a
-						className={styles.link}
+						className={linkWithMargin}
 						href='http://csssrvice.reformal.ru/'
 					>
 						Отзывы и предложения

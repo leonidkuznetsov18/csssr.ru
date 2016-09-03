@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import socialLink from 'helpers/socialLink';
+import socialLink from 'utils/socialLink';
 
 import Button from 'components/button';
 import styles from './styles.css';
@@ -31,7 +31,7 @@ function Sharing() {
 			{buttons.map((button) => (
 				<div className={styles.item} key={button.type}>
 					<Button
-						component='a'
+						component='button'
 						icon={`social-${button.type}`}
 						mod='social'
 						onClick={onButtonClick(button.type)}

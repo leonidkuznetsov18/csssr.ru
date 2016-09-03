@@ -10,6 +10,7 @@ Disallow: /outsource/cpeople
 Disallow: /outsource/thanks
 Disallow: /portfolio
 Disallow: /offert
+Disallow: /estimate-offert
 Disallow: /confidential
 Disallow: /timeline
 Disallow: /vacancy

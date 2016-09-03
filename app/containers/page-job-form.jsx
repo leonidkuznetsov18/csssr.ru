@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { vacancyShape } from 'helpers/propTypes';
-import formatVacancy from 'helpers/formatVacancy';
+import { vacancyShape } from 'utils/propTypes';
+import formatVacancy from 'utils/formatVacancy';
 import Content from 'components/content';
 import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
@@ -28,7 +28,7 @@ export default class PageJobForm extends Component {
 
 	render() {
 		const { vacancy } = this.props;
-		const { hasResume, hasPortfolio, pathName } = vacancy;
+		const { hasResume, hasPortfolio, hasComment, pathName } = vacancy;
 		const fileType = this.getFileType(vacancy);
 		const data = formatVacancy(vacancy);
 
@@ -60,6 +60,7 @@ export default class PageJobForm extends Component {
 						options={{
 							hasResume,
 							hasPortfolio,
+							hasComment,
 						}}
 					/>
 				</Content>

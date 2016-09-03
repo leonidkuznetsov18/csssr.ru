@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { vacanciesShape } from 'helpers/propTypes';
+import { vacanciesShape } from 'utils/propTypes';
 import { requestVacancies } from 'actions/vacancies';
 import PageJobForm from 'containers/page-job-form';
 import PageError from 'containers/page-error';

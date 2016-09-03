@@ -87,7 +87,7 @@ class JobForm extends React.Component {
 			};
 		}
 
-		const { fileAccept, options: { hasResume, hasPortfolio } } = this.props;
+		const { fileAccept, options: { hasResume, hasPortfolio, hasComment } } = this.props;
 		let questText = '';
 
 		if (fileAccept === '.zip') {
@@ -142,6 +142,13 @@ class JobForm extends React.Component {
 					required
 					{...this.props.fields.phone}
 				/>
+
+
+				{hasComment && this.renderField('comment', 'Комментарий', {
+					required: false,
+					maxLength: 3000,
+					type: 'textarea',
+				})}
 
 				<Checkbox
 					checked

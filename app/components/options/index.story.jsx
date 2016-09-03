@@ -1,6 +1,6 @@
 import React from 'react';
 import Options from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 import Checkbox from 'components/checkbox';
 import Radio from 'components/radio';

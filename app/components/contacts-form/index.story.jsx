@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactsForm from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 import { action } from '@kadira/storybook';
 import Link from 'components/link';
 

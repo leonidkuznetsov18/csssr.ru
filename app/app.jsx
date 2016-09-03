@@ -7,11 +7,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import useScroll from 'use-scroll-behavior';
 import createStore from './store';
 import routes from './routes';
-import redirect from './helpers/redirectOldUrls';
-import decorateConsole from './helpers/consoleDecorator';
+import decorateConsole from './utils/consoleDecorator';
 import { NODE_ENV as PRODUCTION } from '../config/env.production';
-
-redirect();
 
 if (process.env.NODE_ENV === PRODUCTION) {
 	decorateConsole();

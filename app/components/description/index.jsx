@@ -63,7 +63,7 @@ function Description({ data }) {
 					speed={-0.7}
 				>
 					<div className={styles.airship}>
-						<Airship image='zeppelin_index.svg' />
+						<Airship image={require('../../images/background/zeppelin_index.svg')} />
 					</div>
 				</Parallax>
 				<Workflow />

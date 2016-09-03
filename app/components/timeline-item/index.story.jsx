@@ -1,6 +1,6 @@
 import React from 'react';
 import TimelineItem from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('TimelineItem')
 	.add('text-only', () => (

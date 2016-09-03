@@ -1,6 +1,6 @@
 import React from 'react';
 import TimelineQuote from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 import loremIpsum from 'lorem-ipsum';
 
 const text = loremIpsum({

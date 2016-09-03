@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 
-import routerLink from 'helpers/routerLink';
+import routerLink from 'utils/routerLink';
 
 import styles from './styles.css';
 

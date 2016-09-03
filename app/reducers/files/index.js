@@ -1,5 +1,3 @@
-import shortid from 'shortid';
-
 import { ADD_FILES, UPDATE_FILE, REMOVE_FILE, ORDER_FORM_SENT } from 'constants/actions';
 
 export default function order(state = [], action) {
@@ -7,7 +5,7 @@ export default function order(state = [], action) {
 
 	case ADD_FILES: {
 		return state.concat(action.files.map((file) => ({
-			id: shortid.generate(),
+			id: file.preview,
 			progress: 0,
 			file,
 		})));

@@ -3,10 +3,13 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from './styles.css';
 
-function Airship({ image, children }) {
-	const imageUrl = require(`../../images/background/${image}`);
+export function Airship({ image, children }) {
+	if (!image) {
+		return null;
+	}
+
 	const textStyle = {
-		backgroundImage: `url(${imageUrl})`,
+		backgroundImage: `url(${image})`,
 	};
 
 	return (
@@ -27,7 +30,7 @@ function Airship({ image, children }) {
 }
 
 Airship.propTypes = {
-	children: React.PropTypes.element,
+	children: React.PropTypes.node,
 	image: React.PropTypes.string,
 };
 

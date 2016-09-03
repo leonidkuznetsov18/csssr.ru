@@ -1,5 +1,5 @@
-import mdToHtmlLink from 'helpers/md-to-html-link';
-import mdToHtmlStrike from 'helpers/md-to-html-strike';
+import mdToHtmlLink from 'utils/md-to-html-link';
+import mdToHtmlStrike from 'utils/md-to-html-strike';
 
 const formatText = (str) => mdToHtmlStrike(mdToHtmlLink(str));
 const formatSection = ({ title, text, boldText, list }, { isSubSection = false, titleProps } = {}) => {

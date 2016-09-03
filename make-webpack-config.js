@@ -15,6 +15,7 @@ export default (options) => {
 	const outputFilename = isProdClient ? '[name]-[hash].js' : '[name].js';
 	const outputChunkFilename = options.devServer ? '[id].js' : outputFilename;
 	const assetsMapFile = 'assets.json';
+	const className = options.originalName ? '[local]' : classFormat;
 	let loaders = {
 		json: 'json',
 		'png|jpg|cur|gif': `url?limit=${options.storybook ? 0 : 5000}`,
@@ -23,7 +24,7 @@ export default (options) => {
 	const stylesheetLoaders = {
 		css: [
 			'isomorphic-style',
-			`css?modules&minimize&importLoaders=1&localIdentName=${classFormat}`,
+			`css?modules&minimize&importLoaders=1&localIdentName=${className}`,
 			'postcss',
 		],
 	};

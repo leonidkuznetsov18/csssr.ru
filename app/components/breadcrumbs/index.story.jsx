@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 storiesOf('Breadcrumbs')
 	.add('1 item', () => (

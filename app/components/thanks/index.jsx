@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import socialLink from 'helpers/socialLink';
+import socialLink from 'utils/socialLink';
 import Row from 'components/row';
 import Column from 'components/column';
 import Title from 'components/title';

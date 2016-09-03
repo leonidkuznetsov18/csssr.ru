@@ -6,5 +6,18 @@
 	],
 	"plugins": [
 		"transform-decorators-legacy"
-	]
+	],
+	"env": {
+		"AVA": {
+			"plugins": [
+				[
+					"babel-plugin-webpack-loaders",
+					{
+						"config": "${CONFIG}",
+						"verbose": false
+					}
+				]
+			]
+		}
+	}
 }

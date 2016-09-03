@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectSidebar from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 import { action } from '@kadira/storybook';
 
 const projects = require('data/projects.json');

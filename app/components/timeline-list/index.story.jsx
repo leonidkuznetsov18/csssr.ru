@@ -1,6 +1,6 @@
 import React from 'react';
 import TimelineList from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const timelineData = require('data/timeline.json');
 

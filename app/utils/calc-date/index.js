@@ -1,6 +1,5 @@
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-function plural(num, single, some, multiple) {
+const plural = (num, single, some, multiple) => {
 	if (num === 1) {
 		return single;
 	}
@@ -10,7 +9,7 @@ function plural(num, single, some, multiple) {
 	}
 
 	return multiple;
-}
+};
 
 export default function calcDate(date, endDate = new Date()) {
 	const time = [];

@@ -1,6 +1,6 @@
 import React from 'react';
 import List from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const items = [
 	'Легко генерировать идеи;',

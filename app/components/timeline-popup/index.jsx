@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import stopPropagation from 'helpers/stopPropagation';
+import stopPropagation from 'utils/stop-propagation';
 import Popup from 'components/popup';
 import TimelineQuote from 'components/timeline-quote';
 

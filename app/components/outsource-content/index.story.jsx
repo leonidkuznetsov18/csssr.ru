@@ -1,6 +1,6 @@
 import React from 'react';
 import OutsourceContent from './index.jsx';
-import storiesOf from 'helpers/storiesOf';
+import storiesOf from 'utils/storiesOf';
 
 const data = require('data/outsource.json');
 const partners = require('data/partners.js').default;

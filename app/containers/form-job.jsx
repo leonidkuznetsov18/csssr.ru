@@ -18,6 +18,7 @@ import pick from 'lodash.pick';
 		'email',
 		'skype',
 		'phone',
+		'comment',
 	],
 })
 export default class PageJob extends Component {
@@ -32,49 +33,56 @@ export default class PageJob extends Component {
 		return new Promise((resolve, reject) => {
 			const errors = {};
 			let haveErrors = false;
-			const { hasResume, hasPortfolio } = this.props.options;
+			const { hasResume, hasPortfolio, hasComment } = this.props.options;
 			const optionalFields = {
 				resume: hasResume,
 				portfolio: hasPortfolio,
+				comment: hasComment,
 			};
 
 			const fields = Object.keys(values).filter((item) =>
 				typeof optionalFields[item] === 'boolean' ? optionalFields[item] : true
 			);
 
-			fields.forEach((key) => {
-				const value = values[key];
+			fields
+				.filter((item) => item !== 'comment')
+				.forEach((key) => {
+					const value = values[key];
 
-				if (key === 'file') {
-					const fileSpec = this.props.fileType;
-					const file = value && value.length && value[0];
+					if (key === 'file') {
+						const fileSpec = this.props.fileType;
+						const file = value && value.length && value[0];
 
-					if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
-						errors[key] = fileSpec.fileWarning;
-						haveErrors = true;
-					} else if (file.size > fileSpec.maxSize) {
-						errors[key] = fileSpec.fileWarningSize;
+						if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
+							errors[key] = fileSpec.fileWarning;
+							haveErrors = true;
+						} else if (file.size > fileSpec.maxSize) {
+							errors[key] = fileSpec.fileWarningSize;
+							haveErrors = true;
+						}
+
+						return;
+					}
+
+					if (key === 'email' && !rEmail.test(value)) {
+						errors[key] = true;
 						haveErrors = true;
 					}
 
-					return;
-				}
+					if (key === 'phone' && value && value.length < 12) {
+						errors[key] = true;
+						haveErrors = true;
+					}
 
-				if (key === 'email' && !rEmail.test(value)) {
-					errors[key] = true;
-					haveErrors = true;
-				}
+					if (!value) {
+						errors[key] = true;
+						haveErrors = true;
+					}
+				});
 
-				if (key === 'phone' && value && value.length < 12) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-
-				if (!value) {
-					errors[key] = true;
-					haveErrors = true;
-				}
-			});
+			if (hasComment && !values.comment) {
+				values.comment = '';
+			}
 
 			if (haveErrors) {
 				dispatch(setEmptyFields());
