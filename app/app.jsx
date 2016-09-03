@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { withContext } from 'recompose';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import useScroll from 'use-scroll-behavior';
+import { useScroll } from 'react-router-scroll';
 import store from './store';
 import routes from './routes';
 import decorateConsole from './utils/consoleDecorator';
@@ -14,11 +14,32 @@ if (process.env.NODE_ENV === PRODUCTION) {
 	decorateConsole();
 }
 
-const history = syncHistoryWithStore(useScroll(browserHistory), store);
+const history = syncHistoryWithStore(browserHistory, store);
+const isPopup = (url, location) => {
+	const toPopup = location.action === 'PUSH' && location.pathname.indexOf(`${url}/`) === 0;
+	const fromPopup = location.action === 'POP' && location.pathname === url;
+
+	return toPopup || fromPopup;
+};
 
 const App = () => (
 	<Provider store={store}>
-		<Router history={history} routes={routes} />
+		<Router
+			history={history}
+			render={applyRouterMiddleware(
+				useScroll((prevRouterProps, currentRouterProps) => {
+					const { location } = currentRouterProps;
+					const isTimelinePopup = isPopup('/timeline', location);
+
+					if (isTimelinePopup) {
+						return false;
+					}
+
+					return true;
+				})
+			)}
+			routes={routes}
+		/>
 	</Provider>
 );
 

@@ -9,6 +9,7 @@ const timeline = require('data/timeline.json');
 export default class PageTimelinePopup extends React.Component {
 	static propTypes = {
 		history: React.PropTypes.object.isRequired,
+		location: React.PropTypes.object.isRequired,
 		routeParams: React.PropTypes.object.isRequired,
 	}
 
@@ -47,7 +48,11 @@ export default class PageTimelinePopup extends React.Component {
 		});
 
 		setTimeout(() => {
-			this.props.history.push('/timeline');
+			if (this.props.location.action === 'PUSH') {
+				this.props.history.goBack();
+			} else {
+				this.props.history.push('/timeline');
+			}
 		}, 300);
 	}
 

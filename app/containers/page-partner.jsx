@@ -8,6 +8,7 @@ const data = require('data/partners.json');
 @disableScroll
 export default class PagePartner extends React.Component {
 	static propTypes = {
+		location: React.PropTypes.object.isRequired,
 		history: React.PropTypes.object.isRequired,
 		params: React.PropTypes.object.isRequired,
 	}
@@ -29,7 +30,11 @@ export default class PagePartner extends React.Component {
 			active: false,
 		});
 
-		this.props.history.push('/outsource');
+		if (this.props.location.action === 'PUSH') {
+			this.props.history.goBack();
+		} else {
+			this.props.history.push('/outsource');
+		}
 	}
 
 	render() {
