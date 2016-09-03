@@ -12,6 +12,6 @@ storiesOf('TimelineQuote')
 	.add('default', () => (
 		<TimelineQuote
 			text={text}
-			title='История связанная с CSSSR'
+			title='История, связанная с CSSSR'
 		/>
 	));

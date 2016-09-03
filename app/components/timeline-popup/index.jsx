@@ -32,7 +32,7 @@ function TimelinePopup(props) {
 					<div className={styles.quoute}>
 						<TimelineQuote
 							text={props.histories}
-							title='История связанная с CSSSR'
+							title='История, связанная с CSSSR'
 						/>
 					</div>
 				}
