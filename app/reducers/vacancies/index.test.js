@@ -1,8 +1,8 @@
 import test from 'ava';
 import {
-	REQUEST_VACANCIES,
-	REJECT_VACANCIES,
-	RECEIVE_VACANCIES,
+	VACANCIES_PENDING,
+	VACANCIES_REJECTED,
+	VACANCIES_FULFILLED,
 } from 'constants/actions';
 import reducer from './';
 
@@ -12,7 +12,7 @@ test('should set isFetching on request', (t) => {
 	};
 
 	const actual = reducer(state, {
-		type: REQUEST_VACANCIES,
+		type: VACANCIES_PENDING,
 	});
 
 	t.is(actual.isFetching, true);
@@ -24,7 +24,7 @@ test('should remove error on request', (t) => {
 	};
 
 	const actual = reducer(state, {
-		type: REQUEST_VACANCIES,
+		type: VACANCIES_PENDING,
 	});
 
 	t.is(actual.error, null);
@@ -35,10 +35,10 @@ test('should unset isFetching on request finish', (t) => {
 		isFetcing: false,
 	};
 	const actualReject = reducer(state, {
-		type: REJECT_VACANCIES,
+		type: VACANCIES_REJECTED,
 	});
 	const actualReceive = reducer(state, {
-		type: RECEIVE_VACANCIES,
+		type: VACANCIES_FULFILLED,
 	});
 
 	t.is(actualReject.isFetching, false);
@@ -53,8 +53,8 @@ test('should add vacancies', (t) => {
 		},
 	};
 	const actual = reducer(state, {
-		type: RECEIVE_VACANCIES,
-		data: {
+		type: VACANCIES_FULFILLED,
+		payload: {
 			action: true,
 		},
 	});
