@@ -44,19 +44,6 @@ export default class PageJobForm extends Component {
 		}),
 	}
 
-	getFileType(vacancy) {
-		const { fileExt, maxFileSize } = vacancy;
-		const capitalExt = fileExt.toUpperCase();
-
-		return {
-			fileAccept: `.${fileExt}`,
-			regexp: new RegExp(`\\.${fileExt}$`, 'i'),
-			fileWarning: `${capitalExt}, пожалуйста!`,
-			fileWarningSize: `${capitalExt}, пожалуйста (макс. ${maxFileSize} MB)!`,
-			maxSize: maxFileSize * 1024 * 1024,
-		};
-	}
-
 	formatSection({ title, text, boldText, list }, { isSubSection = false, titleProps } = {}) {
 		const data = {};
 
@@ -131,7 +118,6 @@ export default class PageJobForm extends Component {
 	render() {
 		const { vacancy } = this.props;
 		const { hasResume, hasPortfolio, hasComment, pathName } = vacancy;
-		const fileType = this.getFileType(vacancy);
 		const data = this.getData(vacancy);
 
 		return (
@@ -157,13 +143,13 @@ export default class PageJobForm extends Component {
 					</Quest>}
 					{data.afterQuest && <SectionGroup data={data.afterQuest} />}
 					<FormJob
-						fileType={fileType}
 						jobName={pathName}
 						options={{
 							hasResume,
 							hasPortfolio,
 							hasComment,
 						}}
+						vacancy={vacancy}
 					/>
 				</Content>
 			</div>

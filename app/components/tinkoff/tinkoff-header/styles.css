@@ -1,0 +1,16 @@
+@import 'helpers';
+
+.root {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	padding-bottom: 11px;
+	width: 940px;
+	display: block;
+}
+
+.logo {
+	display: block;
+	width: 320px;
+	height: 74px;
+}

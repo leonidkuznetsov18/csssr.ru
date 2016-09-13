@@ -1,7 +1,7 @@
 import React from 'react';
 
 import spliter from 'utils/spliter';
-import Field from 'components/field';
+import Field from '../field';
 import { getSelection } from 'react/lib/ReactInputSelection';
 
 const phoneCodes = {
@@ -18,6 +18,10 @@ const phoneCodes = {
 
 export default class FieldPhone extends React.Component {
 	static propTypes = {
+		component: React.PropTypes.oneOfType([
+			React.PropTypes.element,
+			React.PropTypes.func,
+		]),
 		onChange: React.PropTypes.func,
 		value: React.PropTypes.string,
 	}
@@ -95,8 +99,10 @@ export default class FieldPhone extends React.Component {
 	}
 
 	render() {
+		const Phone = this.props.component || Field;
+
 		return (
-			<Field
+			<Phone
 				{...this.props}
 				onBlur={this.handleBlur}
 				onChange={this.handleChange}

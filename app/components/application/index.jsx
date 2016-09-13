@@ -3,6 +3,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import scrollbarSize from 'scrollbar-size';
 
+import Root from 'components/root';
 import Header from 'components/header';
 import Footer from 'components/footer';
 import Sharing from 'components/sharing';
@@ -23,30 +24,32 @@ function Application({ children, banner, meta, active, openSidebar, closeSidebar
 	});
 
 	return (
-		<div className={applicationClass}>
-			<div
-				className={styles.wrapper}
-				onClick={closeSidebar}
-				style={{
-					paddingRight: overflow ? scrollbarSize() : 0,
-				}}
-			>
-				{banner}
+		<Root>
+			<div className={applicationClass}>
+				<div
+					className={styles.wrapper}
+					onClick={closeSidebar}
+					style={{
+						paddingRight: overflow ? scrollbarSize() : 0,
+					}}
+				>
+					{banner}
 
-				<Header open={openSidebar} />
-				<div className={styles.inner}>
-					{children}
+					<Header open={openSidebar} />
+					<div className={styles.inner}>
+						{children}
+					</div>
+					<Sharing meta={meta} />
+					<Footer />
 				</div>
-				<Sharing meta={meta} />
-				<Footer />
+				<div className={contactsClass}>
+					<Contacts
+						active={active}
+						onClose={closeSidebar}
+					/>
+				</div>
 			</div>
-			<div className={contactsClass}>
-				<Contacts
-					active={active}
-					onClose={closeSidebar}
-				/>
-			</div>
-		</div>
+		</Root>
 	);
 }
 

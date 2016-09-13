@@ -1,0 +1,47 @@
+@import 'helpers';
+
+.root {
+	display: block;
+	background-size: cover;
+	background-image: url('../../../images/tinkoff/skills.jpg');
+}
+
+.inner {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 66px 0 18px;
+	width: 940px;
+	color: var(--color-white);
+	font-family: 'Roboto';
+}
+
+.list {
+	margin-top: 45px;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.item {
+	position: relative;
+	width: 33.3333%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.icon {
+	display: block;
+	height: 60px;
+}
+
+.subtitle {
+	display: block;
+	color: var(--color-white);
+	font-family: 'Roboto';
+	font-size: 18px;
+	margin-top: 13px;
+}

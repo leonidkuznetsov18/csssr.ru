@@ -1,0 +1,127 @@
+@import 'helpers';
+
+.root {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+
+	&_short {
+		width: calc(50% - 5px);
+	}
+
+	&_error {
+		.input {
+			border-color: var(--color-tinkoff-red);
+		}
+	}
+
+	&_file {
+		.label {
+			box-sizing: border-box;
+			display: block;
+			background-color: var(--color-white);
+			border: 1px solid var(--color-tinkoff-gray-borders);
+			padding: 11px 13px 10px;
+			width: 100%;
+			border-radius: 2px;
+			position: relative;
+			top: auto;
+			left: auto;
+			margin: 0;
+			cursor: pointer;
+
+			&::before {
+				content: '';
+				position: absolute;
+				background-image: url('../../../images/tinkoff/attach.svg');
+				background-repeat: no-repeat;
+				width: 50px;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				background-position: 16px 12px;
+			}
+		}
+
+		.input {
+			z-index: -1;
+			opacity: 0;
+			position: absolute;
+
+			/* stylelint-disable selector-max-specificity */
+			/* for input with type=file */
+			&:focus + .label {
+				box-shadow: 0 0 1px 1px #FED500;
+				transform: translate3d(0, 0, 0);
+				font-size: 14px;
+				color: #536371;
+			}
+
+			&:valid + .label {
+				transform: translate3d(0, 0, 0);
+				font-size: 14px;
+				color: #536371;
+			}
+		}
+	}
+
+	&_file&_error {
+		.label {
+			border-color: var(--color-tinkoff-red);
+		}
+	}
+}
+
+.label {
+	position: absolute;
+	top: 12px;
+	left: 14px;
+	margin: auto;
+	font-family: 'Roboto';
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 300;
+	user-select: none;
+	color: #536371;
+	transform: translate3d(0, 0, 0);
+	transition: all .2s ease;
+}
+
+.input {
+	box-sizing: border-box;
+	display: block;
+	font-family: 'Roboto';
+	background-color: var(--color-white);
+	border: 1px solid var(--color-tinkoff-gray-borders);
+	padding: 17px 13px 7px;
+	width: 100%;
+	border-radius: 2px;
+
+	&:focus {
+		box-shadow: 0 0 1px 1px #FED500;
+
+		+ .label {
+			transform: translate3d(0, -8px, 0);
+			font-size: 11px;
+			color: #959DA6;
+		}
+	}
+
+	&:valid {
+		+ .label {
+			transform: translate3d(0, -8px, 0);
+			font-size: 11px;
+			color: #959DA6;
+		}
+	}
+}
+
+.error {
+	position: absolute;
+	font-family: Roboto;
+	font-size: 13px;
+	top: 100%;
+	margin-top: 5px;
+	color: #E84E4E;
+}

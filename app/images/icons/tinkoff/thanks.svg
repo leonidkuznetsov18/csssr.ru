@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="114px" height="114px" viewBox="0 0 114 114" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <circle id="path-1" cx="57" cy="57" r="56.40625"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="112.8125" height="112.8125" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <polygon id="path-3" points="51.30275 78.21825 87.3730625 42.1479375 81.00925 35.78175 51.30275 65.4870625 38.9943125 53.178625 32.6269375 59.54125 51.30275 78.21825"></polygon>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="54.746125" height="42.4365" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Thanks-Alt" transform="translate(-476.000000, -681.000000)" stroke-width="2" stroke="#77C42D">
+            <g id="Thanks" transform="translate(376.000000, 646.000000)">
+                <g id="Content" transform="translate(100.000000, 35.000000)">
+                    <g id="Group">
+                        <g id="Icon">
+                            <use id="Oval" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                            <use id="Shape" mask="url(#mask-4)" xlink:href="#path-3"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

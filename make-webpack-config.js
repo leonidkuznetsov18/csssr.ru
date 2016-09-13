@@ -163,9 +163,10 @@ export default (options) => {
 			],
 			extensions: ['.jsx', '.js', ''],
 		},
-		postcss: [
+		postcss: (w) => [
 			require('postcss-import')({
 				path: [root + '/styles'],
+				addDependencyTo: w,
 			}),
 			require('postcss-custom-media'),
 			require('postcss-clearfix'),

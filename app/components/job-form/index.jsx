@@ -143,7 +143,6 @@ class JobForm extends React.Component {
 					{...this.props.fields.phone}
 				/>
 
-
 				{hasComment && this.renderField('comment', 'Комментарий', {
 					required: false,
 					maxLength: 3000,

@@ -23,10 +23,33 @@ import pick from 'lodash.pick';
 })
 export default class PageJob extends Component {
 	static propTypes = {
-		fileType: React.PropTypes.object,
+		component: React.PropTypes.oneOfType([
+			React.PropTypes.element,
+			React.PropTypes.func,
+		]),
 		handleSubmit: React.PropTypes.func.isRequired,
 		jobName: React.PropTypes.string,
 		options: React.PropTypes.object,
+		vacancy: React.PropTypes.object,
+	};
+
+	static defaultProps = {
+		component: JobForm,
+		options: {},
+		vacancy: {},
+	};
+
+	getFileType(vacancy) {
+		const { fileExt, maxFileSize } = vacancy;
+		const capitalExt = fileExt.toUpperCase();
+
+		return {
+			fileAccept: `.${fileExt}`,
+			regexp: new RegExp(`\\.${fileExt}$`, 'i'),
+			fileWarning: `${capitalExt}, пожалуйста!`,
+			fileWarningSize: `${capitalExt}, пожалуйста (макс. ${maxFileSize} MB)!`,
+			maxSize: maxFileSize * 1024 * 1024,
+		};
 	}
 
 	onSubmit = () => this.props.handleSubmit((values, dispatch) => {
@@ -50,10 +73,10 @@ export default class PageJob extends Component {
 					const value = values[key];
 
 					if (key === 'file') {
-						const fileSpec = this.props.fileType;
-						const file = value && value.length && value[0];
+						const fileSpec = this.getFileType(this.props.vacancy);
+						const file = value && value[0];
 
-						if (!value || !value.length || !fileSpec.regexp.test(file.name)) {
+						if (!value || file && !fileSpec.regexp.test(file.name)) {
 							errors[key] = fileSpec.fileWarning;
 							haveErrors = true;
 						} else if (file.size > fileSpec.maxSize) {
@@ -98,10 +121,12 @@ export default class PageJob extends Component {
 	})
 
 	render() {
+		const Form = this.props.component;
+
 		return (
-			<JobForm
+			<Form
 				{...this.props}
-				{...this.props.fileType}
+				{...this.getFileType(this.props.vacancy)}
 				handleSubmit={this.onSubmit()}
 				options={this.props.options}
 			/>

@@ -1,0 +1,53 @@
+@import 'helpers';
+
+.root {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 65px;
+	padding-bottom: 18px;
+	width: 940px;
+	display: block;
+	font-family: 'Roboto';
+}
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 45px;
+}
+
+.item {
+	width: 50%;
+	display: flex;
+	margin-bottom: 50px;
+}
+
+.icon {
+	display: block;
+	flex-shrink: 0;
+	width: 55px;
+	height: 55px;
+}
+
+.texts {
+	display: block;
+	padding-left: 15px;
+	font-family: 'Roboto';
+	line-height: 1.5;
+}
+
+.subtitle {
+	display: block;
+	font-family: inherit;
+	line-height: inherit;
+	font-size: 15px;
+}
+
+.description {
+	display: block;
+	font-family: inherit;
+	line-height: inherit;
+	color: var(--color-tinkoff-gray);
+	font-size: 14px;
+	margin-top: 5px;
+}

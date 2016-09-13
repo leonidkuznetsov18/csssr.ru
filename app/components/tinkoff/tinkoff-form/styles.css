@@ -1,0 +1,70 @@
+@import 'helpers';
+
+.root {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 66px;
+	padding-bottom: 60px;
+	width: 940px;
+	display: block;
+	font-family: 'Roboto';
+}
+
+.inner {
+	display: block;
+	padding: 40px 170px 26px;
+}
+
+.subtitle {
+	display: block;
+	margin-top: 15px;
+}
+
+.form {
+	display: block;
+	margin-top: 50px;
+}
+
+.fieldsShort {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.tip {
+	display: block;
+	color: var(--color-tinkoff-gray);
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: 'Roboto';
+	margin-top: 27px;
+}
+
+.footer {
+	display: block;
+	text-align: center;
+	border-top: 1px solid var(--color-tinkoff-gray-form-borders);
+	padding-top: 38px;
+	padding-bottom: 39px;
+}
+
+.link {
+	font-family: inherit;
+	font-size: inherit;
+	color: #74A3C7;
+
+	&:hover {
+		color: #74A3C7;
+		text-decoration: underline;
+	}
+}
+
+.terms {
+	display: block;
+	text-align: center;
+}
+
+.submit {
+	display: inline-block;
+	margin-top: 27px;
+}

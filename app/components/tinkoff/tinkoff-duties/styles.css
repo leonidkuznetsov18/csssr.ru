@@ -1,0 +1,40 @@
+@import 'helpers';
+
+.root {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 65px;
+	padding-bottom: 60px;
+	width: 940px;
+	display: block;
+	font-family: 'Roboto';
+}
+
+.list {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 45px;
+}
+
+.item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30%;
+}
+
+.icon {
+	display: block;
+	width: 140px;
+	height: 140px;
+}
+
+.description {
+	width: 100%;
+	font-family: 'Roboto';
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: center;
+	margin-top: 20px;
+	color: var(--color-tinkoff-gray);
+}

@@ -4,7 +4,7 @@
 */
 
 :root {
-	--color-white: #ffffff;
+	--color-white: #FFFFFF;
 	--color-black: #000000;
 	--color-red-brick: #AA2F23;
 	--color-green-dark: #022231;
@@ -14,6 +14,14 @@
 	--color-brown-wheat: #F6E1BA;
 	--color-brown-chocolate: #D5721B;
 	--color-brown-dough: #C4B18F;
+
+	--color-tinkoff-gray: #77808B;
+	--color-tinkoff-gray-borders: #C3C3C3;
+	--color-tinkoff-gray-form-borders: #D5DDEA;
+	--color-tinkoff-gray-light: #F7F8F8;
+	--color-tinkoff-yellow: #FFDD2E;
+	--color-tinkoff-yellow-dark: #FFCD33;
+	--color-tinkoff-red: #E84E4E;
 
 	--color-header: var(--color-red-brick);
 	--color-header-shadow: var(--color-green-dark);
@@ -26,7 +34,25 @@
 	--color-footer-text: var(--color-brown-wheat);
 	--color-footer-link: var(--color-orange);
 
-	--letters-cyrillic: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-	--letters-latin: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F,
-						U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+	--letters-cyrillic:
+		u+0400-045f,
+		u+0490-0491,
+		u+04b0-04b1,
+		u+2116;
+
+	--letters-latin:
+		u+0000-00ff,
+		u+0131,
+		u+0152-0153,
+		u+02c6,
+		u+02da,
+		u+02dc,
+		u+2000-206f,
+		u+2074,
+		u+20ac,
+		u+2212,
+		u+2215,
+		u+e0ff,
+		u+effd,
+		u+f000;
 }

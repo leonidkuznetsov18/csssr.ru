@@ -13,7 +13,7 @@ import styles from './styles.css';
 
 class ContactsForm extends React.Component {
 	static propTypes = {
-		error: React.PropTypes.any.isRequired,
+		error: React.PropTypes.any,
 		fields: React.PropTypes.object.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
 		requiredFields: React.PropTypes.array.isRequired,
