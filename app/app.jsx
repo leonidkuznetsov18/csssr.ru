@@ -8,9 +8,11 @@ import useScroll from 'use-scroll-behavior';
 import store from './store';
 import routes from './routes';
 import decorateConsole from './utils/consoleDecorator';
+import UA from './utils/userAgent';
 import { NODE_ENV as PRODUCTION } from '../config/env.production';
 
-if (process.env.NODE_ENV === PRODUCTION) {
+
+if (process.env.NODE_ENV === PRODUCTION && !UA.isIE()) {
 	decorateConsole();
 }
 
