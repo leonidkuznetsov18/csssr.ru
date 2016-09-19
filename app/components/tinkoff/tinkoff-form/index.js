@@ -57,6 +57,7 @@ function TinkoffForm({ handleSubmit, fields, submitting }) {
 								<TinkoffInput
 									id='age'
 									label='Возраст'
+									maxLength='3'
 									name='age'
 									required
 									short
