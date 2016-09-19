@@ -46,7 +46,7 @@ function TinkoffJob() {
 						</div>
 						<div className={styles.texts}>
 							<p className={styles.subtitle}>
-								<strong>{item.subtitle}</strong>
+								{item.subtitle}
 							</p>
 							<p className={styles.description}>
 								{item.description}

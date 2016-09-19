@@ -51,6 +51,7 @@
 .link {
 	font-family: inherit;
 	font-size: inherit;
+	cursor: pointer;
 	color: #74A3C7;
 
 	&:hover {

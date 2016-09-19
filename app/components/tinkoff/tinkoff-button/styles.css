@@ -18,6 +18,11 @@
 		background-color: var(--color-tinkoff-yellow-dark);
 	}
 
+	&:disabled {
+		cursor: default;
+		opacity: .5;
+	}
+
 	&_size {
 		&_l {
 			font-size: 16px;

@@ -13,7 +13,7 @@ import FieldPhone from 'components/field-phone';
 
 import styles from './styles.css';
 
-function TinkoffForm({ handleSubmit, fields }) {
+function TinkoffForm({ handleSubmit, fields, submitting }) {
 	return (
 		<div className={styles.root}>
 			<TinkoffTitle align='center'>
@@ -160,6 +160,7 @@ function TinkoffForm({ handleSubmit, fields }) {
 						</div>
 						<div className={styles.submit}>
 							<TinkoffButton
+								disabled={submitting}
 								size='l'
 								type='submit'
 							>
@@ -176,6 +177,7 @@ function TinkoffForm({ handleSubmit, fields }) {
 TinkoffForm.propTypes = {
 	fields: React.PropTypes.object,
 	handleSubmit: React.PropTypes.func,
+	submitting: React.PropTypes.bool,
 };
 
 export default withStyles(TinkoffForm, styles);

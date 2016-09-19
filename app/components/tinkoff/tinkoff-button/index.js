@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import styles from './styles.css';
 
-function TinkoffButton({ children, external, tag = 'button', href, type, size }) {
+function TinkoffButton({ children, external, tag = 'button', href, type, size, disabled = false }) {
 	const buttonClasses = cx({
 		[styles.root]: true,
 		[styles[`root_size_${size}`]]: size,
@@ -15,6 +15,7 @@ function TinkoffButton({ children, external, tag = 'button', href, type, size })
 	return (
 		<Tag
 			className={buttonClasses}
+			disabled={disabled}
 			href={href}
 			target={external ? '_blank' : null}
 			type={type}
@@ -30,6 +31,7 @@ TinkoffButton.propTypes = {
 		React.PropTypes.node,
 		React.PropTypes.text,
 	]),
+	disabled: React.PropTypes.bool,
 	external: React.PropTypes.bool,
 	href: React.PropTypes.string,
 	size: React.PropTypes.string,
