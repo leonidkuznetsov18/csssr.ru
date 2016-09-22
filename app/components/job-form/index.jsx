@@ -19,6 +19,7 @@ class JobForm extends Component {
 		fields: React.PropTypes.object.isRequired,
 		fileAccept: React.PropTypes.string.isRequired,
 		handleSubmit: React.PropTypes.func.isRequired,
+		jobName: React.PropTypes.string.isRequired,
 		options: React.PropTypes.object,
 		submitting: React.PropTypes.bool.isRequired,
 	}
@@ -90,6 +91,7 @@ class JobForm extends Component {
 
 		const {
 			fileAccept,
+			jobName,
 			options: {
 				hasResume,
 				hasPortfolio,
@@ -97,6 +99,8 @@ class JobForm extends Component {
 				hasFile,
 			},
 		} = this.props;
+
+		const portfolioText = `Ссылка на ${/(js|javascript)/i.test(jobName) ? 'GitHub' : 'портфолио'}`;
 
 		return (
 			<form
@@ -120,7 +124,7 @@ class JobForm extends Component {
 				})}
 				{this.renderField('location', 'Город')}
 				{hasResume && this.renderField('resume', 'Ссылка на резюме')}
-				{hasPortfolio && this.renderField('portfolio', 'Ссылка на портфолио')}
+				{hasPortfolio && this.renderField('portfolio', portfolioText)}
 
 				{hasFile &&
 					<FieldFile

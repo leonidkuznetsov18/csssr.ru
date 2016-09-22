@@ -160,9 +160,11 @@ export default class PageJob extends Component {
 	render() {
 		const {
 			component: Form,
+			jobName,
 			options: {
 				hasFile,
 			},
+
 		} = this.props;
 
 		let formProps = {};
@@ -176,6 +178,7 @@ export default class PageJob extends Component {
 				{...this.props}
 				{...formProps}
 				handleSubmit={this.createSubmitHandler()}
+				jobName={jobName}
 				options={this.props.options}
 			/>
 		);
