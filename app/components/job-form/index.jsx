@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import Field from 'components/field';
@@ -9,10 +9,11 @@ import Checkbox from 'components/checkbox';
 import Circloader from 'components/circloader';
 import Link from 'components/link';
 import FormValidationWindow from 'components/form-validation-window';
+import getFileText from 'utils/get-file-text';
 
 import styles from './styles.css';
 
-class JobForm extends React.Component {
+class JobForm extends Component {
 	static propTypes = {
 		error: React.PropTypes.any,
 		fields: React.PropTypes.object.isRequired,
@@ -87,20 +88,15 @@ class JobForm extends React.Component {
 			};
 		}
 
-		const { fileAccept, options: { hasResume, hasPortfolio, hasComment } } = this.props;
-		let questText = '';
-
-		if (fileAccept === '.zip') {
-			questText = '(упакованный в ZIP)';
-		} else if (fileAccept === '.docx') {
-			questText = '(в формате DOCX)';
-		} else if (fileAccept === '.xlsx') {
-			questText = '(в формате XLSX)';
-		} else if (fileAccept === '.sketch') {
-			questText = '(в формате Sketch)';
-		} else if (fileAccept === '.jpg') {
-			questText = '(в формате JPG)';
-		}
+		const {
+			fileAccept,
+			options: {
+				hasResume,
+				hasPortfolio,
+				hasComment,
+				hasFile,
+			},
+		} = this.props;
 
 		return (
 			<form
@@ -126,12 +122,14 @@ class JobForm extends React.Component {
 				{hasResume && this.renderField('resume', 'Ссылка на резюме')}
 				{hasPortfolio && this.renderField('portfolio', 'Ссылка на портфолио')}
 
-				<FieldFile
-					fileAccept={fileAccept}
-					label={`Тестовый квест ${questText}`}
-					required
-					{...this.props.fields.file}
-				/>
+				{hasFile &&
+					<FieldFile
+						fileAccept={fileAccept}
+						label={`Тестовый квест ${getFileText(fileAccept)}`}
+						required
+						{...this.props.fields.file}
+					/>
+				}
 
 				{this.renderField('email', 'Электронная почта')}
 				{this.renderField('skype', 'Скайп')}

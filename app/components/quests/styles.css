@@ -1,0 +1,85 @@
+.root {
+	display: block;
+	box-sizing: border-box;
+	counter-reset: quest;
+}
+
+.quest {
+	margin-top: 50px;
+	display: flex;
+}
+
+.body {
+	position: relative;
+	padding-left: 45px;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 530px;
+
+	&::before {
+		position: absolute;
+		top: -2px;
+		left: 0;
+		display: block;
+		box-sizing: border-box;
+		font-family: Roboto;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 1;
+		counter-increment: quest;
+		content: counter(quest) '. ';
+		color: #6A0005;
+	}
+}
+
+.title {
+	display: block;
+	box-sizing: border-box;
+}
+
+.taskLink {
+	margin-top: 10px;
+	font-family: Roboto;
+	font-weight: 300;
+	display: block;
+	box-sizing: border-box;
+}
+
+.text {
+	margin-top: 5px;
+	display: block;
+	box-sizing: border-box;
+}
+
+.field {
+	display: block;
+	box-sizing: border-box;
+}
+
+.meta {
+	padding-top: 10px;
+	padding-left: 65px;
+	display: block;
+	box-sizing: border-box;
+}
+
+.time {
+	display: block;
+	box-sizing: border-box;
+	font-family: Roboto;
+	font-size: 20px;
+	line-height: 18px;
+	font-weight: 300;
+	color: #888888;
+}
+
+.metaText {
+	margin-top: 15px;
+	display: block;
+	box-sizing: border-box;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	color: #888888;
+}

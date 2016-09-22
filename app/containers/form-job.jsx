@@ -1,45 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes as pt } from 'react';
 import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+
 import { sendAnswerForm, setEmptyFields } from 'actions/jobs';
 import JobForm from 'components/job-form';
 import rEmail from 'regex-email';
 import pick from 'lodash.pick';
 
-@reduxForm({
-	form: 'job',
-	fields: [
+const mapQuest = ({ title, text, link }) => ({
+	title,
+	text,
+	link,
+});
+
+const mapProps = (state, { options: { hasFile } }) => {
+	const fields = [
 		'firstname',
 		'lastname',
 		'age',
 		'location',
 		'resume',
 		'portfolio',
-		'file',
 		'email',
 		'skype',
 		'phone',
 		'comment',
-	],
+	];
+
+	if (hasFile) {
+		fields.push('file');
+	}
+
+	return {
+		fields,
+	};
+};
+
+@connect(mapProps)
+@reduxForm({
+	form: 'job',
 })
 export default class PageJob extends Component {
 	static propTypes = {
-		component: React.PropTypes.oneOfType([
-			React.PropTypes.element,
-			React.PropTypes.func,
+		component: pt.oneOfType([
+			pt.element,
+			pt.func,
 		]),
-		handleSubmit: React.PropTypes.func.isRequired,
-		jobName: React.PropTypes.string,
-		options: React.PropTypes.object,
-		vacancy: React.PropTypes.object,
-	};
+		handleSubmit: pt.func.isRequired,
+		jobName: pt.string,
+		options: pt.object,
+		quests: pt.array,
+		vacancy: pt.object,
+	}
 
 	static defaultProps = {
 		component: JobForm,
 		options: {},
 		vacancy: {},
-	};
+		quests: [],
+	}
 
-	getFileType(vacancy) {
+	getFileType = (vacancy) => {
 		const { fileExt, maxFileSize } = vacancy;
 		const capitalExt = fileExt.toUpperCase();
 
@@ -52,16 +73,21 @@ export default class PageJob extends Component {
 		};
 	}
 
-	onSubmit = () => this.props.handleSubmit((values, dispatch) => {
+	createSubmitHandler = () => this.props.handleSubmit((values, dispatch) => {
 		return new Promise((resolve, reject) => {
-			const errors = {};
-			let haveErrors = false;
-			const { hasResume, hasPortfolio, hasComment } = this.props.options;
+			const {
+				hasResume,
+				hasPortfolio,
+				hasComment,
+				hasFile,
+			} = this.props.options;
 			const optionalFields = {
 				resume: hasResume,
 				portfolio: hasPortfolio,
 				comment: hasComment,
 			};
+			const errors = {};
+			let haveErrors = false;
 
 			const fields = Object.keys(values).filter((item) =>
 				typeof optionalFields[item] === 'boolean' ? optionalFields[item] : true
@@ -73,6 +99,10 @@ export default class PageJob extends Component {
 					const value = values[key];
 
 					if (key === 'file') {
+						if (!hasFile) {
+							return;
+						}
+
 						const fileSpec = this.getFileType(this.props.vacancy);
 						const file = value && value[0];
 
@@ -113,21 +143,39 @@ export default class PageJob extends Component {
 				return;
 			}
 
-			dispatch(sendAnswerForm({
+			const formData = {
 				...pick(values, fields),
 				vacancy: this.props.jobName,
-			}));
+			};
+
+
+			if (!hasFile) {
+				formData.quests = this.props.quests.map(mapQuest);
+			}
+
+			dispatch(sendAnswerForm(formData));
 		});
 	})
 
 	render() {
-		const Form = this.props.component;
+		const {
+			component: Form,
+			options: {
+				hasFile,
+			},
+		} = this.props;
+
+		let formProps = {};
+
+		if (hasFile) {
+			formProps = this.getFileType(this.props.vacancy);
+		}
 
 		return (
 			<Form
 				{...this.props}
-				{...this.getFileType(this.props.vacancy)}
-				handleSubmit={this.onSubmit()}
+				{...formProps}
+				handleSubmit={this.createSubmitHandler()}
 				options={this.props.options}
 			/>
 		);

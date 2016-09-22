@@ -1,12 +1,30 @@
 import superagent from 'superagent';
 
+import getAttachments from '../../app/utils/get-attachments';
+
 export default function (req, res) {
 	let request = superagent
-		.post(`${process.env.HR_DOMAIN}/api/candidates`)
-		.attach('file', req.files.file.path);
+		.post(`${process.env.HR_DOMAIN}/api/candidates`);
+
+	if (req.files && req.files.file) {
+		request.attach('file', req.files.file.path);
+	}
+
+	let attachments = [];
 
 	Object.keys(req.body).forEach((key) => {
-		request = request.field(key, req.body[key]);
+		const value = req.body[key];
+
+		if (Array.isArray(value)) {
+			attachments = attachments.concat(getAttachments(key, value));
+			return;
+		}
+
+		attachments.push({ key, value });
+	});
+
+	attachments.forEach(({ key, value }) => {
+		request = request.field(key, value);
 	});
 
 	request.end((err) => {

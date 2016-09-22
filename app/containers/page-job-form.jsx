@@ -2,11 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import Content from 'components/content';
 import SectionGroup from 'components/section-group';
 import Quest from 'components/quest';
+import Quests from 'components/quests';
 import JobBanner from 'components/job-banner';
 import FormJob from 'containers/form-job';
 import Breadcrubms from 'components/breadcrumbs';
 import mdToHtmlLink from 'utils/md-to-html-link';
 import mdToHtmlStrike from 'utils/md-to-html-strike';
+import jobFormSection from 'data/job-form-section';
+import questSection from 'data/job-quest-section';
+import questsData from 'data/quests';
+import updateQuests from 'utils/update-quests';
 
 const formatText = (str) => mdToHtmlStrike(mdToHtmlLink(str));
 
@@ -42,6 +47,16 @@ export default class PageJobForm extends Component {
 				sections: PropTypes.arrayOf(PropTypes.shape(defaultFieldPropTypes)),
 			})).isRequired,
 		}),
+	}
+
+	state = {
+		quests: questsData,
+	}
+
+	handleChangeQuests = (id, data) => {
+		this.setState({
+			quests: updateQuests(this.state.quests, id, data),
+		});
 	}
 
 	formatSection({ title, text, boldText, list }, { isSubSection = false, titleProps } = {}) {
@@ -117,7 +132,7 @@ export default class PageJobForm extends Component {
 
 	render() {
 		const { vacancy } = this.props;
-		const { hasResume, hasPortfolio, hasComment, pathName } = vacancy;
+		const { hasResume, hasPortfolio, hasComment, hasFile, pathName } = vacancy;
 		const data = this.getData(vacancy);
 
 		return (
@@ -138,17 +153,27 @@ export default class PageJobForm extends Component {
 				<Content layout='job'>
 					<JobBanner />
 					{data.beforeQuest && <SectionGroup data={data.beforeQuest} />}
-					{data.quest && <Quest file={data.file}>
+					{hasFile && data.quest && <Quest file={data.file}>
 						<SectionGroup data={data.quest} />
 					</Quest>}
 					{data.afterQuest && <SectionGroup data={data.afterQuest} />}
+					{!hasFile && <Quest>
+						<SectionGroup data={questSection} />
+						<Quests
+							data={this.state.quests}
+							onChange={this.handleChangeQuests}
+						/>
+					</Quest>}
+					{!hasFile && <SectionGroup data={jobFormSection} />}
 					<FormJob
 						jobName={pathName}
 						options={{
 							hasResume,
 							hasPortfolio,
 							hasComment,
+							hasFile,
 						}}
+						quests={this.state.quests}
 						vacancy={vacancy}
 					/>
 				</Content>

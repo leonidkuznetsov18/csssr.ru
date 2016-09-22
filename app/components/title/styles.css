@@ -18,6 +18,14 @@
 		line-height: 1;
 	}
 
+	&_size_smallMedium {
+		font-size: 18px;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		letter-spacing: .075em;
+		line-height: 1;
+	}
+
 	&_size_small {
 		font-size: 15px;
 		line-height: 15px;

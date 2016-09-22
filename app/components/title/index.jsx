@@ -9,6 +9,7 @@ function Title({ size, children, component, color, center, indent }) {
 		[styles.root]: true,
 		[styles.root_noindent]: indent === false,
 		[styles.root_center]: center === true,
+		[styles.root_size_smallMedium]: size === 'smallMedium',
 		[styles.root_size_medium]: size === 'medium',
 		[styles.root_size_small]: size === 'small',
 		[styles.root_color_yellow]: color === 'yellow',
