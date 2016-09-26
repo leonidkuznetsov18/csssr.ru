@@ -8,6 +8,7 @@ import TinkoffJob from 'components/tinkoff/tinkoff-job';
 import TinkoffSkills from 'components/tinkoff/tinkoff-skills';
 import TinkoffDuties from 'components/tinkoff/tinkoff-duties';
 import TinkoffQuest from 'components/tinkoff/tinkoff-quest';
+import FacebookPixelTrack from 'components/facebook-pixel/track';
 
 export default function TinkoffJsContainer({ children }) {
 	return (
@@ -20,6 +21,7 @@ export default function TinkoffJsContainer({ children }) {
 				<TinkoffDuties />
 				<TinkoffQuest />
 				{children}
+				<FacebookPixelTrack event='PageView' />
 			</TinkoffLayout>
 		</Root>
 	);

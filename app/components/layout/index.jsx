@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'components/head';
 import YandexMetrika from 'components/yandex-metrika';
+import FacebookPixel from 'components/facebook-pixel';
 
 export default class Layout extends React.Component {
 	static propTypes = {
@@ -26,6 +27,7 @@ export default class Layout extends React.Component {
 					/>
 				</Head>
 				<body>
+					<FacebookPixel id='524926190953458' />
 					<div
 						dangerouslySetInnerHTML={{
 							__html: this.props.content,
