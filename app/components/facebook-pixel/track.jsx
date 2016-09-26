@@ -4,7 +4,7 @@ import isEmpty from 'lodash.isempty';
 function FacebookPixelTrack({ event, options = {} }) {
 	const fbqOptions = isEmpty(options) ? '' : `, ${JSON.stringify(options)}`;
 
-	return (<div>event
+	return (<div>
 		<script
 			dangerouslySetInnerHTML={{
 				__html: `fbq('track', '${event}'${fbqOptions});`,
