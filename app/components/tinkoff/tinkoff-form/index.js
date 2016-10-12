@@ -87,11 +87,11 @@ function TinkoffForm({ handleSubmit, fields, submitting }) {
 								{...fields.resume}
 							/>
 							<TinkoffInput
-								id='portfolio'
+								id='github'
 								label='Ссылка на github'
-								name='portfolio'
+								name='github'
 								required
-								{...fields.portfolio}
+								{...fields.github}
 							/>
 							<TinkoffInput
 								accept='.zip'

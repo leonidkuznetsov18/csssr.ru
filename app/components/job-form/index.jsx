@@ -95,6 +95,7 @@ class JobForm extends Component {
 			options: {
 				hasResume,
 				hasPortfolio,
+				hasGithub,
 				hasComment,
 				hasFile,
 			},
@@ -125,6 +126,7 @@ class JobForm extends Component {
 				{this.renderField('location', 'Город')}
 				{hasResume && this.renderField('resume', 'Ссылка на резюме')}
 				{hasPortfolio && this.renderField('portfolio', portfolioText)}
+				{hasGithub && this.renderField('github', 'Ссылка на GitHub')}
 
 				{hasFile &&
 					<FieldFile

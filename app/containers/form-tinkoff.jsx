@@ -24,7 +24,7 @@ export default class FormTinkoff extends Component {
 			return null;
 		}
 
-		const { hasResume, hasPortfolio, hasComment, hasFile, pathName } = vacancy;
+		const { hasResume, hasPortfolio, hasGithub, hasComment, hasFile, pathName } = vacancy;
 
 		return (
 			<FormJob
@@ -33,6 +33,7 @@ export default class FormTinkoff extends Component {
 				options={{
 					hasResume,
 					hasPortfolio,
+					hasGithub,
 					hasComment,
 					hasFile,
 				}}

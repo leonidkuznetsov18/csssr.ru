@@ -30,6 +30,7 @@ export default class PageJobForm extends Component {
 			description: PropTypes.string.isRequired,
 			editDate: PropTypes.string.isRequired,
 			fileExt: PropTypes.string.isRequired,
+			hasGithub: PropTypes.bool.isRequired,
 			hasPortfolio: PropTypes.bool.isRequired,
 			hasResume: PropTypes.bool.isRequired,
 			id: PropTypes.string.isRequired,
@@ -132,7 +133,7 @@ export default class PageJobForm extends Component {
 
 	render() {
 		const { vacancy } = this.props;
-		const { hasResume, hasPortfolio, hasComment, hasFile, pathName } = vacancy;
+		const { hasResume, hasPortfolio, hasGithub, hasComment, hasFile, pathName } = vacancy;
 		const data = this.getData(vacancy);
 
 		return (
@@ -170,6 +171,7 @@ export default class PageJobForm extends Component {
 						options={{
 							hasResume,
 							hasPortfolio,
+							hasGithub,
 							hasComment,
 							hasFile,
 						}}

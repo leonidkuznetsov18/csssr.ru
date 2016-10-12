@@ -21,6 +21,7 @@ const mapProps = (state, { options: { hasFile } }) => {
 		'location',
 		'resume',
 		'portfolio',
+		'github',
 		'email',
 		'skype',
 		'phone',
@@ -78,12 +79,14 @@ export default class PageJob extends Component {
 			const {
 				hasResume,
 				hasPortfolio,
+				hasGithub,
 				hasComment,
 				hasFile,
 			} = this.props.options;
 			const optionalFields = {
 				resume: hasResume,
 				portfolio: hasPortfolio,
+				github: hasGithub,
 				comment: hasComment,
 			};
 			const errors = {};
