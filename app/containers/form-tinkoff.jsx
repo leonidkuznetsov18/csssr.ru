@@ -42,5 +42,3 @@ export default class FormTinkoff extends Component {
 		);
 	}
 }
-
-export default FormTinkoff;
