@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropTypes as pt } from 'react';
 
-export default function Head({ children, head }) {
+export default function Head({ children, head = {} }) {
 	return (
 		<head>
 			<meta charSet='utf-8' />
@@ -83,8 +83,8 @@ export default function Head({ children, head }) {
 				href='/manifest.json'
 				rel='manifest'
 			/>
-			<meta content='' name='application-name' />
-			<meta content='' name='msapplication-tooltip' />
+			<meta content='CSSSR' name='application-name' />
+			<meta content='Космический фронтенд — CSSSR' name='msapplication-tooltip' />
 			<meta content='#ffffff' name='msapplication-TileColor' />
 			<meta content='/mstile-large.png' name='msapplication-TileImage' />
 			<meta content='http://csssr.ru/' name='msapplication-starturl' />
@@ -103,10 +103,6 @@ export default function Head({ children, head }) {
 }
 
 Head.propTypes = {
-	children: React.PropTypes.element,
-	head: React.PropTypes.object,
-};
-
-Head.defaultProps = {
-	head: {},
+	children: pt.element,
+	head: pt.object,
 };

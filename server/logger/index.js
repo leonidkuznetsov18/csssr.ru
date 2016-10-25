@@ -23,6 +23,7 @@ const skipPaths = [
 	'audio\\/',
 	'files\\/',
 	'fonts\\/',
+	'share\\/',
 	'uploads\\/',
 	'__webpack_hmr',
 	'android-',
