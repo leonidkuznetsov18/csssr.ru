@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
-import { setSelection } from 'react/lib/ReactInputSelection';
+import { setSelection } from 'react-dom/lib/ReactInputSelection';
 
 import styles from './styles.css';
 
