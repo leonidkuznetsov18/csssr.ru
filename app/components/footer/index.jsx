@@ -10,8 +10,6 @@ function Footer() {
 	const paymentSystems = [
 		'visa',
 		'mastercard',
-		'yandex',
-		'paypal',
 		'cashless',
 	];
 	const linkWithMargin = cx({

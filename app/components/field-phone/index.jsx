@@ -2,7 +2,7 @@ import React from 'react';
 
 import spliter from 'utils/spliter';
 import Field from '../field';
-import { getSelection } from 'react/lib/ReactInputSelection';
+import { getSelection } from 'react-dom/lib/ReactInputSelection';
 
 const phoneCodes = {
 	1: [2, 3, 3, 2, 2],
